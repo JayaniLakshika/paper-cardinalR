@@ -72,6 +72,8 @@ csl: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/rjtool
 
 # Introduction
 
+Research gap with `geozoo`, `snedata` packages...
+
 # Implementation
 
 ## Installation
@@ -123,8 +125,13 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 </div>
 
 
-
 ## Functions
+
+There are mainly several functions to generate different types of data structures.
+
+# Examples
+
+Add one or two datasets and evaluate how it will be useful.... (one with NLDR, one with clustering)
 
 # Discussion
 

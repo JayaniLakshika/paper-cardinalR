@@ -66,6 +66,8 @@ library(knitr)
 
 # Introduction
 
+Research gap with `geozoo`, `snedata` packages...
+
 # Implementation
 
 ## Installation
@@ -101,7 +103,8 @@ datasets_tb <- tibble(dt = c("mobius_clust_data",
                                "",
                                "",
                                "",
-                               "", ""))
+                               "", 
+                               ""))
 ```
 
 ```{r datasets-tb-html, eval=is_html_output()}
@@ -116,8 +119,13 @@ datasets_tb |>
   column_spec(2, width = "8cm")
 ```
 
-
 ## Functions
+
+There are mainly several functions to generate different types of data structures.
+
+# Examples
+
+Add one or two datasets and evaluate how it will be useful.... (one with NLDR, one with clustering)
 
 # Discussion
 
