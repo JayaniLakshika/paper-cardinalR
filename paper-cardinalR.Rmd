@@ -51,6 +51,7 @@ editor_options:
 ```{r setup, include=FALSE}
 options(repos = "https://cloud.r-project.org") ## set up CRAN mirror
 knitr::opts_chunk$set(
+  echo = FALSE,
   cache=FALSE, 
   message=FALSE, 
   warning=FALSE,
@@ -59,14 +60,64 @@ knitr::opts_chunk$set(
 ```
 
 ```{r load-libraries}
-
+library(tidyverse)
+library(knitr)
 ```
 
 # Introduction
 
-# Background
+# Implementation
 
-# Methods
+## Installation
+
+The package can be installed from CRAN using 
+
+> ```install.packages("cardinalR")```
+
+and from GitHub using 
+
+> ```remotes::install_github("jayanilakshika/cardinalR")```
+
+to install the development version.
+
+## Web site
+
+More documentation of the package can be found at the web site https://jayanilakshika.github.io/cardinalR/.
+
+## Data sets
+
+The `cardinalR` package comes with several data sets that load with the package. These are described in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:datasets-tb-html)', '\\@ref(tab:datasets-tb-pdf)'))`.
+
+```{r}
+datasets_tb <- tibble(dt = c("mobius_clust_data", 
+                             "mobius_clust_tsne_param1", 
+                             "mobius_clust_tsne_param2",
+                             "mobius_clust_tsne_param3",
+                             "mobius_clust_umap_param1",
+                             "mobius_clust_umap_param2",
+                             "mobius_clust_umap_param3"), 
+                      text = c("",
+                               "", 
+                               "",
+                               "",
+                               "",
+                               "", ""))
+```
+
+```{r datasets-tb-html, eval=is_html_output()}
+datasets_tb |> 
+  kable(caption = "cardinalR data sets", col.names = c("data", "explanation")) 
+```
+
+```{r datasets-tb-pdf, eval=is_latex_output()}
+datasets_tb |> 
+  kable(caption = "cardinalR data sets", format="latex", col.names = c("data", "explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
+
+## Functions
 
 # Discussion
 

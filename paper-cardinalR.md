@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: application
 creative_commons: CC BY
-date: '2025-03-11'
+date: '2025-03-31'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
@@ -72,9 +72,59 @@ csl: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/rjtool
 
 # Introduction
 
-# Background
+# Implementation
 
-# Methods
+## Installation
+
+The package can be installed from CRAN using 
+
+> ```install.packages("cardinalR")```
+
+and from GitHub using 
+
+> ```remotes::install_github("jayanilakshika/cardinalR")```
+
+to install the development version.
+
+## Web site
+
+More documentation of the package can be found at the web site https://jayanilakshika.github.io/cardinalR/.
+
+## Data sets
+
+The `cardinalR` package comes with several data sets that load with the package. These are described in Table \@ref(tab:datasets-tb-html).
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:datasets-tb-html)cardinalR data sets
+
+|data                     |explanation |
+|:------------------------|:-----------|
+|mobius_clust_data        |            |
+|mobius_clust_tsne_param1 |            |
+|mobius_clust_tsne_param2 |            |
+|mobius_clust_tsne_param3 |            |
+|mobius_clust_umap_param1 |            |
+|mobius_clust_umap_param2 |            |
+|mobius_clust_umap_param3 |            |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+
+## Functions
 
 # Discussion
 
