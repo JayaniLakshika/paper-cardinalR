@@ -129,7 +129,7 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 
 ### Swiss Roll  
 
-To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function `generate_swiss_roll(n, p, noise_sd)`, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.  
+To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function `generate_swiss_roll(n, p)`, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.  
 
 The function generates `n` points in a `p`-dimensional space, where the first two dimensions (`X_1, X_2`) define the primary Swiss roll shape using a parametric equation:  
 
@@ -143,7 +143,7 @@ $$
 X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 $$
 
-This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations. Optionally, Gaussian noise (`\mathcal{N}(0, \sigma^2)`) can be added to all dimensions using `noise_sd` to simulate measurement variability.  
+This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations. 
 
 # Examples
 
