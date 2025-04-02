@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: application
 creative_commons: CC BY
-date: '2025-03-31'
+date: '2025-04-03'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
@@ -127,7 +127,23 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 
 ## Functions
 
-There are mainly several functions to generate different types of data structures.
+### Swiss Roll  
+
+To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function `generate_swiss_roll(n, p, noise_sd)`, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.  
+
+The function generates `n` points in a `p`-dimensional space, where the first two dimensions (`X_1, X_2`) define the primary Swiss roll shape using a parametric equation:  
+
+$$
+X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad \text{where } t \sim U(0, 3\pi)
+$$
+
+The third dimension (`X_3`) introduces variation perpendicular to the roll, sampled uniformly from \([-1,1]\). Additional dimensions (`X_4` to `X_p`) extend the data structure by applying a **sinusoidal transformation** of the parameter `t`, ensuring continuity in higher-dimensional spaces:  
+
+$$
+X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
+$$
+
+This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations. Optionally, Gaussian noise (`\mathcal{N}(0, \sigma^2)`) can be added to all dimensions using `noise_sd` to simulate measurement variability.  
 
 # Examples
 
