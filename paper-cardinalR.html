@@ -1834,7 +1834,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </div>
 <h3 data-number="2.4" id="functions"><span class="header-section-number">2.4</span> Functions</h3>
-<h4 class="unnumbered" data-number="2.4.1" id="swiss-roll">Swiss Roll</h4>
+<h4 class="unnumbered" data-number="2.4.1" id="main-function">Main function</h4>
+<h4 class="unnumbered" data-number="2.4.2" id="branching">Branching</h4>
+<h4 class="unnumbered" data-number="2.4.3" id="cone">Cone</h4>
+<h4 class="unnumbered" data-number="2.4.4" id="cube">Cube</h4>
+<h4 class="unnumbered" data-number="2.4.5" id="gaussian">Gaussian</h4>
+<h4 class="unnumbered" data-number="2.4.6" id="linear">Linear</h4>
+<h4 class="unnumbered" data-number="2.4.7" id="mobius">Mobius</h4>
+<h4 class="unnumbered" data-number="2.4.8" id="polynomial">Polynomial</h4>
+<h4 class="unnumbered" data-number="2.4.9" id="pyramid">Pyramid</h4>
+<h4 class="unnumbered" data-number="2.4.10" id="s-curve">S-curve</h4>
+<h4 class="unnumbered" data-number="2.4.11" id="sphere">Sphere</h4>
+<h4 class="unnumbered" data-number="2.4.12" id="swiss-roll">Swiss Roll</h4>
 <p>To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function <code>generate_swiss_roll(n, p)</code>, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.</p>
 <p>The function generates <code>n</code> points in a <code>p</code>-dimensional space, where the first two dimensions (<code>X_1, X_2</code>) define the primary Swiss roll shape using a parametric equation:</p>
 <p><span class="math display">\[
@@ -1845,6 +1856,8 @@ X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad \text{where } t \sim U(0, 3\pi)
 X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 \]</span></p>
 <p>This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.</p>
+<h4 class="unnumbered" data-number="2.4.13" id="odd-shapes">Odd shapes</h4>
+<h4 class="unnumbered" data-number="2.4.14" id="additional-functions">Additional functions</h4>
 <h2 data-number="3" id="examples"><span class="header-section-number">3</span> Examples</h2>
 <p>Add one or two datasets and evaluate how it will be useful…. (one with NLDR, one with clustering)</p>
 <h2 data-number="4" id="discussion"><span class="header-section-number">4</span> Discussion</h2>

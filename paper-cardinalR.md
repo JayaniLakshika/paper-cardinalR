@@ -127,6 +127,28 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 
 ## Functions
 
+### Main function
+
+### Branching
+
+### Cone
+
+### Cube
+
+### Gaussian
+
+### Linear
+
+### Mobius
+
+### Polynomial
+
+### Pyramid
+
+### S-curve
+
+### Sphere
+
 ### Swiss Roll  
 
 To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function `generate_swiss_roll(n, p)`, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.  
@@ -144,6 +166,10 @@ X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 $$
 
 This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations. 
+
+### Odd shapes
+
+### Additional functions
 
 # Examples
 
