@@ -34,14 +34,14 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: application
 creative_commons: CC BY
-date: '2025-04-03'
+date: '2025-04-15'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
   distill::distill_article:
     css: style.css
     keep_md: yes
-bibliography: RJreferences.bib
+bibliography: paper-cardinalR.bib
 editor_options:
   chunk_output_type: inline
 journal:

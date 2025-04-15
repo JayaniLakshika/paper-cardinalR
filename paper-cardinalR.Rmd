@@ -43,7 +43,7 @@ output:
  rjtools::rjournal_web_article:
     css: "style.css"
     keep_md: true
-bibliography: RJreferences.bib
+bibliography: paper-cardinalR.bib
 editor_options: 
   chunk_output_type: inline
 ---

@@ -2,3 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
+.DS_Store
+*.aux
+*.log
+*.out
+RJwrapper.synctex.gz
+paper-cardinalR.md
