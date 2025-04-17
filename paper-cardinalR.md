@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: application
 creative_commons: CC BY
-date: '2025-04-15'
+date: '2025-04-17'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
@@ -130,6 +130,34 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 ### Main function
 
 ### Branching
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
+
+|Function              |Explanation |
+|:---------------------|:-----------|
+|gen_expbranches       |            |
+|gen_linearbranches    |            |
+|gen_curvybranches     |            |
+|gen_orglinearbranches |            |
+|gen_orgcurvybranches  |            |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
 
 ### Cone
 
