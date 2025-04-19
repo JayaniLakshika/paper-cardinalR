@@ -15,7 +15,6 @@ knitr::opts_chunk$set(
 ## ----load-libraries-----------------------------------------------------------
 library(tidyverse)
 library(knitr)
-library(kableExtra)
 
 
 ## -----------------------------------------------------------------------------
@@ -33,41 +32,4 @@ datasets_tb <- tibble(dt = c("mobius_clust_data",
                                "",
                                "", 
                                ""))
-
-
-## ----datasets-tb-html, eval=is_html_output()----------------------------------
-# datasets_tb |>
-#   kable(caption = "cardinalR data sets", col.names = c("data", "explanation"))
-
-
-## ----datasets-tb-pdf, eval=is_latex_output()----------------------------------
-datasets_tb |> 
-  kable(caption = "cardinalR data sets", format="latex", col.names = c("data", "explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
-## -----------------------------------------------------------------------------
-branch_tb <- tibble(fun = c("gen_expbranches",
-                             "gen_linearbranches",
-                             "gen_curvybranches", 
-                             "gen_orglinearbranches", 
-                             "gen_orgcurvybranches"), 
-                      exp = c("",
-                               "", 
-                               "",
-                               "",
-                               ""))
-
-
-## ----branching-tb-html, eval=is_html_output()---------------------------------
-# branch_tb |>
-#   kable(caption = "cardinalR branching data generation functions", col.names = c("Function", "Explanation"))
-
-
-## ----branching-tb-pdf, eval=is_latex_output()---------------------------------
-branch_tb |> 
-  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
 

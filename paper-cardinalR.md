@@ -39,6 +39,7 @@ preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
   distill::distill_article:
+    css: style.css
     keep_md: yes
 bibliography: paper-cardinalR.bib
 editor_options:
@@ -70,10 +71,6 @@ csl: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/rjtool
 
 
 # Introduction
-
-Okay, based on your research focus of creating a package for generating high-dimensional data structures with controlled noise and cluster generation based on geometric primitives, here's an introduction that highlights potential research gaps in relation to `geozoo` and `snedata`:
-
-**Introduction:**
 
 The generation of synthetic datasets with well-defined structural properties is crucial for evaluating and benchmarking algorithms across various fields, including machine learning, data mining, and spatial statistics. Researchers often require the ability to create data with specific dimensionalities, noise characteristics, and underlying cluster structures to rigorously test the performance and robustness of their methods. While existing R packages like `geozoo` and `snedata` offer valuable tools for working with geometric objects and spatial network data, respectively, a gap exists in the comprehensive and flexible generation of high-dimensional data structures with integrated geometric underpinnings and controlled noise injection.
 
