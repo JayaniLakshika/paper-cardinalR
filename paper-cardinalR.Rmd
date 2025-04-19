@@ -2,7 +2,6 @@
 title: "cardinalR: Generating interesting high-dimensional data structures"
 abstract: >
   A high-dimensional dataset is where each observation is described by many features, or dimensions. Such a dataset might contain various types of structures that have complex geometric properties, such as nonlinear manifolds, clusters, or sparse distributions. We can generate data containing a variety of structures using mathematical functions and statistical distributions. Sampling from a multivariate normal distribution will generate data in an elliptical shape. Using a trigonometric function we can generate a spiral. A torus function can create a donut shape. High-dimensional data structures are useful for testing, validating, and improving algorithms used in dimensionality reduction, clustering, machine learning, and visualization. Their controlled complexity allows researchers to understand challenges posed in data analysis and helps to develop robust analytical methods across diverse scientific fields like bioinformatics, machine learning, and forensic science. Functions to generate a large variety of structures in high dimensions are organized into the R package `cardinalR`, along with some already generated examples.
-
 draft: true
 author:  
   - name: Jayani P.G. Lakshika
@@ -33,15 +32,14 @@ author:
     url: https://thiyanga.netlify.app/
     email: ttalagala@sjp.ac.lk
     orcid: 0000-0002-0656-9789
-type: application
+type: package
 creative_commons: CC BY
 date: "`r Sys.Date()`"
 preamble: >
   \usepackage{amsmath}
   \usepackage{array}
 output: 
- rjtools::rjournal_web_article:
-    css: "style.css"
+ rjtools::rjournal_article:
     keep_md: true
 bibliography: paper-cardinalR.bib
 editor_options: 
@@ -62,11 +60,24 @@ knitr::opts_chunk$set(
 ```{r load-libraries}
 library(tidyverse)
 library(knitr)
+library(kableExtra)
 ```
 
 # Introduction
 
-Research gap with `geozoo`, `snedata` packages...
+Okay, based on your research focus of creating a package for generating high-dimensional data structures with controlled noise and cluster generation based on geometric primitives, here's an introduction that highlights potential research gaps in relation to `geozoo` and `snedata`:
+
+**Introduction:**
+
+The generation of synthetic datasets with well-defined structural properties is crucial for evaluating and benchmarking algorithms across various fields, including machine learning, data mining, and spatial statistics. Researchers often require the ability to create data with specific dimensionalities, noise characteristics, and underlying cluster structures to rigorously test the performance and robustness of their methods. While existing R packages like `geozoo` and `snedata` offer valuable tools for working with geometric objects and spatial network data, respectively, a gap exists in the comprehensive and flexible generation of high-dimensional data structures with integrated geometric underpinnings and controlled noise injection.
+
+Specifically, `geozoo` provides an extensive collection of geometric objects, primarily focused on fixed, often low-dimensional, shapes. While useful for representing and visualizing these forms, it lacks direct functionalities for generating high-dimensional datasets based on these geometries, nor does it inherently incorporate mechanisms for adding controlled noise or creating clustered structures based on geometric primitives with user-defined parameters such as position, scale, and orientation in arbitrary dimensions.
+
+On the other hand, `snedata` focuses on spatial network datasets, which, while inherently spatial, are often represented in lower-dimensional geographic spaces. It does not offer general tools for generating high-dimensional non-networked data structures based on flexible geometric layouts or the systematic addition of noise dimensions and background noise. Furthermore, the generation of clustered data based on basic geometric shapes with fine-grained control over cluster properties is not a primary focus of this package.
+
+Therefore, a need exists for a dedicated R package that provides a versatile framework for generating synthetic data structures in arbitrary high dimensions, starting from basic geometric primitives. Such a package would ideally offer functionalities to: (i) create data structures based on geometric shapes that can be embedded and extended to higher dimensions by adding noise dimensions; (ii) introduce controlled levels of background noise to these structures; and (iii) generate clustered data by leveraging fundamental geometric shapes with user-specified positions, scales, orientations, and sample sizes in any desired dimensionality. This would empower researchers to create more realistic and challenging synthetic datasets for evaluating algorithms in various high-dimensional scenarios and spatial contexts.
+
+This paper introduces the `cardinalR` R package, which aims to address these limitations by providing a comprehensive suite of functions for generating customizable high-dimensional data structures based on geometric primitives, with integrated noise injection and flexible cluster generation capabilities. By offering these functionalities, `cardinalR` seeks to provide a valuable resource for researchers needing to create synthetic datasets tailored to their specific evaluation needs in the realm of high-dimensional data analysis and beyond.
 
 # Implementation
 

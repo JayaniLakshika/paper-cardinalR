@@ -1,100 +1,202 @@
 % !TeX root = RJwrapper.tex
-\title{ToOoOlTiPs: An R Package for Customizable Tooltips in Interactive Graphics}
+\title{cardinalR: Generating interesting high-dimensional data structures}
 
 
-\author{by Quietest Quokka and Bounciest Bilby}
+\author{by Jayani P.G. Lakshika, Dianne Cook, Paul Harrison, Michael Lydeamore, and Thiyanga S. Talagala}
 
 \maketitle
 
 \abstract{%
-An abstract of less than 150 words.
+A high-dimensional dataset is where each observation is described by many features, or dimensions. Such a dataset might contain various types of structures that have complex geometric properties, such as nonlinear manifolds, clusters, or sparse distributions. We can generate data containing a variety of structures using mathematical functions and statistical distributions. Sampling from a multivariate normal distribution will generate data in an elliptical shape. Using a trigonometric function we can generate a spiral. A torus function can create a donut shape. High-dimensional data structures are useful for testing, validating, and improving algorithms used in dimensionality reduction, clustering, machine learning, and visualization. Their controlled complexity allows researchers to understand challenges posed in data analysis and helps to develop robust analytical methods across diverse scientific fields like bioinformatics, machine learning, and forensic science. Functions to generate a large variety of structures in high dimensions are organized into the R package \texttt{cardinalR}, along with some already generated examples.
 }
 
 \section{Introduction}\label{introduction}
 
-Interactive data graphics provides plots that allow users to interact them. One of the most basic types of interaction is through tooltips, where users are provided additional information about elements in the plot by moving the cursor over the plot.
+Okay, based on your research focus of creating a package for generating high-dimensional data structures with controlled noise and cluster generation based on geometric primitives, here's an introduction that highlights potential research gaps in relation to \texttt{geozoo} and \texttt{snedata}:
 
-This paper will first review some R packages on interactive graphics and their tooltip implementations. A new package \CRANpkg{ToOoOlTiPs} that provides customized tooltips for plot, is introduced. Some example plots will then be given to showcase how these tooltips help users to better read the graphics.
+\textbf{Introduction:}
 
-\section{Background}\label{background}
+The generation of synthetic datasets with well-defined structural properties is crucial for evaluating and benchmarking algorithms across various fields, including machine learning, data mining, and spatial statistics. Researchers often require the ability to create data with specific dimensionalities, noise characteristics, and underlying cluster structures to rigorously test the performance and robustness of their methods. While existing R packages like \texttt{geozoo} and \texttt{snedata} offer valuable tools for working with geometric objects and spatial network data, respectively, a gap exists in the comprehensive and flexible generation of high-dimensional data structures with integrated geometric underpinnings and controlled noise injection.
 
-Some packages on interactive graphics include \CRANpkg{plotly} \citep{plotly} that interfaces with Javascript for web-based interactive graphics, \CRANpkg{crosstalk} \citep{crosstalk} that specializes cross-linking elements across individual graphics. The recent R Journal paper \CRANpkg{tsibbletalk} \citep{RJ-2021-050} provides a good example of including interactive graphics into an article for the journal. It has both a set of linked plots, and also an animated gif example, illustrating linking between time series plots and feature summaries.
+Specifically, \texttt{geozoo} provides an extensive collection of geometric objects, primarily focused on fixed, often low-dimensional, shapes. While useful for representing and visualizing these forms, it lacks direct functionalities for generating high-dimensional datasets based on these geometries, nor does it inherently incorporate mechanisms for adding controlled noise or creating clustered structures based on geometric primitives with user-defined parameters such as position, scale, and orientation in arbitrary dimensions.
 
-\section{\texorpdfstring{Customizing tooltip design with \pkg{ToOoOlTiPs}}{Customizing tooltip design with }}\label{customizing-tooltip-design-with}
+On the other hand, \texttt{snedata} focuses on spatial network datasets, which, while inherently spatial, are often represented in lower-dimensional geographic spaces. It does not offer general tools for generating high-dimensional non-networked data structures based on flexible geometric layouts or the systematic addition of noise dimensions and background noise. Furthermore, the generation of clustered data based on basic geometric shapes with fine-grained control over cluster properties is not a primary focus of this package.
 
-\pkg{ToOoOlTiPs} is a packages for customizing tooltips in interactive graphics, it features these possibilities.
+Therefore, a need exists for a dedicated R package that provides a versatile framework for generating synthetic data structures in arbitrary high dimensions, starting from basic geometric primitives. Such a package would ideally offer functionalities to: (i) create data structures based on geometric shapes that can be embedded and extended to higher dimensions by adding noise dimensions; (ii) introduce controlled levels of background noise to these structures; and (iii) generate clustered data by leveraging fundamental geometric shapes with user-specified positions, scales, orientations, and sample sizes in any desired dimensionality. This would empower researchers to create more realistic and challenging synthetic datasets for evaluating algorithms in various high-dimensional scenarios and spatial contexts.
 
-\section{A gallery of tooltips examples}\label{a-gallery-of-tooltips-examples}
+This paper introduces the \texttt{cardinalR} R package, which aims to address these limitations by providing a comprehensive suite of functions for generating customizable high-dimensional data structures based on geometric primitives, with integrated noise injection and flexible cluster generation capabilities. By offering these functionalities, \texttt{cardinalR} seeks to provide a valuable resource for researchers needing to create synthetic datasets tailored to their specific evaluation needs in the realm of high-dimensional data analysis and beyond.
 
-The \CRANpkg{palmerpenguins} data \citep{palmerpenguins} features three penguin species which has a lovely illustration by Alison Horst in Figure \ref{fig:penguins-alison}.
+\section{Implementation}\label{implementation}
 
-\begin{figure}
-\includegraphics[width=1\linewidth,height=0.3\textheight,alt={A picture of three different penguins with their species: Chinstrap, Gentoo, and Adelie. }]{figures/penguins} \caption{Artwork by \@allison\_horst}\label{fig:penguins-alison}
-\end{figure}
+\subsection{Installation}\label{installation}
 
-Table \ref{tab:penguins-tab-static} prints at the first few rows of the \texttt{penguins} data:
+The package can be installed from CRAN using
+
+\begin{quote}
+\texttt{install.packages("cardinalR")}
+\end{quote}
+
+and from GitHub using
+
+\begin{quote}
+\texttt{remotes::install\_github("jayanilakshika/cardinalR")}
+\end{quote}
+
+to install the development version.
+
+\subsection{Web site}\label{web-site}
+
+More documentation of the package can be found at the web site \url{https://jayanilakshika.github.io/cardinalR/}.
+
+\subsection{Data sets}\label{data-sets}
+
+The \texttt{cardinalR} package comes with several data sets that load with the package. These are described in Table \ref{tab:datasets-tb-pdf}.
 
 \begin{table}
+
+\caption{\label{tab:datasets-tb-pdf}cardinalR data sets}
 \centering
-\caption{\label{tab:penguins-tab-static}A basic table}
-\centering
-\fontsize{7}{9}\selectfont
-\begin{tabular}[t]{l|l|r|r|r|r|l|r}
-\hline
-species & island & bill\_length\_mm & bill\_depth\_mm & flipper\_length\_mm & body\_mass\_g & sex & year\\
-\hline
-Adelie & Torgersen & 39.1 & 18.7 & 181 & 3750 & male & 2007\\
-\hline
-Adelie & Torgersen & 39.5 & 17.4 & 186 & 3800 & female & 2007\\
-\hline
-Adelie & Torgersen & 40.3 & 18.0 & 195 & 3250 & female & 2007\\
-\hline
-Adelie & Torgersen & NA & NA & NA & NA & NA & 2007\\
-\hline
-Adelie & Torgersen & 36.7 & 19.3 & 193 & 3450 & female & 2007\\
-\hline
-Adelie & Torgersen & 39.3 & 20.6 & 190 & 3650 & male & 2007\\
-\hline
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+data & explanation\\
+\midrule
+mobius\_clust\_data & \\
+mobius\_clust\_tsne\_param1 & \\
+mobius\_clust\_tsne\_param2 & \\
+mobius\_clust\_tsne\_param3 & \\
+mobius\_clust\_umap\_param1 & \\
+\addlinespace
+mobius\_clust\_umap\_param2 & \\
+mobius\_clust\_umap\_param3 & \\
+\bottomrule
 \end{tabular}
 \end{table}
 
-Figure \ref{fig:penguins-ggplot} shows an plot of the penguins data, made using the \CRANpkg{ggplot2} package.
+\subsection{Functions}\label{functions}
 
-\begin{verbatim}
-penguins %>% 
-  ggplot(aes(x = bill_depth_mm, y = bill_length_mm, 
-             color = species)) + 
-  geom_point()
-\end{verbatim}
+\subsubsection{Main function}\label{main-function}
 
-\begin{figure}
+\subsubsection{Branching}\label{branching}
+
+\begin{table}
+
+\caption{\label{tab:branching-tb-pdf}cardinalR branching data generation functions}
 \centering
-\includegraphics{paper-cardinalR_files/figure-latex/penguins-ggplot-1.pdf}
-\caption{\label{fig:penguins-ggplot}A basic non-interactive plot made with the ggplot2 package on palmer penguin data. Three species of penguins are plotted with bill depth on the x-axis and bill length on the y-axis. Visit the online article to access the interactive version made with the plotly package.}
-\end{figure}
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_expbranches & \\
+gen\_linearbranches & \\
+gen\_curvybranches & \\
+gen\_orglinearbranches & \\
+gen\_orgcurvybranches & \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\section{Summary}\label{summary}
+\subsubsection{Cone}\label{cone}
 
-We have displayed various tooltips that are available in the package \pkg{ToOoOlTiPs}.
+\subsubsection{Cube}\label{cube}
 
-\bibliography{RJreferences.bib}
+\subsubsection{Gaussian}\label{gaussian}
+
+\subsubsection{Linear}\label{linear}
+
+\subsubsection{Mobius}\label{mobius}
+
+\subsubsection{Polynomial}\label{polynomial}
+
+\subsubsection{Pyramid}\label{pyramid}
+
+\subsubsection{S-curve}\label{s-curve}
+
+\subsubsection{Sphere}\label{sphere}
+
+\subsubsection{Swiss Roll}\label{swiss-roll}
+
+To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function \texttt{generate\_swiss\_roll(n,\ p)}, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.
+
+The function generates \texttt{n} points in a \texttt{p}-dimensional space, where the first two dimensions (\texttt{X\_1,\ X\_2}) define the primary Swiss roll shape using a parametric equation:
+
+\[
+X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad \text{where } t \sim U(0, 3\pi)
+\]
+
+The third dimension (\texttt{X\_3}) introduces variation perpendicular to the roll, sampled uniformly from \([-1,1]\). Additional dimensions (\texttt{X\_4} to \texttt{X\_p}) extend the data structure by applying a \textbf{sinusoidal transformation} of the parameter \texttt{t}, ensuring continuity in higher-dimensional spaces:
+
+\[
+X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
+\]
+
+This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.
+
+\subsubsection{Odd shapes}\label{odd-shapes}
+
+\subsubsection{Additional functions}\label{additional-functions}
+
+\section{Examples}\label{examples}
+
+Add one or two datasets and evaluate how it will be useful\ldots. (one with NLDR, one with clustering)
+
+\section{Discussion}\label{discussion}
+
+\section{Code}\label{code}
+
+The code is available at \url{https://github.com/JayaniLakshika/cardinalR}, and source material for this paper is available at \url{https://github.com/JayaniLakshika/paper-cardinalR}.
+
+\section{Acknowledgements}\label{acknowledgements}
+
+This article is created using \CRANpkg{knitr} \citep{knitr} and \CRANpkg{rmarkdown} \citep{rmarkdown} in R with the \texttt{rjtools::rjournal\_article} template.
+
+\bibliography{paper-cardinalR.bib}
 
 \address{%
-Quietest Quokka\\
-University of Little Mates\\%
-Department of Letter Q\\ Somewhere, Australia\\
+Jayani P.G. Lakshika\\
+Monash University\\%
+Department of Econometrics and Business Statistics, VIC 3800 Australia\\
 %
-\url{https://www.britannica.com/animal/quokka}\\%
-\textit{ORCiD: \href{https://orcid.org/0000-1721-1511-1101}{0000-1721-1511-1101}}\\%
-\href{mailto:qquo@ulm.edu}{\nolinkurl{qquo@ulm.edu}}%
+\url{https://jayanilakshika.netlify.app/}\\%
+\textit{ORCiD: \href{https://orcid.org/0000-0002-6265-6481}{0000-0002-6265-6481}}\\%
+\email{jayani.piyadigamage@monash.edu}%
 }
 
 \address{%
-Bounciest Bilby\\
-University of Little MatesUniversity of Aussie Animals\\%
-Department of Letter Q, Somewhere, Australia\\ Department of Marsupials, Somewhere, Australia\\
+Dianne Cook\\
+Monash University\\%
+Department of Econometrics and Business Statistics, VIC 3800 Australia\\
 %
-\url{https://www.britannica.com/animal/bilby}\\%
-\textit{ORCiD: \href{https://orcid.org/0000-0002-0912-0225}{0000-0002-0912-0225}}\\%
-\href{mailto:bbil@ulm.edu}{\nolinkurl{bbil@ulm.edu}}%
+\url{http://www.dicook.org/}\\%
+\textit{ORCiD: \href{https://orcid.org/0000-0002-3813-7155}{0000-0002-3813-7155}}\\%
+\href{mailto:dicook@monash.edu}{\nolinkurl{dicook@monash.edu}}%
+}
+
+\address{%
+Paul Harrison\\
+Monash University\\%
+MGBP, BDInstitute, VIC 3800 Australia\\
+%
+%
+\textit{ORCiD: \href{https://orcid.org/0000-0002-3980-268X}{0000-0002-3980-268X}}\\%
+\href{mailto:paul.harrison@monash.edu}{\nolinkurl{paul.harrison@monash.edu}}%
+}
+
+\address{%
+Michael Lydeamore\\
+Monash University\\%
+Department of Econometrics and Business Statistics, VIC 3800 Australia\\
+%
+%
+\textit{ORCiD: \href{https://orcid.org/0000-0001-6515-827X}{0000-0001-6515-827X}}\\%
+\href{mailto:michael.lydeamore@monash.edu}{\nolinkurl{michael.lydeamore@monash.edu}}%
+}
+
+\address{%
+Thiyanga S. Talagala\\
+University of Sri Jayewardenepura\\%
+Department of Statistics, Gangodawila, Nugegoda 10100 Sri Lanka\\
+%
+\url{https://thiyanga.netlify.app/}\\%
+\textit{ORCiD: \href{https://orcid.org/0000-0002-0656-9789}{0000-0002-0656-9789}}\\%
+\href{mailto:ttalagala@sjp.ac.lk}{\nolinkurl{ttalagala@sjp.ac.lk}}%
 }

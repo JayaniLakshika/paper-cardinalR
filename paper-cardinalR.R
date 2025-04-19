@@ -2,37 +2,72 @@
 # Please edit paper-cardinalR.Rmd to modify this file
 
 ## ----setup, include=FALSE-----------------------------------------------------
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-library(plotly)
-library(ggplot2)
-library(palmerpenguins)
+options(repos = "https://cloud.r-project.org") ## set up CRAN mirror
+knitr::opts_chunk$set(
+  echo = FALSE,
+  cache=FALSE, 
+  message=FALSE, 
+  warning=FALSE,
+  out.width = "100%")
+
+
+
+## ----load-libraries-----------------------------------------------------------
+library(tidyverse)
+library(knitr)
 library(kableExtra)
 
 
-## ----penguins-alison, out.width = "100%", out.height = "30%", fig.cap = "Artwork by \\@allison\\_horst", fig.alt="A picture of three different penguins with their species: Chinstrap, Gentoo, and Adelie. "----
-knitr::include_graphics("figures/penguins.png")
+## -----------------------------------------------------------------------------
+datasets_tb <- tibble(dt = c("mobius_clust_data", 
+                             "mobius_clust_tsne_param1", 
+                             "mobius_clust_tsne_param2",
+                             "mobius_clust_tsne_param3",
+                             "mobius_clust_umap_param1",
+                             "mobius_clust_umap_param2",
+                             "mobius_clust_umap_param3"), 
+                      text = c("",
+                               "", 
+                               "",
+                               "",
+                               "",
+                               "", 
+                               ""))
 
 
-## ----penguins-tab-interactive, eval = knitr::is_html_output(), layout = "l-body-outset"----
-# knitr::kable(head(penguins), format = "html", caption = "A basic table")
+## ----datasets-tb-html, eval=is_html_output()----------------------------------
+# datasets_tb |>
+#   kable(caption = "cardinalR data sets", col.names = c("data", "explanation"))
 
 
-## ----penguins-tab-static, eval = knitr::is_latex_output()---------------------
-knitr::kable(head(penguins), format = "latex", caption = "A basic table") %>% 
-  kableExtra::kable_styling(font_size = 7)
+## ----datasets-tb-pdf, eval=is_latex_output()----------------------------------
+datasets_tb |> 
+  kable(caption = "cardinalR data sets", format="latex", col.names = c("data", "explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
 
 
-## ----penguins-plotly, echo = TRUE, fig.height = 5, fig.cap="A basic interactive plot made with the plotly package on palmer penguin data. Three species of penguins are plotted with bill depth on the x-axis and bill length on the y-axis. When hovering on a point, a tooltip will show the exact value of the bill depth and length for that point, along with the species name.", include=knitr::is_html_output(), eval=knitr::is_html_output(), fig.alt = "A scatterplot of bill length against bill depth, both measured in millimetre. The three species are shown in different colours and loosely forms three clusters. Adelie has small bill length and large bill depth, Gentoo has small bill depth but large bill length, and Chinstrap has relatively large bill depth and bill length."----
-# p <- penguins %>%
-#   ggplot(aes(x = bill_depth_mm, y = bill_length_mm,
-#              color = species)) +
-#   geom_point()
-# ggplotly(p)
+## -----------------------------------------------------------------------------
+branch_tb <- tibble(fun = c("gen_expbranches",
+                             "gen_linearbranches",
+                             "gen_curvybranches", 
+                             "gen_orglinearbranches", 
+                             "gen_orgcurvybranches"), 
+                      exp = c("",
+                               "", 
+                               "",
+                               "",
+                               ""))
 
 
-## ----penguins-ggplot, echo = TRUE, fig.height = 5, fig.cap="A basic non-interactive plot made with the ggplot2 package on palmer penguin data. Three species of penguins are plotted with bill depth on the x-axis and bill length on the y-axis. Visit the online article to access the interactive version made with the plotly package.", include=knitr::is_latex_output(), eval=knitr::is_latex_output()----
-penguins %>% 
-  ggplot(aes(x = bill_depth_mm, y = bill_length_mm, 
-             color = species)) + 
-  geom_point()
+## ----branching-tb-html, eval=is_html_output()---------------------------------
+# branch_tb |>
+#   kable(caption = "cardinalR branching data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----branching-tb-pdf, eval=is_latex_output()---------------------------------
+branch_tb |> 
+  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
 
