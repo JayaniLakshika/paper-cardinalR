@@ -182,6 +182,27 @@ branch_tb |>
 
 ### Cube
 
+```{r}
+cube_tb <- tibble(fun = c("gen_gridcube",
+                          "gen_unifcube",
+                          "gen_cubehole"), 
+                      exp = c("",
+                              "", 
+                              ""))
+```
+
+```{r cube-tb-html, eval=is_html_output()}
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r cube-tb-pdf, eval=is_latex_output()}
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
 ### Gaussian
 
 ### Linear

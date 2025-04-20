@@ -191,6 +191,31 @@ Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 
 ### Cube
 
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
+
+|Function     |Explanation |
+|:------------|:-----------|
+|gen_gridcube |            |
+|gen_unifcube |            |
+|gen_cubehole |            |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
 ### Gaussian
 
 ### Linear
