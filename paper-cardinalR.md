@@ -4,7 +4,7 @@ description: |
   A high-dimensional dataset is where each observation is described by many features, or dimensions. Such a dataset might contain various types of structures that have complex geometric properties, such as nonlinear manifolds, clusters, or sparse distributions. We can generate data containing a variety of structures using mathematical functions and statistical distributions. Sampling from a multivariate normal distribution will generate data in an elliptical shape. Using a trigonometric function we can generate a spiral. A torus function can create a donut shape. High-dimensional data structures are useful for testing, validating, and improving algorithms used in dimensionality reduction, clustering, machine learning, and visualization. Their controlled complexity allows researchers to understand challenges posed in data analysis and helps to develop robust analytical methods across diverse scientific fields like bioinformatics, machine learning, and forensic science. Functions to generate a large variety of structures in high dimensions are organized into the R package `cardinalR`, along with some already generated examples.
 draft: yes
 author:
-- name: Jayani P.G. Lakshika
+- name: Jayani P. Gamage
   affiliation: Monash University
   address: Department of Econometrics and Business Statistics, VIC 3800 Australia
   url: https://jayanilakshika.netlify.app/
@@ -139,6 +139,24 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 
 ### Main function
 
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>gen_multicluster</span><span class='op'>(</span></span>
+<span>  n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>300</span>, <span class='fl'>500</span><span class='op'>)</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>3</span>,</span>
+<span>  loc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>    <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
+<span>    <span class='fl'>5</span>, <span class='fl'>9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
+<span>    <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>10</span>, <span class='fl'>7</span></span>
+<span>  <span class='op'>)</span>, nrow <span class='op'>=</span> <span class='fl'>4</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span>  dim_weights <span class='op'>=</span> <span class='va'>dim4_weights</span>,</span>
+<span>  scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
+<span>  shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gaussian"</span>, <span class='st'>"bluntedcorn"</span>, <span class='st'>"unifcube"</span><span class='op'>)</span>,</span>
+<span>  rotation <span class='op'>=</span> <span class='va'>rotations_4d</span>,</span>
+<span>  is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
 ### Branching
 
 <div class="layout-chunk" data-layout="l-body">
@@ -204,6 +222,8 @@ X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 $$
 
 This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations. 
+
+### Trigonometric
 
 ### Odd shapes
 
