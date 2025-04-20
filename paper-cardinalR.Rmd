@@ -356,6 +356,43 @@ trigonometric_tb |>
 
 ### Additional functions
 
+```{r}
+add_fun_tb <- tibble(fun = c("gen_noisedims",
+                            "gen_bkgnoise",
+                            "randomize_rows",
+                            "gen_nproduct",
+                            "gen_nsum",
+                            "gen_wavydims1",
+                            "gen_wavydims2",
+                            "gen_wavydims3",
+                            "gen_rotation",
+                            "gen_globalminmax",
+                            "scale_data"), 
+                        exp = c("",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""))
+```
+
+```{r add-tb-html, eval=knitr::is_html_output()}
+add_fun_tb |> 
+  kable(caption = "cardinalR additional functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r add-tb-pdf, eval=knitr::is_latex_output()}
+add_fun_tb |> 
+  kable(caption = "cardinalR additional functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
 # Example
 
 Add one or two datasets and evaluate how it will be useful.... (one with NLDR, one with clustering)

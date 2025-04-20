@@ -385,6 +385,39 @@ Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation func
 
 ### Additional functions
 
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:add-tb-html)cardinalR additional functions
+
+|Function         |Explanation |
+|:----------------|:-----------|
+|gen_noisedims    |            |
+|gen_bkgnoise     |            |
+|randomize_rows   |            |
+|gen_nproduct     |            |
+|gen_nsum         |            |
+|gen_wavydims1    |            |
+|gen_wavydims2    |            |
+|gen_wavydims3    |            |
+|gen_rotation     |            |
+|gen_globalminmax |            |
+|scale_data       |            |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
 # Example
 
 Add one or two datasets and evaluate how it will be useful.... (one with NLDR, one with clustering)
