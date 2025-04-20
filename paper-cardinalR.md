@@ -88,17 +88,19 @@ The paper is organized as follows. In next section, introduces the implementatio
 
 The package can be installed from CRAN using 
 
-> ```install.packages("cardinalR")```
+```r
+install.packages("cardinalR")
+```
 
-and from GitHub using 
+and the development version can be installed from GitHub 
 
-> ```remotes::install_github("jayanilakshika/cardinalR")```
-
-to install the development version.
+```r
+devtools::install_github("JayaniLakshika/cardinalR")
+```
 
 ## Web site
 
-More documentation of the package can be found at the web site https://jayanilakshika.github.io/cardinalR/.
+More documentation of the package can be found at the web site <https://jayanilakshika.github.io/cardinalR/>.
 
 ## Data sets
 
