@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -23,6 +23,20 @@ B.~Schloerke.
 \newblock \emph{geozoo: Zoo of Geometric Objects}, 2016.
 \newblock URL \url{https://CRAN.R-project.org/package=geozoo}.
 \newblock R package version 0.5.1.
+
+\bibitem[Xie(2015)]{yihui2015}
+Y.~Xie.
+\newblock \emph{Dynamic Documents with {R} and knitr}.
+\newblock Chapman and Hall/CRC, Boca Raton, Florida, 2nd edition, 2015.
+\newblock URL \url{https://yihui.name/knitr/}.
+\newblock ISBN 978-1498716963.
+
+\bibitem[Xie et~al.(2018)Xie, Allaire, and Grolemund]{yihui2018}
+Y.~Xie, J.~Allaire, and G.~Grolemund.
+\newblock \emph{{R} Markdown: The Definitive Guide}.
+\newblock Chapman and Hall/CRC, Boca Raton, Florida, 2018.
+\newblock URL \url{https://bookdown.org/yihui/rmarkdown}.
+\newblock ISBN 978-1138359338.
 
 \bibitem[Zappia et~al.(2017)Zappia, Phipson, and Oshlack]{luke2017}
 L.~Zappia, B.~Phipson, and A.~Oshlack.

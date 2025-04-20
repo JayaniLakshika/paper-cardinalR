@@ -2,7 +2,7 @@
 \title{cardinalR: Generating interesting high-dimensional data structures}
 
 
-\author{by Jayani P.G. Lakshika, Dianne Cook, Paul Harrison, Michael Lydeamore, and Thiyanga S. Talagala}
+\author{by Jayani P. Gamage, Dianne Cook, Paul Harrison, Michael Lydeamore, and Thiyanga S. Talagala}
 
 \maketitle
 
@@ -20,7 +20,7 @@ There is a valuable opportunity to improve the generation of high-dimensional da
 
 To address this gap, this paper introduces the \texttt{cardinalR} R package. This package provides a collection of functions designed to generate customizable data structures in any number of dimensions, starting from basic geometric shapes. \texttt{cardinalR} offers important functionalities that extend beyond the capabilities of existing tools, allowing users to: (i) construct high-dimensional datasets based on geometric shapes, including the option to enhance dimensionality by adding controlled noise dimensions; (ii) introduce adjustable levels of background noise to these structures; and (iii) create complex clustered data arrangements by using fundamental geometric forms, while maintaining their positions, scales, orientations, and sample sizes in arbitrary dimensional spaces. By providing these integrated features, \texttt{cardinalR} aims to provide researchers to generate more explainable and challenging synthetic datasets focused to the specific needs of evaluating algorithms in high-dimensions. This bridges the gap between geometric foundations and the flexible generation of complex synthetic data.
 
-The paper is organized as follows. In next section, introduces the implementation of \texttt{cardinalR} package on CRAN and GitHub, including demonstration of the package's key functions. We illustrate how a clustering data structure affect the Non-linear dimension reductions in \textbf{Application} section. Finally, we give a brief conclusion of the paper and discuss potential opportunities for use of our data collection.
+The paper is organized as follows. In next section, introduces the implementation of \texttt{cardinalR} package on CRAN and GitHub, including demonstration of the package's key functions. We illustrate how a clustering data structure affect the Non-linear dimension reductions in \textbf{Example} section. Finally, we give a brief conclusion of the paper and discuss potential opportunities for use of our data collection.
 
 \section{Implementation}\label{implementation}
 
@@ -28,17 +28,15 @@ The paper is organized as follows. In next section, introduces the implementatio
 
 The package can be installed from CRAN using
 
-\begin{quote}
-\texttt{install.packages("cardinalR")}
-\end{quote}
+\begin{verbatim}
+install.packages("cardinalR")
+\end{verbatim}
 
-and from GitHub using
+and the development version can be installed from GitHub
 
-\begin{quote}
-\texttt{remotes::install\_github("jayanilakshika/cardinalR")}
-\end{quote}
-
-to install the development version.
+\begin{verbatim}
+devtools::install_github("JayaniLakshika/cardinalR")
+\end{verbatim}
 
 \subsection{Web site}\label{web-site}
 
@@ -47,6 +45,13 @@ More documentation of the package can be found at the web site \url{https://jaya
 \subsection{Data sets}\label{data-sets}
 
 The \texttt{cardinalR} package comes with several data sets that load with the package. These are described in Table \ref{tab:datasets-tb-pdf}.
+
+\begin{verbatim}
+datasets_tb |> 
+  kable(caption = "cardinalR data sets", format="latex", col.names = c("data", "explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+\end{verbatim}
 
 \begin{table}
 
@@ -72,7 +77,51 @@ mobius\_clust\_umap\_param3 & \\
 
 \subsubsection{Main function}\label{main-function}
 
+\begin{verbatim}
+gen_multicluster(
+  n = c(200, 300, 500), p = 4, k = 3,
+  loc = matrix(c(
+    0, 0, 0, 0,
+    5, 9, 0, 0,
+    3, 4, 10, 7
+  ), nrow = 4, byrow = TRUE),
+  dim_weights = dim4_weights,
+  scale = c(3, 1, 2),
+  shape = c("gaussian", "bluntedcorn", "unifcube"),
+  rotation = rotations_4d,
+  is_bkg = FALSE
+)
+\end{verbatim}
+
 \subsubsection{Branching}\label{branching}
+
+\begin{table}
+
+\caption{\label{tab:branching-tb-html}cardinalR branching data generation functions}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Function & Explanation\\
+\hline
+gen\_expbranches & \\
+\hline
+gen\_linearbranches & \\
+\hline
+gen\_curvybranches & \\
+\hline
+gen\_orglinearbranches & \\
+\hline
+gen\_orgcurvybranches & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{verbatim}
+branch_tb |> 
+  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+\end{verbatim}
 
 \begin{table}
 
@@ -95,6 +144,45 @@ gen\_orgcurvybranches & \\
 
 \subsubsection{Cube}\label{cube}
 
+\begin{table}
+
+\caption{\label{tab:cube-tb-html}cardinalR cube data generation functions}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Function & Explanation\\
+\hline
+gen\_gridcube & \\
+\hline
+gen\_unifcube & \\
+\hline
+gen\_cubehole & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{verbatim}
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:cube-tb-pdf}cardinalR cube data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_gridcube & \\
+gen\_unifcube & \\
+gen\_cubehole & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsubsection{Gaussian}\label{gaussian}
 
 \subsubsection{Linear}\label{linear}
@@ -103,11 +191,151 @@ gen\_orgcurvybranches & \\
 
 \subsubsection{Polynomial}\label{polynomial}
 
+\begin{table}
+
+\caption{\label{tab:polynomial-tb-html}cardinalR polynomial data generation functions}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Function & Explanation\\
+\hline
+gen\_quadratic & \\
+\hline
+gen\_cubic & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{verbatim}
+polynomial_tb |> 
+  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:polynomial-tb-pdf}cardinalR polynomial data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_quadratic & \\
+gen\_cubic & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsubsection{Pyramid}\label{pyramid}
+
+\begin{table}
+
+\caption{\label{tab:pyramid-tb-html}cardinalR pyramid data generation functions}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Function & Explanation\\
+\hline
+gen\_pyr & \\
+\hline
+gen\_pyrrect & \\
+\hline
+gen\_pyrtri & \\
+\hline
+gen\_pyrstar & \\
+\hline
+gen\_pyrholes & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{verbatim}
+pyramid_tb |> 
+  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:pyramid-tb-pdf}cardinalR pyramid data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_pyr & \\
+gen\_pyrrect & \\
+gen\_pyrtri & \\
+gen\_pyrstar & \\
+gen\_pyrholes & \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsubsection{S-curve}\label{s-curve}
 
+\begin{table}
+
+\caption{\label{tab:scurve-tb-pdf}cardinalR S-curve data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_scurve & \\
+gen\_scurvehole & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsubsection{Sphere}\label{sphere}
+
+\begin{table}
+
+\caption{\label{tab:sphere-tb-html}cardinalR sphere data generation functions}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Function & Explanation\\
+\hline
+gen\_circle & \\
+\hline
+gen\_curvycycle & \\
+\hline
+gen\_unifsphere & \\
+\hline
+gen\_gridedsphere & \\
+\hline
+gen\_clusteredspheres & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{verbatim}
+sphere_tb |> 
+  kable(caption = "cardinalR sphere data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:sphere-tb-pdf}cardinalR sphere data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_circle & \\
+gen\_curvycycle & \\
+gen\_unifsphere & \\
+gen\_gridedsphere & \\
+gen\_clusteredspheres & \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsubsection{Swiss Roll}\label{swiss-roll}
 
@@ -127,11 +355,62 @@ X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 
 This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.
 
+\subsubsection{Trigonometric}\label{trigonometric}
+
+\begin{table}
+
+\caption{\label{tab:trigonometric-tb-html}cardinalR trigonometric data generation functions}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Function & Explanation\\
+\hline
+gen\_crescent & \\
+\hline
+gen\_curvycylinder & \\
+\hline
+gen\_sphericalspiral & \\
+\hline
+gen\_helicalspiral & \\
+\hline
+gen\_conicspiral & \\
+\hline
+gen\_nonlinear & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{verbatim}
+trigonometric_tb |> 
+  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:trigonometric-tb-pdf}cardinalR trigonometric data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_crescent & \\
+gen\_curvycylinder & \\
+gen\_sphericalspiral & \\
+gen\_helicalspiral & \\
+gen\_conicspiral & \\
+\addlinespace
+gen\_nonlinear & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsubsection{Odd shapes}\label{odd-shapes}
 
 \subsubsection{Additional functions}\label{additional-functions}
 
-\section{Examples}\label{examples}
+\section{Example}\label{example}
 
 Add one or two datasets and evaluate how it will be useful\ldots. (one with NLDR, one with clustering)
 
@@ -143,12 +422,12 @@ The code is available at \url{https://github.com/JayaniLakshika/cardinalR}, and 
 
 \section{Acknowledgements}\label{acknowledgements}
 
-This article is created using \CRANpkg{knitr} \citep{knitr} and \CRANpkg{rmarkdown} \citep{rmarkdown} in R with the \texttt{rjtools::rjournal\_article} template.
+This article is created using \CRANpkg{knitr} \citep{yihui2015} and \CRANpkg{rmarkdown} \citep{yihui2018} in R with the \texttt{rjtools::rjournal\_article} template.
 
 \bibliography{paper-cardinalR.bib}
 
 \address{%
-Jayani P.G. Lakshika\\
+Jayani P. Gamage\\
 Monash University\\%
 Department of Econometrics and Business Statistics, VIC 3800 Australia\\
 %
