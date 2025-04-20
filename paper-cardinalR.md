@@ -224,11 +224,114 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 
 ### Polynomial
 
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
+
+|Function      |Explanation |
+|:-------------|:-----------|
+|gen_quadratic |            |
+|gen_cubic     |            |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
 ### Pyramid
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
+
+|Function     |Explanation |
+|:------------|:-----------|
+|gen_pyr      |            |
+|gen_pyrrect  |            |
+|gen_pyrtri   |            |
+|gen_pyrstar  |            |
+|gen_pyrholes |            |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
 
 ### S-curve
 
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:scurve-tb-html)cardinalR S-curve data generation functions
+
+|Function       |Explanation |
+|:--------------|:-----------|
+|gen_scurve     |            |
+|gen_scurvehole |            |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+
 ### Sphere
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:sphere-tb-html)cardinalR sphere data generation functions
+
+|Function             |Explanation |
+|:--------------------|:-----------|
+|gen_circle           |            |
+|gen_curvycycle       |            |
+|gen_unifsphere       |            |
+|gen_gridedsphere     |            |
+|gen_clusteredspheres |            |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
 
 ### Swiss Roll  
 
@@ -249,6 +352,34 @@ $$
 This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations. 
 
 ### Trigonometric
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation functions
+
+|Function            |Explanation |
+|:-------------------|:-----------|
+|gen_crescent        |            |
+|gen_curvycylinder   |            |
+|gen_sphericalspiral |            |
+|gen_helicalspiral   |            |
+|gen_conicspiral     |            |
+|gen_nonlinear       |            |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
 
 ### Odd shapes
 

@@ -1956,9 +1956,141 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h4 class="unnumbered" data-number="2.4.6" id="linear">Linear</h4>
 <h4 class="unnumbered" data-number="2.4.7" id="mobius">Mobius</h4>
 <h4 class="unnumbered" data-number="2.4.8" id="polynomial">Polynomial</h4>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:polynomial-tb-html">Table 4: </span>cardinalR polynomial data generation functions</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gen_quadratic</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_cubic</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <h4 class="unnumbered" data-number="2.4.9" id="pyramid">Pyramid</h4>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:pyramid-tb-html">Table 5: </span>cardinalR pyramid data generation functions</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gen_pyr</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_pyrrect</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gen_pyrtri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_pyrstar</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gen_pyrholes</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <h4 class="unnumbered" data-number="2.4.10" id="s-curve">S-curve</h4>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:scurve-tb-html">Table 6: </span>cardinalR S-curve data generation functions</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gen_scurve</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_scurvehole</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <h4 class="unnumbered" data-number="2.4.11" id="sphere">Sphere</h4>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:sphere-tb-html">Table 7: </span>cardinalR sphere data generation functions</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gen_circle</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_curvycycle</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gen_unifsphere</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_gridedsphere</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gen_clusteredspheres</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <h4 class="unnumbered" data-number="2.4.12" id="swiss-roll">Swiss Roll</h4>
 <p>To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function <code>generate_swiss_roll(n, p)</code>, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.</p>
 <p>The function generates <code>n</code> points in a <code>p</code>-dimensional space, where the first two dimensions (<code>X_1, X_2</code>) define the primary Swiss roll shape using a parametric equation:</p>
@@ -1971,6 +2103,49 @@ X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 \]</span></p>
 <p>This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.</p>
 <h4 class="unnumbered" data-number="2.4.13" id="trigonometric">Trigonometric</h4>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:trigonometric-tb-html">Table 8: </span>cardinalR trigonometric data generation functions</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gen_crescent</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_curvycylinder</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gen_sphericalspiral</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_helicalspiral</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gen_conicspiral</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_nonlinear</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <h4 class="unnumbered" data-number="2.4.14" id="odd-shapes">Odd shapes</h4>
 <h4 class="unnumbered" data-number="2.4.15" id="additional-functions">Additional functions</h4>
 <h2 data-number="3" id="example"><span class="header-section-number">3</span> Example</h2>

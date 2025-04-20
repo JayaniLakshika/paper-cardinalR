@@ -211,11 +211,100 @@ cube_tb |>
 
 ### Polynomial
 
+```{r}
+polynomial_tb <- tibble(fun = c("gen_quadratic",
+                                "gen_cubic"), 
+                        exp = c("",
+                                ""))
+```
+
+```{r polynomial-tb-html, eval=is_html_output()}
+polynomial_tb |> 
+  kable(caption = "cardinalR polynomial data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r polynomial-tb-pdf, eval=is_latex_output()}
+polynomial_tb |> 
+  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
 ### Pyramid
+
+```{r}
+pyramid_tb <- tibble(fun = c("gen_pyr",
+                             "gen_pyrrect",
+                             "gen_pyrtri",
+                             "gen_pyrstar",
+                             "gen_pyrholes"), 
+                        exp = c("",
+                                "",
+                                "",
+                                "",
+                                ""))
+```
+
+```{r pyramid-tb-html, eval=is_html_output()}
+pyramid_tb |> 
+  kable(caption = "cardinalR pyramid data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r pyramid-tb-pdf, eval=is_latex_output()}
+pyramid_tb |> 
+  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
 
 ### S-curve
 
+```{r}
+scurve_tb <- tibble(fun = c("gen_scurve",
+                            "gen_scurvehole"), 
+                        exp = c("",
+                                ""))
+```
+
+```{r scurve-tb-html, eval=is_html_output()}
+scurve_tb |> 
+  kable(caption = "cardinalR S-curve data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r scurve-tb-pdf, eval=is_latex_output()}
+scurve_tb |> 
+  kable(caption = "cardinalR S-curve data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
+
 ### Sphere
+
+```{r}
+sphere_tb <- tibble(fun = c("gen_circle",
+                            "gen_curvycycle",
+                            "gen_unifsphere",
+                            "gen_gridedsphere",
+                            "gen_clusteredspheres"), 
+                        exp = c("",
+                                "",
+                                "",
+                                "",
+                                ""))
+```
+
+```{r sphere-tb-html, eval=is_html_output()}
+sphere_tb |> 
+  kable(caption = "cardinalR sphere data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r sphere-tb-pdf, eval=is_latex_output()}
+sphere_tb |> 
+  kable(caption = "cardinalR sphere data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
 
 ### Swiss Roll  
 
@@ -236,6 +325,33 @@ $$
 This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations. 
 
 ### Trigonometric
+
+```{r}
+trigonometric_tb <- tibble(fun = c("gen_crescent",
+                            "gen_curvycylinder",
+                            "gen_sphericalspiral",
+                            "gen_helicalspiral",
+                            "gen_conicspiral",
+                            "gen_nonlinear"), 
+                        exp = c("",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""))
+```
+
+```{r trigonometric-tb-html, eval=is_html_output()}
+trigonometric_tb |> 
+  kable(caption = "cardinalR trigonometric data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r trigonometric-tb-pdf, eval=is_latex_output()}
+trigonometric_tb |> 
+  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
 
 ### Odd shapes
 
