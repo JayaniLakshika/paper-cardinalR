@@ -46,13 +46,6 @@ More documentation of the package can be found at the web site \url{https://jaya
 
 The \texttt{cardinalR} package comes with several data sets that load with the package. These are described in Table \ref{tab:datasets-tb-pdf}.
 
-\begin{verbatim}
-datasets_tb |> 
-  kable(caption = "cardinalR data sets", format="latex", col.names = c("data", "explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-\end{verbatim}
-
 \begin{table}
 
 \caption{\label{tab:datasets-tb-pdf}cardinalR data sets}
@@ -97,34 +90,6 @@ gen_multicluster(
 
 \begin{table}
 
-\caption{\label{tab:branching-tb-html}cardinalR branching data generation functions}
-\centering
-\begin{tabular}[t]{l|l}
-\hline
-Function & Explanation\\
-\hline
-gen\_expbranches & \\
-\hline
-gen\_linearbranches & \\
-\hline
-gen\_curvybranches & \\
-\hline
-gen\_orglinearbranches & \\
-\hline
-gen\_orgcurvybranches & \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{verbatim}
-branch_tb |> 
-  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-\end{verbatim}
-
-\begin{table}
-
 \caption{\label{tab:branching-tb-pdf}cardinalR branching data generation functions}
 \centering
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
@@ -143,30 +108,6 @@ gen\_orgcurvybranches & \\
 \subsubsection{Cone}\label{cone}
 
 \subsubsection{Cube}\label{cube}
-
-\begin{table}
-
-\caption{\label{tab:cube-tb-html}cardinalR cube data generation functions}
-\centering
-\begin{tabular}[t]{l|l}
-\hline
-Function & Explanation\\
-\hline
-gen\_gridcube & \\
-\hline
-gen\_unifcube & \\
-\hline
-gen\_cubehole & \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{verbatim}
-cube_tb |> 
-  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-\end{verbatim}
 
 \begin{table}
 
@@ -193,28 +134,6 @@ gen\_cubehole & \\
 
 \begin{table}
 
-\caption{\label{tab:polynomial-tb-html}cardinalR polynomial data generation functions}
-\centering
-\begin{tabular}[t]{l|l}
-\hline
-Function & Explanation\\
-\hline
-gen\_quadratic & \\
-\hline
-gen\_cubic & \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{verbatim}
-polynomial_tb |> 
-  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-\end{verbatim}
-
-\begin{table}
-
 \caption{\label{tab:polynomial-tb-pdf}cardinalR polynomial data generation functions}
 \centering
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
@@ -228,34 +147,6 @@ gen\_cubic & \\
 \end{table}
 
 \subsubsection{Pyramid}\label{pyramid}
-
-\begin{table}
-
-\caption{\label{tab:pyramid-tb-html}cardinalR pyramid data generation functions}
-\centering
-\begin{tabular}[t]{l|l}
-\hline
-Function & Explanation\\
-\hline
-gen\_pyr & \\
-\hline
-gen\_pyrrect & \\
-\hline
-gen\_pyrtri & \\
-\hline
-gen\_pyrstar & \\
-\hline
-gen\_pyrholes & \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{verbatim}
-pyramid_tb |> 
-  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-\end{verbatim}
 
 \begin{table}
 
@@ -291,34 +182,6 @@ gen\_scurvehole & \\
 \end{table}
 
 \subsubsection{Sphere}\label{sphere}
-
-\begin{table}
-
-\caption{\label{tab:sphere-tb-html}cardinalR sphere data generation functions}
-\centering
-\begin{tabular}[t]{l|l}
-\hline
-Function & Explanation\\
-\hline
-gen\_circle & \\
-\hline
-gen\_curvycycle & \\
-\hline
-gen\_unifsphere & \\
-\hline
-gen\_gridedsphere & \\
-\hline
-gen\_clusteredspheres & \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{verbatim}
-sphere_tb |> 
-  kable(caption = "cardinalR sphere data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-\end{verbatim}
 
 \begin{table}
 
@@ -359,36 +222,6 @@ This transformation ensures a gradual decay in variance across dimensions, mimic
 
 \begin{table}
 
-\caption{\label{tab:trigonometric-tb-html}cardinalR trigonometric data generation functions}
-\centering
-\begin{tabular}[t]{l|l}
-\hline
-Function & Explanation\\
-\hline
-gen\_crescent & \\
-\hline
-gen\_curvycylinder & \\
-\hline
-gen\_sphericalspiral & \\
-\hline
-gen\_helicalspiral & \\
-\hline
-gen\_conicspiral & \\
-\hline
-gen\_nonlinear & \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{verbatim}
-trigonometric_tb |> 
-  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-\end{verbatim}
-
-\begin{table}
-
 \caption{\label{tab:trigonometric-tb-pdf}cardinalR trigonometric data generation functions}
 \centering
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
@@ -409,6 +242,31 @@ gen\_nonlinear & \\
 \subsubsection{Odd shapes}\label{odd-shapes}
 
 \subsubsection{Additional functions}\label{additional-functions}
+
+\begin{table}
+
+\caption{\label{tab:add-tb-pdf}cardinalR additional functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_noisedims & \\
+gen\_bkgnoise & \\
+randomize\_rows & \\
+gen\_nproduct & \\
+gen\_nsum & \\
+\addlinespace
+gen\_wavydims1 & \\
+gen\_wavydims2 & \\
+gen\_wavydims3 & \\
+gen\_rotation & \\
+gen\_globalminmax & \\
+\addlinespace
+scale\_data & \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Example}\label{example}
 

@@ -39,8 +39,7 @@ preamble: >
   \usepackage{amsmath}
   \usepackage{array}
 output: 
- rjtools::rjournal_web_article:
-    css: "style.css"
+ rjtools::rjournal_article:
     keep_md: true
 bibliography: paper-cardinalR.bib
 editor_options: 

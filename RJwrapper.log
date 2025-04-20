@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  20 APR 2025 21:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  20 APR 2025 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -915,103 +915,56 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 7.29405pt on input line 43.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 5.21004pt on input line 43.
-
-Overfull \hbox (91.21269pt too wide) in paragraph at lines 54--54
-[]  \T1/zi4/m/n/9 kable(caption = "cardinalR data sets", format="latex", col.na
-mes = c("data", "explanation"), booktabs = T)  |>[] 
- []
-
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 60.
+(Font)              scaled to size 10.42007pt on input line 53.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 60.
+(Font)              scaled to size 7.91925pt on input line 53.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 60.
+(Font)              scaled to size 6.25204pt on input line 53.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 60.
+(Font)              scaled to size 10.42007pt on input line 53.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 60.
+(Font)              scaled to size 7.91925pt on input line 53.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 60.
+(Font)              scaled to size 6.25204pt on input line 53.
 
-Overfull \hbox (4.55206pt too wide) in paragraph at lines 65--65
+Overfull \hbox (4.55206pt too wide) in paragraph at lines 58--58
 []|\T1/ppl/m/n/10 (-20) mobius_clust_tsne_param1|  
  []
 
 
-Overfull \hbox (4.55206pt too wide) in paragraph at lines 66--66
+Overfull \hbox (4.55206pt too wide) in paragraph at lines 59--59
 []|\T1/ppl/m/n/10 (-20) mobius_clust_tsne_param2|  
  []
 
 
-Overfull \hbox (4.55206pt too wide) in paragraph at lines 67--67
+Overfull \hbox (4.55206pt too wide) in paragraph at lines 60--60
 []|\T1/ppl/m/n/10 (-20) mobius_clust_tsne_param3|  
  []
 
 
-Overfull \hbox (12.15686pt too wide) in paragraph at lines 68--68
+Overfull \hbox (12.15686pt too wide) in paragraph at lines 61--61
 []|\T1/ppl/m/n/10 (-20) mobius_clust_umap_param1|  
  []
 
 
-Overfull \hbox (12.15686pt too wide) in paragraph at lines 70--70
+Overfull \hbox (12.15686pt too wide) in paragraph at lines 63--63
 []|\T1/ppl/m/n/10 (-20) mobius_clust_umap_param2|  
  []
 
 
-Overfull \hbox (12.15686pt too wide) in paragraph at lines 71--71
+Overfull \hbox (12.15686pt too wide) in paragraph at lines 64--64
 []|\T1/ppl/m/n/10 (-20) mobius_clust_umap_param3|  
  []
 
 [2]
-Overfull \hbox (225.84679pt too wide) in paragraph at lines 124--124
-[]  \T1/zi4/m/n/9 kable(caption = "cardinalR branching data generation function
-s", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-[] 
- []
-
-
-Overfull \hbox (202.89673pt too wide) in paragraph at lines 169--169
-[]  \T1/zi4/m/n/9 kable(caption = "cardinalR cube data generation functions", f
-ormat="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>[] 
- []
-
-
-Overfull \hbox (230.4368pt too wide) in paragraph at lines 214--214
-[]  \T1/zi4/m/n/9 kable(caption = "cardinalR polynomial data generation functio
-ns", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |
->[] 
- []
-
-[3]
-Overfull \hbox (216.66676pt too wide) in paragraph at lines 258--258
-[]  \T1/zi4/m/n/9 kable(caption = "cardinalR pyramid data generation functions"
-, format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>[]
- 
- []
-
-
-Overfull \hbox (212.07675pt too wide) in paragraph at lines 321--321
-[]  \T1/zi4/m/n/9 kable(caption = "cardinalR sphere data generation functions",
- format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>[] 
-
- []
-
-
-Overfull \hbox (30.21855pt too wide) in paragraph at lines 342--343
+Overfull \hbox (30.21855pt too wide) in paragraph at lines 205--206
 \T1/ppl/m/n/9 (-20) To gen-er-al-ize the Swiss roll struc-ture to ar-bi-trary d
 i-men-sions, we in-tro-duce a func-tion \T1/zi4/m/n/9 generate_swiss_roll(n,
  []
 
-[4] [5]
-Overfull \hbox (244.20683pt too wide) in paragraph at lines 388--388
-[]  \T1/zi4/m/n/9 kable(caption = "cardinalR trigonometric data generation func
-tions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)
-  |>[] 
- []
-
-
-Overfull \hbox (63.49947pt too wide) in paragraph at lines 425--426
+[3]
+Overfull \hbox (63.49947pt too wide) in paragraph at lines 283--284
 \T1/ppl/m/n/9 (-20) This ar-ti-cle is cre-ated us-ing [][]\T1/ppl/b/n/9 (-20) k
 nitr[][] \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/
 9 (-20) rmark-down[][] \T1/ppl/m/n/9 (-20) ([][][]Xie et al.[][], [][]2018[][])
@@ -1022,31 +975,30 @@ nitr[][] \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
-)
+[4])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 437.
+(Font)              using `T1/zi4/m/n' instead on input line 295.
 
-[6]
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 447.
-) [7] (./RJwrapper.aux)
+(Font)              scaled to size 9.18004pt on input line 305.
+[5]) [6] (./RJwrapper.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: 01A8C9C2F0E80FDC4F41B7DD9788D057;1476.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: 67866AE41203088BF92F564F3B0DFD5C;274.
+(rerunfilecheck)             Checksum: 73BCC8F54A967445C2332972B1803A62;274.
  ) 
 Here is how much of TeX's memory you used:
- 27202 strings out of 476025
- 495932 string characters out of 5790017
- 1872388 words of memory out of 5000000
- 46932 multiletter control sequences out of 15000+600000
+ 27191 strings out of 476025
+ 495729 string characters out of 5790017
+ 1870388 words of memory out of 5000000
+ 46927 multiletter control sequences out of 15000+600000
  556590 words of font info for 218 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,11n,131p,1194b,898s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,11n,131p,1194b,817s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/inconsolata/Inconsolat
 a-zi4r.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cms
@@ -1054,10 +1006,10 @@ y10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mathpazo/fplmri.
 pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></u
 sr/local/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/loca
 l/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (7 pages, 126166 bytes).
+Output written on RJwrapper.pdf (6 pages, 123674 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
  63077 words of extra memory for PDF output out of 74296 (max. 10000000)
 

@@ -39,7 +39,6 @@ preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
   distill::distill_article:
-    css: style.css
     keep_md: yes
 bibliography: paper-cardinalR.bib
 editor_options:
