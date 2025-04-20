@@ -12,15 +12,15 @@ A high-dimensional dataset is where each observation is described by many featur
 
 \section{Introduction}\label{introduction}
 
-The generation of synthetic datasets with well-defined structural properties is crucial for evaluating and benchmarking algorithms across various fields, including machine learning, data mining, and spatial statistics. Researchers often require the ability to create data with specific dimensionalities, noise characteristics, and underlying cluster structures to rigorously test the performance and robustness of their methods. While existing R packages like \texttt{geozoo} and \texttt{snedata} offer valuable tools for working with geometric objects and spatial network data, respectively, a gap exists in the comprehensive and flexible generation of high-dimensional data structures with integrated geometric underpinnings and controlled noise injection.
+Generating synthetic datasets with clearly defined geometric properties is essential for evaluating and benchmarking algorithms in various fields, such as machine learning, data mining, and computational biology. Researchers often need to generate data with specific dimensions, noise characteristics, and complex underlying structures to test the performance and robustness of their methods.
 
-Specifically, \texttt{geozoo} provides an extensive collection of geometric objects, primarily focused on fixed, often low-dimensional, shapes. While useful for representing and visualizing these forms, it lacks direct functionalities for generating high-dimensional datasets based on these geometries, nor does it inherently incorporate mechanisms for adding controlled noise or creating clustered structures based on geometric primitives with user-defined parameters such as position, scale, and orientation in arbitrary dimensions.
+There are numerous packages available in R for generating synthetic data, each designed with unique characteristics and focus areas. For example, \texttt{geozoo} (\citet{barret2016}) offers a large collection of geometric objects, allowing users to create and analyze specific shapes, primarily in lower-dimensional spaces. Another useful package is \texttt{snedata} (\citet{james2025}), which provides tools for generating simplified datasets useful for evaluating dimensionality reduction techniques like tSNE, often focusing on understanding and evaluating low-dimensional embeddings of complex data structures. Additionally, \texttt{mlbench} (\citet{friedrich2024}) includes a collection of well-known benchmark datasets commonly associated with established classification or regression challenges. In the field of single-cell omics, \texttt{splatter} (\citet{luke2017}) is particularly simulate complex biological data, effectively capturing nuances such as batch effects and differential expression.
 
-On the other hand, \texttt{snedata} focuses on spatial network datasets, which, while inherently spatial, are often represented in lower-dimensional geographic spaces. It does not offer general tools for generating high-dimensional non-networked data structures based on flexible geometric layouts or the systematic addition of noise dimensions and background noise. Furthermore, the generation of clustered data based on basic geometric shapes with fine-grained control over cluster properties is not a primary focus of this package.
+There is a valuable opportunity to improve the generation of high-dimensional data structures by integrating geometric principles with advanced noise control and customizable clustering. The \texttt{geozoo} package provides a strong foundation but could be enhanced to support high-dimensional extensions with controlled noise and user-defined parameters for clustering. Similarly, while \texttt{snedata} focuses on abstract datasets for dimensionality reduction, adding features for generating high-dimensional data from geometric layouts would enhance its usability. The \texttt{mlbench} package could also benefit from allowing users to create datasets with specific geometric structures and noise profiles. Additionally, although \texttt{splatter} specializes in biological data simulation, it could be expanded to offer a broader framework for generating diverse geometric structures across dimensions, enabling detailed control over noise and clustering. Addressing these areas could lead to more robust high-dimensional data generation tools.
 
-Therefore, a need exists for a dedicated R package that provides a versatile framework for generating synthetic data structures in arbitrary high dimensions, starting from basic geometric primitives. Such a package would ideally offer functionalities to: (i) create data structures based on geometric shapes that can be embedded and extended to higher dimensions by adding noise dimensions; (ii) introduce controlled levels of background noise to these structures; and (iii) generate clustered data by leveraging fundamental geometric shapes with user-specified positions, scales, orientations, and sample sizes in any desired dimensionality. This would empower researchers to create more realistic and challenging synthetic datasets for evaluating algorithms in various high-dimensional scenarios and spatial contexts.
+To address this gap, this paper introduces the \texttt{cardinalR} R package. This package provides a collection of functions designed to generate customizable data structures in any number of dimensions, starting from basic geometric shapes. \texttt{cardinalR} offers important functionalities that extend beyond the capabilities of existing tools, allowing users to: (i) construct high-dimensional datasets based on geometric shapes, including the option to enhance dimensionality by adding controlled noise dimensions; (ii) introduce adjustable levels of background noise to these structures; and (iii) create complex clustered data arrangements by using fundamental geometric forms, while maintaining their positions, scales, orientations, and sample sizes in arbitrary dimensional spaces. By providing these integrated features, \texttt{cardinalR} aims to provide researchers to generate more explainable and challenging synthetic datasets focused to the specific needs of evaluating algorithms in high-dimensions. This bridges the gap between geometric foundations and the flexible generation of complex synthetic data.
 
-This paper introduces the \texttt{cardinalR} R package, which aims to address these limitations by providing a comprehensive suite of functions for generating customizable high-dimensional data structures based on geometric primitives, with integrated noise injection and flexible cluster generation capabilities. By offering these functionalities, \texttt{cardinalR} seeks to provide a valuable resource for researchers needing to create synthetic datasets tailored to their specific evaluation needs in the realm of high-dimensional data analysis and beyond.
+The paper is organized as follows. In next section, introduces the implementation of \texttt{cardinalR} package on CRAN and GitHub, including demonstration of the package's key functions. We illustrate how a clustering data structure affect the Non-linear dimension reductions in \textbf{Application} section. Finally, we give a brief conclusion of the paper and discuss potential opportunities for use of our data collection.
 
 \section{Implementation}\label{implementation}
 
@@ -48,7 +48,66 @@ More documentation of the package can be found at the web site \url{https://jaya
 
 The \texttt{cardinalR} package comes with several data sets that load with the package. These are described in Table \ref{tab:datasets-tb-pdf}.
 
+\begin{table}
+
+\caption{\label{tab:datasets-tb-pdf}cardinalR data sets}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+data & explanation\\
+\midrule
+mobius\_clust\_data & \\
+mobius\_clust\_tsne\_param1 & \\
+mobius\_clust\_tsne\_param2 & \\
+mobius\_clust\_tsne\_param3 & \\
+mobius\_clust\_umap\_param1 & \\
+\addlinespace
+mobius\_clust\_umap\_param2 & \\
+mobius\_clust\_umap\_param3 & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Functions}\label{functions}
+
+\subsubsection{Main function}\label{main-function}
+
+\subsubsection{Branching}\label{branching}
+
+\begin{table}
+
+\caption{\label{tab:branching-tb-pdf}cardinalR branching data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_expbranches & \\
+gen\_linearbranches & \\
+gen\_curvybranches & \\
+gen\_orglinearbranches & \\
+gen\_orgcurvybranches & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Cone}\label{cone}
+
+\subsubsection{Cube}\label{cube}
+
+\subsubsection{Gaussian}\label{gaussian}
+
+\subsubsection{Linear}\label{linear}
+
+\subsubsection{Mobius}\label{mobius}
+
+\subsubsection{Polynomial}\label{polynomial}
+
+\subsubsection{Pyramid}\label{pyramid}
+
+\subsubsection{S-curve}\label{s-curve}
+
+\subsubsection{Sphere}\label{sphere}
 
 \subsubsection{Swiss Roll}\label{swiss-roll}
 
@@ -67,6 +126,10 @@ X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 \]
 
 This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.
+
+\subsubsection{Odd shapes}\label{odd-shapes}
+
+\subsubsection{Additional functions}\label{additional-functions}
 
 \section{Examples}\label{examples}
 
