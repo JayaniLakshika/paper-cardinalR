@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  20 APR 2025 21:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  21 APR 2025 13:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -958,13 +958,13 @@ Overfull \hbox (12.15686pt too wide) in paragraph at lines 64--64
  []
 
 [2]
-Overfull \hbox (30.21855pt too wide) in paragraph at lines 205--206
+Overfull \hbox (30.21855pt too wide) in paragraph at lines 207--208
 \T1/ppl/m/n/9 (-20) To gen-er-al-ize the Swiss roll struc-ture to ar-bi-trary d
 i-men-sions, we in-tro-duce a func-tion \T1/zi4/m/n/9 generate_swiss_roll(n,
  []
 
-[3]
-Overfull \hbox (63.49947pt too wide) in paragraph at lines 283--284
+[3] [4] [5]
+Overfull \hbox (63.49947pt too wide) in paragraph at lines 305--306
 \T1/ppl/m/n/9 (-20) This ar-ti-cle is cre-ated us-ing [][]\T1/ppl/b/n/9 (-20) k
 nitr[][] \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/
 9 (-20) rmark-down[][] \T1/ppl/m/n/9 (-20) ([][][]Xie et al.[][], [][]2018[][])
@@ -975,30 +975,30 @@ nitr[][] \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
-[4])
+)
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 295.
+(Font)              using `T1/zi4/m/n' instead on input line 317.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 305.
-[5]) [6] (./RJwrapper.aux)
+(Font)              scaled to size 9.18004pt on input line 327.
+) [6] [7] (./RJwrapper.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
-(rerunfilecheck)             Checksum: 01A8C9C2F0E80FDC4F41B7DD9788D057;1476.
+(rerunfilecheck)             Checksum: 2ECE63E6E0D38084BA7D0A795F4D7D48;1496.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: 73BCC8F54A967445C2332972B1803A62;274.
+(rerunfilecheck)             Checksum: 67866AE41203088BF92F564F3B0DFD5C;274.
  ) 
 Here is how much of TeX's memory you used:
- 27191 strings out of 476025
- 495729 string characters out of 5790017
+ 27215 strings out of 476025
+ 495928 string characters out of 5790017
  1870388 words of memory out of 5000000
  46927 multiletter control sequences out of 15000+600000
- 556590 words of font info for 218 fonts, out of 8000000 for 9000
+ 557703 words of font info for 232 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,11n,131p,1194b,817s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,11n,131p,1194b,694s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/inconsolata/Inconsolat
 a-zi4r.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cms
@@ -1006,10 +1006,10 @@ y10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mathpazo/fplmri.
 pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></u
 sr/local/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/loca
 l/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (6 pages, 123674 bytes).
+Output written on RJwrapper.pdf (7 pages, 127613 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
+ 203 PDF objects out of 1000 (max. 8388607)
+ 178 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
  63077 words of extra memory for PDF output out of 74296 (max. 10000000)
 
