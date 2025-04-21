@@ -34,11 +34,12 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-04-20'
+date: '2025-04-21'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
   distill::distill_article:
+    css: style.css
     keep_md: yes
 bibliography: paper-cardinalR.bib
 editor_options:
@@ -137,6 +138,8 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 ## Functions
 
 ### Main function
+
+Add main function argument list to a table...
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>gen_multicluster</span><span class='op'>(</span></span>
@@ -382,6 +385,8 @@ Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation func
 
 ### Odd shapes
 
+Add table of odd shapes..
+
 ### Additional functions
 
 <div class="layout-chunk" data-layout="l-body">
@@ -417,9 +422,11 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 </div>
 
 
-# Example
+# Application
 
-Add one or two datasets and evaluate how it will be useful.... (one with NLDR, one with clustering)
+1) Generate a data structure with different shapes (two non-linear, one gaussian, one linear, one cone in 5-D simplex) and fit different NLDR 
+
+2) Add background noise to the same data by linking two or three clusters, then discuss how single and complete linkage affect for the solutions
 
 # Discussion
 

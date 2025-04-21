@@ -39,7 +39,8 @@ preamble: >
   \usepackage{amsmath}
   \usepackage{array}
 output: 
- rjtools::rjournal_article:
+ rjtools::rjournal_web_article:
+    css: "style.css"
     keep_md: true
 bibliography: paper-cardinalR.bib
 editor_options: 
@@ -131,6 +132,8 @@ datasets_tb |>
 ## Functions
 
 ### Main function
+
+Add main function argument list to a table...
 
 ```{r, echo=TRUE, eval=FALSE}
 gen_multicluster(
@@ -353,6 +356,8 @@ trigonometric_tb |>
 
 ### Odd shapes
 
+Add table of odd shapes..
+
 ### Additional functions
 
 ```{r}
@@ -392,9 +397,11 @@ add_fun_tb |>
   column_spec(2, width = "8cm")
 ```
 
-# Example
+# Application
 
-Add one or two datasets and evaluate how it will be useful.... (one with NLDR, one with clustering)
+1) Generate a data structure with different shapes (two non-linear, one gaussian, one linear, one cone in 5-D simplex) and fit different NLDR 
+
+2) Add background noise to the same data by linking two or three clusters, then discuss how single and complete linkage affect for the solutions
 
 # Discussion
 
