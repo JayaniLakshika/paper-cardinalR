@@ -426,7 +426,7 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 
 1) Generate a data structure with different shapes (two non-linear, one gaussian, one linear, one cone in 5-D simplex) and fit different NLDR 
 
-2) Add background noise to the same data by linking two or three clusters, then discuss how single and complete linkage affect for the solutions
+2) Add noise dimensions to the same data by linking two or three clusters, then discuss how single and complete linkage affect for the solutions
 
 # Discussion
 
