@@ -76,6 +76,19 @@ csl: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/rjtool
 </div>
 
 
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
 # Introduction
 
 Generating synthetic datasets with clearly defined geometric properties is essential for evaluating and benchmarking algorithms in various fields, such as machine learning, data mining, and computational biology. Researchers often need to generate data with specific dimensions, noise characteristics, and complex underlying structures to test the performance and robustness of their methods.
@@ -456,6 +469,18 @@ We illustrate the use of the package by generating five clusters of different sh
 
 <div class="layout-chunk" data-layout="l-body">
 
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<img src="paper-cardinalR_files/figure-html5/unnamed-chunk-13-1.png" width="100%" />
 
 </div>
 

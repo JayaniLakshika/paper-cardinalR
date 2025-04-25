@@ -177,7 +177,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["figures/penguins.png","motivation-letter/motivation-letter.md","motivation-letter.pdf","paper-cardinalR_files/anchor-4.2.2/anchor.min.js","paper-cardinalR_files/bowser-1.9.3/bowser.min.js","paper-cardinalR_files/distill-2.2.21/template.v2.js","paper-cardinalR_files/header-attrs-2.29/header-attrs.js","paper-cardinalR_files/jquery-3.6.0/jquery-3.6.0.js","paper-cardinalR_files/jquery-3.6.0/jquery-3.6.0.min.js","paper-cardinalR_files/jquery-3.6.0/jquery-3.6.0.min.map","paper-cardinalR_files/popper-2.6.0/popper.min.js","paper-cardinalR_files/tippy-6.2.7/tippy-bundle.umd.min.js","paper-cardinalR_files/tippy-6.2.7/tippy-light-border.css","paper-cardinalR_files/tippy-6.2.7/tippy.css","paper-cardinalR_files/tippy-6.2.7/tippy.umd.min.js","paper-cardinalR_files/webcomponents-2.0.0/webcomponents.js","paper-cardinalR.bib","paper-cardinalR.log","paper-cardinalR.pdf","paper-cardinalR.tex","RJournal.sty","RJwrapper.bbl","RJwrapper.brf","RJwrapper.log","RJwrapper.tex","Rlogo-5.png","scripts/diff_shaped_five_clusters/01_data_generation.R","scripts/diff_shaped_five_clusters/02_gen_embeddings.R","style.css"]}
+  {"type":"character","attributes":{},"value":["data/five_clusts/five_clusts_pacmap_n-neighbors_10_init_random_MN-ratio_0.5_FP-ratio_2.rds","data/five_clusts/five_clusts_pca.rds","data/five_clusts/five_clusts_phate_knn_5.rds","data/five_clusts/five_clusts_trimap_n-inliers_12_n-outliers_4_n-random_3.rds","data/five_clusts/five_clusts_tsne_perplexity_30.rds","data/five_clusts/five_clusts_umap_n-neigbors_15_min-dist_0.1.rds","data/five_clusts/five_clusts.rds","figures/penguins.png","motivation-letter/motivation-letter.md","motivation-letter.pdf","paper-cardinalR_files/anchor-4.2.2/anchor.min.js","paper-cardinalR_files/bowser-1.9.3/bowser.min.js","paper-cardinalR_files/distill-2.2.21/template.v2.js","paper-cardinalR_files/figure-html5/unnamed-chunk-13-1.png","paper-cardinalR_files/header-attrs-2.29/header-attrs.js","paper-cardinalR_files/htmltools-fill-0.5.8.1/fill.css","paper-cardinalR_files/htmlwidgets-1.6.4/htmlwidgets.js","paper-cardinalR_files/jquery-3.6.0/jquery-3.6.0.js","paper-cardinalR_files/jquery-3.6.0/jquery-3.6.0.min.js","paper-cardinalR_files/jquery-3.6.0/jquery-3.6.0.min.map","paper-cardinalR_files/langevitour-0.8.0/langevitour-pack.js","paper-cardinalR_files/langevitour-binding-0.8.0/langevitour.js","paper-cardinalR_files/popper-2.6.0/popper.min.js","paper-cardinalR_files/tippy-6.2.7/tippy-bundle.umd.min.js","paper-cardinalR_files/tippy-6.2.7/tippy-light-border.css","paper-cardinalR_files/tippy-6.2.7/tippy.css","paper-cardinalR_files/tippy-6.2.7/tippy.umd.min.js","paper-cardinalR_files/webcomponents-2.0.0/webcomponents.js","paper-cardinalR.bib","paper-cardinalR.log","paper-cardinalR.pdf","paper-cardinalR.tex","RJournal.sty","RJwrapper.bbl","RJwrapper.brf","RJwrapper.log","RJwrapper.tex","Rlogo-5.png","scripts/five_clusts/01_data_generation.R","scripts/five_clusts/02_gen_embeddings.R","style.css"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1810,6 +1810,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <h2 data-number="1" id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>Generating synthetic datasets with clearly defined geometric properties is essential for evaluating and benchmarking algorithms in various fields, such as machine learning, data mining, and computational biology. Researchers often need to generate data with specific dimensions, noise characteristics, and complex underlying structures to test the performance and robustness of their methods.</p>
 <p>There are numerous packages available in R for generating synthetic data, each designed with unique characteristics and focus areas. For example, <code>geozoo</code> (<span class="citation" data-cites="barret2016">Schloerke (<a href="#ref-barret2016" role="doc-biblioref">2016</a>)</span>) offers a large collection of geometric objects, allowing users to create and analyze specific shapes, primarily in lower-dimensional spaces. Another useful package is <code>snedata</code> (<span class="citation" data-cites="james2025">Melville (<a href="#ref-james2025" role="doc-biblioref">2025</a>)</span>), which provides tools for generating simplified datasets useful for evaluating dimensionality reduction techniques like tSNE, often focusing on understanding and evaluating low-dimensional embeddings of complex data structures. Additionally, <code>mlbench</code> (<span class="citation" data-cites="friedrich2024">Leisch and Dimitriadou (<a href="#ref-friedrich2024" role="doc-biblioref">2024</a>)</span>) includes a collection of well-known benchmark datasets commonly associated with established classification or regression challenges. In the field of single-cell omics, <code>splatter</code> (<span class="citation" data-cites="luke2017">Zappia et al. (<a href="#ref-luke2017" role="doc-biblioref">2017</a>)</span>) is particularly simulate complex biological data, effectively capturing nuances such as batch effects and differential expression.</p>
@@ -2240,6 +2246,12 @@ X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 </div>
 <div class="layout-chunk" data-layout="l-body">
 
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="paper-cardinalR_files/figure-html5/unnamed-chunk-13-1.png" width="100%" /></p>
 </div>
 <h3 data-number="3.2" id="assessing-single-and-complete-linkage-in-the-presence-of-noise-dimensions"><span class="header-section-number">3.2</span> Assessing single and complete linkage in the presence of noise dimensions</h3>
 <h2 data-number="4" id="discussion"><span class="header-section-number">4</span> Discussion</h2>
