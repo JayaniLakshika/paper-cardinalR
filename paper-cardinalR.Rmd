@@ -467,7 +467,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5
 langevitour::langevitour(five_clusts[, -5])
 ```
 
-```{r projections}
+```{r five-clusts-projections}
 
 ```
 
@@ -534,6 +534,39 @@ nldr1 + nldr2 + nldr3 +
 ```
 
 ## Assessing single and complete linkage in the presence of noise dimensions
+
+```{r gen-three-clust-data}
+
+positions <- geozoo::simplex(p=4)$points[1:3, ]
+positions <- positions * 0.8
+
+## To generate data
+three_clusts <- gen_multicluster(n = c(750, 500, 250), p = 4, k = 3,
+                       loc = positions,
+                       scale = c(1, 1, 0.3),
+                       shape = c("nonlinear", "pyrtri", "gaussian"),
+                       rotation = NULL,
+                       is_bkg = FALSE)
+
+noise_df <- gen_noisedims(n = 1500, p = 3, m = rep(0, 3), s = rep(0.1, 3))
+names(noise_df) <- paste0("x", 5:7)
+
+three_clusts <- dplyr::bind_cols(three_clusts, noise_df)
+
+three_clusts <- three_clusts |>
+  dplyr::select(c(tidyselect::starts_with("x"), "cluster"))
+
+three_clusts <- normalize_data(data = three_clusts)
+
+```
+
+```{r}
+langevitour::langevitour(three_clusts[, -8])
+```
+
+```{r three-clusts-projections}
+
+```
 
 # Discussion
 
