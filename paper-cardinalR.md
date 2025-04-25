@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-04-21'
+date: '2025-04-25'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
@@ -428,9 +428,9 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 
 <!-- 2) Add noise dimensions to the same data by linking two or three clusters, then discuss how single and complete linkage affect for the solutions (refer Di's book <https://dicook.github.io/mulgar_book/8-hierarchical.html>) -->
 
-## Assessing the performance of dimension reduction on different geomatric structures in high-dimensions
+## Assessing the performance of dimension reduction on different geometric structures in high-dimensions
 
-We illustrate the use of the package by generating five clusters of different shapes, positioned with equal inter-cluster distances in $4\text{-}D$. Using this synthetic dataset, we will evaluate the performance of three popular dimensionality reduction techniques: Principal Component Analysis (PCA), t-distributed Stochastic Neighbor Embedding (tSNE), and Uniform Manifold Approximation and Projection (UMAP). 
+We illustrate the use of the package by generating five clusters of different shapes, positioned with equal inter-cluster distances in $4\text{-}D$. Using this synthetic dataset, we will evaluate the performance of six popular dimensionality reduction techniques: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
 
 # Discussion
 
