@@ -418,19 +418,18 @@ Add table of odd shapes..
 
 Table: (\#tab:add-tb-html)cardinalR additional functions
 
-|Function         |Explanation |
-|:----------------|:-----------|
-|gen_noisedims    |            |
-|gen_bkgnoise     |            |
-|randomize_rows   |            |
-|gen_nproduct     |            |
-|gen_nsum         |            |
-|gen_wavydims1    |            |
-|gen_wavydims2    |            |
-|gen_wavydims3    |            |
-|gen_rotation     |            |
-|gen_globalminmax |            |
-|scale_data       |            |
+|Function       |Explanation |
+|:--------------|:-----------|
+|gen_noisedims  |            |
+|gen_bkgnoise   |            |
+|randomize_rows |            |
+|gen_nproduct   |            |
+|gen_nsum       |            |
+|gen_wavydims1  |            |
+|gen_wavydims2  |            |
+|gen_wavydims3  |            |
+|gen_rotation   |            |
+|normalize_data |            |
 
 </div>
 
