@@ -3,6 +3,7 @@ library(readr)
 set.seed(20240412)
 
 positions <- geozoo::simplex(p=4)$points
+positions <- positions * 0.8
 
 ## To generate data
 five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5,
