@@ -58,6 +58,10 @@ knitr::opts_chunk$set(
 
 ```
 
+```{r set-seed}
+set.seed(20240412)
+```
+
 ```{r load-libraries}
 library(cardinalR)
 library(tidyverse)
@@ -407,6 +411,27 @@ add_fun_tb |>
 ## Assessing the performance of dimension reduction on different geometric structures in high-dimensions
 
 We illustrate the use of the package by generating five clusters of different shapes, positioned with equal inter-cluster distances in $4\text{-}D$. Using this synthetic dataset, we will evaluate the performance of six popular dimensionality reduction techniques: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
+
+```{r gen-five-clust-data}
+
+positions <- geozoo::simplex(p=4)$points
+
+## To generate data
+five_clusts <- gen_multicluster(n = c(450, 300, 150, 250, 350), p = 4, k = 5,
+                       loc = positions,
+                       scale = c(0.4, 0.35, 0.3, 1, 0.3),
+                       shape = c("helicalspiral", "hemisphere", "unifcube", "bluntedcone", "gaussian"),
+                       rotation = NULL,
+                       is_bkg = FALSE)
+```
+
+```{r}
+langevitour::langevitour(five_clusts[, -5])
+```
+
+```{r projections}
+
+```
 
 ## Assessing single and complete linkage in the presence of noise dimensions
 
