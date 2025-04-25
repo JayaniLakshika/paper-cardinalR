@@ -509,6 +509,24 @@ We illustrate the use of the package by generating five clusters of different sh
 </div>
 
 
+<div class="layout-chunk" data-layout="l-body">
+<img src="paper-cardinalR_files/figure-html5/unnamed-chunk-15-1.png" width="100%" />
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
 # Discussion
 
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->

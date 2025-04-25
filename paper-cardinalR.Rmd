@@ -68,6 +68,9 @@ library(tidyverse)
 library(kableExtra)
 library(geozoo)
 library(patchwork)
+library(GGally)
+library(ggdendro)
+library(mulgar)
 ```
 
 ```{r}
@@ -566,6 +569,49 @@ langevitour::langevitour(three_clusts[, -8])
 
 ```{r three-clusts-projections}
 
+```
+
+```{r}
+ggscatmat(three_clusts[, -8]) + 
+  theme_minimal() +
+  xlab("") + ylab("")
+```
+
+```{r}
+p_dist <- dist(three_clusts[, -8])
+p_hcw <- hclust(p_dist, method="ward.D2")
+p_hcs <- hclust(p_dist, method="single")
+
+p_clw <- three_clusts[, -8] |> 
+  mutate(cl = factor(cutree(p_hcw, 3))) |>
+  as.data.frame()
+p_cls <- three_clusts[, -8] |> 
+  mutate(cl = factor(cutree(p_hcs, 3))) |>
+  as.data.frame()
+
+p_w_hfly <- mulgar::hierfly(p_clw, p_hcw, scale=FALSE)
+p_s_hfly <- mulgar::hierfly(p_cls, p_hcs, scale=FALSE)
+```
+
+```{r}
+# Generate the dendrograms in 2D
+p_hcw_dd <- ggdendro::dendro_data(p_hcw)
+pw_dd <- ggplot() +
+  geom_segment(data=p_hcw_dd$segments, 
+               aes(x = x, y = y, 
+                   xend = xend, yend = yend)) + 
+  geom_point(data=p_hcw_dd$labels, aes(x=x, y=y),
+             alpha=0.8) +
+  theme_dendro()
+
+p_hcs_dd <- ggdendro::dendro_data(p_hcs)
+ps_dd <- ggplot() +
+  geom_segment(data=p_hcs_dd$segments, 
+               aes(x = x, y = y, 
+                   xend = xend, yend = yend)) + 
+  geom_point(data=p_hcs_dd$labels, aes(x=x, y=y),
+             alpha=0.8) +
+  theme_dendro()
 ```
 
 # Discussion
