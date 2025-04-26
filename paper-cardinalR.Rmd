@@ -144,20 +144,20 @@ More documentation of the package can be found at the web site <https://jayanila
 The `cardinalR` package comes with several data sets that load with the package. These are described in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:datasets-tb-html)', '\\@ref(tab:datasets-tb-pdf)'))`.
 
 ```{r}
-datasets_tb <- tibble(dt = c("mobius_clust_data", 
-                             "mobius_clust_tsne_param1", 
-                             "mobius_clust_tsne_param2",
-                             "mobius_clust_tsne_param3",
-                             "mobius_clust_umap_param1",
-                             "mobius_clust_umap_param2",
-                             "mobius_clust_umap_param3"), 
-                      text = c("",
-                               "", 
-                               "",
-                               "",
-                               "",
-                               "", 
-                               ""))
+datasets_tb <- tibble(dt = c("mobiusgau", 
+                             "mobiusgau_tsne1", 
+                             "mobiusgau_tsne2",
+                             "mobiusgau_tsne3",
+                             "mobiusgau_umap1",
+                             "mobiusgau_umap2",
+                             "mobiusgau_umap3"), 
+                      text = c("Simulated data with a Mobius and a Gaussian in 4-D space.",
+                               "The tSNE embedding with perplexity 15 for mobiusgau.", 
+                               "The tSNE embedding with perplexity 30 for mobiusgau.",
+                               "The tSNE embedding with perplexity 5 for mobiusgau.",
+                               "The UMAP embedding with number of neighbors 15 and minimum distance 0.1 for mobiusgau.",
+                               "The UMAP embedding with number of neighbors 30 and minimum distance 0.08 for mobiusgau.", 
+                               "The UMAP embedding with number of neighbors 5 and minimum distance 0.9 for mobiusgau."))
 ```
 
 ```{r datasets-tb-html, eval=knitr::is_html_output()}

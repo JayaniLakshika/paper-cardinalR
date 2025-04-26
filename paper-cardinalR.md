@@ -135,15 +135,15 @@ The `cardinalR` package comes with several data sets that load with the package.
 
 Table: (\#tab:datasets-tb-html)cardinalR data sets
 
-|data                     |explanation |
-|:------------------------|:-----------|
-|mobius_clust_data        |            |
-|mobius_clust_tsne_param1 |            |
-|mobius_clust_tsne_param2 |            |
-|mobius_clust_tsne_param3 |            |
-|mobius_clust_umap_param1 |            |
-|mobius_clust_umap_param2 |            |
-|mobius_clust_umap_param3 |            |
+|data            |explanation                                                                             |
+|:---------------|:---------------------------------------------------------------------------------------|
+|mobiusgau       |Simulated data with a Mobius and a Gaussian in 4-D space.                               |
+|mobiusgau_tsne1 |The tSNE embedding with perplexity 15 for mobiusgau.                                    |
+|mobiusgau_tsne2 |The tSNE embedding with perplexity 30 for mobiusgau.                                    |
+|mobiusgau_tsne3 |The tSNE embedding with perplexity 5 for mobiusgau.                                     |
+|mobiusgau_umap1 |The UMAP embedding with number of neighbors 15 and minimum distance 0.1 for mobiusgau.  |
+|mobiusgau_umap2 |The UMAP embedding with number of neighbors 30 and minimum distance 0.08 for mobiusgau. |
+|mobiusgau_umap3 |The UMAP embedding with number of neighbors 5 and minimum distance 0.9 for mobiusgau.   |
 
 </div>
 
