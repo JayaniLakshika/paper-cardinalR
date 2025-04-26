@@ -418,18 +418,19 @@ Add table of odd shapes..
 
 Table: (\#tab:add-tb-html)cardinalR additional functions
 
-|Function       |Explanation |
-|:--------------|:-----------|
-|gen_noisedims  |            |
-|gen_bkgnoise   |            |
-|randomize_rows |            |
-|gen_nproduct   |            |
-|gen_nsum       |            |
-|gen_wavydims1  |            |
-|gen_wavydims2  |            |
-|gen_wavydims3  |            |
-|gen_rotation   |            |
-|normalize_data |            |
+|Function          |Explanation                                                                                       |
+|:-----------------|:-------------------------------------------------------------------------------------------------|
+|gen_noisedims     |Generates additional noise dimensions.                                                            |
+|gen_bkgnoise      |Adds background noise.                                                                            |
+|randomize_rows    |Randomizes the rows.                                                                              |
+|relocate_clusters |Relocates the clusters.                                                                           |
+|gen_nproduct      |Generates a vector of positive integers whose product is approximately equal to a target value.   |
+|gen_nsum          |Generates a vector of positive integers whose summation is approximately equal to a target value. |
+|gen_wavydims1     |Generates random noise dimensions with wavy pattern generated with theta.                         |
+|gen_wavydims2     |Generates random noise dimensions with wavy pattern generated with power functions.               |
+|gen_wavydims3     |Generates random noise dimensions with wavy pattern generated with power and sine functions.      |
+|gen_rotation      |Generates rotations.                                                                              |
+|normalize_data    |Normalizes data.                                                                                  |
 
 </div>
 
