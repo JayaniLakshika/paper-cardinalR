@@ -176,22 +176,35 @@ datasets_tb |>
 
 ### Main function
 
-Add main function argument list to a table...
+```{r}
+main_tb <- tibble(arg = c("n",
+                            "p",
+                            "k",
+                            "loc",
+                            "scale",
+                            "shape",
+                            "rotation",
+                            "is_bkg"), 
+                        exp = c("A numeric vector representing the sample sizes.",
+                                "A numeric value representing the number of dimensions.",
+                                "A numeric value representing the number of clusters.",
+                                "A numeric matrix representing the locations/centroids of clusters.",
+                                "A numeric vector representing the scaling factors of clusters.",
+                                "A character vector representing the shapes of clusters.",
+                                "A numeric list which contains plane and the corresponding angle along that plane for each cluster.",
+                                "A Boolean value representing the background noise should exist or not."))
+```
 
-```{r, echo=TRUE, eval=FALSE}
-gen_multicluster(
-  n = c(200, 300, 500), p = 4, k = 3,
-  loc = matrix(c(
-    0, 0, 0, 0,
-    5, 9, 0, 0,
-    3, 4, 10, 7
-  ), nrow = 4, byrow = TRUE),
-  dim_weights = dim4_weights,
-  scale = c(3, 1, 2),
-  shape = c("gaussian", "bluntedcorn", "unifcube"),
-  rotation = rotations_4d,
-  is_bkg = FALSE
-)
+```{r main-tb-html, eval=knitr::is_html_output()}
+main_tb |> 
+  kable(caption = "The main arguments for `gen_multicluster()`.", col.names = c("Argument", "Explanation")) 
+```
+
+```{r main-tb-pdf, eval=knitr::is_latex_output()}
+main_tb |> 
+  kable(caption = "The main arguments for `gen_multicluster()`.", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
 ```
 
 ### Branching

@@ -158,22 +158,32 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 
 ### Main function
 
-Add main function argument list to a table...
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>gen_multicluster</span><span class='op'>(</span></span>
-<span>  n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>300</span>, <span class='fl'>500</span><span class='op'>)</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>3</span>,</span>
-<span>  loc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
-<span>    <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
-<span>    <span class='fl'>5</span>, <span class='fl'>9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
-<span>    <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>10</span>, <span class='fl'>7</span></span>
-<span>  <span class='op'>)</span>, nrow <span class='op'>=</span> <span class='fl'>4</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
-<span>  dim_weights <span class='op'>=</span> <span class='va'>dim4_weights</span>,</span>
-<span>  scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
-<span>  shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gaussian"</span>, <span class='st'>"bluntedcorn"</span>, <span class='st'>"unifcube"</span><span class='op'>)</span>,</span>
-<span>  rotation <span class='op'>=</span> <span class='va'>rotations_4d</span>,</span>
-<span>  is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span></span>
-<span><span class='op'>)</span></span></code></pre></div>
+
+Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
+
+|Argument |Explanation                                                                                        |
+|:--------|:--------------------------------------------------------------------------------------------------|
+|n        |A numeric vector representing the sample sizes.                                                    |
+|p        |A numeric value representing the number of dimensions.                                             |
+|k        |A numeric value representing the number of clusters.                                               |
+|loc      |A numeric matrix representing the locations/centroids of clusters.                                 |
+|scale    |A numeric vector representing the scaling factors of clusters.                                     |
+|shape    |A character vector representing the shapes of clusters.                                            |
+|rotation |A numeric list which contains plane and the corresponding angle along that plane for each cluster. |
+|is_bkg   |A Boolean value representing the background noise should exist or not.                             |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
 
 </div>
 
