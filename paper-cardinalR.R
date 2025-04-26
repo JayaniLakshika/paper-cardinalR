@@ -12,27 +12,69 @@ knitr::opts_chunk$set(
 
 
 
+## ----set-seed-----------------------------------------------------------------
+set.seed(20240412)
+
+
 ## ----load-libraries-----------------------------------------------------------
 library(cardinalR)
 library(tidyverse)
 library(kableExtra)
+library(geozoo)
+library(patchwork)
+library(colorspace)
 
 
 ## -----------------------------------------------------------------------------
-datasets_tb <- tibble(dt = c("mobius_clust_data", 
-                             "mobius_clust_tsne_param1", 
-                             "mobius_clust_tsne_param2",
-                             "mobius_clust_tsne_param3",
-                             "mobius_clust_umap_param1",
-                             "mobius_clust_umap_param2",
-                             "mobius_clust_umap_param3"), 
-                      text = c("",
-                               "", 
-                               "",
-                               "",
-                               "",
-                               "", 
-                               ""))
+#| label: plot-theme
+theme_set(theme_linedraw() +
+   theme(
+     #aspect.ratio = 1,
+     plot.background = element_rect(fill = 'transparent', colour = NA),
+     plot.title = element_text(size = 7, hjust = 0.5, vjust = -0.5),
+     panel.background = element_rect(fill = 'transparent', 
+                                     colour = NA),
+     panel.grid.major = element_blank(), 
+     panel.grid.minor = element_blank(), 
+     axis.title.x = element_blank(), axis.title.y = element_blank(),
+     axis.text.x = element_blank(), axis.ticks.x = element_blank(),
+     axis.text.y = element_blank(), axis.ticks.y = element_blank(),
+     legend.background = element_rect(fill = 'transparent', 
+                                      colour = NA),
+     legend.key = element_rect(fill = 'transparent', 
+                               colour = NA),
+     legend.position = "bottom", 
+     legend.title = element_blank(), 
+     legend.text = element_text(size=4),
+     legend.key.height = unit(0.25, 'cm'),
+     legend.key.width = unit(0.25, 'cm')
+   )
+)
+
+
+## -----------------------------------------------------------------------------
+interior_annotation <- function(label, position = c(0.92, 0.92), cex = 1, col="grey70") {
+  annotation_custom(grid::textGrob(label = label,
+                                   x = unit(position[1], "npc"), y = unit(position[2], "npc"),
+                                   gp = grid::gpar(cex = cex, col=col)))
+}
+
+
+## -----------------------------------------------------------------------------
+datasets_tb <- tibble(dt = c("mobiusgau", 
+                             "mobiusgau_tsne1", 
+                             "mobiusgau_tsne2",
+                             "mobiusgau_tsne3",
+                             "mobiusgau_umap1",
+                             "mobiusgau_umap2",
+                             "mobiusgau_umap3"), 
+                      text = c("Simulated data with a Mobius and a Gaussian in 4-D space.",
+                               "The tSNE embedding with perplexity $15$ for mobiusgau.", 
+                               "The tSNE embedding with perplexity $30$ for mobiusgau.",
+                               "The tSNE embedding with perplexity $5$ for mobiusgau.",
+                               "The UMAP embedding with number of neighbors $15$ and minimum distance $0.1$ for mobiusgau.",
+                               "The UMAP embedding with number of neighbors $30$ and minimum distance $0.08$ for mobiusgau.", 
+                               "The UMAP embedding with number of neighbors $5$ and minimum distance $0.9$ for mobiusgau."))
 
 
 ## ----datasets-tb-html, eval=knitr::is_html_output()---------------------------
@@ -47,20 +89,35 @@ datasets_tb |>
   column_spec(2, width = "8cm")
 
 
-## ----echo=TRUE, eval=FALSE----------------------------------------------------
-# gen_multicluster(
-#   n = c(200, 300, 500), p = 4, k = 3,
-#   loc = matrix(c(
-#     0, 0, 0, 0,
-#     5, 9, 0, 0,
-#     3, 4, 10, 7
-#   ), nrow = 4, byrow = TRUE),
-#   dim_weights = dim4_weights,
-#   scale = c(3, 1, 2),
-#   shape = c("gaussian", "bluntedcorn", "unifcube"),
-#   rotation = rotations_4d,
-#   is_bkg = FALSE
-# )
+## -----------------------------------------------------------------------------
+main_tb <- tibble(arg = c("n",
+                            "p",
+                            "k",
+                            "loc",
+                            "scale",
+                            "shape",
+                            "rotation",
+                            "is_bkg"), 
+                        exp = c("A numeric vector representing the sample sizes.",
+                                "A numeric value representing the number of dimensions.",
+                                "A numeric value representing the number of clusters.",
+                                "A numeric matrix representing the locations/centroids of clusters.",
+                                "A numeric vector representing the scaling factors of clusters.",
+                                "A character vector representing the shapes of clusters.",
+                                "A numeric list which contains plane and the corresponding angle along that plane for each cluster.",
+                                "A Boolean value representing the background noise should exist or not."))
+
+
+## ----main-tb-html, eval=knitr::is_html_output()-------------------------------
+# main_tb |>
+#   kable(caption = "The main arguments for `gen_multicluster()`.", col.names = c("Argument", "Explanation"))
+
+
+## ----main-tb-pdf, eval=knitr::is_latex_output()-------------------------------
+main_tb |> 
+  kable(caption = "The main arguments for `gen_multicluster()`.", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
 
 
 ## -----------------------------------------------------------------------------
@@ -228,25 +285,25 @@ trigonometric_tb |>
 add_fun_tb <- tibble(fun = c("gen_noisedims",
                             "gen_bkgnoise",
                             "randomize_rows",
+                            "relocate_clusters",
                             "gen_nproduct",
                             "gen_nsum",
                             "gen_wavydims1",
                             "gen_wavydims2",
                             "gen_wavydims3",
                             "gen_rotation",
-                            "gen_globalminmax",
-                            "scale_data"), 
-                        exp = c("",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                ""))
+                            "normalize_data"), 
+                        exp = c("Generates additional noise dimensions.",
+                                "Adds background noise.",
+                                "Randomizes the rows.",
+                                "Relocates the clusters.",
+                                "Generates a vector of positive integers whose product is approximately equal to a target value.",
+                                "Generates a vector of positive integers whose summation is approximately equal to a target value.",
+                                "Generates random noise dimensions with wavy pattern generated with theta.",
+                                "Generates random noise dimensions with wavy pattern generated with power functions.",
+                                "Generates random noise dimensions with wavy pattern generated with power and sine functions.",
+                                "Generates rotations.",
+                                "Normalizes data."))
 
 
 ## ----add-tb-html, eval=knitr::is_html_output()--------------------------------
@@ -259,4 +316,90 @@ add_fun_tb |>
   kable(caption = "cardinalR additional functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
+
+
+## ----gen-five-clust-data------------------------------------------------------
+
+positions <- geozoo::simplex(p=4)$points
+positions <- positions * 0.8
+
+## To generate data
+five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5,
+                       loc = positions,
+                       scale = c(0.4, 0.35, 0.3, 1, 0.3),
+                       shape = c("helicalspiral", "hemisphere", "unifcube", "bluntedcone", "gaussian"),
+                       rotation = NULL,
+                       is_bkg = FALSE)
+
+
+## ----eval=FALSE---------------------------------------------------------------
+# langevitour::langevitour(five_clusts[, -5])
+
+
+## ----five-clusts-projections--------------------------------------------------
+
+
+
+## ----layouts------------------------------------------------------------------
+clusters <- as.vector(five_clusts[, 5])
+
+tsne_data <- read_rds("data/five_clusts/five_clusts_tsne_perplexity_30.rds")
+
+nldr1 <- tsne_data |>
+  ggplot(aes(x = tSNE1,
+             y = tSNE2))+
+  geom_point(alpha=0.1, size=1, colour='#000000') +
+  interior_annotation("a", c(0.08, 0.93)) +
+  theme(aspect.ratio = 1) 
+
+umap_data <- read_rds("data/five_clusts/five_clusts_umap_n-neigbors_15_min-dist_0.1.rds")
+
+nldr2 <- umap_data |>
+  ggplot(aes(x = UMAP1,
+             y = UMAP2))+
+  geom_point(alpha=0.1, size=1, colour='#000000') +
+  interior_annotation("b", c(0.08, 0.93)) +
+  theme(aspect.ratio = 1) 
+
+phate_data <- read_rds("data/five_clusts/five_clusts_phate_knn_5.rds")
+
+nldr3 <- phate_data |>
+  ggplot(aes(x = PHATE1,
+             y = PHATE2))+
+  geom_point(alpha=0.1, size=1, colour='#000000') +
+  interior_annotation("c", c(0.08, 0.93)) +
+  theme(aspect.ratio = 1) 
+
+trimap_data <- read_rds("data/five_clusts/five_clusts_trimap_n-inliers_12_n-outliers_4_n-random_3.rds")
+
+nldr4 <- trimap_data |>
+  ggplot(aes(x = TriMAP1,
+             y = TriMAP2))+
+  geom_point(alpha=0.1, size=1, colour='#000000') +
+  interior_annotation("d", c(0.08, 0.93)) +
+  theme(aspect.ratio = 1) 
+
+pacmap_data <- read_rds("data/five_clusts/five_clusts_pacmap_n-neighbors_10_init_random_MN-ratio_0.5_FP-ratio_2.rds")
+
+nldr5 <- pacmap_data |>
+  ggplot(aes(x = PaCMAP1,
+             y = PaCMAP2))+
+  geom_point(alpha=0.1, size=1, colour='#000000') +
+  interior_annotation("e", c(0.08, 0.93)) +
+  theme(aspect.ratio = 1) 
+
+pca_data <- read_rds("data/five_clusts/five_clusts_pca.rds")
+
+nldr6 <- pca_data |>
+  ggplot(aes(x = pca1,
+             y = pca2))+
+  geom_point(alpha=0.1, size=1, colour='#000000') +
+  interior_annotation("f", c(0.08, 0.93)) +
+  theme(aspect.ratio = 1) 
+
+
+## -----------------------------------------------------------------------------
+nldr1 + nldr2 + nldr3 +
+  nldr4 + nldr5 + nldr6 +
+  plot_layout(ncol = 3)
 

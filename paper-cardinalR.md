@@ -459,10 +459,21 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 
 ## Assessing the performance of dimension reduction on different geometric structures in high-dimensions
 
-We illustrate the use of the package by generating five clusters of different shapes, positioned with equal inter-cluster distances in $4\text{-}D$. Using this synthetic dataset, we will evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
+This section illustrates the use of package by generating a synthetic dataset to evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021].
+
+We generated a dataset of five clusters, positioned with equal inter-cluster distances in $4\text{-}D$ space. The five clusters have different geometric structures and each contain different number of points. Specifically, the helical spiral cluster includes $2250$ points and was generated with a scale parameter of $0.4$. The hemisphere cluster consists of $1500$ points with a scale parameter of $0.35$. The uniform cube-shaped cluster contains $750$ points and uses a scale parameter of $0.3$. The blunted cone cluster includes $1250$ points, generated with a scale parameter of $1$. Finally, the Gaussian-shaped cluster contains $1750$ points and was generated with a scale parameter of $0.3$.
 
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>positions</span> <span class='op'>&lt;-</span> <span class='fu'>geozoo</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/geozoo/man/simplex.html'>simplex</a></span><span class='op'>(</span>p<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>$</span><span class='va'>points</span></span>
+<span><span class='va'>positions</span> <span class='op'>&lt;-</span> <span class='va'>positions</span> <span class='op'>*</span> <span class='fl'>0.8</span></span>
+<span></span>
+<span><span class='co'>## To generate data</span></span>
+<span><span class='va'>five_clusts</span> <span class='op'>&lt;-</span> <span class='fu'>gen_multicluster</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2250</span>, <span class='fl'>1500</span>, <span class='fl'>750</span>, <span class='fl'>1250</span>, <span class='fl'>1750</span><span class='op'>)</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>5</span>,</span>
+<span>                       loc <span class='op'>=</span> <span class='va'>positions</span>,</span>
+<span>                       scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.4</span>, <span class='fl'>0.35</span>, <span class='fl'>0.3</span>, <span class='fl'>1</span>, <span class='fl'>0.3</span><span class='op'>)</span>,</span>
+<span>                       shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"helicalspiral"</span>, <span class='st'>"hemisphere"</span>, <span class='st'>"unifcube"</span>, <span class='st'>"bluntedcone"</span>, <span class='st'>"gaussian"</span><span class='op'>)</span>,</span>
+<span>                       rotation <span class='op'>=</span> <span class='cn'>NULL</span>,</span>
+<span>                       is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span></code></pre></div>
 
 </div>
 
