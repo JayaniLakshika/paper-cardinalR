@@ -545,11 +545,13 @@ nldr6 <- pca_data |>
   theme(aspect.ratio = 1) 
 ```
 
-```{r}
+```{r, label = "fig-nldr-layouts", fig.cap="Six Drs"}
 nldr1 + nldr2 + nldr3 +
   nldr4 + nldr5 + nldr6 +
   plot_layout(ncol = 3)
 ```
+
+UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
 
 # Discussion
 

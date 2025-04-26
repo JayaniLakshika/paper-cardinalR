@@ -497,10 +497,15 @@ We generated a dataset of five clusters, positioned with equal inter-cluster dis
 
 
 <div class="layout-chunk" data-layout="l-body">
-<img src="paper-cardinalR_files/figure-html5/unnamed-chunk-13-1.png" width="100%" />
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="Six Drs" width="100%" />
+<p class="caption">(\#fig:fig-nldr-layouts)Six Drs</p>
+</div>
 
 </div>
 
+
+UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
 
 # Discussion
 
