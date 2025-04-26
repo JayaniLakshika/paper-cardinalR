@@ -72,7 +72,7 @@ mobiusgau\_umap3 & The UMAP embedding with number of neighbors \$5\$ and minimum
 
 \begin{table}
 
-\caption{\label{tab:main-tb-pdf}The main arguments for `gen_multicluster()`.}
+\caption{\label{tab:main-tb-pdf}The main arguments for gen\_multicluster().}
 \centering
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
 \toprule
@@ -279,9 +279,29 @@ normalize\_data & Normalizes data.\\
 
 \subsection{Assessing the performance of dimension reduction on different geometric structures in high-dimensions}\label{assessing-the-performance-of-dimension-reduction-on-different-geometric-structures-in-high-dimensions}
 
-We illustrate the use of the package by generating five clusters of different shapes, positioned with equal inter-cluster distances in \(4\text{-}D\). Using this synthetic dataset, we will evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) \citep{jolliffe2011}, t-distributed stochastic neighbor embedding (tSNE) \citep{laurens2008}, uniform manifold approximation and projection (UMAP) \citep{leland2018}, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm \citep{moon2019}, large-scale dimensionality reduction Using triplets (TriMAP) \citep{amid2019}, and pairwise controlled manifold approximation (PaCMAP) \citep{yingfan2021}.
+This section illustrates the use of package by generating a synthetic dataset to evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) \citep{jolliffe2011}, t-distributed stochastic neighbor embedding (tSNE) \citep{laurens2008}, uniform manifold approximation and projection (UMAP) \citep{leland2018}, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm \citep{moon2019}, large-scale dimensionality reduction Using triplets (TriMAP) \citep{amid2019}, and pairwise controlled manifold approximation (PaCMAP) \citep{yingfan2021}.
 
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/unnamed-chunk-13-1}
+We generated a dataset of five clusters, positioned with equal inter-cluster distances in \(4\text{-}D\) space. The five clusters have different geometric structures and each contain different number of points. Specifically, the helical spiral cluster includes \(2250\) points and was generated with a scale parameter of \(0.4\). The hemisphere cluster consists of \(1500\) points with a scale parameter of \(0.35\). The uniform cube-shaped cluster contains \(750\) points and uses a scale parameter of \(0.3\). The blunted cone cluster includes \(1250\) points, generated with a scale parameter of \(1\). Finally, the Gaussian-shaped cluster contains \(1750\) points and was generated with a scale parameter of \(0.3\).
+
+\begin{verbatim}
+positions <- geozoo::simplex(p=4)$points
+positions <- positions * 0.8
+
+## To generate data
+five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5,
+                       loc = positions,
+                       scale = c(0.4, 0.35, 0.3, 1, 0.3),
+                       shape = c("helicalspiral", "hemisphere", "unifcube", 
+                                 "bluntedcone", "gaussian"),
+                       rotation = NULL,
+                       is_bkg = FALSE)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Six Drs}\label{fig:fig-nldr-layouts}
+\end{figure}
+
+UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
 
 \section{Discussion}\label{discussion}
 

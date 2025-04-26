@@ -115,7 +115,7 @@ main_tb <- tibble(arg = c("n",
 
 ## ----main-tb-pdf, eval=knitr::is_latex_output()-------------------------------
 main_tb |> 
-  kable(caption = "The main arguments for `gen_multicluster()`.", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
+  kable(caption = "The main arguments for gen\\_multicluster().", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 
@@ -318,7 +318,7 @@ add_fun_tb |>
   column_spec(2, width = "8cm")
 
 
-## ----gen-five-clust-data------------------------------------------------------
+## ----gen-five-clust-data, echo=TRUE-------------------------------------------
 
 positions <- geozoo::simplex(p=4)$points
 positions <- positions * 0.8
@@ -327,7 +327,8 @@ positions <- positions * 0.8
 five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5,
                        loc = positions,
                        scale = c(0.4, 0.35, 0.3, 1, 0.3),
-                       shape = c("helicalspiral", "hemisphere", "unifcube", "bluntedcone", "gaussian"),
+                       shape = c("helicalspiral", "hemisphere", "unifcube", 
+                                 "bluntedcone", "gaussian"),
                        rotation = NULL,
                        is_bkg = FALSE)
 
@@ -398,7 +399,7 @@ nldr6 <- pca_data |>
   theme(aspect.ratio = 1) 
 
 
-## -----------------------------------------------------------------------------
+## ----label = "fig-nldr-layouts", fig.cap="Six Drs"----------------------------
 nldr1 + nldr2 + nldr3 +
   nldr4 + nldr5 + nldr6 +
   plot_layout(ncol = 3)

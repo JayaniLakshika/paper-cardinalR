@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  26 APR 2025 13:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  26 APR 2025 18:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -947,18 +947,71 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 7.91925pt on input line 53.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 6.25204pt on input line 53.
-! Missing $ inserted.
-<inserted text> 
-                $
-l.75 ... main arguments for `gen_multicluster()`.}
-                                                   
+[2] [3]
+Overfull \hbox (30.21855pt too wide) in paragraph at lines 210--211
+\T1/ppl/m/n/9 (-20) To gen-er-al-ize the Swiss roll struc-ture to ar-bi-trary d
+i-men-sions, we in-tro-duce a func-tion \T1/zi4/m/n/9 generate_swiss_roll(n,
+ []
+
+[4]
+
+Package natbib Warning: Citation `jolliffe2011' on page 5 undefined on input li
+ne 282.
+
+
+Package natbib Warning: Citation `laurens2008' on page 5 undefined on input lin
+e 282.
+
+
+Package natbib Warning: Citation `leland2018' on page 5 undefined on input line
+ 282.
+
+
+Package natbib Warning: Citation `moon2019' on page 5 undefined on input line 2
+82.
+
+
+Package natbib Warning: Citation `amid2019' on page 5 undefined on input line 2
+82.
+
+
+Package natbib Warning: Citation `yingfan2021' on page 5 undefined on input lin
+e 282.
+
+[5]
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=58, 446.66875pt 
+x 293.095pt>
+File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (t
+ype pdf)
+<use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.
+pdf  used on input line 301.
+(pdftex.def)             Requested size: 398.33858pt x 261.38591pt.
+[6 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
+
+Package natbib Warning: Citation `yihui2015' on page 7 undefined on input line 
+314.
+
+
+Package natbib Warning: Citation `yihui2018' on page 7 undefined on input line 
+314.
+
+(./RJwrapper.bbl (./RJwrapper.brf)
+\tf@brf=\write6
+\openout6 = `RJwrapper.brf'.
+
+! TeX capacity exceeded, sorry [input stack size=10000].
+\hyper@normalise ->\begingroup \catcode `\^^M
+                                             \active \def ^^M{ }\catcode `\%...
+l.13 
+      
 Here is how much of TeX's memory you used:
- 27008 strings out of 476025
- 493371 string characters out of 5790017
+ 27144 strings out of 476025
+ 495237 string characters out of 5790017
  1869388 words of memory out of 5000000
- 46826 multiletter control sequences out of 15000+600000
- 547895 words of font info for 187 fonts, out of 8000000 for 9000
+ 46850 multiletter control sequences out of 15000+600000
+ 558392 words of font info for 245 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,11n,131p,1194b,631s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 10000i,11n,9995p,1194b,695s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 !  ==> Fatal error occurred, no output PDF file produced!
