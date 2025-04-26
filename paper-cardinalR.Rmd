@@ -546,7 +546,7 @@ nldr6 <- pca_data |>
   theme(aspect.ratio = 1) 
 ```
 
-```{r, label = "fig-nldr-layouts", fig.cap="Six Drs"}
+```{r, label = "fig-nldr-layouts", fig.cap="Six different dimension reduction representations of the `mobiusgau` data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA."}
 nldr1 + nldr2 + nldr3 +
   nldr4 + nldr5 + nldr6 +
   plot_layout(ncol = 3)

@@ -499,8 +499,8 @@ We generated a dataset of five clusters, positioned with equal inter-cluster dis
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="Six Drs" width="100%" />
-<p class="caption">(\#fig:fig-nldr-layouts)Six Drs</p>
+<img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="Six different dimension reduction representations of the `mobiusgau` data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA." width="100%" />
+<p class="caption">(\#fig:fig-nldr-layouts)Six different dimension reduction representations of the `mobiusgau` data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA.</p>
 </div>
 
 </div>
