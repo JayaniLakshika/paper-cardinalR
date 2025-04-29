@@ -82,12 +82,10 @@ csl: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/rjtool
 </div>
 
 
-
 <div class="layout-chunk" data-layout="l-body">
 
 
 </div>
-
 
 # Introduction
 

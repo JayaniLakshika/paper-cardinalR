@@ -98,15 +98,10 @@ theme_set(theme_linedraw() +
 )
 ```
 
-
 ```{r}
-interior_annotation <- function(label, position = c(0.92, 0.92), cex = 1, col="grey70") {
-  annotation_custom(grid::textGrob(label = label,
-                                   x = unit(position[1], "npc"), y = unit(position[2], "npc"),
-                                   gp = grid::gpar(cex = cex, col=col)))
-}
+#| label: import-scripts
+source("scripts/additional_functions.R")
 ```
-
 # Introduction
 
 Generating synthetic datasets with clearly defined geometric properties is essential for evaluating and benchmarking algorithms in various fields, such as machine learning, data mining, and computational biology. Researchers often need to generate data with specific dimensions, noise characteristics, and complex underlying structures to test the performance and robustness of their methods.
