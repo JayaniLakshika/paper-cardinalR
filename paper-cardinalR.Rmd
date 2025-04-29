@@ -176,6 +176,8 @@ datasets_tb |>
 
 ### Main function
 
+The main arguments of the ```gen_multicluster()``` function are shown in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:main-tb-html)', '\\@ref(tab:main-tb-pdf)'))`.
+
 ```{r}
 main_tb <- tibble(arg = c("n",
                             "p",

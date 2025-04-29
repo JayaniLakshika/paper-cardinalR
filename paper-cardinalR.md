@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-04-26'
+date: '2025-04-29'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
@@ -157,6 +157,8 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 ## Functions
 
 ### Main function
+
+The main arguments of the ```gen_multicluster()``` function are shown in Table \@ref(tab:main-tb-html).
 
 <div class="layout-chunk" data-layout="l-body">
 
