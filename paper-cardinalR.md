@@ -201,13 +201,13 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
 Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 
-|Function              |Explanation |
-|:---------------------|:-----------|
-|gen_expbranches       |            |
-|gen_linearbranches    |            |
-|gen_curvybranches     |            |
-|gen_orglinearbranches |            |
-|gen_orgcurvybranches  |            |
+|Function              |Explanation                                                               |
+|:---------------------|:-------------------------------------------------------------------------|
+|gen_expbranches       |Generate a structure with exponential shaped branches.                    |
+|gen_linearbranches    |Generate a structure with linear shaped branches.                         |
+|gen_curvybranches     |Generate a structure with curvy shaped branches.                          |
+|gen_orglinearbranches |Generate a structure with linear shaped branches originated in one point. |
+|gen_orgcurvybranches  |Generate a structure with curvy shaped branches originated in one point.  |
 
 </div>
 
@@ -492,7 +492,7 @@ We generated a dataset of five clusters, positioned with equal inter-cluster dis
 <span>                       loc <span class='op'>=</span> <span class='va'>positions</span>,</span>
 <span>                       scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.4</span>, <span class='fl'>0.35</span>, <span class='fl'>0.3</span>, <span class='fl'>1</span>, <span class='fl'>0.3</span><span class='op'>)</span>,</span>
 <span>                       shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"helicalspiral"</span>, <span class='st'>"hemisphere"</span>, <span class='st'>"unifcube"</span>, </span>
-<span>                                 <span class='st'>"bluntedcone"</span>, <span class='st'>"gaussian"</span><span class='op'>)</span>,</span>
+<span>                                 <span class='st'>"cone"</span>, <span class='st'>"gaussian"</span><span class='op'>)</span>,</span>
 <span>                       rotation <span class='op'>=</span> <span class='cn'>NULL</span>,</span>
 <span>                       is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span></code></pre></div>
 

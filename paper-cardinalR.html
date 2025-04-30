@@ -1944,6 +1944,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 <table>
 <caption><span id="tab:branching-tb-html">Table 3: </span>cardinalR branching data generation functions</caption>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 77%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Function</th>
@@ -1953,23 +1957,23 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">gen_expbranches</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Generate a structure with exponential shaped branches.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gen_linearbranches</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Generate a structure with linear shaped branches.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gen_curvybranches</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Generate a structure with curvy shaped branches.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gen_orglinearbranches</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Generate a structure with linear shaped branches originated in one point.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gen_orgcurvybranches</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Generate a structure with curvy shaped branches originated in one point.</td>
 </tr>
 </tbody>
 </table>
@@ -2312,7 +2316,7 @@ X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 <span>                       loc <span class='op'>=</span> <span class='va'>positions</span>,</span>
 <span>                       scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.4</span>, <span class='fl'>0.35</span>, <span class='fl'>0.3</span>, <span class='fl'>1</span>, <span class='fl'>0.3</span><span class='op'>)</span>,</span>
 <span>                       shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"helicalspiral"</span>, <span class='st'>"hemisphere"</span>, <span class='st'>"unifcube"</span>, </span>
-<span>                                 <span class='st'>"bluntedcone"</span>, <span class='st'>"gaussian"</span><span class='op'>)</span>,</span>
+<span>                                 <span class='st'>"cone"</span>, <span class='st'>"gaussian"</span><span class='op'>)</span>,</span>
 <span>                       rotation <span class='op'>=</span> <span class='cn'>NULL</span>,</span>
 <span>                       is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span></code></pre>
 </div>
