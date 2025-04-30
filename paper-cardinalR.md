@@ -157,7 +157,7 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 
 ### Main function
 
-The main function of the package is `gen_multicluster()`. This function generates clusters of various shapes, allowing users to specify the number of samples in each cluster, as well as their locations, scaling, and rotations across specific dimensions. Additionally, users can add background noise into the generated data by using the `is_bkg` option.
+The main function of the package is `gen_multicluster()`. This function generates clusters of various shapes, allowing users to specify the number of points in each cluster, as well as their locations, scaling, and rotations across specific dimensions. Additionally, users can add background noise into the generated data by using the `is_bkg` option.
 
 The main arguments of the `gen_multicluster()` function are shown in Table \@ref(tab:main-tb-html).
 
@@ -173,7 +173,7 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
 |Argument |Explanation                                                                                        |
 |:--------|:--------------------------------------------------------------------------------------------------|
-|n        |A numeric vector representing the sample sizes.                                                    |
+|n        |A numeric vector representing the number of points in each cluster.                                |
 |p        |A numeric value representing the number of dimensions.                                             |
 |k        |A numeric value representing the number of clusters.                                               |
 |loc      |A numeric matrix representing the locations/centroids of clusters.                                 |
@@ -438,9 +438,33 @@ Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation func
 </div>
 
 
-### Odd shapes
+### Multiple cluster examples
 
-Add table of odd shapes..
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
+
+|Function       |Explanation |
+|:--------------|:-----------|
+|make_mobiusgau |            |
+|make_multigau  |            |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
 
 ### Additional functions
 

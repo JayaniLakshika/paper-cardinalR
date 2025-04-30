@@ -1881,7 +1881,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <h3 data-number="2.4" id="functions"><span class="header-section-number">2.4</span> Functions</h3>
 <h4 class="unnumbered" data-number="2.4.1" id="main-function">Main function</h4>
-<p>The main function of the package is <code>gen_multicluster()</code>. This function generates clusters of various shapes, allowing users to specify the number of samples in each cluster, as well as their locations, scaling, and rotations across specific dimensions. Additionally, users can add background noise into the generated data by using the <code>is_bkg</code> option.</p>
+<p>The main function of the package is <code>gen_multicluster()</code>. This function generates clusters of various shapes, allowing users to specify the number of points in each cluster, as well as their locations, scaling, and rotations across specific dimensions. Additionally, users can add background noise into the generated data by using the <code>is_bkg</code> option.</p>
 <p>The main arguments of the <code>gen_multicluster()</code> function are shown in Table <a href="#tab:main-tb-html">2</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1902,7 +1902,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">n</td>
-<td style="text-align: left;">A numeric vector representing the sample sizes.</td>
+<td style="text-align: left;">A numeric vector representing the number of points in each cluster.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">p</td>
@@ -2233,15 +2233,41 @@ X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.4.14" id="odd-shapes">Odd shapes</h4>
-<p>Add table of odd shapes..</p>
+<h4 class="unnumbered" data-number="2.4.14" id="multiple-cluster-examples">Multiple cluster examples</h4>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:odd-shape-tb-html">Table 10: </span>cardinalR multiple clusters generation functions</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">make_mobiusgau</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">make_multigau</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <h4 class="unnumbered" data-number="2.4.15" id="additional-functions">Additional functions</h4>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:add-tb-html">Table 10: </span>cardinalR additional functions</caption>
+<caption><span id="tab:add-tb-html">Table 11: </span>cardinalR additional functions</caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 84%" />

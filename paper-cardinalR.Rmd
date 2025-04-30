@@ -172,7 +172,7 @@ datasets_tb |>
 
 ### Main function
 
-The main function of the package is `gen_multicluster()`. This function generates clusters of various shapes, allowing users to specify the number of samples in each cluster, as well as their locations, scaling, and rotations across specific dimensions. Additionally, users can add background noise into the generated data by using the `is_bkg` option.
+The main function of the package is `gen_multicluster()`. This function generates clusters of various shapes, allowing users to specify the number of points in each cluster, as well as their locations, scaling, and rotations across specific dimensions. Additionally, users can add background noise into the generated data by using the `is_bkg` option.
 
 The main arguments of the `gen_multicluster()` function are shown in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:main-tb-html)', '\\@ref(tab:main-tb-pdf)'))`.
 
@@ -185,7 +185,7 @@ main_tb <- tibble(arg = c("n",
                             "shape",
                             "rotation",
                             "is_bkg"), 
-                        exp = c("A numeric vector representing the sample sizes.",
+                        exp = c("A numeric vector representing the number of points in each cluster.",
                                 "A numeric value representing the number of dimensions.",
                                 "A numeric value representing the number of clusters.",
                                 "A numeric matrix representing the locations/centroids of clusters.",
@@ -425,9 +425,27 @@ trigonometric_tb |>
   column_spec(2, width = "8cm")
 ```
 
-### Odd shapes
+### Multiple cluster examples
 
-Add table of odd shapes..
+
+```{r}
+odd_shapes_tb <- tibble(fun = c("make_mobiusgau",
+                                "make_multigau"), 
+                        exp = c("",
+                                ""))
+```
+
+```{r odd-shape-tb-html, eval=knitr::is_html_output()}
+odd_shapes_tb |> 
+  kable(caption = "cardinalR multiple clusters generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r odd-shape-tb-pdf, eval=knitr::is_latex_output()}
+odd_shapes_tb |> 
+  kable(caption = "cardinalR multiple clusters generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
 
 ### Additional functions
 
