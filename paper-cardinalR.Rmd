@@ -356,12 +356,14 @@ sphere_tb <- tibble(fun = c("gen_circle",
                             "gen_curvycycle",
                             "gen_unifsphere",
                             "gen_gridedsphere",
-                            "gen_clusteredspheres"), 
-                        exp = c("",
-                                "",
-                                "",
-                                "",
-                                ""))
+                            "gen_clusteredspheres",
+                            "gen_hemisphere"), 
+                        exp = c("Generate a circle.",
+                                "Generate a curvy cell cycle.",
+                                "Generate a uniform sphere.",
+                                "Generate a grided sphere.",
+                                "Generate multiple small spheres within a big sphere.",
+                                "Generate a hemisphere."))
 ```
 
 ```{r sphere-tb-html, eval=knitr::is_html_output()}

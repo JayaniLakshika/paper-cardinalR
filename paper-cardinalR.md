@@ -371,13 +371,14 @@ Table: (\#tab:scurve-tb-html)cardinalR S-curve data generation functions
 
 Table: (\#tab:sphere-tb-html)cardinalR sphere data generation functions
 
-|Function             |Explanation |
-|:--------------------|:-----------|
-|gen_circle           |            |
-|gen_curvycycle       |            |
-|gen_unifsphere       |            |
-|gen_gridedsphere     |            |
-|gen_clusteredspheres |            |
+|Function             |Explanation                                          |
+|:--------------------|:----------------------------------------------------|
+|gen_circle           |Generate a circle.                                   |
+|gen_curvycycle       |Generate a curvy cell cycle.                         |
+|gen_unifsphere       |Generate a uniform sphere.                           |
+|gen_gridedsphere     |Generate a grided sphere.                            |
+|gen_clusteredspheres |Generate multiple small spheres within a big sphere. |
+|gen_hemisphere       |Generate a hemisphere.                               |
 
 </div>
 
