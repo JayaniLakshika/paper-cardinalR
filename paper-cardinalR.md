@@ -344,10 +344,10 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 
 Table: (\#tab:scurve-tb-html)cardinalR S-curve data generation functions
 
-|Function       |Explanation |
-|:--------------|:-----------|
-|gen_scurve     |            |
-|gen_scurvehole |            |
+|Function       |Explanation                     |
+|:--------------|:-------------------------------|
+|gen_scurve     |Generate a S-curve.             |
+|gen_scurvehole |Generate a S-curve with a hole. |
 
 </div>
 

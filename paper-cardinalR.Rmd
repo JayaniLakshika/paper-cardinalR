@@ -332,8 +332,8 @@ pyramid_tb |>
 ```{r}
 scurve_tb <- tibble(fun = c("gen_scurve",
                             "gen_scurvehole"), 
-                        exp = c("",
-                                ""))
+                        exp = c("Generate a S-curve.",
+                                "Generate a S-curve with a hole."))
 ```
 
 ```{r scurve-tb-html, eval=knitr::is_html_output()}
