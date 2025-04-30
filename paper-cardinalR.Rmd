@@ -234,6 +234,29 @@ branch_tb |>
   column_spec(2, width = "8cm")
 ```
 
+
+```{r}
+arg_branching_tb <- tibble(arg = c("n",
+                          "p",
+                          "k"), 
+                        exp = c("A numeric value representing the number of points.",
+                                "A numeric value representing the number of dimensions.",
+                                "A numeric value representing the number of clusters."))
+```
+
+```{r arg-branching-tb-html, eval=knitr::is_html_output()}
+arg_branching_tb |> 
+  kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Explanation")) 
+```
+
+```{r arg-branching-tb-pdf, eval=knitr::is_latex_output()}
+arg_branching_tb |> 
+  kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
+
 ```{r data-expbranches}
 expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
 ```

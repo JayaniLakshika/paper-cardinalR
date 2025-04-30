@@ -220,6 +220,33 @@ Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 </div>
 
 
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape generators.
+
+|Argument |Explanation                                            |
+|:--------|:------------------------------------------------------|
+|n        |A numeric value representing the number of points.     |
+|p        |A numeric value representing the number of dimensions. |
+|k        |A numeric value representing the number of clusters.   |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+
 <div class="layout-chunk" data-layout="l-body">
 
 
