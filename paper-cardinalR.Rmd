@@ -636,10 +636,8 @@ five_clusts_proj1 + five_clusts_proj2 + five_clusts_proj3 +
 ```
 
 ```{r layouts}
-clusters <- five_clusts |> pull(cluster)
 
-tsne_data <- read_rds("data/five_clusts/five_clusts_tsne_perplexity_30.rds") |>
-  mutate(cluster = clusters)
+tsne_data <- read_rds("data/five_clusts/five_clusts_tsne_perplexity_30.rds") 
 
 nldr1 <- tsne_data |>
   ggplot(aes(x = tSNE1,
@@ -651,8 +649,7 @@ nldr1 <- tsne_data |>
   theme(aspect.ratio = 1,
         legend.text = element_text(size = 10)) 
 
-umap_data <- read_rds("data/five_clusts/five_clusts_umap_n-neigbors_15_min-dist_0.1.rds") |>
-  mutate(cluster = clusters)
+umap_data <- read_rds("data/five_clusts/five_clusts_umap_n-neigbors_15_min-dist_0.1.rds") 
 
 nldr2 <- umap_data |>
   ggplot(aes(x = UMAP1,
@@ -664,8 +661,7 @@ nldr2 <- umap_data |>
   theme(aspect.ratio = 1,
         legend.text = element_text(size = 10)) 
 
-phate_data <- read_rds("data/five_clusts/five_clusts_phate_knn_5.rds") |>
-  mutate(cluster = clusters)
+phate_data <- read_rds("data/five_clusts/five_clusts_phate_knn_5.rds") 
 
 nldr3 <- phate_data |>
   ggplot(aes(x = PHATE1,
@@ -677,8 +673,7 @@ nldr3 <- phate_data |>
   theme(aspect.ratio = 1,
         legend.text = element_text(size = 10)) 
 
-trimap_data <- read_rds("data/five_clusts/five_clusts_trimap_n-inliers_12_n-outliers_4_n-random_3.rds") |>
-  mutate(cluster = clusters)
+trimap_data <- read_rds("data/five_clusts/five_clusts_trimap_n-inliers_12_n-outliers_4_n-random_3.rds") 
 
 nldr4 <- trimap_data |>
   ggplot(aes(x = TriMAP1,
@@ -690,8 +685,7 @@ nldr4 <- trimap_data |>
   theme(aspect.ratio = 1,
         legend.text = element_text(size = 10))  
 
-pacmap_data <- read_rds("data/five_clusts/five_clusts_pacmap_n-neighbors_10_init_random_MN-ratio_0.5_FP-ratio_2.rds") |>
-  mutate(cluster = clusters)
+pacmap_data <- read_rds("data/five_clusts/five_clusts_pacmap_n-neighbors_10_init_random_MN-ratio_0.5_FP-ratio_2.rds") 
 
 nldr5 <- pacmap_data |>
   ggplot(aes(x = PaCMAP1,
@@ -703,8 +697,7 @@ nldr5 <- pacmap_data |>
   theme(aspect.ratio = 1,
         legend.text = element_text(size = 10)) 
 
-pca_data <- read_rds("data/five_clusts/five_clusts_pca.rds") |>
-  mutate(cluster = clusters)
+pca_data <- read_rds("data/five_clusts/five_clusts_pca.rds") 
 
 nldr6 <- pca_data |>
   ggplot(aes(x = pca1,
@@ -727,6 +720,8 @@ nldr1 + nldr2 + nldr3 +
 UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
 
 # Discussion
+
+- Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings.
 
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
 

@@ -15,6 +15,7 @@ use_condaenv("pcamp_env")
 
 
 data <- read_rds(here::here("data/five_clusts/five_clusts.rds"))
+data_n <- data
 data <- data |>
   dplyr::select(-cluster)
 
@@ -29,6 +30,9 @@ tSNE_fit <- data |>
 tSNE_data <- tSNE_fit$Y |>
   tibble::as_tibble(.name_repair = "unique")
 names(tSNE_data) <- c("tSNE1", "tSNE2")
+
+tSNE_data <- tSNE_data |>
+  dplyr::mutate(cluster = data_n$cluster)
 
 write_rds(tSNE_data, file = paste0("data/five_clusts/five_clusts_tsne_perplexity_", perplexity, ".rds"))
 
@@ -48,6 +52,9 @@ UMAP_data <- UMAP_model |>
 
 names(UMAP_data) <- c("UMAP1", "UMAP2")
 
+UMAP_data <- UMAP_data |>
+  dplyr::mutate(cluster = data_n$cluster)
+
 ## Run only once
 write_rds(UMAP_data, file = paste0("data/five_clusts/five_clusts_umap_n-neigbors_", n_neighbors, "_min-dist_", min_dist, ".rds"))
 
@@ -58,6 +65,9 @@ PHATE_data <- phate(data, knn = knn)
 PHATE_data <- as_tibble(PHATE_data$embedding)
 
 names(PHATE_data) <- c("PHATE1", "PHATE2")
+
+PHATE_data <- PHATE_data |>
+  dplyr::mutate(cluster = data_n$cluster)
 
 write_rds(PHATE_data, file = paste0("data/five_clusts/five_clusts_phate_knn_", knn, ".rds"))
 
@@ -85,6 +95,9 @@ TriMAP_data <- reducer$fit_transform(data_matrix) |>
   as_tibble()
 
 names(TriMAP_data) <- c("TriMAP1", "TriMAP2")
+
+TriMAP_data <- TriMAP_data |>
+  dplyr::mutate(cluster = data_n$cluster)
 
 write_rds(TriMAP_data, file = paste0("data/five_clusts/five_clusts_trimap_n-inliers_", n_inliers, "_n-outliers_", n_outliers, "_n-random_", n_random, ".rds"))
 
@@ -114,6 +127,9 @@ PacMAP_data <- reducer$fit_transform(data_matrix, init = init) |>
 
 names(PacMAP_data) <- c("PaCMAP1", "PaCMAP2")
 
+PacMAP_data <- PacMAP_data |>
+  dplyr::mutate(cluster = data_n$cluster)
+
 write_rds(PacMAP_data, file = paste0("data/five_clusts/five_clusts_pacmap_n-neighbors_", n_neighbors,"_init_", init, "_MN-ratio_", MN_ratio, "_FP-ratio_", FP_ratio, ".rds"))
 
 ## PCA
@@ -130,5 +146,8 @@ calculate_pca <- function(feature_dataset){
 pca_ref_calc <- calculate_pca(data)
 data_pca <- pca_ref_calc$pca_components |>
   stats::setNames(c("pca1", "pca2"))
+
+data_pca <- data_pca |>
+  dplyr::mutate(cluster = data_n$cluster)
 
 write_rds(data_pca, file = paste0("data/five_clusts/five_clusts_pca.rds"))
