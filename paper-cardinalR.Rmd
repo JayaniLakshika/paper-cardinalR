@@ -172,7 +172,9 @@ datasets_tb |>
 
 ### Main function
 
-The main arguments of the ```gen_multicluster()``` function are shown in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:main-tb-html)', '\\@ref(tab:main-tb-pdf)'))`.
+The main function of the package is `gen_multicluster()`. This function generates clusters of various shapes, allowing users to specify the number of samples in each cluster, as well as their locations, scaling, and rotations across specific dimensions. Additionally, users can add background noise into the generated data by using the `is_bkg` option.
+
+The main arguments of the `gen_multicluster()` function are shown in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:main-tb-html)', '\\@ref(tab:main-tb-pdf)'))`.
 
 ```{r}
 main_tb <- tibble(arg = c("n",
