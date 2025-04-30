@@ -256,11 +256,11 @@ Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 
 Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 
-|Function     |Explanation |
-|:------------|:-----------|
-|gen_gridcube |            |
-|gen_unifcube |            |
-|gen_cubehole |            |
+|Function     |Explanation                                                 |
+|:------------|:-----------------------------------------------------------|
+|gen_gridcube |Generate a cube with specified grid points along each axes. |
+|gen_unifcube |Generate a cube with uniform points.                        |
+|gen_cubehole |Generate a cube with a hole.                                |
 
 </div>
 
@@ -289,10 +289,10 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 
 Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
 
-|Function      |Explanation |
-|:-------------|:-----------|
-|gen_quadratic |            |
-|gen_cubic     |            |
+|Function      |Explanation                   |
+|:-------------|:-----------------------------|
+|gen_quadratic |Generate a quadratic pattern. |
+|gen_cubic     |Generate a cubic pattern.     |
 
 </div>
 

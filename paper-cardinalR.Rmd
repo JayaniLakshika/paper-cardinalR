@@ -256,9 +256,9 @@ langevitour::langevitour(bluntedcone)
 cube_tb <- tibble(fun = c("gen_gridcube",
                           "gen_unifcube",
                           "gen_cubehole"), 
-                      exp = c("",
-                              "", 
-                              ""))
+                      exp = c("Generate a cube with specified grid points along each axes.",
+                              "Generate a cube with uniform points.", 
+                              "Generate a cube with a hole."))
 ```
 
 ```{r cube-tb-html, eval=knitr::is_html_output()}
