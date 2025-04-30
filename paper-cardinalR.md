@@ -315,13 +315,12 @@ Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
 
 Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 
-|Function     |Explanation |
-|:------------|:-----------|
-|gen_pyr      |            |
-|gen_pyrrect  |            |
-|gen_pyrtri   |            |
-|gen_pyrstar  |            |
-|gen_pyrholes |            |
+|Function     |Explanation                                                                             |
+|:------------|:---------------------------------------------------------------------------------------|
+|gen_pyrrect  |Generate a pyramid with a rectangular base, with the option of a sharp or blunted apex. |
+|gen_pyrtri   |Generate a pyramid with a triangular base, with the option of a sharp or blunted apex.  |
+|gen_pyrstar  |Generate a pyramid with a star-shape base, with the option of a sharp or blunted apex.  |
+|gen_pyrholes |Generate a pyramid with triangular pyramid shaped holes.                                |
 
 </div>
 

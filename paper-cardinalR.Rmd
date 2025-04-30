@@ -303,16 +303,14 @@ polynomial_tb |>
 ### Pyramid
 
 ```{r}
-pyramid_tb <- tibble(fun = c("gen_pyr",
-                             "gen_pyrrect",
+pyramid_tb <- tibble(fun = c("gen_pyrrect",
                              "gen_pyrtri",
                              "gen_pyrstar",
                              "gen_pyrholes"), 
-                        exp = c("",
-                                "",
-                                "",
-                                "",
-                                ""))
+                        exp = c("Generate a pyramid with a rectangular base, with the option of a sharp or blunted apex.",
+                                "Generate a pyramid with a triangular base, with the option of a sharp or blunted apex.",
+                                "Generate a pyramid with a star-shape base, with the option of a sharp or blunted apex.",
+                                "Generate a pyramid with triangular pyramid shaped holes."))
 ```
 
 ```{r pyramid-tb-html, eval=knitr::is_html_output()}
