@@ -14,9 +14,9 @@ center_data <- function(data) {
 }
 
 # Function to scale data manually
-scale_data_manual <- function(data, type_col) {
+scale_data_manual <- function(data) {
   # Step 1: Center the data (mean 0)
-  data_centered <- center_data(data |> select(-all_of(type_col)))
+  data_centered <- center_data(data)
 
   # Step 2: Calculate the standard deviation of each dimension
   sds <- apply(data_centered, 2, sd)
@@ -37,8 +37,7 @@ scale_data_manual <- function(data, type_col) {
   }
 
   # Combine the scaled data with the 'type' column and return as a tibble
-  data_scaled <- as_tibble(data_scaled) %>%
-    mutate(!!type_col := data[[type_col]])
+  data_scaled <- as_tibble(data_scaled)
 
   return(data_scaled)
 }
@@ -46,7 +45,6 @@ scale_data_manual <- function(data, type_col) {
 # Get projection
 
 get_projection <- function(projection, proj_scale, scaled_data,
-                           scaled_data_model, distance_df_small_edges,
                            axis_param) {
 
   projection_scaled <- projection * proj_scale
@@ -57,24 +55,6 @@ get_projection <- function(projection, proj_scale, scaled_data,
     dplyr::rename(c("proj1" = "...1",
                     "proj2" = "...2")) |>
     dplyr::mutate(ID = dplyr::row_number())
-
-  projected_model <- as.matrix(scaled_data_model) %*% projection_scaled
-
-  projected_model_df <- projected_model |>
-    tibble::as_tibble(.name_repair = "unique") |>
-    dplyr::rename(c("proj1" = "...1",
-                    "proj2" = "...2")) |>
-    dplyr::mutate(ID = dplyr::row_number())
-
-  model_df <- dplyr::left_join(
-    distance_df_small_edges |> select(-distance),
-    projected_model_df,
-    by = c("from" = "ID"))
-
-  names(model_df)[3:NCOL(model_df)] <- paste0(names(projected_model_df)[-NCOL(projected_model_df)], "_from")
-
-  model_df <- dplyr::left_join(model_df, projected_model_df, by = c("to" = "ID"))
-  names(model_df)[(2 + NCOL(projected_model_df)):NCOL(model_df)] <- paste0(names(projected_model_df)[-NCOL(projected_model_df)], "_to")
 
   limits <- axis_param$limits
   axis_scaled <- axis_param$axis_scaled
@@ -94,7 +74,6 @@ get_projection <- function(projection, proj_scale, scaled_data,
   circle <- axes_obj$circle
 
   return(list(projected_df = projected_df,
-              model_df = model_df,
               axes = axes,
               circle = circle))
 
@@ -103,14 +82,12 @@ get_projection <- function(projection, proj_scale, scaled_data,
 # Plot projection
 plot_proj <- function(proj_obj,
                       point_param = c(1.5, 0.5, "#000000"), # size, alpha, color
-                      line_param = c(0.5, 0.5, "#000000"), #linewidth, alpha
                       plot_limits, title, cex = 2,
                       position = c(0.92, 0.92),
                       axis_text_size = 3,
                       is_color = FALSE) {
 
   projected_df <- proj_obj$projected_df
-  model_df <- proj_obj$model_df
   axes <- proj_obj$axes
   circle <- proj_obj$circle
 
@@ -144,16 +121,6 @@ plot_proj <- function(proj_obj,
   }
 
   initial_plot <- initial_plot +
-    geom_segment(
-      data = model_df,
-      aes(
-        x = proj1_from,
-        y = proj2_from,
-        xend = proj1_to,
-        yend = proj2_to),
-      color = line_param[3],
-      linewidth = as.numeric(line_param[1]),
-      alpha = as.numeric(line_param[2])) +
     geom_segment(
       data=axes,
       aes(x=x1, y=y1, xend=x2, yend=y2),

@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-04-29'
+date: '2025-04-30'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
@@ -487,6 +487,27 @@ We generated a dataset of five clusters, positioned with equal inter-cluster dis
 
 <div class="layout-chunk" data-layout="l-body">
 
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-highd-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data." width="100%" />
+<p class="caption">(\#fig:fig-highd-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data.</p>
+</div>
 
 </div>
 
