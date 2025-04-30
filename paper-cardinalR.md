@@ -193,6 +193,10 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
 ### Branching
 
+The 
+
+Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
+
 <div class="layout-chunk" data-layout="l-body">
 
 
