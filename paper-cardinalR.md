@@ -497,6 +497,8 @@ Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
 
 ### Additional functions
 
+The package includes various supplementary tools in addition to the shape-generating functions mentioned earlier. These tools allow users to generate noise dimensions with a normal distribution and various wavy patterns, create background noise, randomize the rows of the data, reposition clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table \@ref(tab:add-tb-html) details these functions.
+
 <div class="layout-chunk" data-layout="l-body">
 
 

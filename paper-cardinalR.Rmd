@@ -475,6 +475,8 @@ odd_shapes_tb |>
 
 ### Additional functions
 
+The package includes various supplementary tools in addition to the shape-generating functions mentioned earlier. These tools allow users to generate noise dimensions with a normal distribution and various wavy patterns, create background noise, randomize the rows of the data, reposition clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:add-tb-html)', '\\@ref(tab:add-tb-pdf)'))` details these functions.
+
 ```{r}
 add_fun_tb <- tibble(fun = c("gen_noisedims",
                             "gen_bkgnoise",
