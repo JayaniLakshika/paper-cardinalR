@@ -209,9 +209,7 @@ main_tb |>
 
 ### Branching
 
-The 
-
-Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:branching-tb-html)', '\\@ref(tab:branching-tb-pdf)'))` outlines these functions. The main arguments of the functions described in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:arg-branching-tb-html)', '\\@ref(tab:arg-branching-tb-pdf)'))`.
+A branching structure captures trajectories that diverge or bifurcate from a common origin, resembling processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:branching-tb-html)', '\\@ref(tab:branching-tb-pdf)'))` outlines these functions. The main arguments of the functions described in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:arg-branching-tb-html)', '\\@ref(tab:arg-branching-tb-pdf)'))`.
 
 ```{r}
 branch_tb <- tibble(fun = c("gen_expbranches",

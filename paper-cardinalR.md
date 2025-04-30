@@ -193,9 +193,7 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
 ### Branching
 
-The 
-
-Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
+A branching structure captures trajectories that diverge or bifurcate from a common origin, resembling processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
 
 <div class="layout-chunk" data-layout="l-body">
 
