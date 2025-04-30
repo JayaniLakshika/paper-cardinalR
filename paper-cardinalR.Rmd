@@ -427,6 +427,7 @@ trigonometric_tb |>
 
 ### Multiple cluster examples
 
+By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:odd-shape-tb-html)', '\\@ref(tab:odd-shape-tb-pdf)'))`.
 
 ```{r}
 odd_shapes_tb <- tibble(fun = c("make_mobiusgau",

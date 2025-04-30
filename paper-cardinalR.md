@@ -440,7 +440,7 @@ Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation func
 
 ### Multiple cluster examples
 
-
+By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table \@ref(tab:odd-shape-tb-html).
 
 <div class="layout-chunk" data-layout="l-body">
 
