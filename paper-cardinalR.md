@@ -264,6 +264,12 @@ Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape gener
 ### Cone
 
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cone</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cone</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, h <span class='op'>=</span> <span class='fl'>5</span>, ratio <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
 
 
 </div>
@@ -271,6 +277,27 @@ Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape gener
 
 <div class="layout-chunk" data-layout="l-body">
 
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-cone-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `cone` data." width="100%" />
+<p class="caption">(\#fig:fig-cone-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `cone` data.</p>
+</div>
 
 </div>
 
