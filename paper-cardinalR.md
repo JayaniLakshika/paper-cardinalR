@@ -453,10 +453,6 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 
 # Application
 
-<!-- 1) Generate a data structure with different shapes (two non-linear, one gaussian, one linear, one cone in 5-D simplex) and fit different NLDR (Then, demonstrate how this data can be used to assess the ability of different dimensionality reduction techniques (e.g., PCA, t-SNE, UMAP) to preserve the underlying structure in a lower-dimensional embedding.) -->
-
-<!-- 2) Add noise dimensions to the same data by linking two or three clusters, then discuss how single and complete linkage affect for the solutions (refer Di's book <https://dicook.github.io/mulgar_book/8-hierarchical.html>) -->
-
 ## Assessing the performance of dimension reduction on different geometric structures in high-dimensions
 
 This section illustrates the use of package by generating a synthetic dataset to evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021].
@@ -505,8 +501,8 @@ We generated a dataset of five clusters, positioned with equal inter-cluster dis
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-highd-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data." width="100%" />
-<p class="caption">(\#fig:fig-highd-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-highd-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green." width="100%" />
+<p class="caption">(\#fig:fig-highd-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.</p>
 </div>
 
 </div>
