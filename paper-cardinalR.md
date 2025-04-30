@@ -87,6 +87,7 @@ csl: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/rjtool
 
 </div>
 
+
 # Introduction
 
 Generating synthetic datasets with clearly defined geometric properties is essential for evaluating and benchmarking algorithms in various fields, such as machine learning, data mining, and computational biology. Researchers often need to generate data with specific dimensions, noise characteristics, and complex underlying structures to test the performance and robustness of their methods.
@@ -217,8 +218,31 @@ Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 </div>
 
 
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
 
 ### Cone
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
 
 ### Cube
 
@@ -394,14 +418,14 @@ This transformation ensures a gradual decay in variance across dimensions, mimic
 
 Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation functions
 
-|Function            |Explanation |
-|:-------------------|:-----------|
-|gen_crescent        |            |
-|gen_curvycylinder   |            |
-|gen_sphericalspiral |            |
-|gen_helicalspiral   |            |
-|gen_conicspiral     |            |
-|gen_nonlinear       |            |
+|Function            |Explanation                     |
+|:-------------------|:-------------------------------|
+|gen_crescent        |Generate a crescent pattern.    |
+|gen_curvycylinder   |Generate a curvy cylinder.      |
+|gen_sphericalspiral |Generate a spherical spiral.    |
+|gen_helicalspiral   |Generate a helical spiral.      |
+|gen_conicspiral     |Generate a conic spiral.        |
+|gen_nonlinear       |Generate a nonlinear hyperbola. |
 
 </div>
 
