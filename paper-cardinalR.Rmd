@@ -284,8 +284,8 @@ cube_tb |>
 ```{r}
 polynomial_tb <- tibble(fun = c("gen_quadratic",
                                 "gen_cubic"), 
-                        exp = c("",
-                                ""))
+                        exp = c("Generate a quadratic pattern.",
+                                "Generate a cubic pattern."))
 ```
 
 ```{r polynomial-tb-html, eval=knitr::is_html_output()}
