@@ -806,7 +806,7 @@ $$
 This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.
 
 ```{r data-swissroll, echo=TRUE}
-swissroll <- gen_swissroll(n = 1000, p = 4)
+swissroll <- gen_swissroll(n = 1000, p = 4, w = c(-1, 1))
 ```
 
 ```{r, eval=FALSE}

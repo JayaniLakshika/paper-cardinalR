@@ -582,7 +582,7 @@ $$
 This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, w <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
 
 </div>
 
