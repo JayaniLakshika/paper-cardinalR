@@ -532,6 +532,83 @@ Table: (\#tab:scurve-tb-html)cardinalR S-curve data generation functions
 </div>
 
 
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurve</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurve</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-scurve-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` data." width="100%" />
+<p class="caption">(\#fig:fig-scurve-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` data.</p>
+</div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurvehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurvehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-scurvehole-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurvehole` data." width="100%" />
+<p class="caption">(\#fig:fig-scurvehole-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurvehole` data.</p>
+</div>
+
+</div>
+
 
 ### Sphere
 

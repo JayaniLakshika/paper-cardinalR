@@ -757,6 +757,201 @@ scurve_tb |>
   column_spec(2, width = "8cm")
 ```
 
+```{r data-scurve, echo=TRUE}
+scurve <- gen_scurve(n = 1000, p = 4)
+```
+
+```{r, eval=FALSE}
+langevitour::langevitour(scurve)
+```
+
+```{r scurve-proj1}
+scaled_data <- scale_data_manual(scurve)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+scurve_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r scurve-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+scurve_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r scurve-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+scurve_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.62), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r, label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` data."}
+#| fig-width: 15
+#| fig-height: 5
+
+scurve_proj1 + scurve_proj2 + scurve_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+```
+
+```{r data-scurvehole, echo=TRUE}
+scurvehole <- gen_scurvehole(n = 1000, p = 4)
+```
+
+```{r, eval=FALSE}
+langevitour::langevitour(scurvehole)
+```
+
+```{r scurvehole-proj1}
+scaled_data <- scale_data_manual(scurvehole)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+scurvehole_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r scurvehole-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+scurvehole_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r scurvehole-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+scurvehole_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.62), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r, label = "fig-scurvehole-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurvehole` data."}
+#| fig-width: 15
+#| fig-height: 5
+
+scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+```
 
 ### Sphere
 
