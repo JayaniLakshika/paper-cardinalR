@@ -409,22 +409,22 @@ scaled_data <- scale_data_manual(mobius)
 
 ## First projection
 projection <- cbind(
-  c(0.22417,-0.02943,-0.02870,0.08418),
-  c(-0.02715,0.18019,0.05053,0.15254))
+    c(0.53506,0.00763,0.00097,-0.10901),
+    c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
                             scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.25,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.2, 
-                                              axis_pos_y = -0.2, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
                                               threshold = 0.022))
 
 mobius_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.25, 0.25), 
+  plot_limits = c(-0.65, 0.7), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 5,
@@ -436,8 +436,8 @@ mobius_proj1 <- plot_proj(
 
 ## Second projection
 projection <- cbind(
-  c(0.15591,0.17907,0.03198,0.04496),
-  c(-0.15376,0.10435,0.15766,0.00547))
+    c(-0.06614,0.15134,-0.44278,0.27367),
+    c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
@@ -463,8 +463,8 @@ mobius_proj2 <- plot_proj(
 
 ## Third projection
 projection <- cbind(
-  c(-0.13548,0.13832,0.05991,-0.13544),
-  c(0.08479,-0.10719,-0.01572,-0.20123))
+    c(0.10704,0.04822,-0.03416,0.53224),
+    c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
