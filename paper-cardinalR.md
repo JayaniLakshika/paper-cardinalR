@@ -701,6 +701,162 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 </div>
 
 
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrrect</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrrect</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-pyrrect-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` data." width="100%" />
+<p class="caption">(\#fig:fig-pyrrect-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` data.</p>
+</div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrtri</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrtri</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-pyrtri-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrtri` data." width="100%" />
+<p class="caption">(\#fig:fig-pyrtri-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrtri` data.</p>
+</div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrstar</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrstar</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-pyrstar-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrstar` data." width="100%" />
+<p class="caption">(\#fig:fig-pyrstar-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrstar` data.</p>
+</div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrholes</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrholes</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-pyrholes-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrholes` data." width="100%" />
+<p class="caption">(\#fig:fig-pyrholes-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrholes` data.</p>
+</div>
+
+</div>
+
+
 ### S-curve
 
 <div class="layout-chunk" data-layout="l-body">

@@ -1226,6 +1226,398 @@ pyramid_tb |>
   column_spec(2, width = "8cm")
 ```
 
+```{r data-pyrrect, echo=TRUE}
+pyrrect <- gen_pyrrect(n = 1000, p = 4)
+```
+
+```{r, eval=FALSE}
+langevitour::langevitour(pyrrect)
+```
+
+```{r pyrrect-proj1}
+scaled_data <- scale_data_manual(pyrrect)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+pyrrect_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrrect-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+pyrrect_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrrect-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+pyrrect_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.62), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r, label = "fig-pyrrect-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` data."}
+#| fig-width: 15
+#| fig-height: 5
+
+pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+```
+
+```{r data-pyrtri, echo=TRUE}
+pyrtri <- gen_pyrtri(n = 1000, p = 4)
+```
+
+```{r, eval=FALSE}
+langevitour::langevitour(pyrtri)
+```
+
+```{r pyrtri-proj1}
+scaled_data <- scale_data_manual(pyrtri)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+pyrtri_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrtri-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+pyrtri_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrtri-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+pyrtri_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.62), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r, label = "fig-pyrtri-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrtri` data."}
+#| fig-width: 15
+#| fig-height: 5
+
+pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+```
+
+```{r data-pyrstar, echo=TRUE}
+pyrstar <- gen_pyrstar(n = 1000, p = 4)
+```
+
+```{r, eval=FALSE}
+langevitour::langevitour(pyrstar)
+```
+
+```{r pyrstar-proj1}
+scaled_data <- scale_data_manual(pyrstar)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+pyrstar_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrstar-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+pyrstar_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrstar-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+pyrstar_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.62), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r, label = "fig-pyrstar-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrstar` data."}
+#| fig-width: 15
+#| fig-height: 5
+
+pyrstar_proj1 + pyrstar_proj2 + pyrstar_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+```
+
+```{r data-pyrholes, echo=TRUE}
+pyrholes <- gen_pyrholes(n = 1000, p = 4)
+```
+
+```{r, eval=FALSE}
+langevitour::langevitour(pyrholes)
+```
+
+```{r pyrholes-proj1}
+scaled_data <- scale_data_manual(pyrholes)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+pyrholes_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrholes-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+pyrholes_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrholes-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+pyrholes_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.62), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r, label = "fig-pyrholes-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrholes` data."}
+#| fig-width: 15
+#| fig-height: 5
+
+pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+```
+
 ### S-curve
 
 ```{r}
