@@ -579,7 +579,46 @@ $$
 X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
 $$
 
-This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations. 
+This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-swissroll-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `swissroll` data." width="100%" />
+<p class="caption">(\#fig:fig-swissroll-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `swissroll` data.</p>
+</div>
+
+</div>
+
 
 ### Trigonometric
 
