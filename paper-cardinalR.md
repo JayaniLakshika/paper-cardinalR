@@ -335,6 +335,45 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 
 ### Mobius
 
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mobius</span> <span class='op'>&lt;-</span> <span class='fu'>gen_mobius</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-mobius-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobius` data." width="100%" />
+<p class="caption">(\#fig:fig-mobius-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobius` data.</p>
+</div>
+
+</div>
+
+
 ### Polynomial
 
 <div class="layout-chunk" data-layout="l-body">

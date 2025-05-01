@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  26 APR 2025 19:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  1 MAY 2025 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -773,6 +773,20 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count321
 \@thisrulewidth=\dimen299
 )
+(/usr/local/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2022/03/08 v6.0d a miscellany of footnote facilities
+\FN@temptoken=\toks45
+\footnotemargin=\dimen300
+\@outputbox@depth=\dimen301
+Package footmisc Info: Declaring symbol style bringhurst on input line 695.
+Package footmisc Info: Declaring symbol style chicago on input line 703.
+Package footmisc Info: Declaring symbol style wiley on input line 712.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 723.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 743.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 764
+.
+)
 (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTleft=\skip70
@@ -780,7 +794,7 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTpre=\skip72
 \LTpost=\skip73
 \LTchunksize=\count322
-\LTcapwidth=\dimen300
+\LTcapwidth=\dimen302
 \LT@head=\box69
 \LT@firsthead=\box70
 \LT@foot=\box71
@@ -790,7 +804,7 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LT@rows=\count324
 \c@LT@tables=\count325
 \c@LT@chunks=\count326
-\LT@p@ftn=\toks45
+\LT@p@ftn=\toks46
 )
 \cslhangindent=\skip74
 \csllabelwidth=\skip75
@@ -799,8 +813,8 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count327
 \calc@Bcount=\count328
-\calc@Adimen=\dimen301
-\calc@Bdimen=\dimen302
+\calc@Adimen=\dimen303
+\calc@Bdimen=\dimen304
 \calc@Askip=\skip76
 \calc@Bskip=\skip77
 LaTeX Info: Redefining \setlength on input line 80.
@@ -816,38 +830,38 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 (./RJwrapper.aux)
 \openout1 = `RJwrapper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count331
-\scratchdimen=\dimen303
+\scratchdimen=\dimen305
 \scratchbox=\box75
 \nofMPsegments=\count332
 \nofMParguments=\count333
-\everyMPshowfont=\toks46
+\everyMPshowfont=\toks47
 \MPscratchCnt=\count334
-\MPscratchDim=\dimen304
+\MPscratchDim=\dimen306
 \MPnumerator=\count335
 \makeMPintoPDFobject=\count336
-\everyMPtoPDFconversion=\toks47
+\everyMPtoPDFconversion=\toks48
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -893,21 +907,21 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 56.
-Package microtype Info: Applying patch `item' on input line 56.
-Package microtype Info: Applying patch `toc' on input line 56.
-Package microtype Info: Applying patch `eqnum' on input line 56.
+LaTeX Info: Redefining \microtypecontext on input line 59.
+Package microtype Info: Applying patch `item' on input line 59.
+Package microtype Info: Applying patch `toc' on input line 59.
+Package microtype Info: Applying patch `eqnum' on input line 59.
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 56.
+Package microtype Warning: Unable to apply patch `footnote' on input line 59.
 
-Package microtype Info: Applying patch `verbatim' on input line 56.
+Package microtype Info: Applying patch `verbatim' on input line 59.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 56.
+LaTeX Info: Redefining \showhyphens on input line 59.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -918,8 +932,8 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
-Package backref Info: ** backref set up for natbib ** on input line 56.
-Package hyperref Info: Link coloring ON on input line 56.
+Package backref Info: ** backref set up for natbib ** on input line 59.
+Package hyperref Info: Link coloring ON on input line 59.
 
 (./RJwrapper.out) (./RJwrapper.out)
 \@outlinefile=\write5
@@ -1035,7 +1049,24 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 6.25204pt on input line 53.
  [2]
 [3]
-Overfull \hbox (30.21855pt too wide) in paragraph at lines 210--211
+
+! LaTeX Error: File `paper-cardinalR_files/figure-latex/fig-cone-proj-1' not fo
+und.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...inalR_files/figure-latex/fig-cone-proj-1}
+                                                   \caption{Three $2\text{-}...
+
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (30.21855pt too wide) in paragraph at lines 240--241
 \T1/ppl/m/n/9 (-20) To gen-er-al-ize the Swiss roll struc-ture to ar-bi-trary d
 i-men-sions, we in-tro-duce a func-tion \T1/zi4/m/n/9 generate_swiss_roll(n,
  []
@@ -1043,25 +1074,45 @@ i-men-sions, we in-tro-duce a func-tion \T1/zi4/m/n/9 generate_swiss_roll(n,
 [4]
 
 Package natbib Warning: Citation `jolliffe2011' on page 5 undefined on input li
-ne 282.
+ne 328.
 
 
 Package natbib Warning: Citation `laurens2008' on page 5 undefined on input lin
-e 282.
+e 328.
 
 
 Package natbib Warning: Citation `leland2018' on page 5 undefined on input line
- 282.
+ 328.
 
 
-Package natbib Warning: Citation `moon2019' on page 5 undefined on input line 2
-82.
+Package natbib Warning: Citation `moon2019' on page 5 undefined on input line 3
+28.
 
 
 Package natbib Warning: Citation `yingfan2021' on page 5 undefined on input lin
-e 282.
+e 328.
 
-[5]
+
+LaTeX Warning: Reference `fig:fig-highd-proj' on page 5 undefined on input line
+ 330.
+
+
+! LaTeX Error: File `paper-cardinalR_files/figure-latex/fig-highd-proj-1' not f
+ound.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.333 ...nalR_files/figure-latex/fig-highd-proj-1}
+                                                   \caption{Three $2\text{-}...
+
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[5] [6]
 
 ! LaTeX Error: File `paper-cardinalR_files/figure-latex/fig-nldr-layouts-1' not
  found.
@@ -1070,8 +1121,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.301 ...lR_files/figure-latex/fig-nldr-layouts-1}
-                                                   \caption{Six Drs}\label{f...
+l.339 ...lR_files/figure-latex/fig-nldr-layouts-1}
+                                                   \caption{Six different di...
 
 I could not locate the file with any of these extensions:
 .pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
@@ -1079,12 +1130,21 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Package natbib Warning: Citation `yihui2015' on page 6 undefined on input line 
-314.
+LaTeX Warning: Reference `fig:fig-nldr-layouts' on page 7 undefined on input li
+ne 342.
+
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 3
+49.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+)
+
+Package natbib Warning: Citation `yihui2015' on page 7 undefined on input line 
+358.
 
 
-Package natbib Warning: Citation `yihui2018' on page 6 undefined on input line 
-314.
+Package natbib Warning: Citation `yihui2018' on page 7 undefined on input line 
+358.
 
 (./RJwrapper.bbl (./RJwrapper.brf)
 \tf@brf=\write6
@@ -1101,11 +1161,11 @@ you can ask a wizard to enlarge me.
 
  
 Here is how much of TeX's memory you used:
- 27218 strings out of 476025
- 497351 string characters out of 5790017
- 1869388 words of memory out of 5000000
- 46915 multiletter control sequences out of 15000+600000
- 557733 words of font info for 237 fonts, out of 8000000 for 9000
+ 27465 strings out of 476025
+ 504307 string characters out of 5790017
+ 1872388 words of memory out of 5000000
+ 47135 multiletter control sequences out of 15000+600000
+ 558623 words of font info for 247 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 10000i,11n,9995p,1194b,698s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 10000i,11n,9995p,1194b,876s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

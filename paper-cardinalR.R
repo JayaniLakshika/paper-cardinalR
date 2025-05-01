@@ -53,11 +53,8 @@ theme_set(theme_linedraw() +
 
 
 ## -----------------------------------------------------------------------------
-interior_annotation <- function(label, position = c(0.92, 0.92), cex = 1, col="grey70") {
-  annotation_custom(grid::textGrob(label = label,
-                                   x = unit(position[1], "npc"), y = unit(position[2], "npc"),
-                                   gp = grid::gpar(cex = cex, col=col)))
-}
+#| label: import-scripts
+source("scripts/additional_functions.R")
 
 
 ## -----------------------------------------------------------------------------
@@ -98,7 +95,7 @@ main_tb <- tibble(arg = c("n",
                             "shape",
                             "rotation",
                             "is_bkg"), 
-                        exp = c("A numeric vector representing the sample sizes.",
+                        exp = c("A numeric vector representing the number of points in each cluster.",
                                 "A numeric value representing the number of dimensions.",
                                 "A numeric value representing the number of clusters.",
                                 "A numeric matrix representing the locations/centroids of clusters.",
@@ -126,11 +123,11 @@ branch_tb <- tibble(fun = c("gen_expbranches",
                              "gen_curvybranches", 
                              "gen_orglinearbranches", 
                              "gen_orgcurvybranches"), 
-                      exp = c("",
-                               "", 
-                               "",
-                               "",
-                               ""))
+                      exp = c("Generate a structure with exponential shaped branches.",
+                               "Generate a structure with linear shaped branches.", 
+                               "Generate a structure with curvy shaped branches.",
+                               "Generate a structure with linear shaped branches originated in one point.",
+                               "Generate a structure with curvy shaped branches originated in one point."))
 
 
 ## ----branching-tb-html, eval=knitr::is_html_output()--------------------------
@@ -146,12 +143,139 @@ branch_tb |>
 
 
 ## -----------------------------------------------------------------------------
+arg_branching_tb <- tibble(arg = c("n",
+                          "p",
+                          "k"), 
+                        exp = c("A numeric value representing the number of points.",
+                                "A numeric value representing the number of dimensions.",
+                                "A numeric value representing the number of clusters."))
+
+
+## ----arg-branching-tb-html, eval=knitr::is_html_output()----------------------
+# arg_branching_tb |>
+#   kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Explanation"))
+
+
+## ----arg-branching-tb-pdf, eval=knitr::is_latex_output()----------------------
+arg_branching_tb |> 
+  kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## ----data-expbranches---------------------------------------------------------
+expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
+
+
+## ----eval=FALSE---------------------------------------------------------------
+# langevitour::langevitour(expbranches)
+
+
+## ----data-bluntedcone, echo=TRUE----------------------------------------------
+cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
+
+
+## ----eval=FALSE---------------------------------------------------------------
+# langevitour::langevitour(cone)
+
+
+## ----cone-proj1---------------------------------------------------------------
+scaled_data <- scale_data_manual(cone)
+
+## First projection
+projection <- cbind(
+  c(0.22417,-0.02943,-0.02870,0.08418),
+  c(-0.02715,0.18019,0.05053,0.15254))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.25,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.2, 
+                                              axis_pos_y = -0.2, 
+                                              threshold = 0.022))
+
+cone_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.25, 0.25), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----cone-proj2---------------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+    c(0.15591,0.17907,0.03198,0.04496),
+    c(-0.15376,0.10435,0.15766,0.00547))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.1,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.08, 
+                                              axis_pos_y = -0.08, 
+                                              threshold = 0.01))
+
+cone_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.1, 0.1), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----cone-proj3---------------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+    c(-0.13548,0.13832,0.05991,-0.13544),
+    c(0.08479,-0.10719,-0.01572,-0.20123))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.25,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.25, 
+                                              axis_pos_y = -0.25, 
+                                              threshold = 0.016))
+
+cone_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.3, 0.2), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----label = "fig-cone-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cone` data."----
+#| fig-width: 15
+#| fig-height: 5
+
+cone_proj1 + cone_proj2 + cone_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+
+
+## -----------------------------------------------------------------------------
 cube_tb <- tibble(fun = c("gen_gridcube",
                           "gen_unifcube",
                           "gen_cubehole"), 
-                      exp = c("",
-                              "", 
-                              ""))
+                      exp = c("Generate a cube with specified grid points along each axes.",
+                              "Generate a cube with uniform points.", 
+                              "Generate a cube with a hole."))
 
 
 ## ----cube-tb-html, eval=knitr::is_html_output()-------------------------------
@@ -169,8 +293,8 @@ cube_tb |>
 ## -----------------------------------------------------------------------------
 polynomial_tb <- tibble(fun = c("gen_quadratic",
                                 "gen_cubic"), 
-                        exp = c("",
-                                ""))
+                        exp = c("Generate a quadratic pattern.",
+                                "Generate a cubic pattern."))
 
 
 ## ----polynomial-tb-html, eval=knitr::is_html_output()-------------------------
@@ -186,16 +310,14 @@ polynomial_tb |>
 
 
 ## -----------------------------------------------------------------------------
-pyramid_tb <- tibble(fun = c("gen_pyr",
-                             "gen_pyrrect",
+pyramid_tb <- tibble(fun = c("gen_pyrrect",
                              "gen_pyrtri",
                              "gen_pyrstar",
                              "gen_pyrholes"), 
-                        exp = c("",
-                                "",
-                                "",
-                                "",
-                                ""))
+                        exp = c("Generate a pyramid with a rectangular base, with the option of a sharp or blunted apex.",
+                                "Generate a pyramid with a triangular base, with the option of a sharp or blunted apex.",
+                                "Generate a pyramid with a star-shape base, with the option of a sharp or blunted apex.",
+                                "Generate a pyramid with triangular pyramid shaped holes."))
 
 
 ## ----pyramid-tb-html, eval=knitr::is_html_output()----------------------------
@@ -213,8 +335,8 @@ pyramid_tb |>
 ## -----------------------------------------------------------------------------
 scurve_tb <- tibble(fun = c("gen_scurve",
                             "gen_scurvehole"), 
-                        exp = c("",
-                                ""))
+                        exp = c("Generate a S-curve.",
+                                "Generate a S-curve with a hole."))
 
 
 ## ----scurve-tb-html, eval=knitr::is_html_output()-----------------------------
@@ -234,12 +356,14 @@ sphere_tb <- tibble(fun = c("gen_circle",
                             "gen_curvycycle",
                             "gen_unifsphere",
                             "gen_gridedsphere",
-                            "gen_clusteredspheres"), 
-                        exp = c("",
-                                "",
-                                "",
-                                "",
-                                ""))
+                            "gen_clusteredspheres",
+                            "gen_hemisphere"), 
+                        exp = c("Generate a circle.",
+                                "Generate a curvy cell cycle.",
+                                "Generate a uniform sphere.",
+                                "Generate a grided sphere.",
+                                "Generate multiple small spheres within a big sphere.",
+                                "Generate a hemisphere."))
 
 
 ## ----sphere-tb-html, eval=knitr::is_html_output()-----------------------------
@@ -261,12 +385,12 @@ trigonometric_tb <- tibble(fun = c("gen_crescent",
                             "gen_helicalspiral",
                             "gen_conicspiral",
                             "gen_nonlinear"), 
-                        exp = c("",
-                                "",
-                                "",
-                                "",
-                                "",
-                                ""))
+                        exp = c("Generate a crescent pattern.",
+                                "Generate a curvy cylinder.",
+                                "Generate a spherical spiral.",
+                                "Generate a helical spiral.",
+                                "Generate a conic spiral.",
+                                "Generate a nonlinear hyperbola."))
 
 
 ## ----trigonometric-tb-html, eval=knitr::is_html_output()----------------------
@@ -277,6 +401,25 @@ trigonometric_tb <- tibble(fun = c("gen_crescent",
 ## ----trigonometric-tb-pdf, eval=knitr::is_latex_output()----------------------
 trigonometric_tb |> 
   kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## -----------------------------------------------------------------------------
+odd_shapes_tb <- tibble(fun = c("make_mobiusgau",
+                                "make_multigau"), 
+                        exp = c("",
+                                ""))
+
+
+## ----odd-shape-tb-html, eval=knitr::is_html_output()--------------------------
+# odd_shapes_tb |>
+#   kable(caption = "cardinalR multiple clusters generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----odd-shape-tb-pdf, eval=knitr::is_latex_output()--------------------------
+odd_shapes_tb |> 
+  kable(caption = "cardinalR multiple clusters generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 
@@ -318,7 +461,7 @@ add_fun_tb |>
   column_spec(2, width = "8cm")
 
 
-## ----gen-five-clust-data, echo=TRUE-------------------------------------------
+## ----gen-five-clust-data, echo=FALSE------------------------------------------
 
 positions <- geozoo::simplex(p=4)$points
 positions <- positions * 0.8
@@ -328,7 +471,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5
                        loc = positions,
                        scale = c(0.4, 0.35, 0.3, 1, 0.3),
                        shape = c("helicalspiral", "hemisphere", "unifcube", 
-                                 "bluntedcone", "gaussian"),
+                                 "cone", "gaussian"),
                        rotation = NULL,
                        is_bkg = FALSE)
 
@@ -337,70 +480,180 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5
 # langevitour::langevitour(five_clusts[, -5])
 
 
-## ----five-clusts-projections--------------------------------------------------
+## ----five-clusts-projections1-------------------------------------------------
+scaled_data <- scale_data_manual(five_clusts[, -5])
 
+## First projection
+projection <- cbind(
+  c(-0.59692,0.46414,0.42436,-0.10048),
+  c(-0.54999,-0.67673,-0.03631,-0.01193))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.23, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 1,
+                                              axis_scaled = 0.8, 
+                                              axis_pos_x = -0.9, 
+                                              axis_pos_y = -0.9, 
+                                              threshold = 0.05))
+
+proj_obj1[["cluster"]] <- as.character(five_clusts$cluster)
+
+five_clusts_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2), # size, alpha, color
+  plot_limits = c(-1.1, 1), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 4,
+  is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(legend.text = element_text(size = 10))
+
+
+
+## ----five-clusts-projections2-------------------------------------------------
+## Second projection
+projection <- cbind(
+  c(0.34673,-0.35774,0.66272,0.27298),
+  c(0.24023,0.01170,-0.41886,0.72707))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.23, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 1,
+                                              axis_scaled = 0.8, 
+                                              axis_pos_x = -0.9, 
+                                              axis_pos_y = -0.9, 
+                                              threshold = 0.07))
+
+proj_obj2[["cluster"]] <- as.character(five_clusts$cluster)
+
+five_clusts_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2), # size, alpha, color
+  plot_limits = c(-1.1, 1.2), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 4,
+  is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(legend.text = element_text(size = 10))
+
+
+## ----five-clusts-projections3-------------------------------------------------
+## Third projection
+projection <- cbind(
+  c(0.47388,-0.20984,-0.56560,0.41644),
+  c(-0.51124,-0.60184,0.06463,0.36627))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.23, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 1,
+                                              axis_scaled = 0.8, 
+                                              axis_pos_x = -0.9, 
+                                              axis_pos_y = -0.9, 
+                                              threshold = 0.05))
+
+proj_obj3[["cluster"]] <- as.character(five_clusts$cluster)
+
+five_clusts_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2), # size, alpha, color
+  plot_limits = c(-1.1, 1.1), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 4,
+  is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(legend.text = element_text(size = 10))
+
+
+
+## ----label = "fig-highd-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `mobiusgau` data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green."----
+#| fig-width: 15
+#| fig-height: 5
+
+five_clusts_proj1 + five_clusts_proj2 + five_clusts_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
 
 
 ## ----layouts------------------------------------------------------------------
-clusters <- as.vector(five_clusts[, 5])
 
-tsne_data <- read_rds("data/five_clusts/five_clusts_tsne_perplexity_30.rds")
+tsne_data <- read_rds("data/five_clusts/five_clusts_tsne_perplexity_30.rds") 
 
 nldr1 <- tsne_data |>
   ggplot(aes(x = tSNE1,
-             y = tSNE2))+
-  geom_point(alpha=0.1, size=1, colour='#000000') +
-  interior_annotation("a", c(0.08, 0.93)) +
-  theme(aspect.ratio = 1) 
+             y = tSNE2,
+             color = cluster))+
+  geom_point(alpha=0.1, size=1) +
+  interior_annotation("a", c(0.08, 0.93)) + 
+  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(aspect.ratio = 1,
+        legend.text = element_text(size = 10)) 
 
-umap_data <- read_rds("data/five_clusts/five_clusts_umap_n-neigbors_15_min-dist_0.1.rds")
+umap_data <- read_rds("data/five_clusts/five_clusts_umap_n-neigbors_15_min-dist_0.1.rds") 
 
 nldr2 <- umap_data |>
   ggplot(aes(x = UMAP1,
-             y = UMAP2))+
-  geom_point(alpha=0.1, size=1, colour='#000000') +
-  interior_annotation("b", c(0.08, 0.93)) +
-  theme(aspect.ratio = 1) 
+             y = UMAP2,
+             color = cluster))+
+  geom_point(alpha=0.1, size=1) +
+  interior_annotation("b", c(0.08, 0.93)) + 
+  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(aspect.ratio = 1,
+        legend.text = element_text(size = 10)) 
 
-phate_data <- read_rds("data/five_clusts/five_clusts_phate_knn_5.rds")
+phate_data <- read_rds("data/five_clusts/five_clusts_phate_knn_5.rds") 
 
 nldr3 <- phate_data |>
   ggplot(aes(x = PHATE1,
-             y = PHATE2))+
-  geom_point(alpha=0.1, size=1, colour='#000000') +
-  interior_annotation("c", c(0.08, 0.93)) +
-  theme(aspect.ratio = 1) 
+             y = PHATE2,
+             color = cluster))+
+  geom_point(alpha=0.1, size=1) +
+  interior_annotation("c", c(0.08, 0.93)) + 
+  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(aspect.ratio = 1,
+        legend.text = element_text(size = 10)) 
 
-trimap_data <- read_rds("data/five_clusts/five_clusts_trimap_n-inliers_12_n-outliers_4_n-random_3.rds")
+trimap_data <- read_rds("data/five_clusts/five_clusts_trimap_n-inliers_12_n-outliers_4_n-random_3.rds") 
 
 nldr4 <- trimap_data |>
   ggplot(aes(x = TriMAP1,
-             y = TriMAP2))+
-  geom_point(alpha=0.1, size=1, colour='#000000') +
-  interior_annotation("d", c(0.08, 0.93)) +
-  theme(aspect.ratio = 1) 
+             y = TriMAP2,
+             color = cluster))+
+  geom_point(alpha=0.1, size=1) +
+  interior_annotation("d", c(0.08, 0.93)) + 
+  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(aspect.ratio = 1,
+        legend.text = element_text(size = 10))  
 
-pacmap_data <- read_rds("data/five_clusts/five_clusts_pacmap_n-neighbors_10_init_random_MN-ratio_0.5_FP-ratio_2.rds")
+pacmap_data <- read_rds("data/five_clusts/five_clusts_pacmap_n-neighbors_10_init_random_MN-ratio_0.5_FP-ratio_2.rds") 
 
 nldr5 <- pacmap_data |>
   ggplot(aes(x = PaCMAP1,
-             y = PaCMAP2))+
-  geom_point(alpha=0.1, size=1, colour='#000000') +
-  interior_annotation("e", c(0.08, 0.93)) +
-  theme(aspect.ratio = 1) 
+             y = PaCMAP2,
+             color = cluster))+
+  geom_point(alpha=0.1, size=1) +
+  interior_annotation("e", c(0.08, 0.93)) + 
+  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(aspect.ratio = 1,
+        legend.text = element_text(size = 10)) 
 
-pca_data <- read_rds("data/five_clusts/five_clusts_pca.rds")
+pca_data <- read_rds("data/five_clusts/five_clusts_pca.rds") 
 
 nldr6 <- pca_data |>
   ggplot(aes(x = pca1,
-             y = pca2))+
-  geom_point(alpha=0.1, size=1, colour='#000000') +
-  interior_annotation("f", c(0.08, 0.93)) +
-  theme(aspect.ratio = 1) 
+             y = pca2,
+             color = cluster))+
+  geom_point(alpha=0.1, size=1) +
+  interior_annotation("f", c(0.08, 0.93)) + 
+  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(aspect.ratio = 1,
+        legend.text = element_text(size = 10)) 
 
 
-## ----label = "fig-nldr-layouts", fig.cap="Six Drs"----------------------------
+## ----label = "fig-nldr-layouts", fig.cap="Six different dimension reduction representations of the `mobiusgau` data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA."----
+
 nldr1 + nldr2 + nldr3 +
   nldr4 + nldr5 + nldr6 +
-  plot_layout(ncol = 3)
+  plot_layout(ncol = 3, guides = "collect")
 

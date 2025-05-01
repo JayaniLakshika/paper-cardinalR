@@ -70,6 +70,10 @@ mobiusgau\_umap3 & The UMAP embedding with number of neighbors \$5\$ and minimum
 
 \subsubsection{Main function}\label{main-function}
 
+The main function of the package is \texttt{gen\_multicluster()}. This function generates clusters of various shapes, allowing users to specify the number of points in each cluster, as well as their locations, scaling, and rotations across specific dimensions. Additionally, users can add background noise into the generated data by using the \texttt{is\_bkg} option.
+
+The main arguments of the \texttt{gen\_multicluster()} function are shown in Table \ref{tab:main-tb-pdf}.
+
 \begin{table}
 
 \caption{\label{tab:main-tb-pdf}The main arguments for gen\_multicluster().}
@@ -78,7 +82,7 @@ mobiusgau\_umap3 & The UMAP embedding with number of neighbors \$5\$ and minimum
 \toprule
 Argument & Explanation\\
 \midrule
-n & A numeric vector representing the sample sizes.\\
+n & A numeric vector representing the number of points in each cluster.\\
 p & A numeric value representing the number of dimensions.\\
 k & A numeric value representing the number of clusters.\\
 loc & A numeric matrix representing the locations/centroids of clusters.\\
@@ -93,6 +97,8 @@ is\_bkg & A Boolean value representing the background noise should exist or not.
 
 \subsubsection{Branching}\label{branching}
 
+A branching structure captures trajectories that diverge or bifurcate from a common origin, resembling processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \ref{tab:branching-tb-pdf} outlines these functions. The main arguments of the functions described in Table \ref{tab:arg-branching-tb-pdf}.
+
 \begin{table}
 
 \caption{\label{tab:branching-tb-pdf}cardinalR branching data generation functions}
@@ -101,16 +107,39 @@ is\_bkg & A Boolean value representing the background noise should exist or not.
 \toprule
 Function & Explanation\\
 \midrule
-gen\_expbranches & \\
-gen\_linearbranches & \\
-gen\_curvybranches & \\
-gen\_orglinearbranches & \\
-gen\_orgcurvybranches & \\
+gen\_expbranches & Generate a structure with exponential shaped branches.\\
+gen\_linearbranches & Generate a structure with linear shaped branches.\\
+gen\_curvybranches & Generate a structure with curvy shaped branches.\\
+gen\_orglinearbranches & Generate a structure with linear shaped branches originated in one point.\\
+gen\_orgcurvybranches & Generate a structure with curvy shaped branches originated in one point.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:arg-branching-tb-pdf}The main arguments for branching shape generators.}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Argument & Explanation\\
+\midrule
+n & A numeric value representing the number of points.\\
+p & A numeric value representing the number of dimensions.\\
+k & A numeric value representing the number of clusters.\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsubsection{Cone}\label{cone}
+
+\begin{verbatim}
+cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cone-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `cone` data.}\label{fig:fig-cone-proj}
+\end{figure}
 
 \subsubsection{Cube}\label{cube}
 
@@ -122,9 +151,9 @@ gen\_orgcurvybranches & \\
 \toprule
 Function & Explanation\\
 \midrule
-gen\_gridcube & \\
-gen\_unifcube & \\
-gen\_cubehole & \\
+gen\_gridcube & Generate a cube with specified grid points along each axes.\\
+gen\_unifcube & Generate a cube with uniform points.\\
+gen\_cubehole & Generate a cube with a hole.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -145,8 +174,8 @@ gen\_cubehole & \\
 \toprule
 Function & Explanation\\
 \midrule
-gen\_quadratic & \\
-gen\_cubic & \\
+gen\_quadratic & Generate a quadratic pattern.\\
+gen\_cubic & Generate a cubic pattern.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -161,11 +190,10 @@ gen\_cubic & \\
 \toprule
 Function & Explanation\\
 \midrule
-gen\_pyr & \\
-gen\_pyrrect & \\
-gen\_pyrtri & \\
-gen\_pyrstar & \\
-gen\_pyrholes & \\
+gen\_pyrrect & Generate a pyramid with a rectangular base, with the option of a sharp or blunted apex.\\
+gen\_pyrtri & Generate a pyramid with a triangular base, with the option of a sharp or blunted apex.\\
+gen\_pyrstar & Generate a pyramid with a star-shape base, with the option of a sharp or blunted apex.\\
+gen\_pyrholes & Generate a pyramid with triangular pyramid shaped holes.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -180,8 +208,8 @@ gen\_pyrholes & \\
 \toprule
 Function & Explanation\\
 \midrule
-gen\_scurve & \\
-gen\_scurvehole & \\
+gen\_scurve & Generate a S-curve.\\
+gen\_scurvehole & Generate a S-curve with a hole.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -196,11 +224,13 @@ gen\_scurvehole & \\
 \toprule
 Function & Explanation\\
 \midrule
-gen\_circle & \\
-gen\_curvycycle & \\
-gen\_unifsphere & \\
-gen\_gridedsphere & \\
-gen\_clusteredspheres & \\
+gen\_circle & Generate a circle.\\
+gen\_curvycycle & Generate a curvy cell cycle.\\
+gen\_unifsphere & Generate a uniform sphere.\\
+gen\_gridedsphere & Generate a grided sphere.\\
+gen\_clusteredspheres & Generate multiple small spheres within a big sphere.\\
+\addlinespace
+gen\_hemisphere & Generate a hemisphere.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -233,22 +263,38 @@ This transformation ensures a gradual decay in variance across dimensions, mimic
 \toprule
 Function & Explanation\\
 \midrule
-gen\_crescent & \\
-gen\_curvycylinder & \\
-gen\_sphericalspiral & \\
-gen\_helicalspiral & \\
-gen\_conicspiral & \\
+gen\_crescent & Generate a crescent pattern.\\
+gen\_curvycylinder & Generate a curvy cylinder.\\
+gen\_sphericalspiral & Generate a spherical spiral.\\
+gen\_helicalspiral & Generate a helical spiral.\\
+gen\_conicspiral & Generate a conic spiral.\\
 \addlinespace
-gen\_nonlinear & \\
+gen\_nonlinear & Generate a nonlinear hyperbola.\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsubsection{Odd shapes}\label{odd-shapes}
+\subsubsection{Multiple cluster examples}\label{multiple-cluster-examples}
 
-Add table of odd shapes..
+By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table \ref{tab:odd-shape-tb-pdf}.
+
+\begin{table}
+
+\caption{\label{tab:odd-shape-tb-pdf}cardinalR multiple clusters generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+make\_mobiusgau & \\
+make\_multigau & \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsubsection{Additional functions}\label{additional-functions}
+
+The package includes various supplementary tools in addition to the shape-generating functions mentioned earlier. These tools allow users to generate noise dimensions with a normal distribution and various wavy patterns, create background noise, randomize the rows of the data, reposition clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table \ref{tab:add-tb-pdf} details these functions.
 
 \begin{table}
 
@@ -281,29 +327,27 @@ normalize\_data & Normalizes data.\\
 
 This section illustrates the use of package by generating a synthetic dataset to evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) \citep{jolliffe2011}, t-distributed stochastic neighbor embedding (tSNE) \citep{laurens2008}, uniform manifold approximation and projection (UMAP) \citep{leland2018}, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm \citep{moon2019}, large-scale dimensionality reduction Using triplets (TriMAP) \citep{amid2019}, and pairwise controlled manifold approximation (PaCMAP) \citep{yingfan2021}.
 
-We generated a dataset of five clusters, positioned with equal inter-cluster distances in \(4\text{-}D\) space. The five clusters have different geometric structures and each contain different number of points. Specifically, the helical spiral cluster includes \(2250\) points and was generated with a scale parameter of \(0.4\). The hemisphere cluster consists of \(1500\) points with a scale parameter of \(0.35\). The uniform cube-shaped cluster contains \(750\) points and uses a scale parameter of \(0.3\). The blunted cone cluster includes \(1250\) points, generated with a scale parameter of \(1\). Finally, the Gaussian-shaped cluster contains \(1750\) points and was generated with a scale parameter of \(0.3\).
-
-\begin{verbatim}
-positions <- geozoo::simplex(p=4)$points
-positions <- positions * 0.8
-
-## To generate data
-five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5,
-                       loc = positions,
-                       scale = c(0.4, 0.35, 0.3, 1, 0.3),
-                       shape = c("helicalspiral", "hemisphere", "unifcube", 
-                                 "bluntedcone", "gaussian"),
-                       rotation = NULL,
-                       is_bkg = FALSE)
-\end{verbatim}
+The following code generates a dataset of five clusters, positioned with equal inter-cluster distances in \(4\text{-}D\) space (Figure \ref{fig:fig-highd-proj}).
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Six Drs}\label{fig:fig-nldr-layouts}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-highd-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.}\label{fig:fig-highd-proj}
 \end{figure}
 
-UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
+The five clusters have different geometric structures and each contain different number of points. Specifically, the helical spiral cluster includes \(2250\) points and was generated with a scale parameter of \(0.4\). The hemisphere cluster consists of \(1500\) points with a scale parameter of \(0.35\). The uniform cube-shaped cluster contains \(750\) points and uses a scale parameter of \(0.3\). The blunted cone cluster includes \(1250\) points, generated with a scale parameter of \(1\). Finally, the Gaussian-shaped cluster contains \(1750\) points and was generated with a scale parameter of \(0.3\).
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Six different dimension reduction representations of the `mobiusgau` data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA.}\label{fig:fig-nldr-layouts}
+\end{figure}
+
+UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure (Figure \ref{fig:fig-nldr-layouts}). However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
 
 \section{Discussion}\label{discussion}
+
+\begin{itemize}
+\tightlist
+\item
+  Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings.
+\end{itemize}
 
 \section{Code}\label{code}
 
