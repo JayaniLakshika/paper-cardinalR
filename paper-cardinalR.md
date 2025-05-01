@@ -250,6 +250,12 @@ Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape gener
 
 
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>expbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_expbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
 
 
 </div>
@@ -257,6 +263,183 @@ Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape gener
 
 <div class="layout-chunk" data-layout="l-body">
 
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-expbranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches` data." width="100%" />
+<p class="caption">(\#fig:fig-expbranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches` data.</p>
+</div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_linearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-linearbranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `linearbranches` data." width="100%" />
+<p class="caption">(\#fig:fig-linearbranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `linearbranches` data.</p>
+</div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvybranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvybranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-curvybranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvybranches` data." width="100%" />
+<p class="caption">(\#fig:fig-curvybranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvybranches` data.</p>
+</div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>orglinearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_orglinearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-orglinearbranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `orglinearbranches` data." width="100%" />
+<p class="caption">(\#fig:fig-orglinearbranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `orglinearbranches` data.</p>
+</div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>orgcurvybranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_orgcurvybranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-orgcurvybranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `orgcurvybranches` data." width="100%" />
+<p class="caption">(\#fig:fig-orgcurvybranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `orgcurvybranches` data.</p>
+</div>
 
 </div>
 
