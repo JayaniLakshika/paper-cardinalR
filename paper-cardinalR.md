@@ -478,6 +478,84 @@ Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
 </div>
 
 
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>quadratic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_quadratic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-quadratic-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` data." width="100%" />
+<p class="caption">(\#fig:fig-quadratic-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` data.</p>
+</div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-cubic-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubic` data." width="100%" />
+<p class="caption">(\#fig:fig-cubic-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubic` data.</p>
+</div>
+
+</div>
+
+
 ### Pyramid
 
 <div class="layout-chunk" data-layout="l-body">
