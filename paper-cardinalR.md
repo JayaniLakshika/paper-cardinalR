@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-05-01'
+date: '2025-05-04'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
@@ -445,6 +445,24 @@ Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape gener
 
 
 ### Cone
+
+To simulate a cone-shaped structure in arbitrary dimensions, we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
+
+This function generates `n` points in a `p`-dimensional space, where the last dimension (`X_p`) represents height along the cone's axis, and the remaining dimensions define a shrinking hyperspherical cross-section as one moves toward the tip.
+
+Points along the height axis are drawn from an exponential distribution to increase density near the tip:
+
+$$
+X_p = h_i \sim \text{Exp}(\lambda = 2/h), \quad \text{truncated at } h
+$$
+
+The effective radius at height $h_i$ decreases linearly from base to tip, controlled by a shape ratio parameter:
+
+$$
+r_i = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}}) \cdot \frac{h_i}{h}, \quad \text{where } r_{\text{min}} = \text{ratio},\ r_{\text{max}} = 1
+$$
+
+For each point, a direction is sampled uniformly from a $(p-1)$-dimensional hypersphere using generalized spherical coordinates (angles). The radial coordinates are scaled by $r_i$, which ensures a conical taper. Specifically, when $p = 3$, this scaling results in a classic $3\text{-}D$ cone. However, for $p > 3$, the introduction of additional angular components allows for a smooth extension into higher dimensions, preserving the conical shape while accommodating the complexities of multi-dimensional geometry. 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cone</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cone</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, h <span class='op'>=</span> <span class='fl'>5</span>, ratio <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre></div>
@@ -1412,7 +1430,7 @@ Table: (\#tab:sphere-tb-html)cardinalR sphere data generation functions
 
 ### Swiss Roll  
 
-To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function `generate_swiss_roll(n, p)`, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.  
+To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function `gen_swissroll(n, p, w)`, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.  
 
 The function generates `n` points in a `p`-dimensional space, where the first two dimensions (`X_1, X_2`) define the primary Swiss roll shape using a parametric equation:  
 
