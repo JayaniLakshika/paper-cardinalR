@@ -1084,6 +1084,18 @@ Table: (\#tab:scurve-tb-html)cardinalR S-curve data generation functions
 </div>
 
 
+To simulate an S-curve structure in a higher-dimensional space, we define the function `gen_scurve(n, p)`, which generates `n` observations in `p` dimensions. 
+
+The $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\theta \sim U\left(-\frac{3\pi}{2}, \frac{3\pi}{2}\right)$. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure:
+  
+$$
+  X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta) \cdot (\cos(\theta) - 1).
+$$
+
+This configuration creates a horizontally curled shape in $(X_1, X_3)$, with additional band thickness in the $X_2$ direction.
+
+For $p > 3$, additional noise dimensions are appended introducing structured, wavy perturbations.
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurve</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurve</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 

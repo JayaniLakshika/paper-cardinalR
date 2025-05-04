@@ -2611,6 +2611,13 @@ Figure 18: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
+<p>To simulate an S-curve structure in a higher-dimensional space, we define the function <code>gen_scurve(n, p)</code>, which generates <code>n</code> observations in <code>p</code> dimensions.</p>
+<p>The <span class="math inline">\(3\text{-}D\)</span> geometry is constructed by introducing a latent parameter, <span class="math inline">\(\theta \sim U\left(-\frac{3\pi}{2}, \frac{3\pi}{2}\right)\)</span>. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure:</p>
+<p><span class="math display">\[
+  X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta) \cdot (\cos(\theta) - 1).
+\]</span></p>
+<p>This configuration creates a horizontally curled shape in <span class="math inline">\((X_1, X_3)\)</span>, with additional band thickness in the <span class="math inline">\(X_2\)</span> direction.</p>
+<p>For <span class="math inline">\(p &gt; 3\)</span>, additional noise dimensions are appended introducing structured, wavy perturbations.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurve</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurve</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
