@@ -1430,21 +1430,15 @@ Table: (\#tab:sphere-tb-html)cardinalR sphere data generation functions
 
 ### Swiss Roll  
 
-To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function `gen_swissroll(n, p, w)`, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.  
+To further generalize the Swiss roll structure and introduce realistic noise, we define a function `gen_swissroll(n, p, w)`, where `n` is the number of points, `p` is the total number of dimensions, and `w` is the vertical range in the third dimension.  
 
-The function generates `n` points in a `p`-dimensional space, where the first two dimensions (`X_1, X_2`) define the primary Swiss roll shape using a parametric equation:  
-
-$$
-X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad \text{where } t \sim U(0, 3\pi)
-$$
-
-The third dimension (`X_3`) introduces variation perpendicular to the roll, sampled uniformly from \([-1,1]\). Additional dimensions (`X_4` to `X_p`) extend the data structure by applying a **sinusoidal transformation** of the parameter `t`, ensuring continuity in higher-dimensional spaces:  
+The first three dimensions form the classic $3\text{-}D$ Swiss roll shape:
 
 $$
-X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
+X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad \text{with } t \sim U(0, 3\pi)
 $$
 
-This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.
+For $p > 3$, the remaining $p - 3$ dimensions are filled with small Gaussian noise to simulate high-dimensional complexity. 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, w <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>

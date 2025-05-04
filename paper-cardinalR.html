@@ -2862,16 +2862,12 @@ Figure 26: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 </div>
 <h4 class="unnumbered" data-number="2.4.12" id="swiss-roll">Swiss Roll</h4>
-<p>To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function <code>gen_swissroll(n, p, w)</code>, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.</p>
-<p>The function generates <code>n</code> points in a <code>p</code>-dimensional space, where the first two dimensions (<code>X_1, X_2</code>) define the primary Swiss roll shape using a parametric equation:</p>
+<p>To further generalize the Swiss roll structure and introduce realistic noise, we define a function <code>gen_swissroll(n, p, w)</code>, where <code>n</code> is the number of points, <code>p</code> is the total number of dimensions, and <code>w</code> is the vertical range in the third dimension.</p>
+<p>The first three dimensions form the classic <span class="math inline">\(3\text{-}D\)</span> Swiss roll shape:</p>
 <p><span class="math display">\[
-X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad \text{where } t \sim U(0, 3\pi)
+X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad \text{with } t \sim U(0, 3\pi)
 \]</span></p>
-<p>The third dimension (<code>X_3</code>) introduces variation perpendicular to the roll, sampled uniformly from <span class="math inline">\([-1,1]\)</span>. Additional dimensions (<code>X_4</code> to <code>X_p</code>) extend the data structure by applying a <strong>sinusoidal transformation</strong> of the parameter <code>t</code>, ensuring continuity in higher-dimensional spaces:</p>
-<p><span class="math display">\[
-X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
-\]</span></p>
-<p>This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.</p>
+<p>For <span class="math inline">\(p &gt; 3\)</span>, the remaining <span class="math inline">\(p - 3\)</span> dimensions are filled with small Gaussian noise to simulate high-dimensional complexity.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, w <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
