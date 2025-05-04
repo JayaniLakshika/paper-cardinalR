@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-05-04'
+date: '2025-05-05'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
@@ -1213,6 +1213,24 @@ Table: (\#tab:sphere-tb-html)cardinalR sphere data generation functions
 
 </div>
 
+
+The function `gen_circle(n, p)` generates a $p$-dimensional dataset of $n$ observations, where the first two dimensions form a unit circle, and the remaining dimensions are structured sinusoidal extensions of the angular parameter with progressively smaller scale.
+
+A latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\pi]$. Coordinates in the first two dimensions represent a perfect circle on the plane:
+
+$$
+X_1 = \cos(\theta), \quad X_2 = \sin(\theta)
+$$
+
+For dimensions $X_3$ through $X_p$, sinusoidal transformations of the angle $\theta$ are introduced. The first component is a scaling factor that decreases with the dimension index, defined as $\text{scale}_j = \sqrt{(0.5)^{j-2}}$ for $j = 3, \dots, p$. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula $\phi_j = (j - 2) \cdot \frac{\pi}{2p}$.
+
+Each additional dimension is computed as:
+
+$$
+X_j = \text{scale}_{j} \cdot \sin(\theta + \phi_j), \quad j = 3, \dots, p
+$$
+
+This structure retains a one-dimensional manifold (the circle) but allows it to be embedded non-linearly and decorrelatively in higher dimensions. The decreasing scale ensures that higher dimensions add less variation, preserving the dominance of the circular shape while adding complexity.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>circle</span> <span class='op'>&lt;-</span> <span class='fu'>gen_circle</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
