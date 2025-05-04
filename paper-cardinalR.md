@@ -1135,6 +1135,16 @@ For $p > 3$, additional noise dimensions are appended introducing structured, wa
 </div>
 
 
+To simulate a variant of the S-curve structure with a removed region ("hole"), we define the function `gen_scurvehole(n, p)`. This function produces `n` observations in a $p$-dimensional space where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.
+
+To simulate missing regions on the manifold, a fixed anchor point $(0, 1, 0, \ldots)$ is defined in $p$-dimensional space. All observations within a Euclidean distance of $\sqrt{0.3} \approx 0.5477$ from the anchor are removed:
+
+$$
+\text{remove if} \quad \sum_{j=1}^p (X_j - a_j)^2 \leq 0.3
+$$.
+
+This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurvehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurvehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
@@ -1899,6 +1909,8 @@ UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show 
 # Discussion
 
 - Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings.
+
+- Scurve with a hole allowing for evaluation of how well algorithms handle incomplete manifolds or missing local structure.
 
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
 

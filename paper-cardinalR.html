@@ -2643,6 +2643,12 @@ Figure 19: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>To simulate a variant of the S-curve structure with a removed region (“hole”), we define the function <code>gen_scurvehole(n, p)</code>. This function produces <code>n</code> observations in a <span class="math inline">\(p\)</span>-dimensional space where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.</p>
+<p>To simulate missing regions on the manifold, a fixed anchor point <span class="math inline">\((0, 1, 0, \ldots)\)</span> is defined in <span class="math inline">\(p\)</span>-dimensional space. All observations within a Euclidean distance of <span class="math inline">\(\sqrt{0.3} \approx 0.5477\)</span> from the anchor are removed:</p>
+<p><span class="math display">\[
+\text{remove if} \quad \sum_{j=1}^p (X_j - a_j)^2 \leq 0.3
+\]</span>.</p>
+<p>This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurvehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurvehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -3246,7 +3252,8 @@ Figure 35: Six different dimension reduction representations of the <code>mobius
 <p>UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure (Figure <a href="#fig:fig-nldr-layouts">35</a>). However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.</p>
 <h2 data-number="4" id="discussion"><span class="header-section-number">4</span> Discussion</h2>
 <ul>
-<li>Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings.</li>
+<li><p>Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings.</p></li>
+<li><p>Scurve with a hole allowing for evaluation of how well algorithms handle incomplete manifolds or missing local structure.</p></li>
 </ul>
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
 <!-- Our findings demonstrated that the choice of dimensionality reduction method significantly impacted the ability of hierarchical clustering to recover the true underlying clusters. Methods that effectively preserved the global structure of the data, as defined by our generation process, generally led to more accurate and interpretable hierarchical clustering results. However, the presence of nuisance variables often confounded the low-dimensional embeddings, making it more challenging for hierarchical clustering to separate truly distinct groups. This highlights a critical consideration in real-world data analysis, where unmeasured or latent factors can obscure the signal of interest. -->
