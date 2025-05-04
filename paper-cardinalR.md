@@ -1320,6 +1320,32 @@ This introduces decorrelated, low-variance sinusoidal variations across dimensio
 </div>
 
 
+The `gen_unifsphere(n, p, r)` function generates a $p$-dimensional dataset of $n$ observations distributed approximately uniformly on the surface of a $3\text{-}D$ sphere of radius $r$, with additional Gaussian noise dimensions added when $p > 3$.
+
+Each observation lies on the surface of a sphere in $3\text{-}D$, constructed by generating $u \sim U(-1, 1)$ which represents the cosine of the polar angle $\phi$ and $\theta \sim U(0, 2\pi)$ which represents the azimuthal angle.
+
+The corresponding Cartesian coordinates are calculated as;
+
+$$
+X_1 = r \cdot \sqrt{1 - u^2} \cdot \cos(\theta),
+$$
+$$
+X_2 = r \cdot \sqrt{1 - u^2} \cdot \sin(\theta),
+$$
+$$
+X_3 = r \cdot u,
+$$
+
+which gives points uniformly distributed on the surface of a $3\text{-}D$ sphere (not within).
+
+For $p > 3$, additional dimensions $X_4$ to $X_p$ are generated as low-variance Gaussian noise:
+
+$$
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 4, \dots, p.
+$$
+
+This extends the $3\text{-}D$ spherical manifold into $p$-dimensional space with orthogonal Gaussian noise, preserving the spherical structure while allowing for testing in higher-dimensional settings.
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifsphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifsphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
@@ -1358,6 +1384,34 @@ This introduces decorrelated, low-variance sinusoidal variations across dimensio
 
 </div>
 
+
+The `gen_gridedsphere(n, p)` function generates a $p$-dimensional dataset of approximately $n$ observations evenly distributed on the surface of a $3\text{-}D$ unit sphere, with optional Gaussian noise dimensions when $p > 3$.
+
+The base structure consists of a $3\text{-}D$ spherical surface created using a regular grid in spherical coordinates, where $\theta \in [0, 2\pi]$ represents the azimuthal angle (longitude) and $\phi \in [0, \pi]$ denotes the polar angle (co-latitude).
+
+The number of grid steps along each dimension is determined by factoring $n$ into two approximately equal integers via `gen_nproduct(n, p = 2)`.
+
+Each point on the sphere is computed using the spherical-to-Cartesian transformation:
+
+$$
+X_1 = \sin(\phi) \cdot \cos(\theta),
+$$
+$$
+X_2 = \sin(\phi) \cdot \sin(\theta),
+$$
+$$
+X_3 = \cos(\phi).
+$$
+
+This forms a structured grid of points on the unit sphere, ideal for studying how regular geometric manifolds are transformed under nonlinear dimensionality reduction.
+
+For $p > 3$, the manifold is embedded in a higher-dimensional space by adding Gaussian noise dimensions:
+
+$$
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 4, \dots, p.
+$$
+
+These dimensions represent low-variance orthogonal noise, preserving the spherical shape while testing robustness in high-dimensional settings.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridedsphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridedsphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>

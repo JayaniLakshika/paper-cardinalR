@@ -2788,6 +2788,24 @@ Figure 22: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_unifsphere(n, p, r)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations distributed approximately uniformly on the surface of a <span class="math inline">\(3\text{-}D\)</span> sphere of radius <span class="math inline">\(r\)</span>, with additional Gaussian noise dimensions added when <span class="math inline">\(p &gt; 3\)</span>.</p>
+<p>Each observation lies on the surface of a sphere in <span class="math inline">\(3\text{-}D\)</span>, constructed by generating <span class="math inline">\(u \sim U(-1, 1)\)</span> which represents the cosine of the polar angle <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\theta \sim U(0, 2\pi)\)</span> which represents the azimuthal angle.</p>
+<p>The corresponding Cartesian coordinates are calculated as;</p>
+<p><span class="math display">\[
+X_1 = r \cdot \sqrt{1 - u^2} \cdot \cos(\theta),
+\]</span>
+<span class="math display">\[
+X_2 = r \cdot \sqrt{1 - u^2} \cdot \sin(\theta),
+\]</span>
+<span class="math display">\[
+X_3 = r \cdot u,
+\]</span></p>
+<p>which gives points uniformly distributed on the surface of a <span class="math inline">\(3\text{-}D\)</span> sphere (not within).</p>
+<p>For <span class="math inline">\(p &gt; 3\)</span>, additional dimensions <span class="math inline">\(X_4\)</span> to <span class="math inline">\(X_p\)</span> are generated as low-variance Gaussian noise:</p>
+<p><span class="math display">\[
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 4, \dots, p.
+\]</span></p>
+<p>This extends the <span class="math inline">\(3\text{-}D\)</span> spherical manifold into <span class="math inline">\(p\)</span>-dimensional space with orthogonal Gaussian noise, preserving the spherical structure while allowing for testing in higher-dimensional settings.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifsphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifsphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2813,6 +2831,25 @@ Figure 23: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_gridedsphere(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of approximately <span class="math inline">\(n\)</span> observations evenly distributed on the surface of a <span class="math inline">\(3\text{-}D\)</span> unit sphere, with optional Gaussian noise dimensions when <span class="math inline">\(p &gt; 3\)</span>.</p>
+<p>The base structure consists of a <span class="math inline">\(3\text{-}D\)</span> spherical surface created using a regular grid in spherical coordinates, where <span class="math inline">\(\theta \in [0, 2\pi]\)</span> represents the azimuthal angle (longitude) and <span class="math inline">\(\phi \in [0, \pi]\)</span> denotes the polar angle (co-latitude).</p>
+<p>The number of grid steps along each dimension is determined by factoring <span class="math inline">\(n\)</span> into two approximately equal integers via <code>gen_nproduct(n, p = 2)</code>.</p>
+<p>Each point on the sphere is computed using the spherical-to-Cartesian transformation:</p>
+<p><span class="math display">\[
+X_1 = \sin(\phi) \cdot \cos(\theta),
+\]</span>
+<span class="math display">\[
+X_2 = \sin(\phi) \cdot \sin(\theta),
+\]</span>
+<span class="math display">\[
+X_3 = \cos(\phi).
+\]</span></p>
+<p>This forms a structured grid of points on the unit sphere, ideal for studying how regular geometric manifolds are transformed under nonlinear dimensionality reduction.</p>
+<p>For <span class="math inline">\(p &gt; 3\)</span>, the manifold is embedded in a higher-dimensional space by adding Gaussian noise dimensions:</p>
+<p><span class="math display">\[
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 4, \dots, p.
+\]</span></p>
+<p>These dimensions represent low-variance orthogonal noise, preserving the spherical shape while testing robustness in high-dimensional settings.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridedsphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridedsphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
