@@ -1454,24 +1454,11 @@ These dimensions represent low-variance orthogonal noise, preserving the spheric
 
 The `gen_clusteredspheres(n, k, p, r, loc)` function generates a synthetic dataset of $n_1 + k \cdot n_2$ observations in $p$-dimensional space, consisting of one large sphere of radius $r_1$ and $k$ smaller spheres of radius $r_2$, each centered at a different random location.
 
-#### Geometric Structure
+A large uniform sphere centered at the origin is created by sampling $n_1$ points uniformly on the surface of a $p$-dimensional sphere with a radius of $r_1$. The sampling is executed using the function `gen_unifsphere(n_1, p, r_1)`, which generates the desired points in the specified dimensional space.
 
-- A **large uniform sphere** centered at the origin:
-  - \(n_1\) points are sampled **uniformly on the surface** of a \(p\)-dimensional sphere of radius \(r_1\).
-  - Generated using `gen_unifsphere(n_1, p, r_1)`.
-
-- \(k\) **smaller uniform spheres**, each with:
-  - \(n_2\) points sampled uniformly on a sphere of radius \(r_2\),
-  - Positioned at different random locations in \(p\)-space:
-    - Each center is drawn from \( \mathcal{N}(0, \texttt{loc}^2 I_p) \),
-    - Ensures separation between clusters.
-
-All points on all spheres are generated using the standard hyperspherical method:
-
-- For each point:
-  - \(u \sim U(-1, 1)\), the cosine of the polar angle,
-  - \(\theta \sim U(0, 2\pi)\), the azimuthal angle (for 3D),
-  - Generalized to \(p\)-dimensions to uniformly sample on the sphere’s surface.
+In generation of $k$ smaller uniform spheres, each sphere contains $n_2$ points that are sampled uniformly on a sphere with a radius of $r_2$. These spheres are positioned at distinct random locations in $p$-space, with the center of each sphere being drawn from a normal distribution $\mathcal{N}(0, \texttt{loc}^2 I_p)$.
+    
+Points on spheres are generated using the standard hyperspherical method, which involves sampling $u \sim U(-1, 1)$ to determine the cosine of the polar angle, and sampling $\theta \sim U(0, 2\pi)$ to determine the azimuthal angle (for 3D). 
 
 Each observation is classified by cluster, with labels such as "big" for the large central sphere and "small_1" to "small_k" for the smaller spheres.
 

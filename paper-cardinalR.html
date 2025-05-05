@@ -2876,32 +2876,9 @@ Figure 24: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 </div>
 <p>The <code>gen_clusteredspheres(n, k, p, r, loc)</code> function generates a synthetic dataset of <span class="math inline">\(n_1 + k \cdot n_2\)</span> observations in <span class="math inline">\(p\)</span>-dimensional space, consisting of one large sphere of radius <span class="math inline">\(r_1\)</span> and <span class="math inline">\(k\)</span> smaller spheres of radius <span class="math inline">\(r_2\)</span>, each centered at a different random location.</p>
-<h5 class="unnumbered" data-number="2.4.11.1" id="geometric-structure">Geometric Structure</h5>
-<ul>
-<li>A <strong>large uniform sphere</strong> centered at the origin:
-<ul>
-<li><span class="math inline">\(n_1\)</span> points are sampled <strong>uniformly on the surface</strong> of a <span class="math inline">\(p\)</span>-dimensional sphere of radius <span class="math inline">\(r_1\)</span>.</li>
-<li>Generated using <code>gen_unifsphere(n_1, p, r_1)</code>.</li>
-</ul></li>
-<li><span class="math inline">\(k\)</span> <strong>smaller uniform spheres</strong>, each with:
-<ul>
-<li><span class="math inline">\(n_2\)</span> points sampled uniformly on a sphere of radius <span class="math inline">\(r_2\)</span>,</li>
-<li>Positioned at different random locations in <span class="math inline">\(p\)</span>-space:
-<ul>
-<li>Each center is drawn from <span class="math inline">\(\mathcal{N}(0, \texttt{loc}^2 I_p)\)</span>,</li>
-<li>Ensures separation between clusters.</li>
-</ul></li>
-</ul></li>
-</ul>
-<p>All points on all spheres are generated using the standard hyperspherical method:</p>
-<ul>
-<li>For each point:
-<ul>
-<li><span class="math inline">\(u \sim U(-1, 1)\)</span>, the cosine of the polar angle,</li>
-<li><span class="math inline">\(\theta \sim U(0, 2\pi)\)</span>, the azimuthal angle (for 3D),</li>
-<li>Generalized to <span class="math inline">\(p\)</span>-dimensions to uniformly sample on the sphere’s surface.</li>
-</ul></li>
-</ul>
+<p>A large uniform sphere centered at the origin is created by sampling <span class="math inline">\(n_1\)</span> points uniformly on the surface of a <span class="math inline">\(p\)</span>-dimensional sphere with a radius of <span class="math inline">\(r_1\)</span>. The sampling is executed using the function <code>gen_unifsphere(n_1, p, r_1)</code>, which generates the desired points in the specified dimensional space.</p>
+<p>In generation of <span class="math inline">\(k\)</span> smaller uniform spheres, each sphere contains <span class="math inline">\(n_2\)</span> points that are sampled uniformly on a sphere with a radius of <span class="math inline">\(r_2\)</span>. These spheres are positioned at distinct random locations in <span class="math inline">\(p\)</span>-space, with the center of each sphere being drawn from a normal distribution <span class="math inline">\(\mathcal{N}(0, \texttt{loc}^2 I_p)\)</span>.</p>
+<p>Points on spheres are generated using the standard hyperspherical method, which involves sampling <span class="math inline">\(u \sim U(-1, 1)\)</span> to determine the cosine of the polar angle, and sampling <span class="math inline">\(\theta \sim U(0, 2\pi)\)</span> to determine the azimuthal angle (for 3D).</p>
 <p>Each observation is classified by cluster, with labels such as “big” for the large central sphere and “small_1” to “small_k” for the smaller spheres.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
