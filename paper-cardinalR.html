@@ -2875,6 +2875,34 @@ Figure 24: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_clusteredspheres(n, k, p, r, loc)</code> function generates a synthetic dataset of <span class="math inline">\(n_1 + k \cdot n_2\)</span> observations in <span class="math inline">\(p\)</span>-dimensional space, consisting of one large sphere of radius <span class="math inline">\(r_1\)</span> and <span class="math inline">\(k\)</span> smaller spheres of radius <span class="math inline">\(r_2\)</span>, each centered at a different random location.</p>
+<h5 class="unnumbered" data-number="2.4.11.1" id="geometric-structure">Geometric Structure</h5>
+<ul>
+<li>A <strong>large uniform sphere</strong> centered at the origin:
+<ul>
+<li><span class="math inline">\(n_1\)</span> points are sampled <strong>uniformly on the surface</strong> of a <span class="math inline">\(p\)</span>-dimensional sphere of radius <span class="math inline">\(r_1\)</span>.</li>
+<li>Generated using <code>gen_unifsphere(n_1, p, r_1)</code>.</li>
+</ul></li>
+<li><span class="math inline">\(k\)</span> <strong>smaller uniform spheres</strong>, each with:
+<ul>
+<li><span class="math inline">\(n_2\)</span> points sampled uniformly on a sphere of radius <span class="math inline">\(r_2\)</span>,</li>
+<li>Positioned at different random locations in <span class="math inline">\(p\)</span>-space:
+<ul>
+<li>Each center is drawn from <span class="math inline">\(\mathcal{N}(0, \texttt{loc}^2 I_p)\)</span>,</li>
+<li>Ensures separation between clusters.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>All points on all spheres are generated using the standard hyperspherical method:</p>
+<ul>
+<li>For each point:
+<ul>
+<li><span class="math inline">\(u \sim U(-1, 1)\)</span>, the cosine of the polar angle,</li>
+<li><span class="math inline">\(\theta \sim U(0, 2\pi)\)</span>, the azimuthal angle (for 3D),</li>
+<li>Generalized to <span class="math inline">\(p\)</span>-dimensions to uniformly sample on the sphere’s surface.</li>
+</ul></li>
+</ul>
+<p>Each observation is classified by cluster, with labels such as “big” for the large central sphere and “small_1” to “small_k” for the smaller spheres.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>clusteredspheres</span> <span class='op'>&lt;-</span> <span class='fu'>gen_clusteredspheres</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='fl'>100</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>3</span>, p <span class='op'>=</span> <span class='fl'>4</span>, r <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>15</span>, <span class='fl'>3</span><span class='op'>)</span>,</span>
@@ -2902,6 +2930,27 @@ Figure 25: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_hemisphere(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations distributed approximately uniformly on a <span class="math inline">\(4\text{-}D\)</span> hemisphere, optionally extended with Gaussian noise in additional dimensions when <span class="math inline">\(p &gt; 4\)</span>.</p>
+<p>Each observation is situated on a restricted <span class="math inline">\(4\text{-}D\)</span> spherical surface, defined by spherical coordinates. The azimuthal angle <span class="math inline">\(\theta_1 \sim U(0, \pi)\)</span> in the <span class="math inline">\((x_1, x_2)\)</span> plane, while the elevation angle <span class="math inline">\(\theta_2 \sim U(0, \pi)\)</span> in the <span class="math inline">\((x_2, x_3)\)</span> plane. Additionally, <span class="math inline">\(\theta_3 \sim U(0, \pi/2)\)</span> in the <span class="math inline">\((x_3, x_4)\)</span> plane, ensuring that the points remain restricted to a hemisphere.</p>
+<p>The coordinates are transformed into <span class="math inline">\(4\text{-}D\)</span> Cartesian space:</p>
+<p><span class="math display">\[
+X_1 = \sin(\theta_1) \cdot \cos(\theta_2),
+\]</span>
+<span class="math display">\[
+X_2 = \sin(\theta_1) \cdot \sin(\theta_2),
+\]</span>
+<span class="math display">\[
+X_3 = \cos(\theta_1) \cdot \cos(\theta_3),
+\]</span>
+<span class="math display">\[
+X_4 = \cos(\theta_1) \cdot \sin(\theta_3).
+\]</span></p>
+<p>This produces points on one side of a <span class="math inline">\(4\text{-}D\)</span> unit sphere, effectively generating a <span class="math inline">\(4\text{-}D\)</span> hemisphere.</p>
+<p>For <span class="math inline">\(p &gt; 4\)</span>, additional dimensions <span class="math inline">\(X_5\)</span> to <span class="math inline">\(X_p\)</span> are added as low-variance Gaussian noise:</p>
+<p><span class="math display">\[
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 5, \dots, p.
+\]</span></p>
+<p>These dimensions maintain the spherical structure while simulating embedding into higher-dimensional space with small orthogonal perturbations.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>hemisphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_hemisphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -3307,6 +3356,7 @@ Figure 35: Six different dimension reduction representations of the <code>mobius
 <ul>
 <li><p>Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings.</p></li>
 <li><p>Scurve with a hole allowing for evaluation of how well algorithms handle incomplete manifolds or missing local structure.</p></li>
+<li><p>clusteredsphere: This structure allows for cluster separation on curved manifolds in high-dimensional space and can be used to test the ability of NLDR methods and clustering algorithms to detect spherical clusters of different sizes and separations.</p></li>
 </ul>
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
 <!-- Our findings demonstrated that the choice of dimensionality reduction method significantly impacted the ability of hierarchical clustering to recover the true underlying clusters. Methods that effectively preserved the global structure of the data, as defined by our generation process, generally led to more accurate and interpretable hierarchical clustering results. However, the presence of nuisance variables often confounded the low-dimensional embeddings, making it more challenging for hierarchical clustering to separate truly distinct groups. This highlights a critical consideration in real-world data analysis, where unmeasured or latent factors can obscure the signal of interest. -->

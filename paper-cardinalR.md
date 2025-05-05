@@ -1452,6 +1452,29 @@ These dimensions represent low-variance orthogonal noise, preserving the spheric
 </div>
 
 
+The `gen_clusteredspheres(n, k, p, r, loc)` function generates a synthetic dataset of $n_1 + k \cdot n_2$ observations in $p$-dimensional space, consisting of one large sphere of radius $r_1$ and $k$ smaller spheres of radius $r_2$, each centered at a different random location.
+
+#### Geometric Structure
+
+- A **large uniform sphere** centered at the origin:
+  - \(n_1\) points are sampled **uniformly on the surface** of a \(p\)-dimensional sphere of radius \(r_1\).
+  - Generated using `gen_unifsphere(n_1, p, r_1)`.
+
+- \(k\) **smaller uniform spheres**, each with:
+  - \(n_2\) points sampled uniformly on a sphere of radius \(r_2\),
+  - Positioned at different random locations in \(p\)-space:
+    - Each center is drawn from \( \mathcal{N}(0, \texttt{loc}^2 I_p) \),
+    - Ensures separation between clusters.
+
+All points on all spheres are generated using the standard hyperspherical method:
+
+- For each point:
+  - \(u \sim U(-1, 1)\), the cosine of the polar angle,
+  - \(\theta \sim U(0, 2\pi)\), the azimuthal angle (for 3D),
+  - Generalized to \(p\)-dimensions to uniformly sample on the sphere’s surface.
+
+Each observation is classified by cluster, with labels such as "big" for the large central sphere and "small_1" to "small_k" for the smaller spheres.
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>clusteredspheres</span> <span class='op'>&lt;-</span> <span class='fu'>gen_clusteredspheres</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='fl'>100</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>3</span>, p <span class='op'>=</span> <span class='fl'>4</span>, r <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>15</span>, <span class='fl'>3</span><span class='op'>)</span>,</span>
 <span>                                         loc <span class='op'>=</span> <span class='fl'>10</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
@@ -1492,6 +1515,35 @@ These dimensions represent low-variance orthogonal noise, preserving the spheric
 
 </div>
 
+
+The `gen_hemisphere(n, p)` function generates a $p$-dimensional dataset of $n$ observations distributed approximately uniformly on a $4\text{-}D$ hemisphere, optionally extended with Gaussian noise in additional dimensions when $p > 4$.
+
+Each observation is situated on a restricted $4\text{-}D$ spherical surface, defined by spherical coordinates. The azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere.
+
+The coordinates are transformed into $4\text{-}D$ Cartesian space:
+
+$$
+X_1 = \sin(\theta_1) \cdot \cos(\theta_2),
+$$
+$$
+X_2 = \sin(\theta_1) \cdot \sin(\theta_2),
+$$
+$$
+X_3 = \cos(\theta_1) \cdot \cos(\theta_3),
+$$
+$$
+X_4 = \cos(\theta_1) \cdot \sin(\theta_3).
+$$
+
+This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere.
+
+For $p > 4$, additional dimensions $X_5$ to $X_p$ are added as low-variance Gaussian noise:
+
+$$
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 5, \dots, p.
+$$
+
+These dimensions maintain the spherical structure while simulating embedding into higher-dimensional space with small orthogonal perturbations.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>hemisphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_hemisphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -1993,6 +2045,8 @@ UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show 
 - Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings.
 
 - Scurve with a hole allowing for evaluation of how well algorithms handle incomplete manifolds or missing local structure.
+
+- clusteredsphere: This structure allows for cluster separation on curved manifolds in high-dimensional space and can be used to test the ability of NLDR methods and clustering algorithms to detect spherical clusters of different sizes and separations.
 
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
 
