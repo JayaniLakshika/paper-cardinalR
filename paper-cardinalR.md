@@ -1776,6 +1776,29 @@ These dimensions represent unstructured, low-variance noise.
 </div>
 
 
+The `gen_sphericalspiral(n, p, spins)` function simulates a dataset of $n$ observations that form a spiraling path on a spherical surface in the first four dimensions. When extended beyond $4\text{-}D$, structured nonlinear noise dimensions are added to simulate more realistic high-dimensional manifolds.
+
+The first three dimensions represent points on a unit sphere. Let $\theta \in [0, 2\pi \times \text{spins}]$ be the azimuthal angle (longitude), controls the number of spiral turns and the $\phi \in [0, \pi]$be the polar angle (latitude), controls the vertical sweep from the north to the south pole.
+
+Cartesian coordinates from spherical conversion:
+
+  * $X_1 = \sin(\phi) \cdot \cos(\theta)$
+  * $X_2 = \sin(\phi) \cdot \sin(\theta)$
+  * $X_3 = \cos(\phi) + \varepsilon$, where $\varepsilon \sim \mathcal{U}(-0.5, 0.5)$ introduces vertical jitter.
+  * $X_4 = \theta / \max(\theta)$: a normalized progression along the spiral path.
+
+This generates a spherical spiral curve embedded in $4\text{-}D$ space, combining both circular and vertical movement, with gentle curvature and non-linear progression.
+
+If $p > 4$, the function appends structured, non-linear noise via `gen_wavydims2()`. These dimensions are functions of the first coordinate $X_1$, introducing dependencies that preserve some geometric coherence. Each added dimension follows the form:
+
+$$
+X_j = s_j \cdot (-1)^{\lfloor j/2 \rfloor} \cdot X_1^{a_j} + \eta_j,
+$$
+
+where:
+$a_j \in \{2, 3, 4, 5\}$ is a randomly chosen polynomial power,
+$s_j \sim \mathcal{U}(0.5, 2)$ is a scale factor,
+$\eta_j \sim \mathcal{U}(-\sigma_j, 2\sigma_j)$, with $\sigma_j \sim \mathcal{U}(0, 0.05)$, adds mild randomness.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>sphericalspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_sphericalspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, spins <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre></div>

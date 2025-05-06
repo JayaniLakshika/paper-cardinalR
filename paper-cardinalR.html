@@ -3110,6 +3110,24 @@ Figure 29: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_sphericalspiral(n, p, spins)</code> function simulates a dataset of <span class="math inline">\(n\)</span> observations that form a spiraling path on a spherical surface in the first four dimensions. When extended beyond <span class="math inline">\(4\text{-}D\)</span>, structured nonlinear noise dimensions are added to simulate more realistic high-dimensional manifolds.</p>
+<p>The first three dimensions represent points on a unit sphere. Let <span class="math inline">\(\theta \in [0, 2\pi \times \text{spins}]\)</span> be the azimuthal angle (longitude), controls the number of spiral turns and the <span class="math inline">\(\phi \in [0, \pi]\)</span>be the polar angle (latitude), controls the vertical sweep from the north to the south pole.</p>
+<p>Cartesian coordinates from spherical conversion:</p>
+<ul>
+<li><span class="math inline">\(X_1 = \sin(\phi) \cdot \cos(\theta)\)</span></li>
+<li><span class="math inline">\(X_2 = \sin(\phi) \cdot \sin(\theta)\)</span></li>
+<li><span class="math inline">\(X_3 = \cos(\phi) + \varepsilon\)</span>, where <span class="math inline">\(\varepsilon \sim \mathcal{U}(-0.5, 0.5)\)</span> introduces vertical jitter.</li>
+<li><span class="math inline">\(X_4 = \theta / \max(\theta)\)</span>: a normalized progression along the spiral path.</li>
+</ul>
+<p>This generates a spherical spiral curve embedded in <span class="math inline">\(4\text{-}D\)</span> space, combining both circular and vertical movement, with gentle curvature and non-linear progression.</p>
+<p>If <span class="math inline">\(p &gt; 4\)</span>, the function appends structured, non-linear noise via <code>gen_wavydims2()</code>. These dimensions are functions of the first coordinate <span class="math inline">\(X_1\)</span>, introducing dependencies that preserve some geometric coherence. Each added dimension follows the form:</p>
+<p><span class="math display">\[
+X_j = s_j \cdot (-1)^{\lfloor j/2 \rfloor} \cdot X_1^{a_j} + \eta_j,
+\]</span></p>
+<p>where:
+<span class="math inline">\(a_j \in \{2, 3, 4, 5\}\)</span> is a randomly chosen polynomial power,
+<span class="math inline">\(s_j \sim \mathcal{U}(0.5, 2)\)</span> is a scale factor,
+<span class="math inline">\(\eta_j \sim \mathcal{U}(-\sigma_j, 2\sigma_j)\)</span>, with <span class="math inline">\(\sigma_j \sim \mathcal{U}(0, 0.05)\)</span>, adds mild randomness.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>sphericalspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_sphericalspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, spins <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre>
