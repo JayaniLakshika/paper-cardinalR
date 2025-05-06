@@ -2424,6 +2424,13 @@ Figure 12: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
+<p>The <code>gen_quadratic(n, p, range)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a quadratic curve in the first two dimensions of a <span class="math inline">\(p\)</span>-dimensional space. This <span class="math inline">\(2\text{-}D\)</span> parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.</p>
+<p>The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let <span class="math inline">\(X\_1 \sim \mathcal{U}(\text{range}\[1], \text{range}\[2])\)</span> be the independent variable. A raw polynomial basis of degree 2 is used to form <span class="math inline">\(X\_2 = X\_1 - X\_1^2 + \varepsilon\_2\)</span>, where <span class="math inline">\(\varepsilon\_2 \sim \mathcal{U}(0, 0.5)\)</span>.</p>
+<p>This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate measurement noise or intrinsic variability.</p>
+<p>For <span class="math inline">\(p &gt; 2\)</span>, the dataset includes Gaussian noise in the remaining dimensions via <code>gen_noisedims()</code>:</p>
+<p><span class="math display">\[
+X\_j \sim \mathcal{N}(0, 0.1^2), \quad j = 3, \dots, p.
+\]</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>quadratic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_quadratic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>

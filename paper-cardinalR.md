@@ -844,6 +844,22 @@ Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
 </div>
 
 
+The `gen_quadratic(n, p, range)` function generates a dataset of $n$ points forming a quadratic curve in the first two dimensions of a $p$-dimensional space. This $2\text{-}D$ parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.
+
+The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let $X\_1 \sim \mathcal{U}(\text{range}\[1], \text{range}\[2])$ be the independent variable. A raw polynomial basis of degree 2 is used to form $X\_2 = X\_1 - X\_1^2 + \varepsilon\_2$, where $\varepsilon\_2 \sim \mathcal{U}(0, 0.5)$.
+
+This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate measurement noise or intrinsic variability.
+
+For $p > 2$, the dataset includes Gaussian noise in the remaining dimensions via `gen_noisedims()`:
+
+$$
+X\_j \sim \mathcal{N}(0, 0.1^2), \quad j = 3, \dots, p.
+$$
+
+
+
+
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>quadratic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_quadratic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
