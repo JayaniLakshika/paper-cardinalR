@@ -2457,7 +2457,7 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 
 # Application
 
-## Assessing the performance of dimension reduction on different geometric structures in high-dimensions
+<!-- ## Assessing the performance of dimension reduction on different geometric structures in high-dimensions -->
 
 This section illustrates the use of package by generating a synthetic dataset to evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021].
 
