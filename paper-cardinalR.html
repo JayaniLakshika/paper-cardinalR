@@ -2052,6 +2052,16 @@ Figure 1: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </p>
 </div>
 </div>
+<p>The <code>gen_linearbranches(n, p, k)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming <span class="math inline">\(k\)</span> approximately linear branches in a <span class="math inline">\(p\)</span>-dimensional space. The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.</p>
+<p>Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches 1 and 2 are initialized with fixed slopes and intercepts. The Branch 1 is generated from <span class="math inline">\(X\_1 \sim \mathcal{U}(-2, 8)\$, \$X\_2 = 0.5 \cdot X\_1 + \epsilon\)</span>. The Branch 2 is generated from <span class="math inline">\(X\_1 \sim \mathcal{U}(-6, 2)\$, \$X\_2 = -0.5 \cdot X\_1 + \epsilon\)</span>. <span class="math inline">\(\epsilon \sim \mathcal{U}(0, 0.5)\)</span>.</p>
+<p>Branches 3 to <span class="math inline">\(k\)</span>** are added iteratively. Each starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches.</p>
+<p><span class="math inline">\(X\_1\)</span> values span a short segment (<span class="math inline">\(x\_{start}\)</span> to <span class="math inline">\(x\_{start} + 1\)</span>),</p>
+<p><span class="math inline">\(X\_2 = s\_i \cdot (X\_1 - x\_{start}) + y\_{start} + \epsilon\)</span> where <span class="math inline">\(s\_i\)</span> is a sampled slope from a filtered set and <span class="math inline">\(\epsilon \sim \mathcal{U}(0, 0.2)\)</span>.</p>
+<p>This setup yields <span class="math inline">\(k\)</span> spatially distinct, noisy linear trajectories.</p>
+<p>For <span class="math inline">\(p &gt; 2\)</span>, the remaining dimensions are pure noise:</p>
+<p><span class="math display">\[
+X\_j \sim \mathcal{N}(0, 0.05^2)\$ for \$j = 3, \dots, p.
+\]</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_linearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>

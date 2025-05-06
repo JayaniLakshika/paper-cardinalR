@@ -378,6 +378,25 @@ expbranches_proj1 + expbranches_proj2 + expbranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
+The `gen_linearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches in a $p$-dimensional space. The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
+
+Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches 1 and 2 are initialized with fixed slopes and intercepts. The Branch 1 is generated from $X\_1 \sim \mathcal{U}(-2, 8)\$, \$X\_2 = 0.5 \cdot X\_1 + \epsilon$. The Branch 2 is generated from $X\_1 \sim \mathcal{U}(-6, 2)\$, \$X\_2 = -0.5 \cdot X\_1 + \epsilon$. $\epsilon \sim \mathcal{U}(0, 0.5)$. 
+
+Branches 3 to $k$** are added iteratively. Each starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches.
+
+$X\_1$ values span a short segment ($x\_{start}$ to $x\_{start} + 1$),
+
+$X\_2 = s\_i \cdot (X\_1 - x\_{start}) + y\_{start} + \epsilon$ where $s\_i$ is a sampled slope from a filtered set and $\epsilon \sim \mathcal{U}(0, 0.2)$.
+
+This setup yields $k$ spatially distinct, noisy linear trajectories.
+
+For $p > 2$, the remaining dimensions are pure noise:
+
+$$
+X\_j \sim \mathcal{N}(0, 0.05^2)\$ for \$j = 3, \dots, p.
+$$
+
+
 ```{r data-linearbranches, echo=TRUE}
 linearbranches <- gen_linearbranches(n = 1000, p = 4, k = 4)
 ```
