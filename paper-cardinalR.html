@@ -2288,6 +2288,12 @@ Figure 9: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </div>
 </div>
 <h4 class="unnumbered" data-number="2.4.5" id="gaussian">Gaussian</h4>
+<p>The <code>gen_gaussian(n, p, s)</code> function generates a multivariate Gaussian cloud in <span class="math inline">\(p\)</span>-dimensional space, centered at the origin with user-defined covariance structure.</p>
+<p>Each point is independently drawn using the multivariate normal distribution with:</p>
+<p><span class="math display">\[
+X_i \sim \mathcal{N}_p(\boldsymbol{0}, \Sigma)
+\]</span></p>
+<p>where <span class="math inline">\(\Sigma\)</span> is a user-defined <span class="math inline">\(p \times p\)</span> positive-definite matrix.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gau</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gaussian</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, s <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span><span class='op'>(</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
@@ -2314,6 +2320,15 @@ Figure 10: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 </div>
 <h4 class="unnumbered" data-number="2.4.6" id="linear">Linear</h4>
+<p>The <code>gen_longlinear(n, p)</code> function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise.</p>
+<p>Each variable <span class="math inline">\(X_i\)</span> is created as:</p>
+<p><span class="math display">\[
+X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i
+\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\(\text{scale}_i \sim \mathcal{U}(-10, 10)\)</span>: randomly chosen direction and stretch.</p>
+<p><span class="math inline">\(\text{shift}_i \sim \mathcal{U}(-300, 300)\)</span>: large offset to spread features apart.</p>
+<p><span class="math inline">\(\epsilon \sim \mathcal{N}(0, 0.03 \cdot n)\)</span>: Gaussian noise scaled to dataset size to introduce mild irregularity.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_longlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>

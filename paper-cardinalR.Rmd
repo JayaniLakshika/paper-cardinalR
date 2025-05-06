@@ -1186,6 +1186,16 @@ cubehole_proj1 + cubehole_proj2 + cubehole_proj3 +
 
 ### Gaussian
 
+The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p$-dimensional space, centered at the origin with user-defined covariance structure. 
+
+Each point is independently drawn using the multivariate normal distribution with:
+
+$$
+X_i \sim \mathcal{N}_p(\boldsymbol{0}, \Sigma)
+$$
+
+where $\Sigma$ is a user-defined $p \times p$ positive-definite matrix.
+
 ```{r data-gau, echo=TRUE}
 gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
 ```
@@ -1285,6 +1295,22 @@ gau_proj1 + gau_proj2 + gau_proj3 +
 ```
 
 ### Linear
+
+The `gen_longlinear(n, p)` function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. 
+
+Each variable $X_i$ is created as:
+
+$$
+X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i
+$$
+
+where: 
+
+$\text{scale}_i \sim \mathcal{U}(-10, 10)$: randomly chosen direction and stretch. 
+
+$\text{shift}_i \sim \mathcal{U}(-300, 300)$: large offset to spread features apart. 
+
+$\epsilon \sim \mathcal{N}(0, 0.03 \cdot n)$: Gaussian noise scaled to dataset size to introduce mild irregularity.
 
 ```{r data-linear, echo=TRUE}
 linear <- gen_longlinear(n = 1000, p = 4)

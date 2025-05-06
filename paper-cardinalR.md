@@ -649,6 +649,16 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 
 ### Gaussian
 
+The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p$-dimensional space, centered at the origin with user-defined covariance structure. 
+
+Each point is independently drawn using the multivariate normal distribution with:
+
+$$
+X_i \sim \mathcal{N}_p(\boldsymbol{0}, \Sigma)
+$$
+
+where $\Sigma$ is a user-defined $p \times p$ positive-definite matrix.
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gau</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gaussian</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, s <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span><span class='op'>(</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
 
@@ -689,6 +699,22 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 
 
 ### Linear
+
+The `gen_longlinear(n, p)` function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. 
+
+Each variable $X_i$ is created as:
+
+$$
+X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i
+$$
+
+where: 
+
+$\text{scale}_i \sim \mathcal{U}(-10, 10)$: randomly chosen direction and stretch. 
+
+$\text{shift}_i \sim \mathcal{U}(-300, 300)$: large offset to spread features apart. 
+
+$\epsilon \sim \mathcal{N}(0, 0.03 \cdot n)$: Gaussian noise scaled to dataset size to introduce mild irregularity.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_longlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
