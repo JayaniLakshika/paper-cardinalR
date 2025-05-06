@@ -579,6 +579,16 @@ This results in a hypercube-shaped lattice in $p$-dimensional space.
 </div>
 
 
+The `gen_unifcube(n, p)` function generates $n$ points uniformly distributed within a $3\text{-}D$ cube centered at the origin, optionally embedded in a higher-dimensional space with additional noise dimensions.
+
+Points are sampled independently from $X\_1, X\_2, X\_3 \sim \mathcal{U}(-0.5, 0.5)$ of a cube of side length 1. This results in a uniform cloud of points filling the unit cube in $3\text{-}D$ space.
+
+For $p > 3$, the remaining dimensions are filled with Gaussian noise:
+
+$$
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+$$
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 

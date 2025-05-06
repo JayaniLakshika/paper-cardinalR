@@ -998,6 +998,16 @@ gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
+The `gen_unifcube(n, p)` function generates $n$ points uniformly distributed within a $3\text{-}D$ cube centered at the origin, optionally embedded in a higher-dimensional space with additional noise dimensions.
+
+Points are sampled independently from $X\_1, X\_2, X\_3 \sim \mathcal{U}(-0.5, 0.5)$ of a cube of side length 1. This results in a uniform cloud of points filling the unit cube in $3\text{-}D$ space.
+
+For $p > 3$, the remaining dimensions are filled with Gaussian noise:
+
+$$
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+$$
+
 ```{r data-unifcube, echo=TRUE}
 unifcube <- gen_unifcube(n = 1000, p = 4)
 ```

@@ -2243,6 +2243,12 @@ Figure 7: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </p>
 </div>
 </div>
+<p>The <code>gen_unifcube(n, p)</code> function generates <span class="math inline">\(n\)</span> points uniformly distributed within a <span class="math inline">\(3\text{-}D\)</span> cube centered at the origin, optionally embedded in a higher-dimensional space with additional noise dimensions.</p>
+<p>Points are sampled independently from <span class="math inline">\(X\_1, X\_2, X\_3 \sim \mathcal{U}(-0.5, 0.5)\)</span> of a cube of side length 1. This results in a uniform cloud of points filling the unit cube in <span class="math inline">\(3\text{-}D\)</span> space.</p>
+<p>For <span class="math inline">\(p &gt; 3\)</span>, the remaining dimensions are filled with Gaussian noise:</p>
+<p><span class="math display">\[
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+\]</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
