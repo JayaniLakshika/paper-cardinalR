@@ -1839,6 +1839,28 @@ $\eta_j \sim \mathcal{U}(-\sigma_j, 2\sigma_j)$, with $\sigma_j \sim \mathcal{U}
 </div>
 
 
+The `gen_helicalspiral(n, p)` function generates a dataset of $n$ observations forming a helical spiral, embedded in the first four dimensions of a $p$-dimensional space. Additional dimensions (if $p > 4$) are filled with structured noise to mimic high-dimensional complexity.
+
+The first four coordinates follow a $3\text{-}D$ helix with an additional oscillating component. Let $\theta \in [0, \frac{5\pi}{4}]$ be a sequence of angles controlling rotation around a circle.
+
+Cartesian coordinates:
+  * $X_1 = \cos(\theta)$: circular trajectory along the x-axis.
+  
+  * $X_2 = \sin(\theta)$: circular trajectory along the y-axis.
+  
+  * $X_3 = 0.05 \cdot \theta + \varepsilon_3$, with $\varepsilon_3 \sim \mathcal{U}(-0.5, 0.5)$: linear progression (height) with vertical jitter, simulating a helix.
+  
+  * $X_4 = 0.1 \cdot \sin(\theta)$: oscillates with $\theta$, representing a periodic "wobble" along the fourth dimension.
+
+This results in a helical spiral winding upward along the third axis, with gentle sinusoidal fluctuation in the fourth dimension.
+
+When $p > 4$, the remaining $p - 4$ dimensions are populated using `gen_noisedims()`. These are independent Gaussian noise dimensions:
+
+$$
+X_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+$$
+
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>helicalspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_helicalspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 

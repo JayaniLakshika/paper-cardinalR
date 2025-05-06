@@ -3153,6 +3153,20 @@ Figure 30: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_helicalspiral(n, p)</code> function generates a dataset of <span class="math inline">\(n\)</span> observations forming a helical spiral, embedded in the first four dimensions of a <span class="math inline">\(p\)</span>-dimensional space. Additional dimensions (if <span class="math inline">\(p &gt; 4\)</span>) are filled with structured noise to mimic high-dimensional complexity.</p>
+<p>The first four coordinates follow a <span class="math inline">\(3\text{-}D\)</span> helix with an additional oscillating component. Let <span class="math inline">\(\theta \in [0, \frac{5\pi}{4}]\)</span> be a sequence of angles controlling rotation around a circle.</p>
+<p>Cartesian coordinates:
+* <span class="math inline">\(X_1 = \cos(\theta)\)</span>: circular trajectory along the x-axis.</p>
+<ul>
+<li><p><span class="math inline">\(X_2 = \sin(\theta)\)</span>: circular trajectory along the y-axis.</p></li>
+<li><p><span class="math inline">\(X_3 = 0.05 \cdot \theta + \varepsilon_3\)</span>, with <span class="math inline">\(\varepsilon_3 \sim \mathcal{U}(-0.5, 0.5)\)</span>: linear progression (height) with vertical jitter, simulating a helix.</p></li>
+<li><p><span class="math inline">\(X_4 = 0.1 \cdot \sin(\theta)\)</span>: oscillates with <span class="math inline">\(\theta\)</span>, representing a periodic “wobble” along the fourth dimension.</p></li>
+</ul>
+<p>This results in a helical spiral winding upward along the third axis, with gentle sinusoidal fluctuation in the fourth dimension.</p>
+<p>When <span class="math inline">\(p &gt; 4\)</span>, the remaining <span class="math inline">\(p - 4\)</span> dimensions are populated using <code>gen_noisedims()</code>. These are independent Gaussian noise dimensions:</p>
+<p><span class="math display">\[
+X_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+\]</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>helicalspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_helicalspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>

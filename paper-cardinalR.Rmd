@@ -3600,6 +3600,28 @@ sphericalspiral_proj1 + sphericalspiral_proj2 + sphericalspiral_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
+The `gen_helicalspiral(n, p)` function generates a dataset of $n$ observations forming a helical spiral, embedded in the first four dimensions of a $p$-dimensional space. Additional dimensions (if $p > 4$) are filled with structured noise to mimic high-dimensional complexity.
+
+The first four coordinates follow a $3\text{-}D$ helix with an additional oscillating component. Let $\theta \in [0, \frac{5\pi}{4}]$ be a sequence of angles controlling rotation around a circle.
+
+Cartesian coordinates:
+  * $X_1 = \cos(\theta)$: circular trajectory along the x-axis.
+  
+  * $X_2 = \sin(\theta)$: circular trajectory along the y-axis.
+  
+  * $X_3 = 0.05 \cdot \theta + \varepsilon_3$, with $\varepsilon_3 \sim \mathcal{U}(-0.5, 0.5)$: linear progression (height) with vertical jitter, simulating a helix.
+  
+  * $X_4 = 0.1 \cdot \sin(\theta)$: oscillates with $\theta$, representing a periodic "wobble" along the fourth dimension.
+
+This results in a helical spiral winding upward along the third axis, with gentle sinusoidal fluctuation in the fourth dimension.
+
+When $p > 4$, the remaining $p - 4$ dimensions are populated using `gen_noisedims()`. These are independent Gaussian noise dimensions:
+
+$$
+X_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+$$
+
+
 ```{r data-helicalspiral, echo=TRUE}
 helicalspiral <- gen_helicalspiral(n = 1000, p = 4)
 ```
