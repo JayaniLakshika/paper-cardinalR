@@ -2087,6 +2087,19 @@ Figure 2: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </p>
 </div>
 </div>
+<p>The <code>gen_curvybranches(n, p, k)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming <span class="math inline">\(k\)</span> curvilinear branches embedded in a <span class="math inline">\(p\)</span>-dimensional space. The underlying geometry lies in the first two dimensions, while the remaining <span class="math inline">\(p - 2\)</span> dimensions contain Gaussian noise.</p>
+<p>Branch 1 is generated from <span class="math inline">\(X\_1 \sim \mathcal{U}(0, 1)\)</span>, and <span class="math inline">\(X\_2 = 0.1 \cdot X\_1 + 1 \cdot X\_1^2 + \epsilon\)</span>, where <span class="math inline">\(\epsilon \sim \mathcal{U}(0, 0.05)\)</span>. This produces a gently upward-curving parabola in the right half-plane.</p>
+<p>Branch 2 is generated from <span class="math inline">\(X\_1 \sim \mathcal{U}(-1, 0)\)</span>, and <span class="math inline">\(X\_2 = 0.1 \cdot X\_1 - 2 \cdot X\_1^2 + \epsilon\)</span>, where <span class="math inline">\(\epsilon \sim \mathcal{U}(0, 0.05)\)</span>. This creates a steeper, leftward-facing curve in the left half-plane.</p>
+<p>Branches <span class="math inline">\(3\)</span> to <span class="math inline">\(k\)</span>** are added iteratively. Each new branch begins at a randomly chosen point within a restricted horizontal band: <span class="math inline">\(X\_1 \in \[-0.15, 0.15]\)</span> (to ensure connectivity with earlier branches), spans a unit-length interval on <span class="math inline">\(X\_1\$:\)</span>X_1 [x_{}, x_{} + 1]$, and has the structure:</p>
+<p><span class="math display">\[
+X_2 = 0.1 \cdot X_1 - s_i \cdot (X_1^2 - x_{\text{start}}) + y_{\text{start}}, \quad s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1.5\}.
+\]</span></p>
+<p>Here, <span class="math inline">\(s\_i\)</span> is a sampled scale factor (slope-like term) controlling curvature, and <span class="math inline">\((x\_{\text{start}}, y\_{\text{start}})\)</span> is the starting point from the existing structure.</p>
+<p>This construction yields <span class="math inline">\(k\)</span> spatially connected, nonlinear branches with varying curvature.</p>
+<p>For <span class="math inline">\(p &gt; 2\)</span>, the remaining dimensions are pure Gaussian noise:</p>
+<p><span class="math display">\[
+X_j \sim \mathcal{N}(0, 0.05^2), \quad \text{for } j = 3, \dots, p.
+\]</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvybranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvybranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>

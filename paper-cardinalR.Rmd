@@ -495,6 +495,28 @@ linearbranches_proj1 + linearbranches_proj2 + linearbranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
+The `gen_curvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in a $p$-dimensional space. The underlying geometry lies in the first two dimensions, while the remaining $p - 2$ dimensions contain Gaussian noise.
+
+Branch 1 is generated from $X\_1 \sim \mathcal{U}(0, 1)$, and $X\_2 = 0.1 \cdot X\_1 + 1 \cdot X\_1^2 + \epsilon$, where $\epsilon \sim \mathcal{U}(0, 0.05)$. This produces a gently upward-curving parabola in the right half-plane.
+
+Branch 2 is generated from $X\_1 \sim \mathcal{U}(-1, 0)$, and $X\_2 = 0.1 \cdot X\_1 - 2 \cdot X\_1^2 + \epsilon$, where $\epsilon \sim \mathcal{U}(0, 0.05)$. This creates a steeper, leftward-facing curve in the left half-plane.
+
+Branches $3$ to $k$** are added iteratively. Each new branch begins at a randomly chosen point within a restricted horizontal band: $X\_1 \in \[-0.15, 0.15]$ (to ensure connectivity with earlier branches), spans a unit-length interval on $X\_1\$:$X\_1 \in \[x\_{\text{start}}, x\_{\text{start}} + 1]$, and has the structure:
+
+$$
+X_2 = 0.1 \cdot X_1 - s_i \cdot (X_1^2 - x_{\text{start}}) + y_{\text{start}}, \quad s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1.5\}.
+$$
+
+Here, $s\_i$ is a sampled scale factor (slope-like term) controlling curvature, and $(x\_{\text{start}}, y\_{\text{start}})$ is the starting point from the existing structure.
+
+This construction yields $k$ spatially connected, nonlinear branches with varying curvature.
+
+For $p > 2$, the remaining dimensions are pure Gaussian noise:
+
+$$
+X_j \sim \mathcal{N}(0, 0.05^2), \quad \text{for } j = 3, \dots, p.
+$$
+
 ```{r data-curvybranches, echo=TRUE}
 curvybranches <- gen_curvybranches(n = 1000, p = 4, k = 4)
 ```
