@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-05-05'
+date: '2025-05-06'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
@@ -1651,6 +1651,29 @@ Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation func
 
 </div>
 
+
+The `gen_crescent(n, p)` function generates a $p$-dimensional dataset of $n$ observations based on a $2\text{-}D$ crescent-shaped manifold with optional structured high-dimensional noise.
+
+The first two dimensions define a crescent-shaped curve using a semi-circular arc. Let $\theta \in [\pi/6, 2\pi]$ be a sequence of $n$ evenly spaced angles.
+
+The corresponding $2\text{-}D$ coordinates are defined by:
+
+$$
+X_1 = \cos(\theta),
+$$
+$$
+X_2 = \sin(\theta).
+$$
+
+This forms a nonlinear curvilinear structure in the shape of a tilted crescent in the $X_1$-$X_2$ plane.
+
+For $p > 2$, additional dimensions $X_3$ to $X_p$ are generated using `gen_wavydims1()`:
+
+$$
+X_j = s_j \cdot \theta + \varepsilon_j$,\text{ where }$\varepsilon_j \sim \mathcal{N}(0, 0.5^2)$,\text{ and }$s_j$\text{ is a random scale}.
+$$
+
+These noise dimensions are nonlinearly correlated with $\theta$, producing structured, wave-like variation that aligns with the progression along the crescent curve.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>crescent</span> <span class='op'>&lt;-</span> <span class='fu'>gen_crescent</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
