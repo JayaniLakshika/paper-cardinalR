@@ -1714,6 +1714,29 @@ These noise dimensions are nonlinearly correlated with $\theta$, producing struc
 </div>
 
 
+The `gen_curvycylinder(n, p, h)` function generates a $p$-dimensional dataset of $n$ observations structured as a $3\text{-}D$ cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when $p > 4$.
+
+The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension:
+
+Let $\theta \sim \mathcal{U}(0, 3\pi)$ represent a random angle on a circular base and $z \sim \mathcal{U}(0, h)$ represent the height along the cylinder.
+
+The coordinates are defined as:
+
+* $X_1 = \cos(\theta)$ (Circular base, x-axis),
+* $X_2 = \sin(\theta)$ (Circular base, y-axis),
+* $X_3 = z$ (Linear height),
+* $X_4 = \sin(z)$ (Nonlinear curvy variation along height).
+
+This forms a curvy cylindrical surface in $4\text{-}D$, where the fourth dimension bends periodically along the height axis, resembling a helicoid or twisting wave along the cylinder.
+
+For $p > 4$, dimensions $X_5$ through $X_p$ are generated as:
+
+$$
+X_j \sim \mathcal{N}(0, 0.05^2)$,\text{ for }$j = 5, \ldots, p.
+$$
+
+These dimensions represent unstructured, low-variance noise.
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvycylinder</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvycylinder</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, h <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span></span></code></pre></div>
 
@@ -1751,6 +1774,7 @@ These noise dimensions are nonlinearly correlated with $\theta$, producing struc
 </div>
 
 </div>
+
 
 
 <div class="layout-chunk" data-layout="l-body">
