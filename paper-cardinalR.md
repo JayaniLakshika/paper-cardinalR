@@ -899,6 +899,16 @@ $$
 </div>
 
 
+The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions of a $p$-dimensional space. This function creates a more complex curvilinear structure than a simple parabola.
+
+The shape is generated using a third-degree raw polynomial basis expansion. Let $X\_1 \sim \mathcal{U}(\text{range}\[1], \text{range}\[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X\_2 = X\_1 + X\_1^2 - X\_1^3 + \varepsilon\_2\$, where \$\varepsilon\_2 \sim \mathcal{U}(0, 0.5)$.
+
+When $p > 2$, the remaining dimensions consist of independent Gaussian noise features generated via `gen_noisedims()`:
+
+$$
+X\_j \sim \mathcal{N}(0, 0.1^2)\$ for \$j = 3, \dots, p.
+$$
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 

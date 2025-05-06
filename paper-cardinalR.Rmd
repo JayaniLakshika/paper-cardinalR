@@ -1667,6 +1667,16 @@ quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
+The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions of a $p$-dimensional space. This function creates a more complex curvilinear structure than a simple parabola.
+
+The shape is generated using a third-degree raw polynomial basis expansion. Let $X\_1 \sim \mathcal{U}(\text{range}\[1], \text{range}\[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X\_2 = X\_1 + X\_1^2 - X\_1^3 + \varepsilon\_2\$, where \$\varepsilon\_2 \sim \mathcal{U}(0, 0.5)$.
+
+When $p > 2$, the remaining dimensions consist of independent Gaussian noise features generated via `gen_noisedims()`:
+
+$$
+X\_j \sim \mathcal{N}(0, 0.1^2)\$ for \$j = 3, \dots, p.
+$$
+
 ```{r data-cubic, echo=TRUE}
 cubic <- gen_cubic(n = 1000, p = 4)
 ```
