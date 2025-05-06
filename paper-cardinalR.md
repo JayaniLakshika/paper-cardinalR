@@ -757,6 +757,28 @@ $\epsilon \sim \mathcal{N}(0, 0.03 \cdot n)$: Gaussian noise scaled to dataset s
 
 ### Mobius
 
+The `gen_mobius(n, p)` function generates a dataset of $n$ points that form a Mobius strip embedded in the first three dimensions of a $p$-dimensional space. This classical non-orientable surface loops back on itself with a half-twist.
+
+The Mobius strip is generated using `geozoo::mobius(n, p = 3)$points`, which samples $n$ points from a parametrization of the surface defined by angle $\theta$ and strip width $w$. The cartesian coordinates are;
+
+$$
+X\_1 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \cos(\theta),
+$$
+$$
+X\_2 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \sin(\theta),
+$$
+$$
+X\_3 = \frac{w}{2} \sin(\theta/2).
+$$
+
+This maps a $2\text{-}D$ band with a half-twist into $3\text{-}D$ space, forming a non-orientable 1-sided surface.
+
+For $p > 3$, the function appends $p - 3$ dimensions with small Gaussian noise:
+
+$$
+x_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+$$
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mobius</span> <span class='op'>&lt;-</span> <span class='fu'>gen_mobius</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
@@ -2189,6 +2211,8 @@ UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show 
 - Scurve with a hole allowing for evaluation of how well algorithms handle incomplete manifolds or missing local structure.
 
 - clusteredsphere: This structure allows for cluster separation on curved manifolds in high-dimensional space and can be used to test the ability of NLDR methods and clustering algorithms to detect spherical clusters of different sizes and separations.
+
+- Mobius: The core geometric structure is a Mobius strip—a classic one-sided surface with a half-twist—useful for evaluating how well methods capture non-orientability and twisted manifolds.
 
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
 
