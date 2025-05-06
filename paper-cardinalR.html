@@ -2212,6 +2212,12 @@ Figure 6: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
+<p>The <code>gen_gridcube(n, p)</code> constructs a regular grid using approximately <span class="math inline">\(n\)</span> points by evenly partitioning each of the <span class="math inline">\(p\)</span> dimensions. Specifically, the number of grid points along each axis is determined by <code>gen_nproduct(n, p)</code>, which calculates the nearest balanced integer factors whose product is close to <span class="math inline">\(n\)</span>. The full grid is generated via <code>expand_grid()</code>, giving Cartesian combinations of these evenly spaced positions.</p>
+<p>Each variable <span class="math inline">\(X\_j\)</span> represents integer grid coordinates (e.g., 1, 2, 3, …) in dimension <span class="math inline">\(j\)</span>:</p>
+<p><span class="math display">\[
+X\_j \in {1, \dots, k\_j},\text{ where }\prod\_{j=1}^p k\_j \approx n.
+\]</span></p>
+<p>This results in a hypercube-shaped lattice in <span class="math inline">\(p\)</span>-dimensional space.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -3467,6 +3473,7 @@ Figure 35: Six different dimension reduction representations of the <code>mobius
 <li><p>Scurve with a hole allowing for evaluation of how well algorithms handle incomplete manifolds or missing local structure.</p></li>
 <li><p>clusteredsphere: This structure allows for cluster separation on curved manifolds in high-dimensional space and can be used to test the ability of NLDR methods and clustering algorithms to detect spherical clusters of different sizes and separations.</p></li>
 <li><p>Mobius: The core geometric structure is a Mobius strip—a classic one-sided surface with a half-twist—useful for evaluating how well methods capture non-orientability and twisted manifolds.</p></li>
+<li><p>Grided cube: This function is useful for assessing how algorithms preserve uniformly spaced data in high-dimensional spaces.</p></li>
 </ul>
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
 <!-- Our findings demonstrated that the choice of dimensionality reduction method significantly impacted the ability of hierarchical clustering to recover the true underlying clusters. Methods that effectively preserved the global structure of the data, as defined by our generation process, generally led to more accurate and interpretable hierarchical clustering results. However, the presence of nuisance variables often confounded the low-dimensional embeddings, making it more challenging for hierarchical clustering to separate truly distinct groups. This highlights a critical consideration in real-world data analysis, where unmeasured or latent factors can obscure the signal of interest. -->

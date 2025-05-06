@@ -530,6 +530,16 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 </div>
 
 
+The `gen_gridcube(n, p)` constructs a regular grid using approximately $n$ points by evenly partitioning each of the $p$ dimensions. Specifically, the number of grid points along each axis is determined by `gen_nproduct(n, p)`, which calculates the nearest balanced integer factors whose product is close to $n$. The full grid is generated via `expand_grid()`, giving Cartesian combinations of these evenly spaced positions.
+
+Each variable $X\_j$ represents integer grid coordinates (e.g., 1, 2, 3, ...) in dimension $j$:
+
+$$
+X\_j \in {1, \dots, k\_j},\text{ where }\prod\_{j=1}^p k\_j \approx n.
+$$
+
+This results in a hypercube-shaped lattice in $p$-dimensional space.
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
@@ -2239,6 +2249,8 @@ UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show 
 - clusteredsphere: This structure allows for cluster separation on curved manifolds in high-dimensional space and can be used to test the ability of NLDR methods and clustering algorithms to detect spherical clusters of different sizes and separations.
 
 - Mobius: The core geometric structure is a Mobius strip—a classic one-sided surface with a half-twist—useful for evaluating how well methods capture non-orientability and twisted manifolds.
+
+- Grided cube: This function is useful for assessing how algorithms preserve uniformly spaced data in high-dimensional spaces.
 
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
 
