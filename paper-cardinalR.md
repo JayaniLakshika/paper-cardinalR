@@ -999,10 +999,6 @@ $$
 X\_j \sim \mathcal{N}(0, 0.1^2), \quad j = 3, \dots, p.
 $$
 
-
-
-
-
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>quadratic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_quadratic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
@@ -1119,6 +1115,37 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 </div>
 
 
+The `gen_pyrrect(n, p, h, l_vec, rt)` function generates a dataset of $n$ points forming a high-dimensional pyramid-like structure with a rectangular base. The pyramid is embedded in a $p$-dimensional space, with a tip at height zero and base at height $h$. The shape tapers linearly from the base dimensions $(l\_x, l\_y)$ to a smaller rectangular section with side lengths $(2r\_t, 2r\_t)$ at the tip. Points are distributed more densely near the tip, simulating a natural skew toward smaller height values.
+
+Let $x\_1, x\_2, \dots, x\_p$ denote the coordinates of the generated points. The final dimension $x\_p$ encodes the height of each point and is drawn from an exponential distribution capped at $h$:
+
+$$
+x_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right)
+$$.
+
+Let $r\_x(z)$ and $r\_y(z)$ denote the half-widths of the rectangular cross-section at height $z$:
+
+$$
+r_x(z) = r_t + (l_x - r_t) \cdot \frac{z}{h}, \quad
+r_y(z) = r_t + (l_y - r_t) \cdot \frac{z}{h}
+$$.
+
+The first three coordinates are then defined as:
+
+$$
+x_1 \sim \mathcal{U}(-r_x(z),\ r_x(z)), \quad
+x_2 \sim \mathcal{U}(-r_y(z),\ r_y(z)), \quad
+x_3 \sim \mathcal{U}(-r_x(z),\ r_x(z))
+$$.
+
+For $p > 3$, the remaining $p - 4$ dimensions (i.e., $x\_4$ to $x\_{p-1}$) are tapered toward zero with decreasing height and generated as:
+
+$$
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right), \quad \text{for } j = 4, \dots, p-1.
+$$
+
+This tapering ensures that the structure narrows in all directions as it approaches the tip.
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrrect</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrrect</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
@@ -1157,6 +1184,76 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 
 </div>
 
+
+The `gen_pyrtri(n, p, h, l, rt)` function generates a dataset of $n$ points forming a high-dimensional pyramid-like structure with a triangular cross-section. The structure is embedded in a $p$-dimensional space, with the tip located at height 0 and the base at height $h$. The triangle expands linearly in size from tip to base, with more points concentrated near the tip.
+
+Let $x\_1, x\_2, \dots, x\_p$ denote the coordinates of the generated points. The final coordinate \$x\_p\$ encodes the height $z$ of each point and is drawn from an exponential distribution capped at $h$:
+
+$$
+x_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).
+$$
+
+Let $r(z)$ denote the scaling factor (distance from the origin to triangle vertices) at height $z$:
+
+$$
+r(z) = r_t + (l - r_t) \cdot \frac{z}{h}.
+$$
+
+A point in the triangle at height $z$ is generated using barycentric coordinates $(u, v)$ to ensure uniform sampling within the triangular cross-section:
+
+$$
+u, v \sim \mathcal{U}(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v.
+$$
+
+The first three coordinates (triangle plane) are then:
+
+$$
+x_1 = r(z)(1 - u - v), \quad
+x_2 = r(z) \cdot u, \quad
+x_3 = r(z) \cdot v
+$$
+
+For dimensions $j = 4, \dots, p-1$, values are tapered linearly toward zero near the tip:
+
+$$
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right).
+$$
+
+The `gen_pyrtri(n, p, h, l, rt)` function generates a dataset of $n$ points forming a high-dimensional pyramid-like structure with a triangular cross-section. The structure is embedded in a $p$-dimensional space, with the tip located at height 0 and the base at height $h$. The triangle expands linearly in size from tip to base, with more points concentrated near the tip.
+
+Let $x\_1, x\_2, \dots, x\_p$ denote the coordinates of the generated points. The final coordinate $x\_p$ encodes the height $z$ of each point and is drawn from an exponential distribution capped at $h$:
+
+$$
+x_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).
+$$
+
+Let $r(z)$ denote the scaling factor (distance from the origin to triangle vertices) at height $z$:
+
+$$
+r(z) = r_t + (l - r_t) \cdot \frac{z}{h}.
+$$
+
+A point in the triangle at height $z$ is generated using barycentric coordinates $(u, v)$ to ensure uniform sampling within the triangular cross-section:
+
+$$
+u, v \sim \mathcal{U}(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v.
+$$
+
+The first three coordinates (triangle plane) are then:
+
+$$
+x_1 = r(z)(1 - u - v), \quad
+x_2 = r(z) \cdot u, \quad
+x_3 = r(z) \cdot v
+$$
+
+For dimensions $j = 4, \dots, p-1$, values are tapered linearly toward zero near the tip:
+
+$$
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right).
+$$
+
+The result is a tapered, high-dimensional triangle-based pyramid with more points near the apex and greater width at the base. 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrtri</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrtri</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -1197,6 +1294,44 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 </div>
 
 
+
+The `gen_pyrstar(n, p, h, rb)` function generates a dataset of \$n\$ points forming a high-dimensional pyramid-shaped structure with a hexagonal base. The pyramid extends vertically from height $z = 0$ (tip) to height $z = h$ (base), embedded in a $p$-dimensional space. The distribution concentrates more points near the base, and the hexagonal spread tapers toward the tip.
+
+Let $x\_1, x\_2, \dots, x\_p$ denote the coordinates of the generated points. The final coordinate $x\_p$ encodes the height $z$:
+
+$$
+x_p = z \sim \mathcal{U}(0, h).
+$$
+
+The radius at height $z$ scales linearly from zero (tip) to the base radius $r\_b$:
+
+$$
+r(z) = r_b \cdot \left(1 - \frac{z}{h}\right).
+$$
+
+Each point is placed within a regular hexagon in the plane $(x\_1, x\_2)$, using a randomly chosen hexagon sector angle $\theta \in \left{0, \frac{\pi}{3}, \frac{2\pi}{3}, \pi, \frac{4\pi}{3}, \frac{5\pi}{3} \right}$ and a uniformly random radial scaling factor:
+
+$$
+\theta \sim \text{Uniform sample from 6 hexagon angles}, \quad
+r_{\text{point}} \sim \sqrt{\mathcal{U}(0, 1)}.
+$$
+
+Then, the first two coordinates are:
+
+$$
+x_1 = r(z) \cdot r_{\text{point}} \cdot \cos(\theta), \quad
+x_2 = r(z) \cdot r_{\text{point}} \cdot \sin(\theta)
+$$
+
+For dimensions $j = 3, \dots, p-1$, values are tapered toward zero near the tip:
+
+$$
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h} \right).
+$$
+
+This results in a smooth, star-like pyramid in $p$-dimensional space, with a broad hexagonal base and narrow tip.
+
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrstar</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrstar</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
@@ -1234,6 +1369,29 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 </div>
 
 </div>
+
+
+The `gen_pyrholes(n, p)` function generates $n$ points embedded in a $p$-dimensional simplex using a chaotic attractor-like midpoint algorithm. The result is a fractal-like structure that reveals holes or gaps in the data cloud, forming a "Sierpinski-like pyramid" in high dimensions.
+
+Let $x\_1, x\_2, \dots, x\_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T\_0 \in \[0, 1]^p$ drawn from a uniform distribution:
+
+$$
+T_0 \sim \mathcal{U}(0, 1)^p.
+$$
+
+Let $C\_1, C\_2, \dots, C\_{p+1}$ denote the corner vertices of a $p$-dimensional simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T\_{i-1}$ and a randomly selected vertex $C\_k$:
+
+$$
+T_i = \frac{1}{2}(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}.
+$$
+
+This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex.
+
+The final output is a $n \times p$ matrix where each row represents a point:
+
+$$
+X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}.
+$$
 
 
 <div class="layout-chunk" data-layout="l-body">
@@ -2384,6 +2542,8 @@ UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show 
 - Mobius: The core geometric structure is a Mobius strip—a classic one-sided surface with a half-twist—useful for evaluating how well methods capture non-orientability and twisted manifolds.
 
 - Grided cube: This function is useful for assessing how algorithms preserve uniformly spaced data in high-dimensional spaces.
+
+- Pyrholes: This structure is useful for testing clustering and NLDR algorithms on non-convex and sparse high-dimensional shapes.
 
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
 

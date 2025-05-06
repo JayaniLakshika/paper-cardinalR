@@ -2613,6 +2613,27 @@ Figure 14: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
+<p>The <code>gen_pyrrect(n, p, h, l_vec, rt)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a high-dimensional pyramid-like structure with a rectangular base. The pyramid is embedded in a <span class="math inline">\(p\)</span>-dimensional space, with a tip at height zero and base at height <span class="math inline">\(h\)</span>. The shape tapers linearly from the base dimensions <span class="math inline">\((l\_x, l\_y)\)</span> to a smaller rectangular section with side lengths <span class="math inline">\((2r\_t, 2r\_t)\)</span> at the tip. Points are distributed more densely near the tip, simulating a natural skew toward smaller height values.</p>
+<p>Let <span class="math inline">\(x\_1, x\_2, \dots, x\_p\)</span> denote the coordinates of the generated points. The final dimension <span class="math inline">\(x\_p\)</span> encodes the height of each point and is drawn from an exponential distribution capped at <span class="math inline">\(h\)</span>:</p>
+<p><span class="math display">\[
+x_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right)
+\]</span>.</p>
+<p>Let <span class="math inline">\(r\_x(z)\)</span> and <span class="math inline">\(r\_y(z)\)</span> denote the half-widths of the rectangular cross-section at height <span class="math inline">\(z\)</span>:</p>
+<p><span class="math display">\[
+r_x(z) = r_t + (l_x - r_t) \cdot \frac{z}{h}, \quad
+r_y(z) = r_t + (l_y - r_t) \cdot \frac{z}{h}
+\]</span>.</p>
+<p>The first three coordinates are then defined as:</p>
+<p><span class="math display">\[
+x_1 \sim \mathcal{U}(-r_x(z),\ r_x(z)), \quad
+x_2 \sim \mathcal{U}(-r_y(z),\ r_y(z)), \quad
+x_3 \sim \mathcal{U}(-r_x(z),\ r_x(z))
+\]</span>.</p>
+<p>For <span class="math inline">\(p &gt; 3\)</span>, the remaining <span class="math inline">\(p - 4\)</span> dimensions (i.e., <span class="math inline">\(x\_4\)</span> to <span class="math inline">\(x\_{p-1}\)</span>) are tapered toward zero with decreasing height and generated as:</p>
+<p><span class="math display">\[
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right), \quad \text{for } j = 4, \dots, p-1.
+\]</span></p>
+<p>This tapering ensures that the structure narrows in all directions as it approaches the tip.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrrect</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrrect</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2638,6 +2659,53 @@ Figure 15: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_pyrtri(n, p, h, l, rt)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a high-dimensional pyramid-like structure with a triangular cross-section. The structure is embedded in a <span class="math inline">\(p\)</span>-dimensional space, with the tip located at height 0 and the base at height <span class="math inline">\(h\)</span>. The triangle expands linearly in size from tip to base, with more points concentrated near the tip.</p>
+<p>Let <span class="math inline">\(x\_1, x\_2, \dots, x\_p\)</span> denote the coordinates of the generated points. The final coordinate $x_p$ encodes the height <span class="math inline">\(z\)</span> of each point and is drawn from an exponential distribution capped at <span class="math inline">\(h\)</span>:</p>
+<p><span class="math display">\[
+x_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).
+\]</span></p>
+<p>Let <span class="math inline">\(r(z)\)</span> denote the scaling factor (distance from the origin to triangle vertices) at height <span class="math inline">\(z\)</span>:</p>
+<p><span class="math display">\[
+r(z) = r_t + (l - r_t) \cdot \frac{z}{h}.
+\]</span></p>
+<p>A point in the triangle at height <span class="math inline">\(z\)</span> is generated using barycentric coordinates <span class="math inline">\((u, v)\)</span> to ensure uniform sampling within the triangular cross-section:</p>
+<p><span class="math display">\[
+u, v \sim \mathcal{U}(0, 1), \quad \text{if } u + v &gt; 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v.
+\]</span></p>
+<p>The first three coordinates (triangle plane) are then:</p>
+<p><span class="math display">\[
+x_1 = r(z)(1 - u - v), \quad
+x_2 = r(z) \cdot u, \quad
+x_3 = r(z) \cdot v
+\]</span></p>
+<p>For dimensions <span class="math inline">\(j = 4, \dots, p-1\)</span>, values are tapered linearly toward zero near the tip:</p>
+<p><span class="math display">\[
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right).
+\]</span></p>
+<p>The <code>gen_pyrtri(n, p, h, l, rt)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a high-dimensional pyramid-like structure with a triangular cross-section. The structure is embedded in a <span class="math inline">\(p\)</span>-dimensional space, with the tip located at height 0 and the base at height <span class="math inline">\(h\)</span>. The triangle expands linearly in size from tip to base, with more points concentrated near the tip.</p>
+<p>Let <span class="math inline">\(x\_1, x\_2, \dots, x\_p\)</span> denote the coordinates of the generated points. The final coordinate <span class="math inline">\(x\_p\)</span> encodes the height <span class="math inline">\(z\)</span> of each point and is drawn from an exponential distribution capped at <span class="math inline">\(h\)</span>:</p>
+<p><span class="math display">\[
+x_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).
+\]</span></p>
+<p>Let <span class="math inline">\(r(z)\)</span> denote the scaling factor (distance from the origin to triangle vertices) at height <span class="math inline">\(z\)</span>:</p>
+<p><span class="math display">\[
+r(z) = r_t + (l - r_t) \cdot \frac{z}{h}.
+\]</span></p>
+<p>A point in the triangle at height <span class="math inline">\(z\)</span> is generated using barycentric coordinates <span class="math inline">\((u, v)\)</span> to ensure uniform sampling within the triangular cross-section:</p>
+<p><span class="math display">\[
+u, v \sim \mathcal{U}(0, 1), \quad \text{if } u + v &gt; 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v.
+\]</span></p>
+<p>The first three coordinates (triangle plane) are then:</p>
+<p><span class="math display">\[
+x_1 = r(z)(1 - u - v), \quad
+x_2 = r(z) \cdot u, \quad
+x_3 = r(z) \cdot v
+\]</span></p>
+<p>For dimensions <span class="math inline">\(j = 4, \dots, p-1\)</span>, values are tapered linearly toward zero near the tip:</p>
+<p><span class="math display">\[
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right).
+\]</span></p>
+<p>The result is a tapered, high-dimensional triangle-based pyramid with more points near the apex and greater width at the base.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrtri</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrtri</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2663,6 +2731,30 @@ Figure 16: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_pyrstar(n, p, h, rb)</code> function generates a dataset of $n$ points forming a high-dimensional pyramid-shaped structure with a hexagonal base. The pyramid extends vertically from height <span class="math inline">\(z = 0\)</span> (tip) to height <span class="math inline">\(z = h\)</span> (base), embedded in a <span class="math inline">\(p\)</span>-dimensional space. The distribution concentrates more points near the base, and the hexagonal spread tapers toward the tip.</p>
+<p>Let <span class="math inline">\(x\_1, x\_2, \dots, x\_p\)</span> denote the coordinates of the generated points. The final coordinate <span class="math inline">\(x\_p\)</span> encodes the height <span class="math inline">\(z\)</span>:</p>
+<p><span class="math display">\[
+x_p = z \sim \mathcal{U}(0, h).
+\]</span></p>
+<p>The radius at height <span class="math inline">\(z\)</span> scales linearly from zero (tip) to the base radius <span class="math inline">\(r\_b\)</span>:</p>
+<p><span class="math display">\[
+r(z) = r_b \cdot \left(1 - \frac{z}{h}\right).
+\]</span></p>
+<p>Each point is placed within a regular hexagon in the plane <span class="math inline">\((x\_1, x\_2)\)</span>, using a randomly chosen hexagon sector angle <span class="math inline">\(\theta \in \left{0, \frac{\pi}{3}, \frac{2\pi}{3}, \pi, \frac{4\pi}{3}, \frac{5\pi}{3} \right}\)</span> and a uniformly random radial scaling factor:</p>
+<p><span class="math display">\[
+\theta \sim \text{Uniform sample from 6 hexagon angles}, \quad
+r_{\text{point}} \sim \sqrt{\mathcal{U}(0, 1)}.
+\]</span></p>
+<p>Then, the first two coordinates are:</p>
+<p><span class="math display">\[
+x_1 = r(z) \cdot r_{\text{point}} \cdot \cos(\theta), \quad
+x_2 = r(z) \cdot r_{\text{point}} \cdot \sin(\theta)
+\]</span></p>
+<p>For dimensions <span class="math inline">\(j = 3, \dots, p-1\)</span>, values are tapered toward zero near the tip:</p>
+<p><span class="math display">\[
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h} \right).
+\]</span></p>
+<p>This results in a smooth, star-like pyramid in <span class="math inline">\(p\)</span>-dimensional space, with a broad hexagonal base and narrow tip.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrstar</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrstar</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2688,6 +2780,20 @@ Figure 17: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_pyrholes(n, p)</code> function generates <span class="math inline">\(n\)</span> points embedded in a <span class="math inline">\(p\)</span>-dimensional simplex using a chaotic attractor-like midpoint algorithm. The result is a fractal-like structure that reveals holes or gaps in the data cloud, forming a “Sierpinski-like pyramid” in high dimensions.</p>
+<p>Let <span class="math inline">\(x\_1, x\_2, \dots, x\_p\)</span> denote the coordinates of the generated points. The generation process begins with an initial point <span class="math inline">\(T\_0 \in \[0, 1]^p\)</span> drawn from a uniform distribution:</p>
+<p><span class="math display">\[
+T_0 \sim \mathcal{U}(0, 1)^p.
+\]</span></p>
+<p>Let <span class="math inline">\(C\_1, C\_2, \dots, C\_{p+1}\)</span> denote the corner vertices of a <span class="math inline">\(p\)</span>-dimensional simplex. At each iteration <span class="math inline">\(i = 1, \dots, n\)</span>, a new point is computed by taking the midpoint between the previous point <span class="math inline">\(T\_{i-1}\)</span> and a randomly selected vertex <span class="math inline">\(C\_k\)</span>:</p>
+<p><span class="math display">\[
+T_i = \frac{1}{2}(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}.
+\]</span></p>
+<p>This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex.</p>
+<p>The final output is a <span class="math inline">\(n \times p\)</span> matrix where each row represents a point:</p>
+<p><span class="math display">\[
+X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}.
+\]</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrholes</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrholes</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -3554,6 +3660,7 @@ Figure 35: Six different dimension reduction representations of the <code>mobius
 <li><p>clusteredsphere: This structure allows for cluster separation on curved manifolds in high-dimensional space and can be used to test the ability of NLDR methods and clustering algorithms to detect spherical clusters of different sizes and separations.</p></li>
 <li><p>Mobius: The core geometric structure is a Mobius strip—a classic one-sided surface with a half-twist—useful for evaluating how well methods capture non-orientability and twisted manifolds.</p></li>
 <li><p>Grided cube: This function is useful for assessing how algorithms preserve uniformly spaced data in high-dimensional spaces.</p></li>
+<li><p>Pyrholes: This structure is useful for testing clustering and NLDR algorithms on non-convex and sparse high-dimensional shapes.</p></li>
 </ul>
 <!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
 <!-- Our findings demonstrated that the choice of dimensionality reduction method significantly impacted the ability of hierarchical clustering to recover the true underlying clusters. Methods that effectively preserved the global structure of the data, as defined by our generation process, generally led to more accurate and interpretable hierarchical clustering results. However, the presence of nuisance variables often confounded the low-dimensional embeddings, making it more challenging for hierarchical clustering to separate truly distinct groups. This highlights a critical consideration in real-world data analysis, where unmeasured or latent factors can obscure the signal of interest. -->
