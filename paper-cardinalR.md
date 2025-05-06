@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-05-06'
+date: '2025-05-07'
 preamble: |
   \usepackage{amsmath} \usepackage{array}
 output:
@@ -428,6 +428,25 @@ $$
 </div>
 
 
+The `gen_orglinearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches embedded in a $p$-dimensional space. Each branch lies primarily within a distinct $2\text{-}D$ subspace, while the remaining $p - 2$ dimensions contain Gaussian noise.
+
+To construct each branch, a unique or repeated pair of dimensions is selected from the $\binom{p}{2}$ possible $2\text{-}D$ combinations. If $k \leq \binom{p}{2}$, combinations are sampled without replacement. If $k > \binom{p}{2}$, additional pairs are sampled with replacement to reach $k$ total branches. Each selected pair $(x\_{i1}, x\_{i2})$ defines the $2\text{-}D$ plane for branch $i$.
+
+For branch $i$, $n\_i$ points are generated, where $\sum\_{i=1}^k n\_i = n$. The structure follows:
+
+$$
+x_{i1} \sim \mathcal{U}(0, 2), \quad
+x_{i2} = -s_i \cdot x_{i1} + \epsilon, \quad \epsilon \sim \mathcal{U}(0, 0.5),
+$$
+
+where $s\_i$ is a scale factor controlling the slope. When $k \leq \binom{p}{2}$, $s\_i = 1$. When sampling with replacement, $s\_i$ is drawn from the set ${1, 1.5, 2, \dots, 8}$ in increments of $0.5$.
+
+For $p > 2$, the remaining dimensions contain independent Gaussian noise:
+
+$$
+x_j \sim \mathcal{N}(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}.
+$$
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>orglinearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_orglinearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
@@ -465,6 +484,31 @@ $$
 </div>
 
 </div>
+
+
+The `gen_orgcurvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in a $p$-dimensional space. Each branch is constructed in a unique or repeated $2\text{-}D$ subspace of the $p$-dimensional space, with curvature induced by a second-degree polynomial structure. The remaining $p - 2$ dimensions contain Gaussian noise.
+
+Let $\binom{p}{2}$ denote the number of unique $2\text{-}D$ subspace combinations. When $k \leq \binom{p}{2}$, $k$ distinct subspace pairs $(x\_{i1}, x\_{i2})$ are sampled without replacement. Otherwise, combinations are selected with replacement to reach $k$ total branches. For each branch $i = 1, \dots, k$, a random scale factor $s\_i$ is used to vary the curvature:
+
+* If $k \leq \binom{p}{2}$: $s\_i = 1 $
+* If $k > \binom{p}{2}$: $s\_i \sim \text{Uniform sample from } {1, 1.5, \dots, 8}$
+
+Each branch contains $n\_i$ points such that $\sum\_{i=1}^k n\_i = n$, where the vector $(n\_1, \dots, n\_k)$ is randomly drawn using the helper function `gen_nsum()` to partition $n$.
+
+Within its assigned subspace $(x\_{i1}, x\_{i2})$, branch $i$ is defined by:
+
+$$
+x_{i1} \sim \mathcal{U}(0, 2), \quad
+x_{i2} = -s_i \cdot x_{i1}^2 + \epsilon, \quad \epsilon \sim \mathcal{U}(0, 0.5)
+$$
+
+This forms a smooth downward-opening parabola in the plane defined by $(x\_{i1}, x\_{i2})$, with the degree of curvature controlled by $s\_i$.
+
+For $p > 2$, all remaining dimensions are independent Gaussian noise:
+
+$$
+x_j \sim \mathcal{N}(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}.
+$$
 
 
 <div class="layout-chunk" data-layout="l-body">
