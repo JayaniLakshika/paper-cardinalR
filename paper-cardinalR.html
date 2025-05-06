@@ -3229,6 +3229,19 @@ Figure 32: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_nonlinear(n, p, hc, non_fac)</code> function simulates a non-linear <span class="math inline">\(2\text{-}D\)</span> surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables.
+The key geometry lies in dimensions 1–4, where:</p>
+<ul>
+<li><span class="math inline">\(X_1 \sim \mathcal{U}(0.1, 2)\)</span>: base variable (avoids zero to prevent division errors).</li>
+<li><span class="math inline">\(X_3 \sim \mathcal{U}(0.1, 0.8)\)</span>: independent auxiliary variable.</li>
+<li><span class="math inline">\(X_2 = \frac{hc}{X_1} + \text{non\_fac} \cdot \sin(X_1)\)</span>: non-linear combination of <strong>hyperbolic and sinusoidal transformations</strong>, creating sharp curvature and oscillation.</li>
+<li><span class="math inline">\(X_4 = \cos(\pi \cdot X_1) + \varepsilon\)</span>, with <span class="math inline">\(\varepsilon \sim \mathcal{U}(-0.1, 0.1)\)</span>: additional nonlinear variation based on cosine, simulating more subtle periodic structure.</li>
+</ul>
+<p>These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter.</p>
+<p>If <span class="math inline">\(p &gt; 4\)</span>, the remaining dimensions are populated with Gaussian noise using <code>gen_noisedims()</code>:</p>
+<p><span class="math display">\[
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+\]</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>nonlinear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_nonlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, hc <span class='op'>=</span> <span class='fl'>1</span>, non_fac <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre>

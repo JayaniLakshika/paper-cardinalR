@@ -1960,6 +1960,22 @@ $$
 </div>
 
 
+The `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables. 
+The key geometry lies in dimensions 1–4, where:
+
+* $X_1 \sim \mathcal{U}(0.1, 2)$: base variable (avoids zero to prevent division errors).
+* $X_3 \sim \mathcal{U}(0.1, 0.8)$: independent auxiliary variable.
+* $X_2 = \frac{hc}{X_1} + \text{non\_fac} \cdot \sin(X_1)$: non-linear combination of **hyperbolic and sinusoidal transformations**, creating sharp curvature and oscillation.
+* $X_4 = \cos(\pi \cdot X_1) + \varepsilon$, with $\varepsilon \sim \mathcal{U}(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure.
+
+These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter.
+
+If $p > 4$, the remaining dimensions are populated with Gaussian noise using `gen_noisedims()`:
+
+$$
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+$$
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>nonlinear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_nonlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, hc <span class='op'>=</span> <span class='fl'>1</span>, non_fac <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre></div>
 

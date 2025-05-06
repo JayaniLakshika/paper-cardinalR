@@ -3839,6 +3839,22 @@ conicspiral_proj1 + conicspiral_proj2 + conicspiral_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
+The `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables. 
+The key geometry lies in dimensions 1–4, where:
+
+* $X_1 \sim \mathcal{U}(0.1, 2)$: base variable (avoids zero to prevent division errors).
+* $X_3 \sim \mathcal{U}(0.1, 0.8)$: independent auxiliary variable.
+* $X_2 = \frac{hc}{X_1} + \text{non\_fac} \cdot \sin(X_1)$: non-linear combination of **hyperbolic and sinusoidal transformations**, creating sharp curvature and oscillation.
+* $X_4 = \cos(\pi \cdot X_1) + \varepsilon$, with $\varepsilon \sim \mathcal{U}(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure.
+
+These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter.
+
+If $p > 4$, the remaining dimensions are populated with Gaussian noise using `gen_noisedims()`:
+
+$$
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+$$
+
 ```{r data-nonlinear, echo=TRUE}
 nonlinear <- gen_nonlinear(n = 1000, p = 4, hc = 1, non_fac = 0.5)
 ```
