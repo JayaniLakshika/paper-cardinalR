@@ -628,6 +628,23 @@ $$
 </div>
 
 
+The `gen_cubehole(n, p)` function generates a dataset of $n$ points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in $p$-dimensional space.
+
+The initial points are drawn from a uniform cube centered at the origin: $X\_1, X\_2, X\_3 \sim \mathcal{U}(-0.5, 0.5)$.
+
+The center of the cube is $(0, 0, 0)$. A spherical hole of radius $0.5$ is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to $0.5$:
+
+Remove if $\sqrt{X\_1^2 + X\_2^2 + X\_3^2} \leq 0.5$.
+
+This results in a shell-like point cloud that fills the cube but avoids the spherical center.
+
+For $p > 3$, Gaussian noise is added to the remaining dimensions (via `gen_unifcube()`):
+
+$$
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+$$.
+
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 

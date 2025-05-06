@@ -2274,6 +2274,15 @@ Figure 8: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </p>
 </div>
 </div>
+<p>The <code>gen_cubehole(n, p)</code> function generates a dataset of <span class="math inline">\(n\)</span> points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in <span class="math inline">\(p\)</span>-dimensional space.</p>
+<p>The initial points are drawn from a uniform cube centered at the origin: <span class="math inline">\(X\_1, X\_2, X\_3 \sim \mathcal{U}(-0.5, 0.5)\)</span>.</p>
+<p>The center of the cube is <span class="math inline">\((0, 0, 0)\)</span>. A spherical hole of radius <span class="math inline">\(0.5\)</span> is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to <span class="math inline">\(0.5\)</span>:</p>
+<p>Remove if <span class="math inline">\(\sqrt{X\_1^2 + X\_2^2 + X\_3^2} \leq 0.5\)</span>.</p>
+<p>This results in a shell-like point cloud that fills the cube but avoids the spherical center.</p>
+<p>For <span class="math inline">\(p &gt; 3\)</span>, Gaussian noise is added to the remaining dimensions (via <code>gen_unifcube()</code>):</p>
+<p><span class="math display">\[
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+\]</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
