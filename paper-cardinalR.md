@@ -248,6 +248,27 @@ Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape gener
 </div>
 
 
+The `gen_expbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ exponential branches in 2D, with optional noise dimensions to embed the structure in a \$p\$-dimensional space. These branches grow in opposite directions, producing a radiating curvilinear structure from a central region.
+
+Each branch $i$ is constructed using:
+
+$X\_1 \sim \mathcal{U}(-2, 2)$
+$X\_2 = \exp(\pm s\_i \cdot X\_1) + \epsilon$, 
+
+where:
+$\epsilon \sim \mathcal{U}(0, 0.1)$ adds local jitter
+$s\_i \in \[0.5, 2]$ is randomly sampled for each branch.
+
+The sign alternates between branches (odd: negative, even: positive exponent). This creates mirror-symmetric branches with different steepness and curvature where odd-numbered branches: decay pattern (reflected about $x$-axis) and even-numbered branches: growth pattern.
+
+For $p > 2$, Gaussian noise is added to embed the $2\text{-}D$ branches in higher dimensions:
+
+$$
+X\_j \sim \mathcal{N}(0, 0.1^2), \quad j = 3, \dots, p.
+$$
+
+These represent irrelevant or noisy dimensions.
+
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>expbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_expbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>

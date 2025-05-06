@@ -2014,6 +2014,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
+<p>The <code>gen_expbranches(n, p, k)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming <span class="math inline">\(k\)</span> exponential branches in 2D, with optional noise dimensions to embed the structure in a $p$-dimensional space. These branches grow in opposite directions, producing a radiating curvilinear structure from a central region.</p>
+<p>Each branch <span class="math inline">\(i\)</span> is constructed using:</p>
+<p><span class="math inline">\(X\_1 \sim \mathcal{U}(-2, 2)\)</span>
+<span class="math inline">\(X\_2 = \exp(\pm s\_i \cdot X\_1) + \epsilon\)</span>,</p>
+<p>where:
+<span class="math inline">\(\epsilon \sim \mathcal{U}(0, 0.1)\)</span> adds local jitter
+<span class="math inline">\(s\_i \in \[0.5, 2]\)</span> is randomly sampled for each branch.</p>
+<p>The sign alternates between branches (odd: negative, even: positive exponent). This creates mirror-symmetric branches with different steepness and curvature where odd-numbered branches: decay pattern (reflected about <span class="math inline">\(x\)</span>-axis) and even-numbered branches: growth pattern.</p>
+<p>For <span class="math inline">\(p &gt; 2\)</span>, Gaussian noise is added to embed the <span class="math inline">\(2\text{-}D\)</span> branches in higher dimensions:</p>
+<p><span class="math display">\[
+X\_j \sim \mathcal{N}(0, 0.1^2), \quad j = 3, \dots, p.
+\]</span></p>
+<p>These represent irrelevant or noisy dimensions.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>expbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_expbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
