@@ -3192,6 +3192,18 @@ Figure 31: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
+<p>The <code>gen_conicspiral(n, p, spins)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a conical spiral in the first four dimensions of a <span class="math inline">\(p\)</span>-dimensional space. The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a <span class="math inline">\(3\text{-}D\)</span> conic helix.</p>
+<p>The shape is defined by parameter <span class="math inline">\(\theta \in [0, 2\pi \cdot \text{spins}]\)</span>, controlling the angular progression of the spiral. The mapping to Cartesian space is as follows:</p>
+<p>The Archimedean spiral in the horizontal plane is represented by;</p>
+<p><span class="math inline">\(X_1 = \theta \cdot \cos(\theta)\)</span> for radial expansion in x.
+<span class="math inline">\(X_2 = \theta \cdot \sin(\theta)\)</span> for radial expansion in y.</p>
+<p>The growth pattern resembles a cone, with the height increasing according to <span class="math inline">\(X_3 = 2 \cdot \theta / \max(\theta) + \varepsilon_3\)</span>, with <span class="math inline">\(\varepsilon_3 \sim \mathcal{U}(-0.1, 0.6).\)</span></p>
+<p>Spiral modulation in the fourth dimension is represented by <span class="math inline">\(X_4 = \theta \cdot \sin(2\theta) + \varepsilon_4\)</span>, with <span class="math inline">\(\varepsilon_4 \sim \mathcal{U}(-0.1, 0.6)\)</span> which simulates a twisting helical component in a non-radial dimension.</p>
+<p>This results in a <span class="math inline">\(3\text{-}D\)</span> spiral surface expanding upward and outward like a cone, with an oscillatory fourth dimension capturing spiral irregularities.</p>
+<p>For <span class="math inline">\(p &gt; 4\)</span>, the dataset includes isotropic Gaussian noise in the remaining dimensions via <code>gen_noisedims()</code>:</p>
+<p><span class="math display">\[
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+\]</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>conicspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_conicspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, spins <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre>

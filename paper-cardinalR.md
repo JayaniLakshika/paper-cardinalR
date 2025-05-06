@@ -1900,6 +1900,27 @@ $$
 </div>
 
 
+The `gen_conicspiral(n, p, spins)` function generates a dataset of $n$ points forming a conical spiral in the first four dimensions of a $p$-dimensional space. The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a $3\text{-}D$ conic helix.
+
+The shape is defined by parameter $\theta \in [0, 2\pi \cdot \text{spins}]$, controlling the angular progression of the spiral. The mapping to Cartesian space is as follows:
+
+The Archimedean spiral in the horizontal plane is represented by;
+
+$X_1 = \theta \cdot \cos(\theta)$ for radial expansion in x.
+$X_2 = \theta \cdot \sin(\theta)$ for radial expansion in y.
+
+The growth pattern resembles a cone, with the height increasing according to $X_3 = 2 \cdot \theta / \max(\theta) + \varepsilon_3$, with $\varepsilon_3 \sim \mathcal{U}(-0.1, 0.6).$
+
+Spiral modulation in the fourth dimension is represented by $X_4 = \theta \cdot \sin(2\theta) + \varepsilon_4$, with $\varepsilon_4 \sim \mathcal{U}(-0.1, 0.6)$ which simulates a twisting helical component in a non-radial dimension.
+
+This results in a $3\text{-}D$ spiral surface expanding upward and outward like a cone, with an oscillatory fourth dimension capturing spiral irregularities.
+
+For $p > 4$, the dataset includes isotropic Gaussian noise in the remaining dimensions via `gen_noisedims()`:
+
+$$
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+$$
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>conicspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_conicspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, spins <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre></div>
 
