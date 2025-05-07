@@ -2537,7 +2537,7 @@ The five clusters have different geometric structures and each contain different
 
 UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure (Figure \@ref(fig:fig-nldr-layouts)). However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
 
-# Discussion
+# Conclusion
 
 - Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings.
 
@@ -2570,6 +2570,8 @@ The code is available at [https://github.com/JayaniLakshika/cardinalR](https://g
 # Acknowledgements
 
 This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template.
+
+Add the packages used in cardinalR
 ```{.r .distill-force-highlighting-css}
 ```
 
