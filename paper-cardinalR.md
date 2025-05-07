@@ -2569,9 +2569,7 @@ The code is available at [https://github.com/JayaniLakshika/cardinalR](https://g
 
 # Acknowledgements
 
-This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template.
-
-Add the packages used in cardinalR
+This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. These `R` packages were used for this work: `cli` [@gabor2025], `tibble` [@kirill2023], gtools [@gregory2023], dplyr [@hadley2023], `stats` [@core2025], `tidyr` [@hadley2024], `purrr` [@hadley2025], `mvtnorm` [@alan2009], `geozoo` [@barret2016], and `MASS` [@venables2002].
 ```{.r .distill-force-highlighting-css}
 ```
 
