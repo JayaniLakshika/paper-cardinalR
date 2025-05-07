@@ -39,8 +39,7 @@ preamble: >
   \usepackage{amsmath}
   \usepackage{array}
 output: 
- rjtools::rjournal_web_article:
-    css: "style.css"
+ rjtools::rjournal_article:
     keep_md: true
 bibliography: paper-cardinalR.bib
 editor_options: 
@@ -266,8 +265,9 @@ $X\_1 \sim \mathcal{U}(-2, 2)$
 $X\_2 = \exp(\pm s\_i \cdot X\_1) + \epsilon$, 
 
 where:
-$\epsilon \sim \mathcal{U}(0, 0.1)$ adds local jitter
-$s\_i \in \[0.5, 2]$ is randomly sampled for each branch.
+$\epsilon \sim \mathcal{U}(0, 0.1)$ adds local jitter,
+
+$s\_i \in [0.5, 2]$ is randomly sampled for each branch.
 
 The sign alternates between branches (odd: negative, even: positive exponent). This creates mirror-symmetric branches with different steepness and curvature where odd-numbered branches: decay pattern (reflected about $x$-axis) and even-numbered branches: growth pattern.
 
@@ -501,7 +501,7 @@ Branch 1 is generated from $X\_1 \sim \mathcal{U}(0, 1)$, and $X\_2 = 0.1 \cdot 
 
 Branch 2 is generated from $X\_1 \sim \mathcal{U}(-1, 0)$, and $X\_2 = 0.1 \cdot X\_1 - 2 \cdot X\_1^2 + \epsilon$, where $\epsilon \sim \mathcal{U}(0, 0.05)$. This creates a steeper, leftward-facing curve in the left half-plane.
 
-Branches $3$ to $k$** are added iteratively. Each new branch begins at a randomly chosen point within a restricted horizontal band: $X\_1 \in \[-0.15, 0.15]$ (to ensure connectivity with earlier branches), spans a unit-length interval on $X\_1\$:$X\_1 \in \[x\_{\text{start}}, x\_{\text{start}} + 1]$, and has the structure:
+Branches $3$ to $k$** are added iteratively. Each new branch begins at a randomly chosen point within a restricted horizontal band: $X\_1 \in [-0.15, 0.15]$ (to ensure connectivity with earlier branches), spans a unit-length interval on $X\_1$:$X\_1 \in [x\_{\text{start}}, x\_{\text{start}} + 1]$, and has the structure:
 
 $$
 X_2 = 0.1 \cdot X_1 - s_i \cdot (X_1^2 - x_{\text{start}}) + y_{\text{start}}, \quad s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1.5\}.
@@ -1698,7 +1698,7 @@ polynomial_tb |>
 
 The `gen_quadratic(n, p, range)` function generates a dataset of $n$ points forming a quadratic curve in the first two dimensions of a $p$-dimensional space. This $2\text{-}D$ parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.
 
-The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let $X\_1 \sim \mathcal{U}(\text{range}\[1], \text{range}\[2])$ be the independent variable. A raw polynomial basis of degree 2 is used to form $X\_2 = X\_1 - X\_1^2 + \varepsilon\_2$, where $\varepsilon\_2 \sim \mathcal{U}(0, 0.5)$.
+The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let $X\_1 \sim \mathcal{U}(\text{range}[1], \text{range}[2])$ be the independent variable. A raw polynomial basis of degree 2 is used to form $X\_2 = X\_1 - X\_1^2 + \varepsilon\_2$, where $\varepsilon\_2 \sim \mathcal{U}(0, 0.5)$.
 
 This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate measurement noise or intrinsic variability.
 
@@ -1808,7 +1808,7 @@ quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
 
 The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions of a $p$-dimensional space. This function creates a more complex curvilinear structure than a simple parabola.
 
-The shape is generated using a third-degree raw polynomial basis expansion. Let $X\_1 \sim \mathcal{U}(\text{range}\[1], \text{range}\[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X\_2 = X\_1 + X\_1^2 - X\_1^3 + \varepsilon\_2\$, where \$\varepsilon\_2 \sim \mathcal{U}(0, 0.5)$.
+The shape is generated using a third-degree raw polynomial basis expansion. Let $X\_1 \sim \mathcal{U}(\text{range}[1], \text{range}[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X\_2 = X\_1 + X\_1^2 - X\_1^3 + \varepsilon\_2\$, where \$\varepsilon\_2 \sim \mathcal{U}(0, 0.5)$.
 
 When $p > 2$, the remaining dimensions consist of independent Gaussian noise features generated via `gen_noisedims()`:
 
@@ -2251,7 +2251,7 @@ $$
 r(z) = r_b \cdot \left(1 - \frac{z}{h}\right).
 $$
 
-Each point is placed within a regular hexagon in the plane $(x\_1, x\_2)$, using a randomly chosen hexagon sector angle $\theta \in \left{0, \frac{\pi}{3}, \frac{2\pi}{3}, \pi, \frac{4\pi}{3}, \frac{5\pi}{3} \right}$ and a uniformly random radial scaling factor:
+Each point is placed within a regular hexagon in the plane $(x\_1, x\_2)$, using a randomly chosen hexagon sector angle $\theta \in \{0, \frac{\pi}{3}, \frac{2\pi}{3}, \pi, \frac{4\pi}{3}, \frac{5\pi}{3}\}$ and a uniformly random radial scaling factor:
 
 $$
 \theta \sim \text{Uniform sample from 6 hexagon angles}, \quad
@@ -2374,7 +2374,7 @@ pyrstar_proj1 + pyrstar_proj2 + pyrstar_proj3 +
 
 The `gen_pyrholes(n, p)` function generates $n$ points embedded in a $p$-dimensional simplex using a chaotic attractor-like midpoint algorithm. The result is a fractal-like structure that reveals holes or gaps in the data cloud, forming a "Sierpinski-like pyramid" in high dimensions.
 
-Let $x\_1, x\_2, \dots, x\_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T\_0 \in \[0, 1]^p$ drawn from a uniform distribution:
+Let $x\_1, x\_2, \dots, x\_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T\_0 \in [0, 1]^p$ drawn from a uniform distribution:
 
 $$
 T_0 \sim \mathcal{U}(0, 1)^p.
@@ -3629,7 +3629,7 @@ This forms a nonlinear curvilinear structure in the shape of a tilted crescent i
 For $p > 2$, additional dimensions $X_3$ to $X_p$ are generated using `gen_wavydims1()`:
 
 $$
-X_j = s_j \cdot \theta + \varepsilon_j$,\text{ where }$\varepsilon_j \sim \mathcal{N}(0, 0.5^2)$,\text{ and }$s_j$\text{ is a random scale}.
+X_j = s_j \cdot \theta + \varepsilon_j,\text{ where }\varepsilon_j \sim \mathcal{N}(0, 0.5^2),\text{ and }s_j\text{ is a random scale}.
 $$
 
 These noise dimensions are nonlinearly correlated with $\theta$, producing structured, wave-like variation that aligns with the progression along the crescent curve.
@@ -3750,7 +3750,7 @@ This forms a curvy cylindrical surface in $4\text{-}D$, where the fourth dimensi
 For $p > 4$, dimensions $X_5$ through $X_p$ are generated as:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2)$,\text{ for }$j = 5, \ldots, p.
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 5, \ldots, p.
 $$
 
 These dimensions represent unstructured, low-variance noise.

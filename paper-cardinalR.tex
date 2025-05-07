@@ -131,7 +131,175 @@ k & A numeric value representing the number of clusters.\\
 \end{tabular}
 \end{table}
 
+The \texttt{gen\_expbranches(n,\ p,\ k)} function generates a dataset of \(n\) points forming \(k\) exponential branches in 2D, with optional noise dimensions to embed the structure in a \$p\$-dimensional space. These branches grow in opposite directions, producing a radiating curvilinear structure from a central region.
+
+Each branch \(i\) is constructed using:
+
+\(X\_1 \sim \mathcal{U}(-2, 2)\)
+\(X\_2 = \exp(\pm s\_i \cdot X\_1) + \epsilon\),
+
+where:
+\(\epsilon \sim \mathcal{U}(0, 0.1)\) adds local jitter,
+
+\(s\_i \in [0.5, 2]\) is randomly sampled for each branch.
+
+The sign alternates between branches (odd: negative, even: positive exponent). This creates mirror-symmetric branches with different steepness and curvature where odd-numbered branches: decay pattern (reflected about \(x\)-axis) and even-numbered branches: growth pattern.
+
+For \(p > 2\), Gaussian noise is added to embed the \(2\text{-}D\) branches in higher dimensions:
+
+\[
+X\_j \sim \mathcal{N}(0, 0.1^2), \quad j = 3, \dots, p.
+\]
+
+These represent irrelevant or noisy dimensions.
+
+\begin{verbatim}
+expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-expbranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches` data.}\label{fig:fig-expbranches-proj}
+\end{figure}
+
+The \texttt{gen\_linearbranches(n,\ p,\ k)} function generates a dataset of \(n\) points forming \(k\) approximately linear branches in a \(p\)-dimensional space. The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
+
+Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches 1 and 2 are initialized with fixed slopes and intercepts. The Branch 1 is generated from \(X\_1 \sim \mathcal{U}(-2, 8)\$, \$X\_2 = 0.5 \cdot X\_1 + \epsilon\). The Branch 2 is generated from \(X\_1 \sim \mathcal{U}(-6, 2)\$, \$X\_2 = -0.5 \cdot X\_1 + \epsilon\). \(\epsilon \sim \mathcal{U}(0, 0.5)\).
+
+Branches 3 to \(k\)** are added iteratively. Each starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches.
+
+\(X\_1\) values span a short segment (\(x\_{start}\) to \(x\_{start} + 1\)),
+
+\(X\_2 = s\_i \cdot (X\_1 - x\_{start}) + y\_{start} + \epsilon\) where \(s\_i\) is a sampled slope from a filtered set and \(\epsilon \sim \mathcal{U}(0, 0.2)\).
+
+This setup yields \(k\) spatially distinct, noisy linear trajectories.
+
+For \(p > 2\), the remaining dimensions are pure noise:
+
+\[
+X\_j \sim \mathcal{N}(0, 0.05^2)\$ for \$j = 3, \dots, p.
+\]
+
+\begin{verbatim}
+linearbranches <- gen_linearbranches(n = 1000, p = 4, k = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-linearbranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `linearbranches` data.}\label{fig:fig-linearbranches-proj}
+\end{figure}
+
+The \texttt{gen\_curvybranches(n,\ p,\ k)} function generates a dataset of \(n\) points forming \(k\) curvilinear branches embedded in a \(p\)-dimensional space. The underlying geometry lies in the first two dimensions, while the remaining \(p - 2\) dimensions contain Gaussian noise.
+
+Branch 1 is generated from \(X\_1 \sim \mathcal{U}(0, 1)\), and \(X\_2 = 0.1 \cdot X\_1 + 1 \cdot X\_1^2 + \epsilon\), where \(\epsilon \sim \mathcal{U}(0, 0.05)\). This produces a gently upward-curving parabola in the right half-plane.
+
+Branch 2 is generated from \(X\_1 \sim \mathcal{U}(-1, 0)\), and \(X\_2 = 0.1 \cdot X\_1 - 2 \cdot X\_1^2 + \epsilon\), where \(\epsilon \sim \mathcal{U}(0, 0.05)\). This creates a steeper, leftward-facing curve in the left half-plane.
+
+Branches \(3\) to \(k\)** are added iteratively. Each new branch begins at a randomly chosen point within a restricted horizontal band: \(X\_1 \in [-0.15, 0.15]\) (to ensure connectivity with earlier branches), spans a unit-length interval on \(X\_1\):\(X\_1 \in [x\_{\text{start}}, x\_{\text{start}} + 1]\), and has the structure:
+
+\[
+X_2 = 0.1 \cdot X_1 - s_i \cdot (X_1^2 - x_{\text{start}}) + y_{\text{start}}, \quad s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1.5\}.
+\]
+
+Here, \(s\_i\) is a sampled scale factor (slope-like term) controlling curvature, and \((x\_{\text{start}}, y\_{\text{start}})\) is the starting point from the existing structure.
+
+This construction yields \(k\) spatially connected, nonlinear branches with varying curvature.
+
+For \(p > 2\), the remaining dimensions are pure Gaussian noise:
+
+\[
+X_j \sim \mathcal{N}(0, 0.05^2), \quad \text{for } j = 3, \dots, p.
+\]
+
+\begin{verbatim}
+curvybranches <- gen_curvybranches(n = 1000, p = 4, k = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-curvybranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvybranches` data.}\label{fig:fig-curvybranches-proj}
+\end{figure}
+
+The \texttt{gen\_orglinearbranches(n,\ p,\ k)} function generates a dataset of \(n\) points forming \(k\) approximately linear branches embedded in a \(p\)-dimensional space. Each branch lies primarily within a distinct \(2\text{-}D\) subspace, while the remaining \(p - 2\) dimensions contain Gaussian noise.
+
+To construct each branch, a unique or repeated pair of dimensions is selected from the \(\binom{p}{2}\) possible \(2\text{-}D\) combinations. If \(k \leq \binom{p}{2}\), combinations are sampled without replacement. If \(k > \binom{p}{2}\), additional pairs are sampled with replacement to reach \(k\) total branches. Each selected pair \((x\_{i1}, x\_{i2})\) defines the \(2\text{-}D\) plane for branch \(i\).
+
+For branch \(i\), \(n\_i\) points are generated, where \(\sum\_{i=1}^k n\_i = n\). The structure follows:
+
+\[
+x_{i1} \sim \mathcal{U}(0, 2), \quad
+x_{i2} = -s_i \cdot x_{i1} + \epsilon, \quad \epsilon \sim \mathcal{U}(0, 0.5),
+\]
+
+where \(s\_i\) is a scale factor controlling the slope. When \(k \leq \binom{p}{2}\), \(s\_i = 1\). When sampling with replacement, \(s\_i\) is drawn from the set \({1, 1.5, 2, \dots, 8}\) in increments of \(0.5\).
+
+For \(p > 2\), the remaining dimensions contain independent Gaussian noise:
+
+\[
+x_j \sim \mathcal{N}(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}.
+\]
+
+\begin{verbatim}
+orglinearbranches <- gen_orglinearbranches(n = 1000, p = 4, k = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-orglinearbranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `orglinearbranches` data.}\label{fig:fig-orglinearbranches-proj}
+\end{figure}
+
+The \texttt{gen\_orgcurvybranches(n,\ p,\ k)} function generates a dataset of \(n\) points forming \(k\) curvilinear branches embedded in a \(p\)-dimensional space. Each branch is constructed in a unique or repeated \(2\text{-}D\) subspace of the \(p\)-dimensional space, with curvature induced by a second-degree polynomial structure. The remaining \(p - 2\) dimensions contain Gaussian noise.
+
+Let \(\binom{p}{2}\) denote the number of unique \(2\text{-}D\) subspace combinations. When \(k \leq \binom{p}{2}\), \(k\) distinct subspace pairs \((x\_{i1}, x\_{i2})\) are sampled without replacement. Otherwise, combinations are selected with replacement to reach \(k\) total branches. For each branch \(i = 1, \dots, k\), a random scale factor \(s\_i\) is used to vary the curvature:
+
+\begin{itemize}
+\tightlist
+\item
+  If \(k \leq \binom{p}{2}\): \$s\_i = 1 \$
+\item
+  If \(k > \binom{p}{2}\): \(s\_i \sim \text{Uniform sample from } {1, 1.5, \dots, 8}\)
+\end{itemize}
+
+Each branch contains \(n\_i\) points such that \(\sum\_{i=1}^k n\_i = n\), where the vector \((n\_1, \dots, n\_k)\) is randomly drawn using the helper function \texttt{gen\_nsum()} to partition \(n\).
+
+Within its assigned subspace \((x\_{i1}, x\_{i2})\), branch \(i\) is defined by:
+
+\[
+x_{i1} \sim \mathcal{U}(0, 2), \quad
+x_{i2} = -s_i \cdot x_{i1}^2 + \epsilon, \quad \epsilon \sim \mathcal{U}(0, 0.5)
+\]
+
+This forms a smooth downward-opening parabola in the plane defined by \((x\_{i1}, x\_{i2})\), with the degree of curvature controlled by \(s\_i\).
+
+For \(p > 2\), all remaining dimensions are independent Gaussian noise:
+
+\[
+x_j \sim \mathcal{N}(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}.
+\]
+
+\begin{verbatim}
+orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-orgcurvybranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `orgcurvybranches` data.}\label{fig:fig-orgcurvybranches-proj}
+\end{figure}
+
 \subsubsection{Cone}\label{cone}
+
+To simulate a cone-shaped structure in arbitrary dimensions, we define a function \texttt{gen\_cone(n,\ p,\ h,\ ratio)}, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
+
+This function generates \texttt{n} points in a \texttt{p}-dimensional space, where the last dimension (\texttt{X\_p}) represents height along the cone's axis, and the remaining dimensions define a shrinking hyperspherical cross-section as one moves toward the tip.
+
+Points along the height axis are drawn from an exponential distribution to increase density near the tip:
+
+\[
+X_p = h_i \sim \text{Exp}(\lambda = 2/h), \quad \text{truncated at } h
+\]
+
+The effective radius at height \(h_i\) decreases linearly from base to tip, controlled by a shape ratio parameter:
+
+\[
+r_i = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}}) \cdot \frac{h_i}{h}, \quad \text{where } r_{\text{min}} = \text{ratio},\ r_{\text{max}} = 1
+\]
+
+For each point, a direction is sampled uniformly from a \((p-1)\)-dimensional hypersphere using generalized spherical coordinates (angles). The radial coordinates are scaled by \(r_i\), which ensures a conical taper. Specifically, when \(p = 3\), this scaling results in a classic \(3\text{-}D\) cone. However, for \(p > 3\), the introduction of additional angular components allows for a smooth extension into higher dimensions, preserving the conical shape while accommodating the complexities of multi-dimensional geometry.
 
 \begin{verbatim}
 cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
@@ -158,11 +326,143 @@ gen\_cubehole & Generate a cube with a hole.\\
 \end{tabular}
 \end{table}
 
+The \texttt{gen\_gridcube(n,\ p)} constructs a regular grid using approximately \(n\) points by evenly partitioning each of the \(p\) dimensions. Specifically, the number of grid points along each axis is determined by \texttt{gen\_nproduct(n,\ p)}, which calculates the nearest balanced integer factors whose product is close to \(n\). The full grid is generated via \texttt{expand\_grid()}, giving Cartesian combinations of these evenly spaced positions.
+
+Each variable \(X\_j\) represents integer grid coordinates (e.g., 1, 2, 3, \ldots) in dimension \(j\):
+
+\[
+X\_j \in {1, \dots, k\_j},\text{ where }\prod\_{j=1}^p k\_j \approx n.
+\]
+
+This results in a hypercube-shaped lattice in \(p\)-dimensional space.
+
+\begin{verbatim}
+gridcube <- gen_gridcube(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-gridcube-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube` data.}\label{fig:fig-gridcube-proj}
+\end{figure}
+
+The \texttt{gen\_unifcube(n,\ p)} function generates \(n\) points uniformly distributed within a \(3\text{-}D\) cube centered at the origin, optionally embedded in a higher-dimensional space with additional noise dimensions.
+
+Points are sampled independently from \(X\_1, X\_2, X\_3 \sim \mathcal{U}(-0.5, 0.5)\) of a cube of side length 1. This results in a uniform cloud of points filling the unit cube in \(3\text{-}D\) space.
+
+For \(p > 3\), the remaining dimensions are filled with Gaussian noise:
+
+\[
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+\]
+
+\begin{verbatim}
+unifcube <- gen_unifcube(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-unifcube-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `unifcube` data.}\label{fig:fig-unifcube-proj}
+\end{figure}
+
+The \texttt{gen\_cubehole(n,\ p)} function generates a dataset of \(n\) points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in \(p\)-dimensional space.
+
+The initial points are drawn from a uniform cube centered at the origin: \(X\_1, X\_2, X\_3 \sim \mathcal{U}(-0.5, 0.5)\).
+
+The center of the cube is \((0, 0, 0)\). A spherical hole of radius \(0.5\) is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to \(0.5\):
+
+Remove if \(\sqrt{X\_1^2 + X\_2^2 + X\_3^2} \leq 0.5\).
+
+This results in a shell-like point cloud that fills the cube but avoids the spherical center.
+
+For \(p > 3\), Gaussian noise is added to the remaining dimensions (via \texttt{gen\_unifcube()}):
+
+\[
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+\].
+
+\begin{verbatim}
+cubehole <- gen_cubehole(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cubehole-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubehole` data.}\label{fig:fig-cubehole-proj}
+\end{figure}
+
 \subsubsection{Gaussian}\label{gaussian}
+
+The \texttt{gen\_gaussian(n,\ p,\ s)} function generates a multivariate Gaussian cloud in \(p\)-dimensional space, centered at the origin with user-defined covariance structure.
+
+Each point is independently drawn using the multivariate normal distribution with:
+
+\[
+X_i \sim \mathcal{N}_p(\boldsymbol{0}, \Sigma)
+\]
+
+where \(\Sigma\) is a user-defined \(p \times p\) positive-definite matrix.
+
+\begin{verbatim}
+gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-gau-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gau` data.}\label{fig:fig-gau-proj}
+\end{figure}
 
 \subsubsection{Linear}\label{linear}
 
+The \texttt{gen\_longlinear(n,\ p)} function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise.
+
+Each variable \(X_i\) is created as:
+
+\[
+X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i
+\]
+
+where:
+
+\(\text{scale}_i \sim \mathcal{U}(-10, 10)\): randomly chosen direction and stretch.
+
+\(\text{shift}_i \sim \mathcal{U}(-300, 300)\): large offset to spread features apart.
+
+\(\epsilon \sim \mathcal{N}(0, 0.03 \cdot n)\): Gaussian noise scaled to dataset size to introduce mild irregularity.
+
+\begin{verbatim}
+linear <- gen_longlinear(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-linear-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `linear` data.}\label{fig:fig-linear-proj}
+\end{figure}
+
 \subsubsection{Mobius}\label{mobius}
+
+The \texttt{gen\_mobius(n,\ p)} function generates a dataset of \(n\) points that form a Mobius strip embedded in the first three dimensions of a \(p\)-dimensional space. This classical non-orientable surface loops back on itself with a half-twist.
+
+The Mobius strip is generated using \texttt{geozoo::mobius(n,\ p\ =\ 3)\$points}, which samples \(n\) points from a parametrization of the surface defined by angle \(\theta\) and strip width \(w\). The cartesian coordinates are;
+
+\[
+X\_1 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \cos(\theta),
+\]
+\[
+X\_2 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \sin(\theta),
+\]
+\[
+X\_3 = \frac{w}{2} \sin(\theta/2).
+\]
+
+This maps a \(2\text{-}D\) band with a half-twist into \(3\text{-}D\) space, forming a non-orientable 1-sided surface.
+
+For \(p > 3\), the function appends \(p - 3\) dimensions with small Gaussian noise:
+
+\[
+x_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+\]
+
+\begin{verbatim}
+mobius <- gen_mobius(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-mobius-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobius` data.}\label{fig:fig-mobius-proj}
+\end{figure}
 
 \subsubsection{Polynomial}\label{polynomial}
 
@@ -179,6 +479,44 @@ gen\_cubic & Generate a cubic pattern.\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+The \texttt{gen\_quadratic(n,\ p,\ range)} function generates a dataset of \(n\) points forming a quadratic curve in the first two dimensions of a \(p\)-dimensional space. This \(2\text{-}D\) parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.
+
+The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let \(X\_1 \sim \mathcal{U}(\text{range}[1], \text{range}[2])\) be the independent variable. A raw polynomial basis of degree 2 is used to form \(X\_2 = X\_1 - X\_1^2 + \varepsilon\_2\), where \(\varepsilon\_2 \sim \mathcal{U}(0, 0.5)\).
+
+This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate measurement noise or intrinsic variability.
+
+For \(p > 2\), the dataset includes Gaussian noise in the remaining dimensions via \texttt{gen\_noisedims()}:
+
+\[
+X\_j \sim \mathcal{N}(0, 0.1^2), \quad j = 3, \dots, p.
+\]
+
+\begin{verbatim}
+quadratic <- gen_quadratic(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-quadratic-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` data.}\label{fig:fig-quadratic-proj}
+\end{figure}
+
+The \texttt{gen\_cubic(n,\ p,\ range)} function generates a dataset of \(n\) points forming a cubic curve in the first two dimensions of a \(p\)-dimensional space. This function creates a more complex curvilinear structure than a simple parabola.
+
+The shape is generated using a third-degree raw polynomial basis expansion. Let \(X\_1 \sim \mathcal{U}(\text{range}[1], \text{range}[2])\) be the base input. A cubic transformation with vertical jitter is used to define \(X\_2 = X\_1 + X\_1^2 - X\_1^3 + \varepsilon\_2\$, where \$\varepsilon\_2 \sim \mathcal{U}(0, 0.5)\).
+
+When \(p > 2\), the remaining dimensions consist of independent Gaussian noise features generated via \texttt{gen\_noisedims()}:
+
+\[
+X\_j \sim \mathcal{N}(0, 0.1^2)\$ for \$j = 3, \dots, p.
+\]
+
+\begin{verbatim}
+cubic <- gen_cubic(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cubic-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubic` data.}\label{fig:fig-cubic-proj}
+\end{figure}
 
 \subsubsection{Pyramid}\label{pyramid}
 
@@ -198,6 +536,197 @@ gen\_pyrholes & Generate a pyramid with triangular pyramid shaped holes.\\
 \end{tabular}
 \end{table}
 
+The \texttt{gen\_pyrrect(n,\ p,\ h,\ l\_vec,\ rt)} function generates a dataset of \(n\) points forming a high-dimensional pyramid-like structure with a rectangular base. The pyramid is embedded in a \(p\)-dimensional space, with a tip at height zero and base at height \(h\). The shape tapers linearly from the base dimensions \((l\_x, l\_y)\) to a smaller rectangular section with side lengths \((2r\_t, 2r\_t)\) at the tip. Points are distributed more densely near the tip, simulating a natural skew toward smaller height values.
+
+Let \(x\_1, x\_2, \dots, x\_p\) denote the coordinates of the generated points. The final dimension \(x\_p\) encodes the height of each point and is drawn from an exponential distribution capped at \(h\):
+
+\[
+x_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right)
+\].
+
+Let \(r\_x(z)\) and \(r\_y(z)\) denote the half-widths of the rectangular cross-section at height \(z\):
+
+\[
+r_x(z) = r_t + (l_x - r_t) \cdot \frac{z}{h}, \quad
+r_y(z) = r_t + (l_y - r_t) \cdot \frac{z}{h}
+\].
+
+The first three coordinates are then defined as:
+
+\[
+x_1 \sim \mathcal{U}(-r_x(z),\ r_x(z)), \quad
+x_2 \sim \mathcal{U}(-r_y(z),\ r_y(z)), \quad
+x_3 \sim \mathcal{U}(-r_x(z),\ r_x(z))
+\].
+
+For \(p > 3\), the remaining \(p - 4\) dimensions (i.e., \(x\_4\) to \(x\_{p-1}\)) are tapered toward zero with decreasing height and generated as:
+
+\[
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right), \quad \text{for } j = 4, \dots, p-1.
+\]
+
+This tapering ensures that the structure narrows in all directions as it approaches the tip.
+
+\begin{verbatim}
+pyrrect <- gen_pyrrect(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-pyrrect-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` data.}\label{fig:fig-pyrrect-proj}
+\end{figure}
+
+The \texttt{gen\_pyrtri(n,\ p,\ h,\ l,\ rt)} function generates a dataset of \(n\) points forming a high-dimensional pyramid-like structure with a triangular cross-section. The structure is embedded in a \(p\)-dimensional space, with the tip located at height 0 and the base at height \(h\). The triangle expands linearly in size from tip to base, with more points concentrated near the tip.
+
+Let \(x\_1, x\_2, \dots, x\_p\) denote the coordinates of the generated points. The final coordinate \$x\_p\$ encodes the height \(z\) of each point and is drawn from an exponential distribution capped at \(h\):
+
+\[
+x_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).
+\]
+
+Let \(r(z)\) denote the scaling factor (distance from the origin to triangle vertices) at height \(z\):
+
+\[
+r(z) = r_t + (l - r_t) \cdot \frac{z}{h}.
+\]
+
+A point in the triangle at height \(z\) is generated using barycentric coordinates \((u, v)\) to ensure uniform sampling within the triangular cross-section:
+
+\[
+u, v \sim \mathcal{U}(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v.
+\]
+
+The first three coordinates (triangle plane) are then:
+
+\[
+x_1 = r(z)(1 - u - v), \quad
+x_2 = r(z) \cdot u, \quad
+x_3 = r(z) \cdot v
+\]
+
+For dimensions \(j = 4, \dots, p-1\), values are tapered linearly toward zero near the tip:
+
+\[
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right).
+\]
+
+The \texttt{gen\_pyrtri(n,\ p,\ h,\ l,\ rt)} function generates a dataset of \(n\) points forming a high-dimensional pyramid-like structure with a triangular cross-section. The structure is embedded in a \(p\)-dimensional space, with the tip located at height 0 and the base at height \(h\). The triangle expands linearly in size from tip to base, with more points concentrated near the tip.
+
+Let \(x\_1, x\_2, \dots, x\_p\) denote the coordinates of the generated points. The final coordinate \(x\_p\) encodes the height \(z\) of each point and is drawn from an exponential distribution capped at \(h\):
+
+\[
+x_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).
+\]
+
+Let \(r(z)\) denote the scaling factor (distance from the origin to triangle vertices) at height \(z\):
+
+\[
+r(z) = r_t + (l - r_t) \cdot \frac{z}{h}.
+\]
+
+A point in the triangle at height \(z\) is generated using barycentric coordinates \((u, v)\) to ensure uniform sampling within the triangular cross-section:
+
+\[
+u, v \sim \mathcal{U}(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v.
+\]
+
+The first three coordinates (triangle plane) are then:
+
+\[
+x_1 = r(z)(1 - u - v), \quad
+x_2 = r(z) \cdot u, \quad
+x_3 = r(z) \cdot v
+\]
+
+For dimensions \(j = 4, \dots, p-1\), values are tapered linearly toward zero near the tip:
+
+\[
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right).
+\]
+
+The result is a tapered, high-dimensional triangle-based pyramid with more points near the apex and greater width at the base.
+
+\begin{verbatim}
+pyrtri <- gen_pyrtri(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-pyrtri-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrtri` data.}\label{fig:fig-pyrtri-proj}
+\end{figure}
+
+The \texttt{gen\_pyrstar(n,\ p,\ h,\ rb)} function generates a dataset of \$n\$ points forming a high-dimensional pyramid-shaped structure with a hexagonal base. The pyramid extends vertically from height \(z = 0\) (tip) to height \(z = h\) (base), embedded in a \(p\)-dimensional space. The distribution concentrates more points near the base, and the hexagonal spread tapers toward the tip.
+
+Let \(x\_1, x\_2, \dots, x\_p\) denote the coordinates of the generated points. The final coordinate \(x\_p\) encodes the height \(z\):
+
+\[
+x_p = z \sim \mathcal{U}(0, h).
+\]
+
+The radius at height \(z\) scales linearly from zero (tip) to the base radius \(r\_b\):
+
+\[
+r(z) = r_b \cdot \left(1 - \frac{z}{h}\right).
+\]
+
+Each point is placed within a regular hexagon in the plane \((x\_1, x\_2)\), using a randomly chosen hexagon sector angle \(\theta \in \{0, \frac{\pi}{3}, \frac{2\pi}{3}, \pi, \frac{4\pi}{3}, \frac{5\pi}{3}\}\) and a uniformly random radial scaling factor:
+
+\[
+\theta \sim \text{Uniform sample from 6 hexagon angles}, \quad
+r_{\text{point}} \sim \sqrt{\mathcal{U}(0, 1)}.
+\]
+
+Then, the first two coordinates are:
+
+\[
+x_1 = r(z) \cdot r_{\text{point}} \cdot \cos(\theta), \quad
+x_2 = r(z) \cdot r_{\text{point}} \cdot \sin(\theta)
+\]
+
+For dimensions \(j = 3, \dots, p-1\), values are tapered toward zero near the tip:
+
+\[
+x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h} \right).
+\]
+
+This results in a smooth, star-like pyramid in \(p\)-dimensional space, with a broad hexagonal base and narrow tip.
+
+\begin{verbatim}
+pyrstar <- gen_pyrstar(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-pyrstar-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrstar` data.}\label{fig:fig-pyrstar-proj}
+\end{figure}
+
+The \texttt{gen\_pyrholes(n,\ p)} function generates \(n\) points embedded in a \(p\)-dimensional simplex using a chaotic attractor-like midpoint algorithm. The result is a fractal-like structure that reveals holes or gaps in the data cloud, forming a ``Sierpinski-like pyramid'' in high dimensions.
+
+Let \(x\_1, x\_2, \dots, x\_p\) denote the coordinates of the generated points. The generation process begins with an initial point \(T\_0 \in [0, 1]^p\) drawn from a uniform distribution:
+
+\[
+T_0 \sim \mathcal{U}(0, 1)^p.
+\]
+
+Let \(C\_1, C\_2, \dots, C\_{p+1}\) denote the corner vertices of a \(p\)-dimensional simplex. At each iteration \(i = 1, \dots, n\), a new point is computed by taking the midpoint between the previous point \(T\_{i-1}\) and a randomly selected vertex \(C\_k\):
+
+\[
+T_i = \frac{1}{2}(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}.
+\]
+
+This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex.
+
+The final output is a \(n \times p\) matrix where each row represents a point:
+
+\[
+X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}.
+\]
+
+\begin{verbatim}
+pyrholes <- gen_pyrholes(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrholes` data.}\label{fig:fig-pyrholes-proj}
+\end{figure}
+
 \subsubsection{S-curve}\label{s-curve}
 
 \begin{table}
@@ -213,6 +742,44 @@ gen\_scurvehole & Generate a S-curve with a hole.\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+To simulate an S-curve structure in a higher-dimensional space, we define the function \texttt{gen\_scurve(n,\ p)}, which generates \texttt{n} observations in \texttt{p} dimensions.
+
+The \(3\text{-}D\) geometry is constructed by introducing a latent parameter, \(\theta \sim U\left(-\frac{3\pi}{2}, \frac{3\pi}{2}\right)\). This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure:
+
+\[
+  X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta) \cdot (\cos(\theta) - 1).
+\]
+
+This configuration creates a horizontally curled shape in \((X_1, X_3)\), with additional band thickness in the \(X_2\) direction.
+
+For \(p > 3\), additional noise dimensions are appended introducing structured, wavy perturbations.
+
+\begin{verbatim}
+scurve <- gen_scurve(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-scurve-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` data.}\label{fig:fig-scurve-proj}
+\end{figure}
+
+To simulate a variant of the S-curve structure with a removed region (``hole''), we define the function \texttt{gen\_scurvehole(n,\ p)}. This function produces \texttt{n} observations in a \(p\)-dimensional space where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.
+
+To simulate missing regions on the manifold, a fixed anchor point \((0, 1, 0, \ldots)\) is defined in \(p\)-dimensional space. All observations within a Euclidean distance of \(\sqrt{0.3} \approx 0.5477\) from the anchor are removed:
+
+\[
+\text{remove if} \quad \sum_{j=1}^p (X_j - a_j)^2 \leq 0.3
+\].
+
+This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.
+
+\begin{verbatim}
+scurvehole <- gen_scurvehole(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-scurvehole-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurvehole` data.}\label{fig:fig-scurvehole-proj}
+\end{figure}
 
 \subsubsection{Sphere}\label{sphere}
 
@@ -235,23 +802,196 @@ gen\_hemisphere & Generate a hemisphere.\\
 \end{tabular}
 \end{table}
 
+The function \texttt{gen\_circle(n,\ p)} generates a \(p\)-dimensional dataset of \(n\) observations, where the first two dimensions form a unit circle, and the remaining dimensions are structured sinusoidal extensions of the angular parameter with progressively smaller scale.
+
+A latent angle variable \(\theta\) is uniformly sampled from the interval \([0, 2\pi]\). Coordinates in the first two dimensions represent a perfect circle on the plane:
+
+\[
+X_1 = \cos(\theta), \quad X_2 = \sin(\theta)
+\]
+
+For dimensions \(X_3\) through \(X_p\), sinusoidal transformations of the angle \(\theta\) are introduced. The first component is a scaling factor that decreases with the dimension index, defined as \(\text{scale}_j = \sqrt{(0.5)^{j-2}}\) for \(j = 3, \dots, p\). The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula \(\phi_j = (j - 2) \cdot \frac{\pi}{2p}\).
+
+Each additional dimension is computed as:
+
+\[
+X_j = \text{scale}_{j} \cdot \sin(\theta + \phi_j), \quad j = 3, \dots, p
+\]
+
+This structure retains a one-dimensional manifold (the circle) but allows it to be embedded non-linearly and decorrelatively in higher dimensions. The decreasing scale ensures that higher dimensions add less variation, preserving the dominance of the circular shape while adding complexity.
+
+\begin{verbatim}
+circle <- gen_circle(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-circle-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle` data.}\label{fig:fig-circle-proj}
+\end{figure}
+
+The \texttt{gen\_curvycycle(n,\ p)} function generates a \(p\)-dimensional dataset of \(n\) observations lying on a curved closed loop with controlled high-dimensional sinusoidal deviations. The structure forms a one-dimensional nonlinear cycle embedded in higher-dimensional space.
+
+A latent angle variable \(\theta\) is uniformly sampled from the interval \([0, 2\pi]\). The first three dimensions define a non-circular closed curve, referred to as a ``curvy cycle.'' In this configuration, \(X_1 = \cos(\theta)\) represents horizontal oscillation, while \(X_2 = \sqrt{3}/3 + \sin(\theta)\) introduces a vertical offset to avoid centering the curve at the origin. Additionally, \(X_3 = \frac{1}{3} \cdot \cos(3\theta)\) introduces a third harmonic perturbation that intricately folds the curve three times along its path, creating a unique and complex shape that oscillates in both dimensions while incorporating the effects of the harmonic perturbation.
+
+Together, these define a periodic, non-trivial, closed curve in \(3\text{-}D\) with internal folds that produce a more complex geometry than a standard circle or ellipse.
+
+For dimensions \(X_4\) through \(X_p\), additional structured variability is introduced through decreasing amplitude scaling and phase-shifted sine waves. The scaling factor is defined as \(\text{scale}_j = \sqrt{(0.5)^{j-3}}\) for \(j\) ranging from 4 to \(p\), which means that the amplitude decreases as the dimension increases. Each dimension \(X_j\) is then calculated using the formula \(X_j = \text{scale}_j \cdot \sin(\theta + \phi_j)\), where the phase shift \(\phi_j\) is given by \(\phi_j = (j - 2) \cdot \frac{\pi}{2p}\).
+
+This introduces decorrelated, low-variance sinusoidal variations across dimensions, retaining the cyclical nature while embedding the data in higher-dimensional space with a coherent but subtle structure.
+
+\begin{verbatim}
+curvycycle <- gen_curvycycle(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-curvycycle-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvycycle` data.}\label{fig:fig-curvycycle-proj}
+\end{figure}
+
+The \texttt{gen\_unifsphere(n,\ p,\ r)} function generates a \(p\)-dimensional dataset of \(n\) observations distributed approximately uniformly on the surface of a \(3\text{-}D\) sphere of radius \(r\), with additional Gaussian noise dimensions added when \(p > 3\).
+
+Each observation lies on the surface of a sphere in \(3\text{-}D\), constructed by generating \(u \sim U(-1, 1)\) which represents the cosine of the polar angle \(\phi\) and \(\theta \sim U(0, 2\pi)\) which represents the azimuthal angle.
+
+The corresponding Cartesian coordinates are calculated as;
+
+\[
+X_1 = r \cdot \sqrt{1 - u^2} \cdot \cos(\theta),
+\]
+\[
+X_2 = r \cdot \sqrt{1 - u^2} \cdot \sin(\theta),
+\]
+\[
+X_3 = r \cdot u,
+\]
+
+which gives points uniformly distributed on the surface of a \(3\text{-}D\) sphere (not within).
+
+For \(p > 3\), additional dimensions \(X_4\) to \(X_p\) are generated as low-variance Gaussian noise:
+
+\[
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 4, \dots, p.
+\]
+
+This extends the \(3\text{-}D\) spherical manifold into \(p\)-dimensional space with orthogonal Gaussian noise, preserving the spherical structure while allowing for testing in higher-dimensional settings.
+
+\begin{verbatim}
+unifsphere <- gen_unifsphere(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-unifsphere-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `unifsphere` data.}\label{fig:fig-unifsphere-proj}
+\end{figure}
+
+The \texttt{gen\_gridedsphere(n,\ p)} function generates a \(p\)-dimensional dataset of approximately \(n\) observations evenly distributed on the surface of a \(3\text{-}D\) unit sphere, with optional Gaussian noise dimensions when \(p > 3\).
+
+The base structure consists of a \(3\text{-}D\) spherical surface created using a regular grid in spherical coordinates, where \(\theta \in [0, 2\pi]\) represents the azimuthal angle (longitude) and \(\phi \in [0, \pi]\) denotes the polar angle (co-latitude).
+
+The number of grid steps along each dimension is determined by factoring \(n\) into two approximately equal integers via \texttt{gen\_nproduct(n,\ p\ =\ 2)}.
+
+Each point on the sphere is computed using the spherical-to-Cartesian transformation:
+
+\[
+X_1 = \sin(\phi) \cdot \cos(\theta),
+\]
+\[
+X_2 = \sin(\phi) \cdot \sin(\theta),
+\]
+\[
+X_3 = \cos(\phi).
+\]
+
+This forms a structured grid of points on the unit sphere, ideal for studying how regular geometric manifolds are transformed under nonlinear dimensionality reduction.
+
+For \(p > 3\), the manifold is embedded in a higher-dimensional space by adding Gaussian noise dimensions:
+
+\[
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 4, \dots, p.
+\]
+
+These dimensions represent low-variance orthogonal noise, preserving the spherical shape while testing robustness in high-dimensional settings.
+
+\begin{verbatim}
+gridedsphere <- gen_gridedsphere(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-gridedsphere-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridedsphere` data.}\label{fig:fig-gridedsphere-proj}
+\end{figure}
+
+The \texttt{gen\_clusteredspheres(n,\ k,\ p,\ r,\ loc)} function generates a synthetic dataset of \(n_1 + k \cdot n_2\) observations in \(p\)-dimensional space, consisting of one large sphere of radius \(r_1\) and \(k\) smaller spheres of radius \(r_2\), each centered at a different random location.
+
+A large uniform sphere centered at the origin is created by sampling \(n_1\) points uniformly on the surface of a \(p\)-dimensional sphere with a radius of \(r_1\). The sampling is executed using the function \texttt{gen\_unifsphere(n\_1,\ p,\ r\_1)}, which generates the desired points in the specified dimensional space.
+
+In generation of \(k\) smaller uniform spheres, each sphere contains \(n_2\) points that are sampled uniformly on a sphere with a radius of \(r_2\). These spheres are positioned at distinct random locations in \(p\)-space, with the center of each sphere being drawn from a normal distribution \(\mathcal{N}(0, \texttt{loc}^2 I_p)\).
+
+Points on spheres are generated using the standard hyperspherical method, which involves sampling \(u \sim U(-1, 1)\) to determine the cosine of the polar angle, and sampling \(\theta \sim U(0, 2\pi)\) to determine the azimuthal angle (for 3D).
+
+Each observation is classified by cluster, with labels such as ``big'' for the large central sphere and ``small\_1'' to ``small\_k'' for the smaller spheres.
+
+\begin{verbatim}
+clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, p = 4, r = c(15, 3),
+                                         loc = 10 / sqrt(3)) |>
+  dplyr::select(-cluster)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-clusteredspheres-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `clusteredspheres` data.}\label{fig:fig-clusteredspheres-proj}
+\end{figure}
+
+The \texttt{gen\_hemisphere(n,\ p)} function generates a \(p\)-dimensional dataset of \(n\) observations distributed approximately uniformly on a \(4\text{-}D\) hemisphere, optionally extended with Gaussian noise in additional dimensions when \(p > 4\).
+
+Each observation is situated on a restricted \(4\text{-}D\) spherical surface, defined by spherical coordinates. The azimuthal angle \(\theta_1 \sim U(0, \pi)\) in the \((x_1, x_2)\) plane, while the elevation angle \(\theta_2 \sim U(0, \pi)\) in the \((x_2, x_3)\) plane. Additionally, \(\theta_3 \sim U(0, \pi/2)\) in the \((x_3, x_4)\) plane, ensuring that the points remain restricted to a hemisphere.
+
+The coordinates are transformed into \(4\text{-}D\) Cartesian space:
+
+\[
+X_1 = \sin(\theta_1) \cdot \cos(\theta_2),
+\]
+\[
+X_2 = \sin(\theta_1) \cdot \sin(\theta_2),
+\]
+\[
+X_3 = \cos(\theta_1) \cdot \cos(\theta_3),
+\]
+\[
+X_4 = \cos(\theta_1) \cdot \sin(\theta_3).
+\]
+
+This produces points on one side of a \(4\text{-}D\) unit sphere, effectively generating a \(4\text{-}D\) hemisphere.
+
+For \(p > 4\), additional dimensions \(X_5\) to \(X_p\) are added as low-variance Gaussian noise:
+
+\[
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 5, \dots, p.
+\]
+
+These dimensions maintain the spherical structure while simulating embedding into higher-dimensional space with small orthogonal perturbations.
+
+\begin{verbatim}
+hemisphere <- gen_hemisphere(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `hemisphere` data.}\label{fig:fig-hemisphere-proj}
+\end{figure}
+
 \subsubsection{Swiss Roll}\label{swiss-roll}
 
-To generalize the Swiss roll structure to arbitrary dimensions, we introduce a function \texttt{generate\_swiss\_roll(n,\ p)}, which constructs a high-dimensional version of the classic 3D Swiss roll while preserving its core characteristics.
+To further generalize the Swiss roll structure and introduce realistic noise, we define a function \texttt{gen\_swissroll(n,\ p,\ w)}, where \texttt{n} is the number of points, \texttt{p} is the total number of dimensions, and \texttt{w} is the vertical range in the third dimension.
 
-The function generates \texttt{n} points in a \texttt{p}-dimensional space, where the first two dimensions (\texttt{X\_1,\ X\_2}) define the primary Swiss roll shape using a parametric equation:
-
-\[
-X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad \text{where } t \sim U(0, 3\pi)
-\]
-
-The third dimension (\texttt{X\_3}) introduces variation perpendicular to the roll, sampled uniformly from \([-1,1]\). Additional dimensions (\texttt{X\_4} to \texttt{X\_p}) extend the data structure by applying a \textbf{sinusoidal transformation} of the parameter \texttt{t}, ensuring continuity in higher-dimensional spaces:
+The first three dimensions form the classic \(3\text{-}D\) Swiss roll shape:
 
 \[
-X_i = \frac{\sin(i t)}{i}, \quad \text{for } i \geq 4.
+X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad \text{with } t \sim U(0, 3\pi)
 \]
 
-This transformation ensures a gradual decay in variance across dimensions, mimicking real-world high-dimensional structures where later dimensions often capture subtler variations.
+For \(p > 3\), the remaining \(p - 3\) dimensions are filled with small Gaussian noise to simulate high-dimensional complexity.
+
+\begin{verbatim}
+swissroll <- gen_swissroll(n = 1000, p = 4, w = c(-1, 1))
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-swissroll-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `swissroll` data.}\label{fig:fig-swissroll-proj}
+\end{figure}
 
 \subsubsection{Trigonometric}\label{trigonometric}
 
@@ -273,6 +1013,206 @@ gen\_nonlinear & Generate a nonlinear hyperbola.\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+The \texttt{gen\_crescent(n,\ p)} function generates a \(p\)-dimensional dataset of \(n\) observations based on a \(2\text{-}D\) crescent-shaped manifold with optional structured high-dimensional noise.
+
+The first two dimensions define a crescent-shaped curve using a semi-circular arc. Let \(\theta \in [\pi/6, 2\pi]\) be a sequence of \(n\) evenly spaced angles.
+
+The corresponding \(2\text{-}D\) coordinates are defined by:
+
+\[
+X_1 = \cos(\theta),
+\]
+\[
+X_2 = \sin(\theta).
+\]
+
+This forms a nonlinear curvilinear structure in the shape of a tilted crescent in the \(X_1\)-\(X_2\) plane.
+
+For \(p > 2\), additional dimensions \(X_3\) to \(X_p\) are generated using \texttt{gen\_wavydims1()}:
+
+\[
+X_j = s_j \cdot \theta + \varepsilon_j,\text{ where }\varepsilon_j \sim \mathcal{N}(0, 0.5^2),\text{ and }s_j\text{ is a random scale}.
+\]
+
+These noise dimensions are nonlinearly correlated with \(\theta\), producing structured, wave-like variation that aligns with the progression along the crescent curve.
+
+\begin{verbatim}
+crescent <- gen_crescent(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-crescent-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent` data.}\label{fig:fig-crescent-proj}
+\end{figure}
+
+The \texttt{gen\_curvycylinder(n,\ p,\ h)} function generates a \(p\)-dimensional dataset of \(n\) observations structured as a \(3\text{-}D\) cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when \(p > 4\).
+
+The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension:
+
+Let \(\theta \sim \mathcal{U}(0, 3\pi)\) represent a random angle on a circular base and \(z \sim \mathcal{U}(0, h)\) represent the height along the cylinder.
+
+The coordinates are defined as:
+
+\begin{itemize}
+\tightlist
+\item
+  \(X_1 = \cos(\theta)\) (Circular base, x-axis),
+\item
+  \(X_2 = \sin(\theta)\) (Circular base, y-axis),
+\item
+  \(X_3 = z\) (Linear height),
+\item
+  \(X_4 = \sin(z)\) (Nonlinear curvy variation along height).
+\end{itemize}
+
+This forms a curvy cylindrical surface in \(4\text{-}D\), where the fourth dimension bends periodically along the height axis, resembling a helicoid or twisting wave along the cylinder.
+
+For \(p > 4\), dimensions \(X_5\) through \(X_p\) are generated as:
+
+\[
+X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 5, \ldots, p.
+\]
+
+These dimensions represent unstructured, low-variance noise.
+
+\begin{verbatim}
+curvycylinder <- gen_curvycylinder(n = 1000, p = 4, h = 10)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvycylinder` data.}\label{fig:fig-curvycylinder-proj}
+\end{figure}
+
+The \texttt{gen\_sphericalspiral(n,\ p,\ spins)} function simulates a dataset of \(n\) observations that form a spiraling path on a spherical surface in the first four dimensions. When extended beyond \(4\text{-}D\), structured nonlinear noise dimensions are added to simulate more realistic high-dimensional manifolds.
+
+The first three dimensions represent points on a unit sphere. Let \(\theta \in [0, 2\pi \times \text{spins}]\) be the azimuthal angle (longitude), controls the number of spiral turns and the \(\phi \in [0, \pi]\)be the polar angle (latitude), controls the vertical sweep from the north to the south pole.
+
+Cartesian coordinates from spherical conversion:
+
+\begin{itemize}
+\tightlist
+\item
+  \(X_1 = \sin(\phi) \cdot \cos(\theta)\)
+\item
+  \(X_2 = \sin(\phi) \cdot \sin(\theta)\)
+\item
+  \(X_3 = \cos(\phi) + \varepsilon\), where \(\varepsilon \sim \mathcal{U}(-0.5, 0.5)\) introduces vertical jitter.
+\item
+  \(X_4 = \theta / \max(\theta)\): a normalized progression along the spiral path.
+\end{itemize}
+
+This generates a spherical spiral curve embedded in \(4\text{-}D\) space, combining both circular and vertical movement, with gentle curvature and non-linear progression.
+
+If \(p > 4\), the function appends structured, non-linear noise via \texttt{gen\_wavydims2()}. These dimensions are functions of the first coordinate \(X_1\), introducing dependencies that preserve some geometric coherence. Each added dimension follows the form:
+
+\[
+X_j = s_j \cdot (-1)^{\lfloor j/2 \rfloor} \cdot X_1^{a_j} + \eta_j,
+\]
+
+where:
+\(a_j \in \{2, 3, 4, 5\}\) is a randomly chosen polynomial power,
+\(s_j \sim \mathcal{U}(0.5, 2)\) is a scale factor,
+\(\eta_j \sim \mathcal{U}(-\sigma_j, 2\sigma_j)\), with \(\sigma_j \sim \mathcal{U}(0, 0.05)\), adds mild randomness.
+
+\begin{verbatim}
+sphericalspiral <- gen_sphericalspiral(n = 1000, p = 4, spins = 1)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `sphericalspiral` data.}\label{fig:fig-sphericalspiral-proj}
+\end{figure}
+
+The \texttt{gen\_helicalspiral(n,\ p)} function generates a dataset of \(n\) observations forming a helical spiral, embedded in the first four dimensions of a \(p\)-dimensional space. Additional dimensions (if \(p > 4\)) are filled with structured noise to mimic high-dimensional complexity.
+
+The first four coordinates follow a \(3\text{-}D\) helix with an additional oscillating component. Let \(\theta \in [0, \frac{5\pi}{4}]\) be a sequence of angles controlling rotation around a circle.
+
+Cartesian coordinates:
+* \(X_1 = \cos(\theta)\): circular trajectory along the x-axis.
+
+\begin{itemize}
+\item
+  \(X_2 = \sin(\theta)\): circular trajectory along the y-axis.
+\item
+  \(X_3 = 0.05 \cdot \theta + \varepsilon_3\), with \(\varepsilon_3 \sim \mathcal{U}(-0.5, 0.5)\): linear progression (height) with vertical jitter, simulating a helix.
+\item
+  \(X_4 = 0.1 \cdot \sin(\theta)\): oscillates with \(\theta\), representing a periodic ``wobble'' along the fourth dimension.
+\end{itemize}
+
+This results in a helical spiral winding upward along the third axis, with gentle sinusoidal fluctuation in the fourth dimension.
+
+When \(p > 4\), the remaining \(p - 4\) dimensions are populated using \texttt{gen\_noisedims()}. These are independent Gaussian noise dimensions:
+
+\[
+X_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+\]
+
+\begin{verbatim}
+helicalspiral <- gen_helicalspiral(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `helicalspiral` data.}\label{fig:fig-helicalspiral-proj}
+\end{figure}
+
+The \texttt{gen\_conicspiral(n,\ p,\ spins)} function generates a dataset of \(n\) points forming a conical spiral in the first four dimensions of a \(p\)-dimensional space. The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a \(3\text{-}D\) conic helix.
+
+The shape is defined by parameter \(\theta \in [0, 2\pi \cdot \text{spins}]\), controlling the angular progression of the spiral. The mapping to Cartesian space is as follows:
+
+The Archimedean spiral in the horizontal plane is represented by;
+
+\(X_1 = \theta \cdot \cos(\theta)\) for radial expansion in x.
+\(X_2 = \theta \cdot \sin(\theta)\) for radial expansion in y.
+
+The growth pattern resembles a cone, with the height increasing according to \(X_3 = 2 \cdot \theta / \max(\theta) + \varepsilon_3\), with \(\varepsilon_3 \sim \mathcal{U}(-0.1, 0.6).\)
+
+Spiral modulation in the fourth dimension is represented by \(X_4 = \theta \cdot \sin(2\theta) + \varepsilon_4\), with \(\varepsilon_4 \sim \mathcal{U}(-0.1, 0.6)\) which simulates a twisting helical component in a non-radial dimension.
+
+This results in a \(3\text{-}D\) spiral surface expanding upward and outward like a cone, with an oscillatory fourth dimension capturing spiral irregularities.
+
+For \(p > 4\), the dataset includes isotropic Gaussian noise in the remaining dimensions via \texttt{gen\_noisedims()}:
+
+\[
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+\]
+
+\begin{verbatim}
+conicspiral <- gen_conicspiral(n = 1000, p = 4, spins = 1)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `conicspiral` data.}\label{fig:fig-conicspiral-proj}
+\end{figure}
+
+The \texttt{gen\_nonlinear(n,\ p,\ hc,\ non\_fac)} function simulates a non-linear \(2\text{-}D\) surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables.
+The key geometry lies in dimensions 1--4, where:
+
+\begin{itemize}
+\tightlist
+\item
+  \(X_1 \sim \mathcal{U}(0.1, 2)\): base variable (avoids zero to prevent division errors).
+\item
+  \(X_3 \sim \mathcal{U}(0.1, 0.8)\): independent auxiliary variable.
+\item
+  \(X_2 = \frac{hc}{X_1} + \text{non\_fac} \cdot \sin(X_1)\): non-linear combination of \textbf{hyperbolic and sinusoidal transformations}, creating sharp curvature and oscillation.
+\item
+  \(X_4 = \cos(\pi \cdot X_1) + \varepsilon\), with \(\varepsilon \sim \mathcal{U}(-0.1, 0.1)\): additional nonlinear variation based on cosine, simulating more subtle periodic structure.
+\end{itemize}
+
+These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter.
+
+If \(p > 4\), the remaining dimensions are populated with Gaussian noise using \texttt{gen\_noisedims()}:
+
+\[
+X\_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+\]
+
+\begin{verbatim}
+nonlinear <- gen_nonlinear(n = 1000, p = 4, hc = 1, non_fac = 0.5)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `nonlinear` data.}\label{fig:fig-nonlinear-proj}
+\end{figure}
 
 \subsubsection{Multiple cluster examples}\label{multiple-cluster-examples}
 
@@ -323,11 +1263,23 @@ normalize\_data & Normalizes data.\\
 
 \section{Application}\label{application}
 
-\subsection{Assessing the performance of dimension reduction on different geometric structures in high-dimensions}\label{assessing-the-performance-of-dimension-reduction-on-different-geometric-structures-in-high-dimensions}
-
 This section illustrates the use of package by generating a synthetic dataset to evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) \citep{jolliffe2011}, t-distributed stochastic neighbor embedding (tSNE) \citep{laurens2008}, uniform manifold approximation and projection (UMAP) \citep{leland2018}, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm \citep{moon2019}, large-scale dimensionality reduction Using triplets (TriMAP) \citep{amid2019}, and pairwise controlled manifold approximation (PaCMAP) \citep{yingfan2021}.
 
 The following code generates a dataset of five clusters, positioned with equal inter-cluster distances in \(4\text{-}D\) space (Figure \ref{fig:fig-highd-proj}).
+
+\begin{verbatim}
+positions <- geozoo::simplex(p=4)$points
+positions <- positions * 0.8
+
+## To generate data
+five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5,
+                       loc = positions,
+                       scale = c(0.4, 0.35, 0.3, 1, 0.3),
+                       shape = c("helicalspiral", "hemisphere", "unifcube", 
+                                 "cone", "gaussian"),
+                       rotation = NULL,
+                       is_bkg = FALSE)
+\end{verbatim}
 
 \begin{figure}
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-highd-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.}\label{fig:fig-highd-proj}
@@ -344,9 +1296,18 @@ UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show 
 \section{Discussion}\label{discussion}
 
 \begin{itemize}
-\tightlist
 \item
   Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings.
+\item
+  Scurve with a hole allowing for evaluation of how well algorithms handle incomplete manifolds or missing local structure.
+\item
+  clusteredsphere: This structure allows for cluster separation on curved manifolds in high-dimensional space and can be used to test the ability of NLDR methods and clustering algorithms to detect spherical clusters of different sizes and separations.
+\item
+  Mobius: The core geometric structure is a Mobius strip---a classic one-sided surface with a half-twist---useful for evaluating how well methods capture non-orientability and twisted manifolds.
+\item
+  Grided cube: This function is useful for assessing how algorithms preserve uniformly spaced data in high-dimensional spaces.
+\item
+  Pyrholes: This structure is useful for testing clustering and NLDR algorithms on non-convex and sparse high-dimensional shapes.
 \end{itemize}
 
 \section{Code}\label{code}
