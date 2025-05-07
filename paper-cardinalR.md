@@ -330,7 +330,7 @@ This setup yields $k$ spatially distinct, noisy linear trajectories.
 For $p > 2$, the remaining dimensions are pure noise:
 
 $$
-X\_j \sim \mathcal{N}(0, 0.05^2)\$ for \$j = 3, \dots, p.
+X\_j \sim \mathcal{N}(0, 0.05^2)\text{ for }j = 3, \dots, p.
 $$
 
 
