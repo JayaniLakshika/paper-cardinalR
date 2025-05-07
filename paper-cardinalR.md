@@ -36,10 +36,12 @@ type: package
 creative_commons: CC BY
 date: '2025-05-07'
 preamble: |
-  \usepackage{amsmath} \usepackage{array}
+  \usepackage{amsmath} \usepackage{array} \usepackage{hyperref} \hypersetup{draft}
 output:
   distill::distill_article:
     keep_md: yes
+    includes:
+      in_header: preamble.tex
 bibliography: paper-cardinalR.bib
 editor_options:
   chunk_output_type: inline
@@ -117,7 +119,7 @@ devtools::install_github("JayaniLakshika/cardinalR")
 
 ## Web site
 
-More documentation of the package can be found at the web site <https://jayanilakshika.github.io/cardinalR/>.
+More documentation of the package can be found at the web site [https://jayanilakshika.github.io/cardinalR/](https://jayanilakshika.github.io/cardinalR/).
 
 ## Data sets
 
@@ -2559,11 +2561,11 @@ UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show 
 
 # Code
 
-The code is available at <https://github.com/JayaniLakshika/cardinalR>, and source material for this paper is available at <https://github.com/JayaniLakshika/paper-cardinalR>.
+The code is available at [https://github.com/JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR), and source material for this paper is available at [https://github.com/JayaniLakshika/paper-cardinalR](https://github.com/JayaniLakshika/paper-cardinalR).
 
 # Acknowledgements
 
-This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. 
+This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template.
 ```{.r .distill-force-highlighting-css}
 ```
 
