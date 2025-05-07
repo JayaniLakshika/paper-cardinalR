@@ -40,8 +40,6 @@ preamble: |
 output:
   distill::distill_article:
     keep_md: yes
-    includes:
-      in_header: preamble.tex
 bibliography: paper-cardinalR.bib
 editor_options:
   chunk_output_type: inline
@@ -62,6 +60,12 @@ csl: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/rjtool
 
 ---
 
+
+<!-- output:  -->
+<!--  rjtools::rjournal_article: -->
+<!--     keep_md: true -->
+<!--     includes: -->
+<!--       in_header: preamble.tex -->
 
 
 

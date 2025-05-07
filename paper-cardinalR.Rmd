@@ -41,14 +41,18 @@ preamble: >
   \usepackage{hyperref}
   \hypersetup{draft}
 output: 
- rjtools::rjournal_article:
+ rjtools::rjournal_web_article:
     keep_md: true
-    includes:
-      in_header: preamble.tex
 bibliography: paper-cardinalR.bib
 editor_options: 
   chunk_output_type: inline
 ---
+
+<!-- output:  -->
+<!--  rjtools::rjournal_article: -->
+<!--     keep_md: true -->
+<!--     includes: -->
+<!--       in_header: preamble.tex -->
 
 ```{r setup, include=FALSE}
 options(repos = "https://cloud.r-project.org") ## set up CRAN mirror
