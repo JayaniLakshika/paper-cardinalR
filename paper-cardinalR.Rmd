@@ -269,11 +269,11 @@ The `gen_expbranches(n, p, k)` function generates a dataset of $n$ points formin
 
 Each branch $i$ is constructed using:
 
-$X_1 \sim \mathcal{U}(-2, 2)$
+$X_1 \sim U(-2, 2)$
 $X_2 = \exp(\pm s_i \cdot X_1) + \epsilon$, 
 
 where:
-$\epsilon \sim \mathcal{U}(0, 0.1)$ adds local jitter,
+$\epsilon \sim U(0, 0.1)$ adds local jitter,
 
 $s_i \in [0.5, 2]$ is randomly sampled for each branch.
 
@@ -282,7 +282,7 @@ The sign alternates between branches (odd: negative, even: positive exponent). T
 For $p > 2$, Gaussian noise is added to embed the $2\text{-}D$ branches in higher dimensions:
 
 $$
-X_j \sim \mathcal{N}(0, 0.1^2), \quad j = 3, \dots, p.
+X_j \sim N(0, 0.1^2), \quad j = 3, \dots, p.
 $$
 
 These represent irrelevant or noisy dimensions.
@@ -388,20 +388,20 @@ expbranches_proj1 + expbranches_proj2 + expbranches_proj3 +
 
 The `gen_linearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches in a $p$-dimensional space. The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
 
-Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches 1 and 2 are initialized with fixed slopes and intercepts. The Branch 1 is generated from $X_1 \sim \mathcal{U}(-2, 8)\$, \$X_2 = 0.5 \cdot X_1 + \epsilon$. The Branch 2 is generated from $X_1 \sim \mathcal{U}(-6, 2)\$, \$X_2 = -0.5 \cdot X_1 + \epsilon$. $\epsilon \sim \mathcal{U}(0, 0.5)$. 
+Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches 1 and 2 are initialized with fixed slopes and intercepts. The Branch 1 is generated from $X_1 \sim U(-2, 8)\$, \$X_2 = 0.5 \cdot X_1 + \epsilon$. The Branch 2 is generated from $X_1 \sim U(-6, 2)\$, \$X_2 = -0.5 \cdot X_1 + \epsilon$. $\epsilon \sim U(0, 0.5)$. 
 
 Branches 3 to $k$** are added iteratively. Each starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches.
 
 $X_1$ values span a short segment ($x_{start}$ to $x_{start} + 1$),
 
-$X_2 = s_i \cdot (X_1 - x_{start}) + y_{start} + \epsilon$ where $s_i$ is a sampled slope from a filtered set and $\epsilon \sim \mathcal{U}(0, 0.2)$.
+$X_2 = s_i \cdot (X_1 - x_{start}) + y_{start} + \epsilon$ where $s_i$ is a sampled slope from a filtered set and $\epsilon \sim U(0, 0.2)$.
 
 This setup yields $k$ spatially distinct, noisy linear trajectories.
 
 For $p > 2$, the remaining dimensions are pure noise:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2)\text{ for }j = 3, \dots, p.
+X_j \sim N(0, 0.05^2)\text{ for }j = 3, \dots, p.
 $$
 
 
@@ -505,9 +505,9 @@ linearbranches_proj1 + linearbranches_proj2 + linearbranches_proj3 +
 
 The `gen_curvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in a $p$-dimensional space. The underlying geometry lies in the first two dimensions, while the remaining $p - 2$ dimensions contain Gaussian noise.
 
-Branch 1 is generated from $X_1 \sim \mathcal{U}(0, 1)$, and $X_2 = 0.1 \cdot X_1 + 1 \cdot X_1^2 + \epsilon$, where $\epsilon \sim \mathcal{U}(0, 0.05)$. This produces a gently upward-curving parabola in the right half-plane.
+Branch 1 is generated from $X_1 \sim U(0, 1)$, and $X_2 = 0.1 \cdot X_1 + 1 \cdot X_1^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This produces a gently upward-curving parabola in the right half-plane.
 
-Branch 2 is generated from $X_{1} \sim \mathcal{U}(-1, 0)$, and $X_2 = 0.1 \cdot X_{1} - 2 \cdot X_{1}^2 + \epsilon$, where $\epsilon \sim \mathcal{U}(0, 0.05)$. This creates a steeper, leftward-facing curve in the left half-plane.
+Branch 2 is generated from $X_{1} \sim U(-1, 0)$, and $X_2 = 0.1 \cdot X_{1} - 2 \cdot X_{1}^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This creates a steeper, leftward-facing curve in the left half-plane.
 
 Branches $3$ to $k$** are added iteratively. Each new branch begins at a randomly chosen point within a restricted horizontal band: $X_{1} \in [-0.15, 0.15]$ (to ensure connectivity with earlier branches), spans a unit-length interval on $X_{1}$:$X_1 \in [x_{\text{start}}, x_{\text{start}} + 1]$, and has the structure:
 
@@ -522,7 +522,7 @@ This construction yields $k$ spatially connected, nonlinear branches with varyin
 For $p > 2$, the remaining dimensions are pure Gaussian noise:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2), \quad \text{for } j = 3, \dots, p.
+X_j \sim N(0, 0.05^2), \quad \text{for } j = 3, \dots, p.
 $$
 
 ```{r data-curvybranches, echo=TRUE}
@@ -630,8 +630,8 @@ To construct each branch, a unique or repeated pair of dimensions is selected fr
 For branch $i$, $n_i$ points are generated, where $\sum_{i=1}^k n_i = n$. The structure follows:
 
 $$
-x_{i1} \sim \mathcal{U}(0, 2), \quad
-x_{i2} = -s_i \cdot x_{i1} + \epsilon, \quad \epsilon \sim \mathcal{U}(0, 0.5),
+x_{i1} \sim U(0, 2), \quad
+x_{i2} = -s_i \cdot x_{i1} + \epsilon, \quad \epsilon \sim U(0, 0.5),
 $$
 
 where $s_i$ is a scale factor controlling the slope. When $k \leq \binom{p}{2}$, $s_i = 1$. When sampling with replacement, $s_i$ is drawn from the set ${1, 1.5, 2, \dots, 8}$ in increments of $0.5$.
@@ -639,7 +639,7 @@ where $s_i$ is a scale factor controlling the slope. When $k \leq \binom{p}{2}$,
 For $p > 2$, the remaining dimensions contain independent Gaussian noise:
 
 $$
-x_j \sim \mathcal{N}(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}.
+x_j \sim N(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}.
 $$
 
 ```{r data-orglinearbranches, echo=TRUE}
@@ -752,8 +752,8 @@ Each branch contains $n_i$ points such that $\sum_{i=1}^k n_i = n$, where the ve
 Within its assigned subspace $(x_{i1}, x_{i2})$, branch $i$ is defined by:
 
 $$
-x_{i1} \sim \mathcal{U}(0, 2), \quad
-x_{i2} = -s_i \cdot x_{i1}^2 + \epsilon, \quad \epsilon \sim \mathcal{U}(0, 0.5)
+x_{i1} \sim U(0, 2), \quad
+x_{i2} = -s_i \cdot x_{i1}^2 + \epsilon, \quad \epsilon \sim U(0, 0.5)
 $$
 
 This forms a smooth downward-opening parabola in the plane defined by $(x_{i1}, x_{i2})$, with the degree of curvature controlled by $s_i$.
@@ -761,7 +761,7 @@ This forms a smooth downward-opening parabola in the plane defined by $(x_{i1}, 
 For $p > 2$, all remaining dimensions are independent Gaussian noise:
 
 $$
-x_j \sim \mathcal{N}(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}.
+x_j \sim N(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}.
 $$
 
 
@@ -1114,12 +1114,12 @@ gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
 
 The `gen_unifcube(n, p)` function generates $n$ points uniformly distributed within a $3\text{-}D$ cube centered at the origin, optionally embedded in a higher-dimensional space with additional noise dimensions.
 
-Points are sampled independently from $X_1, X_2, X_3 \sim \mathcal{U}(-0.5, 0.5)$ of a cube of side length 1. This results in a uniform cloud of points filling the unit cube in $3\text{-}D$ space.
+Points are sampled independently from $X_1, X_2, X_3 \sim U(-0.5, 0.5)$ of a cube of side length 1. This results in a uniform cloud of points filling the unit cube in $3\text{-}D$ space.
 
 For $p > 3$, the remaining dimensions are filled with Gaussian noise:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+X_j \sim N(0, 0.05^2), \quad j = 4, \dots, p.
 $$
 
 ```{r data-unifcube, echo=TRUE}
@@ -1222,7 +1222,7 @@ unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
 
 The `gen_cubehole(n, p)` function generates a dataset of $n$ points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in $p$-dimensional space.
 
-The initial points are drawn from a uniform cube centered at the origin: $X_1, X_2, X_3 \sim \mathcal{U}(-0.5, 0.5)$.
+The initial points are drawn from a uniform cube centered at the origin: $X_1, X_2, X_3 \sim U(-0.5, 0.5)$.
 
 The center of the cube is $(0, 0, 0)$. A spherical hole of radius $0.5$ is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to $0.5$:
 
@@ -1233,7 +1233,7 @@ This results in a shell-like point cloud that fills the cube but avoids the sphe
 For $p > 3$, Gaussian noise is added to the remaining dimensions (via `gen_unifcube()`):
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+X_j \sim N(0, 0.05^2), \quad j = 4, \dots, p.
 $$.
 
 
@@ -1342,7 +1342,7 @@ The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in 
 Each point is independently drawn using the multivariate normal distribution with:
 
 $$
-X_i \sim \mathcal{N}_p(\boldsymbol{0}, \Sigma)
+X_i \sim N_p(\boldsymbol{0}, \Sigma)
 $$
 
 where $\Sigma$ is a user-defined $p \times p$ positive-definite matrix.
@@ -1457,11 +1457,11 @@ $$
 
 where: 
 
-$\text{scale}_i \sim \mathcal{U}(-10, 10)$: randomly chosen direction and stretch. 
+$\text{scale}_i \sim U(-10, 10)$: randomly chosen direction and stretch. 
 
-$\text{shift}_i \sim \mathcal{U}(-300, 300)$: large offset to spread features apart. 
+$\text{shift}_i \sim U(-300, 300)$: large offset to spread features apart. 
 
-$\epsilon \sim \mathcal{N}(0, 0.03 \cdot n)$: Gaussian noise scaled to dataset size to introduce mild irregularity.
+$\epsilon \sim N(0, 0.03 \cdot n)$: Gaussian noise scaled to dataset size to introduce mild irregularity.
 
 ```{r data-linear, echo=TRUE}
 linear <- gen_longlinear(n = 1000, p = 4)
@@ -1582,7 +1582,7 @@ This maps a $2\text{-}D$ band with a half-twist into $3\text{-}D$ space, forming
 For $p > 3$, the function appends $p - 3$ dimensions with small Gaussian noise:
 
 $$
-x_j \sim \mathcal{N}(0, 0.05^2), \quad j = 4, \dots, p.
+x_j \sim N(0, 0.05^2), \quad j = 4, \dots, p.
 $$
 
 ```{r data-mobius, echo=TRUE}
@@ -1706,14 +1706,14 @@ polynomial_tb |>
 
 The `gen_quadratic(n, p, range)` function generates a dataset of $n$ points forming a quadratic curve in the first two dimensions of a $p$-dimensional space. This $2\text{-}D$ parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.
 
-The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let $X_1 \sim \mathcal{U}(\text{range}[1], \text{range}[2])$ be the independent variable. A raw polynomial basis of degree 2 is used to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim \mathcal{U}(0, 0.5)$.
+The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the independent variable. A raw polynomial basis of degree 2 is used to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$.
 
 This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate measurement noise or intrinsic variability.
 
 For $p > 2$, the dataset includes Gaussian noise in the remaining dimensions via `gen_noisedims()`:
 
 $$
-X_j \sim \mathcal{N}(0, 0.1^2), \quad j = 3, \dots, p.
+X_j \sim N(0, 0.1^2), \quad j = 3, \dots, p.
 $$
 
 ```{r data-quadratic, echo=TRUE}
@@ -1816,12 +1816,12 @@ quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
 
 The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions of a $p$-dimensional space. This function creates a more complex curvilinear structure than a simple parabola.
 
-The shape is generated using a third-degree raw polynomial basis expansion. Let $X_1 \sim \mathcal{U}(\text{range}[1], \text{range}[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2\$, where \$\varepsilon_2 \sim \mathcal{U}(0, 0.5)$.
+The shape is generated using a third-degree raw polynomial basis expansion. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2\$, where \$\varepsilon_2 \sim U(0, 0.5)$.
 
 When $p > 2$, the remaining dimensions consist of independent Gaussian noise features generated via `gen_noisedims()`:
 
 $$
-X_j \sim \mathcal{N}(0, 0.1^2)\$ for \$j = 3, \dots, p.
+X_j \sim N(0, 0.1^2)\$ for \$j = 3, \dots, p.
 $$
 
 ```{r data-cubic, echo=TRUE}
@@ -1965,15 +1965,15 @@ $$.
 The first three coordinates are then defined as:
 
 $$
-x_1 \sim \mathcal{U}(-r_x(z),\ r_x(z)), \quad
-x_2 \sim \mathcal{U}(-r_y(z),\ r_y(z)), \quad
-x_3 \sim \mathcal{U}(-r_x(z),\ r_x(z))
+x_1 \sim U(-r_x(z),\ r_x(z)), \quad
+x_2 \sim U(-r_y(z),\ r_y(z)), \quad
+x_3 \sim U(-r_x(z),\ r_x(z))
 $$.
 
 For $p > 3$, the remaining $p - 4$ dimensions (i.e., $x_4$ to $x_{p-1}$) are tapered toward zero with decreasing height and generated as:
 
 $$
-x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right), \quad \text{for } j = 4, \dots, p-1.
+x_j \sim U(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right), \quad \text{for } j = 4, \dots, p-1.
 $$
 
 This tapering ensures that the structure narrows in all directions as it approaches the tip.
@@ -2093,7 +2093,7 @@ $$
 A point in the triangle at height $z$ is generated using barycentric coordinates $(u, v)$ to ensure uniform sampling within the triangular cross-section:
 
 $$
-u, v \sim \mathcal{U}(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v.
+u, v \sim U(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v.
 $$
 
 The first three coordinates (triangle plane) are then:
@@ -2107,7 +2107,7 @@ $$
 For dimensions $j = 4, \dots, p-1$, values are tapered linearly toward zero near the tip:
 
 $$
-x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right).
+x_j \sim U(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right).
 $$
 
 The `gen_pyrtri(n, p, h, l, rt)` function generates a dataset of $n$ points forming a high-dimensional pyramid-like structure with a triangular cross-section. The structure is embedded in a $p$-dimensional space, with the tip located at height 0 and the base at height $h$. The triangle expands linearly in size from tip to base, with more points concentrated near the tip.
@@ -2127,7 +2127,7 @@ $$
 A point in the triangle at height $z$ is generated using barycentric coordinates $(u, v)$ to ensure uniform sampling within the triangular cross-section:
 
 $$
-u, v \sim \mathcal{U}(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v.
+u, v \sim U(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v.
 $$
 
 The first three coordinates (triangle plane) are then:
@@ -2141,7 +2141,7 @@ $$
 For dimensions $j = 4, \dots, p-1$, values are tapered linearly toward zero near the tip:
 
 $$
-x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right).
+x_j \sim U(-0.1, 0.1) \cdot \left(1 - \frac{z}{h}\right).
 $$
 
 The result is a tapered, high-dimensional triangle-based pyramid with more points near the apex and greater width at the base. 
@@ -2250,7 +2250,7 @@ The `gen_pyrstar(n, p, h, rb)` function generates a dataset of \$n\$ points form
 Let $x_1, x_2, \dots, x_p$ denote the coordinates of the generated points. The final coordinate $x_p$ encodes the height $z$:
 
 $$
-x_p = z \sim \mathcal{U}(0, h).
+x_p = z \sim U(0, h).
 $$
 
 The radius at height $z$ scales linearly from zero (tip) to the base radius $r_b$:
@@ -2263,7 +2263,7 @@ Each point is placed within a regular hexagon in the plane $(x_1, x_2)$, using a
 
 $$
 \theta \sim \text{Uniform sample from 6 hexagon angles}, \quad
-r_{\text{point}} \sim \sqrt{\mathcal{U}(0, 1)}.
+r_{\text{point}} \sim \sqrt{U(0, 1)}.
 $$
 
 Then, the first two coordinates are:
@@ -2276,7 +2276,7 @@ $$
 For dimensions $j = 3, \dots, p-1$, values are tapered toward zero near the tip:
 
 $$
-x_j \sim \mathcal{U}(-0.1, 0.1) \cdot \left(1 - \frac{z}{h} \right).
+x_j \sim U(-0.1, 0.1) \cdot \left(1 - \frac{z}{h} \right).
 $$
 
 This results in a smooth, star-like pyramid in $p$-dimensional space, with a broad hexagonal base and narrow tip.
@@ -2385,7 +2385,7 @@ The `gen_pyrholes(n, p)` function generates $n$ points embedded in a $p$-dimensi
 Let $x_1, x_2, \dots, x_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution:
 
 $$
-T_0 \sim \mathcal{U}(0, 1)^p.
+T_0 \sim U(0, 1)^p.
 $$
 
 Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p$-dimensional simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$:
@@ -3014,7 +3014,7 @@ which gives points uniformly distributed on the surface of a $3\text{-}D$ sphere
 For $p > 3$, additional dimensions $X_4$ to $X_p$ are generated as low-variance Gaussian noise:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 4, \dots, p.
+X_j \sim N(0, 0.05^2),\text{ for }j = 4, \dots, p.
 $$
 
 This extends the $3\text{-}D$ spherical manifold into $p$-dimensional space with orthogonal Gaussian noise, preserving the spherical structure while allowing for testing in higher-dimensional settings.
@@ -3140,7 +3140,7 @@ This forms a structured grid of points on the unit sphere, ideal for studying ho
 For $p > 3$, the manifold is embedded in a higher-dimensional space by adding Gaussian noise dimensions:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 4, \dots, p.
+X_j \sim N(0, 0.05^2),\text{ for }j = 4, \dots, p.
 $$
 
 These dimensions represent low-variance orthogonal noise, preserving the spherical shape while testing robustness in high-dimensional settings.
@@ -3247,7 +3247,7 @@ The `gen_clusteredspheres(n, k, p, r, loc)` function generates a synthetic datas
 
 A large uniform sphere centered at the origin is created by sampling $n_1$ points uniformly on the surface of a $p$-dimensional sphere with a radius of $r_1$. The sampling is executed using the function `gen_unifsphere(n_1, p, r_1)`, which generates the desired points in the specified dimensional space.
 
-In generation of $k$ smaller uniform spheres, each sphere contains $n_2$ points that are sampled uniformly on a sphere with a radius of $r_2$. These spheres are positioned at distinct random locations in $p$-space, with the center of each sphere being drawn from a normal distribution $\mathcal{N}(0, \texttt{loc}^2 I_p)$.
+In generation of $k$ smaller uniform spheres, each sphere contains $n_2$ points that are sampled uniformly on a sphere with a radius of $r_2$. These spheres are positioned at distinct random locations in $p$-space, with the center of each sphere being drawn from a normal distribution $N(0, \texttt{loc}^2 I_p)$.
     
 Points on spheres are generated using the standard hyperspherical method, which involves sampling $u \sim U(-1, 1)$ to determine the cosine of the polar angle, and sampling $\theta \sim U(0, 2\pi)$ to determine the azimuthal angle (for 3D). 
 
@@ -3377,7 +3377,7 @@ This produces points on one side of a $4\text{-}D$ unit sphere, effectively gene
 For $p > 4$, additional dimensions $X_5$ to $X_p$ are added as low-variance Gaussian noise:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 5, \dots, p.
+X_j \sim N(0, 0.05^2),\text{ for }j = 5, \dots, p.
 $$
 
 These dimensions maintain the spherical structure while simulating embedding into higher-dimensional space with small orthogonal perturbations.
@@ -3637,7 +3637,7 @@ This forms a nonlinear curvilinear structure in the shape of a tilted crescent i
 For $p > 2$, additional dimensions $X_3$ to $X_p$ are generated using `gen_wavydims1()`:
 
 $$
-X_j = s_j \cdot \theta + \varepsilon_j,\text{ where }\varepsilon_j \sim \mathcal{N}(0, 0.5^2),\text{ and }s_j\text{ is a random scale}.
+X_j = s_j \cdot \theta + \varepsilon_j,\text{ where }\varepsilon_j \sim N(0, 0.5^2),\text{ and }s_j\text{ is a random scale}.
 $$
 
 These noise dimensions are nonlinearly correlated with $\theta$, producing structured, wave-like variation that aligns with the progression along the crescent curve.
@@ -3744,7 +3744,7 @@ The `gen_curvycylinder(n, p, h)` function generates a $p$-dimensional dataset of
 
 The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension:
 
-Let $\theta \sim \mathcal{U}(0, 3\pi)$ represent a random angle on a circular base and $z \sim \mathcal{U}(0, h)$ represent the height along the cylinder.
+Let $\theta \sim U(0, 3\pi)$ represent a random angle on a circular base and $z \sim U(0, h)$ represent the height along the cylinder.
 
 The coordinates are defined as:
 
@@ -3758,7 +3758,7 @@ This forms a curvy cylindrical surface in $4\text{-}D$, where the fourth dimensi
 For $p > 4$, dimensions $X_5$ through $X_p$ are generated as:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2),\text{ for }j = 5, \ldots, p.
+X_j \sim N(0, 0.05^2),\text{ for }j = 5, \ldots, p.
 $$
 
 These dimensions represent unstructured, low-variance noise.
@@ -3869,7 +3869,7 @@ Cartesian coordinates from spherical conversion:
 
   * $X_1 = \sin(\phi) \cdot \cos(\theta)$
   * $X_2 = \sin(\phi) \cdot \sin(\theta)$
-  * $X_3 = \cos(\phi) + \varepsilon$, where $\varepsilon \sim \mathcal{U}(-0.5, 0.5)$ introduces vertical jitter.
+  * $X_3 = \cos(\phi) + \varepsilon$, where $\varepsilon \sim U(-0.5, 0.5)$ introduces vertical jitter.
   * $X_4 = \theta / \max(\theta)$: a normalized progression along the spiral path.
 
 This generates a spherical spiral curve embedded in $4\text{-}D$ space, combining both circular and vertical movement, with gentle curvature and non-linear progression.
@@ -3882,8 +3882,8 @@ $$
 
 where:
 $a_j \in \{2, 3, 4, 5\}$ is a randomly chosen polynomial power,
-$s_j \sim \mathcal{U}(0.5, 2)$ is a scale factor,
-$\eta_j \sim \mathcal{U}(-\sigma_j, 2\sigma_j)$, with $\sigma_j \sim \mathcal{U}(0, 0.05)$, adds mild randomness.
+$s_j \sim U(0.5, 2)$ is a scale factor,
+$\eta_j \sim U(-\sigma_j, 2\sigma_j)$, with $\sigma_j \sim U(0, 0.05)$, adds mild randomness.
 
 ```{r data-sphericalspiral, echo=TRUE}
 sphericalspiral <- gen_sphericalspiral(n = 1000, p = 4, spins = 1)
@@ -3992,7 +3992,7 @@ Cartesian coordinates:
   
   * $X_2 = \sin(\theta)$: circular trajectory along the y-axis.
   
-  * $X_3 = 0.05 \cdot \theta + \varepsilon_3$, with $\varepsilon_3 \sim \mathcal{U}(-0.5, 0.5)$: linear progression (height) with vertical jitter, simulating a helix.
+  * $X_3 = 0.05 \cdot \theta + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.5, 0.5)$: linear progression (height) with vertical jitter, simulating a helix.
   
   * $X_4 = 0.1 \cdot \sin(\theta)$: oscillates with $\theta$, representing a periodic "wobble" along the fourth dimension.
 
@@ -4001,7 +4001,7 @@ This results in a helical spiral winding upward along the third axis, with gentl
 When $p > 4$, the remaining $p - 4$ dimensions are populated using `gen_noisedims()`. These are independent Gaussian noise dimensions:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p.
 $$
 
 
@@ -4112,16 +4112,16 @@ The Archimedean spiral in the horizontal plane is represented by;
 $X_1 = \theta \cdot \cos(\theta)$ for radial expansion in x.
 $X_2 = \theta \cdot \sin(\theta)$ for radial expansion in y.
 
-The growth pattern resembles a cone, with the height increasing according to $X_3 = 2 \cdot \theta / \max(\theta) + \varepsilon_3$, with $\varepsilon_3 \sim \mathcal{U}(-0.1, 0.6).$
+The growth pattern resembles a cone, with the height increasing according to $X_3 = 2 \cdot \theta / \max(\theta) + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.1, 0.6).$
 
-Spiral modulation in the fourth dimension is represented by $X_4 = \theta \cdot \sin(2\theta) + \varepsilon_4$, with $\varepsilon_4 \sim \mathcal{U}(-0.1, 0.6)$ which simulates a twisting helical component in a non-radial dimension.
+Spiral modulation in the fourth dimension is represented by $X_4 = \theta \cdot \sin(2\theta) + \varepsilon_4$, with $\varepsilon_4 \sim U(-0.1, 0.6)$ which simulates a twisting helical component in a non-radial dimension.
 
 This results in a $3\text{-}D$ spiral surface expanding upward and outward like a cone, with an oscillatory fourth dimension capturing spiral irregularities.
 
 For $p > 4$, the dataset includes isotropic Gaussian noise in the remaining dimensions via `gen_noisedims()`:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p.
 $$
 
 ```{r data-conicspiral, echo=TRUE}
@@ -4225,17 +4225,17 @@ conicspiral_proj1 + conicspiral_proj2 + conicspiral_proj3 +
 The `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables. 
 The key geometry lies in dimensions 1–4, where:
 
-* $X_1 \sim \mathcal{U}(0.1, 2)$: base variable (avoids zero to prevent division errors).
-* $X_3 \sim \mathcal{U}(0.1, 0.8)$: independent auxiliary variable.
+* $X_1 \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors).
+* $X_3 \sim U(0.1, 0.8)$: independent auxiliary variable.
 * $X_2 = \frac{hc}{X_1} + \text{non_fac} \cdot \sin(X_1)$: non-linear combination of **hyperbolic and sinusoidal transformations**, creating sharp curvature and oscillation.
-* $X_4 = \cos(\pi \cdot X_1) + \varepsilon$, with $\varepsilon \sim \mathcal{U}(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure.
+* $X_4 = \cos(\pi \cdot X_1) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure.
 
 These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter.
 
 If $p > 4$, the remaining dimensions are populated with Gaussian noise using `gen_noisedims()`:
 
 $$
-X_j \sim \mathcal{N}(0, 0.05^2), \quad j = 5, \dots, p.
+X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p.
 $$
 
 ```{r data-nonlinear, echo=TRUE}
