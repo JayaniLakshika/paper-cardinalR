@@ -311,9 +311,9 @@ These represent irrelevant or noisy dimensions.
 
 The `gen_linearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches in a $p$-dimensional space. The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
 
-Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches 1 and 2 are initialized with fixed slopes and intercepts. The Branch 1 is generated from $X_1 \sim U(-2, 8)\$, \$X_2 = 0.5 \cdot X_1 + \epsilon$. The Branch 2 is generated from $X_1 \sim U(-6, 2)\$, \$X_2 = -0.5 \cdot X_1 + \epsilon$. $\epsilon \sim U(0, 0.5)$. 
+Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches 1 and 2 are initialized with fixed slopes and intercepts. The Branch 1 is generated from $X_1 \sim U(-2, 8)$, $X_2 = 0.5 \cdot X_1 + \epsilon$. The Branch 2 is generated from $X_1 \sim U(-6, 2)$, $X_2 = -0.5 \cdot X_1 + \epsilon$. $\epsilon \sim U(0, 0.5)$. 
 
-Branches 3 to $k$** are added iteratively. Each starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches.
+Branches 3 to $k$ are added iteratively. Each starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches.
 
 $X_1$ values span a short segment ($x_{start}$ to $x_{start} + 1$),
 
@@ -373,7 +373,7 @@ Branch 1 is generated from $X_1 \sim U(0, 1)$, and $X_2 = 0.1 \cdot X_1 + 1 \cdo
 
 Branch 2 is generated from $X_{1} \sim U(-1, 0)$, and $X_2 = 0.1 \cdot X_{1} - 2 \cdot X_{1}^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This creates a steeper, leftward-facing curve in the left half-plane.
 
-Branches $3$ to $k$** are added iteratively. Each new branch begins at a randomly chosen point within a restricted horizontal band: $X_{1} \in [-0.15, 0.15]$ (to ensure connectivity with earlier branches), spans a unit-length interval on $X_{1}$:$X_1 \in [x_{\text{start}}, x_{\text{start}} + 1]$, and has the structure:
+Branches $3$ to $k$ are added iteratively. Each new branch begins at a randomly chosen point within a restricted horizontal band: $X_{1} \in [-0.15, 0.15]$ (to ensure connectivity with earlier branches), spans a unit-length interval on $X_{1}$:$X_1 \in [x_{\text{start}}, x_{\text{start}} + 1]$, and has the structure:
 
 $$
 X_2 = 0.1 \cdot X_1 - s_i \cdot (X_1^2 - x_{\text{start}}) + y_{\text{start}}, \quad s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1.5\}.
@@ -490,7 +490,7 @@ The `gen_orgcurvybranches(n, p, k)` function generates a dataset of $n$ points f
 
 Let $\binom{p}{2}$ denote the number of unique $2\text{-}D$ subspace combinations. When $k \leq \binom{p}{2}$, $k$ distinct subspace pairs $(x_{i1}, x_{i2})$ are sampled without replacement. Otherwise, combinations are selected with replacement to reach $k$ total branches. For each branch $i = 1, \dots, k$, a random scale factor $s_i$ is used to vary the curvature:
 
-* If $k \leq \binom{p}{2}$: $s_i = 1 $
+* If $k \leq \binom{p}{2}$: $s_i = 1$
 * If $k > \binom{p}{2}$: $s_i \sim \text{Uniform sample from } {1, 1.5, \dots, 8}$
 
 Each branch contains $n_i$ points such that $\sum_{i=1}^k n_i = n$, where the vector $(n_1, \dots, n_k)$ is randomly drawn using the helper function `gen_nsum()` to partition $n$.
@@ -1040,7 +1040,7 @@ $$
 
 The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions of a $p$-dimensional space. This function creates a more complex curvilinear structure than a simple parabola.
 
-The shape is generated using a third-degree raw polynomial basis expansion. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2\$, where \$\varepsilon_2 \sim U(0, 0.5)$.
+The shape is generated using a third-degree raw polynomial basis expansion. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$.
 
 When $p > 2$, the remaining dimensions consist of independent Gaussian noise features generated via `gen_noisedims()`:
 
