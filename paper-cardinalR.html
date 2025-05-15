@@ -1837,69 +1837,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;JayaniLakshika/cardinalR&quot;</span>)</span></code></pre></div>
 <!-- ## Web site -->
 <!-- More documentation of the package can be found at the web site [https://jayanilakshika.github.io/cardinalR/](https://jayanilakshika.github.io/cardinalR/). -->
-<h3 data-number="2.2" id="data-sets"><span class="header-section-number">2.2</span> Data sets</h3>
-<p>The <code>cardinalR</code> package comes with several data sets that load with the package. These are described in Table <a href="#tab:datasets-tb-html">1</a>.</p>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<table>
-<caption><span id="tab:datasets-tb-html">Table 1: </span>cardinalR data sets</caption>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 85%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">data</th>
-<th style="text-align: left;">explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">mobiusgau</td>
-<td style="text-align: left;">Simulated data with a Mobius and a Gaussian in 4-D space.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">mobiusgau_tsne1</td>
-<td style="text-align: left;">The tSNE embedding with perplexity <span class="math inline">\(15\)</span> for mobiusgau.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">mobiusgau_tsne2</td>
-<td style="text-align: left;">The tSNE embedding with perplexity <span class="math inline">\(30\)</span> for mobiusgau.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">mobiusgau_tsne3</td>
-<td style="text-align: left;">The tSNE embedding with perplexity <span class="math inline">\(5\)</span> for mobiusgau.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">mobiusgau_umap1</td>
-<td style="text-align: left;">The UMAP embedding with number of neighbors <span class="math inline">\(15\)</span> and minimum distance <span class="math inline">\(0.1\)</span> for mobiusgau.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">mobiusgau_umap2</td>
-<td style="text-align: left;">The UMAP embedding with number of neighbors <span class="math inline">\(30\)</span> and minimum distance <span class="math inline">\(0.08\)</span> for mobiusgau.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">mobiusgau_umap3</td>
-<td style="text-align: left;">The UMAP embedding with number of neighbors <span class="math inline">\(5\)</span> and minimum distance <span class="math inline">\(0.9\)</span> for mobiusgau.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<h3 data-number="2.3" id="usage"><span class="header-section-number">2.3</span> Usage</h3>
-<h4 class="unnumbered" data-number="2.3.1" id="main-function">Main function</h4>
+<h3 data-number="2.2" id="usage"><span class="header-section-number">2.2</span> Usage</h3>
+<h4 class="unnumbered" data-number="2.2.1" id="main-function">Main function</h4>
 <p>The main function of the package is <code>gen_multicluster()</code>. This function generates clusters of various shapes, allowing users to specify the number of points in each cluster, as well as their locations, scaling, and rotations across specific dimensions. Additionally, users can add background noise into the generated data by using the <code>is_bkg</code> option.</p>
-<p>The main arguments of the <code>gen_multicluster()</code> function are shown in Table <a href="#tab:main-tb-html">2</a>.</p>
+<p>The main arguments of the <code>gen_multicluster()</code> function are shown in Table <a href="#tab:main-tb-html">1</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:main-tb-html">Table 2: </span>The main arguments for <code>gen_multicluster()</code>.</caption>
+<caption><span id="tab:main-tb-html">Table 1: </span>The main arguments for <code>gen_multicluster()</code>.</caption>
 <colgroup>
 <col style="width: 8%" />
 <col style="width: 91%" />
@@ -1949,14 +1896,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.3.2" id="branching">Branching</h4>
-<p>A branching structure captures trajectories that diverge or bifurcate from a common origin, resembling processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table <a href="#tab:branching-tb-html">3</a> outlines these functions. The main arguments of the functions described in Table <a href="#tab:arg-branching-tb-html">4</a>.</p>
+<h4 class="unnumbered" data-number="2.2.2" id="branching">Branching</h4>
+<p>A branching structure captures trajectories that diverge or bifurcate from a common origin, resembling processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table <a href="#tab:branching-tb-html">2</a> outlines these functions. The main arguments of the functions described in Table <a href="#tab:arg-branching-tb-html">3</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:branching-tb-html">Table 3: </span>cardinalR branching data generation functions</caption>
+<caption><span id="tab:branching-tb-html">Table 2: </span>cardinalR branching data generation functions</caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 77%" />
@@ -1999,7 +1946,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:arg-branching-tb-html">Table 4: </span>The main arguments for branching shape generators.</caption>
+<caption><span id="tab:arg-branching-tb-html">Table 3: </span>The main arguments for branching shape generators.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Argument</th>
@@ -2215,7 +2162,7 @@ Figure 5: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.3" id="cone">Cone</h4>
+<h4 class="unnumbered" data-number="2.2.3" id="cone">Cone</h4>
 <p>To simulate a cone-shaped structure in arbitrary dimensions, we define a function <code>gen_cone(n, p, h, ratio)</code>, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.</p>
 <p>This function generates <code>n</code> points in a <code>p</code>-dimensional space, where the last dimension (<code>X_p</code>) represents height along the cone’s axis, and the remaining dimensions define a shrinking hyperspherical cross-section as one moves toward the tip.</p>
 <p>Points along the height axis are drawn from an exponential distribution to increase density near the tip:</p>
@@ -2252,13 +2199,13 @@ Figure 6: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.4" id="cube">Cube</h4>
+<h4 class="unnumbered" data-number="2.2.4" id="cube">Cube</h4>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:cube-tb-html">Table 5: </span>cardinalR cube data generation functions</caption>
+<caption><span id="tab:cube-tb-html">Table 4: </span>cardinalR cube data generation functions</caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 82%" />
@@ -2384,7 +2331,7 @@ Figure 9: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.5" id="gaussian">Gaussian</h4>
+<h4 class="unnumbered" data-number="2.2.5" id="gaussian">Gaussian</h4>
 <p>The <code>gen_gaussian(n, p, s)</code> function generates a multivariate Gaussian cloud in <span class="math inline">\(p\)</span>-dimensional space, centered at the origin with user-defined covariance structure.</p>
 <p>Each point is independently drawn using the multivariate normal distribution with:</p>
 <p><span class="math display">\[
@@ -2416,7 +2363,7 @@ Figure 10: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.6" id="linear">Linear</h4>
+<h4 class="unnumbered" data-number="2.2.6" id="linear">Linear</h4>
 <p>The <code>gen_longlinear(n, p)</code> function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise.</p>
 <p>Each variable <span class="math inline">\(X_i\)</span> is created as:</p>
 <p><span class="math display">\[
@@ -2451,7 +2398,7 @@ Figure 11: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.7" id="mobius">Mobius</h4>
+<h4 class="unnumbered" data-number="2.2.7" id="mobius">Mobius</h4>
 <p>The <code>gen_mobius(n, p)</code> function generates a dataset of <span class="math inline">\(n\)</span> points that form a Mobius strip embedded in the first three dimensions of a <span class="math inline">\(p\)</span>-dimensional space. This classical non-orientable surface loops back on itself with a half-twist.</p>
 <p>The Mobius strip is generated using <code>geozoo::mobius(n, p = 3)$points</code>, which samples <span class="math inline">\(n\)</span> points from a parametrization of the surface defined by angle <span class="math inline">\(\theta\)</span> and strip width <span class="math inline">\(w\)</span>. The cartesian coordinates are;</p>
 <p><span class="math display">\[
@@ -2493,13 +2440,13 @@ Figure 12: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.8" id="polynomial">Polynomial</h4>
+<h4 class="unnumbered" data-number="2.2.8" id="polynomial">Polynomial</h4>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:polynomial-tb-html">Table 6: </span>cardinalR polynomial data generation functions</caption>
+<caption><span id="tab:polynomial-tb-html">Table 5: </span>cardinalR polynomial data generation functions</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Function</th>
@@ -2584,13 +2531,13 @@ Figure 14: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.9" id="pyramid">Pyramid</h4>
+<h4 class="unnumbered" data-number="2.2.9" id="pyramid">Pyramid</h4>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:pyramid-tb-html">Table 7: </span>cardinalR pyramid data generation functions</caption>
+<caption><span id="tab:pyramid-tb-html">Table 6: </span>cardinalR pyramid data generation functions</caption>
 <colgroup>
 <col style="width: 12%" />
 <col style="width: 87%" />
@@ -2830,13 +2777,13 @@ Figure 18: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.10" id="s-curve">S-curve</h4>
+<h4 class="unnumbered" data-number="2.2.10" id="s-curve">S-curve</h4>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:scurve-tb-html">Table 8: </span>cardinalR S-curve data generation functions</caption>
+<caption><span id="tab:scurve-tb-html">Table 7: </span>cardinalR S-curve data generation functions</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Function</th>
@@ -2921,13 +2868,13 @@ Figure 20: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.11" id="sphere">Sphere</h4>
+<h4 class="unnumbered" data-number="2.2.11" id="sphere">Sphere</h4>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:sphere-tb-html">Table 9: </span>cardinalR sphere data generation functions</caption>
+<caption><span id="tab:sphere-tb-html">Table 8: </span>cardinalR sphere data generation functions</caption>
 <colgroup>
 <col style="width: 28%" />
 <col style="width: 71%" />
@@ -3200,7 +3147,7 @@ Figure 26: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.12" id="swiss-roll">Swiss Roll</h4>
+<h4 class="unnumbered" data-number="2.2.12" id="swiss-roll">Swiss Roll</h4>
 <p>To further generalize the Swiss roll structure and introduce realistic noise, we define a function <code>gen_swissroll(n, p, w)</code>, where <code>n</code> is the number of points, <code>p</code> is the total number of dimensions, and <code>w</code> is the vertical range in the third dimension.</p>
 <p>The first three dimensions form the classic <span class="math inline">\(3\text{-}D\)</span> Swiss roll shape:</p>
 <p><span class="math display">\[
@@ -3232,13 +3179,13 @@ Figure 27: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.13" id="trigonometric">Trigonometric</h4>
+<h4 class="unnumbered" data-number="2.2.13" id="trigonometric">Trigonometric</h4>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:trigonometric-tb-html">Table 10: </span>cardinalR trigonometric data generation functions</caption>
+<caption><span id="tab:trigonometric-tb-html">Table 9: </span>cardinalR trigonometric data generation functions</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Function</th>
@@ -3514,14 +3461,14 @@ Figure 33: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </p>
 </div>
 </div>
-<h4 class="unnumbered" data-number="2.3.14" id="multiple-cluster-examples">Multiple cluster examples</h4>
-<p>By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table <a href="#tab:odd-shape-tb-html">11</a>.</p>
+<h4 class="unnumbered" data-number="2.2.14" id="multiple-cluster-examples">Multiple cluster examples</h4>
+<p>By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table <a href="#tab:odd-shape-tb-html">10</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:odd-shape-tb-html">Table 11: </span>cardinalR multiple clusters generation functions</caption>
+<caption><span id="tab:odd-shape-tb-html">Table 10: </span>cardinalR multiple clusters generation functions</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Function</th>
@@ -3543,14 +3490,14 @@ Figure 33: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.3.15" id="additional-functions">Additional functions</h4>
-<p>The package includes various supplementary tools in addition to the shape-generating functions mentioned earlier. These tools allow users to generate noise dimensions with a normal distribution and various wavy patterns, create background noise, randomize the rows of the data, reposition clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table <a href="#tab:add-tb-html">12</a> details these functions.</p>
+<h4 class="unnumbered" data-number="2.2.15" id="additional-functions">Additional functions</h4>
+<p>The package includes various supplementary tools in addition to the shape-generating functions mentioned earlier. These tools allow users to generate noise dimensions with a normal distribution and various wavy patterns, create background noise, randomize the rows of the data, reposition clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table <a href="#tab:add-tb-html">11</a> details these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:add-tb-html">Table 12: </span>cardinalR additional functions</caption>
+<caption><span id="tab:add-tb-html">Table 11: </span>cardinalR additional functions</caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 84%" />

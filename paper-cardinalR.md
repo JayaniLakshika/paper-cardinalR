@@ -119,39 +119,6 @@ devtools::install_github("JayaniLakshika/cardinalR")
 
 <!-- More documentation of the package can be found at the web site [https://jayanilakshika.github.io/cardinalR/](https://jayanilakshika.github.io/cardinalR/). -->
 
-## Data sets
-
-The `cardinalR` package comes with several data sets that load with the package. These are described in Table \@ref(tab:datasets-tb-html).
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:datasets-tb-html)cardinalR data sets
-
-|data            |explanation                                                                                 |
-|:---------------|:-------------------------------------------------------------------------------------------|
-|mobiusgau       |Simulated data with a Mobius and a Gaussian in 4-D space.                                   |
-|mobiusgau_tsne1 |The tSNE embedding with perplexity $15$ for mobiusgau.                                      |
-|mobiusgau_tsne2 |The tSNE embedding with perplexity $30$ for mobiusgau.                                      |
-|mobiusgau_tsne3 |The tSNE embedding with perplexity $5$ for mobiusgau.                                       |
-|mobiusgau_umap1 |The UMAP embedding with number of neighbors $15$ and minimum distance $0.1$ for mobiusgau.  |
-|mobiusgau_umap2 |The UMAP embedding with number of neighbors $30$ and minimum distance $0.08$ for mobiusgau. |
-|mobiusgau_umap3 |The UMAP embedding with number of neighbors $5$ and minimum distance $0.9$ for mobiusgau.   |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
 ## Usage
 
 ### Main function
