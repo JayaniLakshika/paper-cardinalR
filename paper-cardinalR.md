@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-05-08'
+date: '2025-05-15'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{hyperref} \hypersetup{draft}
 output:
@@ -109,21 +109,15 @@ The paper is organized as follows. In next section, introduces the implementatio
 
 ## Installation
 
-The package can be installed from CRAN using 
-
-```r
-install.packages("cardinalR")
-```
-
-and the development version can be installed from GitHub 
+The development version can be installed from GitHub: 
 
 ```r
 devtools::install_github("JayaniLakshika/cardinalR")
 ```
 
-## Web site
+<!-- ## Web site -->
 
-More documentation of the package can be found at the web site [https://jayanilakshika.github.io/cardinalR/](https://jayanilakshika.github.io/cardinalR/).
+<!-- More documentation of the package can be found at the web site [https://jayanilakshika.github.io/cardinalR/](https://jayanilakshika.github.io/cardinalR/). -->
 
 ## Data sets
 
@@ -158,7 +152,7 @@ Table: (\#tab:datasets-tb-html)cardinalR data sets
 </div>
 
 
-## Functions
+## Usage
 
 ### Main function
 
@@ -2569,7 +2563,7 @@ The code is available at [https://github.com/JayaniLakshika/cardinalR](https://g
 
 # Acknowledgements
 
-These `R` packages were used for this work: `cli` [@gabor2025], `tibble` [@kirill2023], gtools [@gregory2023], dplyr [@hadley2023], `stats` [@core2025], `tidyr` [@hadley2024], `purrr` [@hadley2025], `mvtnorm` [@alan2009], `geozoo` [@barret2016], and `MASS` [@venables2002]. This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. 
+These `R` packages were used for this work: `cli` [@gabor2025], `tibble` [@kirill2023], `gtools` [@gregory2023], `dplyr` [@hadley2023], `stats` [@core2025], `tidyr` [@hadley2024], `purrr` [@hadley2025], `mvtnorm` [@alan2009], `geozoo` [@barret2016], and `MASS` [@venables2002]. This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. 
 ```{.r .distill-force-highlighting-css}
 ```
 
