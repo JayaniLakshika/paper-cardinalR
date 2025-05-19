@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.5.15)  19 MAY 2025 16:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.5.15)  19 MAY 2025 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1041,7 +1041,7 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-conicspiral-proj
 <paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf, id=580, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf  used on input line 1174.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf  used on input line 1173.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
@@ -1049,12 +1049,12 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1
 <paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf, id=625, 1060.96375pt x 334.24875pt>
 File: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf  used on input line 1245.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf  used on input line 1244.
 (pdftex.def)             Requested size: 398.33858pt x 125.49597pt.
 <paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=626, 411.5375pt x 298.11375pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 1251.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 1250.
 (pdftex.def)             Requested size: 398.33858pt x 288.5559pt.
 
 
@@ -1069,10 +1069,10 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.p
 [26])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 1291.
+(Font)              using `T1/zi4/m/n' instead on input line 1290.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 1301.
+(Font)              scaled to size 9.18004pt on input line 1300.
 
 
 [27])
@@ -1091,18 +1091,18 @@ Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
 (rerunfilecheck)             Checksum: 5929BFD2057415953F4D3341D5C488C8;1026.
  ) 
 Here is how much of TeX's memory you used:
- 27776 strings out of 471571
- 520318 string characters out of 5519689
+ 27777 strings out of 471571
+ 520330 string characters out of 5519689
  899935 words of memory out of 5000000
  53404 multiletter control sequences out of 15000+600000
- 689244 words of font info for 369 fonts, out of 8000000 for 9000
+ 689315 words of font info for 369 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  117i,12n,131p,1194b,928s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (28 pages, 9734036 bytes).
+Output written on RJwrapper.pdf (28 pages, 9734213 bytes).
 PDF statistics:
  859 PDF objects out of 1000 (max. 8388607)
  695 compressed objects within 7 object streams
  107 named destinations out of 1000 (max. 500000)
- 76036 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 78084 words of extra memory for PDF output out of 89155 (max. 10000000)
 
