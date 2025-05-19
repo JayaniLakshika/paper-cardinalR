@@ -38,21 +38,13 @@ date: "`r Sys.Date()`"
 preamble: >
   \usepackage{amsmath}
   \usepackage{array}
-  \usepackage{hyperref}
-  \hypersetup{draft}
 output: 
- rjtools::rjournal_web_article:
+ rjtools::rjournal_article:
     keep_md: true
 bibliography: paper-cardinalR.bib
 editor_options: 
   chunk_output_type: inline
 ---
-
-<!-- output:  -->
-<!--  rjtools::rjournal_article: -->
-<!--     keep_md: true -->
-<!--     includes: -->
-<!--       in_header: preamble.tex -->
 
 ```{r setup, include=FALSE}
 options(repos = "https://cloud.r-project.org") ## set up CRAN mirror
@@ -146,13 +138,13 @@ The main arguments of the `gen_multicluster()` function are shown in Table `r kn
 
 ```{r}
 main_tb <- tibble(arg = c("n",
-                            "p",
-                            "k",
-                            "loc",
-                            "scale",
-                            "shape",
-                            "rotation",
-                            "is_bkg"), 
+                          "p",
+                          "k",
+                          "loc",
+                          "scale",
+                          "shape",
+                          "rotation",
+                          "is_bkg"), 
                         exp = c("A numeric vector representing the number of points in each cluster.",
                                 "A numeric value representing the number of dimensions.",
                                 "A numeric value representing the number of clusters.",
@@ -170,7 +162,7 @@ main_tb |>
 
 ```{r main-tb-pdf, eval=knitr::is_latex_output()}
 main_tb |> 
-  kable(caption = "The main arguments for gen_multicluster().", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
+  kable(caption = "The main arguments for gen\\_multicluster().", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 ```
@@ -4186,10 +4178,15 @@ conicspiral_proj1 + conicspiral_proj2 + conicspiral_proj3 +
 The `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables. 
 The key geometry lies in dimensions 1–4, where:
 
-* $X_1 \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors).
-* $X_3 \sim U(0.1, 0.8)$: independent auxiliary variable.
-* $X_2 = \frac{hc}{X_1} + \text{non_fac} \cdot \sin(X_1)$: non-linear combination of **hyperbolic and sinusoidal transformations**, creating sharp curvature and oscillation.
-* $X_4 = \cos(\pi \cdot X_1) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure.
+$X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors).
+$X_{3} \sim U(0.1, 0.8)$: independent auxiliary variable.
+
+<!-- $$ -->
+<!-- X_{2} = \frac{hc}{X_{1}} + \text{non_fac} \cdot \sin(X_{1}) -->
+<!-- $$ -->
+
+:non-linear combination of **hyperbolic and sinusoidal transformations**, creating sharp curvature and oscillation.
+$X_{4} = \cos(\pi \cdot X_{1}) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure.
 
 These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter.
 

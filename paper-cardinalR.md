@@ -34,9 +34,9 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-05-15'
+date: '2025-05-19'
 preamble: |
-  \usepackage{amsmath} \usepackage{array} \usepackage{hyperref} \hypersetup{draft}
+  \usepackage{amsmath} \usepackage{array}
 output:
   distill::distill_article:
     keep_md: yes
@@ -60,12 +60,6 @@ csl: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/rjtool
 
 ---
 
-
-<!-- output:  -->
-<!--  rjtools::rjournal_article: -->
-<!--     keep_md: true -->
-<!--     includes: -->
-<!--       in_header: preamble.tex -->
 
 
 
@@ -2305,10 +2299,15 @@ $$
 The `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables. 
 The key geometry lies in dimensions 1–4, where:
 
-* $X_1 \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors).
-* $X_3 \sim U(0.1, 0.8)$: independent auxiliary variable.
-* $X_2 = \frac{hc}{X_1} + \text{non_fac} \cdot \sin(X_1)$: non-linear combination of **hyperbolic and sinusoidal transformations**, creating sharp curvature and oscillation.
-* $X_4 = \cos(\pi \cdot X_1) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure.
+$X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors).
+$X_{3} \sim U(0.1, 0.8)$: independent auxiliary variable.
+
+<!-- $$ -->
+<!-- X_{2} = \frac{hc}{X_{1}} + \text{non_fac} \cdot \sin(X_{1}) -->
+<!-- $$ -->
+
+:non-linear combination of **hyperbolic and sinusoidal transformations**, creating sharp curvature and oscillation.
+$X_{4} = \cos(\pi \cdot X_{1}) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure.
 
 These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter.
 

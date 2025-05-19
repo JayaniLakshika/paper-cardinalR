@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,7 +9,19 @@
 E.~Amid and M.~K. Warmuth.
 \newblock Trimap: Large-scale dimensionality reduction using triplets.
 \newblock \emph{ArXiv}, abs/1910.00204, 2019.
-\newblock URL \url{\url{https://api.semanticscholar.org/CorpusID:203610264}.}
+\newblock URL \url{https://api.semanticscholar.org/CorpusID:203610264}.
+
+\bibitem[Cs\'ardi(2025)]{gabor2025}
+G.~Cs\'ardi.
+\newblock \emph{cli: Helpers for Developing Command Line Interfaces}, 2025.
+\newblock URL \url{https://CRAN.R-project.org/package=cli}.
+\newblock R package version 3.6.4.
+
+\bibitem[Genz and Bretz(2009)]{alan2009}
+A.~Genz and F.~Bretz.
+\newblock \emph{Computation of Multivariate Normal and t Probabilities}.
+\newblock Lecture Notes in Statistics. Springer-Verlag, Heidelberg, 2009.
+\newblock ISBN 978-3-642-01688-2.
 
 \bibitem[Jolliffe(2011)]{jolliffe2011}
 I.~Jolliffe.
@@ -17,7 +29,7 @@ I.~Jolliffe.
 \newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2011.
 \newblock ISBN 978-3-642-04898-2.
 \newblock \doi{10.1007/978-3-642-04898-2_455}.
-\newblock URL \url{\url{https://doi.org/10.1007/978-3-642-04898-2_455}.}
+\newblock URL \url{https://doi.org/10.1007/978-3-642-04898-2_455}.
 
 \bibitem[Leisch and Dimitriadou(2024)]{friedrich2024}
 F.~Leisch and E.~Dimitriadou.
@@ -28,33 +40,37 @@ F.~Leisch and E.~Dimitriadou.
 \bibitem[Maaten and Hinton(2008)]{laurens2008}
 L.~V.~D. Maaten and G.~E. Hinton.
 \newblock Visualizing data using t-sne.
-\newblock \emph{Journal of Machine Learning Research}, 9:\penalty0 2579--2605,
-  2008.
+\newblock \emph{Journal of Machine Learning Research}, 9:\penalty0 2579--2605, 2008.
 
-\bibitem[McInnes et~al.(2018)McInnes, Healy, Saul, and
-  Gro\ss{}berger]{leland2018}
+\bibitem[McInnes et~al.(2018)McInnes, Healy, Saul, and Gro\ss{}berger]{leland2018}
 L.~McInnes, J.~Healy, N.~Saul, and L.~Gro\ss{}berger.
 \newblock Umap: Uniform manifold approximation and projection.
-\newblock \emph{Journal of Open Source Software}, 3\penalty0 (29):\penalty0
-  861, 2018.
+\newblock \emph{Journal of Open Source Software}, 3\penalty0 (29):\penalty0 861, 2018.
 \newblock \doi{10.21105/joss.00861}.
-\newblock URL \url{\url{https://doi.org/10.21105/joss.00861}.}
+\newblock URL \url{https://doi.org/10.21105/joss.00861}.
 
 \bibitem[Melville(2025)]{james2025}
 J.~Melville.
 \newblock \emph{snedata: SNE Simulation Dataset Functions}, 2025.
 \newblock URL \url{https://github.com/jlmelville/snedata}.
-\newblock R package version 0.0.0.9001, commit
-  beebcf91c365bf5006be08fb614585b4659c05c5.
+\newblock R package version 0.0.0.9001, commit beebcf91c365bf5006be08fb614585b4659c05c5.
 
-\bibitem[Moon et~al.(2019)Moon, van Dijk, Wang, Gigante, Burkhardt, Chen, Yim,
-  van~den Elzen, Hirn, Coifman, Ivanova, Wolf, and Krishnaswamy]{moon2019}
-K.~R. Moon, D.~van Dijk, Z.~Wang, S.~A. Gigante, D.~B. Burkhardt, W.~S. Chen,
-  K.~Yim, A.~van~den Elzen, M.~J. Hirn, R.~R. Coifman, N.~B. Ivanova, G.~Wolf,
-  and S.~Krishnaswamy.
-\newblock Visualizing structure and transitions in high-dimensional biological
-  data.
+\bibitem[Moon et~al.(2019)Moon, van Dijk, Wang, Gigante, Burkhardt, Chen, Yim, van~den Elzen, Hirn, Coifman, Ivanova, Wolf, and Krishnaswamy]{moon2019}
+K.~R. Moon, D.~van Dijk, Z.~Wang, S.~A. Gigante, D.~B. Burkhardt, W.~S. Chen, K.~Yim, A.~van~den Elzen, M.~J. Hirn, R.~R. Coifman, N.~B. Ivanova, G.~Wolf, and S.~Krishnaswamy.
+\newblock Visualizing structure and transitions in high-dimensional biological data.
 \newblock \emph{Nature Biotechnology}, 37:\penalty0 1482--1492, 2019.
+
+\bibitem[M\"uller and Wickham(2023)]{kirill2023}
+K.~M\"uller and H.~Wickham.
+\newblock \emph{tibble: Simple Data Frames}, 2023.
+\newblock URL \url{https://CRAN.R-project.org/package=tibble}.
+\newblock R package version 3.2.1.
+
+\bibitem[{R Core Team}(2025)]{core2025}
+{R Core Team}.
+\newblock \emph{R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2025.
+\newblock URL \url{https://www.R-project.org/}.
 
 \bibitem[Schloerke(2016)]{barret2016}
 B.~Schloerke.
@@ -62,14 +78,42 @@ B.~Schloerke.
 \newblock URL \url{https://CRAN.R-project.org/package=geozoo}.
 \newblock R package version 0.5.1.
 
+\bibitem[Venables and Ripley(2002)]{venables2002}
+W.~N. Venables and B.~D. Ripley.
+\newblock \emph{Modern Applied Statistics with S}.
+\newblock Springer, New York, fourth edition, 2002.
+\newblock URL \url{https://www.stats.ox.ac.uk/pub/MASS4/}.
+\newblock ISBN 0-387-95457-0.
+
 \bibitem[Wang et~al.(2021)Wang, Huang, Rudin, and Shaposhnik]{yingfan2021}
 Y.~Wang, H.~Huang, C.~Rudin, and Y.~Shaposhnik.
-\newblock Understanding how dimension reduction tools work: An empirical
-  approach to deciphering t-sne, umap, trimap, and pacmap for data
-  visualization.
-\newblock \emph{Journal of Machine Learning Research}, 22\penalty0
-  (201):\penalty0 1--73, 2021.
-\newblock URL \url{\url{http://jmlr.org/papers/v22/20-1061.html}.}
+\newblock Understanding how dimension reduction tools work: An empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization.
+\newblock \emph{Journal of Machine Learning Research}, 22\penalty0 (201):\penalty0 1--73, 2021.
+\newblock URL \url{http://jmlr.org/papers/v22/20-1061.html}.
+
+\bibitem[Warnes et~al.(2023)Warnes, Bolker, Lumley, Magnusson, Venables, Ryodan, and Moeller]{gregory2023}
+G.~R. Warnes, B.~Bolker, T.~Lumley, A.~Magnusson, B.~Venables, G.~Ryodan, and S.~Moeller.
+\newblock \emph{gtools: Various R Programming Tools}, 2023.
+\newblock URL \url{https://CRAN.R-project.org/package=gtools}.
+\newblock R package version 3.9.5.
+
+\bibitem[Wickham and Henry(2025)]{hadley2025}
+H.~Wickham and L.~Henry.
+\newblock \emph{purrr: Functional Programming Tools}, 2025.
+\newblock URL \url{https://CRAN.R-project.org/package=purrr}.
+\newblock R package version 1.0.4.
+
+\bibitem[Wickham et~al.(2023)Wickham, François, Henry, Müller, and Vaughan]{hadley2023}
+H.~Wickham, R.~François, L.~Henry, K.~Müller, and D.~Vaughan.
+\newblock \emph{dplyr: A Grammar of Data Manipulation}, 2023.
+\newblock URL \url{https://CRAN.R-project.org/package=dplyr}.
+\newblock R package version 1.1.4.
+
+\bibitem[Wickham et~al.(2024)Wickham, Vaughan, and Girlich]{hadley2024}
+H.~Wickham, D.~Vaughan, and M.~Girlich.
+\newblock \emph{tidyr: Tidy Messy Data}, 2024.
+\newblock URL \url{https://CRAN.R-project.org/package=tidyr}.
+\newblock R package version 1.3.1.
 
 \bibitem[Xie(2015)]{yihui2015}
 Y.~Xie.

@@ -58,43 +58,14 @@ source("scripts/additional_functions.R")
 
 
 ## -----------------------------------------------------------------------------
-datasets_tb <- tibble(dt = c("mobiusgau", 
-                             "mobiusgau_tsne1", 
-                             "mobiusgau_tsne2",
-                             "mobiusgau_tsne3",
-                             "mobiusgau_umap1",
-                             "mobiusgau_umap2",
-                             "mobiusgau_umap3"), 
-                      text = c("Simulated data with a Mobius and a Gaussian in 4-D space.",
-                               "The tSNE embedding with perplexity $15$ for mobiusgau.", 
-                               "The tSNE embedding with perplexity $30$ for mobiusgau.",
-                               "The tSNE embedding with perplexity $5$ for mobiusgau.",
-                               "The UMAP embedding with number of neighbors $15$ and minimum distance $0.1$ for mobiusgau.",
-                               "The UMAP embedding with number of neighbors $30$ and minimum distance $0.08$ for mobiusgau.", 
-                               "The UMAP embedding with number of neighbors $5$ and minimum distance $0.9$ for mobiusgau."))
-
-
-## ----datasets-tb-html, eval=knitr::is_html_output()---------------------------
-# datasets_tb |>
-#   kable(caption = "cardinalR data sets", col.names = c("data", "explanation"))
-
-
-## ----datasets-tb-pdf, eval=knitr::is_latex_output()---------------------------
-datasets_tb |> 
-  kable(caption = "cardinalR data sets", format="latex", col.names = c("data", "explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
-## -----------------------------------------------------------------------------
 main_tb <- tibble(arg = c("n",
-                            "p",
-                            "k",
-                            "loc",
-                            "scale",
-                            "shape",
-                            "rotation",
-                            "is_bkg"), 
+                          "p",
+                          "k",
+                          "loc",
+                          "scale",
+                          "shape",
+                          "rotation",
+                          "is_bkg"), 
                         exp = c("A numeric vector representing the number of points in each cluster.",
                                 "A numeric value representing the number of dimensions.",
                                 "A numeric value representing the number of clusters.",
