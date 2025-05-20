@@ -38,6 +38,7 @@ date: "`r Sys.Date()`"
 preamble: >
   \usepackage{amsmath}
   \usepackage{array}
+  \usepackage{float}
 output: 
  rjtools::rjournal_article:
     keep_md: true
