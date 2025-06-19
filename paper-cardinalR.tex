@@ -1254,20 +1254,13 @@ UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show 
 
 \section{Conclusion}\label{conclusion}
 
-\begin{itemize}
-\item
-  Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings.
-\item
-  Scurve with a hole allowing for evaluation of how well algorithms handle incomplete manifolds or missing local structure.
-\item
-  clusteredsphere: This structure allows for cluster separation on curved manifolds in high-dimensional space and can be used to test the ability of NLDR methods and clustering algorithms to detect spherical clusters of different sizes and separations.
-\item
-  Mobius: The core geometric structure is a Mobius strip---a classic one-sided surface with a half-twist---useful for evaluating how well methods capture non-orientability and twisted manifolds.
-\item
-  Grided cube: This function is useful for assessing how algorithms preserve uniformly spaced data in high-dimensional spaces.
-\item
-  Pyrholes: This structure is useful for testing clustering and NLDR algorithms on non-convex and sparse high-dimensional shapes.
-\end{itemize}
+The \texttt{cardinalR} package contributes a flexible and extensible framework for generating high-dimensional data structures with well-defined geometric properties. It addresses a growing need in the evaluation of machine learning, clustering, and nonlinear dimensionality reduction (NLDR) methods---offering researchers the ability to design customized datasets with interpretable structures, noise characteristics, and clustering arrangements. This makes \texttt{cardinalR} a useful complement to existing tools like \texttt{geozoo}, \texttt{snedata}, and \texttt{mlbench}, expanding the scope to higher dimensions and more complex shapes.
+
+The suite of included structures is diverse and targeted. For example, \textbf{branching shapes} allow investigation of continuity and topological preservation in low-dimensional embeddings. The \textbf{S-curve with a hole} enables exploration of how methods handle incomplete manifolds. \textbf{Clustered spheres} assess cluster separation on curved surfaces, while the \textbf{Möbius strip} challenges NLDR methods with non-orientable geometry. \textbf{Gridded cubes} test spatial regularity, and \textbf{pyrholes} represent non-convex, sparse shapes useful for testing clustering performance in irregular high-dimensional regions.
+
+These structures are not only valuable for algorithm diagnostics but may also be used for \textbf{teaching high-dimensional concepts}, \textbf{benchmarking reproducibility}, and \textbf{evaluating hyperparameter sensitivity}. The package's design encourages users to adjust dimensionality, noise, sample size, and clustering properties, promoting \textbf{transparent experimentation} and \textbf{comparative model evaluation}.
+
+Looking ahead, future extensions of \texttt{cardinalR} could incorporate dynamic shape generation, integration with supervised learning simulations, or visual interfaces to assist users in interactively exploring generated structures. Expanding the library to include more biologically inspired or real-world data analogs may also broaden its utility across domains like bioinformatics, forensic science, and spatial data analysis.
 
 \section{Code}\label{code}
 
