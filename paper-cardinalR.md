@@ -850,7 +850,7 @@ Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
 
 #### `gen_quadratic()`
 
-The `gen_quadratic(n, p, range)` function generates a dataset of $n$ points forming a quadratic curve in the first two dimensions of a $p$-dimensional space. This $2\text{-}D$ parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.
+The `gen_quadratic(n, p, range)` function generates a dataset of $n$ points forming a quadratic curve in the first two dimensions. This $2\text{-}D$ parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.
 
 The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the independent variable. A raw polynomial basis of degree 2 is used to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate noise. For $p > 2$, Gaussian noise $X_j \sim N(0, 0.1^2)$ is added to embed the $2\text{-}D$ structure into $p\text{-}D$, where $j = 3, \dots, p$.
 
@@ -895,7 +895,7 @@ The curve is constructed by drawing uniformly spaced inputs and applying a secon
 
 #### `gen_cubic()`
 
-The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions of a $p$-dimensional space. This function creates a more complex curvilinear structure than a simple parabola.
+The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions. This function creates a more complex curvilinear structure than a simple parabola.
 
 The shape is generated using a third-degree raw polynomial basis expansion. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. For $p > 2$, Gaussian noise $X_j \sim N(0, 0.1^2)$ is added to embed the $2\text{-}D$ structure into $p\text{-}D$, where $j = 3, \dots, p$.
 
@@ -1323,17 +1323,9 @@ Table: (\#tab:scurve-tb-html)cardinalR S-curve data generation functions
 
 #### `gen_scurve()`
 
-To simulate an S-curve structure in a higher-dimensional space, we define the function `gen_scurve(n, p)`, which generates `n` observations in `p` dimensions. 
+To simulate an S-curve structure in a higher-dimensional space, we define the function `gen_scurve(n, p)`, which generates $n$ observations in $p\text{-}D$. 
 
-The $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\theta \sim U\left(-\frac{3\pi}{2}, \frac{3\pi}{2}\right)$. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure:
-  
-$$
-  X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta) \cdot (\cos(\theta) - 1).
-$$
-
-This configuration creates a horizontally curled shape in $(X_1, X_3)$, with additional band thickness in the $X_2$ direction.
-
-For $p > 3$, additional noise dimensions are appended introducing structured, wavy perturbations.
+The $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\theta \sim U\left(-\frac{3\pi}{2}, \frac{3\pi}{2}\right)$. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: $X_1 = \sin(\theta)$, $X_2 \sim U(0, 2)$, $X_3 = \text{sign}(\theta) \cdot (\cos(\theta) - 1)$. This configuration creates a horizontally curled shape in $(X_1, X_3)$, with additional band thickness in the $X_2$ direction. For $p > 3$, additional noise dimensions are appended introducing structured, wavy noise.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurve</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurve</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -1376,15 +1368,9 @@ For $p > 3$, additional noise dimensions are appended introducing structured, wa
 
 #### `gen_scurvehole()`
 
-To simulate a variant of the S-curve structure with a removed region ("hole"), we define the function `gen_scurvehole(n, p)`. This function produces `n` observations in a $p$-dimensional space where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.
+To simulate a variant of the S-curve structure with a removed region ("hole"), we define the function `gen_scurvehole(n, p)`. This function produces $n$ observations in $p\text{-}D$ where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.
 
-To simulate missing regions on the manifold, a fixed anchor point $(0, 1, 0, \ldots)$ is defined in $p$-dimensional space. All observations within a Euclidean distance of $\sqrt{0.3} \approx 0.5477$ from the anchor are removed:
-
-$$
-\text{remove if} \quad \sum_{j=1}^p (X_j - a_j)^2 \leq 0.3
-$$.
-
-This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.
+To simulate missing regions on the manifold, a fixed anchor point $(0, 1, 0, \ldots)$ is defined in $p\text{-}D$. All observations within a Euclidean distance of $\sqrt{0.3} \approx 0.5477$ from the anchor are removed if $\sum_{j=1}^p (X_j - a_j)^2 \leq 0.3$. This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurvehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurvehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>

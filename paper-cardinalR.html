@@ -2400,7 +2400,7 @@ Figure 12: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 
 </div>
 <h5 class="unnumbered" data-number="2.2.8.1" id="gen_quadratic"><code>gen_quadratic()</code></h5>
-<p>The <code>gen_quadratic(n, p, range)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a quadratic curve in the first two dimensions of a <span class="math inline">\(p\)</span>-dimensional space. This <span class="math inline">\(2\text{-}D\)</span> parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.</p>
+<p>The <code>gen_quadratic(n, p, range)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a quadratic curve in the first two dimensions. This <span class="math inline">\(2\text{-}D\)</span> parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.</p>
 <p>The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let <span class="math inline">\(X_1 \sim U(\text{range}[1], \text{range}[2])\)</span> be the independent variable. A raw polynomial basis of degree 2 is used to form <span class="math inline">\(X_2 = X_1 - X_1^2 + \varepsilon_2\)</span>, where <span class="math inline">\(\varepsilon_2 \sim U(0, 0.5)\)</span>. This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate noise. For <span class="math inline">\(p &gt; 2\)</span>, Gaussian noise <span class="math inline">\(X_j \sim N(0, 0.1^2)\)</span> is added to embed the <span class="math inline">\(2\text{-}D\)</span> structure into <span class="math inline">\(p\text{-}D\)</span>, where <span class="math inline">\(j = 3, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2428,7 +2428,7 @@ Figure 13: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 </div>
 <h5 class="unnumbered" data-number="2.2.8.2" id="gen_cubic"><code>gen_cubic()</code></h5>
-<p>The <code>gen_cubic(n, p, range)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a cubic curve in the first two dimensions of a <span class="math inline">\(p\)</span>-dimensional space. This function creates a more complex curvilinear structure than a simple parabola.</p>
+<p>The <code>gen_cubic(n, p, range)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a cubic curve in the first two dimensions. This function creates a more complex curvilinear structure than a simple parabola.</p>
 <p>The shape is generated using a third-degree raw polynomial basis expansion. Let <span class="math inline">\(X_1 \sim U(\text{range}[1], \text{range}[2])\)</span> be the base input. A cubic transformation with vertical jitter is used to define <span class="math inline">\(X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2\)</span>, where <span class="math inline">\(\varepsilon_2 \sim U(0, 0.5)\)</span>. For <span class="math inline">\(p &gt; 2\)</span>, Gaussian noise <span class="math inline">\(X_j \sim N(0, 0.1^2)\)</span> is added to embed the <span class="math inline">\(2\text{-}D\)</span> structure into <span class="math inline">\(p\text{-}D\)</span>, where <span class="math inline">\(j = 3, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2736,13 +2736,8 @@ Figure 18: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 
 </div>
 <h5 class="unnumbered" data-number="2.2.10.1" id="gen_scurve"><code>gen_scurve()</code></h5>
-<p>To simulate an S-curve structure in a higher-dimensional space, we define the function <code>gen_scurve(n, p)</code>, which generates <code>n</code> observations in <code>p</code> dimensions.</p>
-<p>The <span class="math inline">\(3\text{-}D\)</span> geometry is constructed by introducing a latent parameter, <span class="math inline">\(\theta \sim U\left(-\frac{3\pi}{2}, \frac{3\pi}{2}\right)\)</span>. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure:</p>
-<p><span class="math display">\[
-  X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta) \cdot (\cos(\theta) - 1).
-\]</span></p>
-<p>This configuration creates a horizontally curled shape in <span class="math inline">\((X_1, X_3)\)</span>, with additional band thickness in the <span class="math inline">\(X_2\)</span> direction.</p>
-<p>For <span class="math inline">\(p &gt; 3\)</span>, additional noise dimensions are appended introducing structured, wavy perturbations.</p>
+<p>To simulate an S-curve structure in a higher-dimensional space, we define the function <code>gen_scurve(n, p)</code>, which generates <span class="math inline">\(n\)</span> observations in <span class="math inline">\(p\text{-}D\)</span>.</p>
+<p>The <span class="math inline">\(3\text{-}D\)</span> geometry is constructed by introducing a latent parameter, <span class="math inline">\(\theta \sim U\left(-\frac{3\pi}{2}, \frac{3\pi}{2}\right)\)</span>. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: <span class="math inline">\(X_1 = \sin(\theta)\)</span>, <span class="math inline">\(X_2 \sim U(0, 2)\)</span>, <span class="math inline">\(X_3 = \text{sign}(\theta) \cdot (\cos(\theta) - 1)\)</span>. This configuration creates a horizontally curled shape in <span class="math inline">\((X_1, X_3)\)</span>, with additional band thickness in the <span class="math inline">\(X_2\)</span> direction. For <span class="math inline">\(p &gt; 3\)</span>, additional noise dimensions are appended introducing structured, wavy noise.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurve</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurve</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2769,12 +2764,8 @@ Figure 19: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 </div>
 <h5 class="unnumbered" data-number="2.2.10.2" id="gen_scurvehole"><code>gen_scurvehole()</code></h5>
-<p>To simulate a variant of the S-curve structure with a removed region (“hole”), we define the function <code>gen_scurvehole(n, p)</code>. This function produces <code>n</code> observations in a <span class="math inline">\(p\)</span>-dimensional space where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.</p>
-<p>To simulate missing regions on the manifold, a fixed anchor point <span class="math inline">\((0, 1, 0, \ldots)\)</span> is defined in <span class="math inline">\(p\)</span>-dimensional space. All observations within a Euclidean distance of <span class="math inline">\(\sqrt{0.3} \approx 0.5477\)</span> from the anchor are removed:</p>
-<p><span class="math display">\[
-\text{remove if} \quad \sum_{j=1}^p (X_j - a_j)^2 \leq 0.3
-\]</span>.</p>
-<p>This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.</p>
+<p>To simulate a variant of the S-curve structure with a removed region (“hole”), we define the function <code>gen_scurvehole(n, p)</code>. This function produces <span class="math inline">\(n\)</span> observations in <span class="math inline">\(p\text{-}D\)</span> where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.</p>
+<p>To simulate missing regions on the manifold, a fixed anchor point <span class="math inline">\((0, 1, 0, \ldots)\)</span> is defined in <span class="math inline">\(p\text{-}D\)</span>. All observations within a Euclidean distance of <span class="math inline">\(\sqrt{0.3} \approx 0.5477\)</span> from the anchor are removed if <span class="math inline">\(\sum_{j=1}^p (X_j - a_j)^2 \leq 0.3\)</span>. This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurvehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurvehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
