@@ -847,6 +847,8 @@ The Mobius strip is generated using `geozoo::mobius(n, p = 3)$points`, which sam
 
 ### Polynomial
 
+A polynomial structure generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in high-dimensional space. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. Table \@ref(tab:polynomial-tb-html) summarizes these functions and their purposes.
+
 <div class="layout-chunk" data-layout="l-body">
 
 
