@@ -151,7 +151,7 @@ Each branch contains \(n_i\) points such that \(\sum_{i=1}^k n_i = n\), where th
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-orgcurvybranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, `orgcurvybranches` data.}\label{fig:fig-orgcurvybranches-proj}
 \end{figure}
 
@@ -167,7 +167,7 @@ For each point, a direction is sampled uniformly from a \((p-1)\)-dimensional hy
 cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cone-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `cone` data.}\label{fig:fig-cone-proj}
 \end{figure}
 
@@ -220,7 +220,7 @@ The initial points are drawn from a uniform cube centered at the origin: \(X_1, 
 cubehole <- gen_cubehole(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cubehole-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube`, `unifcube`, and `cubehole` data.}\label{fig:fig-cubehole-proj}
 \end{figure}
 
@@ -232,7 +232,7 @@ The \texttt{gen\_gaussian(n,\ p,\ s)} function generates a multivariate Gaussian
 gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-gau-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gau` data.}\label{fig:fig-gau-proj}
 \end{figure}
 
@@ -244,7 +244,7 @@ The \texttt{gen\_longlinear(n,\ p)} function simulates a high-dimensional linear
 linear <- gen_longlinear(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-linear-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `linear` data.}\label{fig:fig-linear-proj}
 \end{figure}
 
@@ -258,7 +258,7 @@ The Mobius strip is generated using \texttt{geozoo::mobius(n,\ p\ =\ 3)\$points}
 mobius <- gen_mobius(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-mobius-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobius` data.}\label{fig:fig-mobius-proj}
 \end{figure}
 
@@ -300,7 +300,7 @@ The shape is generated using a third-degree raw polynomial basis expansion. Let 
 cubic <- gen_cubic(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cubic-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` and `cubic` data.}\label{fig:fig-cubic-proj}
 \end{figure}
 
@@ -373,7 +373,7 @@ Let \(C_1, C_2, \dots, C_{p+1}\) denote the corner vertices of a \(p\text{-}D\) 
 pyrholes <- gen_pyrholes(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data.}\label{fig:fig-pyrholes-proj}
 \end{figure}
 
@@ -415,7 +415,7 @@ To simulate missing regions on the manifold, a fixed anchor point \((0, 1, 0, \l
 scurvehole <- gen_scurvehole(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-scurve-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` and `scurvehole` data.}\label{fig:fig-scurve-proj}
 \end{figure}
 
@@ -514,7 +514,7 @@ Each observation is situated on a restricted \(4\text{-}D\) spherical surface, d
 hemisphere <- gen_hemisphere(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 
 {\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1} 
 
@@ -532,7 +532,7 @@ The first three dimensions form the classic \(3\text{-}D\) Swiss roll shape. The
 swissroll <- gen_swissroll(n = 1000, p = 4, w = c(-1, 1))
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-swissroll-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `swissroll` data.}\label{fig:fig-swissroll-proj}
 \end{figure}
 
@@ -623,7 +623,7 @@ The \(X_{1} \sim U(0.1, 2)\): base variable (avoids zero to prevent division err
 nonlinear <- gen_nonlinear(n = 1000, p = 4, hc = 1, non_fac = 0.5)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 
 {\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/fig-triginometric-proj-1} 
 
@@ -699,13 +699,13 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5
                        is_bkg = FALSE)
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-highd-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.}\label{fig:fig-highd-proj}
 \end{figure}
 
 The five clusters have different geometric structures and each contain different number of points. Specifically, the helical spiral cluster includes \(2250\) points and was generated with a scale parameter of \(0.4\). The hemisphere cluster consists of \(1500\) points with a scale parameter of \(0.35\). The uniform cube-shaped cluster contains \(750\) points and uses a scale parameter of \(0.3\). The blunted cone cluster includes \(1250\) points, generated with a scale parameter of \(1\). Finally, the Gaussian-shaped cluster contains \(1750\) points and was generated with a scale parameter of \(0.3\).
 
-\begin{figure}
+\begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Six different dimension reduction representations of the `mobiusgau` data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA.}\label{fig:fig-nldr-layouts}
 \end{figure}
 

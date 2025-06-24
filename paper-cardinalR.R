@@ -8,7 +8,8 @@ knitr::opts_chunk$set(
   cache=FALSE, 
   message=FALSE, 
   warning=FALSE,
-  out.width = "100%")
+  out.width = "100%",
+  fig.pos = "!")
 
 
 

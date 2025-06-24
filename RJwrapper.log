@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  25 JUN 2025 05:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  25 JUN 2025 05:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -814,11 +814,19 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 [2]
 
 [3]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 154.
+
 <paper-cardinalR_files/figure-latex/fig-orgcurvybranches-proj-1.pdf, id=81, 1082.0425pt x 1804.7425pt>
 File: paper-cardinalR_files/figure-latex/fig-orgcurvybranches-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-orgcurvybranches-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-orgcurvybranches-proj-1.pdf  used on input line 155.
 (pdftex.def)             Requested size: 398.33858pt x 664.38463pt.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 170.
+
 <paper-cardinalR_files/figure-latex/fig-cone-proj-1.pdf, id=82, 1082.0425pt x 359.3425pt>
 File: paper-cardinalR_files/figure-latex/fig-cone-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-cone-proj-1.pdf>
@@ -829,6 +837,10 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-cone-proj-1.pdf 
 [4]
 
 [5 <./paper-cardinalR_files/figure-latex/fig-orgcurvybranches-proj-1.pdf>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 223.
+
 <paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf, id=106, 1082.0425pt x 1082.0425pt>
 File: paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf>
@@ -839,16 +851,28 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.
 [6 <./paper-cardinalR_files/figure-latex/fig-cone-proj-1.pdf>]
 
 [7 <./paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 235.
+
 <paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf, id=141, 1082.0425pt x 359.3425pt>
 File: paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf  used on input line 236.
 (pdftex.def)             Requested size: 398.33858pt x 132.28569pt.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 247.
+
 <paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf, id=142, 1082.0425pt x 359.3425pt>
 File: paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf  used on input line 248.
 (pdftex.def)             Requested size: 398.33858pt x 132.28569pt.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 261.
+
 <paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf, id=143, 1082.0425pt x 359.3425pt>
 File: paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf>
@@ -860,6 +884,10 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pd
 Overfull \hbox (36.05975pt too wide) in paragraph at lines 297--298
 []\T1/ppl/m/n/9 (-20) The shape is gen-er-ated us-ing a third-degree raw poly-no-mial ba-sis ex-pan-sion. Let $\OML/zplm/m/it/9 X[] \OMS/zplm/m/n/9 ^^X \OML/zplm/m/it/9 U\OT1/zplm/m/n/9 ([][\OT1/ppl/m/n/9 (-20) 1\OT1/zplm/m/n/9 ]\OT1/ppl/m/n/9 (-20) , []\OT1/zplm/m/n/9 [\OT1/ppl/m/n/9 (-20) 2\OT1/zplm/m/n/9 ])$
  []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 303.
 
 <paper-cardinalR_files/figure-latex/fig-cubic-proj-1.pdf, id=174, 1082.0425pt x 720.6925pt>
 File: paper-cardinalR_files/figure-latex/fig-cubic-proj-1.pdf Graphic file (type pdf)
@@ -875,6 +903,10 @@ LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 3
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 376.
+
 <paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf, id=210, 1082.0425pt x 1443.3925pt>
 File: paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf>
@@ -885,6 +917,10 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.
 [11]
 
 [12 <./paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 418.
+
 <paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf, id=233, 1082.0425pt x 720.6925pt>
 File: paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf>
@@ -895,6 +931,10 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pd
 [13]
 
 [14 <./paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 517.
+
 <paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf, id=258, 1082.0425pt x 2167.09625pt>
 File: paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf>
@@ -905,6 +945,10 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-hemisphere-proj-
 [15]
 
 [16 <./paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 535.
+
 <paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf, id=279, 1082.0425pt x 359.3425pt>
 File: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf>
@@ -915,6 +959,10 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1
 [17 <./paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf>]
 
 [18]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 626.
+
 <paper-cardinalR_files/figure-latex/fig-triginometric-proj-1.pdf, id=303, 1082.0425pt x 2167.09625pt>
 File: paper-cardinalR_files/figure-latex/fig-triginometric-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-triginometric-proj-1.pdf>
@@ -925,11 +973,19 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-triginometric-pr
 [19]
 
 [20 <./paper-cardinalR_files/figure-latex/fig-triginometric-proj-1.pdf>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 702.
+
 <paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf, id=346, 988.69376pt x 355.3275pt>
 File: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf  used on input line 703.
 (pdftex.def)             Requested size: 398.33858pt x 143.15862pt.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 708.
+
 <paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=347, 438.63875pt x 319.1925pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
@@ -981,7 +1037,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  117i,12n,131p,1344b,945s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (24 pages, 9710041 bytes).
+Output written on RJwrapper.pdf (24 pages, 9710044 bytes).
 PDF statistics:
  569 PDF objects out of 1000 (max. 8388607)
  472 compressed objects within 5 object streams
