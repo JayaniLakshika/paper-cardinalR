@@ -648,7 +648,7 @@ Points are sampled independently from $X_1, X_2, X_3 \sim U(-0.5, 0.5)$ of a cub
 
 The `gen_cubehole(n, p)` function generates a dataset of $n$ points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in $p\text{-}D$.
 
-The initial points are drawn from a uniform cube centered at the origin: $X_1, X_2, X_3 \sim U(-0.5, 0.5)$. The center of the cube is $(0, 0, 0)$. A spherical hole of radius $0.5$ is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to $0.5$: Remove if $\sqrt{X_1^2 + X_2^2 + X_3^2} \leq 0.5$. This results in a shell-like point cloud that fills the cube but avoids the spherical center. For $p > 3$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $3\text{-}D$ structure into $p\text{-}D$, where $j = 4, \dots, p$.
+The initial points are drawn from a uniform cube centered at the origin: $X_1, X_2, X_3 \sim U(-0.5, 0.5)$. The center of the cube is $(0, 0, 0)$. A spherical hole of radius $0.5$ is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to $0.5$: remove if $\sqrt{X_1^2 + X_2^2 + X_3^2} \leq 0.5$. This results in a shell-like point cloud that fills the cube but avoids the spherical center. For $p > 3$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $3\text{-}D$ structure into $p\text{-}D$, where $j = 4, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -852,15 +852,7 @@ Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
 
 The `gen_quadratic(n, p, range)` function generates a dataset of $n$ points forming a quadratic curve in the first two dimensions of a $p$-dimensional space. This $2\text{-}D$ parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.
 
-The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the independent variable. A raw polynomial basis of degree 2 is used to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$.
-
-This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate measurement noise or intrinsic variability.
-
-For $p > 2$, the dataset includes Gaussian noise in the remaining dimensions via `gen_noisedims()`:
-
-$$
-X_j \sim N(0, 0.1^2), \quad j = 3, \dots, p.
-$$
+The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the independent variable. A raw polynomial basis of degree 2 is used to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate noise. For $p > 2$, Gaussian noise $X_j \sim N(0, 0.1^2)$ is added to embed the $2\text{-}D$ structure into $p\text{-}D$, where $j = 3, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>quadratic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_quadratic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -905,13 +897,7 @@ $$
 
 The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions of a $p$-dimensional space. This function creates a more complex curvilinear structure than a simple parabola.
 
-The shape is generated using a third-degree raw polynomial basis expansion. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$.
-
-When $p > 2$, the remaining dimensions consist of independent Gaussian noise features generated via `gen_noisedims()`:
-
-$$
-X_j \sim N(0, 0.1^2)\$ for \$j = 3, \dots, p.
-$$
+The shape is generated using a third-degree raw polynomial basis expansion. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. For $p > 2$, Gaussian noise $X_j \sim N(0, 0.1^2)$ is added to embed the $2\text{-}D$ structure into $p\text{-}D$, where $j = 3, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
