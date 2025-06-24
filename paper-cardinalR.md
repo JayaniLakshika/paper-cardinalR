@@ -482,19 +482,7 @@ $$
 
 To simulate a cone-shaped structure in arbitrary dimensions, we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
 
-This function generates `n` points in a `p`-dimensional space, where the last dimension (`X_p`) represents height along the cone's axis, and the remaining dimensions define a shrinking hyperspherical cross-section as one moves toward the tip.
-
-Points along the height axis are drawn from an exponential distribution to increase density near the tip:
-
-$$
-X_p = h_i \sim \text{Exp}(\lambda = 2/h), \quad \text{truncated at } h
-$$
-
-The effective radius at height $h_i$ decreases linearly from base to tip, controlled by a shape ratio parameter:
-
-$$
-r_i = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}}) \cdot \frac{h_i}{h}, \quad \text{where } r_{\text{min}} = \text{ratio},\ r_{\text{max}} = 1
-$$
+This function generates $n$ points in a $p\text{-}D$, where the last dimension ($X_p$) represents height along the cone's axis, and the remaining dimensions define a shrinking hyperspherical cross-section as one moves toward the tip. Points along the height axis are drawn from an exponential distribution to increase density near the tip. The $X_p = h_i \sim \text{Exp}(\lambda = 2/h)$ truncated at $h$. The effective radius at height $h_i$ decreases linearly from base to tip, controlled by a shape ratio parameter $r_i = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}})h_i/h, \quad \text{where } r_{\text{min}} = \text{ratio},\ r_{\text{max}} = 1$.
 
 For each point, a direction is sampled uniformly from a $(p-1)$-dimensional hypersphere using generalized spherical coordinates (angles). The radial coordinates are scaled by $r_i$, which ensures a conical taper. Specifically, when $p = 3$, this scaling results in a classic $3\text{-}D$ cone. However, for $p > 3$, the introduction of additional angular components allows for a smooth extension into higher dimensions, preserving the conical shape while accommodating the complexities of multi-dimensional geometry. 
 
@@ -812,7 +800,7 @@ The `gen_longlinear(n, p)` function simulates a high-dimensional linear structur
 
 ### Mobius
 
-The `gen_mobius(n, p)` function generates a dataset of $n$ points that form a Mobius strip embedded in the first three dimensions of a $p\text{-}D$. This classical non-orientable surface loops back on itself with a half-twist.
+The `gen_mobius(n, p)` function generates a dataset of $n$ points that form a Mobius strip embedded in the first three dimensions of a $p\text{-}D$ structure. This classical non-orientable surface loops back on itself with a half-twist.
 
 The Mobius strip is generated using `geozoo::mobius(n, p = 3)$points`, which samples $n$ points from a parametrization of the surface defined by angle $\theta$ and strip width $w$. The cartesian coordinates are $X_1 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \cos(\theta)$, $X_2 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \sin(\theta)$, and $X_3 = \frac{w}{2} \sin(\theta/2)$. This maps a $2\text{-}D$ band with a half-twist into $3\text{-}D$ space, forming a non-orientable one-sided surface. For $p > 3$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $3\text{-}D$ Mobius into $p\text{-}D$, where $j = 4, \dots, p$.
 
@@ -1870,7 +1858,7 @@ These dimensions maintain the spherical structure while simulating embedding int
 ### Swiss Roll  
 
 To further generalize the Swiss roll structure and introduce realistic noise, we define a function `gen_swissroll(n, p, w)`, where $n$ is the number of points, $p$ is the total number of dimensions, and $w$ is the vertical range in the third dimension. 
-The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad \text{with } t \sim U(0, 3\pi)$. For $p > 3$, the remaining $p - 3$ dimensions are filled with small Gaussian noise to simulate high-dimensional complexity. 
+The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $X_1 = t \cos(t)$, $X_2 = t \sin(t)$, $X_3 \sim U(w_1, w_2), \text{where } t \sim U(0, 3\pi)$. For $p > 3$, the remaining $p - 3$ dimensions are filled with small Gaussian noise to simulate high-dimensional complexity. 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, w <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
