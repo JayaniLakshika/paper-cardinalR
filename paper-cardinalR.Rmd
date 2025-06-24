@@ -317,14 +317,6 @@ expbranches_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-expbranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-expbranches_proj1 + expbranches_proj2 + expbranches_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_linearbranches()`
 
 The `gen_linearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches in $p\text{-}D$. The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
@@ -421,14 +413,6 @@ linearbranches_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-linearbranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `linearbranches` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-linearbranches_proj1 + linearbranches_proj2 + linearbranches_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_curvybranches()`
 
 The `gen_curvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in $p\text{-}D$. The underlying geometry lies in the first two dimensions, while the remaining $(p-2)$ dimensions contain Gaussian noise.
@@ -523,14 +507,6 @@ curvybranches_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-```
-
-```{r, label = "fig-curvybranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `curvybranches` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-curvybranches_proj1 + curvybranches_proj2 + curvybranches_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 ```
 
 #### `gen_orglinearbranches()`
@@ -631,14 +607,6 @@ orglinearbranches_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-orglinearbranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `orglinearbranches` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_orgcurvybranches()`
 
 The `gen_orgcurvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in a $p$-dimensional space. Each branch is constructed in a unique or repeated $2\text{-}D$ subspace of the $p$-dimensional space, with curvature induced by a second-degree polynomial structure. The remaining $p - 2$ dimensions contain Gaussian noise.
@@ -737,10 +705,12 @@ orgcurvybranches_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-orgcurvybranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `orgcurvybranches` data."}
-#| fig-width: 15
-#| fig-height: 5
+```{r, label = "fig-orgcurvybranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, `orgcurvybranches` data.", fig.width=15, fig.height=25}
 
+expbranches_proj1 + expbranches_proj2 + expbranches_proj3 +
+linearbranches_proj1 + linearbranches_proj2 + linearbranches_proj3 +
+curvybranches_proj1 + curvybranches_proj2 + curvybranches_proj3 +
+orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
 orgcurvybranches_proj1 + orgcurvybranches_proj2 + orgcurvybranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
@@ -972,14 +942,6 @@ gridcube_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-gridcube-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_unifcube()`
 
 The `gen_unifcube(n, p)` function generates $n$ points uniformly distributed within a $3\text{-}D$ cube centered at the origin, optionally embedded in $p\text{-}D$ with additional noise dimensions.
@@ -1074,14 +1036,6 @@ unifcube_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-```
-
-```{r, label = "fig-unifcube-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `unifcube` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 ```
 
 #### `gen_cubehole()`
@@ -1180,10 +1134,10 @@ cubehole_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-cubehole-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cubehole` data."}
-#| fig-width: 15
-#| fig-height: 5
+```{r, label = "fig-cubehole-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube`, `unifcube`, and `cubehole` data.", fig.width=15, fig.height=15}
 
+gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
+unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
 cubehole_proj1 + cubehole_proj2 + cubehole_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
@@ -1711,9 +1665,7 @@ cubic_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` and `cubic` data."}
-#| fig-width: 15
-#| fig-height: 10
+```{r, label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` and `cubic` data.", fig.width=15, fig.height=10}
 
 quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
 cubic_proj1 + cubic_proj2 + cubic_proj3 +
@@ -1843,14 +1795,6 @@ pyrrect_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-pyrrect-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_pyrtri()`
 
 The `gen_pyrtri(n, p, h, l, rt)` function generates a dataset of $n$ points forming a high-dimensional pyramid-like structure with a triangular cross-section. The structure is embedded in a $p\text{-}D$, with the tip located at height $0$ and the base at height $h$. The triangle expands linearly in size from tip to base, with more points concentrated near the tip.
@@ -1947,14 +1891,6 @@ pyrtri_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-```
-
-```{r, label = "fig-pyrtri-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrtri` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 ```
 
 #### `gen_pyrstar()`
@@ -2058,14 +1994,6 @@ pyrstar_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-pyrstar-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrstar` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-pyrstar_proj1 + pyrstar_proj2 + pyrstar_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_pyrholes()`
 
 The `gen_pyrholes(n, p)` function generates $n$ points embedded in a $p\text{-}D$ simplex using a chaotic attractor-like midpoint algorithm. The result is a fractal-like structure that reveals holes or gaps in the data cloud, forming a "Sierpinski-like pyramid" in high dimensions.
@@ -2165,10 +2093,11 @@ pyrholes_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-pyrholes-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrholes` data."}
-#| fig-width: 15
-#| fig-height: 5
+```{r, label = "fig-pyrholes-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data.", fig.width=15, fig.height=20}
 
+pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
+pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
+pyrstar_proj1 + pyrstar_proj2 + pyrstar_proj3 +
 pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
@@ -2388,9 +2317,7 @@ scurvehole_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` and `scurvehole` data."}
-#| fig-width: 15
-#| fig-height: 10
+```{r, label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` and `scurvehole` data.", fig.width=15, fig.height=10}
 
 scurve_proj1 + scurve_proj2 + scurve_proj3 + 
   scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
@@ -2524,14 +2451,6 @@ circle_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-circle-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-circle_proj1 + circle_proj2 + circle_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_curvycycle()`
 
 The `gen_curvycycle(n, p)` function generates a $p$-dimensional dataset of $n$ observations lying on a curved closed loop with controlled high-dimensional sinusoidal deviations. The structure forms a one-dimensional nonlinear cycle embedded in higher-dimensional space.
@@ -2630,14 +2549,6 @@ curvycycle_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-curvycycle-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `curvycycle` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_unifsphere()`
 
 The `gen_unifsphere(n, p, r)` function generates a $p$-dimensional dataset of $n$ observations distributed approximately uniformly on the surface of a $3\text{-}D$ sphere of radius $r$, with additional Gaussian noise dimensions added when $p > 3$.
@@ -2732,14 +2643,6 @@ unifsphere_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-```
-
-```{r, label = "fig-unifsphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `unifsphere` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-unifsphere_proj1 + unifsphere_proj2 + unifsphere_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 ```
 
 #### `gen_gridedsphere()`
@@ -2840,14 +2743,6 @@ gridedsphere_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-```
-
-```{r, label = "fig-gridedsphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridedsphere` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-gridedsphere_proj1 + gridedsphere_proj2 + gridedsphere_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 ```
 
 #### `gen_clusteredspheres()`
@@ -2952,14 +2847,6 @@ clusteredspheres_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-clusteredspheres-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `clusteredspheres` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-clusteredspheres_proj1 + clusteredspheres_proj2 + clusteredspheres_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_hemisphere()`
 
 The `gen_hemisphere(n, p)` function generates a $p$-dimensional dataset of $n$ observations distributed approximately uniformly on a $4\text{-}D$ hemisphere, optionally extended with Gaussian noise in additional dimensions when $p > 4$.
@@ -3056,10 +2943,13 @@ hemisphere_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-hemisphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `hemisphere` data."}
-#| fig-width: 15
-#| fig-height: 5
+```{r, label = "fig-hemisphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'}
 
+circle_proj1 + circle_proj2 + circle_proj3 +
+curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3 +
+unifsphere_proj1 + unifsphere_proj2 + unifsphere_proj3 +
+gridedsphere_proj1 + gridedsphere_proj2 + gridedsphere_proj3 +
+clusteredspheres_proj1 + clusteredspheres_proj2 + clusteredspheres_proj3 +
 hemisphere_proj1 + hemisphere_proj2 + hemisphere_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
@@ -3294,14 +3184,6 @@ crescent_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-crescent-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-crescent_proj1 + crescent_proj2 + crescent_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_curvycylinder()`
 
 The `gen_curvycylinder(n, p, h)` function generates a $p$-dimensional dataset of $n$ observations structured as a $3\text{-}D$ cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when $p > 4$.
@@ -3396,14 +3278,6 @@ curvycylinder_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-```
-
-```{r, label = "fig-curvycylinder-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `curvycylinder` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 ```
 
 #### `gen_sphericalspiral()`
@@ -3506,14 +3380,6 @@ sphericalspiral_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-sphericalspiral-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `sphericalspiral` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-sphericalspiral_proj1 + sphericalspiral_proj2 + sphericalspiral_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_helicalspiral()`
 
 The `gen_helicalspiral(n, p)` function generates a dataset of $n$ observations forming a helical spiral, embedded in the first four dimensions of $p\text{-}D$. Additional dimensions (if $p > 4$) are filled with structured noise to mimic high-dimensional complexity.
@@ -3608,14 +3474,6 @@ helicalspiral_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-```
-
-```{r, label = "fig-helicalspiral-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `helicalspiral` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-helicalspiral_proj1 + helicalspiral_proj2 + helicalspiral_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 ```
 
 #### `gen_conicspiral()`
@@ -3714,14 +3572,6 @@ conicspiral_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-conicspiral-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `conicspiral` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-conicspiral_proj1 + conicspiral_proj2 + conicspiral_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_nonlinear()`
 
 The `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables.
@@ -3818,10 +3668,13 @@ nonlinear_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-nonlinear-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `nonlinear` data."}
-#| fig-width: 15
-#| fig-height: 5
+```{r, label = "fig-triginometric-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'}
 
+crescent_proj1 + crescent_proj2 + crescent_proj3 +
+curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
+sphericalspiral_proj1 + sphericalspiral_proj2 + sphericalspiral_proj3 +
+helicalspiral_proj1 + helicalspiral_proj2 + helicalspiral_proj3 +
+conicspiral_proj1 + conicspiral_proj2 + conicspiral_proj3 +
 nonlinear_proj1 + nonlinear_proj2 + nonlinear_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```

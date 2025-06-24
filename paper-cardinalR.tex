@@ -107,10 +107,6 @@ Each branch \(i\) is constructed using \(X_1 \sim U(-2, 2)\) and \(X_2 = \exp(\p
 expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-expbranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches` data.}\label{fig:fig-expbranches-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_linearbranches()}}{gen\_linearbranches()}}\label{gen_linearbranches}
 
 The \texttt{gen\_linearbranches(n,\ p,\ k)} function generates a dataset of \(n\) points forming \(k\) approximately linear branches in \(p\text{-}D\). The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
@@ -121,10 +117,6 @@ Each branch is a segment of a line with added jitter to simulate measurement noi
 linearbranches <- gen_linearbranches(n = 1000, p = 4, k = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-linearbranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `linearbranches` data.}\label{fig:fig-linearbranches-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_curvybranches()}}{gen\_curvybranches()}}\label{gen_curvybranches}
 
 The \texttt{gen\_curvybranches(n,\ p,\ k)} function generates a dataset of \(n\) points forming \(k\) curvilinear branches embedded in \(p\text{-}D\). The underlying geometry lies in the first two dimensions, while the remaining \((p-2)\) dimensions contain Gaussian noise.
@@ -134,10 +126,6 @@ Branch \(1\) is generated from \(X_1 \sim U(0, 1)\), and \(X_2 = 0.1X_1 + X_1^2 
 \begin{verbatim}
 curvybranches <- gen_curvybranches(n = 1000, p = 4, k = 4)
 \end{verbatim}
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-curvybranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvybranches` data.}\label{fig:fig-curvybranches-proj}
-\end{figure}
 
 \paragraph{\texorpdfstring{\texttt{gen\_orglinearbranches()}}{gen\_orglinearbranches()}}\label{gen_orglinearbranches}
 
@@ -150,10 +138,6 @@ For branch \(i\), \(n_i\) points are generated, where \(\sum_{i=1}^k n_i = n\). 
 \begin{verbatim}
 orglinearbranches <- gen_orglinearbranches(n = 1000, p = 4, k = 4)
 \end{verbatim}
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-orglinearbranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `orglinearbranches` data.}\label{fig:fig-orglinearbranches-proj}
-\end{figure}
 
 \paragraph{\texorpdfstring{\texttt{gen\_orgcurvybranches()}}{gen\_orgcurvybranches()}}\label{gen_orgcurvybranches}
 
@@ -168,7 +152,7 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 \end{verbatim}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-orgcurvybranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `orgcurvybranches` data.}\label{fig:fig-orgcurvybranches-proj}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-orgcurvybranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, `orgcurvybranches` data.}\label{fig:fig-orgcurvybranches-proj}
 \end{figure}
 
 \subsubsection{Cone}\label{cone}
@@ -216,10 +200,6 @@ Each variable \(X_j\) represents integer grid coordinates (e.g., 1, 2, 3, \ldots
 gridcube <- gen_gridcube(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-gridcube-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube` data.}\label{fig:fig-gridcube-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_unifcube()}}{gen\_unifcube()}}\label{gen_unifcube}
 
 The \texttt{gen\_unifcube(n,\ p)} function generates \(n\) points uniformly distributed within a \(3\text{-}D\) cube centered at the origin, optionally embedded in \(p\text{-}D\) with additional noise dimensions.
@@ -229,10 +209,6 @@ Points are sampled independently from \(X_1, X_2, X_3 \sim U(-0.5, 0.5)\) of a c
 \begin{verbatim}
 unifcube <- gen_unifcube(n = 1000, p = 4)
 \end{verbatim}
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-unifcube-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `unifcube` data.}\label{fig:fig-unifcube-proj}
-\end{figure}
 
 \paragraph{\texorpdfstring{\texttt{gen\_cubehole()}}{gen\_cubehole()}}\label{gen_cubehole}
 
@@ -245,7 +221,7 @@ cubehole <- gen_cubehole(n = 1000, p = 4)
 \end{verbatim}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cubehole-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubehole` data.}\label{fig:fig-cubehole-proj}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cubehole-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube`, `unifcube`, and `cubehole` data.}\label{fig:fig-cubehole-proj}
 \end{figure}
 
 \subsubsection{Gaussian}\label{gaussian}
@@ -358,10 +334,6 @@ Let \(X_1, X_2, \dots, X_p\) denote the coordinates of the generated points. The
 pyrrect <- gen_pyrrect(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-pyrrect-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` data.}\label{fig:fig-pyrrect-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_pyrtri()}}{gen\_pyrtri()}}\label{gen_pyrtri}
 
 The \texttt{gen\_pyrtri(n,\ p,\ h,\ l,\ rt)} function generates a dataset of \(n\) points forming a high-dimensional pyramid-like structure with a triangular cross-section. The structure is embedded in a \(p\text{-}D\), with the tip located at height \(0\) and the base at height \(h\). The triangle expands linearly in size from tip to base, with more points concentrated near the tip.
@@ -373,10 +345,6 @@ A point in the triangle at height \(z\) is generated using barycentric coordinat
 \begin{verbatim}
 pyrtri <- gen_pyrtri(n = 1000, p = 4)
 \end{verbatim}
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-pyrtri-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrtri` data.}\label{fig:fig-pyrtri-proj}
-\end{figure}
 
 \paragraph{\texorpdfstring{\texttt{gen\_pyrstar()}}{gen\_pyrstar()}}\label{gen_pyrstar}
 
@@ -393,10 +361,6 @@ Each point is placed within a regular hexagon in the plane \((X_1, X_2)\), using
 pyrstar <- gen_pyrstar(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-pyrstar-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrstar` data.}\label{fig:fig-pyrstar-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_pyrholes()}}{gen\_pyrholes()}}\label{gen_pyrholes}
 
 The \texttt{gen\_pyrholes(n,\ p)} function generates \(n\) points embedded in a \(p\text{-}D\) simplex using a chaotic attractor-like midpoint algorithm. The result is a fractal-like structure that reveals holes or gaps in the data cloud, forming a ``Sierpinski-like pyramid'' in high dimensions.
@@ -410,7 +374,7 @@ pyrholes <- gen_pyrholes(n = 1000, p = 4)
 \end{verbatim}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrholes` data.}\label{fig:fig-pyrholes-proj}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data.}\label{fig:fig-pyrholes-proj}
 \end{figure}
 
 \subsubsection{S-curve}\label{s-curve}
@@ -488,10 +452,6 @@ A latent angle variable \(\theta\) is uniformly sampled from the interval \([0, 
 circle <- gen_circle(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-circle-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle` data.}\label{fig:fig-circle-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_curvycycle()}}{gen\_curvycycle()}}\label{gen_curvycycle}
 
 The \texttt{gen\_curvycycle(n,\ p)} function generates a \(p\)-dimensional dataset of \(n\) observations lying on a curved closed loop with controlled high-dimensional sinusoidal deviations. The structure forms a one-dimensional nonlinear cycle embedded in higher-dimensional space.
@@ -504,10 +464,6 @@ Together, these define a periodic, non-trivial, closed curve in \(3\text{-}D\) w
 curvycycle <- gen_curvycycle(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-curvycycle-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvycycle` data.}\label{fig:fig-curvycycle-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_unifsphere()}}{gen\_unifsphere()}}\label{gen_unifsphere}
 
 The \texttt{gen\_unifsphere(n,\ p,\ r)} function generates a \(p\)-dimensional dataset of \(n\) observations distributed approximately uniformly on the surface of a \(3\text{-}D\) sphere of radius \(r\), with additional Gaussian noise dimensions added when \(p > 3\).
@@ -517,10 +473,6 @@ Each observation lies on the surface of a sphere in \(3\text{-}D\), constructed 
 \begin{verbatim}
 unifsphere <- gen_unifsphere(n = 1000, p = 4)
 \end{verbatim}
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-unifsphere-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `unifsphere` data.}\label{fig:fig-unifsphere-proj}
-\end{figure}
 
 \paragraph{\texorpdfstring{\texttt{gen\_gridedsphere()}}{gen\_gridedsphere()}}\label{gen_gridedsphere}
 
@@ -535,10 +487,6 @@ Each point on the sphere is computed using the spherical-to-Cartesian transforma
 \begin{verbatim}
 gridedsphere <- gen_gridedsphere(n = 1000, p = 4)
 \end{verbatim}
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-gridedsphere-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridedsphere` data.}\label{fig:fig-gridedsphere-proj}
-\end{figure}
 
 \paragraph{\texorpdfstring{\texttt{gen\_clusteredspheres()}}{gen\_clusteredspheres()}}\label{gen_clusteredspheres}
 
@@ -556,10 +504,6 @@ clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, p = 4, r = c(1
   dplyr::select(-cluster)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-clusteredspheres-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `clusteredspheres` data.}\label{fig:fig-clusteredspheres-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_hemisphere()}}{gen\_hemisphere()}}\label{gen_hemisphere}
 
 The \texttt{gen\_hemisphere(n,\ p)} function generates a \(p\)-dimensional dataset of \(n\) observations distributed approximately uniformly on a \(4\text{-}D\) hemisphere, optionally extended with Gaussian noise in additional dimensions when \(p > 4\).
@@ -571,7 +515,12 @@ hemisphere <- gen_hemisphere(n = 1000, p = 4)
 \end{verbatim}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `hemisphere` data.}\label{fig:fig-hemisphere-proj}
+
+{\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1} 
+
+}
+
+\caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data.}\label{fig:fig-hemisphere-proj}
 \end{figure}
 
 \subsubsection{Swiss Roll}\label{swiss-roll}
@@ -620,10 +569,6 @@ The first two dimensions define a crescent-shaped curve using a semi-circular ar
 crescent <- gen_crescent(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-crescent-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent` data.}\label{fig:fig-crescent-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_curvycylinder()}}{gen\_curvycylinder()}}\label{gen_curvycylinder}
 
 The \texttt{gen\_curvycylinder(n,\ p,\ h)} function generates a \(p\)-dimensional dataset of \(n\) observations structured as a \(3\text{-}D\) cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when \(p > 4\).
@@ -633,10 +578,6 @@ The core structure consists of a circular base and height values, extended by a 
 \begin{verbatim}
 curvycylinder <- gen_curvycylinder(n = 1000, p = 4, h = 10)
 \end{verbatim}
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvycylinder` data.}\label{fig:fig-curvycylinder-proj}
-\end{figure}
 
 \paragraph{\texorpdfstring{\texttt{gen\_sphericalspiral()}}{gen\_sphericalspiral()}}\label{gen_sphericalspiral}
 
@@ -652,10 +593,6 @@ If \(p > 4\), the function appends structured, non-linear noise via \texttt{gen\
 sphericalspiral <- gen_sphericalspiral(n = 1000, p = 4, spins = 1)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `sphericalspiral` data.}\label{fig:fig-sphericalspiral-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_helicalspiral()}}{gen\_helicalspiral()}}\label{gen_helicalspiral}
 
 The \texttt{gen\_helicalspiral(n,\ p)} function generates a dataset of \(n\) observations forming a helical spiral, embedded in the first four dimensions of \(p\text{-}D\). Additional dimensions (if \(p > 4\)) are filled with structured noise to mimic high-dimensional complexity.
@@ -666,10 +603,6 @@ The first four coordinates follow a \(3\text{-}D\) helix with an additional osci
 helicalspiral <- gen_helicalspiral(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `helicalspiral` data.}\label{fig:fig-helicalspiral-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_conicspiral()}}{gen\_conicspiral()}}\label{gen_conicspiral}
 
 The \texttt{gen\_conicspiral(n,\ p,\ spins)} function generates a dataset of \(n\) points forming a conical spiral in the first four dimensions of \(p\text{-}D\). The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a \(3\text{-}D\) conic helix.
@@ -679,10 +612,6 @@ The shape is defined by parameter \(\theta \in [0, 2\pi\text{spins}]\), controll
 \begin{verbatim}
 conicspiral <- gen_conicspiral(n = 1000, p = 4, spins = 1)
 \end{verbatim}
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `conicspiral` data.}\label{fig:fig-conicspiral-proj}
-\end{figure}
 
 \paragraph{\texorpdfstring{\texttt{gen\_nonlinear()}}{gen\_nonlinear()}}\label{gen_nonlinear}
 
@@ -695,7 +624,12 @@ nonlinear <- gen_nonlinear(n = 1000, p = 4, hc = 1, non_fac = 0.5)
 \end{verbatim}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `nonlinear` data.}\label{fig:fig-nonlinear-proj}
+
+{\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/fig-triginometric-proj-1} 
+
+}
+
+\caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data.}\label{fig:fig-triginometric-proj}
 \end{figure}
 
 \subsubsection{Multiple cluster examples}\label{multiple-cluster-examples}

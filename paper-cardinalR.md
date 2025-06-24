@@ -243,15 +243,6 @@ Each branch $i$ is constructed using $X_1 \sim U(-2, 2)$ and $X_2 = \exp(\pm s_i
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-expbranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches` data." width="100%" />
-<p class="caption">(\#fig:fig-expbranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_linearbranches()`
 
 The `gen_linearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches in $p\text{-}D$. The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
@@ -284,15 +275,6 @@ Each branch is a segment of a line with added jitter to simulate measurement noi
 
 <div class="layout-chunk" data-layout="l-body">
 
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-linearbranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `linearbranches` data." width="100%" />
-<p class="caption">(\#fig:fig-linearbranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `linearbranches` data.</p>
-</div>
 
 </div>
 
@@ -333,15 +315,6 @@ Branch $1$ is generated from $X_1 \sim U(0, 1)$, and $X_2 = 0.1X_1 + X_1^2 + \ep
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-curvybranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvybranches` data." width="100%" />
-<p class="caption">(\#fig:fig-curvybranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvybranches` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_orglinearbranches()`
 
 The `gen_orglinearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches embedded in $p\text{-}D$. Each branch lies primarily within a distinct $2\text{-}D$ subspace, while the remaining $p - 2$ dimensions contain Gaussian noise.
@@ -376,15 +349,6 @@ For branch $i$, $n_i$ points are generated, where $\sum_{i=1}^k n_i = n$. The st
 
 <div class="layout-chunk" data-layout="l-body">
 
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-orglinearbranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `orglinearbranches` data." width="100%" />
-<p class="caption">(\#fig:fig-orglinearbranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `orglinearbranches` data.</p>
-</div>
 
 </div>
 
@@ -429,8 +393,8 @@ Each branch contains $n_i$ points such that $\sum_{i=1}^k n_i = n$, where the ve
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-orgcurvybranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `orgcurvybranches` data." width="100%" />
-<p class="caption">(\#fig:fig-orgcurvybranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `orgcurvybranches` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-orgcurvybranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, `orgcurvybranches` data." width="100%" />
+<p class="caption">(\#fig:fig-orgcurvybranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, `orgcurvybranches` data.</p>
 </div>
 
 </div>
@@ -548,15 +512,6 @@ Each variable $X_j$ represents integer grid coordinates (e.g., 1, 2, 3, ...) in 
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-gridcube-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube` data." width="100%" />
-<p class="caption">(\#fig:fig-gridcube-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_unifcube()`
 
 The `gen_unifcube(n, p)` function generates $n$ points uniformly distributed within a $3\text{-}D$ cube centered at the origin, optionally embedded in $p\text{-}D$ with additional noise dimensions.
@@ -589,15 +544,6 @@ Points are sampled independently from $X_1, X_2, X_3 \sim U(-0.5, 0.5)$ of a cub
 
 <div class="layout-chunk" data-layout="l-body">
 
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-unifcube-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `unifcube` data." width="100%" />
-<p class="caption">(\#fig:fig-unifcube-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `unifcube` data.</p>
-</div>
 
 </div>
 
@@ -640,8 +586,8 @@ The initial points are drawn from a uniform cube centered at the origin: $X_1, X
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-cubehole-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubehole` data." width="100%" />
-<p class="caption">(\#fig:fig-cubehole-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubehole` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-cubehole-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube`, `unifcube`, and `cubehole` data." width="100%" />
+<p class="caption">(\#fig:fig-cubehole-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube`, `unifcube`, and `cubehole` data.</p>
 </div>
 
 </div>
@@ -953,15 +899,6 @@ Let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The f
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-pyrrect-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` data." width="100%" />
-<p class="caption">(\#fig:fig-pyrrect-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_pyrtri()`
 
 The `gen_pyrtri(n, p, h, l, rt)` function generates a dataset of $n$ points forming a high-dimensional pyramid-like structure with a triangular cross-section. The structure is embedded in a $p\text{-}D$, with the tip located at height $0$ and the base at height $h$. The triangle expands linearly in size from tip to base, with more points concentrated near the tip.
@@ -996,15 +933,6 @@ A point in the triangle at height $z$ is generated using barycentric coordinates
 
 <div class="layout-chunk" data-layout="l-body">
 
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-pyrtri-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrtri` data." width="100%" />
-<p class="caption">(\#fig:fig-pyrtri-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrtri` data.</p>
-</div>
 
 </div>
 
@@ -1050,15 +978,6 @@ $r_{\text{point}} \sim \sqrt{U(0, 1)}$. Then, the first two coordinates are: $X_
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-pyrstar-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrstar` data." width="100%" />
-<p class="caption">(\#fig:fig-pyrstar-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrstar` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_pyrholes()`
 
 The `gen_pyrholes(n, p)` function generates $n$ points embedded in a $p\text{-}D$ simplex using a chaotic attractor-like midpoint algorithm. The result is a fractal-like structure that reveals holes or gaps in the data cloud, forming a "Sierpinski-like pyramid" in high dimensions.
@@ -1100,8 +1019,8 @@ Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simp
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-pyrholes-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrholes` data." width="100%" />
-<p class="caption">(\#fig:fig-pyrholes-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrholes` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-pyrholes-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data." width="100%" />
+<p class="caption">(\#fig:fig-pyrholes-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data.</p>
 </div>
 
 </div>
@@ -1284,15 +1203,6 @@ A latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\p
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-circle-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle` data." width="100%" />
-<p class="caption">(\#fig:fig-circle-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_curvycycle()`
 
 The `gen_curvycycle(n, p)` function generates a $p$-dimensional dataset of $n$ observations lying on a curved closed loop with controlled high-dimensional sinusoidal deviations. The structure forms a one-dimensional nonlinear cycle embedded in higher-dimensional space.
@@ -1327,15 +1237,6 @@ Together, these define a periodic, non-trivial, closed curve in $3\text{-}D$ wit
 
 <div class="layout-chunk" data-layout="l-body">
 
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-curvycycle-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvycycle` data." width="100%" />
-<p class="caption">(\#fig:fig-curvycycle-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvycycle` data.</p>
-</div>
 
 </div>
 
@@ -1376,15 +1277,6 @@ Each observation lies on the surface of a sphere in $3\text{-}D$, constructed by
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-unifsphere-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `unifsphere` data." width="100%" />
-<p class="caption">(\#fig:fig-unifsphere-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `unifsphere` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_gridedsphere()`
 
 The `gen_gridedsphere(n, p)` function generates a $p$-dimensional dataset of approximately $n$ observations evenly distributed on the surface of a $3\text{-}D$ unit sphere, with optional Gaussian noise dimensions when $p > 3$.
@@ -1421,15 +1313,6 @@ Each point on the sphere is computed using the spherical-to-Cartesian transforma
 
 <div class="layout-chunk" data-layout="l-body">
 
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-gridedsphere-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridedsphere` data." width="100%" />
-<p class="caption">(\#fig:fig-gridedsphere-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridedsphere` data.</p>
-</div>
 
 </div>
 
@@ -1476,15 +1359,6 @@ Points on spheres are generated using the standard hyperspherical method, which 
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-clusteredspheres-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `clusteredspheres` data." width="100%" />
-<p class="caption">(\#fig:fig-clusteredspheres-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `clusteredspheres` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_hemisphere()`
 
 The `gen_hemisphere(n, p)` function generates a $p$-dimensional dataset of $n$ observations distributed approximately uniformly on a $4\text{-}D$ hemisphere, optionally extended with Gaussian noise in additional dimensions when $p > 4$.
@@ -1522,9 +1396,9 @@ Each observation is situated on a restricted $4\text{-}D$ spherical surface, def
 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-hemisphere-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `hemisphere` data." width="100%" />
-<p class="caption">(\#fig:fig-hemisphere-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `hemisphere` data.</p>
+<div class="figure" style="text-align: center">
+<img src="paper-cardinalR_files/figure-html5/fig-hemisphere-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data." width="80%" />
+<p class="caption">(\#fig:fig-hemisphere-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data.</p>
 </div>
 
 </div>
@@ -1642,15 +1516,6 @@ The first two dimensions define a crescent-shaped curve using a semi-circular ar
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-crescent-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent` data." width="100%" />
-<p class="caption">(\#fig:fig-crescent-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_curvycylinder()`
 
 The `gen_curvycylinder(n, p, h)` function generates a $p$-dimensional dataset of $n$ observations structured as a $3\text{-}D$ cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when $p > 4$.
@@ -1683,15 +1548,6 @@ The core structure consists of a circular base and height values, extended by a 
 
 <div class="layout-chunk" data-layout="l-body">
 
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-curvycylinder-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvycylinder` data." width="100%" />
-<p class="caption">(\#fig:fig-curvycylinder-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvycylinder` data.</p>
-</div>
 
 </div>
 
@@ -1736,15 +1592,6 @@ If $p > 4$, the function appends structured, non-linear noise via `gen_wavydims2
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-sphericalspiral-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `sphericalspiral` data." width="100%" />
-<p class="caption">(\#fig:fig-sphericalspiral-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `sphericalspiral` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_helicalspiral()`
 
 The `gen_helicalspiral(n, p)` function generates a dataset of $n$ observations forming a helical spiral, embedded in the first four dimensions of $p\text{-}D$. Additional dimensions (if $p > 4$) are filled with structured noise to mimic high-dimensional complexity.
@@ -1781,15 +1628,6 @@ The first four coordinates follow a $3\text{-}D$ helix with an additional oscill
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-helicalspiral-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `helicalspiral` data." width="100%" />
-<p class="caption">(\#fig:fig-helicalspiral-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `helicalspiral` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_conicspiral()`
 
 The `gen_conicspiral(n, p, spins)` function generates a dataset of $n$ points forming a conical spiral in the first four dimensions of $p\text{-}D$. The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a $3\text{-}D$ conic helix.
@@ -1822,15 +1660,6 @@ The shape is defined by parameter $\theta \in [0, 2\pi\text{spins}]$, controllin
 
 <div class="layout-chunk" data-layout="l-body">
 
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-conicspiral-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `conicspiral` data." width="100%" />
-<p class="caption">(\#fig:fig-conicspiral-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `conicspiral` data.</p>
-</div>
 
 </div>
 
@@ -1872,9 +1701,9 @@ The $X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division error
 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-nonlinear-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `nonlinear` data." width="100%" />
-<p class="caption">(\#fig:fig-nonlinear-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `nonlinear` data.</p>
+<div class="figure" style="text-align: center">
+<img src="paper-cardinalR_files/figure-html5/fig-triginometric-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data." width="80%" />
+<p class="caption">(\#fig:fig-triginometric-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data.</p>
 </div>
 
 </div>

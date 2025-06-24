@@ -225,14 +225,6 @@ expbranches_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-expbranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-expbranches_proj1 + expbranches_proj2 + expbranches_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-linearbranches, echo=TRUE-------------------------------------------
 linearbranches <- gen_linearbranches(n = 1000, p = 4, k = 4)
 
@@ -321,14 +313,6 @@ linearbranches_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-
-
-## ----label = "fig-linearbranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `linearbranches` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-linearbranches_proj1 + linearbranches_proj2 + linearbranches_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 
 
 ## ----data-curvybranches, echo=TRUE--------------------------------------------
@@ -421,14 +405,6 @@ curvybranches_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-curvybranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `curvybranches` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-curvybranches_proj1 + curvybranches_proj2 + curvybranches_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-orglinearbranches, echo=TRUE----------------------------------------
 orglinearbranches <- gen_orglinearbranches(n = 1000, p = 4, k = 4)
 
@@ -517,14 +493,6 @@ orglinearbranches_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-
-
-## ----label = "fig-orglinearbranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `orglinearbranches` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 
 
 ## ----data-orgcurvybranches, echo=TRUE-----------------------------------------
@@ -617,10 +585,12 @@ orgcurvybranches_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-orgcurvybranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `orgcurvybranches` data."----
-#| fig-width: 15
-#| fig-height: 5
+## ----label = "fig-orgcurvybranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, `orgcurvybranches` data.", fig.width=15, fig.height=25----
 
+expbranches_proj1 + expbranches_proj2 + expbranches_proj3 +
+linearbranches_proj1 + linearbranches_proj2 + linearbranches_proj3 +
+curvybranches_proj1 + curvybranches_proj2 + curvybranches_proj3 +
+orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
 orgcurvybranches_proj1 + orgcurvybranches_proj2 + orgcurvybranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
@@ -834,14 +804,6 @@ gridcube_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-gridcube-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-unifcube, echo=TRUE-------------------------------------------------
 unifcube <- gen_unifcube(n = 1000, p = 4)
 
@@ -930,14 +892,6 @@ unifcube_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-
-
-## ----label = "fig-unifcube-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `unifcube` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 
 
 ## ----data-cubehole, echo=TRUE-------------------------------------------------
@@ -1030,10 +984,10 @@ cubehole_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-cubehole-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cubehole` data."----
-#| fig-width: 15
-#| fig-height: 5
+## ----label = "fig-cubehole-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube`, `unifcube`, and `cubehole` data.", fig.width=15, fig.height=15----
 
+gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
+unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
 cubehole_proj1 + cubehole_proj2 + cubehole_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
@@ -1531,9 +1485,7 @@ cubic_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` and `cubic` data."----
-#| fig-width: 15
-#| fig-height: 10
+## ----label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` and `cubic` data.", fig.width=15, fig.height=10----
 
 quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
 cubic_proj1 + cubic_proj2 + cubic_proj3 +
@@ -1653,14 +1605,6 @@ pyrrect_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-pyrrect-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-pyrtri, echo=TRUE---------------------------------------------------
 pyrtri <- gen_pyrtri(n = 1000, p = 4)
 
@@ -1749,14 +1693,6 @@ pyrtri_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-
-
-## ----label = "fig-pyrtri-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrtri` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 
 
 ## ----data-pyrstar, echo=TRUE--------------------------------------------------
@@ -1849,14 +1785,6 @@ pyrstar_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-pyrstar-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrstar` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-pyrstar_proj1 + pyrstar_proj2 + pyrstar_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-pyrholes, echo=TRUE-------------------------------------------------
 pyrholes <- gen_pyrholes(n = 1000, p = 4)
 
@@ -1947,10 +1875,11 @@ pyrholes_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-pyrholes-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrholes` data."----
-#| fig-width: 15
-#| fig-height: 5
+## ----label = "fig-pyrholes-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data.", fig.width=15, fig.height=20----
 
+pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
+pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
+pyrstar_proj1 + pyrstar_proj2 + pyrstar_proj3 +
 pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
@@ -2154,9 +2083,7 @@ scurvehole_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` and `scurvehole` data."----
-#| fig-width: 15
-#| fig-height: 10
+## ----label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` and `scurvehole` data.", fig.width=15, fig.height=10----
 
 scurve_proj1 + scurve_proj2 + scurve_proj3 + 
   scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
@@ -2280,14 +2207,6 @@ circle_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-circle-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-circle_proj1 + circle_proj2 + circle_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-curvycycle, echo=TRUE-----------------------------------------------
 curvycycle <- gen_curvycycle(n = 1000, p = 4)
 
@@ -2376,14 +2295,6 @@ curvycycle_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-
-
-## ----label = "fig-curvycycle-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `curvycycle` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 
 
 ## ----data-unifsphere, echo=TRUE-----------------------------------------------
@@ -2476,14 +2387,6 @@ unifsphere_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-unifsphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `unifsphere` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-unifsphere_proj1 + unifsphere_proj2 + unifsphere_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-gridedsphere, echo=TRUE---------------------------------------------
 gridedsphere <- gen_gridedsphere(n = 1000, p = 4)
 
@@ -2572,14 +2475,6 @@ gridedsphere_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-
-
-## ----label = "fig-gridedsphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridedsphere` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-gridedsphere_proj1 + gridedsphere_proj2 + gridedsphere_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 
 
 ## ----data-clusteredspheres, echo=TRUE-----------------------------------------
@@ -2674,14 +2569,6 @@ clusteredspheres_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-clusteredspheres-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `clusteredspheres` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-clusteredspheres_proj1 + clusteredspheres_proj2 + clusteredspheres_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-hemisphere, echo=TRUE-----------------------------------------------
 hemisphere <- gen_hemisphere(n = 1000, p = 4)
 
@@ -2772,10 +2659,13 @@ hemisphere_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-hemisphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `hemisphere` data."----
-#| fig-width: 15
-#| fig-height: 5
+## ----label = "fig-hemisphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
 
+circle_proj1 + circle_proj2 + circle_proj3 +
+curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3 +
+unifsphere_proj1 + unifsphere_proj2 + unifsphere_proj3 +
+gridedsphere_proj1 + gridedsphere_proj2 + gridedsphere_proj3 +
+clusteredspheres_proj1 + clusteredspheres_proj2 + clusteredspheres_proj3 +
 hemisphere_proj1 + hemisphere_proj2 + hemisphere_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
@@ -2995,14 +2885,6 @@ crescent_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-crescent-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-crescent_proj1 + crescent_proj2 + crescent_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-curvycylinder, echo=TRUE--------------------------------------------
 curvycylinder <- gen_curvycylinder(n = 1000, p = 4, h = 10)
 
@@ -3091,14 +2973,6 @@ curvycylinder_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-
-
-## ----label = "fig-curvycylinder-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `curvycylinder` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 
 
 ## ----data-sphericalspiral, echo=TRUE------------------------------------------
@@ -3191,14 +3065,6 @@ sphericalspiral_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-sphericalspiral-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `sphericalspiral` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-sphericalspiral_proj1 + sphericalspiral_proj2 + sphericalspiral_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-helicalspiral, echo=TRUE--------------------------------------------
 helicalspiral <- gen_helicalspiral(n = 1000, p = 4)
 
@@ -3287,14 +3153,6 @@ helicalspiral_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
-
-
-## ----label = "fig-helicalspiral-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `helicalspiral` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-helicalspiral_proj1 + helicalspiral_proj2 + helicalspiral_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
 
 
 ## ----data-conicspiral, echo=TRUE----------------------------------------------
@@ -3387,14 +3245,6 @@ conicspiral_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-conicspiral-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `conicspiral` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-conicspiral_proj1 + conicspiral_proj2 + conicspiral_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-nonlinear, echo=TRUE------------------------------------------------
 nonlinear <- gen_nonlinear(n = 1000, p = 4, hc = 1, non_fac = 0.5)
 
@@ -3485,10 +3335,13 @@ nonlinear_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-nonlinear-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `nonlinear` data."----
-#| fig-width: 15
-#| fig-height: 5
+## ----label = "fig-triginometric-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
 
+crescent_proj1 + crescent_proj2 + crescent_proj3 +
+curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
+sphericalspiral_proj1 + sphericalspiral_proj2 + sphericalspiral_proj3 +
+helicalspiral_proj1 + helicalspiral_proj2 + helicalspiral_proj3 +
+conicspiral_proj1 + conicspiral_proj2 + conicspiral_proj3 +
 nonlinear_proj1 + nonlinear_proj2 + nonlinear_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
