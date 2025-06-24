@@ -47,7 +47,8 @@ theme_set(theme_linedraw() +
      legend.title = element_blank(), 
      legend.text = element_text(size=4),
      legend.key.height = unit(0.25, 'cm'),
-     legend.key.width = unit(0.25, 'cm')
+     legend.key.width = unit(0.25, 'cm'),
+     plot.margin = margin(0, 0, 0, 0)
    )
 )
 
@@ -1440,14 +1441,6 @@ quadratic_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-quadratic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-cubic, echo=TRUE----------------------------------------------------
 cubic <- gen_cubic(n = 1000, p = 4)
 
@@ -1538,10 +1531,11 @@ cubic_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cubic` data."----
+## ----label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` and `cubic` data."----
 #| fig-width: 15
-#| fig-height: 5
+#| fig-height: 10
 
+quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
 cubic_proj1 + cubic_proj2 + cubic_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
@@ -2070,14 +2064,6 @@ scurve_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` data."----
-#| fig-width: 15
-#| fig-height: 5
-
-scurve_proj1 + scurve_proj2 + scurve_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-
-
 ## ----data-scurvehole, echo=TRUE-----------------------------------------------
 scurvehole <- gen_scurvehole(n = 1000, p = 4)
 
@@ -2168,11 +2154,12 @@ scurvehole_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-scurvehole-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurvehole` data."----
+## ----label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` and `scurvehole` data."----
 #| fig-width: 15
-#| fig-height: 5
+#| fig-height: 10
 
-scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
+scurve_proj1 + scurve_proj2 + scurve_proj3 + 
+  scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 

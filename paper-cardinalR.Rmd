@@ -95,7 +95,8 @@ theme_set(theme_linedraw() +
      legend.title = element_blank(), 
      legend.text = element_text(size=4),
      legend.key.height = unit(0.25, 'cm'),
-     legend.key.width = unit(0.25, 'cm')
+     legend.key.width = unit(0.25, 'cm'),
+     plot.margin = margin(0, 0, 0, 0)
    )
 )
 ```
@@ -1614,14 +1615,6 @@ quadratic_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-quadratic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_cubic()`
 
 The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions. This function creates a more complex curvilinear structure than a simple parabola.
@@ -1718,10 +1711,11 @@ cubic_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cubic` data."}
+```{r, label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` and `cubic` data."}
 #| fig-width: 15
-#| fig-height: 5
+#| fig-height: 10
 
+quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
 cubic_proj1 + cubic_proj2 + cubic_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
@@ -2298,14 +2292,6 @@ scurve_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` data."}
-#| fig-width: 15
-#| fig-height: 5
-
-scurve_proj1 + scurve_proj2 + scurve_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
-```
-
 #### `gen_scurvehole()`
 
 To simulate a variant of the S-curve structure with a removed region ("hole"), we define the function `gen_scurvehole(n, p)`. This function produces $n$ observations in $p\text{-}D$ where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.
@@ -2402,11 +2388,12 @@ scurvehole_proj3 <- plot_proj(
 
 ```
 
-```{r, label = "fig-scurvehole-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurvehole` data."}
+```{r, label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` and `scurvehole` data."}
 #| fig-width: 15
-#| fig-height: 5
+#| fig-height: 10
 
-scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
+scurve_proj1 + scurve_proj2 + scurve_proj3 + 
+  scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 

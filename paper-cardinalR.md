@@ -842,15 +842,6 @@ The curve is constructed by drawing uniformly spaced inputs and applying a secon
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-quadratic-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` data." width="100%" />
-<p class="caption">(\#fig:fig-quadratic-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_cubic()`
 
 The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions. This function creates a more complex curvilinear structure than a simple parabola.
@@ -889,8 +880,8 @@ The shape is generated using a third-degree raw polynomial basis expansion. Let 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-cubic-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubic` data." width="100%" />
-<p class="caption">(\#fig:fig-cubic-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubic` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-cubic-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` and `cubic` data." width="100%" />
+<p class="caption">(\#fig:fig-cubic-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` and `cubic` data.</p>
 </div>
 
 </div>
@@ -1180,15 +1171,6 @@ The $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\th
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-scurve-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` data." width="100%" />
-<p class="caption">(\#fig:fig-scurve-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` data.</p>
-</div>
-
-</div>
-
-
 #### `gen_scurvehole()`
 
 To simulate a variant of the S-curve structure with a removed region ("hole"), we define the function `gen_scurvehole(n, p)`. This function produces $n$ observations in $p\text{-}D$ where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.
@@ -1227,8 +1209,8 @@ To simulate missing regions on the manifold, a fixed anchor point $(0, 1, 0, \ld
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-scurvehole-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurvehole` data." width="100%" />
-<p class="caption">(\#fig:fig-scurvehole-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurvehole` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-scurve-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` and `scurvehole` data." width="100%" />
+<p class="caption">(\#fig:fig-scurve-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` and `scurvehole` data.</p>
 </div>
 
 </div>

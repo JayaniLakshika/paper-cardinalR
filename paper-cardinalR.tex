@@ -314,10 +314,6 @@ The curve is constructed by drawing uniformly spaced inputs and applying a secon
 quadratic <- gen_quadratic(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-quadratic-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` data.}\label{fig:fig-quadratic-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_cubic()}}{gen\_cubic()}}\label{gen_cubic}
 
 The \texttt{gen\_cubic(n,\ p,\ range)} function generates a dataset of \(n\) points forming a cubic curve in the first two dimensions. This function creates a more complex curvilinear structure than a simple parabola.
@@ -329,7 +325,7 @@ cubic <- gen_cubic(n = 1000, p = 4)
 \end{verbatim}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cubic-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubic` data.}\label{fig:fig-cubic-proj}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cubic-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` and `cubic` data.}\label{fig:fig-cubic-proj}
 \end{figure}
 
 \subsubsection{Pyramid}\label{pyramid}
@@ -445,10 +441,6 @@ The \(3\text{-}D\) geometry is constructed by introducing a latent parameter, \(
 scurve <- gen_scurve(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-scurve-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` data.}\label{fig:fig-scurve-proj}
-\end{figure}
-
 \paragraph{\texorpdfstring{\texttt{gen\_scurvehole()}}{gen\_scurvehole()}}\label{gen_scurvehole}
 
 To simulate a variant of the S-curve structure with a removed region (``hole''), we define the function \texttt{gen\_scurvehole(n,\ p)}. This function produces \(n\) observations in \(p\text{-}D\) where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.
@@ -460,7 +452,7 @@ scurvehole <- gen_scurvehole(n = 1000, p = 4)
 \end{verbatim}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-scurvehole-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurvehole` data.}\label{fig:fig-scurvehole-proj}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-scurve-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` and `scurvehole` data.}\label{fig:fig-scurve-proj}
 \end{figure}
 
 \subsubsection{Sphere}\label{sphere}

@@ -2390,14 +2390,6 @@ Figure 12: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span style="display:block;" id="fig:fig-quadratic-proj"></span>
-<img src="paper-cardinalR_files/figure-html5/fig-quadratic-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` data." width="100%" />
-<p class="caption">
-Figure 13: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>quadratic</code> data.
-</p>
-</div>
-</div>
 <h5 class="unnumbered" data-number="2.2.8.2" id="gen_cubic"><code>gen_cubic()</code></h5>
 <p>The <code>gen_cubic(n, p, range)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a cubic curve in the first two dimensions. This function creates a more complex curvilinear structure than a simple parabola.</p>
 <p>The shape is generated using a third-degree raw polynomial basis expansion. Let <span class="math inline">\(X_1 \sim U(\text{range}[1], \text{range}[2])\)</span> be the base input. A cubic transformation with vertical jitter is used to define <span class="math inline">\(X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2\)</span>, where <span class="math inline">\(\varepsilon_2 \sim U(0, 0.5)\)</span>. For <span class="math inline">\(p &gt; 2\)</span>, Gaussian noise <span class="math inline">\(X_j \sim N(0, 0.1^2)\)</span> is added to embed the <span class="math inline">\(2\text{-}D\)</span> structure into <span class="math inline">\(p\text{-}D\)</span>, where <span class="math inline">\(j = 3, \dots, p\)</span>.</p>
@@ -2420,9 +2412,9 @@ Figure 13: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:fig-cubic-proj"></span>
-<img src="paper-cardinalR_files/figure-html5/fig-cubic-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `cubic` data." width="100%" />
+<img src="paper-cardinalR_files/figure-html5/fig-cubic-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` and `cubic` data." width="100%" />
 <p class="caption">
-Figure 14: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>cubic</code> data.
+Figure 13: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>quadratic</code> and <code>cubic</code> data.
 </p>
 </div>
 </div>
@@ -2491,7 +2483,7 @@ Figure 14: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-pyrrect-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-pyrrect-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` data." width="100%" />
 <p class="caption">
-Figure 15: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>pyrrect</code> data.
+Figure 14: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>pyrrect</code> data.
 </p>
 </div>
 </div>
@@ -2520,7 +2512,7 @@ Figure 15: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-pyrtri-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-pyrtri-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrtri` data." width="100%" />
 <p class="caption">
-Figure 16: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>pyrtri</code> data.
+Figure 15: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>pyrtri</code> data.
 </p>
 </div>
 </div>
@@ -2551,7 +2543,7 @@ Figure 16: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-pyrstar-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-pyrstar-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrstar` data." width="100%" />
 <p class="caption">
-Figure 17: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>pyrstar</code> data.
+Figure 16: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>pyrstar</code> data.
 </p>
 </div>
 </div>
@@ -2580,7 +2572,7 @@ Figure 17: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-pyrholes-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-pyrholes-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrholes` data." width="100%" />
 <p class="caption">
-Figure 18: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>pyrholes</code> data.
+Figure 17: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>pyrholes</code> data.
 </p>
 </div>
 </div>
@@ -2633,14 +2625,6 @@ Figure 18: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span style="display:block;" id="fig:fig-scurve-proj"></span>
-<img src="paper-cardinalR_files/figure-html5/fig-scurve-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` data." width="100%" />
-<p class="caption">
-Figure 19: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>scurve</code> data.
-</p>
-</div>
-</div>
 <h5 class="unnumbered" data-number="2.2.10.2" id="gen_scurvehole"><code>gen_scurvehole()</code></h5>
 <p>To simulate a variant of the S-curve structure with a removed region (“hole”), we define the function <code>gen_scurvehole(n, p)</code>. This function produces <span class="math inline">\(n\)</span> observations in <span class="math inline">\(p\text{-}D\)</span> where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.</p>
 <p>To simulate missing regions on the manifold, a fixed anchor point <span class="math inline">\((0, 1, 0, \ldots)\)</span> is defined in <span class="math inline">\(p\text{-}D\)</span>. All observations within a Euclidean distance of <span class="math inline">\(\sqrt{0.3} \approx 0.5477\)</span> from the anchor are removed if <span class="math inline">\(\sum_{j=1}^p (X_j - a_j)^2 \leq 0.3\)</span>. This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.</p>
@@ -2662,10 +2646,10 @@ Figure 19: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span style="display:block;" id="fig:fig-scurvehole-proj"></span>
-<img src="paper-cardinalR_files/figure-html5/fig-scurvehole-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurvehole` data." width="100%" />
+<div class="figure"><span style="display:block;" id="fig:fig-scurve-proj"></span>
+<img src="paper-cardinalR_files/figure-html5/fig-scurve-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` and `scurvehole` data." width="100%" />
 <p class="caption">
-Figure 20: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>scurvehole</code> data.
+Figure 18: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>scurve</code> and <code>scurvehole</code> data.
 </p>
 </div>
 </div>
@@ -2742,7 +2726,7 @@ Figure 20: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-circle-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-circle-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle` data." width="100%" />
 <p class="caption">
-Figure 21: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>circle</code> data.
+Figure 19: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>circle</code> data.
 </p>
 </div>
 </div>
@@ -2771,7 +2755,7 @@ Figure 21: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-curvycycle-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-curvycycle-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvycycle` data." width="100%" />
 <p class="caption">
-Figure 22: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>curvycycle</code> data.
+Figure 20: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>curvycycle</code> data.
 </p>
 </div>
 </div>
@@ -2799,7 +2783,7 @@ Figure 22: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-unifsphere-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-unifsphere-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `unifsphere` data." width="100%" />
 <p class="caption">
-Figure 23: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>unifsphere</code> data.
+Figure 21: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>unifsphere</code> data.
 </p>
 </div>
 </div>
@@ -2829,7 +2813,7 @@ Figure 23: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-gridedsphere-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-gridedsphere-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridedsphere` data." width="100%" />
 <p class="caption">
-Figure 24: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>gridedsphere</code> data.
+Figure 22: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>gridedsphere</code> data.
 </p>
 </div>
 </div>
@@ -2861,7 +2845,7 @@ Figure 24: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-clusteredspheres-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-clusteredspheres-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `clusteredspheres` data." width="100%" />
 <p class="caption">
-Figure 25: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>clusteredspheres</code> data.
+Figure 23: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>clusteredspheres</code> data.
 </p>
 </div>
 </div>
@@ -2889,7 +2873,7 @@ Figure 25: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-hemisphere-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-hemisphere-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `hemisphere` data." width="100%" />
 <p class="caption">
-Figure 26: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>hemisphere</code> data.
+Figure 24: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>hemisphere</code> data.
 </p>
 </div>
 </div>
@@ -2917,7 +2901,7 @@ The first three dimensions form the classic <span class="math inline">\(3\text{-
 <div class="figure"><span style="display:block;" id="fig:fig-swissroll-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-swissroll-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `swissroll` data." width="100%" />
 <p class="caption">
-Figure 27: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>swissroll</code> data.
+Figure 25: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>swissroll</code> data.
 </p>
 </div>
 </div>
@@ -2990,7 +2974,7 @@ Figure 27: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-crescent-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-crescent-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent` data." width="100%" />
 <p class="caption">
-Figure 28: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>crescent</code> data.
+Figure 26: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>crescent</code> data.
 </p>
 </div>
 </div>
@@ -3018,7 +3002,7 @@ Figure 28: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-curvycylinder-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-curvycylinder-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `curvycylinder` data." width="100%" />
 <p class="caption">
-Figure 29: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>curvycylinder</code> data.
+Figure 27: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>curvycylinder</code> data.
 </p>
 </div>
 </div>
@@ -3048,7 +3032,7 @@ Figure 29: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-sphericalspiral-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-sphericalspiral-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `sphericalspiral` data." width="100%" />
 <p class="caption">
-Figure 30: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>sphericalspiral</code> data.
+Figure 28: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>sphericalspiral</code> data.
 </p>
 </div>
 </div>
@@ -3076,7 +3060,7 @@ Figure 30: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-helicalspiral-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-helicalspiral-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `helicalspiral` data." width="100%" />
 <p class="caption">
-Figure 31: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>helicalspiral</code> data.
+Figure 29: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>helicalspiral</code> data.
 </p>
 </div>
 </div>
@@ -3104,7 +3088,7 @@ Figure 31: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-conicspiral-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-conicspiral-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `conicspiral` data." width="100%" />
 <p class="caption">
-Figure 32: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>conicspiral</code> data.
+Figure 30: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>conicspiral</code> data.
 </p>
 </div>
 </div>
@@ -3132,7 +3116,7 @@ Figure 32: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-nonlinear-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-nonlinear-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `nonlinear` data." width="100%" />
 <p class="caption">
-Figure 33: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>nonlinear</code> data.
+Figure 31: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>nonlinear</code> data.
 </p>
 </div>
 </div>
@@ -3237,7 +3221,7 @@ Figure 33: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <h2 data-number="3" id="application"><span class="header-section-number">3</span> Application</h2>
 <!-- ## Assessing the performance of dimension reduction on different geometric structures in high-dimensions -->
 <p>This section illustrates the use of package by generating a synthetic dataset to evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) <span class="citation" data-cites="jolliffe2011">(<a href="#ref-jolliffe2011" role="doc-biblioref">Jolliffe 2011</a>)</span>, t-distributed stochastic neighbor embedding (tSNE) <span class="citation" data-cites="laurens2008">(<a href="#ref-laurens2008" role="doc-biblioref">Maaten and Hinton 2008</a>)</span>, uniform manifold approximation and projection (UMAP) <span class="citation" data-cites="leland2018">(<a href="#ref-leland2018" role="doc-biblioref">McInnes et al. 2018</a>)</span>, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm <span class="citation" data-cites="moon2019">(<a href="#ref-moon2019" role="doc-biblioref">Moon et al. 2019</a>)</span>, large-scale dimensionality reduction Using triplets (TriMAP) <span class="citation" data-cites="amid2019">(<a href="#ref-amid2019" role="doc-biblioref">Amid and Warmuth 2019</a>)</span>, and pairwise controlled manifold approximation (PaCMAP) <span class="citation" data-cites="yingfan2021">(<a href="#ref-yingfan2021" role="doc-biblioref">Wang et al. 2021</a>)</span>.</p>
-<p>The following code generates a dataset of five clusters, positioned with equal inter-cluster distances in <span class="math inline">\(4\text{-}D\)</span> space (Figure <a href="#fig:fig-highd-proj">34</a>).</p>
+<p>The following code generates a dataset of five clusters, positioned with equal inter-cluster distances in <span class="math inline">\(4\text{-}D\)</span> space (Figure <a href="#fig:fig-highd-proj">32</a>).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>positions</span> <span class='op'>&lt;-</span> <span class='fu'>geozoo</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/geozoo/man/simplex.html'>simplex</a></span><span class='op'>(</span>p<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>$</span><span class='va'>points</span></span>
@@ -3269,7 +3253,7 @@ Figure 33: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-highd-proj"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-highd-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green." width="100%" />
 <p class="caption">
-Figure 34: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>mobiusgau</code> data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.
+Figure 32: Three <span class="math inline">\(2\text{-}D\)</span> projections from <span class="math inline">\(4\text{-}D\)</span>, for the <code>mobiusgau</code> data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.
 </p>
 </div>
 </div>
@@ -3281,11 +3265,11 @@ Figure 34: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <div class="figure"><span style="display:block;" id="fig:fig-nldr-layouts"></span>
 <img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="Six different dimension reduction representations of the `mobiusgau` data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA." width="100%" />
 <p class="caption">
-Figure 35: Six different dimension reduction representations of the <code>mobiusgau</code> data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA.
+Figure 33: Six different dimension reduction representations of the <code>mobiusgau</code> data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA.
 </p>
 </div>
 </div>
-<p>UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure (Figure <a href="#fig:fig-nldr-layouts">35</a>). However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.</p>
+<p>UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure (Figure <a href="#fig:fig-nldr-layouts">33</a>). However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.</p>
 <h2 data-number="4" id="conclusion"><span class="header-section-number">4</span> Conclusion</h2>
 <p>The <code>cardinalR</code> package contributes a flexible and extensible framework for generating high-dimensional data structures with well-defined geometric properties. It addresses a growing need in the evaluation of machine learning, clustering, and nonlinear dimensionality reduction (NLDR) methods—offering researchers the ability to design customized datasets with interpretable structures, noise characteristics, and clustering arrangements. This makes <code>cardinalR</code> a useful complement to existing tools like <code>geozoo</code>, <code>snedata</code>, and <code>mlbench</code>, expanding the scope to higher dimensions and more complex shapes.</p>
 <p>The suite of included structures is diverse and targeted. For example, <strong>branching shapes</strong> allow investigation of continuity and topological preservation in low-dimensional embeddings. The <strong>S-curve with a hole</strong> enables exploration of how methods handle incomplete manifolds. <strong>Clustered spheres</strong> assess cluster separation on curved surfaces, while the <strong>Möbius strip</strong> challenges NLDR methods with non-orientable geometry. <strong>Gridded cubes</strong> test spatial regularity, and <strong>pyrholes</strong> represent non-convex, sparse shapes useful for testing clustering performance in irregular high-dimensional regions.</p>
