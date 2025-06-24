@@ -769,7 +769,7 @@ The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in 
 
 ### Linear
 
-The `gen_longlinear(n, p)` function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. Each variable $X_i$ is created as $X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i$, where $\text{scale}_i \sim U(-10, 10)$ is randomly chosen direction and stretch, $\text{shift}_i \sim U(-300, 300)$ is large offset to spread features apart, and $\epsilon \sim N(0, 0.03 \cdot n)$ is Gaussian noise.
+The `gen_longlinear(n, p)` function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. Each variable $X_i$ is created as $X_i = \text{scale}_i \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i$, where $\text{scale}_i \sim U(-10, 10)$ is randomly chosen direction and stretch, $\text{shift}_i \sim U(-300, 300)$ is large offset to spread features apart, and $\epsilon \sim N(0, 0.03n)$ is Gaussian noise.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_longlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -812,27 +812,9 @@ The `gen_longlinear(n, p)` function simulates a high-dimensional linear structur
 
 ### Mobius
 
-The `gen_mobius(n, p)` function generates a dataset of $n$ points that form a Mobius strip embedded in the first three dimensions of a $p$-dimensional space. This classical non-orientable surface loops back on itself with a half-twist.
+The `gen_mobius(n, p)` function generates a dataset of $n$ points that form a Mobius strip embedded in the first three dimensions of a $p\text{-}D$. This classical non-orientable surface loops back on itself with a half-twist.
 
-The Mobius strip is generated using `geozoo::mobius(n, p = 3)$points`, which samples $n$ points from a parametrization of the surface defined by angle $\theta$ and strip width $w$. The cartesian coordinates are;
-
-$$
-X_1 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \cos(\theta),
-$$
-$$
-X_2 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \sin(\theta),
-$$
-$$
-X_3 = \frac{w}{2} \sin(\theta/2).
-$$
-
-This maps a $2\text{-}D$ band with a half-twist into $3\text{-}D$ space, forming a non-orientable 1-sided surface.
-
-For $p > 3$, the function appends $p - 3$ dimensions with small Gaussian noise:
-
-$$
-x_j \sim N(0, 0.05^2), \quad j = 4, \dots, p.
-$$
+The Mobius strip is generated using `geozoo::mobius(n, p = 3)$points`, which samples $n$ points from a parametrization of the surface defined by angle $\theta$ and strip width $w$. The cartesian coordinates are $X_1 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \cos(\theta)$, $X_2 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \sin(\theta)$, and $X_3 = \frac{w}{2} \sin(\theta/2)$. This maps a $2\text{-}D$ band with a half-twist into $3\text{-}D$ space, forming a non-orientable one-sided surface. For $p > 3$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $3\text{-}D$ Mobius into $p\text{-}D$, where $j = 4, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mobius</span> <span class='op'>&lt;-</span> <span class='fu'>gen_mobius</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>

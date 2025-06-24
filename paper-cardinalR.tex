@@ -342,7 +342,7 @@ gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
 
 \subsubsection{Linear}\label{linear}
 
-The \texttt{gen\_longlinear(n,\ p)} function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. Each variable \(X_i\) is created as \(X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i\), where \(\text{scale}_i \sim U(-10, 10)\) is randomly chosen direction and stretch, \(\text{shift}_i \sim U(-300, 300)\) is large offset to spread features apart, and \(\epsilon \sim N(0, 0.03 \cdot n)\) is Gaussian noise.
+The \texttt{gen\_longlinear(n,\ p)} function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. Each variable \(X_i\) is created as \(X_i = \text{scale}_i \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i\), where \(\text{scale}_i \sim U(-10, 10)\) is randomly chosen direction and stretch, \(\text{shift}_i \sim U(-300, 300)\) is large offset to spread features apart, and \(\epsilon \sim N(0, 0.03n)\) is Gaussian noise.
 
 \begin{verbatim}
 linear <- gen_longlinear(n = 1000, p = 4)
@@ -354,27 +354,9 @@ linear <- gen_longlinear(n = 1000, p = 4)
 
 \subsubsection{Mobius}\label{mobius}
 
-The \texttt{gen\_mobius(n,\ p)} function generates a dataset of \(n\) points that form a Mobius strip embedded in the first three dimensions of a \(p\)-dimensional space. This classical non-orientable surface loops back on itself with a half-twist.
+The \texttt{gen\_mobius(n,\ p)} function generates a dataset of \(n\) points that form a Mobius strip embedded in the first three dimensions of a \(p\text{-}D\). This classical non-orientable surface loops back on itself with a half-twist.
 
-The Mobius strip is generated using \texttt{geozoo::mobius(n,\ p\ =\ 3)\$points}, which samples \(n\) points from a parametrization of the surface defined by angle \(\theta\) and strip width \(w\). The cartesian coordinates are;
-
-\[
-X_1 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \cos(\theta),
-\]
-\[
-X_2 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \sin(\theta),
-\]
-\[
-X_3 = \frac{w}{2} \sin(\theta/2).
-\]
-
-This maps a \(2\text{-}D\) band with a half-twist into \(3\text{-}D\) space, forming a non-orientable 1-sided surface.
-
-For \(p > 3\), the function appends \(p - 3\) dimensions with small Gaussian noise:
-
-\[
-x_j \sim N(0, 0.05^2), \quad j = 4, \dots, p.
-\]
+The Mobius strip is generated using \texttt{geozoo::mobius(n,\ p\ =\ 3)\$points}, which samples \(n\) points from a parametrization of the surface defined by angle \(\theta\) and strip width \(w\). The cartesian coordinates are \(X_1 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \cos(\theta)\), \(X_2 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \sin(\theta)\), and \(X_3 = \frac{w}{2} \sin(\theta/2)\). This maps a \(2\text{-}D\) band with a half-twist into \(3\text{-}D\) space, forming a non-orientable one-sided surface. For \(p > 3\), Gaussian noise \(X_j \sim N(0, 0.05^2)\) is added to embed the \(3\text{-}D\) Mobius into \(p\text{-}D\), where \(j = 4, \dots, p\).
 
 \begin{verbatim}
 mobius <- gen_mobius(n = 1000, p = 4)

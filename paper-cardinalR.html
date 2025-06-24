@@ -2338,7 +2338,7 @@ Figure 10: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 </div>
 <h4 class="unnumbered" data-number="2.2.6" id="linear">Linear</h4>
-<p>The <code>gen_longlinear(n, p)</code> function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. Each variable <span class="math inline">\(X_i\)</span> is created as <span class="math inline">\(X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i\)</span>, where <span class="math inline">\(\text{scale}_i \sim U(-10, 10)\)</span> is randomly chosen direction and stretch, <span class="math inline">\(\text{shift}_i \sim U(-300, 300)\)</span> is large offset to spread features apart, and <span class="math inline">\(\epsilon \sim N(0, 0.03 \cdot n)\)</span> is Gaussian noise.</p>
+<p>The <code>gen_longlinear(n, p)</code> function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. Each variable <span class="math inline">\(X_i\)</span> is created as <span class="math inline">\(X_i = \text{scale}_i \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i\)</span>, where <span class="math inline">\(\text{scale}_i \sim U(-10, 10)\)</span> is randomly chosen direction and stretch, <span class="math inline">\(\text{shift}_i \sim U(-300, 300)\)</span> is large offset to spread features apart, and <span class="math inline">\(\epsilon \sim N(0, 0.03n)\)</span> is Gaussian noise.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_longlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2365,22 +2365,8 @@ Figure 11: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 </div>
 <h4 class="unnumbered" data-number="2.2.7" id="mobius">Mobius</h4>
-<p>The <code>gen_mobius(n, p)</code> function generates a dataset of <span class="math inline">\(n\)</span> points that form a Mobius strip embedded in the first three dimensions of a <span class="math inline">\(p\)</span>-dimensional space. This classical non-orientable surface loops back on itself with a half-twist.</p>
-<p>The Mobius strip is generated using <code>geozoo::mobius(n, p = 3)$points</code>, which samples <span class="math inline">\(n\)</span> points from a parametrization of the surface defined by angle <span class="math inline">\(\theta\)</span> and strip width <span class="math inline">\(w\)</span>. The cartesian coordinates are;</p>
-<p><span class="math display">\[
-X_1 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \cos(\theta),
-\]</span>
-<span class="math display">\[
-X_2 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \sin(\theta),
-\]</span>
-<span class="math display">\[
-X_3 = \frac{w}{2} \sin(\theta/2).
-\]</span></p>
-<p>This maps a <span class="math inline">\(2\text{-}D\)</span> band with a half-twist into <span class="math inline">\(3\text{-}D\)</span> space, forming a non-orientable 1-sided surface.</p>
-<p>For <span class="math inline">\(p &gt; 3\)</span>, the function appends <span class="math inline">\(p - 3\)</span> dimensions with small Gaussian noise:</p>
-<p><span class="math display">\[
-x_j \sim N(0, 0.05^2), \quad j = 4, \dots, p.
-\]</span></p>
+<p>The <code>gen_mobius(n, p)</code> function generates a dataset of <span class="math inline">\(n\)</span> points that form a Mobius strip embedded in the first three dimensions of a <span class="math inline">\(p\text{-}D\)</span>. This classical non-orientable surface loops back on itself with a half-twist.</p>
+<p>The Mobius strip is generated using <code>geozoo::mobius(n, p = 3)$points</code>, which samples <span class="math inline">\(n\)</span> points from a parametrization of the surface defined by angle <span class="math inline">\(\theta\)</span> and strip width <span class="math inline">\(w\)</span>. The cartesian coordinates are <span class="math inline">\(X_1 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \cos(\theta)\)</span>, <span class="math inline">\(X_2 = \left(1 + \frac{w}{2} \cos(\theta/2)\right) \sin(\theta)\)</span>, and <span class="math inline">\(X_3 = \frac{w}{2} \sin(\theta/2)\)</span>. This maps a <span class="math inline">\(2\text{-}D\)</span> band with a half-twist into <span class="math inline">\(3\text{-}D\)</span> space, forming a non-orientable one-sided surface. For <span class="math inline">\(p &gt; 3\)</span>, Gaussian noise <span class="math inline">\(X_j \sim N(0, 0.05^2)\)</span> is added to embed the <span class="math inline">\(3\text{-}D\)</span> Mobius into <span class="math inline">\(p\text{-}D\)</span>, where <span class="math inline">\(j = 4, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mobius</span> <span class='op'>&lt;-</span> <span class='fu'>gen_mobius</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
