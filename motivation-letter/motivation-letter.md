@@ -13,11 +13,11 @@ The R Journal
 Dear Professor Cook,
 \bigskip
 
-Please consider our article titled "ToOoOlTiPs: An R Package for Customizable Tooltips in Interactive Graphics" for publication in the R Journal.
+We are pleased to submit our article titled *“cardinalR: Generating interesting high-dimensional data structures”* for your consideration for publication in *The R Journal*. In this work, we introduce the `cardinalR` package, which provides flexible tools for generating a wide variety of high-dimensional data structures. The package is designed to assist researchers in creating true models for simulation studies, benchmarking, teaching, and method development. Our aim is to offer generally useful and well-documented functions that can be applied across a range of statistical and data science applications.
 
-The manuscript introduces the new package called `ToOoOlTiPs` which provides examples on how to use interactive graphics in journal articles, and general tips for making an interesting contribution.
+We believe that this contribution will be of broad interest to readers of *The R Journal*, particularly those involved in developing and testing new methods for clustering, nonlinear dimension reduction, and visualization. The package provides clear instructions and reproducible tools that can help users simulate data with meaningful geometric and statistical properties in any number of dimensions. We hope this work will support the community in generating high-quality examples for evaluating methods and illustrating concepts, while also encouraging the development of custom data structures for specialized needs.
 
-We believe the readers of the R Journal will find this article helpful for their work because it provides generally useful instructions that will work for many purposes. 
+We feel that *The R Journal* is the ideal venue for sharing this work, given its commitment to advancing the R ecosystem through high-quality, open-source contributions. We look forward to your feedback, and hope that `cardinalR` will serve as a valuable resource for the community.
 
 \bigskip
 \bigskip
@@ -27,15 +27,7 @@ Regards,
     
     
     
-Quietest Quokka  
-Department of Letter Q  
-University of Little Mates  
-Somewhere, Australia  
-qquo@ulm.edu
-
-\bigskip
-
-NOTES: Modify this file with information about your article. 
-
-1. It may be invisible to you, so be aware that after each address line there are two spaces, this makes the line break correctly.
-2. It is also reasonable to submit an .md format of your motivating letter instead of a pdf. 
+Jayani P. Gamage  
+Department of Econometrics & Business Statistics 
+Monash University, Victoria 3800, Australia. 
+jayani.piyadigamage@monash.edu
