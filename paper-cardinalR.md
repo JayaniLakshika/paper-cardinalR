@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-06-24'
+date: '2025-06-25'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float} \newcommand\pD{$p\text{-}D$} \newcommand\gD{$2\text{-}D$}
 output:
@@ -256,9 +256,7 @@ Each branch $i$ is constructed using $X_1 \sim U(-2, 2)$ and $X_2 = \exp(\pm s_i
 
 The `gen_linearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches in $p\text{-}D$. The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
 
-Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches $1$ and $2$ are initialized with fixed slopes and intercepts. The Branch $1$ is generated from $X_1 \sim U(-2, 8)$, $X_2 = 0.5X_1 + \epsilon$, where $\epsilon \sim U(0, 0.5)$. The Branch $2$ is generated from $X_1 \sim U(-6, 2)$, $X_2 = -0.5X_1 + \epsilon$, where $\epsilon \sim U(0, 0.5)$. Branches $3$ to $k$ are added iteratively. Each starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches. $X_1$ values span a short segment ($x_{start}$ to $x_{start} + 1$) and $X_2 = s_i(X_1 - x_{start}) + y_{start} + \epsilon$ where $s_i$ is a sampled slope from a filtered set and $\epsilon \sim U(0, 0.2)$. This setup yields $k$ spatially distinct, noisy linear trajectories.
-
-For $p > 2$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $2\text{-}D$ branches into $p\text{-}D$, where $j = 3, \dots, p$.
+Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches $1$ and $2$ are initialized with fixed slopes and intercepts. The Branch $1$ is generated from $X_1 \sim U(-2, 8)$, $X_2 = 0.5X_1 + \epsilon$, where $\epsilon \sim U(0, 0.5)$. The Branch $2$ is generated from $X_1 \sim U(-6, 2)$, $X_2 = -0.5X_1 + \epsilon$, where $\epsilon \sim U(0, 0.5)$. Branches $3$ to $k$ are added iteratively. Each additional branch $i$ starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches. The $X_1$ values are defined over a short range, from $x_{start}$ to $x_{start} + 1$. The $X_2$ value is calculated using the formula $X_2 = s_i(X_1 - x_{start}) + y_{start} + \epsilon$, where $s_i$ is a chosen slope from a selected branch, and $\epsilon \sim U(0, 0.2)$. For $p > 2$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $2\text{-}D$ branches into $p\text{-}D$, where $j = 3, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_linearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -301,7 +299,7 @@ For $p > 2$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $2\tex
 
 #### `gen_curvybranches()`
 
-The `gen_curvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in a $p$-dimensional space. The underlying geometry lies in the first two dimensions, while the remaining $p - 2$ dimensions contain Gaussian noise.
+The `gen_curvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in $p\text{-}D$. The underlying geometry lies in the first two dimensions, while the remaining $(p-2)\text{-}D$ dimensions contain Gaussian noise.
 
 Branch 1 is generated from $X_1 \sim U(0, 1)$, and $X_2 = 0.1 \cdot X_1 + 1 \cdot X_1^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This produces a gently upward-curving parabola in the right half-plane.
 
