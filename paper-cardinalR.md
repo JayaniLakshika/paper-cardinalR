@@ -301,7 +301,7 @@ Each branch is a segment of a line with added jitter to simulate measurement noi
 
 The `gen_curvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in $p\text{-}D$. The underlying geometry lies in the first two dimensions, while the remaining $(p-2)$ dimensions contain Gaussian noise.
 
-Branch $1$ is generated from $X_1 \sim U(0, 1)$, and $X_2 = 0.1 \cdot X_1 + 1 \cdot X_1^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This produces a gently upward-curving parabola in the right half-plane. Branch $2$ is generated from $X_{1} \sim U(-1, 0)$, and $X_2 = 0.1 \cdot X_{1} - 2 \cdot X_{1}^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This creates a steeper, leftward-facing curve in the left half-plane. Branches $3$ to $k$ are added iteratively. Each new branch $i$ begins at a randomly chosen point within a restricted horizontal band: $X_{1} \in [-0.15, 0.15]$ (to ensure connectivity with earlier branches), spans a unit-length interval on $X_{1}$:$X_1 \in [x_{\text{start}}, x_{\text{start}} + 1]$, and has the structure:
+Branch $1$ is generated from $X_1 \sim U(0, 1)$, and $X_2 = 0.1X_1 + X_1^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This produces a gently upward-curving parabola in the right half-plane. Branch $2$ is generated from $X_{1} \sim U(-1, 0)$, and $X_2 = 0.1X_{1} - 2X_{1}^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This creates a steeper, leftward-facing curve in the left half-plane. Branches $3$ to $k$ are added iteratively. Each new branch $i$ begins at a randomly chosen point within a restricted horizontal band: $X_{1} \in [-0.15, 0.15]$ (to ensure connectivity with earlier branches), spans a unit-length interval on $X_{1}$:$X_1 \in [x_{\text{start}}, x_{\text{start}} + 1]$, and has the structure:
 
 $$
 X_2 = 0.1 \cdot X_1 - s_i \cdot (X_1^2 - x_{\text{start}}) + y_{\text{start}}, \quad s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1.5\}.
@@ -354,24 +354,11 @@ For $p > 2$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $2\tex
 
 #### `gen_orglinearbranches()`
 
-The `gen_orglinearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches embedded in a $p$-dimensional space. Each branch lies primarily within a distinct $2\text{-}D$ subspace, while the remaining $p - 2$ dimensions contain Gaussian noise.
+The `gen_orglinearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches embedded in $p\text{-}D$. Each branch lies primarily within a distinct $2\text{-}D$ subspace, while the remaining $p - 2$ dimensions contain Gaussian noise.
 
-To construct each branch, a unique or repeated pair of dimensions is selected from the $\binom{p}{2}$ possible $2\text{-}D$ combinations. If $k \leq \binom{p}{2}$, combinations are sampled without replacement. If $k > \binom{p}{2}$, additional pairs are sampled with replacement to reach $k$ total branches. Each selected pair $(x_{i1}, x_{i2})$ defines the $2\text{-}D$ plane for branch $i$.
+To construct each branch, a unique or repeated pair of dimensions is selected from the $\binom{p}{2}$ possible $2\text{-}D$ combinations. If $k \leq \binom{p}{2}$, combinations are sampled without replacement. If $k > \binom{p}{2}$, additional pairs are sampled with replacement to reach $k$ total branches. Each selected pair $(X_{i1}, X_{i2})$ defines the $2\text{-}D$ plane for branch $i$.
 
-For branch $i$, $n_i$ points are generated, where $\sum_{i=1}^k n_i = n$. The structure follows:
-
-$$
-x_{i1} \sim U(0, 2), \quad
-x_{i2} = -s_i \cdot x_{i1} + \epsilon, \quad \epsilon \sim U(0, 0.5),
-$$
-
-where $s_i$ is a scale factor controlling the slope. When $k \leq \binom{p}{2}$, $s_i = 1$. When sampling with replacement, $s_i$ is drawn from the set ${1, 1.5, 2, \dots, 8}$ in increments of $0.5$.
-
-For $p > 2$, the remaining dimensions contain independent Gaussian noise:
-
-$$
-x_j \sim N(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}.
-$$
+For branch $i$, $n_i$ points are generated, where $\sum_{i=1}^k n_i = n$. The structure follows: $X_{i1} \sim U(0, 2)$, and $X_{i2} = -s_i \cdot x_{i1} + \epsilon, \quad \epsilon \sim U(0, 0.5)$, where $s_i$ is a scale factor controlling the slope. When $k \leq \binom{p}{2}$, $s_i = 1$. When sampling with replacement, $s_i$ is drawn from the set ${1, 1.5, 2, \dots, 8}$ in increments of $0.5$. For $p > 2$, the remaining dimensions contain independent Gaussian noise: $X_j \sim N(0, 0.1^2)$, for $j \notin \{i1, i2\}$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>orglinearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_orglinearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -416,28 +403,9 @@ $$
 
 The `gen_orgcurvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in a $p$-dimensional space. Each branch is constructed in a unique or repeated $2\text{-}D$ subspace of the $p$-dimensional space, with curvature induced by a second-degree polynomial structure. The remaining $p - 2$ dimensions contain Gaussian noise.
 
-Let $\binom{p}{2}$ denote the number of unique $2\text{-}D$ subspace combinations. When $k \leq \binom{p}{2}$, $k$ distinct subspace pairs $(x_{i1}, x_{i2})$ are sampled without replacement. Otherwise, combinations are selected with replacement to reach $k$ total branches. For each branch $i = 1, \dots, k$, a random scale factor $s_i$ is used to vary the curvature:
+Let $\binom{p}{2}$ denote the number of unique $2\text{-}D$ subspace combinations. When $k \leq \binom{p}{2}$, $k$ distinct subspace pairs $(X_{i1}, X_{i2})$ are sampled without replacement. Otherwise, combinations are selected with replacement to reach $k$ total branches. For each branch $i = 1, \dots, k$, a random scale factor $s_i$ is used to vary the curvature; If $k \leq \binom{p}{2}$: $s_i = 1$, or If $k > \binom{p}{2}$: $s_i \sim \text{Uniform sample from } {1, 1.5, \dots, 8}$.
 
-* If $k \leq \binom{p}{2}$: $s_i = 1$
-* If $k > \binom{p}{2}$: $s_i \sim \text{Uniform sample from } {1, 1.5, \dots, 8}$
-
-Each branch contains $n_i$ points such that $\sum_{i=1}^k n_i = n$, where the vector $(n_1, \dots, n_k)$ is randomly drawn using the helper function `gen_nsum()` to partition $n$.
-
-Within its assigned subspace $(x_{i1}, x_{i2})$, branch $i$ is defined by:
-
-$$
-x_{i1} \sim U(0, 2), \quad
-x_{i2} = -s_i \cdot x_{i1}^2 + \epsilon, \quad \epsilon \sim U(0, 0.5)
-$$
-
-This forms a smooth downward-opening parabola in the plane defined by $(x_{i1}, x_{i2})$, with the degree of curvature controlled by $s_i$.
-
-For $p > 2$, all remaining dimensions are independent Gaussian noise:
-
-$$
-x_j \sim N(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}.
-$$
-
+Each branch contains $n_i$ points such that $\sum_{i=1}^k n_i = n$, where the vector $(n_1, \dots, n_k)$ is randomly drawn using the helper function `gen_nsum()` to partition $n$. Within its assigned subspace $(X_{i1}, X_{i2})$, branch $i$ is defined by: $X_{i1} \sim U(0, 2)$, and $X_{i2} = -s_i \cdot X_{i1}^2 + \epsilon, \quad \epsilon \sim U(0, 0.5)$. This forms a smooth downward-opening parabola in the plane defined by $(X_{i1}, X_{i2})$, with the degree of curvature controlled by $s_i$. For $p > 2$, all remaining dimensions are independent Gaussian noise: $X_j \sim N(0, 0.1^2), \quad \text{for } j \notin \{i1, i2\}$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>orgcurvybranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_orgcurvybranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
