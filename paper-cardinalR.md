@@ -1116,11 +1116,7 @@ The `gen_pyrholes(n, p)` function generates $n$ points embedded in a $p\text{-}D
 
 Let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$.
 
-Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = \frac{1}{2}(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$.
-
-This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex.
-
-The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
+Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = \frac{1}{2}(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
 
 
 <div class="layout-chunk" data-layout="l-body">
@@ -1674,26 +1670,7 @@ Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation func
 
 The `gen_crescent(n, p)` function generates a $p$-dimensional dataset of $n$ observations based on a $2\text{-}D$ crescent-shaped manifold with optional structured high-dimensional noise.
 
-The first two dimensions define a crescent-shaped curve using a semi-circular arc. Let $\theta \in [\pi/6, 2\pi]$ be a sequence of $n$ evenly spaced angles.
-
-The corresponding $2\text{-}D$ coordinates are defined by:
-
-$$
-X_1 = \cos(\theta),
-$$
-$$
-X_2 = \sin(\theta).
-$$
-
-This forms a nonlinear curvilinear structure in the shape of a tilted crescent in the $X_1$-$X_2$ plane.
-
-For $p > 2$, additional dimensions $X_3$ to $X_p$ are generated using `gen_wavydims1()`:
-
-$$
-X_j = s_j \cdot \theta + \varepsilon_j,\text{ where }\varepsilon_j \sim N(0, 0.5^2),\text{ and }s_j\text{ is a random scale}.
-$$
-
-These noise dimensions are nonlinearly correlated with $\theta$, producing structured, wave-like variation that aligns with the progression along the crescent curve.
+The first two dimensions define a crescent-shaped curve using a semi-circular arc. Let $\theta \in [\pi/6, 2\pi]$ be a sequence of $n$ evenly spaced angles. The corresponding $2\text{-}D$ coordinates are defined by: $X_1 = \cos(\theta)$, $X_2 = \sin(\theta)$. For $p > 2$, additional dimensions $X_3$ to $X_p$ are generated using `gen_wavydims1()`: $X_j = s_j \cdot \theta + \varepsilon_j,\text{ where }\varepsilon_j \sim N(0, 0.5^2),\text{ and }s_j\text{ is a random scale}$. These noise dimensions are nonlinearly correlated with $\theta$, producing structured, wave-like variation that aligns with the progression along the crescent curve.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>crescent</span> <span class='op'>&lt;-</span> <span class='fu'>gen_crescent</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -1738,26 +1715,7 @@ These noise dimensions are nonlinearly correlated with $\theta$, producing struc
 
 The `gen_curvycylinder(n, p, h)` function generates a $p$-dimensional dataset of $n$ observations structured as a $3\text{-}D$ cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when $p > 4$.
 
-The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension:
-
-Let $\theta \sim U(0, 3\pi)$ represent a random angle on a circular base and $z \sim U(0, h)$ represent the height along the cylinder.
-
-The coordinates are defined as:
-
-* $X_1 = \cos(\theta)$ (Circular base, x-axis),
-* $X_2 = \sin(\theta)$ (Circular base, y-axis),
-* $X_3 = z$ (Linear height),
-* $X_4 = \sin(z)$ (Nonlinear curvy variation along height).
-
-This forms a curvy cylindrical surface in $4\text{-}D$, where the fourth dimension bends periodically along the height axis, resembling a helicoid or twisting wave along the cylinder.
-
-For $p > 4$, dimensions $X_5$ through $X_p$ are generated as:
-
-$$
-X_j \sim N(0, 0.05^2),\text{ for }j = 5, \ldots, p.
-$$
-
-These dimensions represent unstructured, low-variance noise.
+The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension. Let $\theta \sim U(0, 3\pi)$ represent a random angle on a circular base and $z \sim U(0, h)$ represent the height along the cylinder. The coordinates are defined as: $X_1 = \cos(\theta)$ (Circular base, x-axis), $X_2 = \sin(\theta)$ (Circular base, y-axis), $X_3 = z$ (Linear height), and $X_4 = \sin(z)$ (Nonlinear curvy variation along height). This forms a curvy cylindrical surface in $4\text{-}D$, where the fourth dimension bends periodically along the height axis, resembling a helicoid or twisting wave along the cylinder. For $p > 4$, dimensions $X_5$ through $X_p$ are generated as: $X_j \sim N(0, 0.05^2),\text{ for }j = 5, \ldots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvycylinder</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvycylinder</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, h <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span></span></code></pre></div>
@@ -1804,25 +1762,9 @@ The `gen_sphericalspiral(n, p, spins)` function simulates a dataset of $n$ obser
 
 The first three dimensions represent points on a unit sphere. Let $\theta \in [0, 2\pi \times \text{spins}]$ be the azimuthal angle (longitude), controls the number of spiral turns and the $\phi \in [0, \pi]$be the polar angle (latitude), controls the vertical sweep from the north to the south pole.
 
-Cartesian coordinates from spherical conversion:
+Cartesian coordinates from spherical conversion: $X_1 = \sin(\phi) \cdot \cos(\theta)$, $X_2 = \sin(\phi) \cdot \sin(\theta)$, $X_3 = \cos(\phi) + \varepsilon$, where $\varepsilon \sim U(-0.5, 0.5)$ introduces vertical jitter, and $X_4 = \theta / \max(\theta)$: a normalized progression along the spiral path. This generates a spherical spiral curve embedded in $4\text{-}D$ space, combining both circular and vertical movement, with gentle curvature and non-linear progression.
 
-  * $X_1 = \sin(\phi) \cdot \cos(\theta)$
-  * $X_2 = \sin(\phi) \cdot \sin(\theta)$
-  * $X_3 = \cos(\phi) + \varepsilon$, where $\varepsilon \sim U(-0.5, 0.5)$ introduces vertical jitter.
-  * $X_4 = \theta / \max(\theta)$: a normalized progression along the spiral path.
-
-This generates a spherical spiral curve embedded in $4\text{-}D$ space, combining both circular and vertical movement, with gentle curvature and non-linear progression.
-
-If $p > 4$, the function appends structured, non-linear noise via `gen_wavydims2()`. These dimensions are functions of the first coordinate $X_1$, introducing dependencies that preserve some geometric coherence. Each added dimension follows the form:
-
-$$
-X_j = s_j \cdot (-1)^{\lfloor j/2 \rfloor} \cdot X_1^{a_j} + \eta_j,
-$$
-
-where:
-$a_j \in \{2, 3, 4, 5\}$ is a randomly chosen polynomial power,
-$s_j \sim U(0.5, 2)$ is a scale factor,
-$\eta_j \sim U(-\sigma_j, 2\sigma_j)$, with $\sigma_j \sim U(0, 0.05)$, adds mild randomness.
+If $p > 4$, the function appends structured, non-linear noise via `gen_wavydims2()`. These dimensions are functions of the first coordinate $X_1$, introducing dependencies that preserve some geometric coherence. Each added dimension follows the form: $X_j = s_j \cdot (-1)^{\lfloor j/2 \rfloor} \cdot X_1^{a_j} + \eta_j$, where $a_j \in \{2, 3, 4, 5\}$ is a randomly chosen polynomial power, $s_j \sim U(0.5, 2)$ is a scale factor, $\eta_j \sim U(-\sigma_j, 2\sigma_j)$, with $\sigma_j \sim U(0, 0.05)$, adds mild randomness.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>sphericalspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_sphericalspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, spins <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre></div>
@@ -1865,27 +1807,9 @@ $\eta_j \sim U(-\sigma_j, 2\sigma_j)$, with $\sigma_j \sim U(0, 0.05)$, adds mil
 
 #### `gen_helicalspiral()`
 
-The `gen_helicalspiral(n, p)` function generates a dataset of $n$ observations forming a helical spiral, embedded in the first four dimensions of a $p$-dimensional space. Additional dimensions (if $p > 4$) are filled with structured noise to mimic high-dimensional complexity.
+The `gen_helicalspiral(n, p)` function generates a dataset of $n$ observations forming a helical spiral, embedded in the first four dimensions of $p\text{-}D$. Additional dimensions (if $p > 4$) are filled with structured noise to mimic high-dimensional complexity.
 
-The first four coordinates follow a $3\text{-}D$ helix with an additional oscillating component. Let $\theta \in [0, \frac{5\pi}{4}]$ be a sequence of angles controlling rotation around a circle.
-
-Cartesian coordinates:
-  * $X_1 = \cos(\theta)$: circular trajectory along the x-axis.
-  
-  * $X_2 = \sin(\theta)$: circular trajectory along the y-axis.
-  
-  * $X_3 = 0.05 \cdot \theta + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.5, 0.5)$: linear progression (height) with vertical jitter, simulating a helix.
-  
-  * $X_4 = 0.1 \cdot \sin(\theta)$: oscillates with $\theta$, representing a periodic "wobble" along the fourth dimension.
-
-This results in a helical spiral winding upward along the third axis, with gentle sinusoidal fluctuation in the fourth dimension.
-
-When $p > 4$, the remaining $p - 4$ dimensions are populated using `gen_noisedims()`. These are independent Gaussian noise dimensions:
-
-$$
-X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p.
-$$
-
+The first four coordinates follow a $3\text{-}D$ helix with an additional oscillating component. Let $\theta \in [0, \frac{5\pi}{4}]$ be a sequence of angles controlling rotation around a circle. Cartesian coordinates; $X_1 = \cos(\theta)$: circular trajectory along the x-axis, $X_2 = \sin(\theta)$: circular trajectory along the y-axis, $X_3 = 0.05 \cdot \theta + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.5, 0.5)$: linear progression (height) with vertical jitter, simulating a helix, and $X_4 = 0.1 \cdot \sin(\theta)$: oscillates with $\theta$, representing a periodic "wobble" along the fourth dimension. This results in a helical spiral winding upward along the third axis, with gentle sinusoidal fluctuation in the fourth dimension. When $p > 4$, the remaining $p - 4$ dimensions are populated using `gen_noisedims()`. These are independent Gaussian noise dimensions: $X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>helicalspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_helicalspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -1928,26 +1852,9 @@ $$
 
 #### `gen_conicspiral()`
 
-The `gen_conicspiral(n, p, spins)` function generates a dataset of $n$ points forming a conical spiral in the first four dimensions of a $p$-dimensional space. The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a $3\text{-}D$ conic helix.
+The `gen_conicspiral(n, p, spins)` function generates a dataset of $n$ points forming a conical spiral in the first four dimensions of $p\text{-}D$. The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a $3\text{-}D$ conic helix.
 
-The shape is defined by parameter $\theta \in [0, 2\pi \cdot \text{spins}]$, controlling the angular progression of the spiral. The mapping to Cartesian space is as follows:
-
-The Archimedean spiral in the horizontal plane is represented by;
-
-$X_1 = \theta \cdot \cos(\theta)$ for radial expansion in x.
-$X_2 = \theta \cdot \sin(\theta)$ for radial expansion in y.
-
-The growth pattern resembles a cone, with the height increasing according to $X_3 = 2 \cdot \theta / \max(\theta) + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.1, 0.6).$
-
-Spiral modulation in the fourth dimension is represented by $X_4 = \theta \cdot \sin(2\theta) + \varepsilon_4$, with $\varepsilon_4 \sim U(-0.1, 0.6)$ which simulates a twisting helical component in a non-radial dimension.
-
-This results in a $3\text{-}D$ spiral surface expanding upward and outward like a cone, with an oscillatory fourth dimension capturing spiral irregularities.
-
-For $p > 4$, the dataset includes isotropic Gaussian noise in the remaining dimensions via `gen_noisedims()`:
-
-$$
-X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p.
-$$
+The shape is defined by parameter $\theta \in [0, 2\pi \cdot \text{spins}]$, controlling the angular progression of the spiral. The Archimedean spiral in the horizontal plane is represented by; $X_1 = \theta \cdot \cos(\theta)$ for radial expansion in x, and $X_2 = \theta \cdot \sin(\theta)$ for radial expansion in y. The growth pattern resembles a cone, with the height increasing according to $X_3 = 2 \cdot \theta / \max(\theta) + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.1, 0.6).$ Spiral modulation in the fourth dimension is represented by $X_4 = \theta \cdot \sin(2\theta) + \varepsilon_4$, with $\varepsilon_4 \sim U(-0.1, 0.6)$ which simulates a twisting helical component in a non-radial dimension. This results in a $3\text{-}D$ spiral surface expanding upward and outward like a cone, with an oscillatory fourth dimension capturing spiral irregularities. For $p > 4$, the dataset includes isotropic Gaussian noise in the remaining dimensions via `gen_noisedims()`: $X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>conicspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_conicspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, spins <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre></div>
@@ -1990,21 +1897,9 @@ $$
 
 #### `gen_nonlinear()`
 
-The `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables. 
-The key geometry lies in dimensions 1–4, where:
+The `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables.
 
-$X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors).
-$X_{3} \sim U(0.1, 0.8)$: independent auxiliary variable.
-$X_{2} = \frac{hc}{X_{1}} + \text{nonfac} \cdot \sin(X_{1})$: non-linear combination of **hyperbolic and sinusoidal transformations**, creating sharp curvature and oscillation.
-$X_{4} = \cos(\pi \cdot X_{1}) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure.
-
-These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter.
-
-If $p > 4$, the remaining dimensions are populated with Gaussian noise using `gen_noisedims()`:
-
-$$
-X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p.
-$$
+The $X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors), $X_{3} \sim U(0.1, 0.8)$: independent auxiliary variable, $X_{2} = \frac{hc}{X_{1}} + \text{nonfac} \cdot \sin(X_{1})$: non-linear combination of hyperbolic and sinusoidal transformations, creating sharp curvature and oscillation, and $X_{4} = \cos(\pi \cdot X_{1}) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure. These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter. If $p > 4$, the remaining dimensions are populated with Gaussian noise using `gen_noisedims()`: $X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>nonlinear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_nonlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, hc <span class='op'>=</span> <span class='fl'>1</span>, non_fac <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre></div>

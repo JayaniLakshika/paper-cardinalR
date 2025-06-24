@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  25 JUN 2025 02:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  25 JUN 2025 02:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1001,88 +1001,86 @@ File: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf Graphic file (
 <use paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf  used on input line 641.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
+<paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf, id=483, 1060.96375pt x 338.26375pt>
+File: paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf Graphic file (type pdf)
+<use paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf>
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf  used on input line 678.
+(pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
 [17 <./paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf, id=512, 1060.96375pt x 338.26375pt>
-File: paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf Graphic file (type pdf)
-<use paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf  used on input line 697.
-(pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 <paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf, id=513, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf  used on input line 737.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf  used on input line 692.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
-[18 <./paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf, id=530, 1060.96375pt x 338.26375pt>
+[18 <./paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf, id=542, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf  used on input line 778.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf  used on input line 710.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
-
-
-[19 <./paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf, id=561, 1060.96375pt x 338.26375pt>
+<paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf, id=543, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf  used on input line 812.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf  used on input line 724.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
-<paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf, id=562, 1060.96375pt x 338.26375pt>
+
+
+[19 <./paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf, id=574, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf  used on input line 843.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf  used on input line 738.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
-
-
-[20 <./paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf, id=579, 1060.96375pt x 338.26375pt>
+<paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf, id=575, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf  used on input line 869.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf  used on input line 752.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
-[21 <./paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf, id=625, 1060.96375pt x 334.24875pt>
+[20 <./paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf, id=620, 1060.96375pt x 334.24875pt>
 File: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf  used on input line 940.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf  used on input line 823.
 (pdftex.def)             Requested size: 398.33858pt x 125.49597pt.
-<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=626, 411.5375pt x 298.11375pt>
+
+
+[21]
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=633, 411.5375pt x 298.11375pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 946.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 829.
 (pdftex.def)             Requested size: 398.33858pt x 288.5559pt.
 
-Overfull \hbox (4.36624pt too wide) in paragraph at lines 953--954
+Overfull \hbox (4.36624pt too wide) in paragraph at lines 836--837
 \T1/ppl/m/n/9 (-20) The \T1/zi4/m/n/9 cardinalR \T1/ppl/m/n/9 (-20) pack-age con-tributes a flex-i-ble and ex-ten-si-ble frame-work for gen-er-at-ing high-dimensional
  []
 
 
 
-[22]
-
-[23 <./paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>] (./RJwrapper.bbl (./RJwrapper.brf)
+[22 <./paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf>] (./RJwrapper.bbl (./RJwrapper.brf)
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
 
 
-[24])
+[23 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 979.
+(Font)              using `T1/zi4/m/n' instead on input line 862.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 989.
+(Font)              scaled to size 9.18004pt on input line 872.
 
 
-[25])
+[24])
 
-[26] (./RJwrapper.aux)
+[25] (./RJwrapper.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
@@ -1093,21 +1091,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: AFCF892BB92D8F0C10E5C885EDC59BF5;1261.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: 8AAECB5DA3108512263DB3003F4CDC68;1026.
+(rerunfilecheck)             Checksum: 5981F092FFD39D95C1AD16845D8EE583;1026.
  ) 
 Here is how much of TeX's memory you used:
- 27844 strings out of 469867
- 520676 string characters out of 5483388
+ 27849 strings out of 469867
+ 520720 string characters out of 5483388
  919103 words of memory out of 5000000
  55162 multiletter control sequences out of 15000+600000
- 690169 words of font info for 381 fonts, out of 8000000 for 9000
+ 690467 words of font info for 385 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  117i,12n,131p,1194b,998s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (26 pages, 9757429 bytes).
+Output written on RJwrapper.pdf (25 pages, 9756424 bytes).
 PDF statistics:
- 862 PDF objects out of 1000 (max. 8388607)
- 698 compressed objects within 7 object streams
- 105 named destinations out of 1000 (max. 500000)
+ 858 PDF objects out of 1000 (max. 8388607)
+ 695 compressed objects within 7 object streams
+ 104 named destinations out of 1000 (max. 500000)
  78596 words of extra memory for PDF output out of 89155 (max. 10000000)
 
