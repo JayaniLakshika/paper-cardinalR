@@ -1911,6 +1911,8 @@ The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $
 
 ### Trigonometric
 
+Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems. The package includes functions to generate a wide range of these forms from crescents and curvy cylinders to spherical, helical, and conic spirals, as well as nonlinear hyperbolas. These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table \@ref(tab:trigonometric-tb-html) summarizes these functions.
+
 <div class="layout-chunk" data-layout="l-body">
 
 
