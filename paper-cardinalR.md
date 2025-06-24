@@ -1334,6 +1334,8 @@ $$
 
 ### S-curve
 
+An S-curve structure simulates data that lies along a smooth, non-linear manifold, making it a classic example for testing the performance of non-linear dimension reduction methods. This package provides functions to generate standard S-curve shapes as well as variants containing holes to introduce missing or incomplete regions. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table \@ref(tab:scurve-tb-html) summarizes these functions.
+
 <div class="layout-chunk" data-layout="l-body">
 
 
