@@ -83,7 +83,7 @@ main_tb <- tibble(arg = c("n",
 
 ## ----main-tb-pdf, eval=knitr::is_latex_output()-------------------------------
 main_tb |> 
-  kable(caption = "The main arguments for gen\\_multicluster().", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
+  kable(caption = "The main arguments for gen\\_multicluster().", format="latex", col.names = c("Argument", "Explanation"), booktabs = T, table.pos = "H")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 

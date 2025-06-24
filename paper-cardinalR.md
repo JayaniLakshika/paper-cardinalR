@@ -36,7 +36,7 @@ type: package
 creative_commons: CC BY
 date: '2025-06-24'
 preamble: |
-  \usepackage{amsmath} \usepackage{array} \usepackage{float}
+  \usepackage{amsmath} \usepackage{array} \usepackage{float} \newcommand\pD{$p\text{-}D$} \newcommand\gD{$2\text{-}D$}
 output:
   distill::distill_article:
     keep_md: yes
@@ -153,7 +153,7 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
 ### Branching
 
-A branching structure captures trajectories that diverge or bifurcate from a common origin, resembling processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
+A branching structure captures trajectories that diverge or bifurcate from a common origin, similar processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -180,7 +180,6 @@ Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 
 
 </div>
-
 
 
 <div class="layout-chunk" data-layout="l-body">
@@ -210,28 +209,9 @@ Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape gener
 
 #### `gen_expbranches()`
 
-The `gen_expbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ exponential branches in $2\text{-}D$, with optional noise dimensions to embed the structure in a $p$-dimensional space. These branches grow in opposite directions, producing a radiating curvilinear structure from a central region.
+The `gen_expbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ exponential branches in $2\text{-}D$, with optional noise dimensions to embed the structure in $p\text{-}D$. These branches grow in opposite directions, producing a radiating curvilinear structure from a central region.
 
-Each branch $i$ is constructed using:
-
-$X_1 \sim U(-2, 2)$
-$X_2 = \exp(\pm s_i \cdot X_1) + \epsilon$, 
-
-where:
-$\epsilon \sim U(0, 0.1)$ adds local jitter,
-
-$s_i \in [0.5, 2]$ is randomly sampled for each branch.
-
-The sign alternates between branches (odd: negative, even: positive exponent). This creates mirror-symmetric branches with different steepness and curvature where odd-numbered branches: decay pattern (reflected about $x$-axis) and even-numbered branches: growth pattern.
-
-For $p > 2$, Gaussian noise is added to embed the $2\text{-}D$ branches in higher dimensions:
-
-$$
-X_j \sim N(0, 0.1^2), \quad j = 3, \dots, p.
-$$
-
-These represent irrelevant or noisy dimensions.
-
+Each branch $i$ is constructed using $X_1 \sim U(-2, 2)$ and $X_2 = \exp(\pm s_iX_1) + \epsilon$, where: $\epsilon \sim U(0, 0.1)$ adds local jitter, $s_i \in [0.5, 2]$ is randomly sampled for each branch. The sign alternates between branches (odd: negative, even: positive exponent). This creates mirror-symmetric branches with different steepness and curvature where odd-numbered branches: decay pattern (reflected) and even-numbered branches: growth pattern. For $p > 2$, Gaussian noise $X_j \sim N(0, 0.1^2)$ is added to embed the $2\text{-}D$ branches into $p\text{-}D$, where $j = 3, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>expbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_expbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -274,24 +254,11 @@ These represent irrelevant or noisy dimensions.
 
 #### `gen_linearbranches()`
 
-The `gen_linearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches in a $p$-dimensional space. The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
+The `gen_linearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches in $p\text{-}D$. The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
 
-Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches 1 and 2 are initialized with fixed slopes and intercepts. The Branch 1 is generated from $X_1 \sim U(-2, 8)$, $X_2 = 0.5 \cdot X_1 + \epsilon$. The Branch 2 is generated from $X_1 \sim U(-6, 2)$, $X_2 = -0.5 \cdot X_1 + \epsilon$. $\epsilon \sim U(0, 0.5)$. 
+Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches $1$ and $2$ are initialized with fixed slopes and intercepts. The Branch $1$ is generated from $X_1 \sim U(-2, 8)$, $X_2 = 0.5X_1 + \epsilon$, where $\epsilon \sim U(0, 0.5)$. The Branch $2$ is generated from $X_1 \sim U(-6, 2)$, $X_2 = -0.5X_1 + \epsilon$, where $\epsilon \sim U(0, 0.5)$. Branches $3$ to $k$ are added iteratively. Each starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches. $X_1$ values span a short segment ($x_{start}$ to $x_{start} + 1$) and $X_2 = s_i(X_1 - x_{start}) + y_{start} + \epsilon$ where $s_i$ is a sampled slope from a filtered set and $\epsilon \sim U(0, 0.2)$. This setup yields $k$ spatially distinct, noisy linear trajectories.
 
-Branches 3 to $k$ are added iteratively. Each starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches.
-
-$X_1$ values span a short segment ($x_{start}$ to $x_{start} + 1$),
-
-$X_2 = s_i \cdot (X_1 - x_{start}) + y_{start} + \epsilon$ where $s_i$ is a sampled slope from a filtered set and $\epsilon \sim U(0, 0.2)$.
-
-This setup yields $k$ spatially distinct, noisy linear trajectories.
-
-For $p > 2$, the remaining dimensions are pure noise:
-
-$$
-X_j \sim N(0, 0.05^2)\text{ for }j = 3, \dots, p.
-$$
-
+For $p > 2$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $2\text{-}D$ branches into $p\text{-}D$, where $j = 3, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_linearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
