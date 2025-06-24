@@ -2055,11 +2055,9 @@ Looking ahead, future extensions of `cardinalR` could incorporate dynamic shape 
 
 <!-- In conclusion, this example demonstrates the critical role of synthetic data generation in dissecting the complex interactions within unsupervised learning pipelines. Our package provides a flexible and controlled means to create such data, enabling researchers to systematically evaluate the performance and robustness of dimensionality reduction and clustering algorithms under well-defined conditions, including the presence of confounding factors. This capability contributes to a more rigorous and informed approach to high-dimensional data analysis. -->
 
-# Code
-
-The code is available at [https://github.com/JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR), and source material for this paper is available at [https://github.com/JayaniLakshika/paper-cardinalR](https://github.com/JayaniLakshika/paper-cardinalR).
-
 # Acknowledgements
+
+The package is available at [https://github.com/JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR), and source material for this paper is available at [https://github.com/JayaniLakshika/paper-cardinalR](https://github.com/JayaniLakshika/paper-cardinalR).
 
 These `R` packages were used for this work: `cli` [@gabor2025], `tibble` [@kirill2023], `gtools` [@gregory2023], `dplyr` [@hadley2023], `stats` [@core2025], `tidyr` [@hadley2024], `purrr` [@hadley2025], `mvtnorm` [@alan2009], `geozoo` [@barret2016], and `MASS` [@venables2002]. This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. 
 ```{.r .distill-force-highlighting-css}

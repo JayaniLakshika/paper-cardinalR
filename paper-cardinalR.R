@@ -29,7 +29,7 @@ library(colorspace)
 #| label: plot-theme
 theme_set(theme_linedraw() +
    theme(
-     #aspect.ratio = 1,
+     aspect.ratio = 1,
      plot.background = element_rect(fill = 'transparent', colour = NA),
      plot.title = element_text(size = 7, hjust = 0.5, vjust = -0.5),
      panel.background = element_rect(fill = 'transparent', 
@@ -3416,14 +3416,14 @@ proj_obj1 <- get_projection(projection = projection,
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
+                                              axis_pos_x = -0.3, 
+                                              axis_pos_y = -0.3, 
                                               threshold = 0.022))
 
 nonlinear_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.7), 
+  plot_limits = c(-0.45, 0.73), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 5,
@@ -3441,16 +3441,16 @@ projection <- cbind(
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
                             scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
+                            axis_param = list(limits = 0.45,
+                                              axis_scaled = 1.3, 
+                                              axis_pos_x = -0.2, 
+                                              axis_pos_y = -0.2, 
                                               threshold = 0.01))
 
 nonlinear_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.6), 
+  plot_limits = c(-0.3, 0.43), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 5,
@@ -3468,16 +3468,16 @@ projection <- cbind(
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
                             scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.6,
+                            axis_param = list(limits = 0.5,
                                               axis_scaled = 1.5, 
-                                              axis_pos_x = -0.4, 
-                                              axis_pos_y = -0.4, 
+                                              axis_pos_x = -0.2, 
+                                              axis_pos_y = -0.2, 
                                               threshold = 0.016))
 
 nonlinear_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.62), 
+  plot_limits = c(-0.35, 0.4), 
   title = "a3", 
   cex = 2, 
   axis_text_size = 5,
