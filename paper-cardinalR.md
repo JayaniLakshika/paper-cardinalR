@@ -299,13 +299,9 @@ Each branch is a segment of a line with added jitter to simulate measurement noi
 
 #### `gen_curvybranches()`
 
-The `gen_curvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in $p\text{-}D$. The underlying geometry lies in the first two dimensions, while the remaining $(p-2)\text{-}D$ dimensions contain Gaussian noise.
+The `gen_curvybranches(n, p, k)` function generates a dataset of $n$ points forming $k$ curvilinear branches embedded in $p\text{-}D$. The underlying geometry lies in the first two dimensions, while the remaining $(p-2)$ dimensions contain Gaussian noise.
 
-Branch 1 is generated from $X_1 \sim U(0, 1)$, and $X_2 = 0.1 \cdot X_1 + 1 \cdot X_1^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This produces a gently upward-curving parabola in the right half-plane.
-
-Branch 2 is generated from $X_{1} \sim U(-1, 0)$, and $X_2 = 0.1 \cdot X_{1} - 2 \cdot X_{1}^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This creates a steeper, leftward-facing curve in the left half-plane.
-
-Branches $3$ to $k$ are added iteratively. Each new branch begins at a randomly chosen point within a restricted horizontal band: $X_{1} \in [-0.15, 0.15]$ (to ensure connectivity with earlier branches), spans a unit-length interval on $X_{1}$:$X_1 \in [x_{\text{start}}, x_{\text{start}} + 1]$, and has the structure:
+Branch $1$ is generated from $X_1 \sim U(0, 1)$, and $X_2 = 0.1 \cdot X_1 + 1 \cdot X_1^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This produces a gently upward-curving parabola in the right half-plane. Branch $2$ is generated from $X_{1} \sim U(-1, 0)$, and $X_2 = 0.1 \cdot X_{1} - 2 \cdot X_{1}^2 + \epsilon$, where $\epsilon \sim U(0, 0.05)$. This creates a steeper, leftward-facing curve in the left half-plane. Branches $3$ to $k$ are added iteratively. Each new branch $i$ begins at a randomly chosen point within a restricted horizontal band: $X_{1} \in [-0.15, 0.15]$ (to ensure connectivity with earlier branches), spans a unit-length interval on $X_{1}$:$X_1 \in [x_{\text{start}}, x_{\text{start}} + 1]$, and has the structure:
 
 $$
 X_2 = 0.1 \cdot X_1 - s_i \cdot (X_1^2 - x_{\text{start}}) + y_{\text{start}}, \quad s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1.5\}.
@@ -315,11 +311,7 @@ Here, $s_i$ is a sampled scale factor (slope-like term) controlling curvature, a
 
 This construction yields $k$ spatially connected, nonlinear branches with varying curvature.
 
-For $p > 2$, the remaining dimensions are pure Gaussian noise:
-
-$$
-X_j \sim N(0, 0.05^2), \quad \text{for } j = 3, \dots, p.
-$$
+For $p > 2$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $2\text{-}D$ branches into $p\text{-}D$, where $j = 3, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvybranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvybranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -734,15 +726,7 @@ $$.
 
 ### Gaussian
 
-The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p$-dimensional space, centered at the origin with user-defined covariance structure. 
-
-Each point is independently drawn using the multivariate normal distribution with:
-
-$$
-X_i \sim N_p(\boldsymbol{0}, \Sigma)
-$$
-
-where $\Sigma$ is a user-defined $p \times p$ positive-definite matrix.
+The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure. Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, \Sigma)$, where $\Sigma$ is a user-defined $p \times p$ positive-definite matrix.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gau</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gaussian</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, s <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span><span class='op'>(</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
@@ -785,21 +769,7 @@ where $\Sigma$ is a user-defined $p \times p$ positive-definite matrix.
 
 ### Linear
 
-The `gen_longlinear(n, p)` function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. 
-
-Each variable $X_i$ is created as:
-
-$$
-X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i
-$$
-
-where: 
-
-$\text{scale}_i \sim U(-10, 10)$: randomly chosen direction and stretch. 
-
-$\text{shift}_i \sim U(-300, 300)$: large offset to spread features apart. 
-
-$\epsilon \sim N(0, 0.03 \cdot n)$: Gaussian noise scaled to dataset size to introduce mild irregularity.
+The `gen_longlinear(n, p)` function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. Each variable $X_i$ is created as $X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i$, where $\text{scale}_i \sim U(-10, 10)$ is randomly chosen direction and stretch, $\text{shift}_i \sim U(-300, 300)$ is large offset to spread features apart, and $\epsilon \sim N(0, 0.03 \cdot n)$ is Gaussian noise.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_longlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>

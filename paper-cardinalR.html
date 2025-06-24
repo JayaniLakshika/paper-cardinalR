@@ -2024,19 +2024,14 @@ Figure 2: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </div>
 </div>
 <h5 class="unnumbered" data-number="2.2.2.3" id="gen_curvybranches"><code>gen_curvybranches()</code></h5>
-<p>The <code>gen_curvybranches(n, p, k)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming <span class="math inline">\(k\)</span> curvilinear branches embedded in <span class="math inline">\(p\text{-}D\)</span>. The underlying geometry lies in the first two dimensions, while the remaining <span class="math inline">\((p-2)\text{-}D\)</span> dimensions contain Gaussian noise.</p>
-<p>Branch 1 is generated from <span class="math inline">\(X_1 \sim U(0, 1)\)</span>, and <span class="math inline">\(X_2 = 0.1 \cdot X_1 + 1 \cdot X_1^2 + \epsilon\)</span>, where <span class="math inline">\(\epsilon \sim U(0, 0.05)\)</span>. This produces a gently upward-curving parabola in the right half-plane.</p>
-<p>Branch 2 is generated from <span class="math inline">\(X_{1} \sim U(-1, 0)\)</span>, and <span class="math inline">\(X_2 = 0.1 \cdot X_{1} - 2 \cdot X_{1}^2 + \epsilon\)</span>, where <span class="math inline">\(\epsilon \sim U(0, 0.05)\)</span>. This creates a steeper, leftward-facing curve in the left half-plane.</p>
-<p>Branches <span class="math inline">\(3\)</span> to <span class="math inline">\(k\)</span> are added iteratively. Each new branch begins at a randomly chosen point within a restricted horizontal band: <span class="math inline">\(X_{1} \in [-0.15, 0.15]\)</span> (to ensure connectivity with earlier branches), spans a unit-length interval on <span class="math inline">\(X_{1}\)</span>:<span class="math inline">\(X_1 \in [x_{\text{start}}, x_{\text{start}} + 1]\)</span>, and has the structure:</p>
+<p>The <code>gen_curvybranches(n, p, k)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming <span class="math inline">\(k\)</span> curvilinear branches embedded in <span class="math inline">\(p\text{-}D\)</span>. The underlying geometry lies in the first two dimensions, while the remaining <span class="math inline">\((p-2)\)</span> dimensions contain Gaussian noise.</p>
+<p>Branch <span class="math inline">\(1\)</span> is generated from <span class="math inline">\(X_1 \sim U(0, 1)\)</span>, and <span class="math inline">\(X_2 = 0.1 \cdot X_1 + 1 \cdot X_1^2 + \epsilon\)</span>, where <span class="math inline">\(\epsilon \sim U(0, 0.05)\)</span>. This produces a gently upward-curving parabola in the right half-plane. Branch <span class="math inline">\(2\)</span> is generated from <span class="math inline">\(X_{1} \sim U(-1, 0)\)</span>, and <span class="math inline">\(X_2 = 0.1 \cdot X_{1} - 2 \cdot X_{1}^2 + \epsilon\)</span>, where <span class="math inline">\(\epsilon \sim U(0, 0.05)\)</span>. This creates a steeper, leftward-facing curve in the left half-plane. Branches <span class="math inline">\(3\)</span> to <span class="math inline">\(k\)</span> are added iteratively. Each new branch <span class="math inline">\(i\)</span> begins at a randomly chosen point within a restricted horizontal band: <span class="math inline">\(X_{1} \in [-0.15, 0.15]\)</span> (to ensure connectivity with earlier branches), spans a unit-length interval on <span class="math inline">\(X_{1}\)</span>:<span class="math inline">\(X_1 \in [x_{\text{start}}, x_{\text{start}} + 1]\)</span>, and has the structure:</p>
 <p><span class="math display">\[
 X_2 = 0.1 \cdot X_1 - s_i \cdot (X_1^2 - x_{\text{start}}) + y_{\text{start}}, \quad s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1.5\}.
 \]</span></p>
 <p>Here, <span class="math inline">\(s_i\)</span> is a sampled scale factor (slope-like term) controlling curvature, and <span class="math inline">\((x_{\text{start}}, y_{\text{start}})\)</span> is the starting point from the existing structure.</p>
 <p>This construction yields <span class="math inline">\(k\)</span> spatially connected, nonlinear branches with varying curvature.</p>
-<p>For <span class="math inline">\(p &gt; 2\)</span>, the remaining dimensions are pure Gaussian noise:</p>
-<p><span class="math display">\[
-X_j \sim N(0, 0.05^2), \quad \text{for } j = 3, \dots, p.
-\]</span></p>
+<p>For <span class="math inline">\(p &gt; 2\)</span>, Gaussian noise <span class="math inline">\(X_j \sim N(0, 0.05^2)\)</span> is added to embed the <span class="math inline">\(2\text{-}D\)</span> branches into <span class="math inline">\(p\text{-}D\)</span>, where <span class="math inline">\(j = 3, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvybranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvybranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2316,12 +2311,7 @@ Figure 9: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </div>
 </div>
 <h4 class="unnumbered" data-number="2.2.5" id="gaussian">Gaussian</h4>
-<p>The <code>gen_gaussian(n, p, s)</code> function generates a multivariate Gaussian cloud in <span class="math inline">\(p\)</span>-dimensional space, centered at the origin with user-defined covariance structure.</p>
-<p>Each point is independently drawn using the multivariate normal distribution with:</p>
-<p><span class="math display">\[
-X_i \sim N_p(\boldsymbol{0}, \Sigma)
-\]</span></p>
-<p>where <span class="math inline">\(\Sigma\)</span> is a user-defined <span class="math inline">\(p \times p\)</span> positive-definite matrix.</p>
+<p>The <code>gen_gaussian(n, p, s)</code> function generates a multivariate Gaussian cloud in <span class="math inline">\(p\text{-}D\)</span>, centered at the origin with user-defined covariance structure. Each point is independently drawn using the multivariate normal distribution with <span class="math inline">\(X_i \sim N_p(\boldsymbol{0}, \Sigma)\)</span>, where <span class="math inline">\(\Sigma\)</span> is a user-defined <span class="math inline">\(p \times p\)</span> positive-definite matrix.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gau</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gaussian</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, s <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span><span class='op'>(</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
@@ -2348,15 +2338,7 @@ Figure 10: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 </div>
 <h4 class="unnumbered" data-number="2.2.6" id="linear">Linear</h4>
-<p>The <code>gen_longlinear(n, p)</code> function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise.</p>
-<p>Each variable <span class="math inline">\(X_i\)</span> is created as:</p>
-<p><span class="math display">\[
-X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i
-\]</span></p>
-<p>where:</p>
-<p><span class="math inline">\(\text{scale}_i \sim U(-10, 10)\)</span>: randomly chosen direction and stretch.</p>
-<p><span class="math inline">\(\text{shift}_i \sim U(-300, 300)\)</span>: large offset to spread features apart.</p>
-<p><span class="math inline">\(\epsilon \sim N(0, 0.03 \cdot n)\)</span>: Gaussian noise scaled to dataset size to introduce mild irregularity.</p>
+<p>The <code>gen_longlinear(n, p)</code> function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. Each variable <span class="math inline">\(X_i\)</span> is created as <span class="math inline">\(X_i = \text{scale}_i \cdot \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i\)</span>, where <span class="math inline">\(\text{scale}_i \sim U(-10, 10)\)</span> is randomly chosen direction and stretch, <span class="math inline">\(\text{shift}_i \sim U(-300, 300)\)</span> is large offset to spread features apart, and <span class="math inline">\(\epsilon \sim N(0, 0.03 \cdot n)\)</span> is Gaussian noise.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_longlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
