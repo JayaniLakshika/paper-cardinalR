@@ -527,6 +527,8 @@ For each point, a direction is sampled uniformly from a $(p-1)$-dimensional hype
 
 ### Cube
 
+A cube structure represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table \@ref(tab:cube-tb-html) outlines these functions and their purposes. 
+
 <div class="layout-chunk" data-layout="l-body">
 
 
