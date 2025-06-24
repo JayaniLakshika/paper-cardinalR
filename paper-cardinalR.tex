@@ -905,15 +905,8 @@ hemisphere <- gen_hemisphere(n = 1000, p = 4)
 
 \subsubsection{Swiss Roll}\label{swiss-roll}
 
-To further generalize the Swiss roll structure and introduce realistic noise, we define a function \texttt{gen\_swissroll(n,\ p,\ w)}, where \texttt{n} is the number of points, \texttt{p} is the total number of dimensions, and \texttt{w} is the vertical range in the third dimension.
-
-The first three dimensions form the classic \(3\text{-}D\) Swiss roll shape:
-
-\[
-X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad \text{with } t \sim U(0, 3\pi)
-\]
-
-For \(p > 3\), the remaining \(p - 3\) dimensions are filled with small Gaussian noise to simulate high-dimensional complexity.
+To further generalize the Swiss roll structure and introduce realistic noise, we define a function \texttt{gen\_swissroll(n,\ p,\ w)}, where \(n\) is the number of points, \(p\) is the total number of dimensions, and \(w\) is the vertical range in the third dimension.
+The first three dimensions form the classic \(3\text{-}D\) Swiss roll shape. The \(X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad \text{with } t \sim U(0, 3\pi)\). For \(p > 3\), the remaining \(p - 3\) dimensions are filled with small Gaussian noise to simulate high-dimensional complexity.
 
 \begin{verbatim}
 swissroll <- gen_swissroll(n = 1000, p = 4, w = c(-1, 1))
