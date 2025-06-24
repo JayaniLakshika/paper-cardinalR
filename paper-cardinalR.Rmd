@@ -2642,6 +2642,8 @@ scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
 
 ### Sphere
 
+Sphere-shaped structures are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The package provides functions to generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. These shapes help test how well methods preserve symmetry, curvature, and cluster separation. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:sphere-tb-html)', '\\@ref(tab:sphere-tb-pdf)'))` summarizes these functions.
+
 ```{r}
 sphere_tb <- tibble(fun = c("gen_circle",
                             "gen_curvycycle",

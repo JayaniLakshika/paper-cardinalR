@@ -1466,6 +1466,8 @@ This exclusion creates a hole in the manifold centered near the middle vertical 
 
 ### Sphere
 
+Sphere-shaped structures are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The package provides functions to generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. These shapes help test how well methods preserve symmetry, curvature, and cluster separation. Table \@ref(tab:sphere-tb-html) summarizes these functions.
+
 <div class="layout-chunk" data-layout="l-body">
 
 
