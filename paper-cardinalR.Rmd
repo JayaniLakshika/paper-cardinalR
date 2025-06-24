@@ -3989,6 +3989,6 @@ Looking ahead, future extensions of `cardinalR` could incorporate dynamic shape 
 
 # Acknowledgements
 
-The package is available at [https://github.com/JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR), and source material for this paper is available at [https://github.com/JayaniLakshika/paper-cardinalR](https://github.com/JayaniLakshika/paper-cardinalR).
+The source material for this paper is available at [https://github.com/JayaniLakshika/paper-cardinalR](https://github.com/JayaniLakshika/paper-cardinalR).
 
 These `R` packages were used for this work: `cli` [@gabor2025], `tibble` [@kirill2023], `gtools` [@gregory2023], `dplyr` [@hadley2023], `stats` [@core2025], `tidyr` [@hadley2024], `purrr` [@hadley2025], `mvtnorm` [@alan2009], `geozoo` [@barret2016], and `MASS` [@venables2002]. This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. 
