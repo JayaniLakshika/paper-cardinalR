@@ -979,6 +979,8 @@ $$
 
 ### Pyramid
 
+A pyramid structure represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with various base shapes—including rectangular, triangular, and star-shaped bases—with options for sharp or blunted apexes. Additionally, we offer functionality for creating pyramids containing structured holes, enabling the study of non-convex and sparse regions. These designs are valuable for testing the ability of dimension reduction and clustering algorithms to preserve and detect complex geometric features. Table \@ref(tab:pyramid-tb-html) summarizes these functions.
+
 <div class="layout-chunk" data-layout="l-body">
 
 
