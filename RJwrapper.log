@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  25 JUN 2025 01:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  25 JUN 2025 01:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -855,61 +855,62 @@ File: paper-cardinalR_files/figure-latex/fig-cone-proj-1.pdf Graphic file (type 
 <use paper-cardinalR_files/figure-latex/fig-cone-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-cone-proj-1.pdf  used on input line 233.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
+<paper-cardinalR_files/figure-latex/fig-gridcube-proj-1.pdf, id=162, 1060.96375pt x 338.26375pt>
+File: paper-cardinalR_files/figure-latex/fig-gridcube-proj-1.pdf Graphic file (type pdf)
+<use paper-cardinalR_files/figure-latex/fig-gridcube-proj-1.pdf>
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-gridcube-proj-1.pdf  used on input line 266.
+(pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
 [6 <./paper-cardinalR_files/figure-latex/fig-cone-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-gridcube-proj-1.pdf, id=179, 1060.96375pt x 338.26375pt>
-File: paper-cardinalR_files/figure-latex/fig-gridcube-proj-1.pdf Graphic file (type pdf)
-<use paper-cardinalR_files/figure-latex/fig-gridcube-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-gridcube-proj-1.pdf  used on input line 272.
-(pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 <paper-cardinalR_files/figure-latex/fig-unifcube-proj-1.pdf, id=180, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-unifcube-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-unifcube-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-unifcube-proj-1.pdf  used on input line 292.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-unifcube-proj-1.pdf  used on input line 280.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 <paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf, id=181, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf  used on input line 318.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf  used on input line 294.
+(pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
+<paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf, id=182, 1060.96375pt x 338.26375pt>
+File: paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf Graphic file (type pdf)
+<use paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf>
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf  used on input line 306.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
 [7 <./paper-cardinalR_files/figure-latex/fig-gridcube-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-unifcube-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf, id=212, 1060.96375pt x 338.26375pt>
-File: paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf Graphic file (type pdf)
-<use paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf  used on input line 330.
-(pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 <paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf, id=213, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf  used on input line 342.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf  used on input line 318.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
-<paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf, id=214, 1060.96375pt x 338.26375pt>
+
+
+[8 <./paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf, id=254, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf  used on input line 356.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf  used on input line 332.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
-
-
-[8 <./paper-cardinalR_files/figure-latex/fig-cubehole-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-gau-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-quadratic-proj-1.pdf, id=244, 1060.96375pt x 338.26375pt>
+<paper-cardinalR_files/figure-latex/fig-quadratic-proj-1.pdf, id=256, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-quadratic-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-quadratic-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-quadratic-proj-1.pdf  used on input line 396.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-quadratic-proj-1.pdf  used on input line 372.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
-
-[9 <./paper-cardinalR_files/figure-latex/fig-linear-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf>]
-Overfull \hbox (36.05975pt too wide) in paragraph at lines 403--404
+Overfull \hbox (36.05975pt too wide) in paragraph at lines 379--380
 []\T1/ppl/m/n/9 (-20) The shape is gen-er-ated us-ing a third-degree raw poly-no-mial ba-sis ex-pan-sion. Let $\OML/zplm/m/it/9 X[] \OMS/zplm/m/n/9 ^^X \OML/zplm/m/it/9 U\OT1/zplm/m/n/9 ([][\OT1/ppl/m/n/9 (-20) 1\OT1/zplm/m/n/9 ]\OT1/ppl/m/n/9 (-20) , []\OT1/zplm/m/n/9 [\OT1/ppl/m/n/9 (-20) 2\OT1/zplm/m/n/9 ])$
  []
 
+
+
+[9 <./paper-cardinalR_files/figure-latex/fig-mobius-proj-1.pdf>]
 <paper-cardinalR_files/figure-latex/fig-cubic-proj-1.pdf, id=274, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-cubic-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-cubic-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-cubic-proj-1.pdf  used on input line 416.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-cubic-proj-1.pdf  used on input line 392.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
@@ -917,7 +918,7 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-cubic-proj-1.pdf
 <paper-cardinalR_files/figure-latex/fig-pyrrect-proj-1.pdf, id=306, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-pyrrect-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-pyrrect-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrrect-proj-1.pdf  used on input line 477.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrrect-proj-1.pdf  used on input line 453.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
@@ -925,7 +926,7 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrrect-proj-1.p
 <paper-cardinalR_files/figure-latex/fig-pyrtri-proj-1.pdf, id=323, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-pyrtri-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-pyrtri-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrtri-proj-1.pdf  used on input line 557.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrtri-proj-1.pdf  used on input line 533.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
@@ -933,107 +934,108 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrtri-proj-1.pd
 <paper-cardinalR_files/figure-latex/fig-pyrstar-proj-1.pdf, id=340, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-pyrstar-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-pyrstar-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrstar-proj-1.pdf  used on input line 603.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrstar-proj-1.pdf  used on input line 579.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
-LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 627.
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 603.
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
-
-[13 <./paper-cardinalR_files/figure-latex/fig-pyrstar-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf, id=359, 1060.96375pt x 338.26375pt>
+<paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf, id=341, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf  used on input line 635.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf  used on input line 611.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
+
+
+[13 <./paper-cardinalR_files/figure-latex/fig-pyrstar-proj-1.pdf>]
 <paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf, id=361, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf  used on input line 675.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf  used on input line 651.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
-[14 <./paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-scurvehole-proj-1.pdf, id=379, 1060.96375pt x 338.26375pt>
+[14 <./paper-cardinalR_files/figure-latex/fig-pyrholes-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-scurvehole-proj-1.pdf, id=391, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-scurvehole-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-scurvehole-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-scurvehole-proj-1.pdf  used on input line 695.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-scurvehole-proj-1.pdf  used on input line 671.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
-[15 <./paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-scurvehole-proj-1.pdf>]
+[15 <./paper-cardinalR_files/figure-latex/fig-scurvehole-proj-1.pdf>]
 <paper-cardinalR_files/figure-latex/fig-circle-proj-1.pdf, id=410, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-circle-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-circle-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-circle-proj-1.pdf  used on input line 746.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-circle-proj-1.pdf  used on input line 722.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 <paper-cardinalR_files/figure-latex/fig-curvycycle-proj-1.pdf, id=411, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-curvycycle-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-curvycycle-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-curvycycle-proj-1.pdf  used on input line 766.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-curvycycle-proj-1.pdf  used on input line 742.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
-[16 <./paper-cardinalR_files/figure-latex/fig-circle-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-unifsphere-proj-1.pdf, id=429, 1060.96375pt x 338.26375pt>
+[16 <./paper-cardinalR_files/figure-latex/fig-circle-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-curvycycle-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-unifsphere-proj-1.pdf, id=441, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-unifsphere-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-unifsphere-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-unifsphere-proj-1.pdf  used on input line 802.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-unifsphere-proj-1.pdf  used on input line 778.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
-[17 <./paper-cardinalR_files/figure-latex/fig-curvycycle-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-unifsphere-proj-1.pdf>]
+[17 <./paper-cardinalR_files/figure-latex/fig-unifsphere-proj-1.pdf>]
 <paper-cardinalR_files/figure-latex/fig-gridedsphere-proj-1.pdf, id=458, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-gridedsphere-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-gridedsphere-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-gridedsphere-proj-1.pdf  used on input line 840.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-gridedsphere-proj-1.pdf  used on input line 816.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 <paper-cardinalR_files/figure-latex/fig-clusteredspheres-proj-1.pdf, id=459, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-clusteredspheres-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-clusteredspheres-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-clusteredspheres-proj-1.pdf  used on input line 862.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-clusteredspheres-proj-1.pdf  used on input line 838.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
-[18 <./paper-cardinalR_files/figure-latex/fig-gridedsphere-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf, id=476, 1060.96375pt x 338.26375pt>
+[18 <./paper-cardinalR_files/figure-latex/fig-gridedsphere-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-clusteredspheres-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf, id=488, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf  used on input line 901.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf  used on input line 877.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
-<paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf, id=477, 1060.96375pt x 338.26375pt>
+<paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf, id=489, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf  used on input line 914.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf  used on input line 890.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
-[19 <./paper-cardinalR_files/figure-latex/fig-clusteredspheres-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf, id=508, 1060.96375pt x 338.26375pt>
+[19 <./paper-cardinalR_files/figure-latex/fig-hemisphere-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf, id=520, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf  used on input line 970.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf  used on input line 946.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
-[20 <./paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf, id=526, 1060.96375pt x 338.26375pt>
+[20 <./paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf, id=538, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf  used on input line 1010.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf  used on input line 986.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
-
-
-[21 <./paper-cardinalR_files/figure-latex/fig-crescent-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf, id=556, 1060.96375pt x 338.26375pt>
+<paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf, id=539, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf  used on input line 1051.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-sphericalspiral-proj-1.pdf  used on input line 1027.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
+
+
+[21 <./paper-cardinalR_files/figure-latex/fig-curvycylinder-proj-1.pdf>]
 <paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf, id=557, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf  used on input line 1085.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-helicalspiral-proj-1.pdf  used on input line 1061.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
@@ -1041,51 +1043,52 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-helicalspiral-pr
 <paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf, id=586, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf  used on input line 1116.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf  used on input line 1092.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 <paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf, id=587, 1060.96375pt x 338.26375pt>
 File: paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf  used on input line 1142.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf  used on input line 1118.
 (pdftex.def)             Requested size: 398.33858pt x 127.00343pt.
 
 
-[23 <./paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf, id=620, 1060.96375pt x 334.24875pt>
+[23 <./paper-cardinalR_files/figure-latex/fig-conicspiral-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf, id=632, 1060.96375pt x 334.24875pt>
 File: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf  used on input line 1213.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf  used on input line 1189.
 (pdftex.def)             Requested size: 398.33858pt x 125.49597pt.
-<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=621, 411.5375pt x 298.11375pt>
+
+
+[24]
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=645, 411.5375pt x 298.11375pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 1219.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 1195.
 (pdftex.def)             Requested size: 398.33858pt x 288.5559pt.
 
-
-[24 <./paper-cardinalR_files/figure-latex/fig-nonlinear-proj-1.pdf>]
-
-[25 <./paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf>]
-Overfull \hbox (4.36624pt too wide) in paragraph at lines 1226--1227
+Overfull \hbox (4.36624pt too wide) in paragraph at lines 1202--1203
 \T1/ppl/m/n/9 (-20) The \T1/zi4/m/n/9 cardinalR \T1/ppl/m/n/9 (-20) pack-age con-tributes a flex-i-ble and ex-ten-si-ble frame-work for gen-er-at-ing high-dimensional
  []
 
 
 
-[26 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>] (./RJwrapper.bbl (./RJwrapper.brf)
+[25 <./paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf>] (./RJwrapper.bbl (./RJwrapper.brf)
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
 
 
-[27])
+[26 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 1252.
+(Font)              using `T1/zi4/m/n' instead on input line 1228.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 1262.
-)
+(Font)              scaled to size 9.18004pt on input line 1238.
+
+
+[27])
 
 [28] (./RJwrapper.aux)
  ***********
@@ -1098,18 +1101,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: AFCF892BB92D8F0C10E5C885EDC59BF5;1261.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: E17D4E2E61C09347C50B1E3DA030CE07;1026.
+(rerunfilecheck)             Checksum: 5929BFD2057415953F4D3341D5C488C8;1026.
  ) 
 Here is how much of TeX's memory you used:
  27855 strings out of 469867
  520774 string characters out of 5483388
- 922103 words of memory out of 5000000
+ 919103 words of memory out of 5000000
  55162 multiletter control sequences out of 15000+600000
  690606 words of font info for 387 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,12n,131p,1194b,968s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,12n,131p,1194b,992s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (28 pages, 9760809 bytes).
+Output written on RJwrapper.pdf (28 pages, 9760798 bytes).
 PDF statistics:
  871 PDF objects out of 1000 (max. 8388607)
  704 compressed objects within 8 object streams

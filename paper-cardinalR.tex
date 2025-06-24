@@ -256,13 +256,7 @@ gen\_cubehole & Generate a cube with a hole.\\
 
 The \texttt{gen\_gridcube(n,\ p)} constructs a regular grid using approximately \(n\) points by evenly partitioning each of the \(p\) dimensions. Specifically, the number of grid points along each axis is determined by \texttt{gen\_nproduct(n,\ p)}, which calculates the nearest balanced integer factors whose product is close to \(n\). The full grid is generated via \texttt{expand\_grid()}, giving Cartesian combinations of these evenly spaced positions.
 
-Each variable \(X_j\) represents integer grid coordinates (e.g., 1, 2, 3, \ldots) in dimension \(j\):
-
-\[
-X_j \in {1, \dots, k_j},\text{ where }\prod_{j=1}^p k_j \approx n.
-\]
-
-This results in a hypercube-shaped lattice in \(p\)-dimensional space.
+Each variable \(X_j\) represents integer grid coordinates (e.g., 1, 2, 3, \ldots) in dimension \(j\): \(X_j \in {1, \dots, k_j},\text{ where }\prod_{j=1}^p k_j \approx n\). This results in a hypercube-shaped lattice in \(p\text{-}D\).
 
 \begin{verbatim}
 gridcube <- gen_gridcube(n = 1000, p = 4)
@@ -274,15 +268,9 @@ gridcube <- gen_gridcube(n = 1000, p = 4)
 
 \paragraph{\texorpdfstring{\texttt{gen\_unifcube()}}{gen\_unifcube()}}\label{gen_unifcube}
 
-The \texttt{gen\_unifcube(n,\ p)} function generates \(n\) points uniformly distributed within a \(3\text{-}D\) cube centered at the origin, optionally embedded in a higher-dimensional space with additional noise dimensions.
+The \texttt{gen\_unifcube(n,\ p)} function generates \(n\) points uniformly distributed within a \(3\text{-}D\) cube centered at the origin, optionally embedded in \(p\text{-}D\) with additional noise dimensions.
 
-Points are sampled independently from \(X_1, X_2, X_3 \sim U(-0.5, 0.5)\) of a cube of side length 1. This results in a uniform cloud of points filling the unit cube in \(3\text{-}D\) space.
-
-For \(p > 3\), the remaining dimensions are filled with Gaussian noise:
-
-\[
-X_j \sim N(0, 0.05^2), \quad j = 4, \dots, p.
-\]
+Points are sampled independently from \(X_1, X_2, X_3 \sim U(-0.5, 0.5)\) of a cube of side length \(1\). This results in a uniform cloud of points filling the unit cube in \(3\text{-}D\) space. For \(p > 3\), Gaussian noise \(X_j \sim N(0, 0.05^2)\) is added to embed the \(3\text{-}D\) structure into \(p\text{-}D\), where \(j = 4, \dots, p\).
 
 \begin{verbatim}
 unifcube <- gen_unifcube(n = 1000, p = 4)
@@ -294,21 +282,9 @@ unifcube <- gen_unifcube(n = 1000, p = 4)
 
 \paragraph{\texorpdfstring{\texttt{gen\_cubehole()}}{gen\_cubehole()}}\label{gen_cubehole}
 
-The \texttt{gen\_cubehole(n,\ p)} function generates a dataset of \(n\) points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in \(p\)-dimensional space.
+The \texttt{gen\_cubehole(n,\ p)} function generates a dataset of \(n\) points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in \(p\text{-}D\).
 
-The initial points are drawn from a uniform cube centered at the origin: \(X_1, X_2, X_3 \sim U(-0.5, 0.5)\).
-
-The center of the cube is \((0, 0, 0)\). A spherical hole of radius \(0.5\) is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to \(0.5\):
-
-Remove if \(\sqrt{X_1^2 + X_2^2 + X_3^2} \leq 0.5\).
-
-This results in a shell-like point cloud that fills the cube but avoids the spherical center.
-
-For \(p > 3\), Gaussian noise is added to the remaining dimensions (via \texttt{gen\_unifcube()}):
-
-\[
-X_j \sim N(0, 0.05^2), \quad j = 4, \dots, p.
-\].
+The initial points are drawn from a uniform cube centered at the origin: \(X_1, X_2, X_3 \sim U(-0.5, 0.5)\). The center of the cube is \((0, 0, 0)\). A spherical hole of radius \(0.5\) is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to \(0.5\): Remove if \(\sqrt{X_1^2 + X_2^2 + X_3^2} \leq 0.5\). This results in a shell-like point cloud that fills the cube but avoids the spherical center. For \(p > 3\), Gaussian noise \(X_j \sim N(0, 0.05^2)\) is added to embed the \(3\text{-}D\) structure into \(p\text{-}D\), where \(j = 4, \dots, p\).
 
 \begin{verbatim}
 cubehole <- gen_cubehole(n = 1000, p = 4)

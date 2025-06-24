@@ -2206,11 +2206,7 @@ Figure 6: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </div>
 <h5 class="unnumbered" data-number="2.2.4.1" id="gen_gridcube"><code>gen_gridcube()</code></h5>
 <p>The <code>gen_gridcube(n, p)</code> constructs a regular grid using approximately <span class="math inline">\(n\)</span> points by evenly partitioning each of the <span class="math inline">\(p\)</span> dimensions. Specifically, the number of grid points along each axis is determined by <code>gen_nproduct(n, p)</code>, which calculates the nearest balanced integer factors whose product is close to <span class="math inline">\(n\)</span>. The full grid is generated via <code>expand_grid()</code>, giving Cartesian combinations of these evenly spaced positions.</p>
-<p>Each variable <span class="math inline">\(X_j\)</span> represents integer grid coordinates (e.g., 1, 2, 3, …) in dimension <span class="math inline">\(j\)</span>:</p>
-<p><span class="math display">\[
-X_j \in {1, \dots, k_j},\text{ where }\prod_{j=1}^p k_j \approx n.
-\]</span></p>
-<p>This results in a hypercube-shaped lattice in <span class="math inline">\(p\)</span>-dimensional space.</p>
+<p>Each variable <span class="math inline">\(X_j\)</span> represents integer grid coordinates (e.g., 1, 2, 3, …) in dimension <span class="math inline">\(j\)</span>: <span class="math inline">\(X_j \in {1, \dots, k_j},\text{ where }\prod_{j=1}^p k_j \approx n\)</span>. This results in a hypercube-shaped lattice in <span class="math inline">\(p\text{-}D\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2237,12 +2233,8 @@ Figure 7: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </div>
 </div>
 <h5 class="unnumbered" data-number="2.2.4.2" id="gen_unifcube"><code>gen_unifcube()</code></h5>
-<p>The <code>gen_unifcube(n, p)</code> function generates <span class="math inline">\(n\)</span> points uniformly distributed within a <span class="math inline">\(3\text{-}D\)</span> cube centered at the origin, optionally embedded in a higher-dimensional space with additional noise dimensions.</p>
-<p>Points are sampled independently from <span class="math inline">\(X_1, X_2, X_3 \sim U(-0.5, 0.5)\)</span> of a cube of side length 1. This results in a uniform cloud of points filling the unit cube in <span class="math inline">\(3\text{-}D\)</span> space.</p>
-<p>For <span class="math inline">\(p &gt; 3\)</span>, the remaining dimensions are filled with Gaussian noise:</p>
-<p><span class="math display">\[
-X_j \sim N(0, 0.05^2), \quad j = 4, \dots, p.
-\]</span></p>
+<p>The <code>gen_unifcube(n, p)</code> function generates <span class="math inline">\(n\)</span> points uniformly distributed within a <span class="math inline">\(3\text{-}D\)</span> cube centered at the origin, optionally embedded in <span class="math inline">\(p\text{-}D\)</span> with additional noise dimensions.</p>
+<p>Points are sampled independently from <span class="math inline">\(X_1, X_2, X_3 \sim U(-0.5, 0.5)\)</span> of a cube of side length <span class="math inline">\(1\)</span>. This results in a uniform cloud of points filling the unit cube in <span class="math inline">\(3\text{-}D\)</span> space. For <span class="math inline">\(p &gt; 3\)</span>, Gaussian noise <span class="math inline">\(X_j \sim N(0, 0.05^2)\)</span> is added to embed the <span class="math inline">\(3\text{-}D\)</span> structure into <span class="math inline">\(p\text{-}D\)</span>, where <span class="math inline">\(j = 4, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2269,15 +2261,8 @@ Figure 8: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 </div>
 </div>
 <h5 class="unnumbered" data-number="2.2.4.3" id="gen_cubehole"><code>gen_cubehole()</code></h5>
-<p>The <code>gen_cubehole(n, p)</code> function generates a dataset of <span class="math inline">\(n\)</span> points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in <span class="math inline">\(p\)</span>-dimensional space.</p>
-<p>The initial points are drawn from a uniform cube centered at the origin: <span class="math inline">\(X_1, X_2, X_3 \sim U(-0.5, 0.5)\)</span>.</p>
-<p>The center of the cube is <span class="math inline">\((0, 0, 0)\)</span>. A spherical hole of radius <span class="math inline">\(0.5\)</span> is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to <span class="math inline">\(0.5\)</span>:</p>
-<p>Remove if <span class="math inline">\(\sqrt{X_1^2 + X_2^2 + X_3^2} \leq 0.5\)</span>.</p>
-<p>This results in a shell-like point cloud that fills the cube but avoids the spherical center.</p>
-<p>For <span class="math inline">\(p &gt; 3\)</span>, Gaussian noise is added to the remaining dimensions (via <code>gen_unifcube()</code>):</p>
-<p><span class="math display">\[
-X_j \sim N(0, 0.05^2), \quad j = 4, \dots, p.
-\]</span>.</p>
+<p>The <code>gen_cubehole(n, p)</code> function generates a dataset of <span class="math inline">\(n\)</span> points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in <span class="math inline">\(p\text{-}D\)</span>.</p>
+<p>The initial points are drawn from a uniform cube centered at the origin: <span class="math inline">\(X_1, X_2, X_3 \sim U(-0.5, 0.5)\)</span>. The center of the cube is <span class="math inline">\((0, 0, 0)\)</span>. A spherical hole of radius <span class="math inline">\(0.5\)</span> is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to <span class="math inline">\(0.5\)</span>: Remove if <span class="math inline">\(\sqrt{X_1^2 + X_2^2 + X_3^2} \leq 0.5\)</span>. This results in a shell-like point cloud that fills the cube but avoids the spherical center. For <span class="math inline">\(p &gt; 3\)</span>, Gaussian noise <span class="math inline">\(X_j \sim N(0, 0.05^2)\)</span> is added to embed the <span class="math inline">\(3\text{-}D\)</span> structure into <span class="math inline">\(p\text{-}D\)</span>, where <span class="math inline">\(j = 4, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
