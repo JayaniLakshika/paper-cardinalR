@@ -2842,16 +2842,7 @@ Figure 20: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 <h5 class="unnumbered" data-number="2.2.11.1" id="gen_circle"><code>gen_circle()</code></h5>
 <p>The function <code>gen_circle(n, p)</code> generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations, where the first two dimensions form a unit circle, and the remaining dimensions are structured sinusoidal extensions of the angular parameter with progressively smaller scale.</p>
-<p>A latent angle variable <span class="math inline">\(\theta\)</span> is uniformly sampled from the interval <span class="math inline">\([0, 2\pi]\)</span>. Coordinates in the first two dimensions represent a perfect circle on the plane:</p>
-<p><span class="math display">\[
-X_1 = \cos(\theta), \quad X_2 = \sin(\theta)
-\]</span></p>
-<p>For dimensions <span class="math inline">\(X_3\)</span> through <span class="math inline">\(X_p\)</span>, sinusoidal transformations of the angle <span class="math inline">\(\theta\)</span> are introduced. The first component is a scaling factor that decreases with the dimension index, defined as <span class="math inline">\(\text{scale}_j = \sqrt{(0.5)^{j-2}}\)</span> for <span class="math inline">\(j = 3, \dots, p\)</span>. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula <span class="math inline">\(\phi_j = (j - 2) \cdot \frac{\pi}{2p}\)</span>.</p>
-<p>Each additional dimension is computed as:</p>
-<p><span class="math display">\[
-X_j = \text{scale}_{j} \cdot \sin(\theta + \phi_j), \quad j = 3, \dots, p
-\]</span></p>
-<p>This structure retains a one-dimensional manifold (the circle) but allows it to be embedded non-linearly and decorrelatively in higher dimensions. The decreasing scale ensures that higher dimensions add less variation, preserving the dominance of the circular shape while adding complexity.</p>
+<p>A latent angle variable <span class="math inline">\(\theta\)</span> is uniformly sampled from the interval <span class="math inline">\([0, 2\pi]\)</span>. Coordinates in the first two dimensions represent a perfect circle on the plane: <span class="math inline">\(X_1 = \cos(\theta), \quad X_2 = \sin(\theta)\)</span>. For dimensions <span class="math inline">\(X_3\)</span> through <span class="math inline">\(X_p\)</span>, sinusoidal transformations of the angle <span class="math inline">\(\theta\)</span> are introduced. The first component is a scaling factor that decreases with the dimension index, defined as <span class="math inline">\(\text{scale}_j = \sqrt{(0.5)^{j-2}}\)</span> for <span class="math inline">\(j = 3, \dots, p\)</span>. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula <span class="math inline">\(\phi_j = (j - 2) \cdot \frac{\pi}{2p}\)</span>. Each additional dimension is computed as: <span class="math inline">\(X_j = \text{scale}_{j} \cdot \sin(\theta + \phi_j), \quad j = 3, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>circle</span> <span class='op'>&lt;-</span> <span class='fu'>gen_circle</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2880,9 +2871,7 @@ Figure 21: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 <h5 class="unnumbered" data-number="2.2.11.2" id="gen_curvycycle"><code>gen_curvycycle()</code></h5>
 <p>The <code>gen_curvycycle(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations lying on a curved closed loop with controlled high-dimensional sinusoidal deviations. The structure forms a one-dimensional nonlinear cycle embedded in higher-dimensional space.</p>
 <p>A latent angle variable <span class="math inline">\(\theta\)</span> is uniformly sampled from the interval <span class="math inline">\([0, 2\pi]\)</span>. The first three dimensions define a non-circular closed curve, referred to as a “curvy cycle.” In this configuration, <span class="math inline">\(X_1 = \cos(\theta)\)</span> represents horizontal oscillation, while <span class="math inline">\(X_2 = \sqrt{3}/3 + \sin(\theta)\)</span> introduces a vertical offset to avoid centering the curve at the origin. Additionally, <span class="math inline">\(X_3 = \frac{1}{3} \cdot \cos(3\theta)\)</span> introduces a third harmonic perturbation that intricately folds the curve three times along its path, creating a unique and complex shape that oscillates in both dimensions while incorporating the effects of the harmonic perturbation.</p>
-<p>Together, these define a periodic, non-trivial, closed curve in <span class="math inline">\(3\text{-}D\)</span> with internal folds that produce a more complex geometry than a standard circle or ellipse.</p>
-<p>For dimensions <span class="math inline">\(X_4\)</span> through <span class="math inline">\(X_p\)</span>, additional structured variability is introduced through decreasing amplitude scaling and phase-shifted sine waves. The scaling factor is defined as <span class="math inline">\(\text{scale}_j = \sqrt{(0.5)^{j-3}}\)</span> for <span class="math inline">\(j\)</span> ranging from 4 to <span class="math inline">\(p\)</span>, which means that the amplitude decreases as the dimension increases. Each dimension <span class="math inline">\(X_j\)</span> is then calculated using the formula <span class="math inline">\(X_j = \text{scale}_j \cdot \sin(\theta + \phi_j)\)</span>, where the phase shift <span class="math inline">\(\phi_j\)</span> is given by <span class="math inline">\(\phi_j = (j - 2) \cdot \frac{\pi}{2p}\)</span>.</p>
-<p>This introduces decorrelated, low-variance sinusoidal variations across dimensions, retaining the cyclical nature while embedding the data in higher-dimensional space with a coherent but subtle structure.</p>
+<p>Together, these define a periodic, non-trivial, closed curve in <span class="math inline">\(3\text{-}D\)</span> with internal folds that produce a more complex geometry than a standard circle or ellipse. For dimensions <span class="math inline">\(X_4\)</span> through <span class="math inline">\(X_p\)</span>, additional structured variability is introduced through decreasing amplitude scaling and phase-shifted sine waves. The scaling factor is defined as <span class="math inline">\(\text{scale}_j = \sqrt{(0.5)^{j-3}}\)</span> for <span class="math inline">\(j\)</span> ranging from <span class="math inline">\(4\)</span> to <span class="math inline">\(p\)</span>, which means that the amplitude decreases as the dimension increases. Each dimension <span class="math inline">\(X_j\)</span> is then calculated using the formula <span class="math inline">\(X_j = \text{scale}_j \cdot \sin(\theta + \phi_j)\)</span>, where the phase shift <span class="math inline">\(\phi_j\)</span> is given by <span class="math inline">\(\phi_j = (j - 2) \cdot \frac{\pi}{2p}\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvycycle</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvycycle</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2910,23 +2899,7 @@ Figure 22: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 <h5 class="unnumbered" data-number="2.2.11.3" id="gen_unifsphere"><code>gen_unifsphere()</code></h5>
 <p>The <code>gen_unifsphere(n, p, r)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations distributed approximately uniformly on the surface of a <span class="math inline">\(3\text{-}D\)</span> sphere of radius <span class="math inline">\(r\)</span>, with additional Gaussian noise dimensions added when <span class="math inline">\(p &gt; 3\)</span>.</p>
-<p>Each observation lies on the surface of a sphere in <span class="math inline">\(3\text{-}D\)</span>, constructed by generating <span class="math inline">\(u \sim U(-1, 1)\)</span> which represents the cosine of the polar angle <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\theta \sim U(0, 2\pi)\)</span> which represents the azimuthal angle.</p>
-<p>The corresponding Cartesian coordinates are calculated as;</p>
-<p><span class="math display">\[
-X_1 = r \cdot \sqrt{1 - u^2} \cdot \cos(\theta),
-\]</span>
-<span class="math display">\[
-X_2 = r \cdot \sqrt{1 - u^2} \cdot \sin(\theta),
-\]</span>
-<span class="math display">\[
-X_3 = r \cdot u,
-\]</span></p>
-<p>which gives points uniformly distributed on the surface of a <span class="math inline">\(3\text{-}D\)</span> sphere (not within).</p>
-<p>For <span class="math inline">\(p &gt; 3\)</span>, additional dimensions <span class="math inline">\(X_4\)</span> to <span class="math inline">\(X_p\)</span> are generated as low-variance Gaussian noise:</p>
-<p><span class="math display">\[
-X_j \sim N(0, 0.05^2),\text{ for }j = 4, \dots, p.
-\]</span></p>
-<p>This extends the <span class="math inline">\(3\text{-}D\)</span> spherical manifold into <span class="math inline">\(p\)</span>-dimensional space with orthogonal Gaussian noise, preserving the spherical structure while allowing for testing in higher-dimensional settings.</p>
+<p>Each observation lies on the surface of a sphere in <span class="math inline">\(3\text{-}D\)</span>, constructed by generating <span class="math inline">\(u \sim U(-1, 1)\)</span> which represents the cosine of the polar angle <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\theta \sim U(0, 2\pi)\)</span> which represents the azimuthal angle. The corresponding Cartesian coordinates are calculated as; <span class="math inline">\(X_1 = r \cdot \sqrt{1 - u^2} \cdot \cos(\theta)\)</span>, <span class="math inline">\(X_2 = r \cdot \sqrt{1 - u^2} \cdot \sin(\theta)\)</span>, <span class="math inline">\(X_3 = r \cdot u\)</span>, which gives points uniformly distributed on the surface of a <span class="math inline">\(3\text{-}D\)</span> sphere (not within). For <span class="math inline">\(p &gt; 3\)</span>, additional dimensions <span class="math inline">\(X_4\)</span> to <span class="math inline">\(X_p\)</span> are generated as low-variance Gaussian noise: <span class="math inline">\(X_j \sim N(0, 0.05^2),\text{ for }j = 4, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifsphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifsphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2954,24 +2927,9 @@ Figure 23: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 <h5 class="unnumbered" data-number="2.2.11.4" id="gen_gridedsphere"><code>gen_gridedsphere()</code></h5>
 <p>The <code>gen_gridedsphere(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of approximately <span class="math inline">\(n\)</span> observations evenly distributed on the surface of a <span class="math inline">\(3\text{-}D\)</span> unit sphere, with optional Gaussian noise dimensions when <span class="math inline">\(p &gt; 3\)</span>.</p>
-<p>The base structure consists of a <span class="math inline">\(3\text{-}D\)</span> spherical surface created using a regular grid in spherical coordinates, where <span class="math inline">\(\theta \in [0, 2\pi]\)</span> represents the azimuthal angle (longitude) and <span class="math inline">\(\phi \in [0, \pi]\)</span> denotes the polar angle (co-latitude).</p>
+<p>The base structure consists of a <span class="math inline">\(3\text{-}D\)</span> spherical surface created using a regular grid in spherical coordinates, where <span class="math inline">\(\theta \in [0, 2\pi]\)</span> represents the azimuthal angle and <span class="math inline">\(\phi \in [0, \pi]\)</span> denotes the polar angle.</p>
 <p>The number of grid steps along each dimension is determined by factoring <span class="math inline">\(n\)</span> into two approximately equal integers via <code>gen_nproduct(n, p = 2)</code>.</p>
-<p>Each point on the sphere is computed using the spherical-to-Cartesian transformation:</p>
-<p><span class="math display">\[
-X_1 = \sin(\phi) \cdot \cos(\theta),
-\]</span>
-<span class="math display">\[
-X_2 = \sin(\phi) \cdot \sin(\theta),
-\]</span>
-<span class="math display">\[
-X_3 = \cos(\phi).
-\]</span></p>
-<p>This forms a structured grid of points on the unit sphere, ideal for studying how regular geometric manifolds are transformed under nonlinear dimensionality reduction.</p>
-<p>For <span class="math inline">\(p &gt; 3\)</span>, the manifold is embedded in a higher-dimensional space by adding Gaussian noise dimensions:</p>
-<p><span class="math display">\[
-X_j \sim N(0, 0.05^2),\text{ for }j = 4, \dots, p.
-\]</span></p>
-<p>These dimensions represent low-variance orthogonal noise, preserving the spherical shape while testing robustness in high-dimensional settings.</p>
+<p>Each point on the sphere is computed using the spherical-to-Cartesian transformation: <span class="math inline">\(X_1 = \sin(\phi) \cdot \cos(\theta)\)</span>, <span class="math inline">\(X_2 = \sin(\phi) \cdot \sin(\theta)\)</span>, <span class="math inline">\(X_3 = \cos(\phi)\)</span>. For <span class="math inline">\(p &gt; 3\)</span>, the manifold is embedded in a higher-dimensional space by adding Gaussian noise dimensions: <span class="math inline">\(X_j \sim N(0, 0.05^2),\text{ for }j = 4, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridedsphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridedsphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -2998,11 +2956,10 @@ Figure 24: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 </div>
 <h5 class="unnumbered" data-number="2.2.11.5" id="gen_clusteredspheres"><code>gen_clusteredspheres()</code></h5>
-<p>The <code>gen_clusteredspheres(n, k, p, r, loc)</code> function generates a synthetic dataset of <span class="math inline">\(n_1 + k \cdot n_2\)</span> observations in <span class="math inline">\(p\)</span>-dimensional space, consisting of one large sphere of radius <span class="math inline">\(r_1\)</span> and <span class="math inline">\(k\)</span> smaller spheres of radius <span class="math inline">\(r_2\)</span>, each centered at a different random location.</p>
-<p>A large uniform sphere centered at the origin is created by sampling <span class="math inline">\(n_1\)</span> points uniformly on the surface of a <span class="math inline">\(p\)</span>-dimensional sphere with a radius of <span class="math inline">\(r_1\)</span>. The sampling is executed using the function <code>gen_unifsphere(n_1, p, r_1)</code>, which generates the desired points in the specified dimensional space.</p>
+<p>The <code>gen_clusteredspheres(n, k, p, r, loc)</code> function generates a synthetic dataset of <span class="math inline">\(n_1 + kn_2\)</span> observations in <span class="math inline">\(p\)</span>-dimensional space, consisting of one large sphere of radius <span class="math inline">\(r_1\)</span> and <span class="math inline">\(k\)</span> smaller spheres of radius <span class="math inline">\(r_2\)</span>, each centered at a different random location.</p>
+<p>A large uniform sphere centered at the origin is created by sampling <span class="math inline">\(n_1\)</span> points uniformly on the surface of a <span class="math inline">\(p\text{-}D\)</span> sphere with a radius of <span class="math inline">\(r_1\)</span>. The sampling is executed using the function <code>gen_unifsphere(n_1, p, r_1)</code>, which generates the desired points in the specified dimensional space.</p>
 <p>In generation of <span class="math inline">\(k\)</span> smaller uniform spheres, each sphere contains <span class="math inline">\(n_2\)</span> points that are sampled uniformly on a sphere with a radius of <span class="math inline">\(r_2\)</span>. These spheres are positioned at distinct random locations in <span class="math inline">\(p\)</span>-space, with the center of each sphere being drawn from a normal distribution <span class="math inline">\(N(0, \texttt{loc}^2 I_p)\)</span>.</p>
-<p>Points on spheres are generated using the standard hyperspherical method, which involves sampling <span class="math inline">\(u \sim U(-1, 1)\)</span> to determine the cosine of the polar angle, and sampling <span class="math inline">\(\theta \sim U(0, 2\pi)\)</span> to determine the azimuthal angle (for 3D).</p>
-<p>Each observation is classified by cluster, with labels such as “big” for the large central sphere and “small_1” to “small_k” for the smaller spheres.</p>
+<p>Points on spheres are generated using the standard hyperspherical method, which involves sampling <span class="math inline">\(u \sim U(-1, 1)\)</span> to determine the cosine of the polar angle, and sampling <span class="math inline">\(\theta \sim U(0, 2\pi)\)</span> to determine the azimuthal angle (for <span class="math inline">\(3\text{-}D\)</span>). Each observation is classified by cluster, with labels such as “big” for the large central sphere and “small_1” to “small_k” for the smaller spheres.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>clusteredspheres</span> <span class='op'>&lt;-</span> <span class='fu'>gen_clusteredspheres</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='fl'>100</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>3</span>, p <span class='op'>=</span> <span class='fl'>4</span>, r <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>15</span>, <span class='fl'>3</span><span class='op'>)</span>,</span>
@@ -3032,26 +2989,7 @@ Figure 25: Three <span class="math inline">\(2\text{-}D\)</span> projections fro
 </div>
 <h5 class="unnumbered" data-number="2.2.11.6" id="gen_hemisphere"><code>gen_hemisphere()</code></h5>
 <p>The <code>gen_hemisphere(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations distributed approximately uniformly on a <span class="math inline">\(4\text{-}D\)</span> hemisphere, optionally extended with Gaussian noise in additional dimensions when <span class="math inline">\(p &gt; 4\)</span>.</p>
-<p>Each observation is situated on a restricted <span class="math inline">\(4\text{-}D\)</span> spherical surface, defined by spherical coordinates. The azimuthal angle <span class="math inline">\(\theta_1 \sim U(0, \pi)\)</span> in the <span class="math inline">\((x_1, x_2)\)</span> plane, while the elevation angle <span class="math inline">\(\theta_2 \sim U(0, \pi)\)</span> in the <span class="math inline">\((x_2, x_3)\)</span> plane. Additionally, <span class="math inline">\(\theta_3 \sim U(0, \pi/2)\)</span> in the <span class="math inline">\((x_3, x_4)\)</span> plane, ensuring that the points remain restricted to a hemisphere.</p>
-<p>The coordinates are transformed into <span class="math inline">\(4\text{-}D\)</span> Cartesian space:</p>
-<p><span class="math display">\[
-X_1 = \sin(\theta_1) \cdot \cos(\theta_2),
-\]</span>
-<span class="math display">\[
-X_2 = \sin(\theta_1) \cdot \sin(\theta_2),
-\]</span>
-<span class="math display">\[
-X_3 = \cos(\theta_1) \cdot \cos(\theta_3),
-\]</span>
-<span class="math display">\[
-X_4 = \cos(\theta_1) \cdot \sin(\theta_3).
-\]</span></p>
-<p>This produces points on one side of a <span class="math inline">\(4\text{-}D\)</span> unit sphere, effectively generating a <span class="math inline">\(4\text{-}D\)</span> hemisphere.</p>
-<p>For <span class="math inline">\(p &gt; 4\)</span>, additional dimensions <span class="math inline">\(X_5\)</span> to <span class="math inline">\(X_p\)</span> are added as low-variance Gaussian noise:</p>
-<p><span class="math display">\[
-X_j \sim N(0, 0.05^2),\text{ for }j = 5, \dots, p.
-\]</span></p>
-<p>These dimensions maintain the spherical structure while simulating embedding into higher-dimensional space with small orthogonal perturbations.</p>
+<p>Each observation is situated on a restricted <span class="math inline">\(4\text{-}D\)</span> spherical surface, defined by spherical coordinates. The azimuthal angle <span class="math inline">\(\theta_1 \sim U(0, \pi)\)</span> in the <span class="math inline">\((x_1, x_2)\)</span> plane, while the elevation angle <span class="math inline">\(\theta_2 \sim U(0, \pi)\)</span> in the <span class="math inline">\((x_2, x_3)\)</span> plane. Additionally, <span class="math inline">\(\theta_3 \sim U(0, \pi/2)\)</span> in the <span class="math inline">\((x_3, x_4)\)</span> plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into <span class="math inline">\(4\text{-}D\)</span> Cartesian space: <span class="math inline">\(X_1 = \sin(\theta_1) \cdot \cos(\theta_2)\)</span>, <span class="math inline">\(X_2 = \sin(\theta_1) \cdot \sin(\theta_2)\)</span>, <span class="math inline">\(X_3 = \cos(\theta_1) \cdot \cos(\theta_3)\)</span>, <span class="math inline">\(X_4 = \cos(\theta_1) \cdot \sin(\theta_3)\)</span>. This produces points on one side of a <span class="math inline">\(4\text{-}D\)</span> unit sphere, effectively generating a <span class="math inline">\(4\text{-}D\)</span> hemisphere. For <span class="math inline">\(p &gt; 4\)</span>, additional dimensions <span class="math inline">\(X_5\)</span> to <span class="math inline">\(X_p\)</span> are added as low-variance Gaussian noise: <span class="math inline">\(X_j \sim N(0, 0.05^2),\text{ for }j = 5, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>hemisphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_hemisphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
