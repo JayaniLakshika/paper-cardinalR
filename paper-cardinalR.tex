@@ -632,6 +632,43 @@ nonlinear <- gen_nonlinear(n = 1000, p = 4, hc = 1, non_fac = 0.5)
 \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data.}\label{fig:fig-triginometric-proj}
 \end{figure}
 
+\subsubsection{Trefoil Knot}\label{trefoil-knot}
+
+The \textbf{Trefoil Knot} is a closed, nontrivial 1-dimensional manifold embedded in 3D or 4D space. Unlike simple curves like the S-curve or Swiss roll, the trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of nonlinear dimensionality reduction (NLDR) methods to preserve global structure, loops, and embeddings in high-dimensional data.
+
+We generate the trefoil structure in \textbf{4D space} as the true model, and provide a \textbf{stereographically projected 3D version} for visualization purposes. Both versions support the addition of noise dimensions to embed the structure in higher-dimensional ambient spaces, simulating real-world settings.
+
+\paragraph{\texorpdfstring{\texttt{gen\_trefoil4d()}}{gen\_trefoil4d()}}\label{gen_trefoil4d}
+
+The function \texttt{gen\_trefoil4d()} generates a 4-dimensional trefoil knot using two angular parameters, \(\theta\) and \(\phi\). The knot is constructed on the 3-sphere (\(S^3 \subset \mathbb{R}^4\)), with a band of thickness around the knot path, controlled by \texttt{steps}.
+
+The coordinates are given by:
+
+\[
+\begin{aligned}
+x_1 &= \cos(\theta) \cdot \cos(\phi), \\
+x_2 &= \cos(\theta) \cdot \sin(\phi), \\
+x_3 &= \sin(\theta) \cdot \cos(1.5 \cdot \phi), \\
+x_4 &= \sin(\theta) \cdot \sin(1.5 \cdot \phi).
+\end{aligned}
+\]
+
+The number of \texttt{theta} and \texttt{phi} values is determined by the \texttt{steps} and \texttt{n} arguments, respectively. Additional independent noise dimensions can be added via \texttt{gen\_noisedims()} to extend the structure into \(p > 4\) dimensions.
+
+The resulting dataset represents a true model \(T = (x_1, x_2, x_3, x_4)\), capturing the full 4D knot structure.
+
+\paragraph{\texorpdfstring{\texttt{gen\_trefoil3d()}}{gen\_trefoil3d()}}\label{gen_trefoil3d}
+
+The function \texttt{gen\_trefoil3d()} generates a \textbf{3-dimensional stereographic projection} of the 4D trefoil knot, mapping each point from \(\mathbb{R}^4\) to \(\mathbb{R}^3\) using the transformation:
+
+\[
+(x_1', x_2', x_3') = \left( \frac{x_1}{1 - x_4}, \frac{x_2}{1 - x_4}, \frac{x_3}{1 - x_4} \right),
+\]
+
+which excludes points where \(x_4 = 1\). The projection preserves the knot topology and enables easier visualization and interpretation.
+
+As with the 4D version, this function supports optional noise dimensions to embed the projected knot into higher dimensions.
+
 \subsubsection{Multiple cluster examples}\label{multiple-cluster-examples}
 
 By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table \ref{tab:odd-shape-tb-pdf}.
