@@ -3555,8 +3555,16 @@ trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 +
 
 ## -----------------------------------------------------------------------------
 odd_shapes_tb <- tibble(fun = c("make_mobiusgau",
-                                "make_multigau"), 
+                                "make_multigau",
+                                "make_curvygau",
+                                "make_threeclust01",
+                                "make_fourclust01",
+                                "make_fiveclust01"), 
                         exp = c("",
+                                "",
+                                "",
+                                "",
+                                "",
                                 ""))
 
 
