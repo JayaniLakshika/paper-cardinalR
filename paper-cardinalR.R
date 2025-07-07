@@ -17,6 +17,33 @@ knitr::opts_chunk$set(
 set.seed(20240412)
 
 
+## ----install-libraries, include=FALSE, warning=FALSE, echo=FALSE--------------
+
+options(repos = c(CRAN = "https://cran.rstudio.com")) # Setup mirror
+
+packages_to_check <- c("remotes", "cardinalR", "tidyverse", "kableExtra", "geozoo", "patchwork", "colorspace")
+
+for (pkg in packages_to_check) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    message(paste("Installing package:", pkg))
+    install.packages(pkg)
+  } else {
+    installed_version <- packageVersion(pkg)
+    available_version <- tryCatch({
+      utils::packageDescription(pkg)$Version
+    }, error = function(e) NA) # Handle cases where package info isn't readily available
+
+    if (!is.na(available_version) && installed_version < package_version(available_version)) {
+      message(paste("A newer version of package", pkg, "is available. Updating..."))
+      install.packages(pkg)
+    } else {
+      message(paste("Package", pkg, "is up-to-date (version", installed_version, ")."))
+    }
+  }
+}
+
+
+
 ## ----load-libraries-----------------------------------------------------------
 library(cardinalR)
 library(tidyverse)
@@ -3557,10 +3584,12 @@ trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 +
 odd_shapes_tb <- tibble(fun = c("make_mobiusgau",
                                 "make_multigau",
                                 "make_curvygau",
+                                "make_multigrid",
                                 "make_threeclust01",
                                 "make_fourclust01",
                                 "make_fiveclust01"), 
                         exp = c("",
+                                "",
                                 "",
                                 "",
                                 "",

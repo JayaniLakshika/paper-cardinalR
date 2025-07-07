@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-07-06'
+date: '2025-07-07'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float} \newcommand\pD{$p\text{-}D$} \newcommand\gD{$2\text{-}D$}
 output:
@@ -67,6 +67,8 @@ csl: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/rjtool
 
 
 </div>
+
+
 
 
 <div class="layout-chunk" data-layout="l-body">
@@ -1841,6 +1843,7 @@ Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
 |make_mobiusgau    |            |
 |make_multigau     |            |
 |make_curvygau     |            |
+|make_multigrid    |            |
 |make_threeclust01 |            |
 |make_fourclust01  |            |
 |make_fiveclust01  |            |
