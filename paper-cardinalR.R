@@ -3753,7 +3753,7 @@ five_clusts_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-highd-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `mobiusgau` data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green."----
+## ----label = "fig-highd-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green."----
 #| fig-width: 15
 #| fig-height: 5
 
@@ -3836,7 +3836,7 @@ nldr6 <- pca_data |>
         legend.text = element_text(size = 10)) 
 
 
-## ----label = "fig-nldr-layouts", fig.cap="Six different dimension reduction representations of the `mobiusgau` data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA."----
+## ----label = "fig-nldr-layouts", fig.cap="Six different dimension reduction representations of the five clusters data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA."----
 
 nldr1 + nldr2 + nldr3 +
   nldr4 + nldr5 + nldr6 +

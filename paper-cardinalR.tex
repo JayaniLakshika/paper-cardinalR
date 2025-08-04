@@ -29,7 +29,7 @@ The paper is organized as follows. In next section, introduces the implementatio
 The development version can be installed from GitHub:
 
 \begin{verbatim}
-devtools::install_github("JayaniLakshika/cardinalR")
+pak::pak("JayaniLakshika/cardinalR")
 \end{verbatim}
 
 \subsection{Usage}\label{usage}
@@ -750,13 +750,13 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5
 \end{verbatim}
 
 \begin{figure}[!]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-highd-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `mobiusgau` data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.}\label{fig:fig-highd-proj}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-highd-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.}\label{fig:fig-highd-proj}
 \end{figure}
 
 The five clusters have different geometric structures and each contain different number of points. Specifically, the helical spiral cluster includes \(2250\) points and was generated with a scale parameter of \(0.4\). The hemisphere cluster consists of \(1500\) points with a scale parameter of \(0.35\). The uniform cube-shaped cluster contains \(750\) points and uses a scale parameter of \(0.3\). The blunted cone cluster includes \(1250\) points, generated with a scale parameter of \(1\). Finally, the Gaussian-shaped cluster contains \(1750\) points and was generated with a scale parameter of \(0.3\).
 
 \begin{figure}[!]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Six different dimension reduction representations of the `mobiusgau` data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA.}\label{fig:fig-nldr-layouts}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Six different dimension reduction representations of the five clusters data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA.}\label{fig:fig-nldr-layouts}
 \end{figure}
 
 UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure (Figure \ref{fig:fig-nldr-layouts}). However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
