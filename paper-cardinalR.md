@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-08-04'
+date: '2025-08-21'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float} \newcommand\pD{$p\text{-}D$} \newcommand\gD{$2\text{-}D$}
 output:
@@ -1838,15 +1838,22 @@ By using the shape generators mentioned above, we can create various examples of
 
 Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
 
-|Function          |Explanation |
-|:-----------------|:-----------|
-|make_mobiusgau    |            |
-|make_multigau     |            |
-|make_curvygau     |            |
-|make_multigrid    |            |
-|make_threeclust01 |            |
-|make_fourclust01  |            |
-|make_fiveclust01  |            |
+|Function              |Explanation |
+|:---------------------|:-----------|
+|make_mobiusgau        |            |
+|make_multigau         |            |
+|make_curvygau         |            |
+|make_klink_circles    |            |
+|make_chain_circles    |            |
+|make_klink_curvycycle |            |
+|make_chain_curvycycle |            |
+|make_gaucircles       |            |
+|make_gaucurvycycle    |            |
+|make_onegrid          |            |
+|make_twogrid_overlap  |            |
+|make_twogrid_shift    |            |
+|make_shape_para       |            |
+|make_three_clust_     |            |
 
 </div>
 
