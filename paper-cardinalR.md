@@ -1838,22 +1838,22 @@ By using the shape generators mentioned above, we can create various examples of
 
 Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
 
-|Function              |Explanation |
-|:---------------------|:-----------|
-|make_mobiusgau        |            |
-|make_multigau         |            |
-|make_curvygau         |            |
-|make_klink_circles    |            |
-|make_chain_circles    |            |
-|make_klink_curvycycle |            |
-|make_chain_curvycycle |            |
-|make_gaucircles       |            |
-|make_gaucurvycycle    |            |
-|make_onegrid          |            |
-|make_twogrid_overlap  |            |
-|make_twogrid_shift    |            |
-|make_shape_para       |            |
-|make_three_clust_     |            |
+|Function              |Explanation                                                              |
+|:---------------------|:------------------------------------------------------------------------|
+|make_mobiusgau        |Generates a Möbius-like cluster combined with a Gaussian cluster.        |
+|make_multigau         |Generates multiple Gaussian clusters in high-dimensional space.          |
+|make_curvygau         |Generates a curvilinear cluster with a Gaussian cluster.                 |
+|make_klink_circles    |Generates K-link circular clusters (non-linear circular patterns).       |
+|make_chain_circles    |Generates chain-like circular clusters connected sequentially.           |
+|make_klink_curvycycle |Generates K-link curvy cycle clusters (curvilinear loop structures).     |
+|make_chain_curvycycle |Generates chain-like curvy cycle clusters connected sequentially.        |
+|make_gaucircles       |Generates circular clusters with a Gaussian cluster in the middle.       |
+|make_gaucurvycycle    |Generates curvy circular clusters with a Gaussian cluster in the middle. |
+|make_onegrid          |Generates a single grid in two dimensions.                               |
+|make_twogrid_overlap  |Generates two overlapping grids.                                         |
+|make_twogrid_shift    |Generates two grids shifted relative to each other.                      |
+|make_shape_para       |Generates parallel shaped clusters.                                      |
+|make_three_clust_     |Generates three clusters with different shapes. (eg:- 01, 02, ..., 20)   |
 
 </div>
 
