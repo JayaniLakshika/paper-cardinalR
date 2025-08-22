@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.8.18)  22 AUG 2025 14:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.8.18)  22 AUG 2025 14:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -987,10 +987,6 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  us
 
 
 [22]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 779.
-
 <paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=374, 438.63875pt x 319.1925pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
@@ -998,7 +994,7 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.p
 (pdftex.def)             Requested size: 398.33858pt x 289.87141pt.
 
 
-[23 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf> <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf>]
+[23 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
 Overfull \hbox (12.11623pt too wide) in paragraph at lines 797--798
 \T1/ppl/m/n/9 (-20) The source ma-te-rial for this pa-per is avail-able at [][]$\T1/zi4/m/n/9 https : / / github . com / JayaniLakshika / paper -[] cardinalR$[][]\T1/ppl/m/n/9 (-20) . 
  []
@@ -1042,7 +1038,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  117i,11n,131p,1344b,1010s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (26 pages, 9977215 bytes).
+Output written on RJwrapper.pdf (26 pages, 9977207 bytes).
 PDF statistics:
  594 PDF objects out of 1000 (max. 8388607)
  492 compressed objects within 5 object streams

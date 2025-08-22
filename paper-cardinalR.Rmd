@@ -4236,7 +4236,7 @@ nldr6 <- pca_data |>
         legend.text = element_text(size = 10)) 
 ```
 
-```{r, label = "fig-nldr-layouts", fig.cap="Six different dimension reduction representations of the five clusters data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA."}
+```{r, label = "fig-nldr-layouts", fig.pos="H", fig.cap="Six different dimension reduction representations of the five clusters data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA."}
 
 nldr1 + nldr2 + nldr3 +
   nldr4 + nldr5 + nldr6 +
