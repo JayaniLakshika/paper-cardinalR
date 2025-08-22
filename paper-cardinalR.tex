@@ -478,15 +478,7 @@ unifsphere <- gen_unifsphere(n = 1000, p = 4)
 
 The \texttt{gen\_gridedsphere(n,\ p)} function generates a \(p\)-dimensional dataset of approximately \(n\) points evenly distributed on the surface of a \((p!-!1)\)-sphere (the unit sphere embedded in \(\mathbb{R}^p\)).
 
-The construction is based on a regular grid in spherical coordinates with \((p-1)\) angular variables. Specifically:
-
-\begin{itemize}
-\tightlist
-\item
-  For dimensions \(j = 1, \dots, p-2\), the polar angles are defined on \([0, \pi]\).
-\item
-  For the last angle (\(j = p-1\)), the azimuthal angle is defined on \([0, 2\pi]\).
-\end{itemize}
+The construction is based on a regular grid in spherical coordinates with \((p-1)\) angular variables. Specifically, for dimensions \(j = 1, \dots, p-2\), the polar angles are defined on \([0, \pi]\). For the last angle (\(j = p-1\)), the azimuthal angle is defined on \([0, 2\pi]\).
 
 The number of grid steps along each angular dimension is determined by factoring \(n\) into \((p-1)\) approximately equal integers via \texttt{gen\_nproduct(n,\ p\ -\ 1)}.
 
@@ -762,7 +754,7 @@ normalize\_data & Normalizes data.\\
 
 This section illustrates the use of package by generating a synthetic dataset to evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) \citep{jolliffe2011}, t-distributed stochastic neighbor embedding (tSNE) \citep{laurens2008}, uniform manifold approximation and projection (UMAP) \citep{leland2018}, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm \citep{moon2019}, large-scale dimensionality reduction Using triplets (TriMAP) \citep{amid2019}, and pairwise controlled manifold approximation (PaCMAP) \citep{yingfan2021}.
 
-The following code generates a dataset of five clusters, positioned with equal inter-cluster distances in \(4\text{-}D\) space (Figure \ref{fig:fig-highd-proj}).
+The following code generates a dataset of five clusters, positioned with equal inter-cluster distances in \(4\text{-}D\) space (Figure \ref{fig:highd-proj}).
 
 \begin{verbatim}
 positions <- geozoo::simplex(p=4)$points
@@ -778,8 +770,8 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5
                        is_bkg = FALSE)
 \end{verbatim}
 
-\begin{figure}[!]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-highd-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.}\label{fig:fig-highd-proj}
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/highd-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.}\label{fig:highd-proj}
 \end{figure}
 
 The five clusters have different geometric structures and each contain different number of points. Specifically, the helical spiral cluster includes \(2250\) points and was generated with a scale parameter of \(0.4\). The hemisphere cluster consists of \(1500\) points with a scale parameter of \(0.35\). The uniform cube-shaped cluster contains \(750\) points and uses a scale parameter of \(0.3\). The blunted cone cluster includes \(1250\) points, generated with a scale parameter of \(1\). Finally, the Gaussian-shaped cluster contains \(1750\) points and was generated with a scale parameter of \(0.3\).

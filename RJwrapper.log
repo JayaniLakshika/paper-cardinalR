@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.8.18)  22 AUG 2025 13:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.8.18)  22 AUG 2025 14:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -927,29 +927,25 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pd
 [13]
 
 [14 <./paper-cardinalR_files/figure-latex/fig-scurve-proj-1.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 486.
-(/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ppl.fd
-File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-)
 
 [15]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 538.
+               Default added (so using `!tbp') on input line 530.
 
 <paper-cardinalR_files/figure-latex/fig-sphere-proj-1.pdf, id=263, 1082.0425pt x 2167.09625pt>
 File: paper-cardinalR_files/figure-latex/fig-sphere-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-sphere-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-sphere-proj-1.pdf  used on input line 540.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-sphere-proj-1.pdf  used on input line 532.
 (pdftex.def)             Requested size: 318.67207pt x 638.22972pt.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 556.
+               Default added (so using `!tbp') on input line 548.
 
 <paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf, id=264, 1082.0425pt x 359.3425pt>
 File: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf  used on input line 557.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf  used on input line 549.
 (pdftex.def)             Requested size: 398.33858pt x 132.28569pt.
 
 
@@ -960,21 +956,21 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-swissroll-proj-1
 [18 <./paper-cardinalR_files/figure-latex/fig-swissroll-proj-1.pdf>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 647.
+               Default added (so using `!tbp') on input line 639.
 
 <paper-cardinalR_files/figure-latex/fig-triginometric-proj-1.pdf, id=304, 1082.0425pt x 2167.09625pt>
 File: paper-cardinalR_files/figure-latex/fig-triginometric-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-triginometric-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-triginometric-proj-1.pdf  used on input line 649.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-triginometric-proj-1.pdf  used on input line 641.
 (pdftex.def)             Requested size: 318.67207pt x 638.22972pt.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 696.
+               Default added (so using `!tbp') on input line 688.
 
 <paper-cardinalR_files/figure-latex/fig-trefoil-proj-1.pdf, id=306, 1082.0425pt x 720.6925pt>
 File: paper-cardinalR_files/figure-latex/fig-trefoil-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-trefoil-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-trefoil-proj-1.pdf  used on input line 697.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-trefoil-proj-1.pdf  used on input line 689.
 (pdftex.def)             Requested size: 398.33858pt x 265.31044pt.
 
 
@@ -983,30 +979,27 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-trefoil-proj-1.p
 [20 <./paper-cardinalR_files/figure-latex/fig-triginometric-proj-1.pdf>]
 
 [21 <./paper-cardinalR_files/figure-latex/fig-trefoil-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=361, 988.69376pt x 355.3275pt>
+File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pdf)
+<use paper-cardinalR_files/figure-latex/highd-proj-1.pdf>
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 774.
+(pdftex.def)             Requested size: 398.33858pt x 143.15862pt.
+
 
 [22]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 781.
-
-<paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf, id=373, 988.69376pt x 355.3275pt>
-File: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf Graphic file (type pdf)
-<use paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf  used on input line 782.
-(pdftex.def)             Requested size: 398.33858pt x 143.15862pt.
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 787.
+               Default added (so using `!tbp') on input line 779.
 
 <paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=374, 438.63875pt x 319.1925pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 788.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 780.
 (pdftex.def)             Requested size: 398.33858pt x 289.87141pt.
 
 
-[23 <./paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
-Overfull \hbox (12.11623pt too wide) in paragraph at lines 805--806
+[23 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf> <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf>]
+Overfull \hbox (12.11623pt too wide) in paragraph at lines 797--798
 \T1/ppl/m/n/9 (-20) The source ma-te-rial for this pa-per is avail-able at [][]$\T1/zi4/m/n/9 https : / / github . com / JayaniLakshika / paper -[] cardinalR$[][]\T1/ppl/m/n/9 (-20) . 
  []
 
@@ -1019,10 +1012,10 @@ Overfull \hbox (12.11623pt too wide) in paragraph at lines 805--806
 [24])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 819.
+(Font)              using `T1/zi4/m/n' instead on input line 811.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 829.
+(Font)              scaled to size 9.18004pt on input line 821.
 )
 
 [25]
@@ -1038,21 +1031,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: 09E7A9261D6129AED6C9780C91E8383B;1186.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: D7D9F28B7582ABB836568C0BF2D53FDB;1026.
+(rerunfilecheck)             Checksum: 56F5829CC902614143E2FD3135042D99;1026.
  ) 
 Here is how much of TeX's memory you used:
- 27641 strings out of 469781
- 507620 string characters out of 5481231
- 924299 words of memory out of 5000000
- 55070 multiletter control sequences out of 15000+600000
- 690035 words of font info for 378 fonts, out of 8000000 for 9000
+ 27604 strings out of 469781
+ 507003 string characters out of 5481231
+ 923299 words of memory out of 5000000
+ 55045 multiletter control sequences out of 15000+600000
+ 689628 words of font info for 373 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,11n,131p,1344b,1049s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,11n,131p,1344b,1010s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (26 pages, 9977274 bytes).
+Output written on RJwrapper.pdf (26 pages, 9977215 bytes).
 PDF statistics:
  594 PDF objects out of 1000 (max. 8388607)
  492 compressed objects within 5 object streams
  85 named destinations out of 1000 (max. 500000)
- 76440 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 72344 words of extra memory for PDF output out of 74296 (max. 10000000)
 

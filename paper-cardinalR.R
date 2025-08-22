@@ -3676,8 +3676,9 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), p = 4, k = 5
                        is_bkg = FALSE)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(five_clusts[, -5])
+## ----highd-data, eval=knitr::is_html_output(), fig.cap="`langevitour` output showing five synthetic clusters with distinct geometric structures: a helical spiral, a hemisphere, a uniform cube, a cone, and a Gaussian cluster."----
+# 
+# langevitour::langevitour(five_clusts[, -5], group = five_clusts$cluster, levelColors = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e'))
 
 
 ## ----five-clusts-projections1-------------------------------------------------
@@ -3768,7 +3769,7 @@ five_clusts_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-highd-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green."----
+## ----highd-proj, eval=knitr::is_latex_output(), fig.pos='H', fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green."----
 #| fig-width: 15
 #| fig-height: 5
 
