@@ -51,6 +51,7 @@ library(kableExtra)
 library(geozoo)
 library(patchwork)
 library(colorspace)
+library(crosstalk)
 
 
 ## -----------------------------------------------------------------------------
@@ -3397,8 +3398,8 @@ trefoil_tb |>
 trefoil4d <- gen_trefoil4d(n = 500, p = 4, steps = 5)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(trefoil4d)
+## -----------------------------------------------------------------------------
+trefoil4d_lang <- langevitour::langevitour(trefoil4d, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----trefoil4d-proj1----------------------------------------------------------
@@ -3487,8 +3488,8 @@ trefoil4d_proj3 <- plot_proj(
 trefoil3d <- gen_trefoil3d(n = 500, p = 4, steps = 5)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(trefoil3d)
+## -----------------------------------------------------------------------------
+trefoil3d_lang <- langevitour::langevitour(trefoil3d, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----trefoil3d-proj1----------------------------------------------------------
@@ -3573,7 +3574,22 @@ trefoil3d_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-trefoil-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.", fig.width=15, fig.height=10----
+## ----trefoil, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `trefoil4d` and `trefoil3d` data in $4\\text{-}D$."----
+# 
+# trefoilfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     trefoil4d_lang, trefoil3d_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(trefoilfig) <- c(class(trefoilfig), "htmlwidget")
+# 
+# trefoilfig
+
+
+## ----trefoil-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.", fig.width=15, fig.height=10----
 
 trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 + 
   trefoil3d_proj1 + trefoil3d_proj2 + trefoil3d_proj3 +
