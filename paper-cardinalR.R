@@ -1936,8 +1936,8 @@ scurve_tb |>
 scurve <- gen_scurve(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(scurve)
+## -----------------------------------------------------------------------------
+scurve_lang <- langevitour::langevitour(scurve, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----scurve-proj1-------------------------------------------------------------
@@ -2026,8 +2026,8 @@ scurve_proj3 <- plot_proj(
 scurvehole <- gen_scurvehole(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(scurvehole)
+## -----------------------------------------------------------------------------
+scurvehole_lang <- langevitour::langevitour(scurvehole, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----scurvehole-proj1---------------------------------------------------------
@@ -2112,7 +2112,22 @@ scurvehole_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data.", fig.width=15, fig.height=10----
+## ----scurve, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `scurve` data in $4\\text{-}D$."----
+# 
+# scurvefig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     scurve_lang, scurvehole_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(scurvefig) <- c(class(scurvefig), "htmlwidget")
+# 
+# scurvefig
+
+
+## ----scurve-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data.", fig.width=15, fig.height=10----
 
 scurve_proj1 + scurve_proj2 + scurve_proj3 + 
   scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
