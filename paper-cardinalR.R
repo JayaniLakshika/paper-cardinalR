@@ -861,7 +861,7 @@ unifcube_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "b1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -888,7 +888,7 @@ unifcube_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "b2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -915,7 +915,7 @@ unifcube_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "b3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -951,7 +951,7 @@ cubehole_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "c1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -978,7 +978,7 @@ cubehole_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "c2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1005,14 +1005,14 @@ cubehole_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "c3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
 
 
 
-## ----label = "fig-cubehole-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube`, `unifcube`, and `cubehole` data.", fig.width=15, fig.height=15----
+## ----label = "fig-cube-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.", fig.width=15, fig.height=15----
 
 gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
 unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
@@ -1452,7 +1452,7 @@ cubic_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "b1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1479,7 +1479,7 @@ cubic_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "b2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1506,14 +1506,14 @@ cubic_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "b3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
 
 
 
-## ----label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` and `cubic` data.", fig.width=15, fig.height=10----
+## ----label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` (a1-a3) and `cubic` (b1-b3) data.", fig.width=15, fig.height=10----
 
 quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
 cubic_proj1 + cubic_proj2 + cubic_proj3 +
@@ -1662,7 +1662,7 @@ pyrtri_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "b1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1689,7 +1689,7 @@ pyrtri_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "b2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1716,7 +1716,7 @@ pyrtri_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "b3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1752,7 +1752,7 @@ pyrstar_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "c1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1779,7 +1779,7 @@ pyrstar_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "c2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1806,7 +1806,7 @@ pyrstar_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "c3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1842,7 +1842,7 @@ pyrholes_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "d1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1869,7 +1869,7 @@ pyrholes_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "d2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1896,14 +1896,14 @@ pyrholes_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "d3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
 
 
 
-## ----label = "fig-pyrholes-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data.", fig.width=15, fig.height=20----
+## ----label = "fig-pyr-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.", fig.width=15, fig.height=20----
 
 pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
 pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
@@ -2050,7 +2050,7 @@ scurvehole_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "b1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2077,7 +2077,7 @@ scurvehole_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "b2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2104,14 +2104,14 @@ scurvehole_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "b3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
 
 
 
-## ----label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` and `scurvehole` data.", fig.width=15, fig.height=10----
+## ----label = "fig-scurve-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data.", fig.width=15, fig.height=10----
 
 scurve_proj1 + scurve_proj2 + scurve_proj3 + 
   scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
@@ -2264,7 +2264,7 @@ curvycycle_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "b1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2291,7 +2291,7 @@ curvycycle_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "b2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2318,7 +2318,7 @@ curvycycle_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "b3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2354,7 +2354,7 @@ unifsphere_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "c1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2381,7 +2381,7 @@ unifsphere_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "c2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2408,7 +2408,7 @@ unifsphere_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "c3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2444,7 +2444,7 @@ gridedsphere_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "d1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2471,7 +2471,7 @@ gridedsphere_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "d2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2498,7 +2498,7 @@ gridedsphere_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "d3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2536,7 +2536,7 @@ clusteredspheres_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "e1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2563,7 +2563,7 @@ clusteredspheres_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "e2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2590,7 +2590,7 @@ clusteredspheres_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "e3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2626,7 +2626,7 @@ hemisphere_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "f1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2653,7 +2653,7 @@ hemisphere_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "f2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2680,14 +2680,14 @@ hemisphere_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "f3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
 
 
 
-## ----label = "fig-hemisphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
+## ----label = "fig-sphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
 
 circle_proj1 + circle_proj2 + circle_proj3 +
 curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3 +
@@ -2942,7 +2942,7 @@ curvycylinder_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "b1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2969,7 +2969,7 @@ curvycylinder_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "b2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -2996,7 +2996,7 @@ curvycylinder_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "b3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3032,7 +3032,7 @@ sphericalspiral_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "c1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3059,7 +3059,7 @@ sphericalspiral_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "c2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3086,7 +3086,7 @@ sphericalspiral_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "c3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3122,7 +3122,7 @@ helicalspiral_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "d1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3149,7 +3149,7 @@ helicalspiral_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "d2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3176,7 +3176,7 @@ helicalspiral_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "d3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3212,7 +3212,7 @@ conicspiral_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "e1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3239,7 +3239,7 @@ conicspiral_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "e2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3266,7 +3266,7 @@ conicspiral_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "e3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3302,7 +3302,7 @@ nonlinear_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.45, 0.73), 
-  title = "a1", 
+  title = "f1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3329,7 +3329,7 @@ nonlinear_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.3, 0.43), 
-  title = "a2", 
+  title = "f2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3356,14 +3356,14 @@ nonlinear_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.35, 0.4), 
-  title = "a3", 
+  title = "f3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
 
 
 
-## ----label = "fig-triginometric-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
+## ----label = "fig-triginometric-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
 
 crescent_proj1 + crescent_proj2 + crescent_proj3 +
 curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
@@ -3512,7 +3512,7 @@ trefoil3d_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "b1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3539,7 +3539,7 @@ trefoil3d_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "b2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -3566,14 +3566,14 @@ trefoil3d_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "b3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
 
 
 
-## ----label = "fig-trefoil-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `trefoil4d` and `trefoil3d` data.", fig.width=15, fig.height=10----
+## ----label = "fig-trefoil-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.", fig.width=15, fig.height=10----
 
 trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 + 
   trefoil3d_proj1 + trefoil3d_proj2 + trefoil3d_proj3 +

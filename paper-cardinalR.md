@@ -588,8 +588,8 @@ The initial points are drawn from a uniform cube centered at the origin: $X_1, X
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-cubehole-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube`, `unifcube`, and `cubehole` data." width="100%" />
-<p class="caption">(\#fig:fig-cubehole-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube`, `unifcube`, and `cubehole` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-cube-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data." width="100%" />
+<p class="caption">(\#fig:fig-cube-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.</p>
 </div>
 
 </div>
@@ -828,8 +828,8 @@ The shape is generated using a third-degree raw polynomial basis expansion. Let 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-cubic-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` and `cubic` data." width="100%" />
-<p class="caption">(\#fig:fig-cubic-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` and `cubic` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-cubic-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` (a1-a3) and `cubic` (b1-b3) data." width="100%" />
+<p class="caption">(\#fig:fig-cubic-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `quadratic` (a1-a3) and `cubic` (b1-b3) data.</p>
 </div>
 
 </div>
@@ -1021,8 +1021,8 @@ Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simp
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-pyrholes-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data." width="100%" />
-<p class="caption">(\#fig:fig-pyrholes-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-pyr-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data." width="100%" />
+<p class="caption">(\#fig:fig-pyr-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.</p>
 </div>
 
 </div>
@@ -1130,8 +1130,8 @@ To simulate missing regions on the manifold, a fixed anchor point $(0, 1, 0, \ld
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-scurve-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` and `scurvehole` data." width="100%" />
-<p class="caption">(\#fig:fig-scurve-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` and `scurvehole` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-scurve-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data." width="100%" />
+<p class="caption">(\#fig:fig-scurve-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data.</p>
 </div>
 
 </div>
@@ -1415,8 +1415,8 @@ Each observation is situated on a restricted $4\text{-}D$ spherical surface, def
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center">
-<img src="paper-cardinalR_files/figure-html5/fig-hemisphere-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data." width="80%" />
-<p class="caption">(\#fig:fig-hemisphere-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-sphere-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data." width="80%" />
+<p class="caption">(\#fig:fig-sphere-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.</p>
 </div>
 
 </div>
@@ -1720,8 +1720,8 @@ The $X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division error
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center">
-<img src="paper-cardinalR_files/figure-html5/fig-triginometric-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data." width="80%" />
-<p class="caption">(\#fig:fig-triginometric-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-triginometric-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data." width="80%" />
+<p class="caption">(\#fig:fig-triginometric-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.</p>
 </div>
 
 </div>
@@ -1833,8 +1833,8 @@ As with the $4\text{-}D$ version, this function supports optional noise dimensio
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-trefoil-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `trefoil4d` and `trefoil3d` data." width="100%" />
-<p class="caption">(\#fig:fig-trefoil-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `trefoil4d` and `trefoil3d` data.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-trefoil-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data." width="100%" />
+<p class="caption">(\#fig:fig-trefoil-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.</p>
 </div>
 
 </div>
