@@ -63,7 +63,7 @@ is\_bkg & A Boolean value representing the background noise should exist or not.
 
 \subsubsection{Branching}\label{branching}
 
-A branching structure captures trajectories that diverge or bifurcate from a common origin, similar processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \ref{tab:branching-tb-pdf} outlines these functions. The main arguments of the functions described in Table \ref{tab:arg-branching-tb-pdf}.
+A branching structure (Figure \ref{fig:branch-proj}) captures trajectories that diverge or bifurcate from a common origin, similar processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \ref{tab:branching-tb-pdf} outlines these functions. The main arguments of the functions described in Table \ref{tab:arg-branching-tb-pdf}.
 
 \begin{table}
 
@@ -152,7 +152,7 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 \end{verbatim}
 
 \begin{figure}[!]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-orgcurvybranches-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, `orgcurvybranches` data.}\label{fig:fig-orgcurvybranches-proj}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/branch-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.}\label{fig:branch-proj}
 \end{figure}
 
 \subsubsection{Cone}\label{cone}

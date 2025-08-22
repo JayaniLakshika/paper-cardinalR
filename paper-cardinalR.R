@@ -282,7 +282,7 @@ linearbranches_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "b1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -309,7 +309,7 @@ linearbranches_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "b2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -336,7 +336,7 @@ linearbranches_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "b3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -372,7 +372,7 @@ curvybranches_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "c1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -399,7 +399,7 @@ curvybranches_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "c2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -426,7 +426,7 @@ curvybranches_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "c3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -462,7 +462,7 @@ orglinearbranches_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "d1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -489,7 +489,7 @@ orglinearbranches_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "d2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -516,7 +516,7 @@ orglinearbranches_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "d3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -552,7 +552,7 @@ orgcurvybranches_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "a1", 
+  title = "e1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -579,7 +579,7 @@ orgcurvybranches_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "a2", 
+  title = "e2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -606,14 +606,14 @@ orgcurvybranches_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "a3", 
+  title = "e3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
 
 
 
-## ----label = "fig-orgcurvybranches-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, `orgcurvybranches` data.", fig.width=15, fig.height=25----
+## ----branch-proj, fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.", fig.width=15, fig.height=25----
 
 expbranches_proj1 + expbranches_proj2 + expbranches_proj3 +
 linearbranches_proj1 + linearbranches_proj2 + linearbranches_proj3 +

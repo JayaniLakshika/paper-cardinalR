@@ -155,7 +155,7 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
 ### Branching
 
-A branching structure captures trajectories that diverge or bifurcate from a common origin, similar processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
+A branching structure (Figure \@ref(fig:overviewhtml)) captures trajectories that diverge or bifurcate from a common origin, similar processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -395,8 +395,8 @@ Each branch contains $n_i$ points such that $\sum_{i=1}^k n_i = n$, where the ve
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-orgcurvybranches-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, `orgcurvybranches` data." width="100%" />
-<p class="caption">(\#fig:fig-orgcurvybranches-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, `orgcurvybranches` data.</p>
+<img src="paper-cardinalR_files/figure-html5/branch-proj-1.png" alt="Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data." width="100%" />
+<p class="caption">(\#fig:branch-proj)Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.</p>
 </div>
 
 </div>
