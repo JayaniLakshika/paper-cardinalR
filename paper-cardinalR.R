@@ -2703,8 +2703,8 @@ hemisphere_proj1 + hemisphere_proj2 + hemisphere_proj3 +
 swissroll <- gen_swissroll(n = 1000, p = 4, w = c(-1, 1))
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(swissroll)
+## -----------------------------------------------------------------------------
+swissroll_lang <- langevitour::langevitour(swissroll, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----swissroll-proj1----------------------------------------------------------
@@ -2789,7 +2789,22 @@ swissroll_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-swissroll-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `swissroll` data."----
+## ----swissroll, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `swissroll` data in $4\\text{-}D$."----
+# 
+# swissrollfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     swissroll_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(swissrollfig) <- c(class(swissrollfig), "htmlwidget")
+# 
+# swissrollfig
+
+
+## ----swissroll-proj, eval=knitr::is_latex_output(), fig.pos="H", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `swissroll` data."----
 #| fig-width: 15
 #| fig-height: 5
 
