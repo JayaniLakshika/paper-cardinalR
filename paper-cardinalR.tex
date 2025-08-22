@@ -476,13 +476,34 @@ unifsphere <- gen_unifsphere(n = 1000, p = 4)
 
 \paragraph{\texorpdfstring{\texttt{gen\_gridedsphere()}}{gen\_gridedsphere()}}\label{gen_gridedsphere}
 
-The \texttt{gen\_gridedsphere(n,\ p)} function generates a \(p\)-dimensional dataset of approximately \(n\) observations evenly distributed on the surface of a \(3\text{-}D\) unit sphere, with optional Gaussian noise dimensions when \(p > 3\).
+The \texttt{gen\_gridedsphere(n,\ p)} function generates a \(p\)-dimensional dataset of approximately \(n\) points evenly distributed on the surface of a \((p!-!1)\)-sphere (the unit sphere embedded in \(\mathbb{R}^p\)).
 
-The base structure consists of a \(3\text{-}D\) spherical surface created using a regular grid in spherical coordinates, where \(\theta \in [0, 2\pi]\) represents the azimuthal angle and \(\phi \in [0, \pi]\) denotes the polar angle.
+The construction is based on a regular grid in spherical coordinates with \((p-1)\) angular variables. Specifically:
 
-The number of grid steps along each dimension is determined by factoring \(n\) into two approximately equal integers via \texttt{gen\_nproduct(n,\ p\ =\ 2)}.
+\begin{itemize}
+\tightlist
+\item
+  For dimensions \(j = 1, \dots, p-2\), the polar angles are defined on \([0, \pi]\).
+\item
+  For the last angle (\(j = p-1\)), the azimuthal angle is defined on \([0, 2\pi]\).
+\end{itemize}
 
-Each point on the sphere is computed using the spherical-to-Cartesian transformation: \(X_1 = \sin(\phi)\cos(\theta)\), \(X_2 = \sin(\phi)\sin(\theta)\), \(X_3 = \cos(\phi)\). For \(p > 3\), the manifold is embedded in a higher-dimensional space by adding Gaussian noise dimensions: \(X_j \sim N(0, 0.05^2),\text{ for }j = 4, \dots, p\).
+The number of grid steps along each angular dimension is determined by factoring \(n\) into \((p-1)\) approximately equal integers via \texttt{gen\_nproduct(n,\ p\ -\ 1)}.
+
+Each grid point is then mapped to Cartesian coordinates using the standard hyperspherical-to-Cartesian transformation:
+
+\[
+\begin{aligned}
+X_1 &= \cos(\theta_1), \\
+X_2 &= \sin(\theta_1)\cos(\theta_2), \\
+X_3 &= \sin(\theta_1)\sin(\theta_2)\cos(\theta_3), \\
+&\;\;\vdots \\
+X_{p-1} &= \sin(\theta_1)\sin(\theta_2)\cdots \sin(\theta_{p-2})\cos(\theta_{p-1}), \\
+X_p &= \sin(\theta_1)\sin(\theta_2)\cdots \sin(\theta_{p-2})\sin(\theta_{p-1}).
+\end{aligned}
+\]
+
+Thus, the output is a deterministic grid of points lying exactly on the unit \((p-1)\)-sphere, with no added noise dimensions.
 
 \begin{verbatim}
 gridedsphere <- gen_gridedsphere(n = 1000, p = 4)

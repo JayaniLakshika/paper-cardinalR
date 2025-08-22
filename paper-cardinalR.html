@@ -2692,10 +2692,25 @@ Figure 9: Three <span class="math inline">\(2\text{-}D\)</span> projections from
 
 </div>
 <h5 class="unnumbered" data-number="2.2.11.4" id="gen_gridedsphere"><code>gen_gridedsphere()</code></h5>
-<p>The <code>gen_gridedsphere(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of approximately <span class="math inline">\(n\)</span> observations evenly distributed on the surface of a <span class="math inline">\(3\text{-}D\)</span> unit sphere, with optional Gaussian noise dimensions when <span class="math inline">\(p &gt; 3\)</span>.</p>
-<p>The base structure consists of a <span class="math inline">\(3\text{-}D\)</span> spherical surface created using a regular grid in spherical coordinates, where <span class="math inline">\(\theta \in [0, 2\pi]\)</span> represents the azimuthal angle and <span class="math inline">\(\phi \in [0, \pi]\)</span> denotes the polar angle.</p>
-<p>The number of grid steps along each dimension is determined by factoring <span class="math inline">\(n\)</span> into two approximately equal integers via <code>gen_nproduct(n, p = 2)</code>.</p>
-<p>Each point on the sphere is computed using the spherical-to-Cartesian transformation: <span class="math inline">\(X_1 = \sin(\phi)\cos(\theta)\)</span>, <span class="math inline">\(X_2 = \sin(\phi)\sin(\theta)\)</span>, <span class="math inline">\(X_3 = \cos(\phi)\)</span>. For <span class="math inline">\(p &gt; 3\)</span>, the manifold is embedded in a higher-dimensional space by adding Gaussian noise dimensions: <span class="math inline">\(X_j \sim N(0, 0.05^2),\text{ for }j = 4, \dots, p\)</span>.</p>
+<p>The <code>gen_gridedsphere(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of approximately <span class="math inline">\(n\)</span> points evenly distributed on the surface of a <span class="math inline">\((p!-!1)\)</span>-sphere (the unit sphere embedded in <span class="math inline">\(\mathbb{R}^p\)</span>).</p>
+<p>The construction is based on a regular grid in spherical coordinates with <span class="math inline">\((p-1)\)</span> angular variables. Specifically:</p>
+<ul>
+<li>For dimensions <span class="math inline">\(j = 1, \dots, p-2\)</span>, the polar angles are defined on <span class="math inline">\([0, \pi]\)</span>.</li>
+<li>For the last angle (<span class="math inline">\(j = p-1\)</span>), the azimuthal angle is defined on <span class="math inline">\([0, 2\pi]\)</span>.</li>
+</ul>
+<p>The number of grid steps along each angular dimension is determined by factoring <span class="math inline">\(n\)</span> into <span class="math inline">\((p-1)\)</span> approximately equal integers via <code>gen_nproduct(n, p - 1)</code>.</p>
+<p>Each grid point is then mapped to Cartesian coordinates using the standard hyperspherical-to-Cartesian transformation:</p>
+<p><span class="math display">\[
+\begin{aligned}
+X_1 &amp;= \cos(\theta_1), \\
+X_2 &amp;= \sin(\theta_1)\cos(\theta_2), \\
+X_3 &amp;= \sin(\theta_1)\sin(\theta_2)\cos(\theta_3), \\
+&amp;\;\;\vdots \\
+X_{p-1} &amp;= \sin(\theta_1)\sin(\theta_2)\cdots \sin(\theta_{p-2})\cos(\theta_{p-1}), \\
+X_p &amp;= \sin(\theta_1)\sin(\theta_2)\cdots \sin(\theta_{p-2})\sin(\theta_{p-1}).
+\end{aligned}
+\]</span></p>
+<p>Thus, the output is a deterministic grid of points lying exactly on the unit <span class="math inline">\((p-1)\)</span>-sphere, with no added noise dimensions.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridedsphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridedsphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
