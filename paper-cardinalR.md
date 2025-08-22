@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-08-21'
+date: '2025-08-22'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float} \newcommand\pD{$p\text{-}D$} \newcommand\gD{$2\text{-}D$}
 output:
@@ -1995,13 +1995,13 @@ UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show 
 
 # Conclusion
 
-The `cardinalR` package contributes a flexible and extensible framework for generating high-dimensional data structures with well-defined geometric properties. It addresses a growing need in the evaluation of machine learning, clustering, and nonlinear dimensionality reduction (NLDR) methods—offering researchers the ability to design customized datasets with interpretable structures, noise characteristics, and clustering arrangements. This makes `cardinalR` a useful complement to existing tools like `geozoo`, `snedata`, and `mlbench`, expanding the scope to higher dimensions and more complex shapes.
+The `cardinalR` package introduces a flexible framework for generating high-dimensional data structures with well-defined geometric properties. It addresses an important need in the evaluation of clustering, machine learning, and dimensionality reduction (DR) methods by enabling the construction of customized datasets with interpretable structures, noise characteristics, and clustering arrangements. In this way, `cardinalR` complements existing packages such as `geozoo`, `snedata`, and `mlbench`, while extending the scope to higher dimensions and more complex shapes.
 
-The suite of included structures is diverse and targeted. For example, **branching shapes** allow investigation of continuity and topological preservation in low-dimensional embeddings. The **S-curve with a hole** enables exploration of how methods handle incomplete manifolds. **Clustered spheres** assess cluster separation on curved surfaces, while the **Möbius strip** challenges NLDR methods with non-orientable geometry. **Gridded cubes** test spatial regularity, and **pyrholes** represent non-convex, sparse shapes useful for testing clustering performance in irregular high-dimensional regions.
+The included structures cover a wide range of diagnostic settings. Branching shapes facilitate the study of continuity and topological preservation, the Scurve with a hole allows investigation of incomplete manifolds, and clustered spheres assess separability on curved surfaces. The Möbius strip introduces challenges from non-orientable geometry, while gridded cubes and pyrholes test spatial regularity and clustering in sparse, non-convex regions.
 
-These structures are not only valuable for algorithm diagnostics but may also be used for **teaching high-dimensional concepts**, **benchmarking reproducibility**, and **evaluating hyperparameter sensitivity**. The package's design encourages users to adjust dimensionality, noise, sample size, and clustering properties, promoting **transparent experimentation** and **comparative model evaluation**.
+These structures are designed to support not only algorithm diagnostics, but also teaching high-dimensional concepts, benchmarking reproducibility, and evaluating hyperparameter sensitivity. By allowing users to adjust dimensionality, sample size, noise, and clustering properties, the package promotes transparent experimentation and comparative model evaluation.
 
-Looking ahead, future extensions of `cardinalR` could incorporate dynamic shape generation, integration with supervised learning simulations, or visual interfaces to assist users in interactively exploring generated structures. Expanding the library to include more biologically inspired or real-world data analogs may also broaden its utility across domains like bioinformatics, forensic science, and spatial data analysis.
+Future extensions of `cardinalR` may include biologically inspired or application-driven data structures would further broaden its utility in domains such as bioinformatics, forensic science, and spatial analysis.
 
 <!-- - Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings. -->
 

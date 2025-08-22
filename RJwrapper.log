@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.8.18)  21 AUG 2025 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.8.18)  22 AUG 2025 13:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1004,11 +1004,6 @@ File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (ty
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 788.
 (pdftex.def)             Requested size: 398.33858pt x 289.87141pt.
 
-Overfull \hbox (4.36624pt too wide) in paragraph at lines 795--796
-\T1/ppl/m/n/9 (-20) The \T1/zi4/m/n/9 cardinalR \T1/ppl/m/n/9 (-20) pack-age con-tributes a flex-i-ble and ex-ten-si-ble frame-work for gen-er-at-ing high-dimensional
- []
-
-
 
 [23 <./paper-cardinalR_files/figure-latex/fig-highd-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
 Overfull \hbox (12.11623pt too wide) in paragraph at lines 805--806
@@ -1028,9 +1023,9 @@ LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
 (Font)              scaled to size 9.18004pt on input line 829.
+)
 
-
-[25])
+[25]
 
 [26] (./RJwrapper.aux)
  ***********
@@ -1046,15 +1041,15 @@ Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
 (rerunfilecheck)             Checksum: D7D9F28B7582ABB836568C0BF2D53FDB;1026.
  ) 
 Here is how much of TeX's memory you used:
- 27657 strings out of 469781
- 508031 string characters out of 5481231
+ 27644 strings out of 469781
+ 507923 string characters out of 5481231
  924059 words of memory out of 5000000
  55070 multiletter control sequences out of 15000+600000
- 690566 words of font info for 389 fonts, out of 8000000 for 9000
+ 690184 words of font info for 380 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,12n,131p,1344b,1049s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,11n,131p,1344b,1049s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (26 pages, 9977704 bytes).
+Output written on RJwrapper.pdf (26 pages, 9977046 bytes).
 PDF statistics:
  593 PDF objects out of 1000 (max. 8388607)
  491 compressed objects within 5 object streams
