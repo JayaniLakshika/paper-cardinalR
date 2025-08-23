@@ -694,7 +694,7 @@ proj_obj2 <- get_projection(projection = projection,
 cone_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.1, 0.1), 
+  plot_limits = c(-0.1, 0.12), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 5,
