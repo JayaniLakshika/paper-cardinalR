@@ -168,8 +168,8 @@ arg_branching_tb |>
 expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(expbranches)
+## -----------------------------------------------------------------------------
+expbranches_lang <- langevitour::langevitour(expbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----expbranches-proj1--------------------------------------------------------
@@ -258,8 +258,8 @@ expbranches_proj3 <- plot_proj(
 linearbranches <- gen_linearbranches(n = 1000, p = 4, k = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(linearbranches)
+## -----------------------------------------------------------------------------
+linearbranches_lang <- langevitour::langevitour(linearbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----linearbranches-proj1-----------------------------------------------------
@@ -348,8 +348,8 @@ linearbranches_proj3 <- plot_proj(
 curvybranches <- gen_curvybranches(n = 1000, p = 4, k = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(curvybranches)
+## -----------------------------------------------------------------------------
+curvybranches_lang <- langevitour::langevitour(curvybranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----curvybranches-proj1------------------------------------------------------
@@ -438,8 +438,8 @@ curvybranches_proj3 <- plot_proj(
 orglinearbranches <- gen_orglinearbranches(n = 1000, p = 4, k = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(orglinearbranches)
+## -----------------------------------------------------------------------------
+orglinearbranches_lang <- langevitour::langevitour(orglinearbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----orglinearbranches-proj1--------------------------------------------------
@@ -528,8 +528,8 @@ orglinearbranches_proj3 <- plot_proj(
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(orgcurvybranches)
+## -----------------------------------------------------------------------------
+orgcurvybranches_lang <- langevitour::langevitour(orgcurvybranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----orgcurvybranches-proj1---------------------------------------------------
@@ -614,7 +614,22 @@ orgcurvybranches_proj3 <- plot_proj(
 
 
 
-## ----branch-proj, fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.", fig.width=15, fig.height=25----
+## ----branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, and `orgcurvybranches` data in $4\\text{-}D$."----
+# 
+# branchfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     expbranches_lang, linearbranches_lang, curvybranches_lang, orglinearbranches_lang, orgcurvybranches_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(branchfig) <- c(class(branchfig), "htmlwidget")
+# 
+# branchfig
+
+
+## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.", fig.width=15, fig.height=25----
 
 expbranches_proj1 + expbranches_proj2 + expbranches_proj3 +
 linearbranches_proj1 + linearbranches_proj2 + linearbranches_proj3 +

@@ -260,8 +260,8 @@ Each branch $i$ is constructed using $X_1 \sim U(-2, 2)$ and $X_2 = \exp(\pm s_i
 expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
 ```
 
-```{r, eval=FALSE}
-langevitour::langevitour(expbranches)
+```{r}
+expbranches_lang <- langevitour::langevitour(expbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 ```
 
 ```{r expbranches-proj1}
@@ -356,8 +356,8 @@ Each branch is a segment of a line with added jitter to simulate measurement noi
 linearbranches <- gen_linearbranches(n = 1000, p = 4, k = 4)
 ```
 
-```{r, eval=FALSE}
-langevitour::langevitour(linearbranches)
+```{r}
+linearbranches_lang <- langevitour::langevitour(linearbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 ```
 
 ```{r linearbranches-proj1}
@@ -452,8 +452,8 @@ Branch $1$ is generated from $X_1 \sim U(0, 1)$, and $X_2 = 0.1X_1 + X_1^2 + \ep
 curvybranches <- gen_curvybranches(n = 1000, p = 4, k = 4)
 ```
 
-```{r, eval=FALSE}
-langevitour::langevitour(curvybranches)
+```{r}
+curvybranches_lang <- langevitour::langevitour(curvybranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 ```
 
 ```{r curvybranches-proj1}
@@ -550,8 +550,8 @@ For branch $i$, $n_i$ points are generated, where $\sum_{i=1}^k n_i = n$. The st
 orglinearbranches <- gen_orglinearbranches(n = 1000, p = 4, k = 4)
 ```
 
-```{r, eval=FALSE}
-langevitour::langevitour(orglinearbranches)
+```{r}
+orglinearbranches_lang <- langevitour::langevitour(orglinearbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 ```
 
 ```{r orglinearbranches-proj1}
@@ -648,8 +648,8 @@ Each branch contains $n_i$ points such that $\sum_{i=1}^k n_i = n$, where the ve
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 ```
 
-```{r, eval=FALSE}
-langevitour::langevitour(orgcurvybranches)
+```{r}
+orgcurvybranches_lang <- langevitour::langevitour(orgcurvybranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 ```
 
 ```{r orgcurvybranches-proj1}
@@ -734,7 +734,22 @@ orgcurvybranches_proj3 <- plot_proj(
 
 ```
 
-```{r branch-proj, fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.", fig.width=15, fig.height=25}
+```{r branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, and `orgcurvybranches` data in $4\\text{-}D$."}
+
+branchfig <- bscols(
+  htmltools::div(
+    style = "display: grid; grid-template-columns: 1fr 1fr;",
+    expbranches_lang, linearbranches_lang, curvybranches_lang, orglinearbranches_lang, orgcurvybranches_lang
+  ),
+  device = "xs"
+)
+
+class(branchfig) <- c(class(branchfig), "htmlwidget")
+
+branchfig
+```
+
+```{r branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.", fig.width=15, fig.height=25}
 
 expbranches_proj1 + expbranches_proj2 + expbranches_proj3 +
 linearbranches_proj1 + linearbranches_proj2 + linearbranches_proj3 +
