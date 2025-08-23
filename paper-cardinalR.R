@@ -777,8 +777,8 @@ cube_tb |>
 gridcube <- gen_gridcube(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(gridcube)
+## -----------------------------------------------------------------------------
+gridcube_lang <- langevitour::langevitour(gridcube, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----gridcube-proj1-----------------------------------------------------------
@@ -867,8 +867,8 @@ gridcube_proj3 <- plot_proj(
 unifcube <- gen_unifcube(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(unifcube)
+## -----------------------------------------------------------------------------
+unifcube_lang <- langevitour::langevitour(unifcube, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----unifcube-proj1-----------------------------------------------------------
@@ -957,8 +957,8 @@ unifcube_proj3 <- plot_proj(
 cubehole <- gen_cubehole(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(cubehole)
+## -----------------------------------------------------------------------------
+cubehole_lang <- langevitour::langevitour(cubehole, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----cubehole-proj1-----------------------------------------------------------
@@ -1043,7 +1043,22 @@ cubehole_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-cube-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.", fig.width=15, fig.height=15----
+## ----cube, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `gridcube`, `unifcube`, and `cubehole` data in $4\\text{-}D$."----
+# 
+# branchfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     gridcube_lang, unifcube_lang, cubehole_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(branchfig) <- c(class(branchfig), "htmlwidget")
+# 
+# branchfig
+
+
+## ----cube-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.", fig.width=15, fig.height=15----
 
 gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
 unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
@@ -1413,8 +1428,8 @@ polynomial_tb |>
 quadratic <- gen_quadratic(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(quadratic)
+## -----------------------------------------------------------------------------
+quadratic_lang <- langevitour::langevitour(quadratic, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----quadratic-proj1----------------------------------------------------------
@@ -1503,8 +1518,8 @@ quadratic_proj3 <- plot_proj(
 cubic <- gen_cubic(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(cubic)
+## -----------------------------------------------------------------------------
+cubic_lang <- langevitour::langevitour(cubic, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----cubic-proj1--------------------------------------------------------------
@@ -1589,7 +1604,22 @@ cubic_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-cubic-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` (a1-a3) and `cubic` (b1-b3) data.", fig.width=15, fig.height=10----
+## ----poly, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `quadratic` and `cubic` data in $4\\text{-}D$."----
+# 
+# polyfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     quadratic_lang, cubic_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(polyfig) <- c(class(polyfig), "htmlwidget")
+# 
+# polyfig
+
+
+## ----poly-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` (a1-a3) and `cubic` (b1-b3) data.", fig.width=15, fig.height=10----
 
 quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
 cubic_proj1 + cubic_proj2 + cubic_proj3 +
@@ -1623,8 +1653,8 @@ pyramid_tb |>
 pyrrect <- gen_pyrrect(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(pyrrect)
+## -----------------------------------------------------------------------------
+pyrrect_lang <- langevitour::langevitour(pyrrect, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----pyrrect-proj1------------------------------------------------------------
@@ -1713,8 +1743,8 @@ pyrrect_proj3 <- plot_proj(
 pyrtri <- gen_pyrtri(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(pyrtri)
+## -----------------------------------------------------------------------------
+pyrtri_lang <- langevitour::langevitour(pyrtri, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----pyrtri-proj1-------------------------------------------------------------
@@ -1803,8 +1833,8 @@ pyrtri_proj3 <- plot_proj(
 pyrstar <- gen_pyrstar(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(pyrstar)
+## -----------------------------------------------------------------------------
+pyrstar_lang <- langevitour::langevitour(pyrstar, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----pyrstar-proj1------------------------------------------------------------
@@ -1893,8 +1923,8 @@ pyrstar_proj3 <- plot_proj(
 pyrholes <- gen_pyrholes(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(pyrholes)
+## -----------------------------------------------------------------------------
+pyrholes_lang <- langevitour::langevitour(pyrholes, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----pyrholes-proj1-----------------------------------------------------------
@@ -1979,7 +2009,22 @@ pyrholes_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-pyr-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.", fig.width=15, fig.height=20----
+## ----pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$."----
+# 
+# pyrfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     pyrrect_lang, pyrtri_lang, pyrstar_lang, pyrholes_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(pyrfig) <- c(class(pyrfig), "htmlwidget")
+# 
+# pyrfig
+
+
+## ----pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.", fig.width=15, fig.height=20----
 
 pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
 pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
@@ -2240,8 +2285,8 @@ sphere_tb |>
 circle <- gen_circle(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(circle)
+## -----------------------------------------------------------------------------
+circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----circle-proj1-------------------------------------------------------------
@@ -2330,8 +2375,8 @@ circle_proj3 <- plot_proj(
 curvycycle <- gen_curvycycle(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(curvycycle)
+## -----------------------------------------------------------------------------
+curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----curvycycle-proj1---------------------------------------------------------
@@ -2420,8 +2465,8 @@ curvycycle_proj3 <- plot_proj(
 unifsphere <- gen_unifsphere(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(unifsphere)
+## -----------------------------------------------------------------------------
+unifsphere_lang <- langevitour::langevitour(unifsphere, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----unifsphere-proj1---------------------------------------------------------
@@ -2510,8 +2555,8 @@ unifsphere_proj3 <- plot_proj(
 gridedsphere <- gen_gridedsphere(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(gridedsphere)
+## -----------------------------------------------------------------------------
+gridedsphere_lang <- langevitour::langevitour(gridedsphere, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----gridedsphere-proj1-------------------------------------------------------
@@ -2602,8 +2647,8 @@ clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, p = 4, r = c(1
   dplyr::select(-cluster)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(clusteredspheres)
+## -----------------------------------------------------------------------------
+clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----clusteredspheres-proj1---------------------------------------------------
@@ -2692,8 +2737,8 @@ clusteredspheres_proj3 <- plot_proj(
 hemisphere <- gen_hemisphere(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(hemisphere)
+## -----------------------------------------------------------------------------
+hemisphere_lang <- langevitour::langevitour(hemisphere, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----hemisphere-proj1---------------------------------------------------------
@@ -2778,7 +2823,22 @@ hemisphere_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-sphere-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
+## ----sphere, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data in $4\\text{-}D$."----
+# 
+# spherefig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     circle_lang, curvycycle_lang, unifsphere_lang, gridedsphere_lang, clusteredspheres_lang, hemisphere_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(spherefig) <- c(class(spherefig), "htmlwidget")
+# 
+# spherefig
+
+
+## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
 
 circle_proj1 + circle_proj2 + circle_proj3 +
 curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3 +
@@ -2933,8 +2993,8 @@ trigonometric_tb |>
 crescent <- gen_crescent(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(crescent)
+## -----------------------------------------------------------------------------
+crescent_lang <- langevitour::langevitour(crescent, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----crescent-proj1-----------------------------------------------------------
@@ -3023,8 +3083,8 @@ crescent_proj3 <- plot_proj(
 curvycylinder <- gen_curvycylinder(n = 1000, p = 4, h = 10)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(curvycylinder)
+## -----------------------------------------------------------------------------
+curvycylinder_lang <- langevitour::langevitour(curvycylinder, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----curvycylinder-proj1------------------------------------------------------
@@ -3113,8 +3173,8 @@ curvycylinder_proj3 <- plot_proj(
 sphericalspiral <- gen_sphericalspiral(n = 1000, p = 4, spins = 1)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(sphericalspiral)
+## -----------------------------------------------------------------------------
+sphericalspiral_lang <- langevitour::langevitour(sphericalspiral, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----sphericalspiral-proj1----------------------------------------------------
@@ -3203,8 +3263,8 @@ sphericalspiral_proj3 <- plot_proj(
 helicalspiral <- gen_helicalspiral(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(helicalspiral)
+## -----------------------------------------------------------------------------
+helicalspiral_lang <- langevitour::langevitour(helicalspiral, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----helicalspiral-proj1------------------------------------------------------
@@ -3293,8 +3353,8 @@ helicalspiral_proj3 <- plot_proj(
 conicspiral <- gen_conicspiral(n = 1000, p = 4, spins = 1)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(conicspiral)
+## -----------------------------------------------------------------------------
+conicspiral_lang <- langevitour::langevitour(conicspiral, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----conicspiral-proj1--------------------------------------------------------
@@ -3383,8 +3443,8 @@ conicspiral_proj3 <- plot_proj(
 nonlinear <- gen_nonlinear(n = 1000, p = 4, hc = 1, non_fac = 0.5)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(nonlinear)
+## -----------------------------------------------------------------------------
+nonlinear_lang <- langevitour::langevitour(nonlinear, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----nonlinear-proj1----------------------------------------------------------
@@ -3469,7 +3529,22 @@ nonlinear_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-triginometric-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
+## ----triginometric, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of tthe `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data in $4\\text{-}D$."----
+# 
+# triginometricfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     crescent_lang, curvycylinder_lang, sphericalspiral_lang, helicalspiral_lang, conicspiral_lang, nonlinear_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(triginometricfig) <- c(class(triginometricfig), "htmlwidget")
+# 
+# triginometricfig
+
+
+## ----triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
 
 crescent_proj1 + crescent_proj2 + crescent_proj3 +
 curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
