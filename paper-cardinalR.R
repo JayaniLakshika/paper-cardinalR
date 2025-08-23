@@ -628,8 +628,8 @@ orgcurvybranches_proj1 + orgcurvybranches_proj2 + orgcurvybranches_proj3 +
 cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(cone)
+## -----------------------------------------------------------------------------
+cone_lang <- langevitour::langevitour(cone, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----cone-proj1---------------------------------------------------------------
@@ -714,7 +714,22 @@ cone_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-cone-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cone` data."----
+## ----cone, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `cone` data in $4\\text{-}D$."----
+# 
+# conefig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     cone_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(conefig) <- c(class(conefig), "htmlwidget")
+# 
+# conefig
+
+
+## ----cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cone` data."----
 #| fig-width: 15
 #| fig-height: 5
 
@@ -1025,8 +1040,8 @@ cubehole_proj1 + cubehole_proj2 + cubehole_proj3 +
 gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(gau)
+## -----------------------------------------------------------------------------
+gau_lang <- langevitour::langevitour(gau, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----gau-proj1----------------------------------------------------------------
@@ -1111,7 +1126,22 @@ gau_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-gau-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gau` data."----
+## ----gau, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `gau` data in $4\\text{-}D$."----
+# 
+# gaufig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     gau_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(gaufig) <- c(class(gaufig), "htmlwidget")
+# 
+# gaufig
+
+
+## ----gau-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gau` data."----
 #| fig-width: 15
 #| fig-height: 5
 
@@ -1123,8 +1153,8 @@ gau_proj1 + gau_proj2 + gau_proj3 +
 linear <- gen_longlinear(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(linear)
+## -----------------------------------------------------------------------------
+linear_lang <- langevitour::langevitour(linear, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----linear-proj1-------------------------------------------------------------
@@ -1209,7 +1239,22 @@ linear_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-linear-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `linear` data."----
+## ----linear, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `linear` data in $4\\text{-}D$."----
+# 
+# linearfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     linear_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(linearfig) <- c(class(linearfig), "htmlwidget")
+# 
+# linearfig
+
+
+## ----linear-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `linear` data."----
 #| fig-width: 15
 #| fig-height: 5
 
@@ -1322,7 +1367,7 @@ mobius_proj3 <- plot_proj(
 # mobiusfig
 
 
-## ----mobius-proj, fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `mobius` data."----
+## ----mobius-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `mobius` data."----
 #| fig-width: 15
 #| fig-height: 5
 
