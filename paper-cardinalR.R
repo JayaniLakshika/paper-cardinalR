@@ -1221,8 +1221,8 @@ linear_proj1 + linear_proj2 + linear_proj3 +
 mobius <- gen_mobius(n = 1000, p = 4)
 
 
-## ----eval=FALSE---------------------------------------------------------------
-# langevitour::langevitour(mobius)
+## -----------------------------------------------------------------------------
+mobius_lang <- langevitour::langevitour(mobius, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
 
 
 ## ----mobius-proj1-------------------------------------------------------------
@@ -1307,7 +1307,22 @@ mobius_proj3 <- plot_proj(
 
 
 
-## ----label = "fig-mobius-proj", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `mobius` data."----
+## ----mobius, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `mobius` data in $4\\text{-}D$."----
+# 
+# mobiusfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     mobius_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(mobiusfig) <- c(class(mobiusfig), "htmlwidget")
+# 
+# mobiusfig
+
+
+## ----mobius-proj, fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `mobius` data."----
 #| fig-width: 15
 #| fig-height: 5
 
@@ -2112,7 +2127,7 @@ scurvehole_proj3 <- plot_proj(
 
 
 
-## ----scurve, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `scurve` data in $4\\text{-}D$."----
+## ----scurve, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `scurve` and `scurvehole` data in $4\\text{-}D$."----
 # 
 # scurvefig <- bscols(
 #   htmltools::div(
