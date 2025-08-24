@@ -2302,14 +2302,14 @@ proj_obj1 <- get_projection(projection = projection,
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
                                               threshold = 0.022))
 
 circle_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.7), 
+  plot_limits = c(-0.75, 0.8), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 5,
@@ -2336,7 +2336,7 @@ proj_obj2 <- get_projection(projection = projection,
 circle_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.6), 
+  plot_limits = c(-0.7, 0.65), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 5,
@@ -2356,14 +2356,14 @@ proj_obj3 <- get_projection(projection = projection,
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
-                                              axis_pos_x = -0.4, 
-                                              axis_pos_y = -0.4, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
                                               threshold = 0.016))
 
 circle_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.62), 
+  plot_limits = c(-0.6, 0.53), 
   title = "a3", 
   cex = 2, 
   axis_text_size = 5,
@@ -2392,14 +2392,14 @@ proj_obj1 <- get_projection(projection = projection,
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
                                               threshold = 0.022))
 
 curvycycle_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.7), 
+  plot_limits = c(-0.7, 0.7), 
   title = "b1", 
   cex = 2, 
   axis_text_size = 5,
@@ -2446,14 +2446,14 @@ proj_obj3 <- get_projection(projection = projection,
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
-                                              axis_pos_x = -0.4, 
-                                              axis_pos_y = -0.4, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
                                               threshold = 0.016))
 
 curvycycle_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.62), 
+  plot_limits = c(-0.7, 0.62), 
   title = "b3", 
   cex = 2, 
   axis_text_size = 5,
