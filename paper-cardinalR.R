@@ -1758,16 +1758,16 @@ projection <- cbind(
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
                             scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
+                            axis_param = list(limits = 0.3,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
+                                              axis_pos_x = -0.2, 
+                                              axis_pos_y = -0.2, 
                                               threshold = 0.022))
 
 pyrtri_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.7), 
+  plot_limits = c(-0.25, 0.3), 
   title = "b1", 
   cex = 2, 
   axis_text_size = 5,
@@ -1785,16 +1785,16 @@ projection <- cbind(
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
                             scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
+                            axis_param = list(limits = 0.3,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.25, 
+                                              axis_pos_y = -0.25, 
+                                              threshold = 0.03))
 
 pyrtri_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.6), 
+  plot_limits = c(-0.3, 0.4), 
   title = "b2", 
   cex = 2, 
   axis_text_size = 5,
