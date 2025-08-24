@@ -155,7 +155,7 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
 ### Branching
 
-A branching structure (Figure \@ref(fig:overviewhtml)) captures trajectories that diverge or bifurcate from a common origin, similar processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
+A branching structure (Figure \@ref(fig:branch)) captures trajectories that diverge or bifurcate from a common origin, similar processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -431,7 +431,7 @@ Each branch contains $n_i$ points such that $\sum_{i=1}^k n_i = n$, where the ve
 
 ### Cone
 
-To simulate a cone-shaped structure in arbitrary dimensions, we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
+To simulate a cone-shaped structure (Figure \@ref(fig:cone)) in arbitrary dimensions, we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
 
 This function generates $n$ points in a $p\text{-}D$, where the last dimension ($X_p$) represents height along the cone's axis, and the remaining dimensions define a shrinking hyperspherical cross-section as one moves toward the tip. Points along the height axis are drawn from an exponential distribution to increase density near the tip. The $X_p = h_i \sim \text{Exp}(\lambda = 2/h)$ truncated at $h$. The effective radius at height $h_i$ decreases linearly from base to tip, controlled by a shape ratio parameter $r_i = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}})h_i/h, \quad \text{where } r_{\text{min}} = \text{ratio},\ r_{\text{max}} = 1$.
 
@@ -497,7 +497,7 @@ For each point, a direction is sampled uniformly from a $(p-1)$-dimensional hype
 
 ### Cube
 
-A cube structure represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table \@ref(tab:cube-tb-html) outlines these functions and their purposes. 
+A cube structure (Figure \@ref(fig:cube)) represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table \@ref(tab:cube-tb-html) outlines these functions and their purposes. 
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -666,7 +666,7 @@ The initial points are drawn from a uniform cube centered at the origin: $X_1, X
 
 ### Gaussian
 
-The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure. Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, \Sigma)$, where $\Sigma$ is a user-defined $p \times p$ positive-definite matrix.
+The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure (Figure \@ref(fig:gau)). Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, \Sigma)$, where $\Sigma$ is a user-defined $p \times p$ positive-definite matrix.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gau</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gaussian</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, s <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span><span class='op'>(</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
@@ -728,7 +728,7 @@ The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in 
 
 ### Linear
 
-The `gen_longlinear(n, p)` function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise. Each variable $X_i$ is created as $X_i = \text{scale}_i \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i$, where $\text{scale}_i \sim U(-10, 10)$ is randomly chosen direction and stretch, $\text{shift}_i \sim U(-300, 300)$ is large offset to spread features apart, and $\epsilon \sim N(0, 0.03n)$ is Gaussian noise.
+The `gen_longlinear(n, p)` function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise (Figure \@ref(fig:linear)). Each variable $X_i$ is created as $X_i = \text{scale}_i \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i$, where $\text{scale}_i \sim U(-10, 10)$ is randomly chosen direction and stretch, $\text{shift}_i \sim U(-300, 300)$ is large offset to spread features apart, and $\epsilon \sim N(0, 0.03n)$ is Gaussian noise.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_longlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -790,7 +790,7 @@ The `gen_longlinear(n, p)` function simulates a high-dimensional linear structur
 
 ### Mobius
 
-The `gen_mobius(n, p)` function generates a dataset of $n$ points that form a Mobius strip embedded in the first three dimensions of a $p\text{-}D$ structure. This classical non-orientable surface loops back on itself with a half-twist.
+The `gen_mobius(n, p)` function generates a dataset of $n$ points that form a Mobius strip embedded in the first three dimensions of a $p\text{-}D$ structure (Figure \@ref(fig:mobius)). This classical non-orientable surface loops back on itself with a half-twist.
 
 The Mobius strip is generated using `geozoo::mobius(n, p = 3)$points`, which samples $n$ points from a parametrization of the surface defined by angle $\theta$ and strip width $w$. The cartesian coordinates are $X_1 = \left(1 + w/2 \cos(\theta/2)\right) \cos(\theta)$, $X_2 = \left(1 + w/2 \cos(\theta/2)\right) \sin(\theta)$, and $X_3 = w/2 \sin(\theta/2)$. This maps a $2\text{-}D$ band with a half-twist into $3\text{-}D$ space, forming a non-orientable one-sided surface. For $p > 3$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $3\text{-}D$ Mobius into $p\text{-}D$, where $j = 4, \dots, p$.
 
@@ -854,7 +854,7 @@ The Mobius strip is generated using `geozoo::mobius(n, p = 3)$points`, which sam
 
 ### Polynomial
 
-A polynomial structure generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in high-dimensional space. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. Table \@ref(tab:polynomial-tb-html) summarizes these functions and their purposes.
+A polynomial structure (Figure \@ref(fig:poly)) generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in high-dimensional space. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. Table \@ref(tab:polynomial-tb-html) summarizes these functions and their purposes.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -984,7 +984,7 @@ The shape is generated using a third-degree raw polynomial basis expansion. Let 
 
 ### Pyramid
 
-A pyramid structure represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with various base shapes—including rectangular, triangular, and star-shaped bases—with options for sharp or blunted apexes. Additionally, we offer functionality for creating pyramids containing structured holes, enabling the study of non-convex and sparse regions. These designs are valuable for testing the ability of dimension reduction and clustering algorithms to preserve and detect complex geometric features. Table \@ref(tab:pyramid-tb-html) summarizes these functions.
+A pyramid structure (Figure \@ref(fig:pyr)) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with various base shapes—including rectangular, triangular, and star-shaped bases—with options for sharp or blunted apexes. Additionally, we offer functionality for creating pyramids containing structured holes, enabling the study of non-convex and sparse regions. These designs are valuable for testing the ability of dimension reduction and clustering algorithms to preserve and detect complex geometric features. Table \@ref(tab:pyramid-tb-html) summarizes these functions.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1202,7 +1202,7 @@ Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simp
 
 ### S-curve
 
-An S-curve structure simulates data that lies along a smooth, non-linear manifold, making it a classic example for testing the performance of non-linear dimension reduction methods. This package provides functions to generate standard S-curve shapes as well as variants containing holes to introduce missing or incomplete regions. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table \@ref(tab:scurve-tb-html) summarizes these functions.
+An S-curve structure (Figure \@ref(fig:scurve)) simulates data that lies along a smooth, non-linear manifold, making it a classic example for testing the performance of non-linear dimension reduction methods. This package provides functions to generate standard S-curve shapes as well as variants containing holes to introduce missing or incomplete regions. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table \@ref(tab:scurve-tb-html) summarizes these functions.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1332,7 +1332,7 @@ To simulate missing regions on the manifold, a fixed anchor point $(0, 1, 0, \ld
 
 ### Sphere
 
-Sphere-shaped structures are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The package provides functions to generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. These shapes help test how well methods preserve symmetry, curvature, and cluster separation. Table \@ref(tab:sphere-tb-html) summarizes these functions.
+Sphere-shaped structures (Figure \@ref(fig:sphere)) are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The package provides functions to generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. These shapes help test how well methods preserve symmetry, curvature, and cluster separation. Table \@ref(tab:sphere-tb-html) summarizes these functions.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1643,8 +1643,7 @@ Each observation is situated on a restricted $4\text{-}D$ spherical surface, def
 
 ### Swiss Roll  
 
-To further generalize the Swiss roll structure and introduce realistic noise, we define a function `gen_swissroll(n, p, w)`, where $n$ is the number of points, $p$ is the total number of dimensions, and $w$ is the vertical range in the third dimension. 
-The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $X_1 = t \cos(t)$, $X_2 = t \sin(t)$, $X_3 \sim U(w_1, w_2), \text{where } t \sim U(0, 3\pi)$. For $p > 3$, the remaining $p - 3$ dimensions are filled with small Gaussian noise to simulate high-dimensional complexity. 
+To further generalize the Swiss roll structure and introduce realistic noise, we define a function `gen_swissroll(n, p, w)`, where $n$ is the number of points, $p$ is the total number of dimensions, and $w$ is the vertical range in the third dimension (Figure \@ref(fig:swissroll)). The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $X_1 = t \cos(t)$, $X_2 = t \sin(t)$, $X_3 \sim U(w_1, w_2), \text{where } t \sim U(0, 3\pi)$. For $p > 3$, the remaining $p - 3$ dimensions are filled with small Gaussian noise to simulate high-dimensional complexity. 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, w <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
@@ -1706,7 +1705,7 @@ The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $
 
 ### Trigonometric
 
-Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems. The package includes functions to generate a wide range of these forms from crescents and curvy cylinders to spherical, helical, and conic spirals, as well as nonlinear hyperbolas. These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table \@ref(tab:trigonometric-tb-html) summarizes these functions.
+Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \@ref(fig:triginometric)). The package includes functions to generate a wide range of these forms from crescents and curvy cylinders to spherical, helical, and conic spirals, as well as nonlinear hyperbolas. These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table \@ref(tab:trigonometric-tb-html) summarizes these functions.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1998,7 +1997,7 @@ The $X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division error
 
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
 
-The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space. The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of NLDR methods to preserve global structure, loops, and embeddings in high-dimensional data. Table \@ref(tab:trefoil-tb-html) summarizes these functions.
+The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (Figure \@ref(fig:trefoil)). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of NLDR methods to preserve global structure, loops, and embeddings in high-dimensional data. Table \@ref(tab:trefoil-tb-html) summarizes these functions.
 
 <div class="layout-chunk" data-layout="l-body">
 
