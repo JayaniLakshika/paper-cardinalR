@@ -1198,16 +1198,16 @@ projection <- cbind(
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
                             scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.5,
+                            axis_param = list(limits = 0.6,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.3, 
-                                              axis_pos_y = -0.3, 
+                                              axis_pos_x = -0.55, 
+                                              axis_pos_y = -0.55, 
                                               threshold = 0.022))
 
 linear_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.4, 0.4), 
+  plot_limits = c(-0.65, 0.5), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 5,
@@ -1225,16 +1225,16 @@ projection <- cbind(
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
                             scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.6,
+                            axis_param = list(limits = 0.75,
                                               axis_scaled = 3, 
-                                              axis_pos_x = -0.4, 
-                                              axis_pos_y = -0.4, 
+                                              axis_pos_x = -0.75, 
+                                              axis_pos_y = -0.75, 
                                               threshold = 0.01))
 
 linear_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.4), 
+  plot_limits = c(-0.9, 0.6), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 5,
