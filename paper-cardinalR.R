@@ -3107,7 +3107,7 @@ proj_obj1 <- get_projection(projection = projection,
 curvycylinder_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.7), 
+  plot_limits = c(-0.65, 0.5), 
   title = "b1", 
   cex = 2, 
   axis_text_size = 5,
@@ -3161,7 +3161,7 @@ proj_obj3 <- get_projection(projection = projection,
 curvycylinder_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.62), 
+  plot_limits = c(-0.5, 0.5), 
   title = "b3", 
   cex = 2, 
   axis_text_size = 5,
