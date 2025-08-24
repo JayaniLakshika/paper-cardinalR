@@ -2572,14 +2572,14 @@ proj_obj1 <- get_projection(projection = projection,
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
                                               threshold = 0.022))
 
 gridedsphere_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.7), 
+  plot_limits = c(-0.75, 0.7), 
   title = "d1", 
   cex = 2, 
   axis_text_size = 5,
@@ -2606,7 +2606,7 @@ proj_obj2 <- get_projection(projection = projection,
 gridedsphere_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.6), 
+  plot_limits = c(-0.7, 0.65), 
   title = "d2", 
   cex = 2, 
   axis_text_size = 5,
@@ -2626,14 +2626,14 @@ proj_obj3 <- get_projection(projection = projection,
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
-                                              axis_pos_x = -0.4, 
-                                              axis_pos_y = -0.4, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
                                               threshold = 0.016))
 
 gridedsphere_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.62), 
+  plot_limits = c(-0.65, 0.62), 
   title = "d3", 
   cex = 2, 
   axis_text_size = 5,
@@ -2664,14 +2664,14 @@ proj_obj1 <- get_projection(projection = projection,
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
                                               threshold = 0.022))
 
 clusteredspheres_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.7), 
+  plot_limits = c(-0.75, 0.7), 
   title = "e1", 
   cex = 2, 
   axis_text_size = 5,
@@ -2718,14 +2718,14 @@ proj_obj3 <- get_projection(projection = projection,
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
-                                              axis_pos_x = -0.4, 
-                                              axis_pos_y = -0.4, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
                                               threshold = 0.016))
 
 clusteredspheres_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.62), 
+  plot_limits = c(-0.6, 0.62), 
   title = "e3", 
   cex = 2, 
   axis_text_size = 5,
@@ -2754,14 +2754,14 @@ proj_obj1 <- get_projection(projection = projection,
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
                                               threshold = 0.022))
 
 hemisphere_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.7), 
+  plot_limits = c(-0.75, 0.7), 
   title = "f1", 
   cex = 2, 
   axis_text_size = 5,
