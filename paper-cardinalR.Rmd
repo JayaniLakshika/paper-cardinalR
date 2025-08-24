@@ -3579,7 +3579,7 @@ proj_obj3 <- get_projection(projection = projection,
 sphericalspiral_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.62), 
+  plot_limits = c(-0.5, 0.5), 
   title = "c3", 
   cex = 2, 
   axis_text_size = 5,
