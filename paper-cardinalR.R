@@ -819,11 +819,11 @@ projection <- cbind(
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
                             scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.8, 
-                                              axis_pos_y = -0.8, 
-                                              threshold = 0.01))
+                            axis_param = list(limits = 0.8,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.85, 
+                                              axis_pos_y = -0.85, 
+                                              threshold = 0.05))
 
 gridcube_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
