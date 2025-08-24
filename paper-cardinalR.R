@@ -1677,7 +1677,7 @@ proj_obj1 <- get_projection(projection = projection,
 pyrrect_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.7), 
+  plot_limits = c(-0.65, 0.5), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 5,
@@ -1696,15 +1696,15 @@ proj_obj2 <- get_projection(projection = projection,
                             proj_scale = 1.2, 
                             scaled_data = scaled_data, 
                             axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
+                                              axis_scaled = 1.7, 
+                                              axis_pos_x = -0.45, 
+                                              axis_pos_y = -0.45, 
+                                              threshold = 0.08))
 
 pyrrect_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.6), 
+  plot_limits = c(-0.6, 0.6), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 5,
@@ -1731,7 +1731,7 @@ proj_obj3 <- get_projection(projection = projection,
 pyrrect_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.62), 
+  plot_limits = c(-0.5, 0.75), 
   title = "a3", 
   cex = 2, 
   axis_text_size = 5,
