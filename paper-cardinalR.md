@@ -133,16 +133,16 @@ The main arguments of the `gen_multicluster()` function are shown in Table \@ref
 
 Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
-|Argument |Explanation                                                                                        |
-|:--------|:--------------------------------------------------------------------------------------------------|
-|n        |A numeric vector representing the number of points in each cluster.                                |
-|p        |A numeric value representing the number of dimensions.                                             |
-|k        |A numeric value representing the number of clusters.                                               |
-|loc      |A numeric matrix representing the locations/centroids of clusters.                                 |
-|scale    |A numeric vector representing the scaling factors of clusters.                                     |
-|shape    |A character vector representing the shapes of clusters.                                            |
-|rotation |A numeric list which contains plane and the corresponding angle along that plane for each cluster. |
-|is_bkg   |A Boolean value representing the background noise should exist or not.                             |
+|Argument |Type               |Explanation                                                          |
+|:--------|:------------------|:--------------------------------------------------------------------|
+|n        |numeric (vector)   |Number of points in each cluster.                                    |
+|p        |numeric            |Number of dimensions.                                                |
+|k        |numeric            |Number of clusters.                                                  |
+|loc      |numeric (matrix)   |Locations/centroids of clusters.                                     |
+|scale    |numeric (vector)   |Scaling factors of clusters.                                         |
+|shape    |character (vector) |Shapes of clusters.                                                  |
+|rotation |numeric (list)     |Plane and the corresponding angle along that plane for each cluster. |
+|is_bkg   |boolean            |Background noise should exist or not.                                |
 
 </div>
 

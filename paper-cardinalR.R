@@ -95,27 +95,36 @@ main_tb <- tibble(arg = c("n",
                           "scale",
                           "shape",
                           "rotation",
-                          "is_bkg"), 
-                        exp = c("A numeric vector representing the number of points in each cluster.",
-                                "A numeric value representing the number of dimensions.",
-                                "A numeric value representing the number of clusters.",
-                                "A numeric matrix representing the locations/centroids of clusters.",
-                                "A numeric vector representing the scaling factors of clusters.",
-                                "A character vector representing the shapes of clusters.",
-                                "A numeric list which contains plane and the corresponding angle along that plane for each cluster.",
-                                "A Boolean value representing the background noise should exist or not."))
+                          "is_bkg"),
+                  type = c("numeric (vector)",
+                           "numeric",
+                           "numeric",
+                           "numeric (matrix)",
+                           "numeric (vector)",
+                           "character (vector)",
+                           "numeric (list)",
+                           "boolean"),
+                        exp = c("Number of points in each cluster.",
+                                "Number of dimensions.",
+                                "Number of clusters.",
+                                "Locations/centroids of clusters.",
+                                "Scaling factors of clusters.",
+                                "Shapes of clusters.",
+                                "Plane and the corresponding angle along that plane for each cluster.",
+                                "Background noise should exist or not."))
 
 
 ## ----main-tb-html, eval=knitr::is_html_output()-------------------------------
 # main_tb |>
-#   kable(caption = "The main arguments for `gen_multicluster()`.", col.names = c("Argument", "Explanation"))
+#   kable(caption = "The main arguments for `gen_multicluster()`.", col.names = c("Argument", "Type", "Explanation"))
 
 
 ## ----main-tb-pdf, eval=knitr::is_latex_output()-------------------------------
 main_tb |> 
-  kable(caption = "The main arguments for gen\\_multicluster().", format="latex", col.names = c("Argument", "Explanation"), booktabs = T, table.pos = "H")  |>
+  kable(caption = "The main arguments for gen\\_multicluster().", format="latex", col.names = c("Argument", "Type", "Explanation"), booktabs = T, table.pos = "H")  |>
   column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
+  column_spec(2, width = "4cm") |>
+  column_spec(3, width = "8cm")
 
 
 ## -----------------------------------------------------------------------------
