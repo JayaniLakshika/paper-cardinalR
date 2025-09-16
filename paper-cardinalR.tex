@@ -271,7 +271,7 @@ gen\_cubic & Generate a cubic pattern.\\
 
 The \texttt{gen\_quadratic(n,\ p,\ range)} function generates a dataset of \(n\) points forming a quadratic curve in the first two dimensions (Figure \ref{fig:poly-proj} a). This \(2\text{-}D\) parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.
 
-The curve is constructed by drawing uniformly spaced inputs and applying a second-degree polynomial transformation. Let \(X_1 \sim U(\text{range}[1], \text{range}[2])\) be the independent variable. A raw polynomial basis of degree 2 is used to form \(X_2 = X_1 - X_1^2 + \varepsilon_2\), where \(\varepsilon_2 \sim U(0, 0.5)\). This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate noise. For \(p > 2\), Gaussian noise \(X_j \sim N(0, 0.1^2)\) is added to embed the \(2\text{-}D\) structure into \(p\text{-}D\), where \(j = 3, \dots, p\).
+The curve is constructed by randomly sampling inputs and applying a second-degree polynomial transformation. Let \(X_1 \sim U(\text{range}[1], \text{range}[2])\) be the independent variable. A raw polynomial basis of degree 2 is used to form \(X_2 = X_1 - X_1^2 + \varepsilon_2\), where \(\varepsilon_2 \sim U(0, 0.5)\). This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate noise. For \(p > 2\), Gaussian noise \(X_j \sim N(0, 0.1^2)\) is added to embed the \(2\text{-}D\) structure into \(p\text{-}D\), where \(j = 3, \dots, p\).
 
 \begin{verbatim}
 quadratic <- gen_quadratic(n = 1000, p = 4)

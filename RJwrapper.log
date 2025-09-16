@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.8.18)  16 SEP 2025 22:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.8.18)  16 SEP 2025 22:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -924,19 +924,20 @@ File: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf Graphic file (type pdf)
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf  used on input line 364.
 (pdftex.def)             Requested size: 398.33858pt x 531.10645pt.
 
+
+[11 <./paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>]
+
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `!tbp') on input line 405.
 
-<paper-cardinalR_files/figure-latex/scurve-proj-1.pdf, id=236, 1084.05pt x 722.7pt>
+<paper-cardinalR_files/figure-latex/scurve-proj-1.pdf, id=252, 1084.05pt x 722.7pt>
 File: paper-cardinalR_files/figure-latex/scurve-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/scurve-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/scurve-proj-1.pdf  used on input line 406.
 (pdftex.def)             Requested size: 398.33858pt x 265.55322pt.
 
 
-[11]
-
-[12 <./paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>]
+[12]
 
 [13 <./paper-cardinalR_files/figure-latex/scurve-proj-1.pdf>]
 
@@ -1037,15 +1038,15 @@ Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
 (rerunfilecheck)             Checksum: 9B35D116D8D0073137288EC5A8953836;1026.
  ) 
 Here is how much of TeX's memory you used:
- 27598 strings out of 469781
- 506449 string characters out of 5481231
+ 27601 strings out of 469781
+ 506473 string characters out of 5481231
  925489 words of memory out of 5000000
  55042 multiletter control sequences out of 15000+600000
- 689456 words of font info for 371 fonts, out of 8000000 for 9000
+ 689605 words of font info for 373 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  117i,12n,131p,1335b,1042s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (25 pages, 10377146 bytes).
+Output written on RJwrapper.pdf (25 pages, 10377203 bytes).
 PDF statistics:
  630 PDF objects out of 1000 (max. 8388607)
  528 compressed objects within 6 object streams
