@@ -92,7 +92,7 @@ Argument & Explanation\\
 \midrule
 n & A numeric value representing the number of points.\\
 p & A numeric value representing the number of dimensions.\\
-k & A numeric value representing the number of clusters.\\
+k & A numeric value representing the number of branches.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -174,6 +174,12 @@ cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 
 A cube structure (Figure \ref{fig:cube-proj}) represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table \ref{tab:cube-tb-pdf} outlines these functions and their purposes.
 
+The first is the regular grid of points of \(n\) points in \(p\) dimensions. This is generated using \texttt{gen\_gridcube(n,\ p)}. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to \(n\). In the base cube function, the cube is represented in integer grid coordinates (e.g.~1, 2, 3, \ldots) along each ais. This results in a \(p\text{-}D\) hyercube-shaped lattice structure.
+
+An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function \texttt{gen\_unifcube(n,\ p)} is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the \(p\text{-}D\) cube (Figure \ref{fig:cube-proj} b).
+
+Finally, we consider a cube that has a central spherical hole. This is generated using the \texttt{gen\_cubehole(n,\ p)} function. The cube is generated as per the uniformly distributed cube, but points inside sphere of radius \(0.5\) are removed, resulting in a hollow cube structure (Figure \ref{fig:cube-proj} c).
+
 \begin{table}
 
 \caption{\label{tab:cube-tb-pdf}cardinalR cube data generation functions}
@@ -189,31 +195,13 @@ gen\_cubehole & Generate a cube with a hole.\\
 \end{tabular}
 \end{table}
 
-\paragraph{\texorpdfstring{\texttt{gen\_gridcube()}}{gen\_gridcube()}}\label{gen_gridcube}
-
-The \texttt{gen\_gridcube(n,\ p)} constructs a regular grid using approximately \(n\) points by evenly partitioning each of the \(p\) dimensions (Figure \ref{fig:cube-proj} a). Specifically, the number of grid points along each axis is determined by \texttt{gen\_nproduct(n,\ p)}, which calculates the nearest balanced integer factors whose product is close to \(n\). The full grid is generated via \texttt{expand\_grid()}, giving Cartesian combinations of these evenly spaced positions.
-
-Each variable \(X_j\) represents integer grid coordinates (e.g., 1, 2, 3, \ldots) in dimension \(j\): \(X_j \in {1, \dots, k_j},\text{ where }\prod_{j=1}^p k_j \approx n\). This results in a hypercube-shaped lattice in \(p\text{-}D\).
-
 \begin{verbatim}
 gridcube <- gen_gridcube(n = 1000, p = 4)
 \end{verbatim}
 
-\paragraph{\texorpdfstring{\texttt{gen\_unifcube()}}{gen\_unifcube()}}\label{gen_unifcube}
-
-The \texttt{gen\_unifcube(n,\ p)} function generates \(n\) points uniformly distributed within a \(3\text{-}D\) cube centered at the origin, optionally embedded in \(p\text{-}D\) with additional noise dimensions (Figure \ref{fig:cube-proj} b).
-
-Points are sampled independently from \(X_1, X_2, X_3 \sim U(-0.5, 0.5)\) of a cube of side length \(1\). This results in a uniform cloud of points filling the unit cube in \(3\text{-}D\) space. For \(p > 3\), Gaussian noise \(X_j \sim N(0, 0.05^2)\) is added to embed the \(3\text{-}D\) structure into \(p\text{-}D\), where \(j = 4, \dots, p\).
-
 \begin{verbatim}
 unifcube <- gen_unifcube(n = 1000, p = 4)
 \end{verbatim}
-
-\paragraph{\texorpdfstring{\texttt{gen\_cubehole()}}{gen\_cubehole()}}\label{gen_cubehole}
-
-The \texttt{gen\_cubehole(n,\ p)} function generates a dataset of \(n\) points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in \(p\text{-}D\) (Figure \ref{fig:cube-proj} c).
-
-The initial points are drawn from a uniform cube centered at the origin: \(X_1, X_2, X_3 \sim U(-0.5, 0.5)\). The center of the cube is \((0, 0, 0)\). A spherical hole of radius \(0.5\) is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to \(0.5\): remove if \(\sqrt{X_1^2 + X_2^2 + X_3^2} \leq 0.5\). This results in a shell-like point cloud that fills the cube but avoids the spherical center. For \(p > 3\), Gaussian noise \(X_j \sim N(0, 0.05^2)\) is added to embed the \(3\text{-}D\) structure into \(p\text{-}D\), where \(j = 4, \dots, p\).
 
 \begin{verbatim}
 cubehole <- gen_cubehole(n = 3000, p = 4)
@@ -225,7 +213,7 @@ cubehole <- gen_cubehole(n = 3000, p = 4)
 
 \subsubsection{Gaussian}\label{gaussian}
 
-The \texttt{gen\_gaussian(n,\ p,\ s)} function generates a multivariate Gaussian cloud in \(p\text{-}D\), centered at the origin with user-defined covariance structure (Figure \ref{fig:gau-proj}). Each point is independently drawn using the multivariate normal distribution with \(X_i \sim N_p(\boldsymbol{0}, \Sigma)\), where \(\Sigma\) is a user-defined \(p \times p\) positive-definite matrix.
+The \texttt{gen\_gaussian(n,\ p,\ s)} function generates a multivariate Gaussian cloud in \(p\text{-}D\), centered at the origin with user-defined covariance structure (Figure \ref{fig:gau-proj}). Each point is independently drawn using the multivariate normal distribution with \(X_i \sim N_p(\boldsymbol{0}, s)\), where \(s\) is a user-defined \(p \times p\) positive-definite matrix.
 
 \begin{verbatim}
 gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
@@ -251,7 +239,7 @@ linear <- gen_longlinear(n = 1000, p = 4)
 
 The \texttt{gen\_mobius(n,\ p)} function generates a dataset of \(n\) points that form a Mobius strip embedded in the first three dimensions of a \(p\text{-}D\) structure (Figure \ref{fig:mobius-proj}). This classical non-orientable surface loops back on itself with a half-twist.
 
-The Mobius strip is generated using \texttt{geozoo::mobius(n,\ p\ =\ 3)\$points}, which samples \(n\) points from a parametrization of the surface defined by angle \(\theta\) and strip width \(w\). The cartesian coordinates are \(X_1 = \left(1 + w/2 \cos(\theta/2)\right) \cos(\theta)\), \(X_2 = \left(1 + w/2 \cos(\theta/2)\right) \sin(\theta)\), and \(X_3 = w/2 \sin(\theta/2)\). This maps a \(2\text{-}D\) band with a half-twist into \(3\text{-}D\) space, forming a non-orientable one-sided surface. For \(p > 3\), Gaussian noise \(X_j \sim N(0, 0.05^2)\) is added to embed the \(3\text{-}D\) Mobius into \(p\text{-}D\), where \(j = 4, \dots, p\).
+The Mobius strip is generated using the \texttt{geozoo::mobius} function with \texttt{p\ =\ 3}, and \texttt{n} defined as above. This function samples \(n\) points from a parameterization of the surface defined by angle \(\theta\) and strip width \(w\). The cartesian coordinates are \(X_1 = \left(1 + w/2 \cos(\theta/2)\right) \cos(\theta)\), \(X_2 = \left(1 + w/2 \cos(\theta/2)\right) \sin(\theta)\), and \(X_3 = w/2 \sin(\theta/2)\). This maps a \(2\text{-}D\) band with a half-twist into \(3\text{-}D\) space, forming a non-orientable one-sided surface. For \(p > 3\), Gaussian noise \(X_j \sim N(0, 0.05^2)\) is added to embed the \(3\text{-}D\) Mobius into \(p\text{-}D\), where \(j = 4, \dots, p\).
 
 \begin{verbatim}
 mobius <- gen_mobius(n = 1000, p = 4)

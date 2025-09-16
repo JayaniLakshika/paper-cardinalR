@@ -158,7 +158,7 @@ arg_branching_tb <- tibble(arg = c("n",
                           "k"), 
                         exp = c("A numeric value representing the number of points.",
                                 "A numeric value representing the number of dimensions.",
-                                "A numeric value representing the number of clusters."))
+                                "A numeric value representing the number of branches."))
 
 
 ## ----arg-branching-tb-html, eval=knitr::is_html_output()----------------------

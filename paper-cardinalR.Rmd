@@ -245,7 +245,7 @@ arg_branching_tb <- tibble(arg = c("n",
                           "k"), 
                         exp = c("A numeric value representing the number of points.",
                                 "A numeric value representing the number of dimensions.",
-                                "A numeric value representing the number of clusters."))
+                                "A numeric value representing the number of branches."))
 ```
 
 ```{r arg-branching-tb-html, eval=knitr::is_html_output()}
@@ -1216,7 +1216,7 @@ cubehole_proj1 + cubehole_proj2 + cubehole_proj3 +
 
 ### Gaussian
 
-The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:gau)"} else { "Figure \\@ref(fig:gau-proj)"})`). Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, \Sigma)$, where $\Sigma$ is a user-defined $p \times p$ positive-definite matrix.
+The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:gau)"} else { "Figure \\@ref(fig:gau-proj)"})`). Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, s)$, where $s$ is a user-defined $p \times p$ positive-definite matrix.
 
 ```{r data-gau, echo=TRUE}
 gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
