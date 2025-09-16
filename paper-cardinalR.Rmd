@@ -1333,7 +1333,7 @@ gau_proj1 + gau_proj2 + gau_proj3 +
 
 ### Linear
 
-The `gen_longlinear(n, p)` function simulates a high-dimensional linear structure with a dominant linear trend and small additive noise (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:linear)"} else { "Figure \\@ref(fig:linear-proj)"})`). Each variable $X_i$ is created as $X_i = \text{scale}_i \left(0, 1, \dots, n{-}1 + \epsilon\right) + \text{shift}_i$, where $\text{scale}_i \sim U(-10, 10)$ is randomly chosen direction and stretch, $\text{shift}_i \sim U(-300, 300)$ is large offset to spread features apart, and $\epsilon \sim N(0, 0.03n)$ is Gaussian noise.
+The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a long linear structure with noise. Each variable is formed as $X_i = \text{scale}_i \cdot (0,1,\dots,n{-}1 + \epsilon) + \text{shift}_i$, where $\text{scale}\_i \sim U(-10, 10)$ determines the orientation of the line in each dimension, $\text{shift}\_i \sim U(-300, 300)$ offsets the line to separate dimensions, and $\epsilon \sim N(0, (0.03n)^2)$ introduces Gaussian noise. 
 
 ```{r data-linear, echo=TRUE}
 linear <- gen_longlinear(n = 1000, p = 4)
@@ -3917,6 +3917,7 @@ trefoil_tb |>
 ```
 
 ```{r trefoil-tb-pdf, eval=knitr::is_latex_output()}
+
 trefoil_tb |> 
   kable(caption = "cardinalR trefoil data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
   column_spec(1, width = "4cm") |>

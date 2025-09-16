@@ -3577,6 +3577,7 @@ trefoil_tb <- tibble(fun = c("gen_trefoil4d",
 
 
 ## ----trefoil-tb-pdf, eval=knitr::is_latex_output()----------------------------
+
 trefoil_tb |> 
   kable(caption = "cardinalR trefoil data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
   column_spec(1, width = "4cm") |>
