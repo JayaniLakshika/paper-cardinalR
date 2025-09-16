@@ -147,6 +147,7 @@ By providing these features, `cardinalR` provides researchers with a method to g
 
 The paper is organized as follows. In the next section, we introduce the implementation of the `cardinalR` package on GitHub, including a demonstration of the package's key functions. We illustrate how a clustering data structure affects the dimension reductions in the Application section. Finally, we give a brief conclusion of the paper and discuss potential opportunities for the use of our data collection.
 
+
 # Implementation
 
 ## Installation
@@ -893,6 +894,12 @@ cone_proj1 + cone_proj2 + cone_proj3 +
 
 A cube structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube)"} else { "Figure \\@ref(fig:cube-proj)"})`) represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:cube-tb-html)', '\\@ref(tab:cube-tb-pdf)'))` outlines these functions and their purposes. 
 
+The first is the regular grid of points of $n$ points in $p$ dimensions. This is generated using `gen_gridcube(n, p)`. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to $n$. In the base cube function, the cube is represented in integer grid coordinates (e.g. 1, 2, 3, ...) along each ais. This results in a $p\text{-}D$ hyercube-shaped lattice structure.
+
+An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function `gen_unifcube(n, p)` is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the $p\text{-}D$ cube (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube) b"} else { "Figure \\@ref(fig:cube-proj) b"})`).
+
+Finally, we consider a cube that has a central spherical hole. This is generated using the `gen_cubehole(n, p)` function. The cube is generated as per the uniformly distributed cube, but points inside sphere of radius $0.5$ are removed, resulting in a hollow cube structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube) c"} else { "Figure \\@ref(fig:cube-proj) c"})`).
+
 ```{r}
 cube_tb <- tibble(fun = c("gen_gridcube",
                           "gen_unifcube",
@@ -913,12 +920,6 @@ cube_tb |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 ```
-
-#### `gen_gridcube()`
-
-The `gen_gridcube(n, p)` constructs a regular grid using approximately $n$ points by evenly partitioning each of the $p$ dimensions (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube) a"} else { "Figure \\@ref(fig:cube-proj) a"})`). Specifically, the number of grid points along each axis is determined by `gen_nproduct(n, p)`, which calculates the nearest balanced integer factors whose product is close to $n$. The full grid is generated via `expand_grid()`, giving Cartesian combinations of these evenly spaced positions.
-
-Each variable $X_j$ represents integer grid coordinates (e.g., 1, 2, 3, ...) in dimension $j$: $X_j \in {1, \dots, k_j},\text{ where }\prod_{j=1}^p k_j \approx n$. This results in a hypercube-shaped lattice in $p\text{-}D$.
 
 ```{r data-gridcube, echo=TRUE}
 gridcube <- gen_gridcube(n = 1000, p = 4)
@@ -1010,12 +1011,6 @@ gridcube_proj3 <- plot_proj(
 
 ```
 
-#### `gen_unifcube()`
-
-The `gen_unifcube(n, p)` function generates $n$ points uniformly distributed within a $3\text{-}D$ cube centered at the origin, optionally embedded in $p\text{-}D$ with additional noise dimensions (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube) b"} else { "Figure \\@ref(fig:cube-proj) b"})`).
-
-Points are sampled independently from $X_1, X_2, X_3 \sim U(-0.5, 0.5)$ of a cube of side length $1$. This results in a uniform cloud of points filling the unit cube in $3\text{-}D$ space. For $p > 3$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $3\text{-}D$ structure into $p\text{-}D$, where $j = 4, \dots, p$.
-
 ```{r data-unifcube, echo=TRUE}
 unifcube <- gen_unifcube(n = 1000, p = 4)
 ```
@@ -1105,12 +1100,6 @@ unifcube_proj3 <- plot_proj(
   is_color = FALSE)
 
 ```
-
-#### `gen_cubehole()`
-
-The `gen_cubehole(n, p)` function generates a dataset of $n$ points sampled uniformly inside a cube, then removes points that fall within a central spherical hole, resulting in a hollow cube structure in $p\text{-}D$ (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube) c"} else { "Figure \\@ref(fig:cube-proj) c"})`).
-
-The initial points are drawn from a uniform cube centered at the origin: $X_1, X_2, X_3 \sim U(-0.5, 0.5)$. The center of the cube is $(0, 0, 0)$. A spherical hole of radius $0.5$ is carved out by filtering out points whose Euclidean distance from the origin is less than or equal to $0.5$: remove if $\sqrt{X_1^2 + X_2^2 + X_3^2} \leq 0.5$. This results in a shell-like point cloud that fills the cube but avoids the spherical center. For $p > 3$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $3\text{-}D$ structure into $p\text{-}D$, where $j = 4, \dots, p$.
 
 ```{r data-cubehole, echo=TRUE}
 cubehole <- gen_cubehole(n = 3000, p = 4)
