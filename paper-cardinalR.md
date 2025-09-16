@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-09-16'
+date: '2025-09-17'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float} \newcommand\pD{$p\text{-}D$} \newcommand\gD{$2\text{-}D$}
 output:
@@ -250,7 +250,12 @@ Each branch $i$ is constructed using $X_1 \sim U(-2, 2)$ and $X_2 = \exp(\pm s_i
 
 The `gen_linearbranches(n, p, k)` function generates a dataset of $n$ points forming $k$ approximately linear branches in $p\text{-}D$ (Figure \@ref(fig:branch) b). The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
 
-Each branch is a segment of a line with added jitter to simulate measurement noise. The branches differ in direction and location. Branches $1$ and $2$ are initialized with fixed slopes and intercepts. Branch $1$ is generated from $X_1 \sim U(-2, 8)$, $X_2 = 0.5X_1 + \epsilon$, where $\epsilon \sim U(0, 0.5)$. The Branch $2$ is generated from $X_1 \sim U(-6, 2)$, $X_2 = -0.5X_1 + \epsilon$, where $\epsilon \sim U(0, 0.5)$. Branches $3$ to $k$ are added iteratively. Each additional branch $i$ starts at a location outside predefined exclusion zones to avoid overlap with the initial two branches. The $X_1$ values are defined over a short range, from $x_{start}$ to $x_{start} + 1$. The $X_2$ value is calculated using the formula $X_2 = s_i(X_1 - x_{start}) + y_{start} + \epsilon$, where $s_i$ is a chosen slope from a selected branch, and $\epsilon \sim U(0, 0.2)$. For $p > 2$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $2\text{-}D$ branches into $p\text{-}D$, where $j = 3, \dots, p$.
+The `gen_linearbranches(n, p, k)` function generates a dataset of $n$ points in $p-D$ forming $k$ linear branches. Each branch is a line segment with added jitter to simulate noise. Branches $1$ and $2$ are initialized with fixed slopes and intercepts: branch $1$ has slope $0.5$ and intercept $0$, with $X_1 \sim U(-2, 8)$ and $X_2 = 0.5 X_1 + \epsilon$, $\epsilon \sim U(0, 0.5)$; branch $2$ has slope $-0.5$ and intercept $0$, with $X_1 \sim U(-6, 2)$ and $X_2 = -0.5 X_1 + \epsilon$, $\epsilon \sim U(0, 0.5)$.
+
+Branches $3$ to $k$ are added iteratively. Each new branch starts at a location outside predefined exclusion zones to avoid overlap with the first two branches. Specifically, $X_1$ starting points are sampled outside the intervals $[-8, -7]$, $[-2, 2]$, and $[7, 8]$, and $X_2$ starting points are sampled outside $[7, 8]$. For each new branch $i$, $X_1$ values are drawn over a short interval $[x_{\text{start}}, x_{\text{start}} + 1]$, and $X_2$ values are calculated as $X_2 = s_i (X_1 - x_{\text{start}}) + y_{\text{start}} + \epsilon$, where $s_i$ is a randomly chosen slope from a filtered sequence and $\epsilon \sim U(0, 0.2)$.
+
+For $p > 2$, Gaussian noise $X_j \sim N(0, 0.05^2)$ is added to embed the $2\text{-}D$ branches into $p\text{-}D$, for $j = 3, \dots, p$. 
+
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_linearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
