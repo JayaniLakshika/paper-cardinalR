@@ -63,7 +63,7 @@ is\_bkg & boolean & Background noise should exist or not.\\
 
 \subsubsection{Branching}\label{branching}
 
-A branching structure (Figure \ref{fig:branch-proj}) captures trajectories that diverge or bifurcate from a common origin, similar to processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometry, number of points, and the number of branches. Table \ref{tab:branching-tb-pdf} outlines these functions. The main arguments of the functions described in Table \ref{tab:arg-branching-tb-pdf}.
+A branching structure (Figure \ref{fig:branch-proj}) captures trajectories that diverge or bifurcate from a common origin, similar to processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometries, numbers of points, and number of branches. Although these functions can generate multiple branches, they do not produce a formal \emph{multicluster} dataset: the branches form a single connected structure, with multiple visually distinct arms rather than independent clusters. Table \ref{tab:branching-tb-pdf} outlines these functions. The main arguments of the functions described in Table \ref{tab:arg-branching-tb-pdf}.
 
 \begin{table}
 
@@ -92,7 +92,7 @@ Argument & Explanation\\
 \midrule
 n & A numeric value representing the number of points.\\
 p & A numeric value representing the number of dimensions.\\
-k & A numeric value representing the number of branches.\\
+k & A numeric value representing the number of clusters.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -101,7 +101,7 @@ k & A numeric value representing the number of branches.\\
 
 The \texttt{gen\_expbranches(n,\ p,\ k)} function generates a dataset of \(n\) points forming \(k\) exponential branches in \(2\text{-}D\), with optional noise dimensions to embed the structure in \(p\text{-}D\) (Figure \ref{fig:branch-proj} a). These branches grow in opposite directions, producing a radiating curvilinear structure from a central region.
 
-Each branch \(i\) is constructed using \(X_1 \sim U(-2, 2)\) and \(X_2 = \exp(\pm s_iX_1) + \epsilon\), where: \(\epsilon \sim U(0, 0.1)\) adds local jitter, \(s_i \in [0.5, 2]\) is randomly sampled for each branch. The sign alternates between branches (odd: negative, even: positive exponent). This creates mirror-symmetric branches with different steepness and curvature where odd-numbered branches represent a decay pattern (reflected) and even-numbered branches represent a growth pattern. For \(p > 2\), Gaussian noise \(X_j \sim N(0, 0.1^2)\) is added to embed the \(2\text{-}D\) branches into \(p\text{-}D\), where \(j = 3, \dots, p\).
+Each branch \(i\) is constructed using \(X_1 \sim U(-2, 2)\) and \(X_2 = \exp(\pm s_iX_1) + \epsilon\), where: \(\epsilon \sim U(0, 0.1)\) adds local jitter, \(s_i \in [0.5, 2]\) is randomly sampled for each branch. The sign of the exponent alternates between branches: odd-numbered branches have a negative exponent (decaying pattern), and even-numbered branches have a positive exponent (growing pattern), producing mirror-symmetric curves with varying steepness. For \(p > 2\), Gaussian noise \(X_j \sim N(0, 0.1^2)\) is added to embed the \(2\text{-}D\) branches into \(p\text{-}D\), where \(j = 3, \dots, p\).
 
 \begin{verbatim}
 expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
@@ -111,11 +111,9 @@ expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
 
 The \texttt{gen\_linearbranches(n,\ p,\ k)} function generates a dataset of \(n\) points forming \(k\) approximately linear branches in \(p\text{-}D\) (Figure \ref{fig:branch-proj} b). The core structure lies in the first two dimensions and additional dimensions carry Gaussian noise.
 
-The \texttt{gen\_linearbranches(n,\ p,\ k)} function generates a dataset of \(n\) points in \(p-D\) forming \(k\) linear branches. Each branch is a line segment with added jitter to simulate noise. Branches \(1\) and \(2\) are initialized with fixed slopes and intercepts: branch \(1\) has slope \(0.5\) and intercept \(0\), with \(X_1 \sim U(-2, 8)\) and \(X_2 = 0.5 X_1 + \epsilon\), \(\epsilon \sim U(0, 0.5)\); branch \(2\) has slope \(-0.5\) and intercept \(0\), with \(X_1 \sim U(-6, 2)\) and \(X_2 = -0.5 X_1 + \epsilon\), \(\epsilon \sim U(0, 0.5)\).
+The \texttt{gen\_linearbranches(n,\ p,\ k)} function generates a dataset of \(n\) points in \(p\text{-}D\) forming \(k\) linear branches. Each branch is a line segment with added jitter to simulate noise. Branches \(1\) and \(2\) are initialized with fixed slopes and intercepts: branch \(1\) has slope \(0.5\) and intercept \(0\), with \(X_1 \sim U(-2, 8)\) and \(X_2 = 0.5 X_1 + \epsilon\), \(\epsilon \sim U(0, 0.5)\); branch \(2\) has slope \(-0.5\) and intercept \(0\), with \(X_1 \sim U(-6, 2)\) and \(X_2 = -0.5 X_1 + \epsilon\), \(\epsilon \sim U(0, 0.5)\).
 
-Branches \(3\) to \(k\) are added iteratively. Each new branch starts at a location outside predefined exclusion zones to avoid overlap with the first two branches. Specifically, \(X_1\) starting points are sampled outside the intervals \([-8, -7]\), \([-2, 2]\), and \([7, 8]\), and \(X_2\) starting points are sampled outside \([7, 8]\). For each new branch \(i\), \(X_1\) values are drawn over a short interval \([x_{\text{start}}, x_{\text{start}} + 1]\), and \(X_2\) values are calculated as \(X_2 = s_i (X_1 - x_{\text{start}}) + y_{\text{start}} + \epsilon\), where \(s_i\) is a randomly chosen slope from a filtered sequence and \(\epsilon \sim U(0, 0.2)\).
-
-For \(p > 2\), Gaussian noise \(X_j \sim N(0, 0.05^2)\) is added to embed the \(2\text{-}D\) branches into \(p\text{-}D\), for \(j = 3, \dots, p\).
+Branches \(3\) to \(k\) are added iteratively. Each new branch starts at a location outside predefined exclusion zones to avoid overlap with the first two branches. Specifically, \(X_1\) starting points are sampled outside the intervals \([-8, -7]\), \([-2, 2]\), and \([7, 8]\), and \(X_2\) starting points are sampled outside \([7, 8]\). For each new branch \(i\), \(X_1\) values are drawn over a short interval \([x_{\text{start}}, x_{\text{start}} + 1]\), and \(X_2\) values are calculated as \(X_2 = s_i (X_1 - x_{\text{start}}) + y_{\text{start}} + \epsilon\), where \(s_i\) is a randomly chosen slope from a filtered sequence and \(\epsilon \sim U(0, 0.2)\). For \(p > 2\), Gaussian noise \(X_j \sim N(0, 0.05^2)\) is added to embed the \(2\text{-}D\) branches into \(p\text{-}D\), for \(j = 3, \dots, p\).
 
 \begin{verbatim}
 linearbranches <- gen_linearbranches(n = 1000, p = 4, k = 4)
@@ -162,7 +160,7 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 
 To simulate a cone-shaped structure in arbitrary dimensions (Figure \ref{fig:cone-proj}), we define a function \texttt{gen\_cone(n,\ p,\ h,\ ratio)}, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
 
-This function generates \(n\) points in \(p-D\), where the last dimension, \(X_p\), represents the height along the cone's axis, and the first \(p-1\) dimensions define a shrinking hyperspherical cross-section toward the tip. Heights are sampled from a truncated exponential distribution, \(X_p \sim \text{Exp}(\lambda = 2/h)\), capped at the cone height \(h\), producing a higher density of points near the tip. At each height \(X_p\), the radius of the cross-section decreases linearly from base to tip according to \(r = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}}) X_p / h\), where \(r_{\text{min}} = \text{ratio}\) and \(r_{\text{max}} = 1\).
+This function generates \(n\) points in \(p\text{-}D\), where the last dimension, \(X_p\), represents the height along the cone's axis, and the first \(p-1\) dimensions define a shrinking hyperspherical cross-section toward the tip. Heights are sampled from a truncated exponential distribution, \(X_p \sim \text{Exp}(\lambda = 2/h)\), capped at the cone height \(h\), producing a higher density of points near the tip. At each height \(X_p\), the radius of the cross-section decreases linearly from base to tip according to \(r = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}}) X_p / h\), where \(r_{\text{min}} = \text{ratio}\) and \(r_{\text{max}} = 1\).
 
 For each point, a direction in the first \(p-1\) dimensions is sampled uniformly on a \((p-1)\)-dimensional hypersphere using generalized spherical coordinates. The radial coordinates are scaled by the height-dependent radius \(r\), producing the conical taper. In three dimensions (\(p = 3\)), this results in a classical 3-D cone, while for \(p > 3\), additional angular components allow a smooth extension into higher dimensions, preserving the conical shape within multi-dimensional space.
 
