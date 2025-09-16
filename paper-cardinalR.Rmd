@@ -1813,10 +1813,10 @@ pyramid_tb <- tibble(fun = c("gen_pyrrect",
                              "gen_pyrtri",
                              "gen_pyrstar",
                              "gen_pyrholes"), 
-                        exp = c("Generate a pyramid with a rectangular base, with the option of a sharp or blunted apex.",
-                                "Generate a pyramid with a triangular base, with the option of a sharp or blunted apex.",
-                                "Generate a pyramid with a star-shape base, with the option of a sharp or blunted apex.",
-                                "Generate a pyramid with triangular pyramid shaped holes."))
+                        exp = c("Rectangular-base pyramid, with a sharp or blunted apex.",
+          "Triangular-base pyramid, with a sharp or blunted apex.",
+          "Star-shaped base pyramid, with a sharp or blunted apex.",
+          "Pyramid containing triangular pyramid-shaped holes."))
 ```
 
 ```{r pyramid-tb-html, eval=knitr::is_html_output()}
