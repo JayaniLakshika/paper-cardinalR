@@ -963,7 +963,7 @@ unifcube_proj3 <- plot_proj(
 
 
 ## ----data-cubehole, echo=TRUE-------------------------------------------------
-cubehole <- gen_cubehole(n = 3000, p = 4)
+cubehole <- gen_cubehole(n = 3000, p = 4, r_hole = 0.5)
 
 
 ## -----------------------------------------------------------------------------

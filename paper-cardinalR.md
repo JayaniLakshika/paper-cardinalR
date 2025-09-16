@@ -504,7 +504,7 @@ The first is the regular grid of points of $n$ points in $p$ dimensions. This is
 
 An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function `gen_unifcube(n, p)` is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the $p\text{-}D$ cube (Figure \@ref(fig:cube) b).
 
-Finally, we consider a cube that has a central spherical hole. This is generated using the `gen_cubehole(n, p)` function. The cube is generated as per the uniformly distributed cube, but points inside sphere of radius $0.5$ are removed, resulting in a hollow cube structure (Figure \@ref(fig:cube) c).
+Finally, we consider a cube that has a central spherical hole. This is generated using the `gen_cubehole(n, p, r_hole)` function. The cube is generated as per the uniformly distributed cube, but points inside sphere of radius (`r_hole`) are removed, resulting in a hollow cube structure (Figure \@ref(fig:cube) c).
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -592,7 +592,7 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>3000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>3000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, r_hole <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre></div>
 
 </div>
 
