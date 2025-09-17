@@ -178,6 +178,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="citation_reference" content="citation_title=Purrr: Functional programming tools;citation_author=Hadley Wickham;citation_author=Lionel Henry"/>
   <meta name="citation_reference" content="citation_title=Computation of multivariate normal and t probabilities;citation_publisher=Springer-Verlag;citation_author=Alan Genz;citation_author=Frank Bretz"/>
   <meta name="citation_reference" content="citation_title=Modern applied statistics with s;citation_publisher=Springer;citation_author=W. N. Venables;citation_author=B. D. Ripley"/>
+  <meta name="citation_reference" content="citation_title=The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells;citation_volume=32;citation_doi=10.1038/nbt.2859;citation_author=Cole Trapnell;citation_author=Davide Cacchiarelli;citation_author=Jonna Grimsby;citation_author=Prapti Pokharel;citation_author=Shuqiang Li;citation_author=Michael Morse;citation_author=Niall J Lennon;citation_author=Kenneth J Livak;citation_author=Tarjei S Mikkelsen;citation_author=John L Rinn"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
@@ -1840,7 +1841,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!-- More documentation of the package can be found at the web site [https://jayanilakshika.github.io/cardinalR/](https://jayanilakshika.github.io/cardinalR/). -->
 <h3 data-number="2.2" id="usage"><span class="header-section-number">2.2</span> Usage</h3>
 <h4 class="unnumbered" data-number="2.2.1" id="main-function">Main function</h4>
-<p>The main function of the package is <code>gen_multicluster()</code>, which generates datasets consisting of multiple clusters with user-specified characteristics. Users can control the number of clusters (<code>k</code>), the number of points in each cluster (<code>n</code>), and the dimensionality of the space (<code>p</code>). Each cluster can take on a different geometric shape (e.g., Gaussian, cone, uniform cube), be scaled to adjust its spread, rotated in specified planes by given angles, and positioned at defined centroids (<code>loc</code>). The function ensures flexibility in cluster location and orientation, allowing users to simulate complex high-dimensional structures. An optional argument, <code>is_bkg</code>, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread, providing additional realism for testing clustering and dimension-reduction methods.</p>
+<p>The main function of the package is <code>gen_multicluster()</code>, which generates datasets consisting of multiple clusters with user-specified characteristics. Users can control the number of clusters (<code>k</code>), the number of points in each cluster (<code>n</code>), and the dimensionality of the space (<code>p</code>). Each cluster can take on a different geometric shape (e.g., Gaussian, cone, uniform cube), be scaled to adjust its spread, rotated in specified planes by given angles, and positioned at defined centroids (<code>loc</code>). The function ensures flexibility in cluster location and orientation, allowing users to simulate complex high-dimensional structures. An optional argument, <code>is_bkg</code>, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread.</p>
 <p>The main arguments of the <code>gen_multicluster()</code> function are shown in Table <a href="#tab:main-tb-html">1</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1908,7 +1909,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </div>
 <h4 class="unnumbered" data-number="2.2.2" id="branching">Branching</h4>
-<p>A branching structure (Figure <a href="#fig:branch">1</a>) captures trajectories that diverge or bifurcate from a common origin, similar to processes such as cell differentiation in biology. We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometries, numbers of points, and number of branches. Although these functions can generate multiple branches, they do not produce a formal <em>multicluster</em> dataset: the branches form a single connected structure, with multiple visually distinct arms rather than independent clusters. Table <a href="#tab:branching-tb-html">2</a> outlines these functions. The main arguments of the functions described in Table <a href="#tab:arg-branching-tb-html">3</a>.</p>
+<p>A branching structure (Figure <a href="#fig:branch">1</a>) captures trajectories that diverge or bifurcate from a common origin, similar to processes such as cell differentiation in biology (<span class="citation" data-cites="trapnell2014">Trapnell et al. (<a href="#ref-trapnell2014" role="doc-biblioref">2014</a>)</span>). We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometries, numbers of points, and number of branches. Although these functions can generate multiple branches, they do not produce a formal <em>multicluster</em> dataset: the branches form a single connected structure, with multiple visually distinct arms rather than independent clusters. Table <a href="#tab:branching-tb-html">2</a> outlines these functions. The main arguments of the functions described in Table <a href="#tab:arg-branching-tb-html">3</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -3522,6 +3523,9 @@ R Core Team. <em>R: A language and environment for statistical computing.</em> V
 </div>
 <div id="ref-barret2016" class="csl-entry" role="listitem">
 B. Schloerke. <em>Geozoo: Zoo of geometric objects.</em> 2016. URL <a href="https://CRAN.R-project.org/package=geozoo">https://CRAN.R-project.org/package=geozoo</a>. R package version 0.5.1.
+</div>
+<div id="ref-trapnell2014" class="csl-entry" role="listitem">
+C. Trapnell, D. Cacchiarelli, J. Grimsby, P. Pokharel, S. Li, M. Morse, N. J. Lennon, K. J. Livak, T. S. Mikkelsen and J. L. Rinn. The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells. <em>Nature Biotechnology</em>, 32(4): 381–386, 2014. URL <a href="https://doi.org/10.1038/nbt.2859">https://doi.org/10.1038/nbt.2859</a>.
 </div>
 <div id="ref-venables2002" class="csl-entry" role="listitem">
 W. N. Venables and B. D. Ripley. <em>Modern applied statistics with s.</em> Fourth New York: Springer, 2002. URL <a href="https://www.stats.ox.ac.uk/pub/MASS4/">https://www.stats.ox.ac.uk/pub/MASS4/</a>. ISBN 0-387-95457-0.
