@@ -120,7 +120,7 @@ pak::pak("JayaniLakshika/cardinalR")
 
 ### Main function
 
-The main function of the package is `gen_multicluster()`. This function generates clusters of various shapes, allowing users to specify the number of points in each cluster, as well as their locations, scaling, and rotations across specific dimensions. Additionally, users can add background noise into the generated data by using the `is_bkg` option.
+The main function of the package is `gen_multicluster()`, which generates datasets consisting of multiple clusters with user-specified characteristics. Users can control the number of clusters (`k`), the number of points in each cluster (`n`), and the dimensionality of the space (`p`). Each cluster can take on a different geometric shape (e.g., Gaussian, cone, uniform cube), be scaled to adjust its spread, rotated in specified planes by given angles, and positioned at defined centroids (`loc`). The function ensures flexibility in cluster location and orientation, allowing users to simulate complex high-dimensional structures. An optional argument, `is_bkg`, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread, providing additional realism for testing clustering and dimension-reduction methods.
 
 The main arguments of the `gen_multicluster()` function are shown in Table \@ref(tab:main-tb-html).
 
