@@ -1809,7 +1809,20 @@ cubic_proj1 + cubic_proj2 + cubic_proj3 +
 
 ### Pyramid
 
-A pyramid structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr)"} else { "Figure \\@ref(fig:pyr-proj)"})`) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with various base shapes—including rectangular, triangular, and star-shaped bases—with options for sharp or blunted apexes. Additionally, we offer functionality for creating pyramids containing structured holes, enabling the study of non-convex and sparse regions. These designs are valuable for testing the ability of dimension reduction and clustering algorithms to preserve and detect complex geometric features. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:pyramid-tb-html)', '\\@ref(tab:pyramid-tb-pdf)'))` summarizes these functions.
+A pyramid structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr)"} else { "Figure \\@ref(fig:pyr-proj)"})`) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, similar to the cube generator, it is possible to create a pyramids containing structured holes, enabling the study of non-convex and sparse regions. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:pyramid-tb-html)', '\\@ref(tab:pyramid-tb-pdf)'))` summarizes these functions.
+
+Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the rectangular and triangular based pyramid generator functions, the final dimension, $X_p$, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height $h$. That is, $$X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right)$$. This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, $X_p = z \sim U(0, h)$.
+
+The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) a"} else { "Figure \\@ref(fig:pyr-proj) a"})`), let $r_x(z)$ and $r_y(z)$ denote the half-widths of the rectangular cross-section at height $z$. That is, $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as: $X_1 \sim U(-r_x(z),\ r_x(z))$, $X_2 \sim U(-r_y(z),\ r_y(z))$, and $X_3 \sim U(-r_x(z),\ r_x(z))$. 
+
+For the triangular based pyramid, `gen_pyrtri(n, p, h, l, rt)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) b"} else { "Figure \\@ref(fig:pyr-proj) b"})`), let $r(z)$ denote the scaling factor (distance from the origin to triangle vertices) at height $z$. That is, $r(z) = r_t + (l-r_t)z/h$. A point in the triangle at height $z$ is generated using barycentric coordinates $(u, v)$ to ensure uniform sampling within the triangular cross-section: $u, v \sim U(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v$. The first three coordinates (triangle plane) are then: $X_1 = r(z)(1 - u - v)$, $X_2 = r(z)u$, and $X_3 = r(z)v$. 
+
+For the star based pyramid, `gen_pyrstar(n, p, h, rb)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) c"} else { "Figure \\@ref(fig:pyr-proj) c"})`), let the radius at height $z$, $r(z)$, be such that the radius scales linearly from zero (tip) to the base radius $r_b$. That is, $r(z) = r_b\left(1 - z/h\right)$.
+
+Each point is placed within a regular hexagon in the plane $(X_1, X_2)$, using a randomly chosen hexagon sector angle $\theta \in \{0, \pi/3, 2\pi/3, \pi, 4\pi/3, 5\pi/3\}$ and a uniformly random radial scaling factor: $\theta \sim \text{Uniform sample from 6 hexagon angles}$,
+$r_{\text{point}} \sim \sqrt{U(0, 1)}$. Then, the first two coordinates are: $X_1 = r(z)r_{\text{point}}\cos(\theta)$, and $X_2 = r(z)r_{\text{point}}\sin(\theta)$.
+
+For all pyramid shapes, if $p > 3$, the remaining $p - 4$ dimensions (i.e., $X_4$ to $X_{p-1}$) are tapered toward zero with decreasing height and generated as: $X_j \sim U(-0.1, 0.1)\left(1 - z/h\right), \quad \text{for } j = 4, \dots, p-1$. This tapering ensures that the structure narrows in all directions as it approaches the tip. 
 
 ```{r}
 pyramid_tb <- tibble(fun = c("gen_pyrrect",
@@ -1834,11 +1847,6 @@ pyramid_tb |>
   column_spec(2, width = "8cm")
 ```
 
-#### `gen_pyrrect()`
-
-The `gen_pyrrect(n, p, h, l_vec, rt)` function generates a dataset of $n$ points forming a high-dimensional pyramid-like structure with a rectangular base (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) a"} else { "Figure \\@ref(fig:pyr-proj) a"})`). The pyramid is embedded in $p\text{-}D$, with a tip at height zero and base at height $h$. The shape tapers linearly from the base dimensions $(l_x, l_y)$ to a smaller rectangular section with side lengths $(2r_t, 2r_t)$ at the tip. Points are distributed more densely near the tip, simulating a natural skew toward smaller height values.
-
-Let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The final dimension $X_p$ encodes the height of each point and is drawn from an exponential distribution capped at $h$: $X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right)$. Let $r_x(z)$ and $r_y(z)$ denote the half-widths of the rectangular cross-section at height $z$: $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as: $X_1 \sim U(-r_x(z),\ r_x(z))$, $X_2 \sim U(-r_y(z),\ r_y(z))$, and $X_3 \sim U(-r_x(z),\ r_x(z))$. For $p > 3$, the remaining $p - 4$ dimensions (i.e., $X_4$ to $X_{p-1}$) are tapered toward zero with decreasing height and generated as: $X_j \sim U(-0.1, 0.1)\left(1 - z/h\right), \quad \text{for } j = 4, \dots, p-1$. This tapering ensures that the structure narrows in all directions as it approaches the tip.
 
 ```{r data-pyrrect, echo=TRUE}
 pyrrect <- gen_pyrrect(n = 1000, p = 4)
@@ -1930,13 +1938,6 @@ pyrrect_proj3 <- plot_proj(
 
 ```
 
-#### `gen_pyrtri()`
-
-The `gen_pyrtri(n, p, h, l, rt)` function generates a dataset of $n$ points forming a high-dimensional pyramid-like structure with a triangular cross-section (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) b"} else { "Figure \\@ref(fig:pyr-proj) b"})`). The structure is embedded in a $p\text{-}D$, with the tip located at height $0$ and the base at height $h$. The triangle expands linearly in size from tip to base, with more points concentrated near the tip.
-
-Let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The final coordinate $X_p$ encodes the height $z$ of each point and is drawn from an exponential distribution capped at $h$: $X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right)$. Let $r(z)$ denote the scaling factor (distance from the origin to triangle vertices) at height $z$: $r(z) = r_t + (l - r_t)z/h$.
-
-A point in the triangle at height $z$ is generated using barycentric coordinates $(u, v)$ to ensure uniform sampling within the triangular cross-section: $u, v \sim U(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v$. The first three coordinates (triangle plane) are then: $X_1 = r(z)(1 - u - v)$, $X_2 = r(z)u$, and $X_3 = r(z)v$. For dimensions $j = 4, \dots, p-1$, values are tapered linearly toward zero near the tip: $X_j \sim U(-0.1, 0.1)\left(1 - z/h\right)$.
 
 ```{r data-pyrtri, echo=TRUE}
 pyrtri <- gen_pyrtri(n = 1000, p = 4)
@@ -2028,16 +2029,6 @@ pyrtri_proj3 <- plot_proj(
 
 ```
 
-#### `gen_pyrstar()`
-
-The `gen_pyrstar(n, p, h, rb)` function generates a dataset of $n$ points forming a high-dimensional pyramid-shaped structure with a hexagonal base (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) c"} else { "Figure \\@ref(fig:pyr-proj) c"})`). The pyramid extends vertically from height $z = 0$ (tip) to height $z = h$ (base), embedded in a $p$-dimensional space. The distribution concentrates more points near the base, and the hexagonal spread tapers toward the tip.
-
-Let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The final coordinate $X_p$ encodes the height $z$: $X_p = z \sim U(0, h)$.
-
-The radius at height $z$ scales linearly from zero (tip) to the base radius $r_b$: $r(z) = r_b\left(1 - z/h\right)$.
-
-Each point is placed within a regular hexagon in the plane $(X_1, X_2)$, using a randomly chosen hexagon sector angle $\theta \in \{0, \pi/3, 2\pi/3, \pi, 4\pi/3, 5\pi/3\}$ and a uniformly random radial scaling factor: $\theta \sim \text{Uniform sample from 6 hexagon angles}$,
-$r_{\text{point}} \sim \sqrt{U(0, 1)}$. Then, the first two coordinates are: $X_1 = r(z)r_{\text{point}}\cos(\theta)$, and $X_2 = r(z)r_{\text{point}}\sin(\theta)$. For dimensions $j = 3, \dots, p-1$, values are tapered toward zero near the tip: $X_j \sim U(-0.1, 0.1)\left(1 - z/h \right)$.
 
 ```{r data-pyrstar, echo=TRUE}
 pyrstar <- gen_pyrstar(n = 1000, p = 4)
