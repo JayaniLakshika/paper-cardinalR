@@ -441,7 +441,7 @@ To simulate a cone-shaped structure in arbitrary dimensions (Figure \@ref(fig:co
 
 This function generates $n$ points in $p\text{-}D$, where the last dimension, $X_p$, represents the height along the cone's axis, and the first $p-1$ dimensions define a shrinking hyperspherical cross-section toward the tip. Heights are sampled from a truncated exponential distribution, $X_p \sim \text{Exp}(\lambda = 2/h)$, capped at the cone height $h$, producing a higher density of points near the tip. At each height $X_p$, the radius of the cross-section decreases linearly from base to tip according to $r = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}}) X_p / h$, where $r_{\text{min}} = \text{ratio}$ and $r_{\text{max}} = 1$.
 
-For each point, a direction in the first $p-1$ dimensions is sampled uniformly on a $(p-1)$-dimensional hypersphere using generalized spherical coordinates. The radial coordinates are scaled by the height-dependent radius $r$, producing the conical taper. In three dimensions ($p = 3$), this results in a classical 3-D cone, while for $p > 3$, additional angular components allow a smooth extension into higher dimensions, preserving the conical shape within multi-dimensional space.
+For each point, a direction in the first $p-1$ dimensions is sampled uniformly on a $(p-1)$-dimensional hypersphere using generalized spherical coordinates. The radial coordinates are scaled by the height-dependent radius $r$, producing the conical taper. In three dimensions ($p = 3$), this results in a classical $3\text{-}D$ cone, while for $p > 3$, additional dimensions provide a smooth embedding into higher-dimensional space, preserving the conical structure.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cone</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cone</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, h <span class='op'>=</span> <span class='fl'>5</span>, ratio <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre></div>
@@ -978,13 +978,13 @@ The shape is generated using a third-degree raw polynomial basis expansion. Let 
 
 ### Pyramid
 
-A pyramid structure (Figure \@ref(fig:pyr)) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, similar to the cube generator, it is possible to create a pyramids containing structured holes, enabling the study of non-convex and sparse regions. Table \@ref(tab:pyramid-tb-html) summarizes these functions.
+A pyramid structure (Figure \@ref(fig:pyr)) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table \@ref(tab:pyramid-tb-html) summarizes these functions.
 
-Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the rectangular and triangular based pyramid generator functions, the final dimension, $X_p$, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height $h$. That is, $$X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right)$$. This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, $X_p = z \sim U(0, h)$.
+Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the rectangular and triangular based pyramid generator functions, the final dimension, $X_p$, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height $h$. That is, $$X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).$$ This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, $X_p = z \sim U(0, h)$.
 
-The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (Figure \@ref(fig:pyr) a), let $r_x(z)$ and $r_y(z)$ denote the half-widths of the rectangular cross-section at height $z$. That is, $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as: $X_1 \sim U(-r_x(z),\ r_x(z))$, $X_2 \sim U(-r_y(z),\ r_y(z))$, and $X_3 \sim U(-r_x(z),\ r_x(z))$. 
+The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (Figure \@ref(fig:pyr) a), let $r_x(z)$ and $r_y(z)$ denote the half-widths of the rectangular cross-section at height $z$. That is, $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as: $X_1 \sim U(-r_x(z),\ r_x(z))$, $X_2 \sim U(-r_y(z),\ r_y(z))$, and $X_3 \sim U(-r_x(z),\ r_x(z)).$ 
 
-For the triangular based pyramid, `gen_pyrtri(n, p, h, l, rt)` (Figure \@ref(fig:pyr) b), let $r(z)$ denote the scaling factor (distance from the origin to triangle vertices) at height $z$. That is, $r(z) = r_t + (l-r_t)z/h$. A point in the triangle at height $z$ is generated using barycentric coordinates $(u, v)$ to ensure uniform sampling within the triangular cross-section: $u, v \sim U(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v$. The first three coordinates (triangle plane) are then: $X_1 = r(z)(1 - u - v)$, $X_2 = r(z)u$, and $X_3 = r(z)v$. 
+For the triangular based pyramid, `gen_pyrtri(n, p, h, l, rt)` (Figure \@ref(fig:pyr) b), let $r(z)$ denote the scaling factor (distance from the origin to triangle vertices) at height $z$. That is, $r(z) = r_t + (l-r_t)z/h$. A point in the triangle at height $z$ is generated using barycentric coordinates $(u, v)$ to ensure uniform sampling within the triangular cross-section: $u, v \sim U(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v$. The first three coordinates (triangle plane) are then: $X_1 = r(z)(1 - u - v)$, $X_2 = r(z)u$, and $X_3 = r(z)v.$ 
 
 For the star based pyramid, `gen_pyrstar(n, p, h, rb)` (Figure \@ref(fig:pyr) c), let the radius at height $z$, $r(z)$, be such that the radius scales linearly from zero (tip) to the base radius $r_b$. That is, $r(z) = r_b\left(1 - z/h\right)$.
 
@@ -1017,7 +1017,6 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 
 
 </div>
-
 
 
 <div class="layout-chunk" data-layout="l-body">
@@ -1112,9 +1111,9 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 </div>
 
 
-#### `gen_pyrholes()`
+#### `gen_pyrfrac()`
 
-The `gen_pyrholes(n, p)` function generates $n$ points embedded in a $p\text{-}D$ simplex using a chaotic attractor-like midpoint algorithm (Figure \@ref(fig:pyr) d). The result is a fractal-like structure that reveals holes or gaps in the data cloud, forming a "Sierpinski-like pyramid" in high dimensions.
+The `gen_pyrfrac(n, p)` function generates $n$ points embedded in a $p\text{-}D$ simplex using a chaotic attractor-like midpoint algorithm (Figure \@ref(fig:pyr) d). The result is a fractal-like structure that reveals holes or gaps in the data cloud, forming a "Sierpinski-like pyramid" in high dimensions.
 
 Let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$.
 
@@ -1122,7 +1121,7 @@ Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simp
 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrholes</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrholes</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrholes</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrfrac</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
 </div>
 
