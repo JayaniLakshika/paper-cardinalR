@@ -1229,7 +1229,7 @@ For the S-curve structure, `gen_scurve(n, p)` (Figure \@ref(fig:scurve) a), the 
 </div>
 
 
-To introduce missing or incomplete regions on the manifold, `gen_scurvehole(n, p)` (Figure \@ref(fig:scurve) b) removes points in a localized region centered around the middle vertical section of the S-curve. Following a similar approach as `gen_cubehole(n, p, r_hole)`, all observations within a fixed radius ($\sqrt{0.3}$) of the anchor point are excluded, creating a hole in the manifold while preserving the overall S-curve structure.
+To introduce missing or incomplete regions on the manifold, `gen_scurvehole(n, p)` (Figure \@ref(fig:scurve) b) removes points in a localized region centered around the middle vertical section of the S-curve. Following a similar approach as `gen_cubehole()`, all observations within a fixed radius ($\sqrt{0.3}$) of the anchor point are excluded, creating a hole in the manifold while preserving the overall S-curve structure.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurvehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurvehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -1958,7 +1958,7 @@ The $X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division error
 
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
 
-The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (Figure \@ref(fig:trefoil)). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of NLDR methods to preserve global structure, loops, and embeddings in high-dimensional data. Table \@ref(tab:trefoil-tb-html) summarizes these functions.
+The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (Figure \@ref(fig:trefoil)). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. Table \@ref(tab:trefoil-tb-html) summarizes these functions.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1984,13 +1984,7 @@ Table: (\#tab:trefoil-tb-html)cardinalR trefoil data generation functions
 </div>
 
 
-#### `gen_trefoil4d()`
-
-The function `gen_trefoil4d()` generates a $4\text{-}D$ trefoil knot using two angular parameters, $\theta$ and $\phi$. The knot is constructed on the $3$-sphere ($S^3 \subset \mathbb{R}^4$), with a band of thickness around the knot path, controlled by `steps` (Figure \@ref(fig:trefoil) a).
-
-The coordinates of the $4\text{-}D$ trefoil knot are defined as $X_1 = \cos(\theta) \cos(\phi)$, $X_2 = \cos(\theta) \sin(\phi)$, $X_3 = \sin(\theta) \cos(1.5 \phi)$, and $X_4 = \sin(\theta) \sin(1.5 \phi)$, where $\theta$ and $\phi$ are angular parameters that trace out the knot's structure on the $3$-sphere $S^3 \subset \mathbb{R}^4$.
-
-The number of `theta` and `phi` values is determined by the `steps` and `n` arguments, respectively. Additional independent noise dimensions can be added via `gen_noisedims()` to extend the structure into $p > 4$ dimensions.
+For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, p, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (Figure \@ref(fig:trefoil) a). The coordinates are defined as $X_1 = \cos(\theta) \cos(\phi)$, $X_2 = \cos(\theta) \sin(\phi)$, $X_3 = \sin(\theta) \cos(1.5 \phi)$, and $X_4 = \sin(\theta) \sin(1.5 \phi)$, where $\theta$ and $\phi$ trace the knot’s path. For $p > 4$, the quadratic structure is embedded into higher dimensions by appending additional noise dimensions.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>trefoil4d</span> <span class='op'>&lt;-</span> <span class='fu'>gen_trefoil4d</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>500</span>, p <span class='op'>=</span> <span class='fl'>4</span>, steps <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre></div>
@@ -2022,17 +2016,13 @@ The number of `theta` and `phi` values is determined by the `steps` and `n` argu
 </div>
 
 
-#### `gen_trefoil3d()`
-
-The function `gen_trefoil3d()` generates a $3\text{-}D$ stereographic projection of the $4\text{-}D$ trefoil knot by mapping each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $(X_1', X_2', X_3') \in \mathbb{R}^3$ using the transformation $X_1' = X_1 / (1 - X_4)$, $X_2' = X_2 / (1 - X_4)$, and $X_3' = X_3 / (1 - X_4)$, while excluding points where $X_4 = 1$ to avoid division by zero (Figure \@ref(fig:trefoil) b).
+For the $3\text{-}D$ stereographic projection, `gen_trefoil3d(n, p, steps)` maps each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $(X_1', X_2', X_3') \in \mathbb{R}^3$ using $X_1' = X_1 / (1 - X_4)$, $X_2' = X_2 / (1 - X_4)$, and $X_3' = X_3 / (1 - X_4)$, excluding points where $X_4 = 1$ to avoid division by zero (Figure \@ref(fig:trefoil) b). As with the $4\text{-}D$ case, optional noise dimensions can be added to embed the knot into higher-dimensional spaces.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>trefoil3d</span> <span class='op'>&lt;-</span> <span class='fu'>gen_trefoil3d</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>500</span>, p <span class='op'>=</span> <span class='fl'>4</span>, steps <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre></div>
 
 </div>
 
-
-As with the $4\text{-}D$ version, this function supports optional noise dimensions to embed the projected knot into higher dimensions.
 
 <div class="layout-chunk" data-layout="l-body">
 

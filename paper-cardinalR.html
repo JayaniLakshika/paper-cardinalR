@@ -2665,7 +2665,7 @@ Figure 8: <code>langevitour</code> output of the <code>pyrrect</code>, <code>pyr
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<p>To introduce missing or incomplete regions on the manifold, <code>gen_scurvehole(n, p)</code> (Figure <a href="#fig:scurve">9</a> b) removes points in a localized region centered around the middle vertical section of the S-curve. Following a similar approach as <code>gen_cubehole(n, p, r_hole)</code>, all observations within a fixed radius (<span class="math inline">\(\sqrt{0.3}\)</span>) of the anchor point are excluded, creating a hole in the manifold while preserving the overall S-curve structure.</p>
+<p>To introduce missing or incomplete regions on the manifold, <code>gen_scurvehole(n, p)</code> (Figure <a href="#fig:scurve">9</a> b) removes points in a localized region centered around the middle vertical section of the S-curve. Following a similar approach as <code>gen_cubehole()</code>, all observations within a fixed radius (<span class="math inline">\(\sqrt{0.3}\)</span>) of the anchor point are excluded, creating a hole in the manifold while preserving the overall S-curve structure.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurvehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurvehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
@@ -3160,7 +3160,7 @@ Figure 12: <code>langevitour</code> output of tthe <code>crescent</code>, <code>
 </div>
 <h4 class="unnumbered" data-number="2.2.6" id="trefoil-knots">Trefoil knots</h4>
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
-<p>The Trefoil is a closed, nontrivial one-dimensional manifold embedded in <span class="math inline">\(3\text{-}D\)</span> or <span class="math inline">\(4\text{-}D\)</span> space (Figure <a href="#fig:trefoil">13</a>). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of NLDR methods to preserve global structure, loops, and embeddings in high-dimensional data. Table <a href="#tab:trefoil-tb-html">10</a> summarizes these functions.</p>
+<p>The Trefoil is a closed, nontrivial one-dimensional manifold embedded in <span class="math inline">\(3\text{-}D\)</span> or <span class="math inline">\(4\text{-}D\)</span> space (Figure <a href="#fig:trefoil">13</a>). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. Table <a href="#tab:trefoil-tb-html">10</a> summarizes these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -3188,10 +3188,7 @@ Figure 12: <code>langevitour</code> output of tthe <code>crescent</code>, <code>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.6.1" id="gen_trefoil4d"><code>gen_trefoil4d()</code></h5>
-<p>The function <code>gen_trefoil4d()</code> generates a <span class="math inline">\(4\text{-}D\)</span> trefoil knot using two angular parameters, <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span>. The knot is constructed on the <span class="math inline">\(3\)</span>-sphere (<span class="math inline">\(S^3 \subset \mathbb{R}^4\)</span>), with a band of thickness around the knot path, controlled by <code>steps</code> (Figure <a href="#fig:trefoil">13</a> a).</p>
-<p>The coordinates of the <span class="math inline">\(4\text{-}D\)</span> trefoil knot are defined as <span class="math inline">\(X_1 = \cos(\theta) \cos(\phi)\)</span>, <span class="math inline">\(X_2 = \cos(\theta) \sin(\phi)\)</span>, <span class="math inline">\(X_3 = \sin(\theta) \cos(1.5 \phi)\)</span>, and <span class="math inline">\(X_4 = \sin(\theta) \sin(1.5 \phi)\)</span>, where <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> are angular parameters that trace out the knot’s structure on the <span class="math inline">\(3\)</span>-sphere <span class="math inline">\(S^3 \subset \mathbb{R}^4\)</span>.</p>
-<p>The number of <code>theta</code> and <code>phi</code> values is determined by the <code>steps</code> and <code>n</code> arguments, respectively. Additional independent noise dimensions can be added via <code>gen_noisedims()</code> to extend the structure into <span class="math inline">\(p &gt; 4\)</span> dimensions.</p>
+<p>For the <span class="math inline">\(4\text{-}D\)</span> trefoil knot, the function <code>gen_trefoil4d(n, p, steps)</code> generates the structure on the <span class="math inline">\(3\)</span>-sphere (<span class="math inline">\(S^3 \subset \mathbb{R}^4\)</span>) using two angular parameters, <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span>. A band of thickness around the knot path is controlled by the <code>steps</code> argument, while the number of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> values is determined by the <code>steps</code> and <code>n</code> arguments, respectively (Figure <a href="#fig:trefoil">13</a> a). The coordinates are defined as <span class="math inline">\(X_1 = \cos(\theta) \cos(\phi)\)</span>, <span class="math inline">\(X_2 = \cos(\theta) \sin(\phi)\)</span>, <span class="math inline">\(X_3 = \sin(\theta) \cos(1.5 \phi)\)</span>, and <span class="math inline">\(X_4 = \sin(\theta) \sin(1.5 \phi)\)</span>, where <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> trace the knot’s path. For <span class="math inline">\(p &gt; 4\)</span>, the quadratic structure is embedded into higher dimensions by appending additional noise dimensions.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>trefoil4d</span> <span class='op'>&lt;-</span> <span class='fu'>gen_trefoil4d</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>500</span>, p <span class='op'>=</span> <span class='fl'>4</span>, steps <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre>
@@ -3209,14 +3206,12 @@ Figure 12: <code>langevitour</code> output of tthe <code>crescent</code>, <code>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.6.2" id="gen_trefoil3d"><code>gen_trefoil3d()</code></h5>
-<p>The function <code>gen_trefoil3d()</code> generates a <span class="math inline">\(3\text{-}D\)</span> stereographic projection of the <span class="math inline">\(4\text{-}D\)</span> trefoil knot by mapping each point <span class="math inline">\((X_1, X_2, X_3, X_4) \in \mathbb{R}^4\)</span> to <span class="math inline">\((X_1&#39;, X_2&#39;, X_3&#39;) \in \mathbb{R}^3\)</span> using the transformation <span class="math inline">\(X_1&#39; = X_1 / (1 - X_4)\)</span>, <span class="math inline">\(X_2&#39; = X_2 / (1 - X_4)\)</span>, and <span class="math inline">\(X_3&#39; = X_3 / (1 - X_4)\)</span>, while excluding points where <span class="math inline">\(X_4 = 1\)</span> to avoid division by zero (Figure <a href="#fig:trefoil">13</a> b).</p>
+<p>For the <span class="math inline">\(3\text{-}D\)</span> stereographic projection, <code>gen_trefoil3d(n, p, steps)</code> maps each point <span class="math inline">\((X_1, X_2, X_3, X_4) \in \mathbb{R}^4\)</span> to <span class="math inline">\((X_1&#39;, X_2&#39;, X_3&#39;) \in \mathbb{R}^3\)</span> using <span class="math inline">\(X_1&#39; = X_1 / (1 - X_4)\)</span>, <span class="math inline">\(X_2&#39; = X_2 / (1 - X_4)\)</span>, and <span class="math inline">\(X_3&#39; = X_3 / (1 - X_4)\)</span>, excluding points where <span class="math inline">\(X_4 = 1\)</span> to avoid division by zero (Figure <a href="#fig:trefoil">13</a> b). As with the <span class="math inline">\(4\text{-}D\)</span> case, optional noise dimensions can be added to embed the knot into higher-dimensional spaces.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>trefoil3d</span> <span class='op'>&lt;-</span> <span class='fu'>gen_trefoil3d</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>500</span>, p <span class='op'>=</span> <span class='fl'>4</span>, steps <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p>As with the <span class="math inline">\(4\text{-}D\)</span> version, this function supports optional noise dimensions to embed the projected knot into higher dimensions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>

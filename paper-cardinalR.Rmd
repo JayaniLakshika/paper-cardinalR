@@ -2344,7 +2344,7 @@ scurve_proj3 <- plot_proj(
 
 ```
 
-To introduce missing or incomplete regions on the manifold, `gen_scurvehole(n, p)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:scurve) b"} else { "Figure \\@ref(fig:scurve-proj) b"})`) removes points in a localized region centered around the middle vertical section of the S-curve. Following a similar approach as `gen_cubehole(n, p, r_hole)`, all observations within a fixed radius ($\sqrt{0.3}$) of the anchor point are excluded, creating a hole in the manifold while preserving the overall S-curve structure.
+To introduce missing or incomplete regions on the manifold, `gen_scurvehole(n, p)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:scurve) b"} else { "Figure \\@ref(fig:scurve-proj) b"})`) removes points in a localized region centered around the middle vertical section of the S-curve. Following a similar approach as `gen_cubehole()`, all observations within a fixed radius ($\sqrt{0.3}$) of the anchor point are excluded, creating a hole in the manifold while preserving the overall S-curve structure.
 
 ```{r data-scurvehole, echo=TRUE}
 scurvehole <- gen_scurvehole(n = 1000, p = 4)
@@ -3874,7 +3874,7 @@ nonlinear_proj1 + nonlinear_proj2 + nonlinear_proj3 +
 
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
 
-The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil)"} else { "Figure \\@ref(fig:trefoil-proj)"})`). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of NLDR methods to preserve global structure, loops, and embeddings in high-dimensional data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:trefoil-tb-html)', '\\@ref(tab:trefoil-tb-pdf)'))` summarizes these functions.
+The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil)"} else { "Figure \\@ref(fig:trefoil-proj)"})`). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:trefoil-tb-html)', '\\@ref(tab:trefoil-tb-pdf)'))` summarizes these functions.
 
 ```{r}
 trefoil_tb <- tibble(fun = c("gen_trefoil4d",
@@ -3896,13 +3896,7 @@ trefoil_tb |>
   column_spec(2, width = "8cm")
 ```
 
-#### `gen_trefoil4d()`
-
-The function `gen_trefoil4d()` generates a $4\text{-}D$ trefoil knot using two angular parameters, $\theta$ and $\phi$. The knot is constructed on the $3$-sphere ($S^3 \subset \mathbb{R}^4$), with a band of thickness around the knot path, controlled by `steps` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`).
-
-The coordinates of the $4\text{-}D$ trefoil knot are defined as $X_1 = \cos(\theta) \cos(\phi)$, $X_2 = \cos(\theta) \sin(\phi)$, $X_3 = \sin(\theta) \cos(1.5 \phi)$, and $X_4 = \sin(\theta) \sin(1.5 \phi)$, where $\theta$ and $\phi$ are angular parameters that trace out the knot's structure on the $3$-sphere $S^3 \subset \mathbb{R}^4$.
-
-The number of `theta` and `phi` values is determined by the `steps` and `n` arguments, respectively. Additional independent noise dimensions can be added via `gen_noisedims()` to extend the structure into $p > 4$ dimensions.
+For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, p, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as $X_1 = \cos(\theta) \cos(\phi)$, $X_2 = \cos(\theta) \sin(\phi)$, $X_3 = \sin(\theta) \cos(1.5 \phi)$, and $X_4 = \sin(\theta) \sin(1.5 \phi)$, where $\theta$ and $\phi$ trace the knot’s path. For $p > 4$, the quadratic structure is embedded into higher dimensions by appending additional noise dimensions.
 
 ```{r data-trefoil4d, echo=TRUE}
 trefoil4d <- gen_trefoil4d(n = 500, p = 4, steps = 5)
@@ -3994,15 +3988,11 @@ trefoil4d_proj3 <- plot_proj(
 
 ```
 
-#### `gen_trefoil3d()`
-
-The function `gen_trefoil3d()` generates a $3\text{-}D$ stereographic projection of the $4\text{-}D$ trefoil knot by mapping each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $(X_1', X_2', X_3') \in \mathbb{R}^3$ using the transformation $X_1' = X_1 / (1 - X_4)$, $X_2' = X_2 / (1 - X_4)$, and $X_3' = X_3 / (1 - X_4)$, while excluding points where $X_4 = 1$ to avoid division by zero (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) b"} else { "Figure \\@ref(fig:trefoil-proj) b"})`).
+For the $3\text{-}D$ stereographic projection, `gen_trefoil3d(n, p, steps)` maps each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $(X_1', X_2', X_3') \in \mathbb{R}^3$ using $X_1' = X_1 / (1 - X_4)$, $X_2' = X_2 / (1 - X_4)$, and $X_3' = X_3 / (1 - X_4)$, excluding points where $X_4 = 1$ to avoid division by zero (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) b"} else { "Figure \\@ref(fig:trefoil-proj) b"})`). As with the $4\text{-}D$ case, optional noise dimensions can be added to embed the knot into higher-dimensional spaces.
 
 ```{r data-trefoil3d, echo=TRUE}
 trefoil3d <- gen_trefoil3d(n = 500, p = 4, steps = 5)
 ```
-
-As with the $4\text{-}D$ version, this function supports optional noise dimensions to embed the projected knot into higher dimensions.
 
 ```{r}
 trefoil3d_lang <- langevitour::langevitour(trefoil3d, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
