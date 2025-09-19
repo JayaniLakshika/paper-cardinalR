@@ -991,7 +991,9 @@ For the star based pyramid, `gen_pyrstar(n, p, h, rb)` (Figure \@ref(fig:pyr) c)
 Each point is placed within a regular hexagon in the plane $(X_1, X_2)$, using a randomly chosen hexagon sector angle $\theta \in \{0, \pi/3, 2\pi/3, \pi, 4\pi/3, 5\pi/3\}$ and a uniformly random radial scaling factor: $\theta \sim \text{Uniform sample from 6 hexagon angles}$,
 $r_{\text{point}} \sim \sqrt{U(0, 1)}$. Then, the first two coordinates are: $X_1 = r(z)r_{\text{point}}\cos(\theta)$, and $X_2 = r(z)r_{\text{point}}\sin(\theta)$.
 
-For all pyramid shapes, if $p > 3$, the remaining $p - 3$ dimensions (i.e., $X_4$ to $X_{p-1}$) are additional noise.
+For all the above pyramid shapes, if $p > 3$, the remaining $p - 3$ dimensions (i.e., $X_4$ to $X_{p-1}$) are additional noise.
+
+Finally, for the Sierpinski-like pyramid (Figure \@ref(fig:pyr) d), let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$. Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1003,12 +1005,12 @@ For all pyramid shapes, if $p > 3$, the remaining $p - 3$ dimensions (i.e., $X_4
 
 Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 
-|Function     |Explanation                                             |
-|:------------|:-------------------------------------------------------|
-|gen_pyrrect  |Rectangular-base pyramid, with a sharp or blunted apex. |
-|gen_pyrtri   |Triangular-base pyramid, with a sharp or blunted apex.  |
-|gen_pyrstar  |Star-shaped base pyramid, with a sharp or blunted apex. |
-|gen_pyrholes |Pyramid containing triangular pyramid-shaped holes.     |
+|Function    |Explanation                                             |
+|:-----------|:-------------------------------------------------------|
+|gen_pyrrect |Rectangular-base pyramid, with a sharp or blunted apex. |
+|gen_pyrtri  |Triangular-base pyramid, with a sharp or blunted apex.  |
+|gen_pyrstar |Star-shaped base pyramid, with a sharp or blunted apex. |
+|gen_pyrfrac |Pyramid containing triangular pyramid-shaped holes.     |
 
 </div>
 
@@ -1109,15 +1111,6 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 
 
 </div>
-
-
-#### `gen_pyrfrac()`
-
-The `gen_pyrfrac(n, p)` function generates $n$ points embedded in a $p\text{-}D$ simplex using a chaotic attractor-like midpoint algorithm (Figure \@ref(fig:pyr) d). The result is a fractal-like structure that reveals holes or gaps in the data cloud, forming a "Sierpinski-like pyramid" in high dimensions.
-
-Let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$.
-
-Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
 
 
 <div class="layout-chunk" data-layout="l-body">

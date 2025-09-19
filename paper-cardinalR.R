@@ -1639,7 +1639,7 @@ cubic_proj1 + cubic_proj2 + cubic_proj3 +
 pyramid_tb <- tibble(fun = c("gen_pyrrect",
                              "gen_pyrtri",
                              "gen_pyrstar",
-                             "gen_pyrholes"), 
+                             "gen_pyrfrac"), 
                         exp = c("Rectangular-base pyramid, with a sharp or blunted apex.",
           "Triangular-base pyramid, with a sharp or blunted apex.",
           "Star-shaped base pyramid, with a sharp or blunted apex.",
