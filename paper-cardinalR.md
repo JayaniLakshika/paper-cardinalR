@@ -154,6 +154,8 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 </div>
 
 
+### Shape generators
+
 ### Branching
 
 A branching structure (Figure \@ref(fig:branch)) captures trajectories that diverge or bifurcate from a common origin, similar to processes such as cell differentiation in biology (@trapnell2014). We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometries, numbers of points, and number of branches. Although these functions can generate multiple branches, they do not produce a formal *multicluster* dataset: the branches form a single connected structure, with multiple visually distinct arms rather than independent clusters. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
@@ -1251,7 +1253,7 @@ The $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\th
 
 To simulate a variant of the S-curve structure with a removed region ("hole"), we define the function `gen_scurvehole(n, p)` (Figure \@ref(fig:scurve) b). This function produces $n$ observations in $p\text{-}D$ where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.
 
-To simulate missing regions on the manifold, a fixed anchor point $(0, 1, 0, \ldots)$ is defined in $p\text{-}D$. All observations within a Euclidean distance of $\sqrt{0.3} \approx 0.5477$ from the anchor are removed if $\sum_{j=1}^p (X_j - a_j)^2 \leq 0.3$. This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.
+To simulate missing regions on the manifold, a fixed anchor point $(0, 1, 0, \ldots)$ is defined in $p\text{-}D$. All observations within a Euclidean distance of $\sqrt{0.3}$ from the anchor are removed if $\sum_{j=1}^p (X_j - a_j)^2 \leq 0.3$. This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurvehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurvehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
