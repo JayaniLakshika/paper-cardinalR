@@ -1181,7 +1181,7 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 
 ### S-curve
 
-An S-curve structure (Figure \@ref(fig:scurve)) simulates data that lies along a smooth, non-linear manifold, making it a classic example for testing the performance of non-linear dimension reduction methods. This package provides functions to generate standard S-curve shapes as well as variants containing holes to introduce missing or incomplete regions. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table \@ref(tab:scurve-tb-html) summarizes these functions.
+An S-curve structure (Figure \@ref(fig:scurve)) simulates data that lies along a smooth, non-linear manifold. The functions generate both the standard S-curve shape and, similar to the cube generator, an S-curve variant with structured hole that introduce missing or incomplete region. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table \@ref(tab:scurve-tb-html) summarizes these functions.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1207,11 +1207,7 @@ Table: (\#tab:scurve-tb-html)cardinalR S-curve data generation functions
 </div>
 
 
-#### `gen_scurve()`
-
-To simulate an S-curve structure in a higher-dimensional space, we define the function `gen_scurve(n, p)`, which generates $n$ observations in $p\text{-}D$ (Figure \@ref(fig:scurve) a). 
-
-The $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\theta \sim U\left(-3\pi/2, 3\pi/2\right)$. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: $X_1 = \sin(\theta)$, $X_2 \sim U(0, 2)$, $X_3 = \text{sign}(\theta)(\cos(\theta) - 1)$. This configuration creates a horizontally curled shape in $(X_1, X_3)$, with additional band thickness in the $X_2$ direction. For $p > 3$, additional noise dimensions are appended introducing structured, wavy noise.
+For the S-curve structure, `gen_scurve(n, p)` (Figure \@ref(fig:scurve) a), the $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\theta \sim U\left(-3\pi/2, 3\pi/2\right)$. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: $X_1 = \sin(\theta)$, $X_2 \sim U(0, 2)$, $X_3 = \text{sign}(\theta)(\cos(\theta) - 1)$. This configuration creates a horizontally curled shape in $(X_1, X_3)$, with additional band thickness in the $X_2$ direction. For $p > 3$, additional noise dimensions are appended to embed the structure in higher dimensions.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurve</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurve</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -1243,11 +1239,7 @@ The $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\th
 </div>
 
 
-#### `gen_scurvehole()`
-
-To simulate a variant of the S-curve structure with a removed region ("hole"), we define the function `gen_scurvehole(n, p)` (Figure \@ref(fig:scurve) b). This function produces $n$ observations in $p\text{-}D$ where the first three dimensions describe the S-curve manifold, and remaining dimensions add low-variance Gaussian noise. A subset of observations near a designated anchor point is excluded to introduce a hole in the manifold.
-
-To simulate missing regions on the manifold, a fixed anchor point $(0, 1, 0, \ldots)$ is defined in $p\text{-}D$. All observations within a Euclidean distance of $\sqrt{0.3}$ from the anchor are removed if $\sum_{j=1}^p (X_j - a_j)^2 \leq 0.3$. This exclusion creates a hole in the manifold centered near the middle vertical region of the S-curve.
+To introduce missing or incomplete regions on the manifold, `gen_scurvehole(n, p)` (Figure \@ref(fig:scurve) b) removes a subset of points near a designated anchor, creating a hole in the S-curve. This produces a hollowed manifold while preserving the overall curvature and structure of the S-curve.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurvehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurvehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
