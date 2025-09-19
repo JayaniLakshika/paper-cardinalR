@@ -1635,29 +1635,6 @@ cubic_proj1 + cubic_proj2 + cubic_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## -----------------------------------------------------------------------------
-pyramid_tb <- tibble(fun = c("gen_pyrrect",
-                             "gen_pyrtri",
-                             "gen_pyrstar",
-                             "gen_pyrfrac"), 
-                        exp = c("Rectangular-base pyramid, with a sharp or blunted apex.",
-          "Triangular-base pyramid, with a sharp or blunted apex.",
-          "Star-shaped base pyramid, with a sharp or blunted apex.",
-          "Pyramid containing triangular pyramid-shaped holes."))
-
-
-## ----pyramid-tb-html, eval=knitr::is_html_output()----------------------------
-# pyramid_tb |>
-#   kable(caption = "cardinalR pyramid data generation functions", col.names = c("Function", "Explanation"))
-
-
-## ----pyramid-tb-pdf, eval=knitr::is_latex_output()----------------------------
-pyramid_tb |> 
-  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
 ## ----data-pyrrect, echo=TRUE--------------------------------------------------
 pyrrect <- gen_pyrrect(n = 1000, p = 4)
 
@@ -2016,6 +1993,29 @@ pyrholes_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
+
+
+## -----------------------------------------------------------------------------
+pyramid_tb <- tibble(fun = c("gen_pyrrect",
+                             "gen_pyrtri",
+                             "gen_pyrstar",
+                             "gen_pyrfrac"), 
+                        exp = c("Rectangular-base pyramid, with a sharp or blunted apex.",
+          "Triangular-base pyramid, with a sharp or blunted apex.",
+          "Star-shaped base pyramid, with a sharp or blunted apex.",
+          "Pyramid containing triangular pyramid-shaped holes."))
+
+
+## ----pyramid-tb-html, eval=knitr::is_html_output()----------------------------
+# pyramid_tb |>
+#   kable(caption = "cardinalR pyramid data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----pyramid-tb-pdf, eval=knitr::is_latex_output()----------------------------
+pyramid_tb |> 
+  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
 
 
 ## ----pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$."----

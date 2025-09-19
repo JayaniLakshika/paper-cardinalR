@@ -2487,12 +2487,80 @@ Figure 7: <code>langevitour</code> output of the <code>quadratic</code> and <cod
 <p>A pyramid structure (Figure <a href="#fig:pyr">8</a>) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table <a href="#tab:pyramid-tb-html">6</a> summarizes these functions.</p>
 <p>Let <span class="math inline">\(X_1, \dots, X_p\)</span> denote the coordinates of the generated points. For the rectangular and triangular based pyramid generator functions, the final dimension, <span class="math inline">\(X_p\)</span>, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height <span class="math inline">\(h\)</span>. That is, <span class="math display">\[X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).\]</span> This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid’s apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, <span class="math inline">\(X_p = z \sim U(0, h)\)</span>.</p>
 <p>The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, <code>gen_pyrrect(n, p, h, l_vec, rt)</code> (Figure <a href="#fig:pyr">8</a> a), let <span class="math inline">\(r_x(z)\)</span> and <span class="math inline">\(r_y(z)\)</span> denote the half-widths of the rectangular cross-section at height <span class="math inline">\(z\)</span>. That is, <span class="math inline">\(r_x(z) = r_t + (l_x - r_t)z/h\)</span>, <span class="math inline">\(r_y(z) = r_t + (l_y - r_t)z/h\)</span>. The first three coordinates are then defined as: <span class="math inline">\(X_1 \sim U(-r_x(z),\ r_x(z))\)</span>, <span class="math inline">\(X_2 \sim U(-r_y(z),\ r_y(z))\)</span>, and <span class="math inline">\(X_3 \sim U(-r_x(z),\ r_x(z)).\)</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrrect</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrrect</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <p>For the triangular based pyramid, <code>gen_pyrtri(n, p, h, l, rt)</code> (Figure <a href="#fig:pyr">8</a> b), let <span class="math inline">\(r(z)\)</span> denote the scaling factor (distance from the origin to triangle vertices) at height <span class="math inline">\(z\)</span>. That is, <span class="math inline">\(r(z) = r_t + (l-r_t)z/h\)</span>. A point in the triangle at height <span class="math inline">\(z\)</span> is generated using barycentric coordinates <span class="math inline">\((u, v)\)</span> to ensure uniform sampling within the triangular cross-section: <span class="math inline">\(u, v \sim U(0, 1), \quad \text{if } u + v &gt; 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v\)</span>. The first three coordinates (triangle plane) are then: <span class="math inline">\(X_1 = r(z)(1 - u - v)\)</span>, <span class="math inline">\(X_2 = r(z)u\)</span>, and <span class="math inline">\(X_3 = r(z)v.\)</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrtri</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrtri</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <p>For the star based pyramid, <code>gen_pyrstar(n, p, h, rb)</code> (Figure <a href="#fig:pyr">8</a> c), let the radius at height <span class="math inline">\(z\)</span>, <span class="math inline">\(r(z)\)</span>, be such that the radius scales linearly from zero (tip) to the base radius <span class="math inline">\(r_b\)</span>. That is, <span class="math inline">\(r(z) = r_b\left(1 - z/h\right)\)</span>.</p>
 <p>Each point is placed within a regular hexagon in the plane <span class="math inline">\((X_1, X_2)\)</span>, using a randomly chosen hexagon sector angle <span class="math inline">\(\theta \in \{0, \pi/3, 2\pi/3, \pi, 4\pi/3, 5\pi/3\}\)</span> and a uniformly random radial scaling factor: <span class="math inline">\(\theta \sim \text{Uniform sample from 6 hexagon angles}\)</span>,
 <span class="math inline">\(r_{\text{point}} \sim \sqrt{U(0, 1)}\)</span>. Then, the first two coordinates are: <span class="math inline">\(X_1 = r(z)r_{\text{point}}\cos(\theta)\)</span>, and <span class="math inline">\(X_2 = r(z)r_{\text{point}}\sin(\theta)\)</span>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrstar</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrstar</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <p>For all the above pyramid shapes, if <span class="math inline">\(p &gt; 3\)</span>, the remaining <span class="math inline">\(p - 3\)</span> dimensions (i.e., <span class="math inline">\(X_4\)</span> to <span class="math inline">\(X_{p-1}\)</span>) are additional noise.</p>
 <p>Finally, for the Sierpinski-like pyramid, <code>gen_pyrfrac(n, p)</code> (Figure <a href="#fig:pyr">8</a> d), let <span class="math inline">\(X_1, X_2, \dots, X_p\)</span> denote the coordinates of the generated points. The generation process begins with an initial point <span class="math inline">\(T_0 \in [0, 1]^p\)</span> drawn from a uniform distribution: <span class="math inline">\(T_0 \sim U(0, 1)^p\)</span>. Let <span class="math inline">\(C_1, C_2, \dots, C_{p+1}\)</span> denote the corner vertices of a <span class="math inline">\(p\text{-}D\)</span> simplex. At each iteration <span class="math inline">\(i = 1, \dots, n\)</span>, a new point is computed by taking the midpoint between the previous point <span class="math inline">\(T_{i-1}\)</span> and a randomly selected vertex <span class="math inline">\(C_k\)</span>: <span class="math inline">\(T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}\)</span>. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a <span class="math inline">\(n \times p\)</span> matrix where each row represents a point: <span class="math inline">\(X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}\)</span>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrholes</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrfrac</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -2529,74 +2597,6 @@ Figure 7: <code>langevitour</code> output of the <code>quadratic</code> and <cod
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrrect</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrrect</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrtri</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrtri</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrstar</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrstar</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrholes</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrfrac</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:pyr"></span>
 <div class="container-fluid crosstalk-bscols">
 <div class="row">
@@ -2623,7 +2623,7 @@ Figure 8: <code>langevitour</code> output of the <code>pyrrect</code>, <code>pyr
 
 </div>
 <h4 class="unnumbered" data-number="2.2.5" id="s-curve">S-curve</h4>
-<p>An S-curve structure (Figure <a href="#fig:scurve">9</a>) simulates data that lies along a smooth, non-linear manifold. The functions generate both the standard S-curve shape and, similar to the cube generator, an S-curve variant with structured hole that introduce missing or incomplete region. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table <a href="#tab:scurve-tb-html">7</a> summarizes these functions.</p>
+<p>An S-curve structure (Figure <a href="#fig:scurve">9</a>) simulates data that lies along a smooth, non-linear manifold. The functions generate both the standard S-curve shape and, a S-curve variant with structured hole that introduce missing or incomplete region. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table <a href="#tab:scurve-tb-html">7</a> summarizes these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -2669,7 +2669,7 @@ Figure 8: <code>langevitour</code> output of the <code>pyrrect</code>, <code>pyr
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<p>To introduce missing or incomplete regions on the manifold, <code>gen_scurvehole(n, p)</code> (Figure <a href="#fig:scurve">9</a> b) removes a subset of points near a designated anchor, creating a hole in the S-curve. This produces a hollowed manifold while preserving the overall curvature and structure of the S-curve.</p>
+<p>To introduce missing or incomplete regions on the manifold, <code>gen_scurvehole(n, p)</code> (Figure <a href="#fig:scurve">9</a> b) removes points in a localized region centered around the middle vertical section of the S-curve. Following a similar approach as <code>gen_cubehole(n, p, r_hole)</code>, all observations within a fixed radius (<span class="math inline">\(\sqrt{0.3}\)</span>) of the anchor point are excluded, creating a hole in the manifold while preserving the overall S-curve structure.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurvehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurvehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
