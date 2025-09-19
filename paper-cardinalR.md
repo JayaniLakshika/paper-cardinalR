@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-09-17'
+date: '2025-09-19'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float} \newcommand\pD{$p\text{-}D$} \newcommand\gD{$2\text{-}D$}
 output:
@@ -2109,6 +2109,8 @@ As with the $4\text{-}D$ version, this function supports optional noise dimensio
 
 </div>
 
+
+### Generate noise dimensions
 
 ### Multiple cluster examples
 
