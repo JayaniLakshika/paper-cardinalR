@@ -903,31 +903,6 @@ A cube structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \
 
 The first is the regular grid of points of $n$ points in $p$ dimensions. This is generated using `gen_gridcube(n, p)`. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to $n$. Each dimension is then normalized to lie in the interval $[0,1]$, so that the resulting structure forms a true $p\text{-}D$ hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.
 
-An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function `gen_unifcube(n, p)` is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the $p\text{-}D$ cube (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube) b"} else { "Figure \\@ref(fig:cube-proj) b"})`).
-
-Finally, we consider a cube that has a central spherical hole. This is generated using the `gen_cubehole(n, p, r_hole)` function. The cube is generated as per the uniformly distributed cube, but points inside sphere of radius (`r_hole`) are removed, resulting in a hollow cube structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube) c"} else { "Figure \\@ref(fig:cube-proj) c"})`).
-
-```{r}
-cube_tb <- tibble(fun = c("gen_gridcube",
-                          "gen_unifcube",
-                          "gen_cubehole"), 
-                      exp = c("Generate a cube with specified grid points along each axes.",
-                              "Generate a cube with uniform points.", 
-                              "Generate a cube with a hole."))
-```
-
-```{r cube-tb-html, eval=knitr::is_html_output()}
-cube_tb |> 
-  kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation")) 
-```
-
-```{r cube-tb-pdf, eval=knitr::is_latex_output()}
-cube_tb |> 
-  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-```
-
 ```{r data-gridcube, echo=TRUE}
 gridcube <- gen_gridcube(n = 1000, p = 4)
 ```
@@ -1017,6 +992,8 @@ gridcube_proj3 <- plot_proj(
   is_color = FALSE)
 
 ```
+
+An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function `gen_unifcube(n, p)` is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the $p\text{-}D$ cube (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube) b"} else { "Figure \\@ref(fig:cube-proj) b"})`).
 
 ```{r data-unifcube, echo=TRUE}
 unifcube <- gen_unifcube(n = 1000, p = 4)
@@ -1108,6 +1085,8 @@ unifcube_proj3 <- plot_proj(
 
 ```
 
+Finally, we consider a cube that has a central spherical hole. This is generated using the `gen_cubehole(n, p, r_hole)` function. The cube is generated as per the uniformly distributed cube, but points inside sphere of radius (`r_hole`) are removed, resulting in a hollow cube structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube) c"} else { "Figure \\@ref(fig:cube-proj) c"})`).
+
 ```{r data-cubehole, echo=TRUE}
 cubehole <- gen_cubehole(n = 3000, p = 4, r_hole = 0.5)
 ```
@@ -1196,6 +1175,27 @@ cubehole_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
+```
+
+```{r}
+cube_tb <- tibble(fun = c("gen_gridcube",
+                          "gen_unifcube",
+                          "gen_cubehole"), 
+                      exp = c("Generate a cube with specified grid points along each axes.",
+                              "Generate a cube with uniform points.", 
+                              "Generate a cube with a hole."))
+```
+
+```{r cube-tb-html, eval=knitr::is_html_output()}
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r cube-tb-pdf, eval=knitr::is_latex_output()}
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
 ```
 
 ```{r cube, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `gridcube`, `unifcube`, and `cubehole` data in $4\\text{-}D$."}
@@ -2237,7 +2237,7 @@ pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
-### S-curve
+#### S-curve
 
 An S-curve structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:scurve)"} else { "Figure \\@ref(fig:scurve-proj)"})`) simulates data that lies along a smooth, non-linear manifold. The functions generate both the standard S-curve shape and, a S-curve variant with structured hole that introduce missing or incomplete region. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:scurve-tb-html)', '\\@ref(tab:scurve-tb-pdf)'))` summarizes these functions.
 

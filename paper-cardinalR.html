@@ -2162,8 +2162,59 @@ Figure 2: <code>langevitour</code> output of the <code>cone</code> data in <span
 <h5 class="unnumbered" data-number="2.2.3.7" id="cube">Cube</h5>
 <p>A cube structure (Figure <a href="#fig:cube">3</a>) represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table <a href="#tab:cube-tb-html">4</a> outlines these functions and their purposes.</p>
 <p>The first is the regular grid of points of <span class="math inline">\(n\)</span> points in <span class="math inline">\(p\)</span> dimensions. This is generated using <code>gen_gridcube(n, p)</code>. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to <span class="math inline">\(n\)</span>. Each dimension is then normalized to lie in the interval <span class="math inline">\([0,1]\)</span>, so that the resulting structure forms a true <span class="math inline">\(p\text{-}D\)</span> hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <p>An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function <code>gen_unifcube(n, p)</code> is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the <span class="math inline">\(p\text{-}D\)</span> cube (Figure <a href="#fig:cube">3</a> b).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <p>Finally, we consider a cube that has a central spherical hole. This is generated using the <code>gen_cubehole(n, p, r_hole)</code> function. The cube is generated as per the uniformly distributed cube, but points inside sphere of radius (<code>r_hole</code>) are removed, resulting in a hollow cube structure (Figure <a href="#fig:cube">3</a> c).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>3000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, r_hole <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -2195,57 +2246,6 @@ Figure 2: <code>langevitour</code> output of the <code>cone</code> data in <span
 </tr>
 </tbody>
 </table>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>3000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, r_hole <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
 </div>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -2622,7 +2622,7 @@ Figure 8: <code>langevitour</code> output of the <code>pyrrect</code>, <code>pyr
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.2.5" id="s-curve">S-curve</h4>
+<h5 class="unnumbered" data-number="2.2.4.4" id="s-curve">S-curve</h5>
 <p>An S-curve structure (Figure <a href="#fig:scurve">9</a>) simulates data that lies along a smooth, non-linear manifold. The functions generate both the standard S-curve shape and, a S-curve variant with structured hole that introduce missing or incomplete region. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table <a href="#tab:scurve-tb-html">7</a> summarizes these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -2709,7 +2709,7 @@ Figure 9: <code>langevitour</code> output of the <code>scurve</code> and <code>s
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.2.6" id="sphere">Sphere</h4>
+<h4 class="unnumbered" data-number="2.2.5" id="sphere">Sphere</h4>
 <p>Sphere-shaped structures (Figure <a href="#fig:sphere">10</a>) are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The package provides functions to generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. These shapes help test how well methods preserve symmetry, curvature, and cluster separation. Table <a href="#tab:sphere-tb-html">8</a> summarizes these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -2758,7 +2758,7 @@ Figure 9: <code>langevitour</code> output of the <code>scurve</code> and <code>s
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.6.1" id="gen_circle"><code>gen_circle()</code></h5>
+<h5 class="unnumbered" data-number="2.2.5.1" id="gen_circle"><code>gen_circle()</code></h5>
 <p>The function <code>gen_circle(n, p)</code> generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations, where the first two dimensions form a unit circle, and the remaining dimensions are structured sinusoidal extensions of the angular parameter with progressively smaller scale (Figure <a href="#fig:sphere">10</a> a).</p>
 <p>A latent angle variable <span class="math inline">\(\theta\)</span> is uniformly sampled from the interval <span class="math inline">\([0, 2\pi]\)</span>. Coordinates in the first two dimensions represent a perfect circle on the plane: <span class="math inline">\(X_1 = \cos(\theta), \quad X_2 = \sin(\theta)\)</span>. For dimensions <span class="math inline">\(X_3\)</span> through <span class="math inline">\(X_p\)</span>, sinusoidal transformations of the angle <span class="math inline">\(\theta\)</span> are introduced. The first component is a scaling factor that decreases with the dimension index, defined as <span class="math inline">\(\text{scale}_j = \sqrt{(0.5)^{j-2}}\)</span> for <span class="math inline">\(j = 3, \dots, p\)</span>. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula <span class="math inline">\(\phi_j = (j - 2)\pi/2p\)</span>. Each additional dimension is computed as: <span class="math inline">\(X_j = \text{scale}_{j}\sin(\theta + \phi_j), \quad j = 3, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2778,7 +2778,7 @@ Figure 9: <code>langevitour</code> output of the <code>scurve</code> and <code>s
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.6.2" id="gen_curvycycle"><code>gen_curvycycle()</code></h5>
+<h5 class="unnumbered" data-number="2.2.5.2" id="gen_curvycycle"><code>gen_curvycycle()</code></h5>
 <p>The <code>gen_curvycycle(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations lying on a curved closed loop with controlled high-dimensional sinusoidal deviations (Figure <a href="#fig:sphere">10</a> b). The structure forms a one-dimensional nonlinear cycle embedded in higher-dimensional space.</p>
 <p>A latent angle variable <span class="math inline">\(\theta\)</span> is uniformly sampled from the interval <span class="math inline">\([0, 2\pi]\)</span>. The first three dimensions define a non-circular closed curve, referred to as a “curvy cycle.” In this configuration, <span class="math inline">\(X_1 = \cos(\theta)\)</span> represents horizontal oscillation, while <span class="math inline">\(X_2 = \sqrt{3}/3 + \sin(\theta)\)</span> introduces a vertical offset to avoid centering the curve at the origin. Additionally, <span class="math inline">\(X_3 = 1/3\cos(3\theta)\)</span> introduces a third harmonic perturbation that intricately folds the curve three times along its path, creating a unique and complex shape that oscillates in both dimensions while incorporating the effects of the harmonic perturbation.</p>
 <p>Together, these define a periodic, non-trivial, closed curve in <span class="math inline">\(3\text{-}D\)</span> with internal folds that produce a more complex geometry than a standard circle or ellipse. For dimensions <span class="math inline">\(X_4\)</span> through <span class="math inline">\(X_p\)</span>, additional structured variability is introduced through decreasing amplitude scaling and phase-shifted sine waves. The scaling factor is defined as <span class="math inline">\(\text{scale}_j = \sqrt{(0.5)^{j-3}}\)</span> for <span class="math inline">\(j\)</span> ranging from <span class="math inline">\(4\)</span> to <span class="math inline">\(p\)</span>, which means that the amplitude decreases as the dimension increases. Each dimension <span class="math inline">\(X_j\)</span> is then calculated using the formula <span class="math inline">\(X_j = \text{scale}_j\sin(\theta + \phi_j)\)</span>, where the phase shift <span class="math inline">\(\phi_j\)</span> is given by <span class="math inline">\(\phi_j = (j - 2)\pi/2p\)</span>.</p>
@@ -2799,7 +2799,7 @@ Figure 9: <code>langevitour</code> output of the <code>scurve</code> and <code>s
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.6.3" id="gen_unifsphere"><code>gen_unifsphere()</code></h5>
+<h5 class="unnumbered" data-number="2.2.5.3" id="gen_unifsphere"><code>gen_unifsphere()</code></h5>
 <p>The <code>gen_unifsphere(n, p, r)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations distributed approximately uniformly on the surface of a <span class="math inline">\(3\text{-}D\)</span> sphere of radius <span class="math inline">\(r\)</span>, with additional Gaussian noise dimensions added when <span class="math inline">\(p &gt; 3\)</span> (Figure <a href="#fig:sphere">10</a> c).</p>
 <p>Each observation lies on the surface of a sphere in <span class="math inline">\(3\text{-}D\)</span>, constructed by generating <span class="math inline">\(u \sim U(-1, 1)\)</span> which represents the cosine of the polar angle <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\theta \sim U(0, 2\pi)\)</span> which represents the azimuthal angle. The corresponding Cartesian coordinates are calculated as; <span class="math inline">\(X_1 = r\sqrt{1 - u^2}\cos(\theta)\)</span>, <span class="math inline">\(X_2 = r\sqrt{1 - u^2}\sin(\theta)\)</span>, <span class="math inline">\(X_3 = ru\)</span>, which gives points uniformly distributed on the surface of a <span class="math inline">\(3\text{-}D\)</span> sphere (not within). For <span class="math inline">\(p &gt; 3\)</span>, additional dimensions <span class="math inline">\(X_4\)</span> to <span class="math inline">\(X_p\)</span> are generated as low-variance Gaussian noise: <span class="math inline">\(X_j \sim N(0, 0.05^2),\text{ for }j = 4, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2819,7 +2819,7 @@ Figure 9: <code>langevitour</code> output of the <code>scurve</code> and <code>s
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.6.4" id="gen_gridedsphere"><code>gen_gridedsphere()</code></h5>
+<h5 class="unnumbered" data-number="2.2.5.4" id="gen_gridedsphere"><code>gen_gridedsphere()</code></h5>
 <p>The <code>gen_gridedsphere(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of approximately <span class="math inline">\(n\)</span> points evenly distributed on the surface of a <span class="math inline">\((p!-!1)\)</span>-sphere (the unit sphere embedded in <span class="math inline">\(\mathbb{R}^p\)</span>) (Figure <a href="#fig:sphere">10</a> d).</p>
 <p>The construction is based on a regular grid in spherical coordinates with <span class="math inline">\((p-1)\)</span> angular variables. Specifically, for dimensions <span class="math inline">\(j = 1, \dots, p-2\)</span>, the polar angles are defined on <span class="math inline">\([0, \pi]\)</span>. For the last angle (<span class="math inline">\(j = p-1\)</span>), the azimuthal angle is defined on <span class="math inline">\([0, 2\pi]\)</span>.</p>
 <p>The number of grid steps along each angular dimension is determined by factoring <span class="math inline">\(n\)</span> into <span class="math inline">\((p-1)\)</span> approximately equal integers via <code>gen_nproduct(n, p - 1)</code>.</p>
@@ -2852,7 +2852,7 @@ X_p &amp;= \sin(\theta_1)\sin(\theta_2)\cdots \sin(\theta_{p-2})\sin(\theta_{p-1
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.6.5" id="gen_clusteredspheres"><code>gen_clusteredspheres()</code></h5>
+<h5 class="unnumbered" data-number="2.2.5.5" id="gen_clusteredspheres"><code>gen_clusteredspheres()</code></h5>
 <p>The <code>gen_clusteredspheres(n, k, p, r, loc)</code> function generates a synthetic dataset of <span class="math inline">\(n_1 + kn_2\)</span> observations in <span class="math inline">\(p\)</span>-dimensional space, consisting of one large sphere of radius <span class="math inline">\(r_1\)</span> and <span class="math inline">\(k\)</span> smaller spheres of radius <span class="math inline">\(r_2\)</span>, each centered at a different random location (Figure <a href="#fig:sphere">10</a> e).</p>
 <p>A large uniform sphere centered at the origin is created by sampling <span class="math inline">\(n_1\)</span> points uniformly on the surface of a <span class="math inline">\(p\text{-}D\)</span> sphere with a radius of <span class="math inline">\(r_1\)</span>. The sampling is executed using the function <code>gen_unifsphere(n_1, p, r_1)</code>, which generates the desired points in the specified dimensional space.</p>
 <p>In generation of <span class="math inline">\(k\)</span> smaller uniform spheres, each sphere contains <span class="math inline">\(n_2\)</span> points that are sampled uniformly on a sphere with a radius of <span class="math inline">\(r_2\)</span>. These spheres are positioned at distinct random locations in <span class="math inline">\(p\)</span>-space, with the center of each sphere being drawn from a normal distribution <span class="math inline">\(N(0, \texttt{loc}^2 I_p)\)</span>.</p>
@@ -2876,7 +2876,7 @@ X_p &amp;= \sin(\theta_1)\sin(\theta_2)\cdots \sin(\theta_{p-2})\sin(\theta_{p-1
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.6.6" id="gen_hemisphere"><code>gen_hemisphere()</code></h5>
+<h5 class="unnumbered" data-number="2.2.5.6" id="gen_hemisphere"><code>gen_hemisphere()</code></h5>
 <p>The <code>gen_hemisphere(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations distributed approximately uniformly on a <span class="math inline">\(4\text{-}D\)</span> hemisphere, optionally extended with Gaussian noise in additional dimensions when <span class="math inline">\(p &gt; 4\)</span> (Figure <a href="#fig:sphere">10</a> f).</p>
 <p>Each observation is situated on a restricted <span class="math inline">\(4\text{-}D\)</span> spherical surface, defined by spherical coordinates. The azimuthal angle <span class="math inline">\(\theta_1 \sim U(0, \pi)\)</span> in the <span class="math inline">\((x_1, x_2)\)</span> plane, while the elevation angle <span class="math inline">\(\theta_2 \sim U(0, \pi)\)</span> in the <span class="math inline">\((x_2, x_3)\)</span> plane. Additionally, <span class="math inline">\(\theta_3 \sim U(0, \pi/2)\)</span> in the <span class="math inline">\((x_3, x_4)\)</span> plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into <span class="math inline">\(4\text{-}D\)</span> Cartesian space: <span class="math inline">\(X_1 = \sin(\theta_1)\cos(\theta_2)\)</span>, <span class="math inline">\(X_2 = \sin(\theta_1)\sin(\theta_2)\)</span>, <span class="math inline">\(X_3 = \cos(\theta_1)\cos(\theta_3)\)</span>, <span class="math inline">\(X_4 = \cos(\theta_1)\sin(\theta_3)\)</span>. This produces points on one side of a <span class="math inline">\(4\text{-}D\)</span> unit sphere, effectively generating a <span class="math inline">\(4\text{-}D\)</span> hemisphere. For <span class="math inline">\(p &gt; 4\)</span>, additional dimensions <span class="math inline">\(X_5\)</span> to <span class="math inline">\(X_p\)</span> are added as low-variance Gaussian noise: <span class="math inline">\(X_j \sim N(0, 0.05^2),\text{ for }j = 5, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2926,7 +2926,7 @@ Figure 10: <code>langevitour</code> output of the <code>circle</code>, <code>cur
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.6.7" id="swiss-roll">Swiss Roll</h5>
+<h5 class="unnumbered" data-number="2.2.5.7" id="swiss-roll">Swiss Roll</h5>
 <p>To further generalize the Swiss roll structure and introduce realistic noise, we define a function <code>gen_swissroll(n, p, w)</code>, where <span class="math inline">\(n\)</span> is the number of points, <span class="math inline">\(p\)</span> is the total number of dimensions, and <span class="math inline">\(w\)</span> is the vertical range in the third dimension (Figure <a href="#fig:swissroll">11</a>). The first three dimensions form the classic <span class="math inline">\(3\text{-}D\)</span> Swiss roll shape. The <span class="math inline">\(X_1 = t \cos(t)\)</span>, <span class="math inline">\(X_2 = t \sin(t)\)</span>, <span class="math inline">\(X_3 \sim U(w_1, w_2), \text{where } t \sim U(0, 3\pi)\)</span>. For <span class="math inline">\(p &gt; 3\)</span>, the remaining <span class="math inline">\(p - 3\)</span> dimensions are filled with noise to simulate high-dimensional complexity.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2965,7 +2965,7 @@ Figure 11: <code>langevitour</code> output of the <code>swissroll</code> data in
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.2.7" id="trigonometric">Trigonometric</h4>
+<h4 class="unnumbered" data-number="2.2.6" id="trigonometric">Trigonometric</h4>
 <p>Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure <a href="#fig:triginometric">12</a>). The package includes functions to generate a wide range of these forms from crescents and curvy cylinders to spherical, helical, and conic spirals, as well as nonlinear hyperbolas. These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table <a href="#tab:trigonometric-tb-html">9</a> summarizes these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -3010,7 +3010,7 @@ Figure 11: <code>langevitour</code> output of the <code>swissroll</code> data in
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.7.1" id="gen_crescent"><code>gen_crescent()</code></h5>
+<h5 class="unnumbered" data-number="2.2.6.1" id="gen_crescent"><code>gen_crescent()</code></h5>
 <p>The <code>gen_crescent(n, p)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations based on a <span class="math inline">\(2\text{-}D\)</span> crescent-shaped manifold with optional structured high-dimensional noise (Figure <a href="#fig:triginometric">12</a> a).</p>
 <p>The first two dimensions define a crescent-shaped curve using a semi-circular arc. Let <span class="math inline">\(\theta \in [\pi/6, 2\pi]\)</span> be a sequence of <span class="math inline">\(n\)</span> evenly spaced angles. The corresponding <span class="math inline">\(2\text{-}D\)</span> coordinates are defined by: <span class="math inline">\(X_1 = \cos(\theta)\)</span>, <span class="math inline">\(X_2 = \sin(\theta)\)</span>. For <span class="math inline">\(p &gt; 2\)</span>, additional dimensions <span class="math inline">\(X_3\)</span> to <span class="math inline">\(X_p\)</span> are generated using <code>gen_wavydims1()</code>: <span class="math inline">\(X_j = s_j\theta + \varepsilon_j,\text{ where }\varepsilon_j \sim N(0, 0.5^2),\text{ and }s_j\text{ is a random scale}\)</span>. These noise dimensions are nonlinearly correlated with <span class="math inline">\(\theta\)</span>, producing structured, wave-like variation that aligns with the progression along the crescent curve.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3030,7 +3030,7 @@ Figure 11: <code>langevitour</code> output of the <code>swissroll</code> data in
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.7.2" id="gen_curvycylinder"><code>gen_curvycylinder()</code></h5>
+<h5 class="unnumbered" data-number="2.2.6.2" id="gen_curvycylinder"><code>gen_curvycylinder()</code></h5>
 <p>The <code>gen_curvycylinder(n, p, h)</code> function generates a <span class="math inline">\(p\)</span>-dimensional dataset of <span class="math inline">\(n\)</span> observations structured as a <span class="math inline">\(3\text{-}D\)</span> cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when <span class="math inline">\(p &gt; 4\)</span> (Figure <a href="#fig:triginometric">12</a> b).</p>
 <p>The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension. Let <span class="math inline">\(\theta \sim U(0, 3\pi)\)</span> represent a random angle on a circular base and <span class="math inline">\(z \sim U(0, h)\)</span> represent the height along the cylinder. The coordinates are defined as: <span class="math inline">\(X_1 = \cos(\theta)\)</span> (Circular base, x-axis), <span class="math inline">\(X_2 = \sin(\theta)\)</span> (Circular base, y-axis), <span class="math inline">\(X_3 = z\)</span> (Linear height), and <span class="math inline">\(X_4 = \sin(z)\)</span> (Nonlinear curvy variation along height). This forms a curvy cylindrical surface in <span class="math inline">\(4\text{-}D\)</span>, where the fourth dimension bends periodically along the height axis, resembling a helicoid or twisting wave along the cylinder. For <span class="math inline">\(p &gt; 4\)</span>, dimensions <span class="math inline">\(X_5\)</span> through <span class="math inline">\(X_p\)</span> are generated as: <span class="math inline">\(X_j \sim N(0, 0.05^2),\text{ for }j = 5, \ldots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3050,7 +3050,7 @@ Figure 11: <code>langevitour</code> output of the <code>swissroll</code> data in
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.7.3" id="gen_sphericalspiral"><code>gen_sphericalspiral()</code></h5>
+<h5 class="unnumbered" data-number="2.2.6.3" id="gen_sphericalspiral"><code>gen_sphericalspiral()</code></h5>
 <p>The <code>gen_sphericalspiral(n, p, spins)</code> function simulates a dataset of <span class="math inline">\(n\)</span> observations that form a spiraling path on a spherical surface in the first four dimensions. When extended beyond <span class="math inline">\(4\text{-}D\)</span>, structured nonlinear noise dimensions are added to simulate more realistic high-dimensional manifolds (Figure <a href="#fig:triginometric">12</a> c).</p>
 <p>The first three dimensions represent points on a unit sphere. Let <span class="math inline">\(\theta \in [0, 2\pi \times \text{spins}]\)</span> be the azimuthal angle (longitude), controls the number of spiral turns and the <span class="math inline">\(\phi \in [0, \pi]\)</span>be the polar angle (latitude), controls the vertical sweep from the north to the south pole.</p>
 <p>Cartesian coordinates from spherical conversion: <span class="math inline">\(X_1 = \sin(\phi)\cos(\theta)\)</span>, <span class="math inline">\(X_2 = \sin(\phi)\sin(\theta)\)</span>, <span class="math inline">\(X_3 = \cos(\phi) + \varepsilon\)</span>, where <span class="math inline">\(\varepsilon \sim U(-0.5, 0.5)\)</span> introduces vertical jitter, and <span class="math inline">\(X_4 = \theta / \max(\theta)\)</span>: a normalized progression along the spiral path. This generates a spherical spiral curve embedded in <span class="math inline">\(4\text{-}D\)</span> space, combining both circular and vertical movement, with gentle curvature and non-linear progression.</p>
@@ -3072,7 +3072,7 @@ Figure 11: <code>langevitour</code> output of the <code>swissroll</code> data in
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.7.4" id="gen_helicalspiral"><code>gen_helicalspiral()</code></h5>
+<h5 class="unnumbered" data-number="2.2.6.4" id="gen_helicalspiral"><code>gen_helicalspiral()</code></h5>
 <p>The <code>gen_helicalspiral(n, p)</code> function generates a dataset of <span class="math inline">\(n\)</span> observations forming a helical spiral, embedded in the first four dimensions of <span class="math inline">\(p\text{-}D\)</span>. Additional dimensions (if <span class="math inline">\(p &gt; 4\)</span>) are filled with structured noise to mimic high-dimensional complexity (Figure <a href="#fig:triginometric">12</a> d).</p>
 <p>The first four coordinates follow a <span class="math inline">\(3\text{-}D\)</span> helix with an additional oscillating component. Let <span class="math inline">\(\theta \in [0, 5\pi/4]\)</span> be a sequence of angles controlling rotation around a circle. Cartesian coordinates; <span class="math inline">\(X_1 = \cos(\theta)\)</span>: circular trajectory along the x-axis, <span class="math inline">\(X_2 = \sin(\theta)\)</span>: circular trajectory along the y-axis, <span class="math inline">\(X_3 = 0.05\theta + \varepsilon_3\)</span>, with <span class="math inline">\(\varepsilon_3 \sim U(-0.5, 0.5)\)</span>: linear progression (height) with vertical jitter, simulating a helix, and <span class="math inline">\(X_4 = 0.1\sin(\theta)\)</span>: oscillates with <span class="math inline">\(\theta\)</span>, representing a periodic “wobble” along the fourth dimension. This results in a helical spiral winding upward along the third axis, with gentle sinusoidal fluctuation in the fourth dimension. When <span class="math inline">\(p &gt; 4\)</span>, the remaining <span class="math inline">\(p - 4\)</span> dimensions are populated using <code>gen_noisedims()</code>. These are independent Gaussian noise dimensions: <span class="math inline">\(X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3092,7 +3092,7 @@ Figure 11: <code>langevitour</code> output of the <code>swissroll</code> data in
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.7.5" id="gen_conicspiral"><code>gen_conicspiral()</code></h5>
+<h5 class="unnumbered" data-number="2.2.6.5" id="gen_conicspiral"><code>gen_conicspiral()</code></h5>
 <p>The <code>gen_conicspiral(n, p, spins)</code> function generates a dataset of <span class="math inline">\(n\)</span> points forming a conical spiral in the first four dimensions of <span class="math inline">\(p\text{-}D\)</span> (Figure <a href="#fig:triginometric">12</a> e). The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a <span class="math inline">\(3\text{-}D\)</span> conic helix.</p>
 <p>The shape is defined by parameter <span class="math inline">\(\theta \in [0, 2\pi\text{spins}]\)</span>, controlling the angular progression of the spiral. The Archimedean spiral in the horizontal plane is represented by; <span class="math inline">\(X_1 = \theta\cos(\theta)\)</span> for radial expansion in x, and <span class="math inline">\(X_2 = \theta\sin(\theta)\)</span> for radial expansion in y. The growth pattern resembles a cone, with the height increasing according to <span class="math inline">\(X_3 = 2\theta / \max(\theta) + \varepsilon_3\)</span>, with <span class="math inline">\(\varepsilon_3 \sim U(-0.1, 0.6).\)</span> Spiral modulation in the fourth dimension is represented by <span class="math inline">\(X_4 = \theta\sin(2\theta) + \varepsilon_4\)</span>, with <span class="math inline">\(\varepsilon_4 \sim U(-0.1, 0.6)\)</span> which simulates a twisting helical component in a non-radial dimension. This results in a <span class="math inline">\(3\text{-}D\)</span> spiral surface expanding upward and outward like a cone, with an oscillatory fourth dimension capturing spiral irregularities. For <span class="math inline">\(p &gt; 4\)</span>, the dataset includes isotropic Gaussian noise in the remaining dimensions via <code>gen_noisedims()</code>: <span class="math inline">\(X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3112,7 +3112,7 @@ Figure 11: <code>langevitour</code> output of the <code>swissroll</code> data in
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.7.6" id="gen_nonlinear"><code>gen_nonlinear()</code></h5>
+<h5 class="unnumbered" data-number="2.2.6.6" id="gen_nonlinear"><code>gen_nonlinear()</code></h5>
 <p>The <code>gen_nonlinear(n, p, hc, non_fac)</code> function simulates a non-linear <span class="math inline">\(2\text{-}D\)</span> surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables (Figure <a href="#fig:triginometric">12</a> f).</p>
 <p>The <span class="math inline">\(X_{1} \sim U(0.1, 2)\)</span>: base variable (avoids zero to prevent division errors), <span class="math inline">\(X_{3} \sim U(0.1, 0.8)\)</span>: independent auxiliary variable, <span class="math inline">\(X_{2} = hc/X_{1} + \text{nonfac}\sin(X_{1})\)</span>: non-linear combination of hyperbolic and sinusoidal transformations, creating sharp curvature and oscillation, and <span class="math inline">\(X_{4} = \cos(\pi X_{1}) + \varepsilon\)</span>, with <span class="math inline">\(\varepsilon \sim U(-0.1, 0.1)\)</span>: additional nonlinear variation based on cosine, simulating more subtle periodic structure. These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter. If <span class="math inline">\(p &gt; 4\)</span>, the remaining dimensions are populated with Gaussian noise using <code>gen_noisedims()</code>: <span class="math inline">\(X_j \sim N(0, 0.05^2), \quad j = 5, \dots, p\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3162,7 +3162,7 @@ Figure 12: <code>langevitour</code> output of tthe <code>crescent</code>, <code>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.2.8" id="trefoil-knots">Trefoil knots</h4>
+<h4 class="unnumbered" data-number="2.2.7" id="trefoil-knots">Trefoil knots</h4>
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
 <p>The Trefoil is a closed, nontrivial one-dimensional manifold embedded in <span class="math inline">\(3\text{-}D\)</span> or <span class="math inline">\(4\text{-}D\)</span> space (Figure <a href="#fig:trefoil">13</a>). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of NLDR methods to preserve global structure, loops, and embeddings in high-dimensional data. Table <a href="#tab:trefoil-tb-html">10</a> summarizes these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3192,7 +3192,7 @@ Figure 12: <code>langevitour</code> output of tthe <code>crescent</code>, <code>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.8.1" id="gen_trefoil4d"><code>gen_trefoil4d()</code></h5>
+<h5 class="unnumbered" data-number="2.2.7.1" id="gen_trefoil4d"><code>gen_trefoil4d()</code></h5>
 <p>The function <code>gen_trefoil4d()</code> generates a <span class="math inline">\(4\text{-}D\)</span> trefoil knot using two angular parameters, <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span>. The knot is constructed on the <span class="math inline">\(3\)</span>-sphere (<span class="math inline">\(S^3 \subset \mathbb{R}^4\)</span>), with a band of thickness around the knot path, controlled by <code>steps</code> (Figure <a href="#fig:trefoil">13</a> a).</p>
 <p>The coordinates of the <span class="math inline">\(4\text{-}D\)</span> trefoil knot are defined as <span class="math inline">\(X_1 = \cos(\theta) \cos(\phi)\)</span>, <span class="math inline">\(X_2 = \cos(\theta) \sin(\phi)\)</span>, <span class="math inline">\(X_3 = \sin(\theta) \cos(1.5 \phi)\)</span>, and <span class="math inline">\(X_4 = \sin(\theta) \sin(1.5 \phi)\)</span>, where <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> are angular parameters that trace out the knot’s structure on the <span class="math inline">\(3\)</span>-sphere <span class="math inline">\(S^3 \subset \mathbb{R}^4\)</span>.</p>
 <p>The number of <code>theta</code> and <code>phi</code> values is determined by the <code>steps</code> and <code>n</code> arguments, respectively. Additional independent noise dimensions can be added via <code>gen_noisedims()</code> to extend the structure into <span class="math inline">\(p &gt; 4\)</span> dimensions.</p>
@@ -3213,7 +3213,7 @@ Figure 12: <code>langevitour</code> output of tthe <code>crescent</code>, <code>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.8.2" id="gen_trefoil3d"><code>gen_trefoil3d()</code></h5>
+<h5 class="unnumbered" data-number="2.2.7.2" id="gen_trefoil3d"><code>gen_trefoil3d()</code></h5>
 <p>The function <code>gen_trefoil3d()</code> generates a <span class="math inline">\(3\text{-}D\)</span> stereographic projection of the <span class="math inline">\(4\text{-}D\)</span> trefoil knot by mapping each point <span class="math inline">\((X_1, X_2, X_3, X_4) \in \mathbb{R}^4\)</span> to <span class="math inline">\((X_1&#39;, X_2&#39;, X_3&#39;) \in \mathbb{R}^3\)</span> using the transformation <span class="math inline">\(X_1&#39; = X_1 / (1 - X_4)\)</span>, <span class="math inline">\(X_2&#39; = X_2 / (1 - X_4)\)</span>, and <span class="math inline">\(X_3&#39; = X_3 / (1 - X_4)\)</span>, while excluding points where <span class="math inline">\(X_4 = 1\)</span> to avoid division by zero (Figure <a href="#fig:trefoil">13</a> b).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -3255,8 +3255,8 @@ Figure 13: <code>langevitour</code> output of the <code>trefoil4d</code> and <co
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.2.9" id="generate-noise-dimensions">Generate noise dimensions</h4>
-<h4 class="unnumbered" data-number="2.2.10" id="multiple-cluster-examples">Multiple cluster examples</h4>
+<h4 class="unnumbered" data-number="2.2.8" id="generate-noise-dimensions">Generate noise dimensions</h4>
+<h4 class="unnumbered" data-number="2.2.9" id="multiple-cluster-examples">Multiple cluster examples</h4>
 <p>By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table <a href="#tab:odd-shape-tb-html">11</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -3337,7 +3337,7 @@ Figure 13: <code>langevitour</code> output of the <code>trefoil4d</code> and <co
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.2.11" id="additional-functions">Additional functions</h4>
+<h4 class="unnumbered" data-number="2.2.10" id="additional-functions">Additional functions</h4>
 <p>The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to generate noise dimensions with a normal distribution and various wavy patterns, create background noise, randomize the rows of the data, reposition clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table <a href="#tab:add-tb-html">12</a> details these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 

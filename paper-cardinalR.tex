@@ -183,9 +183,21 @@ A cube structure (Figure \ref{fig:cube-proj}) represents uniformly or systematic
 
 The first is the regular grid of points of \(n\) points in \(p\) dimensions. This is generated using \texttt{gen\_gridcube(n,\ p)}. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to \(n\). Each dimension is then normalized to lie in the interval \([0,1]\), so that the resulting structure forms a true \(p\text{-}D\) hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.
 
+\begin{verbatim}
+gridcube <- gen_gridcube(n = 1000, p = 4)
+\end{verbatim}
+
 An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function \texttt{gen\_unifcube(n,\ p)} is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the \(p\text{-}D\) cube (Figure \ref{fig:cube-proj} b).
 
+\begin{verbatim}
+unifcube <- gen_unifcube(n = 1000, p = 4)
+\end{verbatim}
+
 Finally, we consider a cube that has a central spherical hole. This is generated using the \texttt{gen\_cubehole(n,\ p,\ r\_hole)} function. The cube is generated as per the uniformly distributed cube, but points inside sphere of radius (\texttt{r\_hole}) are removed, resulting in a hollow cube structure (Figure \ref{fig:cube-proj} c).
+
+\begin{verbatim}
+cubehole <- gen_cubehole(n = 3000, p = 4, r_hole = 0.5)
+\end{verbatim}
 
 \begin{table}
 
@@ -201,18 +213,6 @@ gen\_cubehole & Generate a cube with a hole.\\
 \bottomrule
 \end{tabular}
 \end{table}
-
-\begin{verbatim}
-gridcube <- gen_gridcube(n = 1000, p = 4)
-\end{verbatim}
-
-\begin{verbatim}
-unifcube <- gen_unifcube(n = 1000, p = 4)
-\end{verbatim}
-
-\begin{verbatim}
-cubehole <- gen_cubehole(n = 3000, p = 4, r_hole = 0.5)
-\end{verbatim}
 
 \begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/cube-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.}\label{fig:cube-proj}
@@ -353,7 +353,7 @@ gen\_pyrfrac & Pyramid containing triangular pyramid-shaped holes.\\
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/pyr-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.}\label{fig:pyr-proj}
 \end{figure}
 
-\subsubsection{S-curve}\label{s-curve}
+\paragraph{S-curve}\label{s-curve}
 
 An S-curve structure (Figure \ref{fig:scurve-proj}) simulates data that lies along a smooth, non-linear manifold. The functions generate both the standard S-curve shape and, a S-curve variant with structured hole that introduce missing or incomplete region. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table \ref{tab:scurve-tb-pdf} summarizes these functions.
 

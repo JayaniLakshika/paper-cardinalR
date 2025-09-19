@@ -509,35 +509,6 @@ A cube structure (Figure \@ref(fig:cube)) represents uniformly or systematically
 
 The first is the regular grid of points of $n$ points in $p$ dimensions. This is generated using `gen_gridcube(n, p)`. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to $n$. Each dimension is then normalized to lie in the interval $[0,1]$, so that the resulting structure forms a true $p\text{-}D$ hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.
 
-An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function `gen_unifcube(n, p)` is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the $p\text{-}D$ cube (Figure \@ref(fig:cube) b).
-
-Finally, we consider a cube that has a central spherical hole. This is generated using the `gen_cubehole(n, p, r_hole)` function. The cube is generated as per the uniformly distributed cube, but points inside sphere of radius (`r_hole`) are removed, resulting in a hollow cube structure (Figure \@ref(fig:cube) c).
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
-
-|Function     |Explanation                                                 |
-|:------------|:-----------------------------------------------------------|
-|gen_gridcube |Generate a cube with specified grid points along each axes. |
-|gen_unifcube |Generate a cube with uniform points.                        |
-|gen_cubehole |Generate a cube with a hole.                                |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
 
@@ -567,6 +538,8 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 
 </div>
 
+
+An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function `gen_unifcube(n, p)` is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the $p\text{-}D$ cube (Figure \@ref(fig:cube) b).
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -598,6 +571,8 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 </div>
 
 
+Finally, we consider a cube that has a central spherical hole. This is generated using the `gen_cubehole(n, p, r_hole)` function. The cube is generated as per the uniformly distributed cube, but points inside sphere of radius (`r_hole`) are removed, resulting in a hollow cube structure (Figure \@ref(fig:cube) c).
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubehole</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubehole</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>3000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, r_hole <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre></div>
 
@@ -618,6 +593,31 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 
 <div class="layout-chunk" data-layout="l-body">
 
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
+
+|Function     |Explanation                                                 |
+|:------------|:-----------------------------------------------------------|
+|gen_gridcube |Generate a cube with specified grid points along each axes. |
+|gen_unifcube |Generate a cube with uniform points.                        |
+|gen_cubehole |Generate a cube with a hole.                                |
 
 </div>
 
@@ -1177,7 +1177,7 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 </div>
 
 
-### S-curve
+#### S-curve
 
 An S-curve structure (Figure \@ref(fig:scurve)) simulates data that lies along a smooth, non-linear manifold. The functions generate both the standard S-curve shape and, a S-curve variant with structured hole that introduce missing or incomplete region. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table \@ref(tab:scurve-tb-html) summarizes these functions.
 

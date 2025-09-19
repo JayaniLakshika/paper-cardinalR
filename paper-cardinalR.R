@@ -761,27 +761,6 @@ cone_proj1 + cone_proj2 + cone_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## -----------------------------------------------------------------------------
-cube_tb <- tibble(fun = c("gen_gridcube",
-                          "gen_unifcube",
-                          "gen_cubehole"), 
-                      exp = c("Generate a cube with specified grid points along each axes.",
-                              "Generate a cube with uniform points.", 
-                              "Generate a cube with a hole."))
-
-
-## ----cube-tb-html, eval=knitr::is_html_output()-------------------------------
-# cube_tb |>
-#   kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"))
-
-
-## ----cube-tb-pdf, eval=knitr::is_latex_output()-------------------------------
-cube_tb |> 
-  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
 ## ----data-gridcube, echo=TRUE-------------------------------------------------
 gridcube <- gen_gridcube(n = 1000, p = 4)
 
@@ -1050,6 +1029,27 @@ cubehole_proj3 <- plot_proj(
   axis_text_size = 5,
   is_color = FALSE)
 
+
+
+## -----------------------------------------------------------------------------
+cube_tb <- tibble(fun = c("gen_gridcube",
+                          "gen_unifcube",
+                          "gen_cubehole"), 
+                      exp = c("Generate a cube with specified grid points along each axes.",
+                              "Generate a cube with uniform points.", 
+                              "Generate a cube with a hole."))
+
+
+## ----cube-tb-html, eval=knitr::is_html_output()-------------------------------
+# cube_tb |>
+#   kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----cube-tb-pdf, eval=knitr::is_latex_output()-------------------------------
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
 
 
 ## ----cube, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `gridcube`, `unifcube`, and `cubehole` data in $4\\text{-}D$."----
