@@ -2462,7 +2462,7 @@ scurve_proj1 + scurve_proj2 + scurve_proj3 +
 
 ### Sphere
 
-Sphere-shaped structures (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere)"} else { "Figure \\@ref(fig:sphere-proj)"})`) are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The package provides functions to generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. These shapes help test how well methods preserve symmetry, curvature, and cluster separation. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:sphere-tb-html)', '\\@ref(tab:sphere-tb-pdf)'))` summarizes these functions.
+Sphere-shaped structures (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere)"} else { "Figure \\@ref(fig:sphere-proj)"})`) are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The package provides functions to generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:sphere-tb-html)', '\\@ref(tab:sphere-tb-pdf)'))` summarizes these functions.
 
 ```{r}
 sphere_tb <- tibble(fun = c("gen_circle",
@@ -2591,7 +2591,7 @@ circle_proj3 <- plot_proj(
 
 The `gen_curvycycle(n, p)` function generates a $p$-dimensional dataset of $n$ observations lying on a curved closed loop with controlled high-dimensional sinusoidal deviations (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) b"} else { "Figure \\@ref(fig:sphere-proj) b"})`). The structure forms a one-dimensional nonlinear cycle embedded in higher-dimensional space.
 
-A latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\pi]$. The first three dimensions define a non-circular closed curve, referred to as a "curvy cycle." In this configuration, $X_1 = \cos(\theta)$ represents horizontal oscillation, while $X_2 = \sqrt{3}/3 + \sin(\theta)$ introduces a vertical offset to avoid centering the curve at the origin. Additionally, $X_3 = 1/3\cos(3\theta)$ introduces a third harmonic perturbation that intricately folds the curve three times along its path, creating a unique and complex shape that oscillates in both dimensions while incorporating the effects of the harmonic perturbation.
+A latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\pi]$. The first three dimensions define a non-circular closed curve, referred to as a "curvy cycle". In this configuration, $X_1 = \cos(\theta)$ represents horizontal oscillation, while $X_2 = \sqrt{3}/3 + \sin(\theta)$ introduces a vertical offset to avoid centering the curve at the origin. Additionally, $X_3 = 1/3\cos(3\theta)$ introduces a third harmonic perturbation that intricately folds the curve three times along its path, creating a unique and complex shape that oscillates in both dimensions while incorporating the effects of the harmonic perturbation.
 
 Together, these define a periodic, non-trivial, closed curve in $3\text{-}D$ with internal folds that produce a more complex geometry than a standard circle or ellipse. For dimensions $X_4$ through $X_p$, additional structured variability is introduced through decreasing amplitude scaling and phase-shifted sine waves. The scaling factor is defined as $\text{scale}_j = \sqrt{(0.5)^{j-3}}$ for $j$ ranging from $4$ to $p$, which means that the amplitude decreases as the dimension increases. Each dimension $X_j$ is then calculated using the formula $X_j = \text{scale}_j\sin(\theta + \phi_j)$, where the phase shift $\phi_j$ is given by $\phi_j = (j - 2)\pi/2p$. 
 
@@ -2689,7 +2689,7 @@ curvycycle_proj3 <- plot_proj(
 
 The `gen_unifsphere(n, p, r)` function generates a $p$-dimensional dataset of $n$ observations distributed approximately uniformly on the surface of a $3\text{-}D$ sphere of radius $r$, with additional Gaussian noise dimensions added when $p > 3$ (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) c"} else { "Figure \\@ref(fig:sphere-proj) c"})`).
 
-Each observation lies on the surface of a sphere in $3\text{-}D$, constructed by generating $u \sim U(-1, 1)$ which represents the cosine of the polar angle $\phi$ and $\theta \sim U(0, 2\pi)$ which represents the azimuthal angle. The corresponding Cartesian coordinates are calculated as; $X_1 = r\sqrt{1 - u^2}\cos(\theta)$, $X_2 = r\sqrt{1 - u^2}\sin(\theta)$, $X_3 = ru$, which gives points uniformly distributed on the surface of a $3\text{-}D$ sphere (not within). For $p > 3$, additional dimensions $X_4$ to $X_p$ are generated as low-variance Gaussian noise: $X_j \sim N(0, 0.05^2),\text{ for }j = 4, \dots, p$.
+Each observation lies on the surface of a sphere in $3\text{-}D$, constructed by generating $u \sim U(-1, 1)$ which represents the cosine of the polar angle $\phi$ and $\theta \sim U(0, 2\pi)$ which represents the azimuthal angle. The corresponding Cartesian coordinates are calculated as; $X_1 = r\sqrt{1 - u^2}\cos(\theta)$, $X_2 = r\sqrt{1 - u^2}\sin(\theta)$, $X_3 = ru$, which gives points uniformly distributed on the surface of a $3\text{-}D$ sphere (not within). For $p > 3$, additional noise dimensions $X_4$ to $X_p$ are generated.
 
 ```{r data-unifsphere, echo=TRUE}
 unifsphere <- gen_unifsphere(n = 1000, p = 4)
@@ -3000,7 +3000,7 @@ clusteredspheres_proj3 <- plot_proj(
 
 The `gen_hemisphere(n, p)` function generates a $p$-dimensional dataset of $n$ observations distributed approximately uniformly on a $4\text{-}D$ hemisphere, optionally extended with Gaussian noise in additional dimensions when $p > 4$ (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) f"} else { "Figure \\@ref(fig:sphere-proj) f"})`).
 
-Each observation is situated on a restricted $4\text{-}D$ spherical surface, defined by spherical coordinates. The azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $X_1 = \sin(\theta_1)\cos(\theta_2)$, $X_2 = \sin(\theta_1)\sin(\theta_2)$, $X_3 = \cos(\theta_1)\cos(\theta_3)$, $X_4 = \cos(\theta_1)\sin(\theta_3)$. This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. For $p > 4$, additional dimensions $X_5$ to $X_p$ are added as low-variance Gaussian noise: $X_j \sim N(0, 0.05^2),\text{ for }j = 5, \dots, p$.
+Each observation is situated on a restricted $4\text{-}D$ spherical surface, defined by spherical coordinates. The azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $X_1 = \sin(\theta_1)\cos(\theta_2)$, $X_2 = \sin(\theta_1)\sin(\theta_2)$, $X_3 = \cos(\theta_1)\cos(\theta_3)$, $X_4 = \cos(\theta_1)\sin(\theta_3)$. This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. For $p > 4$, additional noise dimensions are added to embed the structure in higher dimensions.
 
 ```{r data-hemisphere, echo=TRUE}
 hemisphere <- gen_hemisphere(n = 1000, p = 4)
@@ -3235,7 +3235,7 @@ swissroll_proj1 + swissroll_proj2 + swissroll_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
-### Trigonometric
+#### Trigonometric
 
 Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:triginometric)"} else { "Figure \\@ref(fig:triginometric-proj)"})`). The first few coordinates define the main geometric structure (e.g., crescent, cylinder, spiral, or helix), while for higher-dimensional embeddings, additional noise dimensions are appended: for the crescent shape this occurs when $p > 2$ (adding $X_3$ through $X_p$), and for all other trigonometric shapes when $p > 4$ (adding $X_5$ through $X_p$). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:trigonometric-tb-html)', '\\@ref(tab:trigonometric-tb-pdf)'))` summarizes these functions.
 
@@ -3844,7 +3844,7 @@ nonlinear_proj1 + nonlinear_proj2 + nonlinear_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
-### Trefoil knots
+#### Trefoil knots
 
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
 
