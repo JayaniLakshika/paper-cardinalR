@@ -848,7 +848,7 @@ The Mobius strip is generated using the `geozoo::mobius` function with `p = 3`, 
 </div>
 
 
-### Polynomial
+#### Polynomial
 
 A polynomial structure (Figure \@ref(fig:poly)) generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in high-dimensional space. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. Table \@ref(tab:polynomial-tb-html) summarizes these functions and their purposes.
 
@@ -876,11 +876,7 @@ Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
 </div>
 
 
-#### `gen_quadratic()`
-
-The `gen_quadratic(n, p, range)` function generates a dataset of $n$ points forming a quadratic curve in the first two dimensions (Figure \@ref(fig:poly) a). This $2\text{-}D$ parabolic structure is embedded within a higher-dimensional space with additive noise in the remaining dimensions.
-
-The curve is constructed by randomly sampling inputs and applying a second-degree polynomial transformation. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the independent variable. A raw polynomial basis of degree 2 is used to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This creates a smooth parabolic arc that opens downward, with jitter in the vertical direction to simulate noise. For $p > 2$, Gaussian noise $X_j \sim N(0, 0.1^2)$ is added to embed the $2\text{-}D$ structure into $p\text{-}D$, where $j = 3, \dots, p$.
+The first is the quadratic curve of $n$ points in $p$ dimensions. This is generated using `gen_quadratic(n, p, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree 2 is applied to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a smooth parabolic arc opening downward, with vertical jitter introduced by the noise term. For $p > 2$, the quadratic structure is embedded into higher dimensions by appending additional noise coordinates  (Figure \@ref(fig:poly) a).
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>quadratic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_quadratic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
@@ -912,11 +908,7 @@ The curve is constructed by randomly sampling inputs and applying a second-degre
 </div>
 
 
-#### `gen_cubic()`
-
-The `gen_cubic(n, p, range)` function generates a dataset of $n$ points forming a cubic curve in the first two dimensions (Figure \@ref(fig:poly) b). This function creates a more complex curvilinear structure than a simple parabola.
-
-The shape is generated using a third-degree raw polynomial basis expansion. Let $X_1 \sim U(\text{range}[1], \text{range}[2])$ be the base input. A cubic transformation with vertical jitter is used to define $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. For $p > 2$, Gaussian noise $X_j \sim N(0, 0.1^2)$ is added to embed the $2\text{-}D$ structure into $p\text{-}D$, where $j = 3, \dots, p$.
+The second is the cubic curve of $n$ points in $p$ dimensions. This is generated using `gen_cubic(n, p, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree $3$ is applied to construct $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a more complex curvilinear structure than the quadratic case, with both upward and downward turning points. For $p > 2$, the cubic curve is embedded into higher dimensions by appending additional noise coordinates (Figure \@ref(fig:poly) b).
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
