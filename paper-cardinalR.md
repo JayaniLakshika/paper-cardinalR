@@ -437,7 +437,7 @@ Each branch contains $n_i$ points such that $\sum_{i=1}^k n_i = n$, where the ve
 </div>
 
 
-### Cone
+#### Cone
 
 To simulate a cone-shaped structure in arbitrary dimensions (Figure \@ref(fig:cone)), we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
 
@@ -503,7 +503,7 @@ For each point, a direction in the first $p-1$ dimensions is sampled uniformly o
 </div>
 
 
-### Cube
+#### Cube
 
 A cube structure (Figure \@ref(fig:cube)) represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table \@ref(tab:cube-tb-html) outlines these functions and their purposes. 
 
@@ -660,7 +660,7 @@ Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 </div>
 
 
-### Gaussian
+#### Gaussian
 
 The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure (Figure \@ref(fig:gau)). Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, s)$, where $s$ is a user-defined $p \times p$ positive-definite matrix.
 
@@ -722,7 +722,7 @@ The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in 
 </div>
 
 
-### Linear
+#### Linear
 
 The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a long linear structure with noise. Each variable is formed as $X_i = \text{scale}_i \cdot (0,1,\dots,n{-}1 + \epsilon) + \text{shift}_i$, where $\text{scale}\_i \sim U(-10, 10)$ determines the orientation of the line in each dimension, $\text{shift}\_i \sim U(-300, 300)$ offsets the line to separate dimensions, and $\epsilon \sim N(0, (0.03n)^2)$ introduces Gaussian noise. 
 
@@ -784,7 +784,7 @@ The `gen_longlinear(n, p)` function generates a high-dimensional dataset represe
 </div>
 
 
-### Mobius
+#### Mobius
 
 The `gen_mobius(n, p)` function generates a dataset of $n$ points that form a Mobius strip embedded in the first three dimensions of a $p\text{-}D$ structure (Figure \@ref(fig:mobius)). This classical non-orientable surface loops back on itself with a half-twist.
 
@@ -978,7 +978,7 @@ The shape is generated using a third-degree raw polynomial basis expansion. Let 
 </div>
 
 
-### Pyramid
+#### Pyramid
 
 A pyramid structure (Figure \@ref(fig:pyr)) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table \@ref(tab:pyramid-tb-html) summarizes these functions.
 
@@ -995,7 +995,7 @@ $r_{\text{point}} \sim \sqrt{U(0, 1)}$. Then, the first two coordinates are: $X_
 
 For all the above pyramid shapes, if $p > 3$, the remaining $p - 3$ dimensions (i.e., $X_4$ to $X_{p-1}$) are additional noise.
 
-Finally, for the Sierpinski-like pyramid (Figure \@ref(fig:pyr) d), let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$. Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
+Finally, for the Sierpinski-like pyramid, `gen_pyrfrac(n, p)` (Figure \@ref(fig:pyr) d), let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$. Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1620,7 +1620,7 @@ Each observation is situated on a restricted $4\text{-}D$ spherical surface, def
 </div>
 
 
-### Swiss Roll  
+#### Swiss Roll  
 
 To further generalize the Swiss roll structure and introduce realistic noise, we define a function `gen_swissroll(n, p, w)`, where $n$ is the number of points, $p$ is the total number of dimensions, and $w$ is the vertical range in the third dimension (Figure \@ref(fig:swissroll)). The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $X_1 = t \cos(t)$, $X_2 = t \sin(t)$, $X_3 \sim U(w_1, w_2), \text{where } t \sim U(0, 3\pi)$. For $p > 3$, the remaining $p - 3$ dimensions are filled with noise to simulate high-dimensional complexity. 
 
