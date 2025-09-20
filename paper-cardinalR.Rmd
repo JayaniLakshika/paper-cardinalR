@@ -1482,7 +1482,7 @@ linear_proj1 + linear_proj2 + linear_proj3 +
 
 The `gen_mobius(n, p)` function generates a dataset of $n$ points that form a Mobius strip embedded in the first three dimensions of a $p\text{-}D$ structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:mobius)"} else { "Figure \\@ref(fig:mobius-proj)"})`). This classical non-orientable surface loops back on itself with a half-twist.
 
-The Mobius strip is generated using the `geozoo::mobius` function with `p = 3`, and `n` defined as above. Each point is sampled from a parameterization defined by an angle $\theta \sim U(0, 2\pi)$, which specifies the position along the circular loop, and a width $w \sim U(-0.4, 0.4)$, which offsets the point across the strip’s band. The cartesian coordinates are $X_1 = \left(1 + (w/2) \cos(\theta/2)\right) \cos(\theta)$, $X_2 = \left(1 + (w/2) \cos(\theta/2)\right) \sin(\theta)$, and $X_3 = (w/2)\sin(\theta/2)$. This maps a $2\text{-}D$ band with a half-twist into $3\text{-}D$ space, forming a non-orientable one-sided surface. For $p > 3$, additional noise dimension are added to embed the $3\text{-}D$ Mobius into $p\text{-}D$.
+The Mobius strip is generated using the `geozoo::mobius` function with `p = 3`, and `n` defined as above. Each point is sampled from a parameterization defined by an angle $\theta \sim U(0, 2\pi)$, which specifies the position along the circular loop, and a width $w \sim U(-0.4, 0.4)$, which offsets the point across the strip’s band. The cartesian coordinates are $$X_1 = \left(1 + (w/2) \cos(\theta/2)\right) \cos(\theta),  \quad X_2 = \left(1 + (w/2) \cos(\theta/2)\right) \sin(\theta),\text{ and }X_3 = (w/2)\sin(\theta/2).$$ This maps a $2\text{-}D$ band with a half-twist into $3\text{-}D$ space, forming a non-orientable one-sided surface. For $p > 3$, additional noise dimension are added to embed the $3\text{-}D$ Mobius into $p\text{-}D$.
 
 ```{r data-mobius, echo=TRUE}
 mobius <- gen_mobius(n = 1000, p = 4)
@@ -1834,7 +1834,7 @@ A pyramid structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figur
 
 Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the rectangular and triangular based pyramid generator functions, the final dimension, $X_p$, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height $h$. That is, $$X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).$$ This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, $X_p = z \sim U(0, h)$.
 
-The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) a"} else { "Figure \\@ref(fig:pyr-proj) a"})`), let $r_x(z)$ and $r_y(z)$ denote the half-widths of the rectangular cross-section at height $z$. That is, $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as: $X_1 \sim U(-r_x(z),\ r_x(z))$, $X_2 \sim U(-r_y(z),\ r_y(z))$, and $X_3 \sim U(-r_x(z),\ r_x(z)).$ 
+The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) a"} else { "Figure \\@ref(fig:pyr-proj) a"})`), let $r_x(z)$ and $r_y(z)$ denote the half-widths of the rectangular cross-section at height $z$. That is, $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as: $$X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z)).$$ 
 
 ```{r data-pyrrect, echo=TRUE}
 pyrrect <- gen_pyrrect(n = 1000, p = 4)
@@ -2277,7 +2277,7 @@ scurve_tb |>
   column_spec(2, width = "8cm")
 ```
 
-For the S-curve structure, `gen_scurve(n, p)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:scurve) a"} else { "Figure \\@ref(fig:scurve-proj) a"})`), the $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\theta \sim U\left(-3\pi/2, 3\pi/2\right)$. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: $X_1 = \sin(\theta)$, $X_2 \sim U(0, 2)$, $X_3 = \text{sign}(\theta)(\cos(\theta) - 1)$. This configuration creates a horizontally curled shape in $(X_1, X_3)$, with additional band thickness in the $X_2$ direction. For $p > 3$, additional noise dimensions are appended to embed the structure in higher dimensions.
+For the S-curve structure, `gen_scurve(n, p)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:scurve) a"} else { "Figure \\@ref(fig:scurve-proj) a"})`), the $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\theta \sim U\left(-3\pi/2, 3\pi/2\right)$. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: $$X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1)$$. This configuration creates a horizontally curled shape in $(X_1, X_3)$, with additional band thickness in the $X_2$ direction. For $p > 3$, additional noise dimensions are appended to embed the structure in higher dimensions.
 
 ```{r data-scurve, echo=TRUE}
 scurve <- gen_scurve(n = 1000, p = 4)
@@ -2514,7 +2514,7 @@ sphere_tb |>
   column_spec(2, width = "8cm")
 ```
 
-The simplest case, `gen_circle(n, p)` creates a unit circle in two dimensions, with the remaining dimensions forming sinusoidal extensions of the angular parameter at progressively smaller scales (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) a"} else { "Figure \\@ref(fig:sphere-proj) a"})`). Let a latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\pi]$. Coordinates in the first two dimensions represent a perfect circle on the plane: $X_1 = \cos(\theta), \quad X_2 = \sin(\theta)$. For dimensions $X_3$ through $X_p$, sinusoidal transformations of the angle $\theta$ are introduced. The first component is a scaling factor that decreases with the dimension index, defined as $\text{scale}_j = \sqrt{(0.5)^{j-2}}$ for $j = 3, \dots, p$. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula $\phi_j = (j - 2)\pi/2p$. Each additional dimension is computed as: $X_j = \text{scale}_{j}\sin(\theta + \phi_j), \quad j = 3, \dots, p$.
+The simplest case, `gen_circle(n, p)` creates a unit circle in two dimensions, with the remaining dimensions forming sinusoidal extensions of the angular parameter at progressively smaller scales (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) a"} else { "Figure \\@ref(fig:sphere-proj) a"})`). Let a latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\pi]$. Coordinates in the first two dimensions represent a perfect circle on the plane: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta)$$. For dimensions $X_3$ through $X_p$, sinusoidal transformations of the angle $\theta$ are introduced. The first component is a scaling factor that decreases with the dimension index, defined as $\text{scale}_j = \sqrt{(0.5)^{j-2}}$ for $j = 3, \dots, p$. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula $\phi_j = (j - 2)\pi/2p$. Each additional dimension is computed as: $X_j = \text{scale}_{j}\sin(\theta + \phi_j), \quad j = 3, \dots, p$.
 
 ```{r data-circle, echo=TRUE}
 circle <- gen_circle(n = 1000, p = 4)
@@ -2700,7 +2700,7 @@ curvycycle_proj3 <- plot_proj(
 
 ```
 
-Building on simple circular structures, the `gen_unifsphere(n, p, r)` function function extends the idea to three dimensions by generating $n$ observations approximately uniformly distributed on the surface of a sphere of radius $r$, with optional high-dimensional noise when $p > 3$ (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) c"} else { "Figure \\@ref(fig:sphere-proj) c"})`). Each observation is computed from spherical coordinates, with $u \sim U(-1, 1)$ representing $\cos(\phi)$ and $\theta \sim U(0, 2\pi)$ the azimuthal angle. Cartesian coordinates are then defined as $X_1 = r\sqrt{1 - u^2}\cos(\theta)$, $X_2 = r\sqrt{1 - u^2}\sin(\theta)$, and $X_3 = ru$, ensuring uniform distribution on the surface (not within) of the sphere. For $p > 3$, additional dimensions $X_4$ through $X_p$ are appended as structured noise.
+Building on simple circular structures, the `gen_unifsphere(n, p, r)` function function extends the idea to three dimensions by generating $n$ observations approximately uniformly distributed on the surface of a sphere of radius $r$, with optional high-dimensional noise when $p > 3$ (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) c"} else { "Figure \\@ref(fig:sphere-proj) c"})`). Each observation is computed from spherical coordinates, with $u \sim U(-1, 1)$ representing $\cos(\phi)$ and $\theta \sim U(0, 2\pi)$ the azimuthal angle. Cartesian coordinates are then defined as $$X_1 = r\sqrt{1 - u^2}\cos(\theta), \quad X_2 = r\sqrt{1 - u^2}\sin(\theta),\text{ and }X_3 = ru,$$ ensuring uniform distribution on the surface (not within) of the sphere. For $p > 3$, additional dimensions $X_4$ through $X_p$ are appended as structured noise.
 
 ```{r data-unifsphere, echo=TRUE}
 unifsphere <- gen_unifsphere(n = 1000, p = 4)
@@ -2993,7 +2993,7 @@ clusteredspheres_proj3 <- plot_proj(
 
 ```
 
-Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) f"} else { "Figure \\@ref(fig:sphere-proj) f"})`). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $X_1 = \sin(\theta_1)\cos(\theta_2)$, $X_2 = \sin(\theta_1)\sin(\theta_2)$, $X_3 = \cos(\theta_1)\cos(\theta_3)$, $X_4 = \cos(\theta_1)\sin(\theta_3)$. This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. For $p > 4$, additional noise dimensions are added to embed the structure in higher dimensions.
+Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) f"} else { "Figure \\@ref(fig:sphere-proj) f"})`). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. For $p > 4$, additional noise dimensions are added to embed the structure in higher dimensions.
 
 ```{r data-hemisphere, echo=TRUE}
 hemisphere <- gen_hemisphere(n = 1000, p = 4)
@@ -3113,7 +3113,7 @@ hemisphere_proj1 + hemisphere_proj2 + hemisphere_proj3 +
 
 #### Swiss Roll  
 
-To further generalize the Swiss roll structure and introduce realistic noise, we define a function `gen_swissroll(n, p, w)`, where $n$ is the number of points, $p$ is the total number of dimensions, and $w$ is the vertical range in the third dimension (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:swissroll)"} else { "Figure \\@ref(fig:swissroll-proj)"})`). The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $X_1 = t \cos(t)$, $X_2 = t \sin(t)$, $X_3 \sim U(w_1, w_2), \text{where } t \sim U(0, 3\pi)$. For $p > 3$, the remaining $p - 3$ dimensions are filled with noise to simulate high-dimensional complexity. 
+To further generalize the Swiss roll structure and introduce realistic noise, we define a function `gen_swissroll(n, p, w)`, where $n$ is the number of points, $p$ is the total number of dimensions, and $w$ is the vertical range in the third dimension (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:swissroll)"} else { "Figure \\@ref(fig:swissroll-proj)"})`). The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $$X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \text{ where } t \sim U(0, 3\pi).$$ For $p > 3$, the remaining $p - 3$ dimensions are filled with noise to simulate high-dimensional complexity. 
 
 ```{r data-swissroll, echo=TRUE}
 swissroll <- gen_swissroll(n = 1000, p = 4, w = c(-1, 1))
@@ -3259,7 +3259,7 @@ trigonometric_tb |>
   column_spec(2, width = "8cm")
 ```
 
-First, the `gen_crescent(n, p)` function generates a $p$-dimensional dataset of $n$ observations based on a $2\text{-}D$ crescent-shaped manifold with optional structured high-dimensional noise (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:triginometric) a"} else { "Figure \\@ref(fig:triginometric-proj) a"})`). Let $\theta \in [\pi/6, 2\pi]$ be a sequence of $n$ evenly spaced angles. The corresponding $2\text{-}D$ coordinates are defined by: $X_1 = \cos(\theta)$, $X_2 = \sin(\theta)$.
+First, the `gen_crescent(n, p)` function generates a $p$-dimensional dataset of $n$ observations based on a $2\text{-}D$ crescent-shaped manifold with optional structured high-dimensional noise (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:triginometric) a"} else { "Figure \\@ref(fig:triginometric-proj) a"})`). Let $\theta \in [\pi/6, 2\pi]$ be a sequence of $n$ evenly spaced angles. The corresponding $2\text{-}D$ coordinates are defined by: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta).$$
 
 ```{r data-crescent, echo=TRUE}
 crescent <- gen_crescent(n = 1000, p = 4)
@@ -3863,7 +3863,7 @@ trefoil_tb |>
   column_spec(2, width = "8cm")
 ```
 
-For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, p, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as $X_1 = \cos(\theta) \cos(\phi)$, $X_2 = \cos(\theta) \sin(\phi)$, $X_3 = \sin(\theta) \cos(1.5 \phi)$, and $X_4 = \sin(\theta) \sin(1.5 \phi)$, where $\theta$ and $\phi$ trace the knot’s path. For $p > 4$, the quadratic structure is embedded into higher dimensions by appending additional noise dimensions.
+For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, p, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi)$$, where $\theta$ and $\phi$ trace the knot’s path. For $p > 4$, the quadratic structure is embedded into higher dimensions by appending additional noise dimensions.
 
 ```{r data-trefoil4d, echo=TRUE}
 trefoil4d <- gen_trefoil4d(n = 500, p = 4, steps = 5)
@@ -3955,7 +3955,7 @@ trefoil4d_proj3 <- plot_proj(
 
 ```
 
-For the $3\text{-}D$ stereographic projection, `gen_trefoil3d(n, p, steps)` maps each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $(X_1', X_2', X_3') \in \mathbb{R}^3$ using $X_1' = X_1 / (1 - X_4)$, $X_2' = X_2 / (1 - X_4)$, and $X_3' = X_3 / (1 - X_4)$, excluding points where $X_4 = 1$ to avoid division by zero (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) b"} else { "Figure \\@ref(fig:trefoil-proj) b"})`). As with the $4\text{-}D$ case, optional noise dimensions can be added to embed the knot into higher-dimensional spaces.
+For the $3\text{-}D$ stereographic projection, `gen_trefoil3d(n, p, steps)` maps each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $$(X_1', X_2', X_3') \in \mathbb{R}^3\text{ using }X_1' = X_1 / (1 - X_4), \quad X_2' = X_2 / (1 - X_4),\text{ and }X_3' = X_3 / (1 - X_4),$$ excluding points where $X_4 = 1$ to avoid division by zero (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) b"} else { "Figure \\@ref(fig:trefoil-proj) b"})`). As with the $4\text{-}D$ case, optional noise dimensions can be added to embed the knot into higher-dimensional spaces.
 
 ```{r data-trefoil3d, echo=TRUE}
 trefoil3d <- gen_trefoil3d(n = 500, p = 4, steps = 5)
