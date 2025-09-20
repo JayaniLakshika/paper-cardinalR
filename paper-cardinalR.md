@@ -160,7 +160,7 @@ The shape generators form the foundation of the package, providing a collection 
 
 ### Branching
 
-A branching structure (Figure \@ref(fig:branch)) captures trajectories that diverge or bifurcate from a common origin, similar to processes such as cell differentiation in biology (@trapnell2014). We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometries, numbers of points, and number of branches. Although these functions can generate multiple branches, they do not produce a formal *multicluster* dataset: the branches form a single connected structure, with multiple visually distinct arms rather than independent clusters. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
+A branching structure (Figure \@ref(fig:branch)) captures trajectories that diverge or bifurcate from a common origin, similar to processes such as cell differentiation in biology (@trapnell2014). We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometries, numbers of points (`n`), and number of branches (`k`). Although these functions can generate multiple branches, they do not produce a formal *multicluster* dataset: the branches form a single connected structure, with multiple visually distinct arms rather than independent clusters. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
 
 <div class="layout-chunk" data-layout="l-body">
 

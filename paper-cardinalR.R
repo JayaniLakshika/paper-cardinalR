@@ -133,11 +133,11 @@ branch_tb <- tibble(fun = c("gen_expbranches",
                              "gen_curvybranches", 
                              "gen_orglinearbranches", 
                              "gen_orgcurvybranches"), 
-                      exp = c("Generate a structure with exponential shaped branches.",
-                               "Generate a structure with linear shaped branches.", 
-                               "Generate a structure with curvy shaped branches.",
-                               "Generate a structure with linear shaped branches originated in one point.",
-                               "Generate a structure with curvy shaped branches originated in one point."))
+                      exp = c("Exponential shaped branches.",
+                               "Linear shaped branches.", 
+                               "Curvy shaped branches.",
+                               "Linear shaped branches originated in one point.",
+                               "Curvy shaped branches originated in one point."))
 
 
 ## ----branching-tb-html, eval=knitr::is_html_output()--------------------------
