@@ -1293,7 +1293,7 @@ To introduce missing or incomplete regions on the manifold, `gen_scurvehole(n, p
 </div>
 
 
-### Sphere
+#### Sphere
 
 Sphere-shaped structures (Figure \@ref(fig:sphere)) are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The functions generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. For the circle and curvy cycle, this occurs when $p > 2$ and $p > 3$, respectively, while for spheres and hemispheres it occurs when $p > 3$ or $p > 4$. Table \@ref(tab:sphere-tb-html) summarizes these functions.
 
@@ -2024,7 +2024,65 @@ For the $3\text{-}D$ stereographic projection, `gen_trefoil3d(n, p, steps)` maps
 
 ### Generate noise dimensions
 
-generate noise dimensions with a normal distribution and various wavy patterns, 
+High-dimensional data structures often benefit from the addition of auxiliary noise dimensions, which can be used to assess the robustness of dimensionality reduction and clustering algorithms. The functions in this section provide flexible ways to generate random noise dimensions, ranging from purely random Gaussian variables to more structured, wavy patterns that mimic non-linear distortions in high-dimensional space. These functions can be applied independently or combined with other geometric structures to create complex simulated datasets. Table \@ref(tab:noise-tb-html) details these functions.
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:noise-tb-html)cardinalR noise dimensions generation functions
+
+|Function      |Explanation                                                                                                                        |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------|
+|gen_noisedims |Gaussian noise dimensions with optional mean and standard deviation.                                                               |
+|gen_wavydims1 |Wavy noise dimensions based on a user-specified theta sequence with added jitter.                                                  |
+|gen_wavydims2 |Wavy noise dimensions using polynomial transformations of an existing dimension vector.                                            |
+|gen_wavydims3 |Wavy noise dimensions using a combination of polynomial and sine transformations based on the first three dimensions of a dataset. |
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+The `gen_noisedims(n, p, m, s)` function generates \$p\$ independent Gaussian noise dimensions,
+
+$$
+X_j \sim N(m_j, s_j^2), \quad j = 1, \dots, p,
+$$
+
+with odd-numbered dimensions multiplied by $-1$ to introduce sign alternation, enhancing variability and decorrelation. 
+
+For scenarios where noise should follow a smooth wavy pattern, `gen_wavydims1(n, p, \theta)` generates dimensions as
+
+$$
+X_j = \alpha_j \theta + \varepsilon_j, \quad \varepsilon_j \sim N(0, \sigma^2), \quad j = 1, \dots, p,
+$$
+
+where each dimension is scaled by a different factor $\alpha_j$, producing structured noise that oscillates along the latent parameter $\theta$, mimicking trends or trajectories observed in real-world data.
+
+The `gen_wavydims2(n, p, x_1)` function extends this approach by applying a non-linear transformation to an existing dimension vector $x_1$:
+
+$$
+X_j = \beta_j \, (-1)^{\lfloor j/2 \rfloor} \, x_1^{k_j} + \varepsilon_j, \quad j = 1, \dots, p,
+$$
+
+where $k_j$ is a randomly chosen polynomial power, $\beta_j$ is a scaling factor, and $\varepsilon_j$ is small uniform noise.
+
+Finally, `gen_wavydims3(n, p, \text{data})` generates noise for datasets with multiple correlated dimensions. The first three dimensions are small perturbations of the original coordinates $(X_1, X_2, X_3)$, while higher dimensions are constructed via non-linear combinations, including polynomial and trigonometric transformations, e.g.,
+
+$$
+X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j > 3,
+$$
+
+producing high-dimensional noise that preserves some geometric correlation with the base structure while introducing additional complexity.
 
 ### Multiple cluster examples
 
@@ -2082,15 +2140,11 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 
 |Function          |Explanation                                                                                       |
 |:-----------------|:-------------------------------------------------------------------------------------------------|
-|gen_noisedims     |Generates additional noise dimensions.                                                            |
 |gen_bkgnoise      |Adds background noise.                                                                            |
 |randomize_rows    |Randomizes the rows.                                                                              |
 |relocate_clusters |Relocates the clusters.                                                                           |
 |gen_nproduct      |Generates a vector of positive integers whose product is approximately equal to a target value.   |
 |gen_nsum          |Generates a vector of positive integers whose summation is approximately equal to a target value. |
-|gen_wavydims1     |Generates random noise dimensions with wavy pattern generated with theta.                         |
-|gen_wavydims2     |Generates random noise dimensions with wavy pattern generated with power functions.               |
-|gen_wavydims3     |Generates random noise dimensions with wavy pattern generated with power and sine functions.      |
 |gen_rotation      |Generates rotations.                                                                              |
 |normalize_data    |Normalizes data.                                                                                  |
 

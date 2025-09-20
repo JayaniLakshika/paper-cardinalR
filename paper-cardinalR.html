@@ -2706,7 +2706,7 @@ Figure 9: <code>langevitour</code> output of the <code>scurve</code> and <code>s
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.2.4" id="sphere">Sphere</h4>
+<h5 class="unnumbered" data-number="2.2.3.14" id="sphere">Sphere</h5>
 <p>Sphere-shaped structures (Figure <a href="#fig:sphere">10</a>) are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The functions generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. For the circle and curvy cycle, this occurs when <span class="math inline">\(p &gt; 2\)</span> and <span class="math inline">\(p &gt; 3\)</span>, respectively, while for spheres and hemispheres it occurs when <span class="math inline">\(p &gt; 3\)</span> or <span class="math inline">\(p &gt; 4\)</span>. Table <a href="#tab:sphere-tb-html">8</a> summarizes these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -2908,7 +2908,7 @@ Figure 10: <code>langevitour</code> output of the <code>circle</code>, <code>cur
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.4.1" id="swiss-roll">Swiss Roll</h5>
+<h5 class="unnumbered" data-number="2.2.3.15" id="swiss-roll">Swiss Roll</h5>
 <p>To further generalize the Swiss roll structure and introduce realistic noise, we define a function <code>gen_swissroll(n, p, w)</code>, where <span class="math inline">\(n\)</span> is the number of points, <span class="math inline">\(p\)</span> is the total number of dimensions, and <span class="math inline">\(w\)</span> is the vertical range in the third dimension (Figure <a href="#fig:swissroll">11</a>). The first three dimensions form the classic <span class="math inline">\(3\text{-}D\)</span> Swiss roll shape. The <span class="math inline">\(X_1 = t \cos(t)\)</span>, <span class="math inline">\(X_2 = t \sin(t)\)</span>, <span class="math inline">\(X_3 \sim U(w_1, w_2), \text{where } t \sim U(0, 3\pi)\)</span>. For <span class="math inline">\(p &gt; 3\)</span>, the remaining <span class="math inline">\(p - 3\)</span> dimensions are filled with noise to simulate high-dimensional complexity.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2947,7 +2947,7 @@ Figure 11: <code>langevitour</code> output of the <code>swissroll</code> data in
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.4.2" id="trigonometric">Trigonometric</h5>
+<h5 class="unnumbered" data-number="2.2.3.16" id="trigonometric">Trigonometric</h5>
 <p>Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure <a href="#fig:triginometric">12</a>). The first few coordinates define the main geometric structure (e.g., crescent, cylinder, spiral, or helix), while for higher-dimensional embeddings, additional noise dimensions are appended: for the crescent shape this occurs when <span class="math inline">\(p &gt; 2\)</span> (adding <span class="math inline">\(X_3\)</span> through <span class="math inline">\(X_p\)</span>), and for all other trigonometric shapes when <span class="math inline">\(p &gt; 4\)</span> (adding <span class="math inline">\(X_5\)</span> through <span class="math inline">\(X_p\)</span>). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table <a href="#tab:trigonometric-tb-html">9</a> summarizes these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -3130,7 +3130,7 @@ Figure 12: <code>langevitour</code> output of tthe <code>crescent</code>, <code>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h5 class="unnumbered" data-number="2.2.4.3" id="trefoil-knots">Trefoil knots</h5>
+<h5 class="unnumbered" data-number="2.2.3.17" id="trefoil-knots">Trefoil knots</h5>
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
 <p>The Trefoil is a closed, nontrivial one-dimensional manifold embedded in <span class="math inline">\(3\text{-}D\)</span> or <span class="math inline">\(4\text{-}D\)</span> space (Figure <a href="#fig:trefoil">13</a>). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. Table <a href="#tab:trefoil-tb-html">10</a> summarizes these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3218,16 +3218,75 @@ Figure 13: <code>langevitour</code> output of the <code>trefoil4d</code> and <co
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.2.5" id="generate-noise-dimensions">Generate noise dimensions</h4>
-<p>generate noise dimensions with a normal distribution and various wavy patterns,</p>
-<h4 class="unnumbered" data-number="2.2.6" id="multiple-cluster-examples">Multiple cluster examples</h4>
-<p>By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table <a href="#tab:odd-shape-tb-html">11</a>.</p>
+<h4 class="unnumbered" data-number="2.2.4" id="generate-noise-dimensions">Generate noise dimensions</h4>
+<p>High-dimensional data structures often benefit from the addition of auxiliary noise dimensions, which can be used to assess the robustness of dimensionality reduction and clustering algorithms. The functions in this section provide flexible ways to generate random noise dimensions, ranging from purely random Gaussian variables to more structured, wavy patterns that mimic non-linear distortions in high-dimensional space. These functions can be applied independently or combined with other geometric structures to create complex simulated datasets. Table <a href="#tab:noise-tb-html">11</a> details these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:odd-shape-tb-html">Table 11: </span>cardinalR multiple clusters generation functions</caption>
+<caption><span id="tab:noise-tb-html">Table 11: </span>cardinalR noise dimensions generation functions</caption>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gen_noisedims</td>
+<td style="text-align: left;">Gaussian noise dimensions with optional mean and standard deviation.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_wavydims1</td>
+<td style="text-align: left;">Wavy noise dimensions based on a user-specified theta sequence with added jitter.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gen_wavydims2</td>
+<td style="text-align: left;">Wavy noise dimensions using polynomial transformations of an existing dimension vector.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_wavydims3</td>
+<td style="text-align: left;">Wavy noise dimensions using a combination of polynomial and sine transformations based on the first three dimensions of a dataset.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>The <code>gen_noisedims(n, p, m, s)</code> function generates $p$ independent Gaussian noise dimensions,</p>
+<p><span class="math display">\[
+X_j \sim N(m_j, s_j^2), \quad j = 1, \dots, p,
+\]</span></p>
+<p>with odd-numbered dimensions multiplied by <span class="math inline">\(-1\)</span> to introduce sign alternation, enhancing variability and decorrelation.</p>
+<p>For scenarios where noise should follow a smooth wavy pattern, <code>gen_wavydims1(n, p, \theta)</code> generates dimensions as</p>
+<p><span class="math display">\[
+X_j = \alpha_j \theta + \varepsilon_j, \quad \varepsilon_j \sim N(0, \sigma^2), \quad j = 1, \dots, p,
+\]</span></p>
+<p>where each dimension is scaled by a different factor <span class="math inline">\(\alpha_j\)</span>, producing structured noise that oscillates along the latent parameter <span class="math inline">\(\theta\)</span>, mimicking trends or trajectories observed in real-world data.</p>
+<p>The <code>gen_wavydims2(n, p, x_1)</code> function extends this approach by applying a non-linear transformation to an existing dimension vector <span class="math inline">\(x_1\)</span>:</p>
+<p><span class="math display">\[
+X_j = \beta_j \, (-1)^{\lfloor j/2 \rfloor} \, x_1^{k_j} + \varepsilon_j, \quad j = 1, \dots, p,
+\]</span></p>
+<p>where <span class="math inline">\(k_j\)</span> is a randomly chosen polynomial power, <span class="math inline">\(\beta_j\)</span> is a scaling factor, and <span class="math inline">\(\varepsilon_j\)</span> is small uniform noise.</p>
+<p>Finally, <code>gen_wavydims3(n, p, \text{data})</code> generates noise for datasets with multiple correlated dimensions. The first three dimensions are small perturbations of the original coordinates <span class="math inline">\((X_1, X_2, X_3)\)</span>, while higher dimensions are constructed via non-linear combinations, including polynomial and trigonometric transformations, e.g.,</p>
+<p><span class="math display">\[
+X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j &gt; 3,
+\]</span></p>
+<p>producing high-dimensional noise that preserves some geometric correlation with the base structure while introducing additional complexity.</p>
+<h4 class="unnumbered" data-number="2.2.5" id="multiple-cluster-examples">Multiple cluster examples</h4>
+<p>By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table <a href="#tab:odd-shape-tb-html">12</a>.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:odd-shape-tb-html">Table 12: </span>cardinalR multiple clusters generation functions</caption>
 <colgroup>
 <col style="width: 23%" />
 <col style="width: 76%" />
@@ -3301,14 +3360,14 @@ Figure 13: <code>langevitour</code> output of the <code>trefoil4d</code> and <co
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.2.7" id="additional-functions">Additional functions</h4>
-<p>The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table <a href="#tab:add-tb-html">12</a> details these functions.</p>
+<h4 class="unnumbered" data-number="2.2.6" id="additional-functions">Additional functions</h4>
+<p>The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table <a href="#tab:add-tb-html">13</a> details these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:add-tb-html">Table 12: </span>cardinalR additional functions</caption>
+<caption><span id="tab:add-tb-html">Table 13: </span>cardinalR additional functions</caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 84%" />
@@ -3321,40 +3380,24 @@ Figure 13: <code>langevitour</code> output of the <code>trefoil4d</code> and <co
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">gen_noisedims</td>
-<td style="text-align: left;">Generates additional noise dimensions.</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">gen_bkgnoise</td>
 <td style="text-align: left;">Adds background noise.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">randomize_rows</td>
 <td style="text-align: left;">Randomizes the rows.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">relocate_clusters</td>
 <td style="text-align: left;">Relocates the clusters.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">gen_nproduct</td>
 <td style="text-align: left;">Generates a vector of positive integers whose product is approximately equal to a target value.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">gen_nsum</td>
 <td style="text-align: left;">Generates a vector of positive integers whose summation is approximately equal to a target value.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">gen_wavydims1</td>
-<td style="text-align: left;">Generates random noise dimensions with wavy pattern generated with theta.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">gen_wavydims2</td>
-<td style="text-align: left;">Generates random noise dimensions with wavy pattern generated with power functions.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">gen_wavydims3</td>
-<td style="text-align: left;">Generates random noise dimensions with wavy pattern generated with power and sine functions.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gen_rotation</td>

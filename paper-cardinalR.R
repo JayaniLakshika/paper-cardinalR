@@ -3787,6 +3787,29 @@ trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 +
 
 
 ## -----------------------------------------------------------------------------
+noise_fun_tb <- tibble(fun = c("gen_noisedims",
+                            "gen_wavydims1",
+                            "gen_wavydims2",
+                            "gen_wavydims3"), 
+                        exp = c("Gaussian noise dimensions with optional mean and standard deviation.",
+                                "Wavy noise dimensions based on a user-specified theta sequence with added jitter.",
+                                "Wavy noise dimensions using polynomial transformations of an existing dimension vector.",
+                                "Wavy noise dimensions using a combination of polynomial and sine transformations based on the first three dimensions of a dataset."))
+
+
+## ----noise-tb-html, eval=knitr::is_html_output()------------------------------
+# noise_fun_tb |>
+#   kable(caption = "cardinalR noise dimensions generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----noise-tb-pdf, eval=knitr::is_latex_output()------------------------------
+noise_fun_tb |> 
+  kable(caption = "cardinalR noise dimensions generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## -----------------------------------------------------------------------------
 odd_shapes_tb <- tibble(fun = c("make_mobiusgau",
                                 "make_multigau",
                                 "make_curvygau",
@@ -3831,27 +3854,19 @@ odd_shapes_tb |>
 
 
 ## -----------------------------------------------------------------------------
-add_fun_tb <- tibble(fun = c("gen_noisedims",
-                            "gen_bkgnoise",
+add_fun_tb <- tibble(fun = c("gen_bkgnoise",
                             "randomize_rows",
                             "relocate_clusters",
                             "gen_nproduct",
                             "gen_nsum",
-                            "gen_wavydims1",
-                            "gen_wavydims2",
-                            "gen_wavydims3",
                             "gen_rotation",
                             "normalize_data"), 
-                        exp = c("Generates additional noise dimensions.",
-                                "Adds background noise.",
+                        exp = c("Adds background noise.",
                                 "Randomizes the rows.",
                                 "Relocates the clusters.",
                                 "Generates a vector of positive integers whose product is approximately equal to a target value.",
-                                "Generates a vector of positive integers whose summation is approximately equal to a target value.",
-                                "Generates random noise dimensions with wavy pattern generated with theta.",
-                                "Generates random noise dimensions with wavy pattern generated with power functions.",
-                                "Generates random noise dimensions with wavy pattern generated with power and sine functions.",
-                                "Generates rotations.",
+                                "Generates a vector of positive integers whose summation is approximately equal to a target value.", 
+                                "Generates rotations.", 
                                 "Normalizes data."))
 
 

@@ -584,7 +584,55 @@ trefoil3d <- gen_trefoil3d(n = 500, p = 4, steps = 5)
 
 \subsubsection{Generate noise dimensions}\label{generate-noise-dimensions}
 
-generate noise dimensions with a normal distribution and various wavy patterns,
+High-dimensional data structures often benefit from the addition of auxiliary noise dimensions, which can be used to assess the robustness of dimensionality reduction and clustering algorithms. The functions in this section provide flexible ways to generate random noise dimensions, ranging from purely random Gaussian variables to more structured, wavy patterns that mimic non-linear distortions in high-dimensional space. These functions can be applied independently or combined with other geometric structures to create complex simulated datasets. Table \ref{tab:noise-tb-pdf} details these functions.
+
+\begin{table}
+
+\caption{\label{tab:noise-tb-pdf}cardinalR noise dimensions generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_noisedims & Gaussian noise dimensions with optional mean and standard deviation.\\
+gen\_wavydims1 & Wavy noise dimensions based on a user-specified theta sequence with added jitter.\\
+gen\_wavydims2 & Wavy noise dimensions using polynomial transformations of an existing dimension vector.\\
+gen\_wavydims3 & Wavy noise dimensions using a combination of polynomial and sine transformations based on the first three dimensions of a dataset.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The \texttt{gen\_noisedims(n,\ p,\ m,\ s)} function generates \$p\$ independent Gaussian noise dimensions,
+
+\[
+X_j \sim N(m_j, s_j^2), \quad j = 1, \dots, p,
+\]
+
+with odd-numbered dimensions multiplied by \(-1\) to introduce sign alternation, enhancing variability and decorrelation.
+
+For scenarios where noise should follow a smooth wavy pattern, \texttt{gen\_wavydims1(n,\ p,\ \textbackslash{}theta)} generates dimensions as
+
+\[
+X_j = \alpha_j \theta + \varepsilon_j, \quad \varepsilon_j \sim N(0, \sigma^2), \quad j = 1, \dots, p,
+\]
+
+where each dimension is scaled by a different factor \(\alpha_j\), producing structured noise that oscillates along the latent parameter \(\theta\), mimicking trends or trajectories observed in real-world data.
+
+The \texttt{gen\_wavydims2(n,\ p,\ x\_1)} function extends this approach by applying a non-linear transformation to an existing dimension vector \(x_1\):
+
+\[
+X_j = \beta_j \, (-1)^{\lfloor j/2 \rfloor} \, x_1^{k_j} + \varepsilon_j, \quad j = 1, \dots, p,
+\]
+
+where \(k_j\) is a randomly chosen polynomial power, \(\beta_j\) is a scaling factor, and \(\varepsilon_j\) is small uniform noise.
+
+Finally, \texttt{gen\_wavydims3(n,\ p,\ \textbackslash{}text\{data\})} generates noise for datasets with multiple correlated dimensions. The first three dimensions are small perturbations of the original coordinates \((X_1, X_2, X_3)\), while higher dimensions are constructed via non-linear combinations, including polynomial and trigonometric transformations, e.g.,
+
+\[
+X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j > 3,
+\]
+
+producing high-dimensional noise that preserves some geometric correlation with the base structure while introducing additional complexity.
 
 \subsubsection{Multiple cluster examples}\label{multiple-cluster-examples}
 
@@ -630,18 +678,13 @@ The package includes various supplementary tools in addition to the shape genera
 \toprule
 Function & Explanation\\
 \midrule
-gen\_noisedims & Generates additional noise dimensions.\\
 gen\_bkgnoise & Adds background noise.\\
 randomize\_rows & Randomizes the rows.\\
 relocate\_clusters & Relocates the clusters.\\
 gen\_nproduct & Generates a vector of positive integers whose product is approximately equal to a target value.\\
-\addlinespace
 gen\_nsum & Generates a vector of positive integers whose summation is approximately equal to a target value.\\
-gen\_wavydims1 & Generates random noise dimensions with wavy pattern generated with theta.\\
-gen\_wavydims2 & Generates random noise dimensions with wavy pattern generated with power functions.\\
-gen\_wavydims3 & Generates random noise dimensions with wavy pattern generated with power and sine functions.\\
-gen\_rotation & Generates rotations.\\
 \addlinespace
+gen\_rotation & Generates rotations.\\
 normalize\_data & Normalizes data.\\
 \bottomrule
 \end{tabular}
