@@ -636,11 +636,11 @@ Finally, we consider a cube that has a central spherical hole. This is generated
 
 Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
 
-|Function     |Explanation                                                 |
-|:------------|:-----------------------------------------------------------|
-|gen_gridcube |Generate a cube with specified grid points along each axes. |
-|gen_unifcube |Generate a cube with uniform points.                        |
-|gen_cubehole |Generate a cube with a hole.                                |
+|Function     |Explanation                                      |
+|:------------|:------------------------------------------------|
+|gen_gridcube |Cube with specified grid points along each axes. |
+|gen_unifcube |Cube with uniform points.                        |
+|gen_cubehole |Cube with a hole.                                |
 
 </div>
 
@@ -885,10 +885,10 @@ A polynomial structure (Figure \@ref(fig:poly)) generates data points that follo
 
 Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
 
-|Function      |Explanation                   |
-|:-------------|:-----------------------------|
-|gen_quadratic |Generate a quadratic pattern. |
-|gen_cubic     |Generate a cubic pattern.     |
+|Function      |Explanation        |
+|:-------------|:------------------|
+|gen_quadratic |Quadratic pattern. |
+|gen_cubic     |Cubic pattern.     |
 
 </div>
 
@@ -1208,10 +1208,10 @@ An S-curve structure (Figure \@ref(fig:scurve)) simulates data that lies along a
 
 Table: (\#tab:scurve-tb-html)cardinalR S-curve data generation functions
 
-|Function       |Explanation                     |
-|:--------------|:-------------------------------|
-|gen_scurve     |Generate a S-curve.             |
-|gen_scurvehole |Generate a S-curve with a hole. |
+|Function       |Explanation          |
+|:--------------|:--------------------|
+|gen_scurve     |S-curve.             |
+|gen_scurvehole |S-curve with a hole. |
 
 </div>
 
@@ -1330,14 +1330,14 @@ Sphere-shaped structures (Figure \@ref(fig:sphere)) are useful for evaluating ho
 
 Table: (\#tab:sphere-tb-html)cardinalR sphere data generation functions
 
-|Function             |Explanation                                          |
-|:--------------------|:----------------------------------------------------|
-|gen_circle           |Generate a circle.                                   |
-|gen_curvycycle       |Generate a curvy cell cycle.                         |
-|gen_unifsphere       |Generate a uniform sphere.                           |
-|gen_gridedsphere     |Generate a grided sphere.                            |
-|gen_clusteredspheres |Generate multiple small spheres within a big sphere. |
-|gen_hemisphere       |Generate a hemisphere.                               |
+|Function             |Explanation                                 |
+|:--------------------|:-------------------------------------------|
+|gen_circle           |Circle.                                     |
+|gen_curvycycle       |Curvy cell cycle.                           |
+|gen_unifsphere       |Uniform sphere.                             |
+|gen_gridedsphere     |Grided sphere.                              |
+|gen_clusteredspheres |Multiple small spheres within a big sphere. |
+|gen_hemisphere       |Hemisphere.                                 |
 
 </div>
 
@@ -1673,14 +1673,14 @@ Trigonometric-based structures provide flexible ways to simulate complex curved 
 
 Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation functions
 
-|Function            |Explanation                     |
-|:-------------------|:-------------------------------|
-|gen_crescent        |Generate a crescent pattern.    |
-|gen_curvycylinder   |Generate a curvy cylinder.      |
-|gen_sphericalspiral |Generate a spherical spiral.    |
-|gen_helicalspiral   |Generate a helical spiral.      |
-|gen_conicspiral     |Generate a conic spiral.        |
-|gen_nonlinear       |Generate a nonlinear hyperbola. |
+|Function            |Explanation          |
+|:-------------------|:--------------------|
+|gen_crescent        |Crescent pattern.    |
+|gen_curvycylinder   |Curvy cylinder.      |
+|gen_sphericalspiral |Spherical spiral.    |
+|gen_helicalspiral   |Helical spiral.      |
+|gen_conicspiral     |Conic spiral.        |
+|gen_nonlinear       |Nonlinear hyperbola. |
 
 </div>
 
@@ -1937,10 +1937,10 @@ The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text
 
 Table: (\#tab:trefoil-tb-html)cardinalR trefoil data generation functions
 
-|Function      |Explanation                         |
-|:-------------|:-----------------------------------|
-|gen_trefoil4d |Generate a trefoil in $4\text{-}D$. |
-|gen_trefoil3d |Generate a trefoil in $3\text{-}D$. |
+|Function      |Explanation              |
+|:-------------|:------------------------|
+|gen_trefoil4d |Trefoil in $4\text{-}D$. |
+|gen_trefoil3d |Trefoil in $3\text{-}D$. |
 
 </div>
 
@@ -2121,22 +2121,22 @@ By using the shape generators mentioned above, we can create various examples of
 
 Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
 
-|Function              |Explanation                                                              |
-|:---------------------|:------------------------------------------------------------------------|
-|make_mobiusgau        |Generates a Möbius-like cluster combined with a Gaussian cluster.        |
-|make_multigau         |Generates multiple Gaussian clusters in high-dimensional space.          |
-|make_curvygau         |Generates a curvilinear cluster with a Gaussian cluster.                 |
-|make_klink_circles    |Generates K-link circular clusters (non-linear circular patterns).       |
-|make_chain_circles    |Generates chain-like circular clusters connected sequentially.           |
-|make_klink_curvycycle |Generates K-link curvy cycle clusters (curvilinear loop structures).     |
-|make_chain_curvycycle |Generates chain-like curvy cycle clusters connected sequentially.        |
-|make_gaucircles       |Generates circular clusters with a Gaussian cluster in the middle.       |
-|make_gaucurvycycle    |Generates curvy circular clusters with a Gaussian cluster in the middle. |
-|make_onegrid          |Generates a single grid in two dimensions.                               |
-|make_twogrid_overlap  |Generates two overlapping grids.                                         |
-|make_twogrid_shift    |Generates two grids shifted relative to each other.                      |
-|make_shape_para       |Generates parallel shaped clusters.                                      |
-|make_three_clust_     |Generates three clusters with different shapes. (eg:- 01, 02, ..., 20)   |
+|Function              |Explanation                                                    |
+|:---------------------|:--------------------------------------------------------------|
+|make_mobiusgau        |Möbius-like cluster combined with a Gaussian cluster.          |
+|make_multigau         |Multiple Gaussian clusters in high-dimensional space.          |
+|make_curvygau         |Curvilinear cluster with a Gaussian cluster.                   |
+|make_klink_circles    |K-link circular clusters (non-linear circular patterns).       |
+|make_chain_circles    |Chain-like circular clusters connected sequentially.           |
+|make_klink_curvycycle |K-link curvy cycle clusters (curvilinear loop structures).     |
+|make_chain_curvycycle |Chain-like curvy cycle clusters connected sequentially.        |
+|make_gaucircles       |Circular clusters with a Gaussian cluster in the middle.       |
+|make_gaucurvycycle    |Curvy circular clusters with a Gaussian cluster in the middle. |
+|make_onegrid          |Single grid in two dimensions.                                 |
+|make_twogrid_overlap  |Two overlapping grids.                                         |
+|make_twogrid_shift    |Two grids shifted relative to each other.                      |
+|make_shape_para       |Parallel shaped clusters.                                      |
+|make_three_clust_     |Three clusters with different shapes. (eg:- 01, 02, ..., 20)   |
 
 </div>
 

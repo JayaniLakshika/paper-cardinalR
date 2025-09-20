@@ -1035,9 +1035,9 @@ cubehole_proj3 <- plot_proj(
 cube_tb <- tibble(fun = c("gen_gridcube",
                           "gen_unifcube",
                           "gen_cubehole"), 
-                      exp = c("Generate a cube with specified grid points along each axes.",
-                              "Generate a cube with uniform points.", 
-                              "Generate a cube with a hole."))
+                      exp = c("Cube with specified grid points along each axes.",
+                              "Cube with uniform points.", 
+                              "Cube with a hole."))
 
 
 ## ----cube-tb-html, eval=knitr::is_html_output()-------------------------------
@@ -1417,8 +1417,8 @@ mobius_proj1 + mobius_proj2 + mobius_proj3 +
 ## -----------------------------------------------------------------------------
 polynomial_tb <- tibble(fun = c("gen_quadratic",
                                 "gen_cubic"), 
-                        exp = c("Generate a quadratic pattern.",
-                                "Generate a cubic pattern."))
+                        exp = c("Quadratic pattern.",
+                                "Cubic pattern."))
 
 
 ## ----polynomial-tb-html, eval=knitr::is_html_output()-------------------------
@@ -2045,8 +2045,8 @@ pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
 ## -----------------------------------------------------------------------------
 scurve_tb <- tibble(fun = c("gen_scurve",
                             "gen_scurvehole"), 
-                        exp = c("Generate a S-curve.",
-                                "Generate a S-curve with a hole."))
+                        exp = c("S-curve.",
+                                "S-curve with a hole."))
 
 
 ## ----scurve-tb-html, eval=knitr::is_html_output()-----------------------------
@@ -2270,12 +2270,12 @@ sphere_tb <- tibble(fun = c("gen_circle",
                             "gen_gridedsphere",
                             "gen_clusteredspheres",
                             "gen_hemisphere"), 
-                        exp = c("Generate a circle.",
-                                "Generate a curvy cell cycle.",
-                                "Generate a uniform sphere.",
-                                "Generate a grided sphere.",
-                                "Generate multiple small spheres within a big sphere.",
-                                "Generate a hemisphere."))
+                        exp = c("Circle.",
+                                "Curvy cell cycle.",
+                                "Uniform sphere.",
+                                "Grided sphere.",
+                                "Multiple small spheres within a big sphere.",
+                                "Hemisphere."))
 
 
 ## ----sphere-tb-html, eval=knitr::is_html_output()-----------------------------
@@ -2978,12 +2978,12 @@ trigonometric_tb <- tibble(fun = c("gen_crescent",
                             "gen_helicalspiral",
                             "gen_conicspiral",
                             "gen_nonlinear"), 
-                        exp = c("Generate a crescent pattern.",
-                                "Generate a curvy cylinder.",
-                                "Generate a spherical spiral.",
-                                "Generate a helical spiral.",
-                                "Generate a conic spiral.",
-                                "Generate a nonlinear hyperbola."))
+                        exp = c("Crescent pattern.",
+                                "Curvy cylinder.",
+                                "Spherical spiral.",
+                                "Helical spiral.",
+                                "Conic spiral.",
+                                "Nonlinear hyperbola."))
 
 
 ## ----trigonometric-tb-html, eval=knitr::is_html_output()----------------------
@@ -3567,8 +3567,8 @@ nonlinear_proj1 + nonlinear_proj2 + nonlinear_proj3 +
 ## -----------------------------------------------------------------------------
 trefoil_tb <- tibble(fun = c("gen_trefoil4d",
                             "gen_trefoil3d"), 
-                        exp = c("Generate a trefoil in $4\\text{-}D$.",
-                                "Generate a trefoil in $3\\text{-}D$."))
+                        exp = c("Trefoil in $4\\text{-}D$.",
+                                "Trefoil in $3\\text{-}D$."))
 
 
 ## ----trefoil-tb-html, eval=knitr::is_html_output()----------------------------
@@ -3825,20 +3825,20 @@ odd_shapes_tb <- tibble(fun = c("make_mobiusgau",
                                 "make_shape_para",
                                 "make_three_clust_"), 
                         exp = c(
-    "Generates a Möbius-like cluster combined with a Gaussian cluster.",
-    "Generates multiple Gaussian clusters in high-dimensional space.",
-    "Generates a curvilinear cluster with a Gaussian cluster.",
-    "Generates K-link circular clusters (non-linear circular patterns).",
-    "Generates chain-like circular clusters connected sequentially.",
-    "Generates K-link curvy cycle clusters (curvilinear loop structures).",
-    "Generates chain-like curvy cycle clusters connected sequentially.",
-    "Generates circular clusters with a Gaussian cluster in the middle.",
-    "Generates curvy circular clusters with a Gaussian cluster in the middle.",
-    "Generates a single grid in two dimensions.",
-    "Generates two overlapping grids.",
-    "Generates two grids shifted relative to each other.",
-    "Generates parallel shaped clusters.",
-    "Generates three clusters with different shapes. (eg:- 01, 02, ..., 20)"))
+    "Möbius-like cluster combined with a Gaussian cluster.",
+    "Multiple Gaussian clusters in high-dimensional space.",
+    "Curvilinear cluster with a Gaussian cluster.",
+    "K-link circular clusters (non-linear circular patterns).",
+    "Chain-like circular clusters connected sequentially.",
+    "K-link curvy cycle clusters (curvilinear loop structures).",
+    "Chain-like curvy cycle clusters connected sequentially.",
+    "Circular clusters with a Gaussian cluster in the middle.",
+    "Curvy circular clusters with a Gaussian cluster in the middle.",
+    "Single grid in two dimensions.",
+    "Two overlapping grids.",
+    "Two grids shifted relative to each other.",
+    "Parallel shaped clusters.",
+    "Three clusters with different shapes. (eg:- 01, 02, ..., 20)"))
 
 
 ## ----odd-shape-tb-html, eval=knitr::is_html_output()--------------------------
