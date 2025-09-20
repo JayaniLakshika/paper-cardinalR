@@ -578,7 +578,7 @@ expbranches_proj3 <- plot_proj(
 
 ```
 
-High-dimensional generalizations are provided by `gen_orglinearbranches(n, p, k)` and `gen_orgcurvybranches(n, p, k)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:branch) d-e"} else { "Figure \\@ref(fig:branch-proj) d-e"})`). Each branch is embedded in a unique or repeated $2\text{-}D$ subspace of the $p\text{-}D$ space. Linear branches follow
+High-dimensional generalizations are provided by `gen_orglinearbranches(n, p, k)` and `gen_orgcurvybranches(n, p, k)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:branch) d-e"} else { "Figure \\@ref(fig:branch-proj) d-e"})`). Each branch is embedded in a unique or repeated $2\text{-}D$ subspace of the $p\text{-}D$ space. When `allow_share = TRUE`, multiple branches may share the same subspace; otherwise, subspaces are sampled without replacement until all possible $\binom{p}{2}$ combinations are exhausted, after which additional branches may repeat subspaces. Linear branches follow
 
 $$
 X_{i_1} \sim U(a_i,b_i), \quad X_{i_2} = s_i X_{i_1} + \epsilon, \quad \epsilon \sim N(0, \sigma^2),
