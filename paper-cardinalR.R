@@ -173,96 +173,6 @@ arg_branching_tb |>
   column_spec(2, width = "8cm")
 
 
-## ----data-expbranches, echo=TRUE----------------------------------------------
-expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
-
-
-## -----------------------------------------------------------------------------
-expbranches_lang <- langevitour::langevitour(expbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
-
-
-## ----expbranches-proj1--------------------------------------------------------
-scaled_data <- scale_data_manual(expbranches)
-
-## First projection
-projection <- cbind(
-  c(0.53506,0.00763,0.00097,-0.10901),
-  c(0.00896,0.52496,0.12597,0.08184))
-
-proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.6,
-                                              axis_scaled = 1.2, 
-                                              axis_pos_x = -0.25, 
-                                              axis_pos_y = -0.25, 
-                                              threshold = 0.022))
-
-expbranches_proj1 <- plot_proj(
-  proj_obj = proj_obj1, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.35, 0.7), 
-  title = "a1", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----expbranches-proj2--------------------------------------------------------
-
-## Second projection
-projection <- cbind(
-  c(-0.06614,0.15134,-0.44278,0.27367),
-  c(-0.50493,0.14388,0.14615,0.03486))
-
-proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.2,
-                                              axis_scaled = 1.7, 
-                                              axis_pos_x = -0.16, 
-                                              axis_pos_y = -0.16, 
-                                              threshold = 0.02))
-
-expbranches_proj2 <- plot_proj(
-  proj_obj = proj_obj2, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.2, 0.2), 
-  title = "a2", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----expbranches-proj3--------------------------------------------------------
-
-## Third projection
-projection <- cbind(
-  c(0.10704,0.04822,-0.03416,0.53224),
-  c(0.50329,0.07199,-0.16064,-0.11806))
-
-proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.2,
-                                              axis_scaled = 1.3, 
-                                              axis_pos_x = -0.16, 
-                                              axis_pos_y = -0.16, 
-                                              threshold = 0.016))
-
-expbranches_proj3 <- plot_proj(
-  proj_obj = proj_obj3, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.2, 0.2), 
-  title = "a3", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
 ## ----data-linearbranches, echo=TRUE-------------------------------------------
 linearbranches <- gen_linearbranches(n = 1000, p = 4, k = 4)
 
@@ -437,6 +347,96 @@ curvybranches_proj3 <- plot_proj(
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.6, 0.4), 
   title = "c3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-expbranches, echo=TRUE----------------------------------------------
+expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
+
+
+## -----------------------------------------------------------------------------
+expbranches_lang <- langevitour::langevitour(expbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+
+
+## ----expbranches-proj1--------------------------------------------------------
+scaled_data <- scale_data_manual(expbranches)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.25, 
+                                              axis_pos_y = -0.25, 
+                                              threshold = 0.022))
+
+expbranches_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.35, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----expbranches-proj2--------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.2,
+                                              axis_scaled = 1.7, 
+                                              axis_pos_x = -0.16, 
+                                              axis_pos_y = -0.16, 
+                                              threshold = 0.02))
+
+expbranches_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.2, 0.2), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----expbranches-proj3--------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.2,
+                                              axis_scaled = 1.3, 
+                                              axis_pos_x = -0.16, 
+                                              axis_pos_y = -0.16, 
+                                              threshold = 0.016))
+
+expbranches_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.2, 0.2), 
+  title = "a3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
