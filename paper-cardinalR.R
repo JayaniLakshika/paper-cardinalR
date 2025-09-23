@@ -552,7 +552,7 @@ orgcurvybranches_proj3 <- plot_proj(
 # branchfig
 
 
-## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.", fig.width=15, fig.height=25----
+## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.", fig.width=12, fig.height=20----
 
 expbranches_proj1 + expbranches_proj2 + expbranches_proj3 +
 linearbranches_proj1 + linearbranches_proj2 + linearbranches_proj3 +
@@ -668,8 +668,8 @@ cone_proj3 <- plot_proj(
 
 
 ## ----cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cone` data."----
-#| fig-width: 15
-#| fig-height: 5
+#| fig-width: 12
+#| fig-height: 4
 
 cone_proj1 + cone_proj2 + cone_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
@@ -960,7 +960,7 @@ cubehole_proj3 <- plot_proj(
 # branchfig
 
 
-## ----cube-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.", fig.width=15, fig.height=15----
+## ----cube-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.", fig.width=12, fig.height=12----
 
 gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
 unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
@@ -1074,8 +1074,8 @@ gau_proj3 <- plot_proj(
 
 
 ## ----gau-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gau` data."----
-#| fig-width: 15
-#| fig-height: 5
+#| fig-width: 12
+#| fig-height: 4
 
 gau_proj1 + gau_proj2 + gau_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
@@ -1187,8 +1187,8 @@ linear_proj3 <- plot_proj(
 
 
 ## ----linear-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `linear` data."----
-#| fig-width: 15
-#| fig-height: 5
+#| fig-width: 12
+#| fig-height: 4
 
 linear_proj1 + linear_proj2 + linear_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
@@ -1300,8 +1300,8 @@ mobius_proj3 <- plot_proj(
 
 
 ## ----mobius-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `mobius` data."----
-#| fig-width: 15
-#| fig-height: 5
+#| fig-width: 12
+#| fig-height: 4
 
 mobius_proj1 + mobius_proj2 + mobius_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
@@ -1502,7 +1502,7 @@ cubic_proj3 <- plot_proj(
 # polyfig
 
 
-## ----poly-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` (a1-a3) and `cubic` (b1-b3) data.", fig.width=15, fig.height=10----
+## ----poly-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `quadratic` (a1-a3) and `cubic` (b1-b3) data.", fig.width=12, fig.height=8----
 
 quadratic_proj1 + quadratic_proj2 + quadratic_proj3 +
 cubic_proj1 + cubic_proj2 + cubic_proj3 +
@@ -1884,7 +1884,7 @@ pyrholes_proj3 <- plot_proj(
 # pyrfig
 
 
-## ----pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.", fig.width=15, fig.height=20----
+## ----pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.", fig.width=12, fig.height=16----
 
 pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
 pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
@@ -2088,7 +2088,7 @@ scurvehole_proj3 <- plot_proj(
 # scurvefig
 
 
-## ----scurve-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data.", fig.width=15, fig.height=10----
+## ----scurve-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data.", fig.width=12, fig.height=8----
 
 scurve_proj1 + scurve_proj2 + scurve_proj3 + 
   scurvehole_proj1 + scurvehole_proj2 + scurvehole_proj3 +
@@ -2652,7 +2652,7 @@ hemisphere_proj3 <- plot_proj(
 # spherefig
 
 
-## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
+## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=12, fig.height=28, out.width="80%", fig.align='center'----
 
 circle_proj1 + circle_proj2 + circle_proj3 +
 curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3 +
@@ -2769,8 +2769,8 @@ swissroll_proj3 <- plot_proj(
 
 
 ## ----swissroll-proj, eval=knitr::is_latex_output(), fig.pos="H", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `swissroll` data."----
-#| fig-width: 15
-#| fig-height: 5
+#| fig-width: 12
+#| fig-height: 4
 
 swissroll_proj1 + swissroll_proj2 + swissroll_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
@@ -3331,7 +3331,7 @@ nonlinear_proj3 <- plot_proj(
 # triginometricfig
 
 
-## ----triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=15, fig.height=35, out.width="80%", fig.align='center'----
+## ----triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=12, fig.height=28, out.width="80%", fig.align='center'----
 
 crescent_proj1 + crescent_proj2 + crescent_proj3 +
 curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
@@ -3537,7 +3537,7 @@ trefoil3d_proj3 <- plot_proj(
 # trefoilfig
 
 
-## ----trefoil-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.", fig.width=15, fig.height=10----
+## ----trefoil-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.", fig.width=12, fig.height=8----
 
 trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 + 
   trefoil3d_proj1 + trefoil3d_proj2 + trefoil3d_proj3 +
@@ -3726,8 +3726,8 @@ five_clusts_proj3 <- plot_proj(
 
 
 ## ----highd-proj, eval=knitr::is_latex_output(), fig.pos='H', fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green."----
-#| fig-width: 15
-#| fig-height: 5
+#| fig-width: 12
+#| fig-height: 4
 
 five_clusts_proj1 + five_clusts_proj2 + five_clusts_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
