@@ -112,97 +112,13 @@ The `cardinalR` R package is available on GitHub at [JayaniLakshika/cardinalR](h
 
 The main function of the package is `gen_multicluster()`, which generates datasets consisting of multiple clusters with user-specified characteristics. Users can control the number of clusters (`k`), the number of points in each cluster (`n`), and the dimensionality of the space (`p`) for all the clusters. Each cluster can take on a different geometric shape (e.g., Gaussian, cone, uniform cube) by specifying the corresponding generator function (`shape`), can be scaled to adjust its spread, rotated in specified planes by given angles, and positioned at defined centroids (`loc`). The function ensures flexibility in cluster location and orientation, allowing users to simulate complex high-dimensional structures. An optional argument, `is_bkg`, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (`...`) can be passed to cluster generators, allowing further control over per-cluster characteristics such as noise structure.
 
-The main arguments of the `gen_multicluster()` function are shown in Table \@ref(tab:main-tb-html).
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
-
-|Argument |Type               |Explanation                                                          |
-|:--------|:------------------|:--------------------------------------------------------------------|
-|n        |numeric (vector)   |Number of points in each cluster.                                    |
-|p        |numeric            |Number of dimensions.                                                |
-|k        |numeric            |Number of clusters.                                                  |
-|loc      |numeric (matrix)   |Locations/centroids of clusters.                                     |
-|scale    |numeric (vector)   |Scaling factors of clusters.                                         |
-|shape    |character (vector) |Shapes of clusters.                                                  |
-|rotation |numeric (list)     |Plane and the corresponding angle along that plane for each cluster. |
-|is_bkg   |boolean            |Background noise should exist or not.                                |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
 ### Shape generators
 
 The shape generators form the foundation of the package, providing a collection of functions to create synthetic data structures based on simple, well-defined geometric structures. These include fundamental shapes such as cones, pyramids, spheres, grids, and branching structures. If a shape is not inherently defined in more than three dimensions, additional noise dimensions can be added to embed the structure into higher-dimensional space. Users can specify how these noise dimensions are generated (e.g., Gaussian, wavy) (`noise_fun`), offering control over the embedding process. All shape generators allow the user to define the number of points (`n`) and dimensions (`p`), and most include additional arguments to customize specific characteristics of the structure. 
 
 #### Branching
 
-A branching structure (Figure \@ref(fig:branch)) captures trajectories that diverge or bifurcate from a common origin, similar to processes such as cell differentiation in biology (@trapnell2014). We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometries, numbers of points (`n`), and number of branches (`k`). Although these functions can generate multiple branches, they do not produce a formal *multicluster* dataset: the branches form a single connected structure, with multiple visually distinct arms rather than independent clusters. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
-
-|Function              |Explanation                                     |
-|:---------------------|:-----------------------------------------------|
-|gen_expbranches       |Exponential shaped branches.                    |
-|gen_linearbranches    |Linear shaped branches.                         |
-|gen_curvybranches     |Curvy shaped branches.                          |
-|gen_orglinearbranches |Linear shaped branches originated in one point. |
-|gen_orgcurvybranches  |Curvy shaped branches originated in one point.  |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape generators.
-
-|Argument |Explanation                                            |
-|:--------|:------------------------------------------------------|
-|n        |A numeric value representing the number of points.     |
-|p        |A numeric value representing the number of dimensions. |
-|k        |A numeric value representing the number of clusters.   |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
+A branching structure (Figure \@ref(fig:branch)) captures trajectories that diverge or bifurcate from a common origin, similar to processes such as cell differentiation in biology (@trapnell2014). We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometries, numbers of points (`n`), and number of branches (`k`). Although these functions can generate multiple branches, they do not produce a formal *multicluster* dataset: the branches form a single connected structure, with multiple visually distinct arms rather than independent clusters. 
 
 The simplest structures are approximately linear branches, generated by the `gen_linearbranches(n, p, k)` function (Figure \@ref(fig:branch) b). These consist of $k$ short line segments in the first two dimensions, with added jitter to simulate variability. Mathematically, each branch $i$ is defined as
 
@@ -518,7 +434,7 @@ For each point, a direction in the first $p-1$ dimensions is sampled uniformly o
 
 #### Cube
 
-A cube structure (Figure \@ref(fig:cube)) represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table \@ref(tab:cube-tb-html) outlines these functions and their purposes. 
+A cube structure (Figure \@ref(fig:cube)) represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data.  
 
 The first is the regular grid of points of $n$ points in $p$ dimensions. This is generated using `gen_gridcube(n, p)`. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to $n$. Each dimension is then normalized to lie in the interval $[0,1]$, so that the resulting structure forms a true $p\text{-}D$ hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.
 
@@ -606,31 +522,6 @@ Finally, we consider a cube that has a central spherical hole. This is generated
 
 <div class="layout-chunk" data-layout="l-body">
 
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
-
-|Function     |Explanation                                      |
-|:------------|:------------------------------------------------|
-|gen_gridcube |Cube with specified grid points along each axes. |
-|gen_unifcube |Cube with uniform points.                        |
-|gen_cubehole |Cube with a hole.                                |
 
 </div>
 
@@ -863,31 +754,7 @@ The Mobius strip is generated using the `geozoo::mobius` function with `p = 3`, 
 
 #### Polynomial
 
-A polynomial structure (Figure \@ref(fig:poly)) generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in high-dimensional space. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. Table \@ref(tab:polynomial-tb-html) summarizes these functions and their purposes.
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
-
-|Function      |Explanation        |
-|:-------------|:------------------|
-|gen_quadratic |Quadratic pattern. |
-|gen_cubic     |Cubic pattern.     |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
+A polynomial structure (Figure \@ref(fig:poly)) generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in high-dimensional space. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. 
 
 The first is the quadratic curve of $n$ points in $p$ dimensions. This is generated using `gen_quadratic(n, p, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree 2 is applied to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a smooth parabolic arc opening downward, with vertical jitter introduced by the noise term (Figure \@ref(fig:poly) a).
 
@@ -987,7 +854,7 @@ For all polynomial shapes, if $p > 2$, the structure is embedded into higher dim
 
 #### Pyramid
 
-A pyramid structure (Figure \@ref(fig:pyr)) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table \@ref(tab:pyramid-tb-html) summarizes these functions.
+A pyramid structure (Figure \@ref(fig:pyr)) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. 
 
 Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the rectangular and triangular based pyramid generator functions, the final dimension, $X_p$, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height $h$. That is, $$X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).$$ This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, $X_p = z \sim U(0, h)$.
 
@@ -1125,32 +992,6 @@ Finally, for the Sierpinski-like pyramid, `gen_pyrfrac(n, p)` (Figure \@ref(fig:
 
 
 <div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
-
-|Function    |Explanation                                             |
-|:-----------|:-------------------------------------------------------|
-|gen_pyrrect |Rectangular-base pyramid, with a sharp or blunted apex. |
-|gen_pyrtri  |Triangular-base pyramid, with a sharp or blunted apex.  |
-|gen_pyrstar |Star-shaped base pyramid, with a sharp or blunted apex. |
-|gen_pyrfrac |Pyramid containing triangular pyramid-shaped holes.     |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
 <div class="figure">
 
 ```{=html}
@@ -1186,31 +1027,7 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 
 #### S-curve
 
-An S-curve structure (Figure \@ref(fig:scurve)) simulates data that lies along a smooth, non-linear manifold. The functions generate both the standard S-curve shape and, a S-curve variant with structured hole that introduce missing or incomplete region. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. Table \@ref(tab:scurve-tb-html) summarizes these functions.
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:scurve-tb-html)cardinalR S-curve data generation functions
-
-|Function       |Explanation          |
-|:--------------|:--------------------|
-|gen_scurve     |S-curve.             |
-|gen_scurvehole |S-curve with a hole. |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
+An S-curve structure (Figure \@ref(fig:scurve)) simulates data that lies along a smooth, non-linear manifold. The functions generate both the standard S-curve shape and, a S-curve variant with structured hole that introduce missing or incomplete region. These variations are useful for evaluating how well algorithms capture non-linear geometry and handle incomplete manifolds in high-dimensional data. 
 
 For the S-curve structure, `gen_scurve(n, p)` (Figure \@ref(fig:scurve) a), the $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\theta \sim U\left(-3\pi/2, 3\pi/2\right)$. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: $$X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1)$$. This configuration creates a horizontally curled shape in $(X_1, X_3)$, with additional band thickness in the $X_2$ direction. For $p > 3$, additional noise dimensions are appended to embed the structure in higher dimensions.
 
@@ -1308,35 +1125,7 @@ To introduce missing or incomplete regions on the manifold, `gen_scurvehole(n, p
 
 #### Sphere
 
-Sphere-shaped structures (Figure \@ref(fig:sphere)) are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The functions generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. For the circle and curvy cycle, this occurs when $p > 2$ and $p > 3$, respectively, while for spheres and hemispheres it occurs when $p > 3$ or $p > 4$. Table \@ref(tab:sphere-tb-html) summarizes these functions.
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:sphere-tb-html)cardinalR sphere data generation functions
-
-|Function             |Explanation                                 |
-|:--------------------|:-------------------------------------------|
-|gen_circle           |Circle.                                     |
-|gen_curvycycle       |Curvy cell cycle.                           |
-|gen_unifsphere       |Uniform sphere.                             |
-|gen_gridedsphere     |Grided sphere.                              |
-|gen_clusteredspheres |Multiple small spheres within a big sphere. |
-|gen_hemisphere       |Hemisphere.                                 |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
+Sphere-shaped structures (Figure \@ref(fig:sphere)) are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The functions generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. For the circle and curvy cycle, this occurs when $p > 2$ and $p > 3$, respectively, while for spheres and hemispheres it occurs when $p > 3$ or $p > 4$. 
 
 The simplest case, `gen_circle(n, p)` creates a unit circle in two dimensions, with the remaining dimensions forming sinusoidal extensions of the angular parameter at progressively smaller scales (Figure \@ref(fig:sphere) a). Let a latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\pi]$. Coordinates in the first two dimensions represent a perfect circle on the plane: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta)$$. For dimensions $X_3$ through $X_p$, sinusoidal transformations of the angle $\theta$ are introduced. The first component is a scaling factor that decreases with the dimension index, defined as $\text{scale}_j = \sqrt{(0.5)^{j-2}}$ for $j = 3, \dots, p$. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula $\phi_j = (j - 2)\pi/2p$. Each additional dimension is computed as: $X_j = \text{scale}_{j}\sin(\theta + \phi_j), \quad j = 3, \dots, p$.
 
@@ -1651,35 +1440,7 @@ To further generalize the Swiss roll structure and introduce realistic noise, we
 
 #### Trigonometric
 
-Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \@ref(fig:triginometric)). The first few coordinates define the main geometric structure (e.g., crescent, cylinder, spiral, or helix), while for higher-dimensional embeddings, additional noise dimensions are appended: for the crescent shape this occurs when $p > 2$ (adding $X_3$ through $X_p$), and for all other trigonometric shapes when $p > 4$ (adding $X_5$ through $X_p$). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table \@ref(tab:trigonometric-tb-html) summarizes these functions.
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation functions
-
-|Function            |Explanation          |
-|:-------------------|:--------------------|
-|gen_crescent        |Crescent pattern.    |
-|gen_curvycylinder   |Curvy cylinder.      |
-|gen_sphericalspiral |Spherical spiral.    |
-|gen_helicalspiral   |Helical spiral.      |
-|gen_conicspiral     |Conic spiral.        |
-|gen_nonlinear       |Nonlinear hyperbola. |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
+Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \@ref(fig:triginometric)). The first few coordinates define the main geometric structure (e.g., crescent, cylinder, spiral, or helix), while for higher-dimensional embeddings, additional noise dimensions are appended: for the crescent shape this occurs when $p > 2$ (adding $X_3$ through $X_p$), and for all other trigonometric shapes when $p > 4$ (adding $X_5$ through $X_p$). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. 
 
 First, the `gen_crescent(n, p)` function generates a $p$-dimensional dataset of $n$ observations based on a $2\text{-}D$ crescent-shaped manifold with optional structured high-dimensional noise (Figure \@ref(fig:triginometric) a). Let $\theta \in [\pi/6, 2\pi]$ be a sequence of $n$ evenly spaced angles. The corresponding $2\text{-}D$ coordinates are defined by: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta).$$
 
@@ -2015,33 +1776,7 @@ For the $3\text{-}D$ stereographic projection, `gen_trefoil3d(n, p, steps)` maps
 
 High-dimensional data structures often benefit from the addition of auxiliary noise dimensions, which can be used to assess the robustness of dimensionality reduction and clustering algorithms. The functions in this section provide flexible ways to generate random noise dimensions, ranging from purely random Gaussian variables to more structured, wavy patterns that mimic non-linear distortions in high-dimensional space. These functions can be applied independently or combined with other geometric structures to create complex simulated datasets. Table \@ref(tab:noise-tb-html) details these functions.
 
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:noise-tb-html)cardinalR noise dimensions generation functions
-
-|Function      |Explanation                                                                                                                        |
-|:-------------|:----------------------------------------------------------------------------------------------------------------------------------|
-|gen_noisedims |Gaussian noise dimensions with optional mean and standard deviation.                                                               |
-|gen_wavydims1 |Wavy noise dimensions based on a user-specified theta sequence with added jitter.                                                  |
-|gen_wavydims2 |Wavy noise dimensions using polynomial transformations of an existing dimension vector.                                            |
-|gen_wavydims3 |Wavy noise dimensions using a combination of polynomial and sine transformations based on the first three dimensions of a dataset. |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-The `gen_noisedims(n, p, m, s)` function generates \$p\$ independent Gaussian noise dimensions,
+The `gen_noisedims(n, p, m, s)` function generates $p$ independent Gaussian noise dimensions,
 
 $$
 X_j \sim N(m_j, s_j^2), \quad j = 1, \dots, p,
