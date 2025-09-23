@@ -100,13 +100,7 @@ The paper is organized as follows. In the next section, we introduce the impleme
 
 # Implementation
 
-## Installation
-
-The development version can be installed from GitHub: 
-
-```r
-pak::pak("JayaniLakshika/cardinalR")
-```
+The `cardinalR` R package is available on GitHub at [JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR).
 
 <!-- ## Web site -->
 
