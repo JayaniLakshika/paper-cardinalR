@@ -87,12 +87,98 @@ theme_set(theme_linedraw() +
 source("scripts/additional_functions.R")
 
 
+## -----------------------------------------------------------------------------
+main_tb <- tibble(arg = c("n",
+                          "p",
+                          "k",
+                          "loc",
+                          "scale",
+                          "shape",
+                          "rotation",
+                          "is_bkg"),
+                  type = c("numeric (vector)",
+                           "numeric",
+                           "numeric",
+                           "numeric (matrix)",
+                           "numeric (vector)",
+                           "character (vector)",
+                           "numeric (list)",
+                           "boolean"),
+                        exp = c("Number of points in each cluster.",
+                                "Number of dimensions.",
+                                "Number of clusters.",
+                                "Locations/centroids of clusters.",
+                                "Scaling factors of clusters.",
+                                "Shapes of clusters.",
+                                "Plane and the corresponding angle along that plane for each cluster.",
+                                "Background noise should exist or not."))
+
+
+## ----main-tb-html, eval=knitr::is_html_output()-------------------------------
+# main_tb |>
+#   kable(caption = "The main arguments for `gen_multicluster()`.", col.names = c("Argument", "Type", "Explanation"))
+
+
+## ----main-tb-pdf, eval=knitr::is_latex_output()-------------------------------
+main_tb |> 
+  kable(caption = "The main arguments for gen\\_multicluster().", format="latex", col.names = c("Argument", "Type", "Explanation"), booktabs = T, table.pos = "H")  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "4cm") |>
+  column_spec(3, width = "8cm")
+
+
+## -----------------------------------------------------------------------------
+branch_tb <- tibble(fun = c("gen_expbranches",
+                             "gen_linearbranches",
+                             "gen_curvybranches", 
+                             "gen_orglinearbranches", 
+                             "gen_orgcurvybranches"), 
+                      exp = c("Exponential shaped branches.",
+                               "Linear shaped branches.", 
+                               "Curvy shaped branches.",
+                               "Linear shaped branches originated in one point.",
+                               "Curvy shaped branches originated in one point."))
+
+
+## ----branching-tb-html, eval=knitr::is_html_output()--------------------------
+# branch_tb |>
+#   kable(caption = "cardinalR branching data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----branching-tb-pdf, eval=knitr::is_latex_output()--------------------------
+branch_tb |> 
+  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## -----------------------------------------------------------------------------
+arg_branching_tb <- tibble(arg = c("n",
+                          "p",
+                          "k"), 
+                        exp = c("A numeric value representing the number of points.",
+                                "A numeric value representing the number of dimensions.",
+                                "A numeric value representing the number of clusters."))
+
+
+## ----arg-branching-tb-html, eval=knitr::is_html_output()----------------------
+# arg_branching_tb |>
+#   kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Explanation"))
+
+
+## ----arg-branching-tb-pdf, eval=knitr::is_latex_output()----------------------
+arg_branching_tb |> 
+  kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
 ## ----data-linearbranches, echo=TRUE-------------------------------------------
 linearbranches <- gen_linearbranches(n = 1000, p = 4, k = 4)
 
 
 ## -----------------------------------------------------------------------------
-linearbranches_lang <- langevitour::langevitour(linearbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+linearbranches_lang <- langevitour::langevitour(linearbranches, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----linearbranches-proj1-----------------------------------------------------
@@ -182,7 +268,7 @@ curvybranches <- gen_curvybranches(n = 1000, p = 4, k = 4)
 
 
 ## -----------------------------------------------------------------------------
-curvybranches_lang <- langevitour::langevitour(curvybranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+curvybranches_lang <- langevitour::langevitour(curvybranches, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----curvybranches-proj1------------------------------------------------------
@@ -272,7 +358,7 @@ expbranches <- gen_expbranches(n = 1000, p = 4, k = 4)
 
 
 ## -----------------------------------------------------------------------------
-expbranches_lang <- langevitour::langevitour(expbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+expbranches_lang <- langevitour::langevitour(expbranches, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----expbranches-proj1--------------------------------------------------------
@@ -362,7 +448,7 @@ orglinearbranches <- gen_orglinearbranches(n = 1000, p = 4, k = 4)
 
 
 ## -----------------------------------------------------------------------------
-orglinearbranches_lang <- langevitour::langevitour(orglinearbranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+orglinearbranches_lang <- langevitour::langevitour(orglinearbranches, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----orglinearbranches-proj1--------------------------------------------------
@@ -452,7 +538,7 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 
 
 ## -----------------------------------------------------------------------------
-orgcurvybranches_lang <- langevitour::langevitour(orgcurvybranches, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+orgcurvybranches_lang <- langevitour::langevitour(orgcurvybranches, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----orgcurvybranches-proj1---------------------------------------------------
@@ -567,7 +653,7 @@ cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 
 
 ## -----------------------------------------------------------------------------
-cone_lang <- langevitour::langevitour(cone, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+cone_lang <- langevitour::langevitour(cone, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----cone-proj1---------------------------------------------------------------
@@ -680,7 +766,7 @@ gridcube <- gen_gridcube(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-gridcube_lang <- langevitour::langevitour(gridcube, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+gridcube_lang <- langevitour::langevitour(gridcube, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----gridcube-proj1-----------------------------------------------------------
@@ -770,7 +856,7 @@ unifcube <- gen_unifcube(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-unifcube_lang <- langevitour::langevitour(unifcube, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+unifcube_lang <- langevitour::langevitour(unifcube, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----unifcube-proj1-----------------------------------------------------------
@@ -860,7 +946,7 @@ cubehole <- gen_cubehole(n = 3000, p = 4, r_hole = 0.5)
 
 
 ## -----------------------------------------------------------------------------
-cubehole_lang <- langevitour::langevitour(cubehole, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+cubehole_lang <- langevitour::langevitour(cubehole, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----cubehole-proj1-----------------------------------------------------------
@@ -945,6 +1031,27 @@ cubehole_proj3 <- plot_proj(
 
 
 
+## -----------------------------------------------------------------------------
+cube_tb <- tibble(fun = c("gen_gridcube",
+                          "gen_unifcube",
+                          "gen_cubehole"), 
+                      exp = c("Cube with specified grid points along each axes.",
+                              "Cube with uniform points.", 
+                              "Cube with a hole."))
+
+
+## ----cube-tb-html, eval=knitr::is_html_output()-------------------------------
+# cube_tb |>
+#   kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----cube-tb-pdf, eval=knitr::is_latex_output()-------------------------------
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
 ## ----cube, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `gridcube`, `unifcube`, and `cubehole` data in $4\\text{-}D$."----
 # 
 # branchfig <- bscols(
@@ -960,7 +1067,7 @@ cubehole_proj3 <- plot_proj(
 # branchfig
 
 
-## ----cube-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.", fig.width=12, fig.height=12----
+## ----cube-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.", fig.width=12, fig.height=15----
 
 gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
 unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
@@ -973,7 +1080,7 @@ gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
 
 
 ## -----------------------------------------------------------------------------
-gau_lang <- langevitour::langevitour(gau, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+gau_lang <- langevitour::langevitour(gau, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----gau-proj1----------------------------------------------------------------
@@ -1086,7 +1193,7 @@ linear <- gen_longlinear(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-linear_lang <- langevitour::langevitour(linear, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+linear_lang <- langevitour::langevitour(linear, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----linear-proj1-------------------------------------------------------------
@@ -1199,7 +1306,7 @@ mobius <- gen_mobius(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-mobius_lang <- langevitour::langevitour(mobius, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+mobius_lang <- langevitour::langevitour(mobius, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----mobius-proj1-------------------------------------------------------------
@@ -1307,12 +1414,31 @@ mobius_proj1 + mobius_proj2 + mobius_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
+## -----------------------------------------------------------------------------
+polynomial_tb <- tibble(fun = c("gen_quadratic",
+                                "gen_cubic"), 
+                        exp = c("Quadratic pattern.",
+                                "Cubic pattern."))
+
+
+## ----polynomial-tb-html, eval=knitr::is_html_output()-------------------------
+# polynomial_tb |>
+#   kable(caption = "cardinalR polynomial data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----polynomial-tb-pdf, eval=knitr::is_latex_output()-------------------------
+polynomial_tb |> 
+  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
 ## ----data-quadratic, echo=TRUE------------------------------------------------
 quadratic <- gen_quadratic(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-quadratic_lang <- langevitour::langevitour(quadratic, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+quadratic_lang <- langevitour::langevitour(quadratic, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----quadratic-proj1----------------------------------------------------------
@@ -1402,7 +1528,7 @@ cubic <- gen_cubic(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-cubic_lang <- langevitour::langevitour(cubic, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+cubic_lang <- langevitour::langevitour(cubic, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----cubic-proj1--------------------------------------------------------------
@@ -1514,7 +1640,7 @@ pyrrect <- gen_pyrrect(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-pyrrect_lang <- langevitour::langevitour(pyrrect, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+pyrrect_lang <- langevitour::langevitour(pyrrect, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----pyrrect-proj1------------------------------------------------------------
@@ -1604,7 +1730,7 @@ pyrtri <- gen_pyrtri(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-pyrtri_lang <- langevitour::langevitour(pyrtri, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+pyrtri_lang <- langevitour::langevitour(pyrtri, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----pyrtri-proj1-------------------------------------------------------------
@@ -1694,7 +1820,7 @@ pyrstar <- gen_pyrstar(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-pyrstar_lang <- langevitour::langevitour(pyrstar, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+pyrstar_lang <- langevitour::langevitour(pyrstar, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----pyrstar-proj1------------------------------------------------------------
@@ -1784,7 +1910,7 @@ pyrholes <- gen_pyrfrac(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-pyrholes_lang <- langevitour::langevitour(pyrholes, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+pyrholes_lang <- langevitour::langevitour(pyrholes, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----pyrholes-proj1-----------------------------------------------------------
@@ -1869,6 +1995,29 @@ pyrholes_proj3 <- plot_proj(
 
 
 
+## -----------------------------------------------------------------------------
+pyramid_tb <- tibble(fun = c("gen_pyrrect",
+                             "gen_pyrtri",
+                             "gen_pyrstar",
+                             "gen_pyrfrac"), 
+                        exp = c("Rectangular-base pyramid, with a sharp or blunted apex.",
+          "Triangular-base pyramid, with a sharp or blunted apex.",
+          "Star-shaped base pyramid, with a sharp or blunted apex.",
+          "Pyramid containing triangular pyramid-shaped holes."))
+
+
+## ----pyramid-tb-html, eval=knitr::is_html_output()----------------------------
+# pyramid_tb |>
+#   kable(caption = "cardinalR pyramid data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----pyramid-tb-pdf, eval=knitr::is_latex_output()----------------------------
+pyramid_tb |> 
+  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
 ## ----pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$."----
 # 
 # pyrfig <- bscols(
@@ -1893,12 +2042,31 @@ pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
+## -----------------------------------------------------------------------------
+scurve_tb <- tibble(fun = c("gen_scurve",
+                            "gen_scurvehole"), 
+                        exp = c("S-curve.",
+                                "S-curve with a hole."))
+
+
+## ----scurve-tb-html, eval=knitr::is_html_output()-----------------------------
+# scurve_tb |>
+#   kable(caption = "cardinalR S-curve data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----scurve-tb-pdf, eval=knitr::is_latex_output()-----------------------------
+scurve_tb |> 
+  kable(caption = "cardinalR S-curve data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
 ## ----data-scurve, echo=TRUE---------------------------------------------------
 scurve <- gen_scurve(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-scurve_lang <- langevitour::langevitour(scurve, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+scurve_lang <- langevitour::langevitour(scurve, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----scurve-proj1-------------------------------------------------------------
@@ -1988,7 +2156,7 @@ scurvehole <- gen_scurvehole(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-scurvehole_lang <- langevitour::langevitour(scurvehole, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+scurvehole_lang <- langevitour::langevitour(scurvehole, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----scurvehole-proj1---------------------------------------------------------
@@ -2095,12 +2263,39 @@ scurve_proj1 + scurve_proj2 + scurve_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
+## -----------------------------------------------------------------------------
+sphere_tb <- tibble(fun = c("gen_circle",
+                            "gen_curvycycle",
+                            "gen_unifsphere",
+                            "gen_gridedsphere",
+                            "gen_clusteredspheres",
+                            "gen_hemisphere"), 
+                        exp = c("Circle.",
+                                "Curvy cell cycle.",
+                                "Uniform sphere.",
+                                "Grided sphere.",
+                                "Multiple small spheres within a big sphere.",
+                                "Hemisphere."))
+
+
+## ----sphere-tb-html, eval=knitr::is_html_output()-----------------------------
+# sphere_tb |>
+#   kable(caption = "cardinalR sphere data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----sphere-tb-pdf, eval=knitr::is_latex_output()-----------------------------
+sphere_tb |> 
+  kable(caption = "cardinalR sphere data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
 ## ----data-circle, echo=TRUE---------------------------------------------------
 circle <- gen_circle(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----circle-proj1-------------------------------------------------------------
@@ -2190,7 +2385,7 @@ curvycycle <- gen_curvycycle(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----curvycycle-proj1---------------------------------------------------------
@@ -2280,7 +2475,7 @@ unifsphere <- gen_unifsphere(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-unifsphere_lang <- langevitour::langevitour(unifsphere, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+unifsphere_lang <- langevitour::langevitour(unifsphere, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----unifsphere-proj1---------------------------------------------------------
@@ -2370,7 +2565,7 @@ gridedsphere <- gen_gridedsphere(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-gridedsphere_lang <- langevitour::langevitour(gridedsphere, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+gridedsphere_lang <- langevitour::langevitour(gridedsphere, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----gridedsphere-proj1-------------------------------------------------------
@@ -2462,7 +2657,7 @@ clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, p = 4, r = c(1
 
 
 ## -----------------------------------------------------------------------------
-clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----clusteredspheres-proj1---------------------------------------------------
@@ -2552,7 +2747,7 @@ hemisphere <- gen_hemisphere(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-hemisphere_lang <- langevitour::langevitour(hemisphere, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+hemisphere_lang <- langevitour::langevitour(hemisphere, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----hemisphere-proj1---------------------------------------------------------
@@ -2668,7 +2863,7 @@ swissroll <- gen_swissroll(n = 1000, p = 4, w = c(-1, 1))
 
 
 ## -----------------------------------------------------------------------------
-swissroll_lang <- langevitour::langevitour(swissroll, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+swissroll_lang <- langevitour::langevitour(swissroll, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----swissroll-proj1----------------------------------------------------------
@@ -2776,12 +2971,39 @@ swissroll_proj1 + swissroll_proj2 + swissroll_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
+## -----------------------------------------------------------------------------
+trigonometric_tb <- tibble(fun = c("gen_crescent",
+                            "gen_curvycylinder",
+                            "gen_sphericalspiral",
+                            "gen_helicalspiral",
+                            "gen_conicspiral",
+                            "gen_nonlinear"), 
+                        exp = c("Crescent pattern.",
+                                "Curvy cylinder.",
+                                "Spherical spiral.",
+                                "Helical spiral.",
+                                "Conic spiral.",
+                                "Nonlinear hyperbola."))
+
+
+## ----trigonometric-tb-html, eval=knitr::is_html_output()----------------------
+# trigonometric_tb |>
+#   kable(caption = "cardinalR trigonometric data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----trigonometric-tb-pdf, eval=knitr::is_latex_output()----------------------
+trigonometric_tb |> 
+  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
 ## ----data-crescent, echo=TRUE-------------------------------------------------
 crescent <- gen_crescent(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-crescent_lang <- langevitour::langevitour(crescent, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+crescent_lang <- langevitour::langevitour(crescent, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----crescent-proj1-----------------------------------------------------------
@@ -2871,7 +3093,7 @@ curvycylinder <- gen_curvycylinder(n = 1000, p = 4, h = 10)
 
 
 ## -----------------------------------------------------------------------------
-curvycylinder_lang <- langevitour::langevitour(curvycylinder, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+curvycylinder_lang <- langevitour::langevitour(curvycylinder, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----curvycylinder-proj1------------------------------------------------------
@@ -2961,7 +3183,7 @@ sphericalspiral <- gen_sphericalspiral(n = 1000, p = 4, spins = 1)
 
 
 ## -----------------------------------------------------------------------------
-sphericalspiral_lang <- langevitour::langevitour(sphericalspiral, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+sphericalspiral_lang <- langevitour::langevitour(sphericalspiral, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----sphericalspiral-proj1----------------------------------------------------
@@ -3051,7 +3273,7 @@ helicalspiral <- gen_helicalspiral(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-helicalspiral_lang <- langevitour::langevitour(helicalspiral, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+helicalspiral_lang <- langevitour::langevitour(helicalspiral, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----helicalspiral-proj1------------------------------------------------------
@@ -3141,7 +3363,7 @@ conicspiral <- gen_conicspiral(n = 1000, p = 4, spins = 1)
 
 
 ## -----------------------------------------------------------------------------
-conicspiral_lang <- langevitour::langevitour(conicspiral, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+conicspiral_lang <- langevitour::langevitour(conicspiral, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----conicspiral-proj1--------------------------------------------------------
@@ -3231,7 +3453,7 @@ nonlinear <- gen_nonlinear(n = 1000, p = 4, hc = 1, non_fac = 0.5)
 
 
 ## -----------------------------------------------------------------------------
-nonlinear_lang <- langevitour::langevitour(nonlinear, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+nonlinear_lang <- langevitour::langevitour(nonlinear, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----nonlinear-proj1----------------------------------------------------------
@@ -3342,12 +3564,32 @@ nonlinear_proj1 + nonlinear_proj2 + nonlinear_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
+## -----------------------------------------------------------------------------
+trefoil_tb <- tibble(fun = c("gen_trefoil4d",
+                            "gen_trefoil3d"), 
+                        exp = c("Trefoil in $4\\text{-}D$.",
+                                "Trefoil in $3\\text{-}D$."))
+
+
+## ----trefoil-tb-html, eval=knitr::is_html_output()----------------------------
+# trefoil_tb |>
+#   kable(caption = "cardinalR trefoil data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----trefoil-tb-pdf, eval=knitr::is_latex_output()----------------------------
+
+trefoil_tb |> 
+  kable(caption = "cardinalR trefoil data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
 ## ----data-trefoil4d, echo=TRUE------------------------------------------------
 trefoil4d <- gen_trefoil4d(n = 500, p = 4, steps = 5)
 
 
 ## -----------------------------------------------------------------------------
-trefoil4d_lang <- langevitour::langevitour(trefoil4d, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+trefoil4d_lang <- langevitour::langevitour(trefoil4d, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----trefoil4d-proj1----------------------------------------------------------
@@ -3437,7 +3679,7 @@ trefoil3d <- gen_trefoil3d(n = 500, p = 4, steps = 5)
 
 
 ## -----------------------------------------------------------------------------
-trefoil3d_lang <- langevitour::langevitour(trefoil3d, levelColors = "black", enableControls = FALSE, width = "500px", height = "400px")
+trefoil3d_lang <- langevitour::langevitour(trefoil3d, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
 ## ----trefoil3d-proj1----------------------------------------------------------
@@ -3542,6 +3784,29 @@ trefoil3d_proj3 <- plot_proj(
 trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 + 
   trefoil3d_proj1 + trefoil3d_proj2 + trefoil3d_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
+
+
+## -----------------------------------------------------------------------------
+noise_fun_tb <- tibble(fun = c("gen_noisedims",
+                            "gen_wavydims1",
+                            "gen_wavydims2",
+                            "gen_wavydims3"), 
+                        exp = c("Gaussian noise dimensions with optional mean and standard deviation.",
+                                "Wavy noise dimensions based on a user-specified theta sequence with added jitter.",
+                                "Wavy noise dimensions using polynomial transformations of an existing dimension vector.",
+                                "Wavy noise dimensions using a combination of polynomial and sine transformations based on the first three dimensions of a dataset."))
+
+
+## ----noise-tb-html, eval=knitr::is_html_output()------------------------------
+# noise_fun_tb |>
+#   kable(caption = "cardinalR noise dimensions generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----noise-tb-pdf, eval=knitr::is_latex_output()------------------------------
+noise_fun_tb |> 
+  kable(caption = "cardinalR noise dimensions generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
 
 
 ## -----------------------------------------------------------------------------
