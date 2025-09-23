@@ -3564,26 +3564,6 @@ nonlinear_proj1 + nonlinear_proj2 + nonlinear_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## -----------------------------------------------------------------------------
-trefoil_tb <- tibble(fun = c("gen_trefoil4d",
-                            "gen_trefoil3d"), 
-                        exp = c("Trefoil in $4\\text{-}D$.",
-                                "Trefoil in $3\\text{-}D$."))
-
-
-## ----trefoil-tb-html, eval=knitr::is_html_output()----------------------------
-# trefoil_tb |>
-#   kable(caption = "cardinalR trefoil data generation functions", col.names = c("Function", "Explanation"))
-
-
-## ----trefoil-tb-pdf, eval=knitr::is_latex_output()----------------------------
-
-trefoil_tb |> 
-  kable(caption = "cardinalR trefoil data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
 ## ----data-trefoil4d, echo=TRUE------------------------------------------------
 trefoil4d <- gen_trefoil4d(n = 500, p = 4, steps = 5)
 

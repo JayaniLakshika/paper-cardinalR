@@ -3143,34 +3143,7 @@ Figure 12: <code>langevitour</code> output of tthe <code>crescent</code>, <code>
 </div>
 <h5 class="unnumbered" data-number="2.1.2.13" id="trefoil-knots">Trefoil knots</h5>
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
-<p>The Trefoil is a closed, nontrivial one-dimensional manifold embedded in <span class="math inline">\(3\text{-}D\)</span> or <span class="math inline">\(4\text{-}D\)</span> space (Figure <a href="#fig:trefoil">13</a>). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. Table <a href="#tab:trefoil-tb-html">10</a> summarizes these functions.</p>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<table>
-<caption><span id="tab:trefoil-tb-html">Table 10: </span>cardinalR trefoil data generation functions</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">gen_trefoil4d</td>
-<td style="text-align: left;">Trefoil in <span class="math inline">\(4\text{-}D\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">gen_trefoil3d</td>
-<td style="text-align: left;">Trefoil in <span class="math inline">\(3\text{-}D\)</span>.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
+<p>The Trefoil is a closed, nontrivial one-dimensional manifold embedded in <span class="math inline">\(3\text{-}D\)</span> or <span class="math inline">\(4\text{-}D\)</span> space (Figure <a href="#fig:trefoil">13</a>). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data.</p>
 <p>For the <span class="math inline">\(4\text{-}D\)</span> trefoil knot, the function <code>gen_trefoil4d(n, p, steps)</code> generates the structure on the <span class="math inline">\(3\)</span>-sphere (<span class="math inline">\(S^3 \subset \mathbb{R}^4\)</span>) using two angular parameters, <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span>. A band of thickness around the knot path is controlled by the <code>steps</code> argument, while the number of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> values is determined by the <code>steps</code> and <code>n</code> arguments, respectively (Figure <a href="#fig:trefoil">13</a> a). The coordinates are defined as <span class="math display">\[X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi)\]</span>, where <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> trace the knot’s path. For <span class="math inline">\(p &gt; 4\)</span>, the quadratic structure is embedded into higher dimensions by appending additional noise dimensions.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -3230,13 +3203,13 @@ Figure 13: <code>langevitour</code> output of the <code>trefoil4d</code> and <co
 
 </div>
 <h4 class="unnumbered" data-number="2.1.3" id="generate-noise-dimensions">Generate noise dimensions</h4>
-<p>High-dimensional data structures often benefit from the addition of auxiliary noise dimensions, which can be used to assess the robustness of dimensionality reduction and clustering algorithms. The functions in this section provide flexible ways to generate random noise dimensions, ranging from purely random Gaussian variables to more structured, wavy patterns that mimic non-linear distortions in high-dimensional space. These functions can be applied independently or combined with other geometric structures to create complex simulated datasets. Table <a href="#tab:noise-tb-html">11</a> details these functions.</p>
+<p>High-dimensional data structures often benefit from the addition of auxiliary noise dimensions, which can be used to assess the robustness of dimensionality reduction and clustering algorithms. The functions in this section provide flexible ways to generate random noise dimensions, ranging from purely random Gaussian variables to more structured, wavy patterns that mimic non-linear distortions in high-dimensional space. These functions can be applied independently or combined with other geometric structures to create complex simulated datasets. Table <a href="#tab:noise-tb-html">10</a> details these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:noise-tb-html">Table 11: </span>cardinalR noise dimensions generation functions</caption>
+<caption><span id="tab:noise-tb-html">Table 10: </span>cardinalR noise dimensions generation functions</caption>
 <colgroup>
 <col style="width: 9%" />
 <col style="width: 90%" />
@@ -3291,13 +3264,13 @@ X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j &gt; 3,
 \]</span></p>
 <p>producing high-dimensional noise that preserves some geometric correlation with the base structure while introducing additional complexity.</p>
 <h4 class="unnumbered" data-number="2.1.4" id="multiple-cluster-examples">Multiple cluster examples</h4>
-<p>By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table <a href="#tab:odd-shape-tb-html">12</a>.</p>
+<p>By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table <a href="#tab:odd-shape-tb-html">11</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:odd-shape-tb-html">Table 12: </span>cardinalR multiple clusters generation functions</caption>
+<caption><span id="tab:odd-shape-tb-html">Table 11: </span>cardinalR multiple clusters generation functions</caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 74%" />
@@ -3372,13 +3345,13 @@ X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j &gt; 3,
 
 </div>
 <h4 class="unnumbered" data-number="2.1.5" id="additional-functions">Additional functions</h4>
-<p>The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table <a href="#tab:add-tb-html">13</a> details these functions.</p>
+<p>The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table <a href="#tab:add-tb-html">12</a> details these functions.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:add-tb-html">Table 13: </span>cardinalR additional functions</caption>
+<caption><span id="tab:add-tb-html">Table 12: </span>cardinalR additional functions</caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 84%" />

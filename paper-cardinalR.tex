@@ -564,21 +564,7 @@ nonlinear <- gen_nonlinear(n = 1000, p = 4, hc = 1, non_fac = 0.5)
 
 \paragraph{Trefoil knots}\label{trefoil-knots}
 
-The Trefoil is a closed, nontrivial one-dimensional manifold embedded in \(3\text{-}D\) or \(4\text{-}D\) space (Figure \ref{fig:trefoil-proj}). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. Table \ref{tab:trefoil-tb-pdf} summarizes these functions.
-
-\begin{table}
-
-\caption{\label{tab:trefoil-tb-pdf}cardinalR trefoil data generation functions}
-\centering
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
-\toprule
-Function & Explanation\\
-\midrule
-gen\_trefoil4d & Trefoil in \$4\textbackslash{}text\{-\}D\$.\\
-gen\_trefoil3d & Trefoil in \$3\textbackslash{}text\{-\}D\$.\\
-\bottomrule
-\end{tabular}
-\end{table}
+The Trefoil is a closed, nontrivial one-dimensional manifold embedded in \(3\text{-}D\) or \(4\text{-}D\) space (Figure \ref{fig:trefoil-proj}). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data.
 
 For the \(4\text{-}D\) trefoil knot, the function \texttt{gen\_trefoil4d(n,\ p,\ steps)} generates the structure on the \(3\)-sphere (\(S^3 \subset \mathbb{R}^4\)) using two angular parameters, \(\theta\) and \(\phi\). A band of thickness around the knot path is controlled by the \texttt{steps} argument, while the number of \(\theta\) and \(\phi\) values is determined by the \texttt{steps} and \texttt{n} arguments, respectively (Figure \ref{fig:trefoil-proj} a). The coordinates are defined as \[X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi)\], where \(\theta\) and \(\phi\) trace the knot's path. For \(p > 4\), the quadratic structure is embedded into higher dimensions by appending additional noise dimensions.
 

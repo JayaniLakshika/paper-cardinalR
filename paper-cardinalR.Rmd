@@ -3831,27 +3831,7 @@ nonlinear_proj1 + nonlinear_proj2 + nonlinear_proj3 +
 
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
 
-The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil)"} else { "Figure \\@ref(fig:trefoil-proj)"})`). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:trefoil-tb-html)', '\\@ref(tab:trefoil-tb-pdf)'))` summarizes these functions.
-
-```{r}
-trefoil_tb <- tibble(fun = c("gen_trefoil4d",
-                            "gen_trefoil3d"), 
-                        exp = c("Trefoil in $4\\text{-}D$.",
-                                "Trefoil in $3\\text{-}D$."))
-```
-
-```{r trefoil-tb-html, eval=knitr::is_html_output()}
-trefoil_tb |> 
-  kable(caption = "cardinalR trefoil data generation functions", col.names = c("Function", "Explanation")) 
-```
-
-```{r trefoil-tb-pdf, eval=knitr::is_latex_output()}
-
-trefoil_tb |> 
-  kable(caption = "cardinalR trefoil data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-```
+The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil)"} else { "Figure \\@ref(fig:trefoil-proj)"})`). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. 
 
 For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, p, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi)$$, where $\theta$ and $\phi$ trace the knot’s path. For $p > 4$, the quadratic structure is embedded into higher dimensions by appending additional noise dimensions.
 

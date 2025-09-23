@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.21)  23 SEP 2025 12:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.21)  23 SEP 2025 12:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -971,65 +971,65 @@ File: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf Graphic file (
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf  used on input line 558.
 (pdftex.def)             Requested size: 318.67207pt x 637.62943pt.
 
-
-[16]
-
-[17 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>]
-Overfull \hbox (13.42218pt too wide) in paragraph at lines 589--589
+Overfull \hbox (13.42218pt too wide) in paragraph at lines 575--575
 []\T1/ppl/m/n/9 (-20) For the $\OT1/ppl/m/n/9 (-20) 3[]\OML/zplm/m/it/9 D$ \T1/ppl/m/n/9 (-20) stere-o-graphic pro-jec-tion, \T1/zi4/m/n/9 gen_trefoil3d(n, p, steps) \T1/ppl/m/n/9 (-20) maps each point $\OT1/zplm/m/n/9 (\OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/zplm/m/n/9 ) \OMS/zplm/m/n/9 2
  []
 
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 595.
 
-<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=353, 1084.05pt x 722.7pt>
+[16]
+
+[17 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 581.
+
+<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=351, 1084.05pt x 722.7pt>
 File: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 596.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 582.
 (pdftex.def)             Requested size: 398.33858pt x 265.55322pt.
 
 
 [18 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>]
 
 [19]
-
-[20]
-<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=405, 991.705pt x 355.3275pt>
+<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=390, 991.705pt x 355.3275pt>
 File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/highd-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 728.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 714.
 (pdftex.def)             Requested size: 398.33858pt x 142.72487pt.
-<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=406, 441.65pt x 319.1925pt>
+
+
+[20 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=415, 441.65pt x 319.1925pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 734.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 720.
 (pdftex.def)             Requested size: 398.33858pt x 287.90375pt.
 
 
-[21 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf>]
-Overfull \hbox (12.11623pt too wide) in paragraph at lines 751--752
+[21 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
+Overfull \hbox (12.11623pt too wide) in paragraph at lines 737--738
 \T1/ppl/m/n/9 (-20) The source ma-te-rial for this pa-per is avail-able at [][]$\T1/zi4/m/n/9 https : / / github . com / JayaniLakshika / paper -[] cardinalR$[][]\T1/ppl/m/n/9 (-20) . 
  []
 
-
-
-[22 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>] (./RJwrapper.bbl (./RJwrapper.brf)
+(./RJwrapper.bbl (./RJwrapper.brf)
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
 
 
-[23])
+[22])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 765.
+(Font)              using `T1/zi4/m/n' instead on input line 751.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 775.
+(Font)              scaled to size 9.18004pt on input line 761.
 )
 
-[24] (./RJwrapper.aux)
+[23] (./RJwrapper.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
@@ -1040,21 +1040,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: 36EF9D67451DF1A6339933A8E3CE725A;1065.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: D16FA5BC7DBE06B03A5E7F459FAADE6A;1080.
+(rerunfilecheck)             Checksum: 7D16B98E2DAC30D54ACA980CFD5304BD;1080.
  ) 
 Here is how much of TeX's memory you used:
- 27602 strings out of 469778
- 506427 string characters out of 5481336
- 923722 words of memory out of 5000000
- 55024 multiletter control sequences out of 15000+600000
+ 27599 strings out of 469778
+ 506384 string characters out of 5481336
+ 921647 words of memory out of 5000000
+ 55023 multiletter control sequences out of 15000+600000
  690015 words of font info for 387 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,12n,131p,1484b,984s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,12n,131p,1484b,964s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (24 pages, 10344216 bytes).
+Output written on RJwrapper.pdf (23 pages, 10343208 bytes).
 PDF statistics:
- 618 PDF objects out of 1000 (max. 8388607)
- 521 compressed objects within 6 object streams
- 84 named destinations out of 1000 (max. 500000)
+ 612 PDF objects out of 1000 (max. 8388607)
+ 516 compressed objects within 6 object streams
+ 82 named destinations out of 1000 (max. 500000)
  73872 words of extra memory for PDF output out of 74296 (max. 10000000)
 
