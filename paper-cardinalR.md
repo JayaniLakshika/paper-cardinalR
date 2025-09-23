@@ -1,7 +1,7 @@
 ---
 title: 'cardinalR: Generating interesting high-dimensional data structures'
 description: |
-  A high-dimensional dataset is where each observation is described by many features, or dimensions. Such a dataset might contain various types of structures that have complex geometric properties, such as nonlinear manifolds, clusters, or sparse distributions. We can generate data containing a variety of structures using mathematical functions and statistical distributions. Sampling from a multivariate normal distribution will generate data in an elliptical shape. Using a trigonometric function we can generate a spiral. A torus function can create a donut shape. High-dimensional data structures are useful for testing, validating, and improving algorithms used in dimensionality reduction, clustering, machine learning, and visualization. Their controlled complexity allows researchers to understand challenges posed in data analysis and helps to develop robust analytical methods across diverse scientific fields like bioinformatics, machine learning, and forensic science. Functions to generate a large variety of structures in high dimensions are organized into the R package `cardinalR`, along with some already generated examples.
+  A high-dimensional dataset is one where each observation is described by many features, or dimensions, with associations between them. Such a dataset might contain various types of structures that have complex geometric properties, such as nonlinear manifolds, clusters, or sparse distributions. We can generate data containing a variety of structures using mathematical functions and statistical distributions. Sampling from a multivariate normal distribution will generate data in an elliptical shape. Using a trigonometric function we can generate a spiral. A torus function can create a donut shape. High-dimensional data structures are useful for testing, validating, and improving algorithms used in dimensionality reduction, clustering, machine learning, and visualization. Their controlled complexity allows researchers to understand challenges posed in data analysis and helps to develop robust analytical methods across diverse scientific fields like bioinformatics, machine learning, and forensic science. Functions to generate a large variety of structures in high dimensions are organized into the R package `cardinalR`, along with some already generated examples.
 draft: yes
 author:
 - name: Jayani P. Gamage
@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-09-20'
+date: '2025-09-23'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float} \newcommand\pD{$p\text{-}D$} \newcommand\gD{$2\text{-}D$}
 output:
