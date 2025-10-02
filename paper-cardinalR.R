@@ -871,6 +871,146 @@ pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
 
 
 ## -----------------------------------------------------------------------------
+polynomial_tb <- tibble(fun = c("gen_quadratic",
+                                "gen_cubic"), 
+                        exp = c("Quadratic pattern.",
+                                "Cubic pattern."))
+
+
+## ----polynomial-tb-html, eval=knitr::is_html_output()-------------------------
+# polynomial_tb |>
+#   kable(caption = "cardinalR polynomial data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----polynomial-tb-pdf, eval=knitr::is_latex_output()-------------------------
+polynomial_tb |> 
+  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## ----data-quadratic, echo=TRUE------------------------------------------------
+quadratic <- gen_quadratic(n = 1000)
+
+
+## ----data-cubic, echo=TRUE----------------------------------------------------
+cubic <- gen_cubic(n = 1000)
+
+
+## ----data-swissroll, echo=TRUE------------------------------------------------
+swissroll <- gen_swissroll(n = 1000, w = c(-1, 1))
+
+
+## -----------------------------------------------------------------------------
+swissroll_lang <- langevitour::langevitour(swissroll, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----swissroll-proj1----------------------------------------------------------
+scaled_data <- scale_data_manual(swissroll)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097),
+  c(0.00896,0.52496,0.12597))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+swissroll_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----swissroll-proj2----------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278),
+  c(-0.50493,0.14388,0.14615))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+swissroll_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.65), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----swissroll-proj3----------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416),
+  c(0.50329,0.07199,-0.16064))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.55, 
+                                              axis_pos_y = -0.55, 
+                                              threshold = 0.016))
+
+swissroll_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.5), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----swissroll, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `swissroll` data in $3\\text{-}D$."----
+# 
+# swissrollfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     swissroll_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(swissrollfig) <- c(class(swissrollfig), "htmlwidget")
+# 
+# swissrollfig
+
+
+## ----swissroll-proj, eval=knitr::is_latex_output(), fig.pos="H", fig.cap="Three $2\\text{-}D$ projections from $3\\text{-}D$, for the `swissroll` data."----
+#| fig-width: 12
+#| fig-height: 4
+
+swissroll_proj1 + swissroll_proj2 + swissroll_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+
+
+## -----------------------------------------------------------------------------
 trefoil_tb <- tibble(fun = c("gen_trefoil4d",
                             "gen_trefoil3d"), 
                         exp = c("Trefoil in $4\\text{-}D$.",
