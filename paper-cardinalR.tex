@@ -104,6 +104,95 @@ gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/gau-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gau` data.}\label{fig:gau-proj}
 \end{figure}
 
+\paragraph{Pyramid}\label{pyramid}
+
+A pyramid structure (Figure \ref{fig:pyr-proj}) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table \ref{tab:pyramid-tb-pdf} summarizes these functions.
+
+Let \(X_1, \dots, X_p\) denote the coordinates of the generated points. For the rectangular and triangular based pyramid generator functions, the final dimension, \(X_p\), encodes the height of each point and is drawn from an exponential distribution capped at the maximum height \(h\). That is, \[X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).\] This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, \(X_p = z \sim U(0, h)\).
+
+The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, \texttt{gen\_pyrrect(n,\ p,\ h,\ l\_vec,\ rt)} (Figure \ref{fig:pyr-proj} a), let \(r_x(z)\) and \(r_y(z)\) denote the half-widths of the rectangular cross-section at height \(z\). That is, \(r_x(z) = r_t + (l_x - r_t)z/h\), \(r_y(z) = r_t + (l_y - r_t)z/h\). The first three coordinates are then defined as: \[X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z)).\]
+
+\begin{verbatim}
+pyrrect <- gen_pyrrect(n = 1000, p = 4)
+\end{verbatim}
+
+For the triangular based pyramid, \texttt{gen\_pyrtri(n,\ p,\ h,\ l,\ rt)} (Figure \ref{fig:pyr-proj} b), let \(r(z)\) denote the scaling factor (distance from the origin to triangle vertices) at height \(z\). That is, \(r(z) = r_t + (l-r_t)z/h\). A point in the triangle at height \(z\) is generated using barycentric coordinates \((u, v)\) to ensure uniform sampling within the triangular cross-section: \(u, v \sim U(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v\). The first three coordinates (triangle plane) are then: \(X_1 = r(z)(1 - u - v)\), \(X_2 = r(z)u\), and \(X_3 = r(z)v.\)
+
+\begin{verbatim}
+pyrtri <- gen_pyrtri(n = 1000, p = 4)
+\end{verbatim}
+
+For the star based pyramid, \texttt{gen\_pyrstar(n,\ p,\ h,\ rb)} (Figure \ref{fig:pyr-proj} c), let the radius at height \(z\), \(r(z)\), be such that the radius scales linearly from zero (tip) to the base radius \(r_b\). That is, \(r(z) = r_b\left(1 - z/h\right)\).
+
+Each point is placed within a regular hexagon in the plane \((X_1, X_2)\), using a randomly chosen hexagon sector angle \(\theta \in \{0, \pi/3, 2\pi/3, \pi, 4\pi/3, 5\pi/3\}\) and a uniformly random radial scaling factor: \(\theta \sim \text{Uniform sample from 6 hexagon angles}\),
+\(r_{\text{point}} \sim \sqrt{U(0, 1)}\). Then, the first two coordinates are: \(X_1 = r(z)r_{\text{point}}\cos(\theta)\), and \(X_2 = r(z)r_{\text{point}}\sin(\theta)\).
+
+\begin{verbatim}
+pyrstar <- gen_pyrstar(n = 1000, p = 4)
+\end{verbatim}
+
+For all the above pyramid shapes, if \(p > 3\), the remaining \(p - 3\) dimensions (i.e., \(X_4\) to \(X_{p-1}\)) are additional noise.
+
+Finally, for the Sierpinski-like pyramid, \texttt{gen\_pyrfrac(n,\ p)} (Figure \ref{fig:pyr-proj} d), let \(X_1, X_2, \dots, X_p\) denote the coordinates of the generated points. The generation process begins with an initial point \(T_0 \in [0, 1]^p\) drawn from a uniform distribution: \(T_0 \sim U(0, 1)^p\). Let \(C_1, C_2, \dots, C_{p+1}\) denote the corner vertices of a \(p\text{-}D\) simplex. At each iteration \(i = 1, \dots, n\), a new point is computed by taking the midpoint between the previous point \(T_{i-1}\) and a randomly selected vertex \(C_k\): \(T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}\). This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a \(n \times p\) matrix where each row represents a point: \(X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}\).
+
+\begin{verbatim}
+pyrholes <- gen_pyrfrac(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:pyramid-tb-pdf}cardinalR pyramid data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_pyrrect & Rectangular-base pyramid, with a sharp or blunted apex.\\
+gen\_pyrtri & Triangular-base pyramid, with a sharp or blunted apex.\\
+gen\_pyrstar & Star-shaped base pyramid, with a sharp or blunted apex.\\
+gen\_pyrfrac & Pyramid containing triangular pyramid-shaped holes.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!]
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/pyr-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.}\label{fig:pyr-proj}
+\end{figure}
+
+\paragraph{Trefoil knots}\label{trefoil-knots}
+
+The Trefoil is a closed, nontrivial one-dimensional manifold embedded in \(3\text{-}D\) or \(4\text{-}D\) space (Figure \ref{fig:trefoil-proj}). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. Table \ref{tab:trefoil-tb-pdf} summarizes these functions.
+
+\begin{table}
+
+\caption{\label{tab:trefoil-tb-pdf}cardinalR trefoil data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_trefoil4d & Trefoil in \$4\textbackslash{}text\{-\}D\$.\\
+gen\_trefoil3d & Trefoil in \$3\textbackslash{}text\{-\}D\$.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For the \(4\text{-}D\) trefoil knot, the function \texttt{gen\_trefoil4d(n,\ steps)} generates the structure on the \(3\)-sphere (\(S^3 \subset \mathbb{R}^4\)) using two angular parameters, \(\theta\) and \(\phi\). A band of thickness around the knot path is controlled by the \texttt{steps} argument, while the number of \(\theta\) and \(\phi\) values is determined by the \texttt{steps} and \texttt{n} arguments, respectively (Figure \ref{fig:trefoil-proj} a). The coordinates are defined as \[X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),\] where \(\theta\) and \(\phi\) trace the knot's path.
+
+\begin{verbatim}
+trefoil4d <- gen_trefoil4d(n = 500, steps = 5)
+\end{verbatim}
+
+For the \(3\text{-}D\) stereographic projection, \texttt{gen\_trefoil3d(n,\ steps)} maps each point \((X_1, X_2, X_3, X_4) \in \mathbb{R}^4\) to \[(X_1', X_2', X_3') \in \mathbb{R}^3\text{ using }X_1' = X_1 / (1 - X_4), \quad X_2' = X_2 / (1 - X_4),\text{ and }X_3' = X_3 / (1 - X_4),\] excluding points where \(X_4 = 1\) to avoid division by zero (Figure \ref{fig:trefoil-proj} b).
+
+\begin{verbatim}
+trefoil3d <- gen_trefoil3d(n = 500, steps = 5)
+\end{verbatim}
+
+\begin{figure}[!]
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/trefoil-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.}\label{fig:trefoil-proj}
+\end{figure}
+
 \subsubsection{Wrappers}\label{wrappers}
 
 \subsubsection{Generate noise dimensions}\label{generate-noise-dimensions}

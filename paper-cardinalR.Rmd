@@ -569,6 +569,665 @@ gau_proj1 + gau_proj2 + gau_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
+#### Pyramid
+
+A pyramid structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr)"} else { "Figure \\@ref(fig:pyr-proj)"})`) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:pyramid-tb-html)', '\\@ref(tab:pyramid-tb-pdf)'))` summarizes these functions.
+
+Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the rectangular and triangular based pyramid generator functions, the final dimension, $X_p$, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height $h$. That is, $$X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).$$ This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, $X_p = z \sim U(0, h)$.
+
+The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) a"} else { "Figure \\@ref(fig:pyr-proj) a"})`), let $r_x(z)$ and $r_y(z)$ denote the half-widths of the rectangular cross-section at height $z$. That is, $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as: $$X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z)).$$ 
+
+```{r data-pyrrect, echo=TRUE}
+pyrrect <- gen_pyrrect(n = 1000, p = 4)
+```
+
+```{r}
+pyrrect_lang <- langevitour::langevitour(pyrrect, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+```
+
+```{r pyrrect-proj1}
+scaled_data <- scale_data_manual(pyrrect)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+pyrrect_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.5), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrrect-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.7, 
+                                              axis_pos_x = -0.45, 
+                                              axis_pos_y = -0.45, 
+                                              threshold = 0.08))
+
+pyrrect_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.6, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrrect-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+pyrrect_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.75), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+For the triangular based pyramid, `gen_pyrtri(n, p, h, l, rt)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) b"} else { "Figure \\@ref(fig:pyr-proj) b"})`), let $r(z)$ denote the scaling factor (distance from the origin to triangle vertices) at height $z$. That is, $r(z) = r_t + (l-r_t)z/h$. A point in the triangle at height $z$ is generated using barycentric coordinates $(u, v)$ to ensure uniform sampling within the triangular cross-section: $u, v \sim U(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v$. The first three coordinates (triangle plane) are then: $X_1 = r(z)(1 - u - v)$, $X_2 = r(z)u$, and $X_3 = r(z)v.$ 
+
+```{r data-pyrtri, echo=TRUE}
+pyrtri <- gen_pyrtri(n = 1000, p = 4)
+```
+
+```{r}
+pyrtri_lang <- langevitour::langevitour(pyrtri, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+```
+
+```{r pyrtri-proj1}
+scaled_data <- scale_data_manual(pyrtri)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.3,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.2, 
+                                              axis_pos_y = -0.2, 
+                                              threshold = 0.022))
+
+pyrtri_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.25, 0.3), 
+  title = "b1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrtri-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.3,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.25, 
+                                              axis_pos_y = -0.25, 
+                                              threshold = 0.03))
+
+pyrtri_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.3, 0.4), 
+  title = "b2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrtri-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+pyrtri_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.62), 
+  title = "b3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+For the star based pyramid, `gen_pyrstar(n, p, h, rb)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) c"} else { "Figure \\@ref(fig:pyr-proj) c"})`), let the radius at height $z$, $r(z)$, be such that the radius scales linearly from zero (tip) to the base radius $r_b$. That is, $r(z) = r_b\left(1 - z/h\right)$.
+
+Each point is placed within a regular hexagon in the plane $(X_1, X_2)$, using a randomly chosen hexagon sector angle $\theta \in \{0, \pi/3, 2\pi/3, \pi, 4\pi/3, 5\pi/3\}$ and a uniformly random radial scaling factor: $\theta \sim \text{Uniform sample from 6 hexagon angles}$,
+$r_{\text{point}} \sim \sqrt{U(0, 1)}$. Then, the first two coordinates are: $X_1 = r(z)r_{\text{point}}\cos(\theta)$, and $X_2 = r(z)r_{\text{point}}\sin(\theta)$.
+
+```{r data-pyrstar, echo=TRUE}
+pyrstar <- gen_pyrstar(n = 1000, p = 4)
+```
+
+```{r}
+pyrstar_lang <- langevitour::langevitour(pyrstar, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+```
+
+```{r pyrstar-proj1}
+scaled_data <- scale_data_manual(pyrstar)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+pyrstar_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.5), 
+  title = "c1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrstar-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+pyrstar_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.4), 
+  title = "c2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrstar-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.016))
+
+pyrstar_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.62), 
+  title = "c3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+For all the above pyramid shapes, if $p > 3$, the remaining $p - 3$ dimensions (i.e., $X_4$ to $X_{p-1}$) are additional noise.
+
+Finally, for the Sierpinski-like pyramid, `gen_pyrfrac(n, p)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) d"} else { "Figure \\@ref(fig:pyr-proj) d"})`), let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$. Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
+
+```{r data-pyrholes, echo=TRUE}
+pyrholes <- gen_pyrfrac(n = 1000, p = 4)
+```
+
+```{r}
+pyrholes_lang <- langevitour::langevitour(pyrholes, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+```
+
+```{r pyrholes-proj1}
+scaled_data <- scale_data_manual(pyrholes)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+pyrholes_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "d1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrholes-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+pyrholes_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.75), 
+  title = "d2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r pyrholes-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.016))
+
+pyrholes_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.62), 
+  title = "d3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r}
+pyramid_tb <- tibble(fun = c("gen_pyrrect",
+                             "gen_pyrtri",
+                             "gen_pyrstar",
+                             "gen_pyrfrac"), 
+                        exp = c("Rectangular-base pyramid, with a sharp or blunted apex.",
+          "Triangular-base pyramid, with a sharp or blunted apex.",
+          "Star-shaped base pyramid, with a sharp or blunted apex.",
+          "Pyramid containing triangular pyramid-shaped holes."))
+```
+
+```{r pyramid-tb-html, eval=knitr::is_html_output()}
+pyramid_tb |> 
+  kable(caption = "cardinalR pyramid data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r pyramid-tb-pdf, eval=knitr::is_latex_output()}
+pyramid_tb |> 
+  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
+```{r pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$."}
+
+pyrfig <- bscols(
+  htmltools::div(
+    style = "display: grid; grid-template-columns: 1fr 1fr;",
+    pyrrect_lang, pyrtri_lang, pyrstar_lang, pyrholes_lang
+  ),
+  device = "xs"
+)
+
+class(pyrfig) <- c(class(pyrfig), "htmlwidget")
+
+pyrfig
+```
+
+```{r pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.", fig.width=12, fig.height=16}
+
+pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
+pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
+pyrstar_proj1 + pyrstar_proj2 + pyrstar_proj3 +
+pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+```
+
+#### Trefoil knots
+
+<!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
+
+The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil)"} else { "Figure \\@ref(fig:trefoil-proj)"})`). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:trefoil-tb-html)', '\\@ref(tab:trefoil-tb-pdf)'))` summarizes these functions.
+
+```{r}
+trefoil_tb <- tibble(fun = c("gen_trefoil4d",
+                            "gen_trefoil3d"), 
+                        exp = c("Trefoil in $4\\text{-}D$.",
+                                "Trefoil in $3\\text{-}D$."))
+```
+
+```{r trefoil-tb-html, eval=knitr::is_html_output()}
+trefoil_tb |> 
+  kable(caption = "cardinalR trefoil data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r trefoil-tb-pdf, eval=knitr::is_latex_output()}
+
+trefoil_tb |> 
+  kable(caption = "cardinalR trefoil data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
+For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ and $\phi$ trace the knot’s path. 
+
+```{r data-trefoil4d, echo=TRUE}
+trefoil4d <- gen_trefoil4d(n = 500, steps = 5)
+```
+
+```{r}
+trefoil4d_lang <- langevitour::langevitour(trefoil4d, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+```
+
+```{r trefoil4d-proj1}
+scaled_data <- scale_data_manual(trefoil4d)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.022))
+
+trefoil4d_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.75, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r trefoil4d-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+trefoil4d_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.65), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r trefoil4d-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.55, 
+                                              axis_pos_y = -0.55, 
+                                              threshold = 0.016))
+
+trefoil4d_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.62), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+For the $3\text{-}D$ stereographic projection, `gen_trefoil3d(n, steps)` maps each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $$(X_1', X_2', X_3') \in \mathbb{R}^3\text{ using }X_1' = X_1 / (1 - X_4), \quad X_2' = X_2 / (1 - X_4),\text{ and }X_3' = X_3 / (1 - X_4),$$ excluding points where $X_4 = 1$ to avoid division by zero (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) b"} else { "Figure \\@ref(fig:trefoil-proj) b"})`). 
+
+```{r data-trefoil3d, echo=TRUE}
+trefoil3d <- gen_trefoil3d(n = 500, steps = 5)
+```
+
+```{r}
+trefoil3d_lang <- langevitour::langevitour(trefoil3d, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+```
+
+```{r trefoil3d-proj1}
+scaled_data <- scale_data_manual(trefoil3d)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097),
+  c(0.00896,0.52496,0.12597))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.022))
+
+trefoil3d_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.75, 0.7), 
+  title = "b1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r trefoil3d-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278),
+  c(-0.50493,0.14388,0.14615))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+trefoil3d_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.65), 
+  title = "b2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r trefoil3d-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416),
+  c(0.50329,0.07199,-0.16064))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.55, 
+                                              axis_pos_y = -0.55, 
+                                              threshold = 0.016))
+
+trefoil3d_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.62), 
+  title = "b3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r trefoil, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `trefoil4d` and `trefoil3d` data in $4\\text{-}D$."}
+
+trefoilfig <- bscols(
+  htmltools::div(
+    style = "display: grid; grid-template-columns: 1fr 1fr;",
+    trefoil4d_lang, trefoil3d_lang
+  ),
+  device = "xs"
+)
+
+class(trefoilfig) <- c(class(trefoilfig), "htmlwidget")
+
+trefoilfig
+```
+
+```{r trefoil-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.", fig.width=12, fig.height=8}
+
+trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 + 
+  trefoil3d_proj1 + trefoil3d_proj2 + trefoil3d_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+```
+
+
 ### Wrappers
 
 ### Generate noise dimensions
