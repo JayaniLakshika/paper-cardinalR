@@ -1,4 +1,4 @@
-\begin{thebibliography}{22}
+\begin{thebibliography}{24}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,6 +11,12 @@ E.~Amid and M.~K. Warmuth.
 \newblock \emph{ArXiv}, abs/1910.00204, 2019.
 \newblock URL \url{https://api.semanticscholar.org/CorpusID:203610264}.
 
+\bibitem[Balamuta(2024)]{james2024}
+J.~J. Balamuta.
+\newblock \emph{surreal: Create Datasets with Hidden Images in Residual Plots}, 2024.
+\newblock URL \url{https://CRAN.R-project.org/package=surreal}.
+\newblock R package version 0.0.1.
+
 \bibitem[Cs\'ardi(2025)]{gabor2025}
 G.~Cs\'ardi.
 \newblock \emph{cli: Helpers for Developing Command Line Interfaces}, 2025.
@@ -22,6 +28,12 @@ A.~Genz and F.~Bretz.
 \newblock \emph{Computation of Multivariate Normal and t Probabilities}.
 \newblock Lecture Notes in Statistics. Springer-Verlag, Heidelberg, 2009.
 \newblock ISBN 978-3-642-01688-2.
+
+\bibitem[Hartig(2024)]{florian2024}
+F.~Hartig.
+\newblock \emph{DHARMa: Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models}, 2024.
+\newblock URL \url{https://CRAN.R-project.org/package=DHARMa}.
+\newblock R package version 0.4.7.
 
 \bibitem[Jolliffe(2011)]{jolliffe2011}
 I.~Jolliffe.
@@ -78,12 +90,12 @@ B.~Schloerke.
 \newblock URL \url{https://CRAN.R-project.org/package=geozoo}.
 \newblock R package version 0.5.1.
 
-\bibitem[Trapnell et~al.(2014)Trapnell, Cacchiarelli, Grimsby, Pokharel, Li, Morse, Lennon, Livak, Mikkelsen, and Rinn]{trapnell2014}
-C.~Trapnell, D.~Cacchiarelli, J.~Grimsby, P.~Pokharel, S.~Li, M.~Morse, N.~J. Lennon, K.~J. Livak, T.~S. Mikkelsen, and J.~L. Rinn.
-\newblock The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells.
-\newblock \emph{Nature Biotechnology}, 32\penalty0 (4):\penalty0 381--386, 2014.
-\newblock \doi{10.1038/nbt.2859}.
-\newblock URL \url{https://doi.org/10.1038/nbt.2859}.
+\bibitem[Stefanski(2007)]{leonard2007}
+L.~A. Stefanski.
+\newblock Residual (sur) realism.
+\newblock \emph{The American Statistician}, 61\penalty0 (2):\penalty0 163--177, 2007.
+\newblock ISSN 00031305.
+\newblock URL \url{http://www.jstor.org/stable/27643870}.
 
 \bibitem[Venables and Ripley(2002)]{venables2002}
 W.~N. Venables and B.~D. Ripley.
