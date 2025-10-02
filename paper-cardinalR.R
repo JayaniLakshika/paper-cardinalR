@@ -124,6 +124,345 @@ main_tb |>
   column_spec(3, width = "8cm")
 
 
+## ----data-bluntedcone, echo=TRUE----------------------------------------------
+cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
+
+
+## -----------------------------------------------------------------------------
+cone_lang <- langevitour::langevitour(cone, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----cone-proj1---------------------------------------------------------------
+scaled_data <- scale_data_manual(cone)
+
+## First projection
+projection <- cbind(
+  c(0.22417,-0.02943,-0.02870,0.08418),
+  c(-0.02715,0.18019,0.05053,0.15254))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.25,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.2, 
+                                              axis_pos_y = -0.2, 
+                                              threshold = 0.022))
+
+cone_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.25, 0.25), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----cone-proj2---------------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+    c(0.15591,0.17907,0.03198,0.04496),
+    c(-0.15376,0.10435,0.15766,0.00547))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.1,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.08, 
+                                              axis_pos_y = -0.08, 
+                                              threshold = 0.01))
+
+cone_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.1, 0.12), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----cone-proj3---------------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+    c(-0.13548,0.13832,0.05991,-0.13544),
+    c(0.08479,-0.10719,-0.01572,-0.20123))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.25,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.25, 
+                                              axis_pos_y = -0.25, 
+                                              threshold = 0.016))
+
+cone_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.3, 0.2), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----cone, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `cone` data in $4\\text{-}D$."----
+# 
+# conefig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     cone_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(conefig) <- c(class(conefig), "htmlwidget")
+# 
+# conefig
+
+
+## ----cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cone` data."----
+#| fig-width: 12
+#| fig-height: 4
+
+cone_proj1 + cone_proj2 + cone_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+
+
+## ----data-linear, echo=TRUE---------------------------------------------------
+linear <- gen_longlinear(n = 1000, p = 4)
+
+
+## -----------------------------------------------------------------------------
+linear_lang <- langevitour::langevitour(linear, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----linear-proj1-------------------------------------------------------------
+scaled_data <- scale_data_manual(linear)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.55, 
+                                              axis_pos_y = -0.55, 
+                                              threshold = 0.022))
+
+linear_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.5), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----linear-proj2-------------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.75,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.75, 
+                                              axis_pos_y = -0.75, 
+                                              threshold = 0.01))
+
+linear_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.9, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----linear-proj3-------------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.9,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.55, 
+                                              axis_pos_y = -0.55, 
+                                              threshold = 0.02))
+
+linear_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.7), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----linear, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `linear` data in $4\\text{-}D$."----
+# 
+# linearfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     linear_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(linearfig) <- c(class(linearfig), "htmlwidget")
+# 
+# linearfig
+
+
+## ----linear-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `linear` data."----
+#| fig-width: 12
+#| fig-height: 4
+
+linear_proj1 + linear_proj2 + linear_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+
+
+## ----data-gau, echo=TRUE------------------------------------------------------
+gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
+
+
+## -----------------------------------------------------------------------------
+gau_lang <- langevitour::langevitour(gau, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----gau-proj1----------------------------------------------------------------
+scaled_data <- scale_data_manual(gau)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+gau_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----gau-proj2----------------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+gau_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----gau-proj3----------------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.016))
+
+gau_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.62), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----gau, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `gau` data in $4\\text{-}D$."----
+# 
+# gaufig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     gau_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(gaufig) <- c(class(gaufig), "htmlwidget")
+# 
+# gaufig
+
+
+## ----gau-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gau` data."----
+#| fig-width: 12
+#| fig-height: 4
+
+gau_proj1 + gau_proj2 + gau_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+
+
 ## -----------------------------------------------------------------------------
 noise_fun_tb <- tibble(fun = c("gen_noisedims",
                             "gen_wavydims1",

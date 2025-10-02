@@ -64,6 +64,46 @@ is\_bkg & boolean & Background noise should exist or not.\\
 
 The shape generators form the foundation of the package, providing a collection of functions to create synthetic data structures based on simple, well-defined geometric structures. These include fundamental shapes such as cones, pyramids, spheres, grids, and branching structures. If a shape is not inherently defined in more than three dimensions, additional noise dimensions can be added to embed the structure into higher-dimensional space. Users can specify how these noise dimensions are generated (e.g., Gaussian, wavy) (\texttt{noise\_fun}), offering control over the embedding process. All shape generators allow the user to define the number of points (\texttt{n}) and dimensions (\texttt{p}), and most include additional arguments to customize specific characteristics of the structure.
 
+\paragraph{Cone}\label{cone}
+
+To simulate a cone-shaped structure in arbitrary dimensions (Figure \ref{fig:cone-proj}), we define a function \texttt{gen\_cone(n,\ p,\ h,\ ratio)}, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
+
+This function generates \(n\) points in \(p\text{-}D\), where the last dimension, \(X_p\), represents the height along the cone's axis, and the first \(p-1\) dimensions define a shrinking hyperspherical cross-section toward the tip. Heights are sampled from a truncated exponential distribution, \(X_p \sim \text{Exp}(\lambda = 2/h)\), capped at the cone height \(h\), producing a higher density of points near the tip. At each height \(X_p\), the radius of the cross-section decreases linearly from base to tip according to \(r = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}}) X_p / h\), where \(r_{\text{min}} = \text{ratio}\) and \(r_{\text{max}} = 1\).
+
+For each point, a direction in the first \(p-1\) dimensions is sampled uniformly on a \((p-1)\)-dimensional hypersphere using generalized spherical coordinates. The radial coordinates are scaled by the height-dependent radius \(r\), producing the conical taper. In three dimensions (\(p = 3\)), this results in a classical \(3\text{-}D\) cone, while for \(p > 3\), additional dimensions provide a smooth embedding into higher-dimensional space, preserving the conical structure.
+
+\begin{verbatim}
+cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
+\end{verbatim}
+
+\begin{figure}[!]
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/cone-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `cone` data.}\label{fig:cone-proj}
+\end{figure}
+
+\paragraph{Linear}\label{linear}
+
+The \texttt{gen\_longlinear(n,\ p)} function generates a high-dimensional dataset representing a long linear structure with noise. Each variable is formed as \(X_i = \text{scale}_i \cdot (0,1,\dots,n{-}1 + \epsilon) + \text{shift}_i\), where \(\text{scale}\_i \sim U(-10, 10)\) determines the orientation of the line in each dimension, \(\text{shift}\_i \sim U(-300, 300)\) offsets the line to separate dimensions, and \(\epsilon \sim N(0, (0.03n)^2)\) introduces Gaussian noise.
+
+\begin{verbatim}
+linear <- gen_longlinear(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{figure}[!]
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/linear-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `linear` data.}\label{fig:linear-proj}
+\end{figure}
+
+\paragraph{Gaussian}\label{gaussian}
+
+The \texttt{gen\_gaussian(n,\ p,\ s)} function generates a multivariate Gaussian cloud in \(p\text{-}D\), centered at the origin with user-defined covariance structure (Figure \ref{fig:gau-proj}). Each point is independently drawn using the multivariate normal distribution with \(X_i \sim N_p(\boldsymbol{0}, s)\), where \(s\) is a user-defined \(p \times p\) positive-definite matrix.
+
+\begin{verbatim}
+gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
+\end{verbatim}
+
+\begin{figure}[!]
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/gau-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gau` data.}\label{fig:gau-proj}
+\end{figure}
+
 \subsubsection{Wrappers}\label{wrappers}
 
 \subsubsection{Generate noise dimensions}\label{generate-noise-dimensions}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.21)  2 OCT 2025 19:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.21)  2 OCT 2025 19:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -811,55 +811,86 @@ Overfull \hbox (7.54723pt too wide) in paragraph at lines 47--61
 
 
 [2]
-Overfull \hbox (3.02979pt too wide) in paragraph at lines 139--139
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 79.
+
+<paper-cardinalR_files/figure-latex/cone-proj-1.pdf, id=79, 867.24pt x 289.08pt>
+File: paper-cardinalR_files/figure-latex/cone-proj-1.pdf Graphic file (type pdf)
+<use paper-cardinalR_files/figure-latex/cone-proj-1.pdf>
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/cone-proj-1.pdf  used on input line 80.
+(pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 91.
+
+<paper-cardinalR_files/figure-latex/linear-proj-1.pdf, id=80, 867.24pt x 289.08pt>
+File: paper-cardinalR_files/figure-latex/linear-proj-1.pdf Graphic file (type pdf)
+<use paper-cardinalR_files/figure-latex/linear-proj-1.pdf>
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/linear-proj-1.pdf  used on input line 92.
+(pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 103.
+
+<paper-cardinalR_files/figure-latex/gau-proj-1.pdf, id=82, 867.24pt x 289.08pt>
+File: paper-cardinalR_files/figure-latex/gau-proj-1.pdf Graphic file (type pdf)
+<use paper-cardinalR_files/figure-latex/gau-proj-1.pdf>
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/gau-proj-1.pdf  used on input line 104.
+(pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
+
+
+[3 <./paper-cardinalR_files/figure-latex/cone-proj-1.pdf> <./paper-cardinalR_files/figure-latex/linear-proj-1.pdf>]
+
+[4 <./paper-cardinalR_files/figure-latex/gau-proj-1.pdf>]
+Overfull \hbox (3.02979pt too wide) in paragraph at lines 179--179
 []|\T1/ppl/m/n/10 (-20) make_klink_curvycycle|  
  []
 
 
-Overfull \hbox (4.2353pt too wide) in paragraph at lines 140--140
+Overfull \hbox (4.2353pt too wide) in paragraph at lines 180--180
 []|\T1/ppl/m/n/10 (-20) make_chain_curvycycle|  
  []
 
 
-Overfull \hbox (1.88342pt too wide) in paragraph at lines 145--145
+Overfull \hbox (1.88342pt too wide) in paragraph at lines 185--185
 []|\T1/ppl/m/n/10 (-20) make_twogrid_overlap|  
  []
 
 
 
-[3]
-
-[4]
-<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=113, 774.895pt x 283.0575pt>
+[5]
+<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=151, 774.895pt x 283.0575pt>
 File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/highd-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 200.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 240.
 (pdftex.def)             Requested size: 398.33858pt x 145.50629pt.
-<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=115, 441.65pt x 319.1925pt>
+
+
+[6 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=177, 441.65pt x 319.1925pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 206.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 246.
 (pdftex.def)             Requested size: 398.33858pt x 287.90375pt.
 
 
-[5 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf>]
-
-[6 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>] (./RJwrapper.bbl (./RJwrapper.brf)
+[7 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>] (./RJwrapper.bbl (./RJwrapper.brf)
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
 
 
-[7])
+[8])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 237.
+(Font)              using `T1/zi4/m/n' instead on input line 277.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 247.
+(Font)              scaled to size 9.18004pt on input line 287.
 )
 
-[8] (./RJwrapper.aux)
+[9] (./RJwrapper.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
@@ -870,21 +901,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: 36EF9D67451DF1A6339933A8E3CE725A;1065.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: FD6D6604CE7786E1E4BE746388DAFA74;1147.
+(rerunfilecheck)             Checksum: 679D647D75F5F986DB5FE109A8B721F0;1147.
  ) 
 Here is how much of TeX's memory you used:
- 27241 strings out of 469778
- 496378 string characters out of 5481336
- 919689 words of memory out of 5000000
- 54834 multiletter control sequences out of 15000+600000
- 677907 words of font info for 283 fonts, out of 8000000 for 9000
+ 27336 strings out of 469778
+ 498832 string characters out of 5481336
+ 920085 words of memory out of 5000000
+ 54893 multiletter control sequences out of 15000+600000
+ 683590 words of font info for 312 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,12n,131p,2007b,828s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,11n,131p,2007b,837s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (8 pages, 4105218 bytes).
+Output written on RJwrapper.pdf (9 pages, 4636614 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
- 283 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 500000)
- 63055 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 365 PDF objects out of 1000 (max. 8388607)
+ 319 compressed objects within 4 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 70750 words of extra memory for PDF output out of 74296 (max. 10000000)
 
