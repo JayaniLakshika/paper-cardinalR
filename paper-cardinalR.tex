@@ -64,6 +64,40 @@ is\_bkg & boolean & Background noise should exist or not.\\
 
 The shape generators form the foundation of the package, providing a collection of functions to create synthetic data structures based on simple, well-defined geometric structures. These include fundamental shapes such as cones, pyramids, spheres, grids, and branching structures. If a shape is not inherently defined in more than three dimensions, additional noise dimensions can be added to embed the structure into higher-dimensional space. Users can specify how these noise dimensions are generated (e.g., Gaussian, wavy) (\texttt{noise\_fun}), offering control over the embedding process. All shape generators allow the user to define the number of points (\texttt{n}) and dimensions (\texttt{p}), and most include additional arguments to customize specific characteristics of the structure.
 
+\paragraph{Cube}\label{cube}
+
+A cube structure (Figure \ref{fig:cube-proj}) represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table \ref{tab:cube-tb-pdf} outlines these functions and their purposes.
+
+The first is the regular grid of points of \(n\) points in \(p\) dimensions. This is generated using \texttt{gen\_gridcube(n,\ p)}. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to \(n\). Each dimension is then normalized to lie in the interval \([0,1]\), so that the resulting structure forms a true \(p\text{-}D\) hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.
+
+\begin{verbatim}
+gridcube <- gen_gridcube(n = 1000, p = 4)
+\end{verbatim}
+
+An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function \texttt{gen\_unifcube(n,\ p)} is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the \(p\text{-}D\) cube (Figure \ref{fig:cube-proj} b).
+
+\begin{verbatim}
+unifcube <- gen_unifcube(n = 1000, p = 4)
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:cube-tb-pdf}cardinalR cube data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_gridcube & Cube with specified grid points along each axes.\\
+gen\_unifcube & Cube with uniform points.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!]
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/cube-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.}\label{fig:cube-proj}
+\end{figure}
+
 \paragraph{Cone}\label{cone}
 
 To simulate a cone-shaped structure in arbitrary dimensions (Figure \ref{fig:cone-proj}), we define a function \texttt{gen\_cone(n,\ p,\ h,\ ratio)}, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
@@ -188,6 +222,20 @@ The second is the cubic curve of \(n\) points in two dimensions. This is generat
 \begin{verbatim}
 cubic <- gen_cubic(n = 1000)
 \end{verbatim}
+
+\paragraph{S-curve}\label{s-curve}
+
+An S-curve structure (Figure \ref{fig:scurve-proj}) simulates data that lies along a smooth, non-linear manifold.
+
+For the S-curve structure, \texttt{gen\_scurve(n,\ p)} (Figure \ref{fig:scurve-proj} a), the \(3\text{-}D\) geometry is constructed by introducing a latent parameter, \(\theta \sim U\left(-3\pi/2, 3\pi/2\right)\). This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: \[X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1)\]. This configuration creates a horizontally curled shape in \((X_1, X_3)\), with additional band thickness in the \(X_2\) direction.
+
+\begin{verbatim}
+scurve <- gen_scurve(n = 1000)
+\end{verbatim}
+
+\begin{figure}[!]
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/scurve-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data.}\label{fig:scurve-proj}
+\end{figure}
 
 \paragraph{Swiss Roll}\label{swiss-roll}
 

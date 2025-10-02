@@ -214,6 +214,235 @@ main_tb |>
 
 The shape generators form the foundation of the package, providing a collection of functions to create synthetic data structures based on simple, well-defined geometric structures. These include fundamental shapes such as cones, pyramids, spheres, grids, and branching structures. If a shape is not inherently defined in more than three dimensions, additional noise dimensions can be added to embed the structure into higher-dimensional space. Users can specify how these noise dimensions are generated (e.g., Gaussian, wavy) (`noise_fun`), offering control over the embedding process. All shape generators allow the user to define the number of points (`n`) and dimensions (`p`), and most include additional arguments to customize specific characteristics of the structure. 
 
+#### Cube
+
+A cube structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube)"} else { "Figure \\@ref(fig:cube-proj)"})`) represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:cube-tb-html)', '\\@ref(tab:cube-tb-pdf)'))` outlines these functions and their purposes. 
+
+The first is the regular grid of points of $n$ points in $p$ dimensions. This is generated using `gen_gridcube(n, p)`. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to $n$. Each dimension is then normalized to lie in the interval $[0,1]$, so that the resulting structure forms a true $p\text{-}D$ hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.
+
+```{r data-gridcube, echo=TRUE}
+gridcube <- gen_gridcube(n = 1000, p = 4)
+```
+
+```{r}
+gridcube_lang <- langevitour::langevitour(gridcube, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+```
+
+```{r gridcube-proj1}
+scaled_data <- scale_data_manual(gridcube)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.7, 
+                                              axis_pos_y = -0.7, 
+                                              threshold = 0.022))
+
+gridcube_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.83, 0.8), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r gridcube-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.8,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.85, 
+                                              axis_pos_y = -0.85, 
+                                              threshold = 0.05))
+
+gridcube_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-1, 1), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r gridcube-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.7, 
+                                              axis_pos_y = -0.7, 
+                                              threshold = 0.016))
+
+gridcube_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.8, 0.8), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function `gen_unifcube(n, p)` is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the $p\text{-}D$ cube (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cube) b"} else { "Figure \\@ref(fig:cube-proj) b"})`).
+
+```{r data-unifcube, echo=TRUE}
+unifcube <- gen_unifcube(n = 1000, p = 4)
+```
+
+```{r}
+unifcube_lang <- langevitour::langevitour(unifcube, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+```
+
+```{r unifcube-proj1}
+scaled_data <- scale_data_manual(unifcube)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.75, 
+                                              axis_pos_y = -0.75, 
+                                              threshold = 0.022))
+
+unifcube_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.9, 0.8), 
+  title = "b1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r unifcube-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.75, 
+                                              axis_pos_y = -0.75, 
+                                              threshold = 0.04))
+
+unifcube_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.9, 0.8), 
+  title = "b2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r unifcube-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.65, 
+                                              axis_pos_y = -0.65, 
+                                              threshold = 0.016))
+
+unifcube_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.8, 0.8), 
+  title = "b3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r}
+cube_tb <- tibble(fun = c("gen_gridcube",
+                          "gen_unifcube"), 
+                      exp = c("Cube with specified grid points along each axes.",
+                              "Cube with uniform points."))
+```
+
+```{r cube-tb-html, eval=knitr::is_html_output()}
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r cube-tb-pdf, eval=knitr::is_latex_output()}
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
+```{r cube, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `gridcube`, `unifcube`, and `cubehole` data in $4\\text{-}D$."}
+
+cubefig <- bscols(
+  htmltools::div(
+    style = "display: grid; grid-template-columns: 1fr 1fr;",
+    gridcube_lang, unifcube_lang
+  ),
+  device = "xs"
+)
+
+class(cubefig) <- c(class(cubefig), "htmlwidget")
+
+cubefig
+```
+
+```{r cube-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.", fig.width=12, fig.height=8}
+
+gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
+unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+```
+
 #### Cone
 
 To simulate a cone-shaped structure in arbitrary dimensions (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cone)"} else { "Figure \\@ref(fig:cone-proj)"})`), we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
@@ -1028,6 +1257,123 @@ The second is the cubic curve of $n$ points in two dimensions. This is generated
 
 ```{r data-cubic, echo=TRUE}
 cubic <- gen_cubic(n = 1000)
+```
+
+#### S-curve
+
+An S-curve structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:scurve)"} else { "Figure \\@ref(fig:scurve-proj)"})`) simulates data that lies along a smooth, non-linear manifold. 
+
+For the S-curve structure, `gen_scurve(n, p)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:scurve) a"} else { "Figure \\@ref(fig:scurve-proj) a"})`), the $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\theta \sim U\left(-3\pi/2, 3\pi/2\right)$. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: $$X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1)$$. This configuration creates a horizontally curled shape in $(X_1, X_3)$, with additional band thickness in the $X_2$ direction.
+
+```{r data-scurve, echo=TRUE}
+scurve <- gen_scurve(n = 1000)
+```
+
+```{r}
+scurve_lang <- langevitour::langevitour(scurve, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+```
+
+```{r scurve-proj1}
+scaled_data <- scale_data_manual(scurve)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097),
+  c(0.00896,0.52496,0.12597))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+scurve_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r scurve-proj2}
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278),
+  c(-0.50493,0.14388,0.14615))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+scurve_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r scurve-proj3}
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416),
+  c(0.50329,0.07199,-0.16064))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.016))
+
+scurve_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.6, 0.62), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+```
+
+```{r scurve, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `scurve` and `scurvehole` data in $4\\text{-}D$."}
+
+scurvefig <- bscols(
+  htmltools::div(
+    style = "display: grid; grid-template-columns: 1fr 1fr;",
+    scurve_lang
+  ),
+  device = "xs"
+)
+
+class(scurvefig) <- c(class(scurvefig), "htmlwidget")
+
+scurvefig
+```
+
+```{r scurve-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data.", fig.width=12, fig.height=4}
+
+scurve_proj1 + scurve_proj2 + scurve_proj3 + 
+  plot_layout(ncol = 3, guides = "collect") 
 ```
 
 #### Swiss Roll  

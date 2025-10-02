@@ -124,6 +124,227 @@ main_tb |>
   column_spec(3, width = "8cm")
 
 
+## ----data-gridcube, echo=TRUE-------------------------------------------------
+gridcube <- gen_gridcube(n = 1000, p = 4)
+
+
+## -----------------------------------------------------------------------------
+gridcube_lang <- langevitour::langevitour(gridcube, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----gridcube-proj1-----------------------------------------------------------
+scaled_data <- scale_data_manual(gridcube)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.7, 
+                                              axis_pos_y = -0.7, 
+                                              threshold = 0.022))
+
+gridcube_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.83, 0.8), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----gridcube-proj2-----------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.8,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.85, 
+                                              axis_pos_y = -0.85, 
+                                              threshold = 0.05))
+
+gridcube_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-1, 1), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----gridcube-proj3-----------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.7, 
+                                              axis_pos_y = -0.7, 
+                                              threshold = 0.016))
+
+gridcube_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.8, 0.8), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-unifcube, echo=TRUE-------------------------------------------------
+unifcube <- gen_unifcube(n = 1000, p = 4)
+
+
+## -----------------------------------------------------------------------------
+unifcube_lang <- langevitour::langevitour(unifcube, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----unifcube-proj1-----------------------------------------------------------
+scaled_data <- scale_data_manual(unifcube)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.75, 
+                                              axis_pos_y = -0.75, 
+                                              threshold = 0.022))
+
+unifcube_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.9, 0.8), 
+  title = "b1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----unifcube-proj2-----------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.75, 
+                                              axis_pos_y = -0.75, 
+                                              threshold = 0.04))
+
+unifcube_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.9, 0.8), 
+  title = "b2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----unifcube-proj3-----------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.65, 
+                                              axis_pos_y = -0.65, 
+                                              threshold = 0.016))
+
+unifcube_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.8, 0.8), 
+  title = "b3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## -----------------------------------------------------------------------------
+cube_tb <- tibble(fun = c("gen_gridcube",
+                          "gen_unifcube"), 
+                      exp = c("Cube with specified grid points along each axes.",
+                              "Cube with uniform points."))
+
+
+## ----cube-tb-html, eval=knitr::is_html_output()-------------------------------
+# cube_tb |>
+#   kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----cube-tb-pdf, eval=knitr::is_latex_output()-------------------------------
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## ----cube, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `gridcube`, `unifcube`, and `cubehole` data in $4\\text{-}D$."----
+# 
+# cubefig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     gridcube_lang, unifcube_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(cubefig) <- c(class(cubefig), "htmlwidget")
+# 
+# cubefig
+
+
+## ----cube-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.", fig.width=12, fig.height=8----
+
+gridcube_proj1 + gridcube_proj2 + gridcube_proj3 +
+unifcube_proj1 + unifcube_proj2 + unifcube_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+
+
 ## ----data-bluntedcone, echo=TRUE----------------------------------------------
 cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 
@@ -895,6 +1116,117 @@ quadratic <- gen_quadratic(n = 1000)
 
 ## ----data-cubic, echo=TRUE----------------------------------------------------
 cubic <- gen_cubic(n = 1000)
+
+
+## ----data-scurve, echo=TRUE---------------------------------------------------
+scurve <- gen_scurve(n = 1000)
+
+
+## -----------------------------------------------------------------------------
+scurve_lang <- langevitour::langevitour(scurve, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----scurve-proj1-------------------------------------------------------------
+scaled_data <- scale_data_manual(scurve)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097),
+  c(0.00896,0.52496,0.12597))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+scurve_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----scurve-proj2-------------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278),
+  c(-0.50493,0.14388,0.14615))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+scurve_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----scurve-proj3-------------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416),
+  c(0.50329,0.07199,-0.16064))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.016))
+
+scurve_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.6, 0.62), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----scurve, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `scurve` and `scurvehole` data in $4\\text{-}D$."----
+# 
+# scurvefig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     scurve_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(scurvefig) <- c(class(scurvefig), "htmlwidget")
+# 
+# scurvefig
+
+
+## ----scurve-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data.", fig.width=12, fig.height=4----
+
+scurve_proj1 + scurve_proj2 + scurve_proj3 + 
+  plot_layout(ncol = 3, guides = "collect") 
 
 
 ## ----data-swissroll, echo=TRUE------------------------------------------------
