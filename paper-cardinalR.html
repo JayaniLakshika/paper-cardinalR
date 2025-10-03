@@ -2991,7 +2991,7 @@ Figure 10: <code>langevitour</code> output of tthe <code>crescent</code>, <code>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h4 class="unnumbered" data-number="2.1.3" id="generate-a-spherical-or-hyperspherical-hole-within-a-structure">Generate a Spherical or Hyperspherical Hole Within a Structure</h4>
+<h4 class="unnumbered" data-number="2.1.3" id="generate-a-spherical-or-hyperspherical-hole-within-a-structure">Generate a spherical or hyperspherical hole within a structure</h4>
 <p>The package provides functionality for generating datasets with <strong>spherical hole</strong> (in 2D/3D) or, more generally, <strong>hyperspherical hole</strong> (in higher dimensions). These structures are valuable for evaluating how dimension reduction methods and clustering algorithms handle incomplete manifolds or missing regions of the data space. A hyperspherical hole introduces topological complexity: the structure remains continuous but contains excluded regions (voids) that algorithms must correctly represent in lower-dimensional embeddings.</p>
 <p>The core function <code>gen_hole()</code> removes points from a dataset that fall within a user-specified hypersphere. Formally, given data points (<span class="math inline">\(x \in \mathbb{R}^p\)</span>), a center (<span class="math inline">\(a \in \mathbb{R}^p\)</span>), and radius (<span class="math inline">\(r &gt; 0\)</span>), only points satisfying</p>
 <p><span class="math display">\[

@@ -1658,7 +1658,7 @@ Finally, the `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear 
 </div>
 
 
-### Generate a Spherical or Hyperspherical Hole Within a Structure
+### Generate a spherical or hyperspherical hole within a structure
 
 The package provides functionality for generating datasets with **spherical hole** (in 2D/3D) or, more generally, **hyperspherical hole** (in higher dimensions). These structures are valuable for evaluating how dimension reduction methods and clustering algorithms handle incomplete manifolds or missing regions of the data space. A hyperspherical hole introduces topological complexity: the structure remains continuous but contains excluded regions (voids) that algorithms must correctly represent in lower-dimensional embeddings.
 
