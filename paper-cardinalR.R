@@ -124,6 +124,266 @@ main_tb |>
   column_spec(3, width = "8cm")
 
 
+## -----------------------------------------------------------------------------
+branch_tb <- tibble(fun = c("gen_expbranches",
+                             "gen_linearbranches",
+                             "gen_curvybranches", 
+                             "gen_orglinearbranches", 
+                             "gen_orgcurvybranches"), 
+                      exp = c("Exponential shaped branches.",
+                               "Linear shaped branches.", 
+                               "Curvy shaped branches.",
+                               "Linear shaped branches originated in one point.",
+                               "Curvy shaped branches originated in one point."))
+
+
+## ----branching-tb-html, eval=knitr::is_html_output()--------------------------
+# branch_tb |>
+#   kable(caption = "cardinalR branching data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----branching-tb-pdf, eval=knitr::is_latex_output()--------------------------
+branch_tb |> 
+  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## -----------------------------------------------------------------------------
+arg_branching_tb <- tibble(arg = c("n",
+                          "p",
+                          "k"), 
+                        exp = c("A numeric value representing the number of points.",
+                                "A numeric value representing the number of dimensions.",
+                                "A numeric value representing the number of clusters."))
+
+
+## ----arg-branching-tb-html, eval=knitr::is_html_output()----------------------
+# arg_branching_tb |>
+#   kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Explanation"))
+
+
+## ----arg-branching-tb-pdf, eval=knitr::is_latex_output()----------------------
+arg_branching_tb |> 
+  kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## ----data-linearbranches, echo=TRUE-------------------------------------------
+linearbranches <- gen_linearbranches(n = 1000, k = 4)
+
+
+## ----data-curvybranches, echo=TRUE--------------------------------------------
+curvybranches <- gen_curvybranches(n = 1000, k = 4)
+
+
+## ----data-expbranches, echo=TRUE----------------------------------------------
+expbranches <- gen_expbranches(n = 1000, k = 4)
+
+
+## ----data-orglinearbranches, echo=TRUE----------------------------------------
+orglinearbranches <- gen_orglinearbranches(n = 1000, p = 4, k = 4)
+
+
+## -----------------------------------------------------------------------------
+orglinearbranches_lang <- langevitour::langevitour(orglinearbranches, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----orglinearbranches-proj1--------------------------------------------------
+scaled_data <- scale_data_manual(orglinearbranches)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+orglinearbranches_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "d1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----orglinearbranches-proj2--------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+orglinearbranches_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "d2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----orglinearbranches-proj3--------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+orglinearbranches_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.62), 
+  title = "d3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-orgcurvybranches, echo=TRUE-----------------------------------------
+orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
+
+
+## -----------------------------------------------------------------------------
+orgcurvybranches_lang <- langevitour::langevitour(orgcurvybranches, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----orgcurvybranches-proj1---------------------------------------------------
+scaled_data <- scale_data_manual(orgcurvybranches)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.3, 
+                                              axis_pos_y = -0.3, 
+                                              threshold = 0.022))
+
+orgcurvybranches_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.4, 0.5), 
+  title = "e1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----orgcurvybranches-proj2---------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+orgcurvybranches_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "e2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----orgcurvybranches-proj3---------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+orgcurvybranches_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.62), 
+  title = "e3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, and `orgcurvybranches` data in $4\\text{-}D$."----
+# 
+# branchfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     orglinearbranches_lang, orgcurvybranches_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(branchfig) <- c(class(branchfig), "htmlwidget")
+# 
+# branchfig
+
+
+## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.", fig.width=12, fig.height=8----
+
+orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
+orgcurvybranches_proj1 + orgcurvybranches_proj2 + orgcurvybranches_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+
+
 ## ----data-gridcube, echo=TRUE-------------------------------------------------
 gridcube <- gen_gridcube(n = 1000, p = 4)
 
@@ -1229,6 +1489,601 @@ scurve_proj1 + scurve_proj2 + scurve_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
+## -----------------------------------------------------------------------------
+sphere_tb <- tibble(fun = c("gen_circle",
+                            "gen_curvycycle",
+                            "gen_unifsphere",
+                            "gen_gridedsphere",
+                            "gen_clusteredspheres",
+                            "gen_hemisphere"), 
+                        exp = c("Circle.",
+                                "Curvy cell cycle.",
+                                "Uniform sphere.",
+                                "Grided sphere.",
+                                "Multiple small spheres within a big sphere.",
+                                "Hemisphere."))
+
+
+## ----sphere-tb-html, eval=knitr::is_html_output()-----------------------------
+# sphere_tb |>
+#   kable(caption = "cardinalR sphere data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----sphere-tb-pdf, eval=knitr::is_latex_output()-----------------------------
+sphere_tb |> 
+  kable(caption = "cardinalR sphere data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## ----data-circle, echo=TRUE---------------------------------------------------
+circle <- gen_circle(n = 1000, p = 4)
+
+
+## -----------------------------------------------------------------------------
+circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----circle-proj1-------------------------------------------------------------
+scaled_data <- scale_data_manual(circle)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.022))
+
+circle_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.75, 0.8), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----circle-proj2-------------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+circle_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.7), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----circle-proj3-------------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.016))
+
+circle_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.6, 0.53), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-curvycycle, echo=TRUE-----------------------------------------------
+curvycycle <- gen_curvycycle(n = 1000, p = 4)
+
+
+## -----------------------------------------------------------------------------
+curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----curvycycle-proj1---------------------------------------------------------
+scaled_data <- scale_data_manual(curvycycle)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.022))
+
+curvycycle_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.75, 0.7), 
+  title = "b1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----curvycycle-proj2---------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.04))
+
+curvycycle_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "b2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----curvycycle-proj3---------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.016))
+
+curvycycle_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.62), 
+  title = "b3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-unifsphere, echo=TRUE-----------------------------------------------
+unifsphere <- gen_unifsphere(n = 1000, r = 1)
+
+
+## -----------------------------------------------------------------------------
+unifsphere_lang <- langevitour::langevitour(unifsphere, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----unifsphere-proj1---------------------------------------------------------
+scaled_data <- scale_data_manual(unifsphere)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097),
+  c(0.00896,0.52496,0.12597))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.022))
+
+unifsphere_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.75, 0.7), 
+  title = "c1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----unifsphere-proj2---------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278),
+  c(-0.50493,0.14388,0.14615))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+unifsphere_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.7), 
+  title = "c2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----unifsphere-proj3---------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416),
+  c(0.50329,0.07199,-0.16064))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.016))
+
+unifsphere_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.65), 
+  title = "c3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-gridedsphere, echo=TRUE---------------------------------------------
+gridedsphere <- gen_gridedsphere(n = 1000, p = 4)
+
+
+## -----------------------------------------------------------------------------
+gridedsphere_lang <- langevitour::langevitour(gridedsphere, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----gridedsphere-proj1-------------------------------------------------------
+scaled_data <- scale_data_manual(gridedsphere)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.022))
+
+gridedsphere_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.75, 0.7), 
+  title = "d1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----gridedsphere-proj2-------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+gridedsphere_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.65), 
+  title = "d2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----gridedsphere-proj3-------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.016))
+
+gridedsphere_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.62), 
+  title = "d3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-clusteredspheres, echo=TRUE-----------------------------------------
+clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, r = c(15, 3),
+                                         loc = 10 / sqrt(3)) |>
+  dplyr::select(-cluster)
+
+
+## -----------------------------------------------------------------------------
+clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----clusteredspheres-proj1---------------------------------------------------
+scaled_data <- scale_data_manual(clusteredspheres)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097),
+  c(0.00896,0.52496,0.12597))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.022))
+
+clusteredspheres_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.75, 0.7), 
+  title = "e1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----clusteredspheres-proj2---------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278),
+  c(-0.50493,0.14388,0.14615))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+clusteredspheres_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "e2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----clusteredspheres-proj3---------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416),
+  c(0.50329,0.07199,-0.16064))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.016))
+
+clusteredspheres_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.6, 0.62), 
+  title = "e3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-hemisphere, echo=TRUE-----------------------------------------------
+hemisphere <- gen_hemisphere(n = 1000)
+
+
+## -----------------------------------------------------------------------------
+hemisphere_lang <- langevitour::langevitour(hemisphere, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----hemisphere-proj1---------------------------------------------------------
+scaled_data <- scale_data_manual(hemisphere)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.022))
+
+hemisphere_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.75, 0.7), 
+  title = "f1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----hemisphere-proj2---------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+hemisphere_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "f2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----hemisphere-proj3---------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.016))
+
+hemisphere_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.75, 0.62), 
+  title = "f3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----sphere, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data in $4\\text{-}D$."----
+# 
+# spherefig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     circle_lang, curvycycle_lang, unifsphere_lang, gridedsphere_lang, clusteredspheres_lang, hemisphere_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(spherefig) <- c(class(spherefig), "htmlwidget")
+# 
+# spherefig
+
+
+## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=12, fig.height=28, out.width="80%", fig.align='center'----
+
+circle_proj1 + circle_proj2 + circle_proj3 +
+curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3 +
+unifsphere_proj1 + unifsphere_proj2 + unifsphere_proj3 +
+gridedsphere_proj1 + gridedsphere_proj2 + gridedsphere_proj3 +
+clusteredspheres_proj1 + clusteredspheres_proj2 + clusteredspheres_proj3 +
+hemisphere_proj1 + hemisphere_proj2 + hemisphere_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+
+
 ## ----data-swissroll, echo=TRUE------------------------------------------------
 swissroll <- gen_swissroll(n = 1000, w = c(-1, 1))
 
@@ -1561,6 +2416,425 @@ trefoil3d_proj3 <- plot_proj(
 
 trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 + 
   trefoil3d_proj1 + trefoil3d_proj2 + trefoil3d_proj3 +
+  plot_layout(ncol = 3, guides = "collect") 
+
+
+## -----------------------------------------------------------------------------
+trigonometric_tb <- tibble(fun = c("gen_crescent",
+                            "gen_curvycylinder",
+                            "gen_sphericalspiral",
+                            "gen_helicalspiral",
+                            "gen_conicspiral",
+                            "gen_nonlinear"), 
+                        exp = c("Crescent pattern.",
+                                "Curvy cylinder.",
+                                "Spherical spiral.",
+                                "Helical spiral.",
+                                "Conic spiral.",
+                                "Nonlinear hyperbola."))
+
+
+## ----trigonometric-tb-html, eval=knitr::is_html_output()----------------------
+# trigonometric_tb |>
+#   kable(caption = "cardinalR trigonometric data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----trigonometric-tb-pdf, eval=knitr::is_latex_output()----------------------
+trigonometric_tb |> 
+  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## ----data-crescent, echo=TRUE-------------------------------------------------
+crescent <- gen_crescent(n = 1000)
+
+
+## ----data-curvycylinder, echo=TRUE--------------------------------------------
+curvycylinder <- gen_curvycylinder(n = 1000, h = 10)
+
+
+## -----------------------------------------------------------------------------
+curvycylinder_lang <- langevitour::langevitour(curvycylinder, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----curvycylinder-proj1------------------------------------------------------
+scaled_data <- scale_data_manual(curvycylinder)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+curvycylinder_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.5), 
+  title = "b1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----curvycylinder-proj2------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+curvycylinder_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "b2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----curvycylinder-proj3------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+curvycylinder_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.5), 
+  title = "b3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-sphericalspiral, echo=TRUE------------------------------------------
+sphericalspiral <- gen_sphericalspiral(n = 1000, spins = 1)
+
+
+## -----------------------------------------------------------------------------
+sphericalspiral_lang <- langevitour::langevitour(sphericalspiral, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----sphericalspiral-proj1----------------------------------------------------
+scaled_data <- scale_data_manual(sphericalspiral)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+sphericalspiral_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "c1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----sphericalspiral-proj2----------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.57, 
+                                              axis_pos_y = -0.57, 
+                                              threshold = 0.01))
+
+sphericalspiral_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.7, 0.6), 
+  title = "c2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----sphericalspiral-proj3----------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.016))
+
+sphericalspiral_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.5, 0.5), 
+  title = "c3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-helicalspiral, echo=TRUE--------------------------------------------
+helicalspiral <- gen_helicalspiral(n = 1000)
+
+
+## ----data-conicspiral, echo=TRUE----------------------------------------------
+conicspiral <- gen_conicspiral(n = 1000, spins = 1)
+
+
+## -----------------------------------------------------------------------------
+conicspiral_lang <- langevitour::langevitour(conicspiral, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----conicspiral-proj1--------------------------------------------------------
+scaled_data <- scale_data_manual(conicspiral)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.5, 
+                                              axis_pos_y = -0.5, 
+                                              threshold = 0.022))
+
+conicspiral_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.65, 0.7), 
+  title = "e1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----conicspiral-proj2--------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 3, 
+                                              axis_pos_x = -0.65, 
+                                              axis_pos_y = -0.65, 
+                                              threshold = 0.01))
+
+conicspiral_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.8, 0.5), 
+  title = "e2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----conicspiral-proj3--------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.6,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.45, 
+                                              axis_pos_y = -0.45, 
+                                              threshold = 0.016))
+
+conicspiral_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.6, 0.62), 
+  title = "e3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----data-nonlinear, echo=TRUE------------------------------------------------
+nonlinear <- gen_nonlinear(n = 1000, hc = 1, non_fac = 0.5)
+
+
+## -----------------------------------------------------------------------------
+nonlinear_lang <- langevitour::langevitour(nonlinear, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+
+
+## ----nonlinear-proj1----------------------------------------------------------
+scaled_data <- scale_data_manual(nonlinear)
+
+## First projection
+projection <- cbind(
+  c(0.53506,0.00763,0.00097,-0.10901),
+  c(0.00896,0.52496,0.12597,0.08184))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.7,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.3, 
+                                              axis_pos_y = -0.3, 
+                                              threshold = 0.022))
+
+nonlinear_proj1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.45, 0.73), 
+  title = "f1", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----nonlinear-proj2----------------------------------------------------------
+
+## Second projection
+projection <- cbind(
+  c(-0.06614,0.15134,-0.44278,0.27367),
+  c(-0.50493,0.14388,0.14615,0.03486))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.45,
+                                              axis_scaled = 1.3, 
+                                              axis_pos_x = -0.2, 
+                                              axis_pos_y = -0.2, 
+                                              threshold = 0.01))
+
+nonlinear_proj2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.3, 0.46), 
+  title = "f2", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----nonlinear-proj3----------------------------------------------------------
+
+## Third projection
+projection <- cbind(
+  c(0.10704,0.04822,-0.03416,0.53224),
+  c(0.50329,0.07199,-0.16064,-0.11806))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.2, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 0.45,
+                                              axis_scaled = 1.5, 
+                                              axis_pos_x = -0.25, 
+                                              axis_pos_y = -0.25, 
+                                              threshold = 0.016))
+
+nonlinear_proj3 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
+  plot_limits = c(-0.35, 0.4), 
+  title = "f3", 
+  cex = 2, 
+  axis_text_size = 5,
+  is_color = FALSE)
+
+
+
+## ----triginometric, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of tthe `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data in $4\\text{-}D$."----
+# 
+# triginometricfig <- bscols(
+#   htmltools::div(
+#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     curvycylinder_lang, sphericalspiral_lang, conicspiral_lang, nonlinear_lang
+#   ),
+#   device = "xs"
+# )
+# 
+# class(triginometricfig) <- c(class(triginometricfig), "htmlwidget")
+# 
+# triginometricfig
+
+
+## ----triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=12, fig.height=16, out.width="80%", fig.align='center'----
+
+curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
+sphericalspiral_proj1 + sphericalspiral_proj2 + sphericalspiral_proj3 +
+conicspiral_proj1 + conicspiral_proj2 + conicspiral_proj3 +
+nonlinear_proj1 + nonlinear_proj2 + nonlinear_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
