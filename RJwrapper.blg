@@ -3,9 +3,10 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: RJwrapper.aux
 The style file: abbrvnat.bst
 Database file #1: paper-cardinalR.bib
+Warning--I didn't find a database entry for "wang2021"
 You've used 25 entries,
             2773 wiz_defined-function locations,
-            752 strings with 9170 characters,
+            753 strings with 9178 characters,
 and the built_in function-call counts, 11054 in all, are:
 = -- 987
 > -- 732
@@ -44,3 +45,4 @@ warning$ -- 0
 while$ -- 89
 width$ -- 0
 write$ -- 373
+(There was 1 warning)

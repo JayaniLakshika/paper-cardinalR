@@ -62,7 +62,7 @@ is\_bkg & boolean & Background noise should exist or not.\\
 
 \subsubsection{Shape generators}\label{shape-generators}
 
-The shape generators form the foundation of the package, providing a collection of functions to create synthetic data structures based on simple, well-defined geometric structures. These include fundamental shapes such as cones, pyramids, spheres, grids, and branching structures. If a shape is not inherently defined in more than three dimensions, additional noise dimensions can be added to embed the structure into higher-dimensional space. Users can specify how these noise dimensions are generated (e.g., Gaussian, wavy) (\texttt{noise\_fun}), offering control over the embedding process. All shape generators allow the user to define the number of points (\texttt{n}) and dimensions (\texttt{p}), and most include additional arguments to customize specific characteristics of the structure.
+The shape generators form the foundation of the package, providing a collection of functions to create synthetic data structures based on simple, well-defined geometric structures. These include fundamental shapes such as cones, pyramids, spheres, grids, and branching structures. If a shape is not inherently defined in more than two dimensions, additional noise dimensions can be added to embed the structure into higher-dimensional space. Users can specify how these noise dimensions are generated (e.g., Gaussian, wavy) (\texttt{noise\_fun}), offering control over the embedding process. All shape generators allow the user to define the number of points (\texttt{n}), and most include additional arguments to customize specific characteristics of the structure.
 
 \paragraph{Branching}\label{branching}
 
@@ -258,6 +258,14 @@ gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/gau-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gau` data.}\label{fig:gau-proj}
 \end{figure}
 
+\paragraph{Möbius}\label{muxf6bius}
+
+The \texttt{gen\_mobius()} function is a \textbf{wrapper} around \texttt{geozoo::mobius()}, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with \(n\) sampled points forming the surface of a Möbius strip.
+
+\begin{verbatim}
+mobius <- gen_mobius(n = 1000)
+\end{verbatim}
+
 \paragraph{Pyramid}\label{pyramid}
 
 A pyramid structure (Figure \ref{fig:pyr-proj}) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in high-dimensional space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table \ref{tab:pyramid-tb-pdf} summarizes these functions.
@@ -400,6 +408,14 @@ Building on simple circular structures, the \texttt{gen\_unifsphere(n,\ r)} func
 unifsphere <- gen_unifsphere(n = 1000, r = 1)
 \end{verbatim}
 
+In contrast, the \texttt{gen\_hollowsphere(n,\ p)} function, a wrapper around \texttt{geozoo::sphere.hollow()}, generates \(n\) points uniformly distributed \textbf{only on the surface} of the \((p-1)\)-dimensional sphere embedded in \(\mathbb{R}^p\). This results in a hollow shell-like structure with no interior points.
+
+For example, when \(p=3\), \texttt{gen\_unifsphere()} produces a solid ball in 3D space, whereas \texttt{gen\_hollowsphere()} produces only the spherical boundary. These paired structures allow controlled experiments to investigate how algorithms behave when data is concentrated throughout the full volume versus constrained to the boundary.
+
+\begin{verbatim}
+hollowsphere <- gen_hollowsphere(n = 1000, p = 4)
+\end{verbatim}
+
 In addition, the \texttt{gen\_gridedsphere(n)} function constructs a \(p\text{-}D\) dataset consisting of approximately \(n\) points that are evenly distributed on the surface of the unit \((p-1)\)-sphere embedded in \(\mathbb{R}^p\) (Figure \ref{fig:sphere-proj} d). The method relies on forming a regular grid in spherical coordinates, parameterized by \((p-1)\) angular variables: for dimensions \(j = 1, \dots, p-2\) the polar angles are drawn from \([0, \pi]\), while the final angle (\(j = p-1\)) represents the azimuth and is drawn from \([0, 2\pi]\). The number of grid steps along each angular dimension is chosen by decomposing \(n\) into \((p-1)\) approximately equal integer factors using the helper function \texttt{gen\_nproduct(n,\ p\ -\ 1)}.
 
 Each grid point is subsequently mapped into Cartesian space via the standard hyperspherical-to-Cartesian transformation,
@@ -490,75 +506,19 @@ trefoil3d <- gen_trefoil3d(n = 500, steps = 5)
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/trefoil-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.}\label{fig:trefoil-proj}
 \end{figure}
 
-\paragraph{Trigonometric}\label{trigonometric}
+\subsubsection{Generate a Spherical or Hyperspherical Hole Within a Structure}\label{generate-a-spherical-or-hyperspherical-hole-within-a-structure}
 
-Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \ref{fig:triginometric-proj}). The first few coordinates define the main geometric structure (e.g., crescent, cylinder, spiral, or helix), while for higher-dimensional embeddings, additional noise dimensions are appended: for the crescent shape this occurs when \(p > 2\) (adding \(X_3\) through \(X_p\)), and for all other trigonometric shapes when \(p > 4\) (adding \(X_5\) through \(X_p\)). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table \ref{tab:trigonometric-tb-pdf} summarizes these functions.
+The package provides functionality for generating datasets with \textbf{spherical hole} (in 2D/3D) or, more generally, \textbf{hyperspherical hole} (in higher dimensions). These structures are valuable for evaluating how dimension reduction methods and clustering algorithms handle incomplete manifolds or missing regions of the data space. A hyperspherical hole introduces topological complexity: the structure remains continuous but contains excluded regions (voids) that algorithms must correctly represent in lower-dimensional embeddings.
 
-\begin{table}
+The core function \texttt{gen\_hole()} removes points from a dataset that fall within a user-specified hypersphere. Formally, given data points (\(x \in \mathbb{R}^p\)), a center (\(a \in \mathbb{R}^p\)), and radius (\(r > 0\)), only points satisfying
 
-\caption{\label{tab:trigonometric-tb-pdf}cardinalR trigonometric data generation functions}
-\centering
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
-\toprule
-Function & Explanation\\
-\midrule
-gen\_crescent & Crescent pattern.\\
-gen\_curvycylinder & Curvy cylinder.\\
-gen\_sphericalspiral & Spherical spiral.\\
-gen\_helicalspiral & Helical spiral.\\
-gen\_conicspiral & Conic spiral.\\
-\addlinespace
-gen\_nonlinear & Nonlinear hyperbola.\\
-\bottomrule
-\end{tabular}
-\end{table}
+\[
+||x - a||_2 > r
+\]
 
-First, the \texttt{gen\_crescent(n,\ p)} function generates a \(p\)-dimensional dataset of \(n\) observations based on a \(2\text{-}D\) crescent-shaped manifold with optional structured high-dimensional noise (Figure \ref{fig:triginometric-proj} a). Let \(\theta \in [\pi/6, 2\pi]\) be a sequence of \(n\) evenly spaced angles. The corresponding \(2\text{-}D\) coordinates are defined by: \[X_1 = \cos(\theta), \quad X_2 = \sin(\theta).\]
+are retained. The anchor point (a) can either be user-specified or default to the dataset mean, and radius (r) is controlled by the user, with safeguards to avoid trivial or degenerate cases. Because it operates generically on any dataset, spherical or hyperspherical holes can be embedded in a wide range of geometric structures.
 
-\begin{verbatim}
-crescent <- gen_crescent(n = 1000)
-\end{verbatim}
-
-Second, the \texttt{gen\_curvycylinder(n,\ p,\ h)} function generates a \(p\)-dimensional dataset of \(n\) observations structured as a \(3\text{-}D\) cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when \(p > 4\) (Figure \ref{fig:triginometric-proj} b). The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension. Let \(\theta \sim U(0, 3\pi)\) represent a random angle on a circular base and \(z \sim U(0, h)\) represent the height along the cylinder. The coordinates are defined as: \(X_1 = \cos(\theta)\) (Circular base, x-axis), \(X_2 = \sin(\theta)\) (Circular base, y-axis), \(X_3 = z\) (Linear height), and \(X_4 = \sin(z)\) (Nonlinear curvy variation along height).
-
-\begin{verbatim}
-curvycylinder <- gen_curvycylinder(n = 1000, h = 10)
-\end{verbatim}
-
-For a spiraling path on a spherical surface in the first four dimensions, \texttt{gen\_sphericalspiral(n,\ p,\ spins)} (Figure \ref{fig:triginometric-proj} c), let \(\theta \in [0, 2\pi \times \text{spins}]\) be the azimuthal angle (longitude), controls the number of spiral turns and the \(\phi \in [0, \pi]\)be the polar angle (latitude), controls the vertical sweep from the north to the south pole. Cartesian coordinates from spherical conversion: \(X_1 = \sin(\phi)\cos(\theta)\), \(X_2 = \sin(\phi)\sin(\theta)\), \(X_3 = \cos(\phi) + \varepsilon\), where \(\varepsilon \sim U(-0.5, 0.5)\) introduces vertical jitter, and \(X_4 = \theta / \max(\theta)\): a normalized progression along the spiral path. This generates a spherical spiral curve embedded in \(4\text{-}D\) space, combining both circular and vertical movement, with gentle curvature and non-linear progression.
-
-\begin{verbatim}
-sphericalspiral <- gen_sphericalspiral(n = 1000, spins = 1)
-\end{verbatim}
-
-For a helical spiral in four dimensions, \texttt{gen\_helicalspiral(n,\ p)} (Figure \ref{fig:triginometric-proj} d), let \(\theta \in [0, 5\pi/4]\) be a sequence of angles controlling rotation around a circle. Cartesian coordinates; \(X_1 = \cos(\theta)\): circular trajectory along the x-axis, \(X_2 = \sin(\theta)\): circular trajectory along the y-axis, \(X_3 = 0.05\theta + \varepsilon_3\), with \(\varepsilon_3 \sim U(-0.5, 0.5)\): linear progression (height) with vertical jitter, simulating a helix, and \(X_4 = 0.1\sin(\theta)\): oscillates with \(\theta\), representing a periodic ``wobble'' along the fourth dimension.
-
-\begin{verbatim}
-helicalspiral <- gen_helicalspiral(n = 1000)
-\end{verbatim}
-
-Similarly, the \texttt{gen\_conicspiral(n,\ p,\ spins)} function generates a dataset of \(n\) points forming a conical spiral in the first four dimensions of \(p\text{-}D\) (Figure \ref{fig:triginometric-proj} e). The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a \(3\text{-}D\) conic helix. The shape is defined by parameter \(\theta \in [0, 2\pi\text{spins}]\), controlling the angular progression of the spiral. The Archimedean spiral in the horizontal plane is represented by; \(X_1 = \theta\cos(\theta)\) for radial expansion in x, and \(X_2 = \theta\sin(\theta)\) for radial expansion in y. The growth pattern resembles a cone, with the height increasing according to \(X_3 = 2\theta / \max(\theta) + \varepsilon_3\), with \(\varepsilon_3 \sim U(-0.1, 0.6).\) Spiral modulation in the fourth dimension is represented by \(X_4 = \theta\sin(2\theta) + \varepsilon_4\), with \(\varepsilon_4 \sim U(-0.1, 0.6)\) which simulates a twisting helical component in a non-radial dimension.
-
-\begin{verbatim}
-conicspiral <- gen_conicspiral(n = 1000, spins = 1)
-\end{verbatim}
-
-Finally, the \texttt{gen\_nonlinear(n,\ p,\ hc,\ non\_fac)} function simulates a non-linear \(2\text{-}D\) surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables (Figure \ref{fig:triginometric-proj} f). The \(X_{1} \sim U(0.1, 2)\): base variable (avoids zero to prevent division errors), \(X_{3} \sim U(0.1, 0.8)\): independent auxiliary variable, \(X_{2} = hc/X_{1} + \text{nonfac}\sin(X_{1})\): non-linear combination of hyperbolic and sinusoidal transformations, creating sharp curvature and oscillation, and \(X_{4} = \cos(\pi X_{1}) + \varepsilon\), with \(\varepsilon \sim U(-0.1, 0.1)\): additional nonlinear variation based on cosine, simulating more subtle periodic structure. These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter.
-
-\begin{verbatim}
-nonlinear <- gen_nonlinear(n = 1000, hc = 1, non_fac = 0.5)
-\end{verbatim}
-
-\begin{figure}[!]
-
-{\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/triginometric-proj-1} 
-
-}
-
-\caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.}\label{fig:triginometric-proj}
-\end{figure}
-
-\subsubsection{Wrappers}\label{wrappers}
+Two specialized wrappers illustrate this idea. The function \texttt{gen\_scurvehole()} generates an S-curve with a spherical hole by applying \texttt{gen\_hole()} to the output of \texttt{gen\_scurve()}. This structure has been used in prior diagnostic studies of NLDR methods \citep{wang2021}, since it tests the ability of algorithms to capture non-linear manifolds that are not simply connected. The second wrapper, \texttt{gen\_unifcubehole()}, generates uniformly sampled cube data with a hyperspherical hole. By embedding a hyperspherical void inside a convex high-dimensional structure, this creates non-convex regions that challenge algorithms in terms of separability and neighborhood preservation.
 
 \subsubsection{Generate noise dimensions}\label{generate-noise-dimensions}
 
