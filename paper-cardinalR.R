@@ -2099,8 +2099,8 @@ swissroll_proj1 + swissroll_proj2 + swissroll_proj3 +
 ## -----------------------------------------------------------------------------
 trefoil_tb <- tibble(fun = c("gen_trefoil4d",
                             "gen_trefoil3d"), 
-                        exp = c("Trefoil in $4\\text{-}D$.",
-                                "Trefoil in $3\\text{-}D$."))
+                        exp = c("Trefoil in 4-D.",
+                                "Trefoil in 3-D."))
 
 
 ## ----trefoil-tb-html, eval=knitr::is_html_output()----------------------------

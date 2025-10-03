@@ -1342,10 +1342,10 @@ The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text
 
 Table: (\#tab:trefoil-tb-html)cardinalR trefoil data generation functions
 
-|Function      |Explanation              |
-|:-------------|:------------------------|
-|gen_trefoil4d |Trefoil in $4\text{-}D$. |
-|gen_trefoil3d |Trefoil in $3\text{-}D$. |
+|Function      |Explanation     |
+|:-------------|:---------------|
+|gen_trefoil4d |Trefoil in 4-D. |
+|gen_trefoil3d |Trefoil in 3-D. |
 
 </div>
 
