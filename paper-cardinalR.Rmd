@@ -888,6 +888,14 @@ cone_proj1 + cone_proj2 + cone_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
+#### Gaussian
+
+The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure. Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, s)$, where $s$ is a user-defined $p \times p$ positive-definite matrix.
+
+```{r data-gau, echo=TRUE}
+gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
+```
+
 #### Linear
 
 The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a long linear structure with noise. Each variable is formed as $X_i = \text{scale}_i \cdot (0,1,\dots,n{-}1 + \epsilon) + \text{shift}_i$, where $\text{scale}\_i \sim U(-10, 10)$ determines the orientation of the line in each dimension, $\text{shift}\_i \sim U(-300, 300)$ offsets the line to separate dimensions, and $\epsilon \sim N(0, (0.03n)^2)$ introduces Gaussian noise. 
@@ -1005,14 +1013,6 @@ linear_proj1 + linear_proj2 + linear_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
-#### Gaussian
-
-The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure. Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, s)$, where $s$ is a user-defined $p \times p$ positive-definite matrix.
-
-```{r data-gau, echo=TRUE}
-gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
-```
-
 #### Möbius
 
 The `gen_mobius()` function is a **wrapper** around `geozoo::mobius()`, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with $n$ sampled points forming the surface of a Möbius strip.
@@ -1031,6 +1031,41 @@ The `gen_mobius()` function is a **wrapper** around `geozoo::mobius()`, designed
 
 ```{r data-mobius, echo=TRUE}
 mobius <- gen_mobius(n = 1000)
+```
+
+#### Polynomial
+
+A polynomial structure generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in \gD{} space. To extend these patterns into high-dimensional settings, additional noise dimensions can be added. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:polynomial-tb-html)', '\\@ref(tab:polynomial-tb-pdf)'))` summarizes these functions and their purposes.
+
+```{r}
+polynomial_tb <- tibble(fun = c("gen_quadratic",
+                                "gen_cubic"), 
+                        exp = c("Quadratic pattern.",
+                                "Cubic pattern."))
+```
+
+```{r polynomial-tb-html, eval=knitr::is_html_output()}
+polynomial_tb |> 
+  kable(caption = "cardinalR polynomial data generation functions", col.names = c("Function", "Explanation")) 
+```
+
+```{r polynomial-tb-pdf, eval=knitr::is_latex_output()}
+polynomial_tb |> 
+  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
+The first is the quadratic curve of $n$ points in two dimensions. This is generated using `gen_quadratic(n, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree 2 is applied to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a smooth parabolic arc opening downward, with vertical jitter introduced by the noise term.
+
+```{r data-quadratic, echo=TRUE}
+quadratic <- gen_quadratic(n = 1000)
+```
+
+The second is the cubic curve of $n$ points in two dimensions. This is generated using `gen_cubic(n, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree $3$ is applied to construct $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a more complex curvilinear structure than the quadratic case, with both upward and downward turning points.
+
+```{r data-cubic, echo=TRUE}
+cubic <- gen_cubic(n = 1000)
 ```
 
 #### Pyramid
@@ -1457,41 +1492,6 @@ pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
 pyrstar_proj1 + pyrstar_proj2 + pyrstar_proj3 +
 pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
-```
-
-#### Polynomial
-
-A polynomial structure generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in \gD{} space. To extend these patterns into high-dimensional settings, additional noise dimensions can be added. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:polynomial-tb-html)', '\\@ref(tab:polynomial-tb-pdf)'))` summarizes these functions and their purposes.
-
-```{r}
-polynomial_tb <- tibble(fun = c("gen_quadratic",
-                                "gen_cubic"), 
-                        exp = c("Quadratic pattern.",
-                                "Cubic pattern."))
-```
-
-```{r polynomial-tb-html, eval=knitr::is_html_output()}
-polynomial_tb |> 
-  kable(caption = "cardinalR polynomial data generation functions", col.names = c("Function", "Explanation")) 
-```
-
-```{r polynomial-tb-pdf, eval=knitr::is_latex_output()}
-polynomial_tb |> 
-  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-```
-
-The first is the quadratic curve of $n$ points in two dimensions. This is generated using `gen_quadratic(n, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree 2 is applied to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a smooth parabolic arc opening downward, with vertical jitter introduced by the noise term.
-
-```{r data-quadratic, echo=TRUE}
-quadratic <- gen_quadratic(n = 1000)
-```
-
-The second is the cubic curve of $n$ points in two dimensions. This is generated using `gen_cubic(n, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree $3$ is applied to construct $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a more complex curvilinear structure than the quadratic case, with both upward and downward turning points.
-
-```{r data-cubic, echo=TRUE}
-cubic <- gen_cubic(n = 1000)
 ```
 
 #### S-curve
@@ -2617,12 +2617,12 @@ trigonometric_tb <- tibble(fun = c("gen_crescent",
 
 ```{r trigonometric-tb-html, eval=knitr::is_html_output()}
 trigonometric_tb |> 
-  kable(caption = "cardinalR trigonometric data generation functions", col.names = c("Function", "Explanation")) 
+  kable(caption = "cardinalR trigonometric data generation functions", col.names = c("Function", "Explanation"), linesep = "") 
 ```
 
 ```{r trigonometric-tb-pdf, eval=knitr::is_latex_output()}
 trigonometric_tb |> 
-  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, linesep = "")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 ```

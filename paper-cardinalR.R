@@ -718,6 +718,10 @@ cone_proj1 + cone_proj2 + cone_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
+## ----data-gau, echo=TRUE------------------------------------------------------
+gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
+
+
 ## ----data-linear, echo=TRUE---------------------------------------------------
 linear <- gen_longlinear(n = 1000, p = 4)
 
@@ -831,12 +835,35 @@ linear_proj1 + linear_proj2 + linear_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## ----data-gau, echo=TRUE------------------------------------------------------
-gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
-
-
 ## ----data-mobius, echo=TRUE---------------------------------------------------
 mobius <- gen_mobius(n = 1000)
+
+
+## -----------------------------------------------------------------------------
+polynomial_tb <- tibble(fun = c("gen_quadratic",
+                                "gen_cubic"), 
+                        exp = c("Quadratic pattern.",
+                                "Cubic pattern."))
+
+
+## ----polynomial-tb-html, eval=knitr::is_html_output()-------------------------
+# polynomial_tb |>
+#   kable(caption = "cardinalR polynomial data generation functions", col.names = c("Function", "Explanation"))
+
+
+## ----polynomial-tb-pdf, eval=knitr::is_latex_output()-------------------------
+polynomial_tb |> 
+  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+
+
+## ----data-quadratic, echo=TRUE------------------------------------------------
+quadratic <- gen_quadratic(n = 1000)
+
+
+## ----data-cubic, echo=TRUE----------------------------------------------------
+cubic <- gen_cubic(n = 1000)
 
 
 ## ----data-pyrrect, echo=TRUE--------------------------------------------------
@@ -1244,33 +1271,6 @@ pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
 pyrstar_proj1 + pyrstar_proj2 + pyrstar_proj3 +
 pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
-
-
-## -----------------------------------------------------------------------------
-polynomial_tb <- tibble(fun = c("gen_quadratic",
-                                "gen_cubic"), 
-                        exp = c("Quadratic pattern.",
-                                "Cubic pattern."))
-
-
-## ----polynomial-tb-html, eval=knitr::is_html_output()-------------------------
-# polynomial_tb |>
-#   kable(caption = "cardinalR polynomial data generation functions", col.names = c("Function", "Explanation"))
-
-
-## ----polynomial-tb-pdf, eval=knitr::is_latex_output()-------------------------
-polynomial_tb |> 
-  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
-## ----data-quadratic, echo=TRUE------------------------------------------------
-quadratic <- gen_quadratic(n = 1000)
-
-
-## ----data-cubic, echo=TRUE----------------------------------------------------
-cubic <- gen_cubic(n = 1000)
 
 
 ## ----data-scurve, echo=TRUE---------------------------------------------------
@@ -2335,12 +2335,12 @@ trigonometric_tb <- tibble(fun = c("gen_crescent",
 
 ## ----trigonometric-tb-html, eval=knitr::is_html_output()----------------------
 # trigonometric_tb |>
-#   kable(caption = "cardinalR trigonometric data generation functions", col.names = c("Function", "Explanation"))
+#   kable(caption = "cardinalR trigonometric data generation functions", col.names = c("Function", "Explanation"), linesep = "")
 
 
 ## ----trigonometric-tb-pdf, eval=knitr::is_latex_output()----------------------
 trigonometric_tb |> 
-  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T)  |>
+  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, linesep = "")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 
