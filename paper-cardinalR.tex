@@ -248,15 +248,11 @@ linear <- gen_longlinear(n = 1000, p = 4)
 
 \paragraph{Gaussian}\label{gaussian}
 
-The \texttt{gen\_gaussian(n,\ p,\ s)} function generates a multivariate Gaussian cloud in \(p\text{-}D\), centered at the origin with user-defined covariance structure (Figure \ref{fig:gau-proj}). Each point is independently drawn using the multivariate normal distribution with \(X_i \sim N_p(\boldsymbol{0}, s)\), where \(s\) is a user-defined \(p \times p\) positive-definite matrix.
+The \texttt{gen\_gaussian(n,\ p,\ s)} function generates a multivariate Gaussian cloud in \(p\text{-}D\), centered at the origin with user-defined covariance structure. Each point is independently drawn using the multivariate normal distribution with \(X_i \sim N_p(\boldsymbol{0}, s)\), where \(s\) is a user-defined \(p \times p\) positive-definite matrix.
 
 \begin{verbatim}
 gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
 \end{verbatim}
-
-\begin{figure}[!]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/gau-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gau` data.}\label{fig:gau-proj}
-\end{figure}
 
 \paragraph{Möbius}\label{muxf6bius}
 
