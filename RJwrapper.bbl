@@ -26,7 +26,7 @@ G.~Cs\'ardi.
 \bibitem[Genz and Bretz(2009)]{alan2009}
 A.~Genz and F.~Bretz.
 \newblock \emph{Computation of Multivariate Normal and t Probabilities}.
-\newblock Lecture Notes in Statistics. Springer-Verlag, Heidelberg, 2009.
+\newblock Springer-Verlag, 2009.
 \newblock ISBN 978-3-642-01688-2.
 
 \bibitem[Hartig(2024)]{florian2024}
@@ -37,10 +37,9 @@ F.~Hartig.
 
 \bibitem[Jolliffe(2011)]{jolliffe2011}
 I.~Jolliffe.
-\newblock \emph{Principal Component Analysis}, pages 1094--1096.
+\newblock \emph{{Principal Component Analysis}}, pages 1094--1096.
 \newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2011.
 \newblock ISBN 978-3-642-04898-2.
-\newblock \doi{10.1007/978-3-642-04898-2_455}.
 \newblock URL \url{https://doi.org/10.1007/978-3-642-04898-2_455}.
 
 \bibitem[Leisch and Dimitriadou(2024)]{friedrich2024}
@@ -56,9 +55,8 @@ L.~V.~D. Maaten and G.~E. Hinton.
 
 \bibitem[McInnes et~al.(2018)McInnes, Healy, Saul, and Gro\ss{}berger]{leland2018}
 L.~McInnes, J.~Healy, N.~Saul, and L.~Gro\ss{}berger.
-\newblock Umap: Uniform manifold approximation and projection.
+\newblock {UMAP: Uniform Manifold Approximation and Projection}.
 \newblock \emph{Journal of Open Source Software}, 3\penalty0 (29):\penalty0 861, 2018.
-\newblock \doi{10.21105/joss.00861}.
 \newblock URL \url{https://doi.org/10.21105/joss.00861}.
 
 \bibitem[Melville(2025)]{james2025}
@@ -94,13 +92,12 @@ B.~Schloerke.
 L.~A. Stefanski.
 \newblock Residual (sur) realism.
 \newblock \emph{The American Statistician}, 61\penalty0 (2):\penalty0 163--177, 2007.
-\newblock ISSN 00031305.
 \newblock URL \url{http://www.jstor.org/stable/27643870}.
 
 \bibitem[Venables and Ripley(2002)]{venables2002}
 W.~N. Venables and B.~D. Ripley.
 \newblock \emph{Modern Applied Statistics with S}.
-\newblock Springer, New York, fourth edition, 2002.
+\newblock Springer, fourth edition, 2002.
 \newblock URL \url{https://www.stats.ox.ac.uk/pub/MASS4/}.
 \newblock ISBN 0-387-95457-0.
 
@@ -137,14 +134,14 @@ H.~Wickham, D.~Vaughan, and M.~Girlich.
 \bibitem[Xie(2015)]{yihui2015}
 Y.~Xie.
 \newblock \emph{Dynamic Documents with {R} and knitr}.
-\newblock Chapman and Hall/CRC, Boca Raton, Florida, 2nd edition, 2015.
+\newblock Chapman and Hall/CRC, 2nd edition, 2015.
 \newblock URL \url{https://yihui.name/knitr/}.
 \newblock ISBN 978-1498716963.
 
 \bibitem[Xie et~al.(2018)Xie, Allaire, and Grolemund]{yihui2018}
 Y.~Xie, J.~Allaire, and G.~Grolemund.
 \newblock \emph{{R} Markdown: The Definitive Guide}.
-\newblock Chapman and Hall/CRC, Boca Raton, Florida, 2018.
+\newblock Chapman and Hall/CRC, 2018.
 \newblock URL \url{https://bookdown.org/yihui/rmarkdown}.
 \newblock ISBN 978-1138359338.
 
@@ -152,7 +149,6 @@ Y.~Xie, J.~Allaire, and G.~Grolemund.
 L.~Zappia, B.~Phipson, and A.~Oshlack.
 \newblock Splatter: simulation of single-cell rna sequencing data.
 \newblock \emph{Genome Biology}, 2017.
-\newblock \doi{10.1186/s13059-017-1305-0}.
 \newblock URL \url{http://dx.doi.org/10.1186/s13059-017-1305-0}.
 
 \end{thebibliography}

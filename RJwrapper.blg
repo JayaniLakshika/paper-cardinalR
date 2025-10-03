@@ -5,16 +5,16 @@ The style file: abbrvnat.bst
 Database file #1: paper-cardinalR.bib
 You've used 24 entries,
             2773 wiz_defined-function locations,
-            754 strings with 8965 characters,
-and the built_in function-call counts, 10257 in all, are:
-= -- 934
+            745 strings with 8809 characters,
+and the built_in function-call counts, 10184 in all, are:
+= -- 917
 > -- 639
 < -- 17
 + -- 219
 - -- 195
-* -- 813
-:= -- 1667
-add.period$ -- 103
+* -- 802
+:= -- 1649
+add.period$ -- 98
 call.type$ -- 24
 change.case$ -- 122
 chr.to.int$ -- 24
@@ -22,25 +22,25 @@ cite$ -- 48
 duplicate$ -- 462
 empty$ -- 743
 format.name$ -- 233
-if$ -- 2089
+if$ -- 2069
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 17
-newline$ -- 158
+newline$ -- 154
 num.names$ -- 96
-pop$ -- 226
+pop$ -- 236
 preamble$ -- 1
 purify$ -- 113
 quote$ -- 0
 skip$ -- 375
 stack$ -- 0
-substring$ -- 196
+substring$ -- 200
 swap$ -- 47
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 239
 warning$ -- 0
-while$ -- 83
+while$ -- 84
 width$ -- 0
-write$ -- 371
+write$ -- 358
