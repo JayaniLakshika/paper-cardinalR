@@ -514,8 +514,6 @@ orgcurvybranches_proj3 <- plot_proj(
 
 ```
 
-For all branch-generating functions, when the target dimensionality $p > 2$, additional dimensions are filled with independent noise, allowing the $2\text{-}D$ or $2\text{-}D$-subspace structures to be naturally embedded in higher-dimensional space while preserving the intended geometric patterns.
-
 ```{r branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, and `orgcurvybranches` data in $4\\text{-}D$."}
 
 branchfig <- bscols(

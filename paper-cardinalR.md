@@ -352,8 +352,6 @@ where $a_i, b_i$ define the range of the first coordinate for branch $i$, and $\
 </div>
 
 
-For all branch-generating functions, when the target dimensionality $p > 2$, additional dimensions are filled with independent noise, allowing the $2\text{-}D$ or $2\text{-}D$-subspace structures to be naturally embedded in higher-dimensional space while preserving the intended geometric patterns.
-
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
 
