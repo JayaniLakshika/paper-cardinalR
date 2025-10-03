@@ -53,7 +53,6 @@ k & numeric & Number of clusters.\\
 loc & numeric (matrix) & Locations/centroids of clusters.\\
 scale & numeric (vector) & Scaling factors of clusters.\\
 shape & character (vector) & Shapes of clusters.\\
-\addlinespace
 rotation & numeric (list) & Rotation matrices, one per cluster.\\
 is\_bkg & boolean & Background noise should exist or not.\\
 \bottomrule
@@ -378,7 +377,6 @@ gen\_curvycycle & Curvy cell cycle.\\
 gen\_unifsphere & Uniform sphere.\\
 gen\_gridedsphere & Grided sphere.\\
 gen\_clusteredspheres & Multiple small spheres within a big sphere.\\
-\addlinespace
 gen\_hemisphere & Hemisphere.\\
 \bottomrule
 \end{tabular}
@@ -502,6 +500,74 @@ trefoil3d <- gen_trefoil3d(n = 500, steps = 5)
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/trefoil-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.}\label{fig:trefoil-proj}
 \end{figure}
 
+\paragraph{Trigonometric}\label{trigonometric}
+
+Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \ref{fig:triginometric-proj}). The first few coordinates define the main geometric structure (e.g., crescent, cylinder, spiral, or helix), while for higher-dimensional embeddings, additional noise dimensions are appended: for the crescent shape this occurs when \(p > 2\) (adding \(X_3\) through \(X_p\)), and for all other trigonometric shapes when \(p > 4\) (adding \(X_5\) through \(X_p\)). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table \ref{tab:trigonometric-tb-pdf} summarizes these functions.
+
+\begin{table}
+
+\caption{\label{tab:trigonometric-tb-pdf}cardinalR trigonometric data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_crescent & Crescent pattern.\\
+gen\_curvycylinder & Curvy cylinder.\\
+gen\_sphericalspiral & Spherical spiral.\\
+gen\_helicalspiral & Helical spiral.\\
+gen\_conicspiral & Conic spiral.\\
+\addlinespace
+gen\_nonlinear & Nonlinear hyperbola.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+First, the \texttt{gen\_crescent(n,\ p)} function generates a \(p\)-dimensional dataset of \(n\) observations based on a \(2\text{-}D\) crescent-shaped manifold with optional structured high-dimensional noise (Figure \ref{fig:triginometric-proj} a). Let \(\theta \in [\pi/6, 2\pi]\) be a sequence of \(n\) evenly spaced angles. The corresponding \(2\text{-}D\) coordinates are defined by: \[X_1 = \cos(\theta), \quad X_2 = \sin(\theta).\]
+
+\begin{verbatim}
+crescent <- gen_crescent(n = 1000)
+\end{verbatim}
+
+Second, the \texttt{gen\_curvycylinder(n,\ p,\ h)} function generates a \(p\)-dimensional dataset of \(n\) observations structured as a \(3\text{-}D\) cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when \(p > 4\) (Figure \ref{fig:triginometric-proj} b). The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension. Let \(\theta \sim U(0, 3\pi)\) represent a random angle on a circular base and \(z \sim U(0, h)\) represent the height along the cylinder. The coordinates are defined as: \(X_1 = \cos(\theta)\) (Circular base, x-axis), \(X_2 = \sin(\theta)\) (Circular base, y-axis), \(X_3 = z\) (Linear height), and \(X_4 = \sin(z)\) (Nonlinear curvy variation along height).
+
+\begin{verbatim}
+curvycylinder <- gen_curvycylinder(n = 1000, h = 10)
+\end{verbatim}
+
+For a spiraling path on a spherical surface in the first four dimensions, \texttt{gen\_sphericalspiral(n,\ p,\ spins)} (Figure \ref{fig:triginometric-proj} c), let \(\theta \in [0, 2\pi \times \text{spins}]\) be the azimuthal angle (longitude), controls the number of spiral turns and the \(\phi \in [0, \pi]\)be the polar angle (latitude), controls the vertical sweep from the north to the south pole. Cartesian coordinates from spherical conversion: \(X_1 = \sin(\phi)\cos(\theta)\), \(X_2 = \sin(\phi)\sin(\theta)\), \(X_3 = \cos(\phi) + \varepsilon\), where \(\varepsilon \sim U(-0.5, 0.5)\) introduces vertical jitter, and \(X_4 = \theta / \max(\theta)\): a normalized progression along the spiral path. This generates a spherical spiral curve embedded in \(4\text{-}D\) space, combining both circular and vertical movement, with gentle curvature and non-linear progression.
+
+\begin{verbatim}
+sphericalspiral <- gen_sphericalspiral(n = 1000, spins = 1)
+\end{verbatim}
+
+For a helical spiral in four dimensions, \texttt{gen\_helicalspiral(n,\ p)} (Figure \ref{fig:triginometric-proj} d), let \(\theta \in [0, 5\pi/4]\) be a sequence of angles controlling rotation around a circle. Cartesian coordinates; \(X_1 = \cos(\theta)\): circular trajectory along the x-axis, \(X_2 = \sin(\theta)\): circular trajectory along the y-axis, \(X_3 = 0.05\theta + \varepsilon_3\), with \(\varepsilon_3 \sim U(-0.5, 0.5)\): linear progression (height) with vertical jitter, simulating a helix, and \(X_4 = 0.1\sin(\theta)\): oscillates with \(\theta\), representing a periodic ``wobble'' along the fourth dimension.
+
+\begin{verbatim}
+helicalspiral <- gen_helicalspiral(n = 1000)
+\end{verbatim}
+
+Similarly, the \texttt{gen\_conicspiral(n,\ p,\ spins)} function generates a dataset of \(n\) points forming a conical spiral in the first four dimensions of \(p\text{-}D\) (Figure \ref{fig:triginometric-proj} e). The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a \(3\text{-}D\) conic helix. The shape is defined by parameter \(\theta \in [0, 2\pi\text{spins}]\), controlling the angular progression of the spiral. The Archimedean spiral in the horizontal plane is represented by; \(X_1 = \theta\cos(\theta)\) for radial expansion in x, and \(X_2 = \theta\sin(\theta)\) for radial expansion in y. The growth pattern resembles a cone, with the height increasing according to \(X_3 = 2\theta / \max(\theta) + \varepsilon_3\), with \(\varepsilon_3 \sim U(-0.1, 0.6).\) Spiral modulation in the fourth dimension is represented by \(X_4 = \theta\sin(2\theta) + \varepsilon_4\), with \(\varepsilon_4 \sim U(-0.1, 0.6)\) which simulates a twisting helical component in a non-radial dimension.
+
+\begin{verbatim}
+conicspiral <- gen_conicspiral(n = 1000, spins = 1)
+\end{verbatim}
+
+Finally, the \texttt{gen\_nonlinear(n,\ p,\ hc,\ non\_fac)} function simulates a non-linear \(2\text{-}D\) surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables (Figure \ref{fig:triginometric-proj} f). The \(X_{1} \sim U(0.1, 2)\): base variable (avoids zero to prevent division errors), \(X_{3} \sim U(0.1, 0.8)\): independent auxiliary variable, \(X_{2} = hc/X_{1} + \text{nonfac}\sin(X_{1})\): non-linear combination of hyperbolic and sinusoidal transformations, creating sharp curvature and oscillation, and \(X_{4} = \cos(\pi X_{1}) + \varepsilon\), with \(\varepsilon \sim U(-0.1, 0.1)\): additional nonlinear variation based on cosine, simulating more subtle periodic structure. These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter.
+
+\begin{verbatim}
+nonlinear <- gen_nonlinear(n = 1000, hc = 1, non_fac = 0.5)
+\end{verbatim}
+
+\begin{figure}[!]
+
+{\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/triginometric-proj-1} 
+
+}
+
+\caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.}\label{fig:triginometric-proj}
+\end{figure}
+
 \subsubsection{Generate a Spherical or Hyperspherical Hole Within a Structure}\label{generate-a-spherical-or-hyperspherical-hole-within-a-structure}
 
 The package provides functionality for generating datasets with \textbf{spherical hole} (in 2D/3D) or, more generally, \textbf{hyperspherical hole} (in higher dimensions). These structures are valuable for evaluating how dimension reduction methods and clustering algorithms handle incomplete manifolds or missing regions of the data space. A hyperspherical hole introduces topological complexity: the structure remains continuous but contains excluded regions (voids) that algorithms must correctly represent in lower-dimensional embeddings.
@@ -585,13 +651,11 @@ make\_multigau & Multiple Gaussian clusters in high-dimensional space.\\
 make\_curvygau & Curvilinear cluster with a Gaussian cluster.\\
 make\_klink\_circles & K-link circular clusters (non-linear circular patterns).\\
 make\_chain\_circles & Chain-like circular clusters connected sequentially.\\
-\addlinespace
 make\_klink\_curvycycle & K-link curvy cycle clusters (curvilinear loop structures).\\
 make\_chain\_curvycycle & Chain-like curvy cycle clusters connected sequentially.\\
 make\_gaucircles & Circular clusters with a Gaussian cluster in the middle.\\
 make\_gaucurvycycle & Curvy circular clusters with a Gaussian cluster in the middle.\\
 make\_onegrid & Single grid in two dimensions.\\
-\addlinespace
 make\_twogrid\_overlap & Two overlapping grids.\\
 make\_twogrid\_shift & Two grids shifted relative to each other.\\
 make\_shape\_para & Parallel shaped clusters.\\
@@ -617,7 +681,6 @@ randomize\_rows & Randomizes the rows.\\
 relocate\_clusters & Relocates the clusters.\\
 gen\_nproduct & Generates a vector of positive integers whose product is approximately equal to a target value.\\
 gen\_nsum & Generates a vector of positive integers whose summation is approximately equal to a target value.\\
-\addlinespace
 gen\_rotation & Generates rotations.\\
 normalize\_data & Normalizes data.\\
 \bottomrule
