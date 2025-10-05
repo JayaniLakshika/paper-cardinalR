@@ -247,10 +247,6 @@ The \texttt{gen\_longlinear(n,\ p)} function generates a high-dimensional datase
 linear <- gen_longlinear(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{figure}[!]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/linear-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `linear` data.}\label{fig:linear-proj}
-\end{figure}
-
 \paragraph{Möbius}\label{muxf6bius}
 
 The \texttt{gen\_mobius()} function is a \textbf{wrapper} around \texttt{geozoo::mobius()}, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with \(n\) sampled points forming the surface of a Möbius strip.
