@@ -308,7 +308,7 @@ where $s_i$ is a scale factor controlling the curvature of branch $i$. For the f
 curvybranches <- gen_curvybranches(n = 1000, k = 4)
 ```
 
-The `gen_expbranches(n, p, k)` function creates $k$ exponential branches in $2\text{-}D$, radiating from a central region (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:branch) a"} else { "Figure \\@ref(fig:branch-proj) a"})`). Each branch $i$ is defined as
+The `gen_expbranches(n, k)` function creates $k$ exponential branches in \gD{}, radiating from a central region. Each branch $i$ is defined as
 
 $$
 X_1 \sim U(-2,2), \quad X_2 = \exp(\sigma_i \, s_i \, X_1) + \epsilon, \quad \epsilon \sim U(0, \delta), \quad s_i \sim U(0.5,2),
@@ -536,41 +536,6 @@ orgcurvybranches_proj1 + orgcurvybranches_proj2 + orgcurvybranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 ```
 
-#### Cube
-
-A cube structure represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:cube-tb-html)', '\\@ref(tab:cube-tb-pdf)'))` outlines these functions and their purposes. 
-
-The first is the regular grid of points of $n$ points in $p$ dimensions. This is generated using `gen_gridcube(n, p)`. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to $n$. Each dimension is then normalized to lie in the interval $[0,1]$, so that the resulting structure forms a true $p\text{-}D$ hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.
-
-```{r data-gridcube, echo=TRUE}
-gridcube <- gen_gridcube(n = 1000, p = 4)
-```
-
-An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function `gen_unifcube(n, p)` is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the $p\text{-}D$ cube.
-
-```{r data-unifcube, echo=TRUE}
-unifcube <- gen_unifcube(n = 1000, p = 4)
-```
-
-```{r}
-cube_tb <- tibble(fun = c("gen_gridcube",
-                          "gen_unifcube"), 
-                      exp = c("Cube with specified grid points along each axes.",
-                              "Cube with uniform points."))
-```
-
-```{r cube-tb-html, eval=knitr::is_html_output()}
-cube_tb |> 
-  kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"), table.pos = "H") 
-```
-
-```{r cube-tb-pdf, eval=knitr::is_latex_output()}
-cube_tb |> 
-  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "H")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-```
-
 #### Cone
 
 To simulate a cone-shaped structure in arbitrary dimensions (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cone)"} else { "Figure \\@ref(fig:cone-proj)"})`), we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
@@ -690,6 +655,41 @@ conefig
 
 cone_proj1 + cone_proj2 + cone_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
+```
+
+#### Cube
+
+A cube structure represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:cube-tb-html)', '\\@ref(tab:cube-tb-pdf)'))` outlines these functions and their purposes. 
+
+The first is the regular grid of points of $n$ points in $p$ dimensions. This is generated using `gen_gridcube(n, p)`. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to $n$. Each dimension is then normalized to lie in the interval $[0,1]$, so that the resulting structure forms a true $p\text{-}D$ hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.
+
+```{r data-gridcube, echo=TRUE}
+gridcube <- gen_gridcube(n = 1000, p = 4)
+```
+
+An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function `gen_unifcube(n, p)` is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the $p\text{-}D$ cube.
+
+```{r data-unifcube, echo=TRUE}
+unifcube <- gen_unifcube(n = 1000, p = 4)
+```
+
+```{r}
+cube_tb <- tibble(fun = c("gen_gridcube",
+                          "gen_unifcube"), 
+                      exp = c("Cube with specified grid points along each axes.",
+                              "Cube with uniform points."))
+```
+
+```{r cube-tb-html, eval=knitr::is_html_output()}
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"), table.pos = "H") 
+```
+
+```{r cube-tb-pdf, eval=knitr::is_latex_output()}
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "H")  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
 ```
 
 #### Gaussian

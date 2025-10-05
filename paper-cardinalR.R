@@ -384,33 +384,6 @@ orgcurvybranches_proj1 + orgcurvybranches_proj2 + orgcurvybranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## ----data-gridcube, echo=TRUE-------------------------------------------------
-gridcube <- gen_gridcube(n = 1000, p = 4)
-
-
-## ----data-unifcube, echo=TRUE-------------------------------------------------
-unifcube <- gen_unifcube(n = 1000, p = 4)
-
-
-## -----------------------------------------------------------------------------
-cube_tb <- tibble(fun = c("gen_gridcube",
-                          "gen_unifcube"), 
-                      exp = c("Cube with specified grid points along each axes.",
-                              "Cube with uniform points."))
-
-
-## ----cube-tb-html, eval=knitr::is_html_output()-------------------------------
-# cube_tb |>
-#   kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"), table.pos = "H")
-
-
-## ----cube-tb-pdf, eval=knitr::is_latex_output()-------------------------------
-cube_tb |> 
-  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "H")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
 ## ----data-bluntedcone, echo=TRUE----------------------------------------------
 cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 
@@ -522,6 +495,33 @@ cone_proj3 <- plot_proj(
 
 cone_proj1 + cone_proj2 + cone_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
+
+
+## ----data-gridcube, echo=TRUE-------------------------------------------------
+gridcube <- gen_gridcube(n = 1000, p = 4)
+
+
+## ----data-unifcube, echo=TRUE-------------------------------------------------
+unifcube <- gen_unifcube(n = 1000, p = 4)
+
+
+## -----------------------------------------------------------------------------
+cube_tb <- tibble(fun = c("gen_gridcube",
+                          "gen_unifcube"), 
+                      exp = c("Cube with specified grid points along each axes.",
+                              "Cube with uniform points."))
+
+
+## ----cube-tb-html, eval=knitr::is_html_output()-------------------------------
+# cube_tb |>
+#   kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"), table.pos = "H")
+
+
+## ----cube-tb-pdf, eval=knitr::is_latex_output()-------------------------------
+cube_tb |> 
+  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "H")  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
 
 
 ## ----data-gau, echo=TRUE------------------------------------------------------
