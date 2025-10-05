@@ -61,7 +61,7 @@ is\_bkg & boolean & Background noise should exist or not.\\
 
 \subsubsection{Shape generators}\label{shape-generators}
 
-The shape generators form the foundation of the package, providing a collection of functions to create synthetic data structures based on simple, well-defined geometric structures. These include fundamental shapes such as cones, pyramids, spheres, grids, and branching structures. If a shape is not inherently defined in more than two dimensions, additional noise dimensions can be added to embed the structure into higher-dimensional space. Users can specify how these noise dimensions are generated (e.g., Gaussian, wavy) (\texttt{noise\_fun}), offering control over the embedding process. All shape generators allow the user to define the number of points (\texttt{n}), and most include additional arguments to customize specific characteristics of the structure.
+The shape generators form the foundation of the package, providing functions to create synthetic datasets from simple, well-defined geometric forms such as cones, pyramids, spheres, grids, and branching structures. Each generator includes the parameter \texttt{n}, which specifies the number of points to generate. Some functions, such as \texttt{gen\_unifcube()}, also take the dimension \texttt{p}, while others include arguments specific to the geometry (e.g., radius for spheres (\texttt{r}), width for bands (\texttt{w})). If higher-dimensional data are required, additional noise dimensions can be appended after data generation using any noise generator function. This flexibility allows users to construct both low- and high-dimensional datasets from the same underlying structures.
 
 \paragraph{Branching}\label{branching}
 
