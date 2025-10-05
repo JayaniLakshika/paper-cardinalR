@@ -151,23 +151,23 @@ branch_tb |>
 
 ## -----------------------------------------------------------------------------
 arg_branching_tb <- tibble(arg = c("n",
-                          "p",
                           "k"), 
-                        exp = c("A numeric value representing the number of points.",
-                                "A numeric value representing the number of dimensions.",
-                                "A numeric value representing the number of clusters."))
+                          type = c("integer", "integer"),
+                        exp = c("Number of points.",
+                                "Number of clusters."))
 
 
 ## ----arg-branching-tb-html, eval=knitr::is_html_output()----------------------
 # arg_branching_tb |>
-#   kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Explanation"), table.pos = "H")
+#   kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Type", "Explanation"), table.pos = "H")
 
 
 ## ----arg-branching-tb-pdf, eval=knitr::is_latex_output()----------------------
 arg_branching_tb |> 
-  kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Explanation"), booktabs = T, table.pos = "H")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
+  kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Type", "Explanation"), booktabs = T, table.pos = "H")  |>
+  column_spec(1, width = "1cm") |>
+  column_spec(1, width = "2cm") |>
+  column_spec(2, width = "3cm")
 
 
 ## ----data-linearbranches, echo=TRUE-------------------------------------------
@@ -2237,8 +2237,8 @@ noise_fun_tb <- tibble(fun = c("gen_noisedims",
 ## ----noise-tb-pdf, eval=knitr::is_latex_output()------------------------------
 noise_fun_tb |> 
   kable(caption = "cardinalR noise dimensions generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "H")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
+  column_spec(1, width = "3cm") |>
+  column_spec(2, width = "9cm")
 
 
 ## -----------------------------------------------------------------------------
