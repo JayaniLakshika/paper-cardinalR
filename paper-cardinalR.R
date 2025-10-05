@@ -211,7 +211,7 @@ orglinearbranches_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "d1", 
+  title = "a1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -238,7 +238,7 @@ orglinearbranches_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "d2", 
+  title = "a2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -265,7 +265,7 @@ orglinearbranches_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.62), 
-  title = "d3", 
+  title = "a3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -276,98 +276,12 @@ orglinearbranches_proj3 <- plot_proj(
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 
 
-## -----------------------------------------------------------------------------
-orgcurvybranches_lang <- langevitour::langevitour(orgcurvybranches, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
-
-
-## ----orgcurvybranches-proj1---------------------------------------------------
-scaled_data <- scale_data_manual(orgcurvybranches)
-
-## First projection
-projection <- cbind(
-  c(0.53506,0.00763,0.00097,-0.10901),
-  c(0.00896,0.52496,0.12597,0.08184))
-
-proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.6,
-                                              axis_scaled = 1.2, 
-                                              axis_pos_x = -0.3, 
-                                              axis_pos_y = -0.3, 
-                                              threshold = 0.022))
-
-orgcurvybranches_proj1 <- plot_proj(
-  proj_obj = proj_obj1, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.4, 0.5), 
-  title = "e1", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----orgcurvybranches-proj2---------------------------------------------------
-
-## Second projection
-projection <- cbind(
-  c(-0.06614,0.15134,-0.44278,0.27367),
-  c(-0.50493,0.14388,0.14615,0.03486))
-
-proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
-
-orgcurvybranches_proj2 <- plot_proj(
-  proj_obj = proj_obj2, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.6), 
-  title = "e2", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----orgcurvybranches-proj3---------------------------------------------------
-
-## Third projection
-projection <- cbind(
-  c(0.10704,0.04822,-0.03416,0.53224),
-  c(0.50329,0.07199,-0.16064,-0.11806))
-
-proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.6,
-                                              axis_scaled = 1.5, 
-                                              axis_pos_x = -0.4, 
-                                              axis_pos_y = -0.4, 
-                                              threshold = 0.016))
-
-orgcurvybranches_proj3 <- plot_proj(
-  proj_obj = proj_obj3, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.62), 
-  title = "e3", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `expbranches`, `linearbranches`, `curvybranches`, `orglinearbranches`, and `orgcurvybranches` data in $4\\text{-}D$."----
+## ----branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `orglinearbranches` data in $4\\text{-}D$."----
 # 
 # branchfig <- bscols(
 #   htmltools::div(
 #     style = "display: grid; grid-template-columns: 1fr 1fr;",
-#     orglinearbranches_lang, orgcurvybranches_lang
+#     orglinearbranches_lang
 #   ),
 #   device = "xs"
 # )
@@ -377,10 +291,9 @@ orgcurvybranches_proj3 <- plot_proj(
 # branchfig
 
 
-## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.", fig.width=12, fig.height=8----
+## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `orglinearbranches` (a1-a3) data.", fig.width=12, fig.height=4----
 
 orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
-orgcurvybranches_proj1 + orgcurvybranches_proj2 + orgcurvybranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 

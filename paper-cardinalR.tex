@@ -154,7 +154,7 @@ where \(\sigma_i = (-1)^{i+1}\) alternates the sign of the exponent to produce m
 expbranches <- gen_expbranches(n = 1000, k = 4)
 \end{verbatim}
 
-High-dimensional generalizations are provided by \texttt{gen\_orglinearbranches(n,\ p,\ k)} and \texttt{gen\_orgcurvybranches(n,\ p,\ k)} (Figure \ref{fig:branch-proj} d-e). Each branch is embedded in a unique or repeated \(2\text{-}D\) subspace of the \(p\text{-}D\) space. When \texttt{allow\_share\ =\ TRUE}, multiple branches may share the same subspace; otherwise, subspaces are sampled without replacement until all possible \(\binom{p}{2}\) combinations are exhausted, after which additional branches may repeat subspaces. Linear branches follow
+High-dimensional generalizations are provided by \texttt{gen\_orglinearbranches(n,\ p,\ k)} (Figure \ref{fig:branch-proj}) and \texttt{gen\_orgcurvybranches(n,\ p,\ k)}. Each branch is embedded in a unique or repeated \(2\text{-}D\) subspace of the \(p\text{-}D\) space. When \texttt{allow\_share\ =\ TRUE}, multiple branches may share the same subspace; otherwise, subspaces are sampled without replacement until all possible \(\binom{p}{2}\) combinations are exhausted, after which additional branches may repeat subspaces. Linear branches follow
 
 \[
 X_{i_1} \sim U(a_i,b_i), \quad X_{i_2} = s_i X_{i_1} + \epsilon, \quad \epsilon \sim N(0, \sigma^2),
@@ -177,7 +177,7 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 \end{verbatim}
 
 \begin{figure}[!]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/branch-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `expbranches` (a1-a3), `linearbranches` (b1-b3), `curvybranches` (c1-c3), `orglinearbranches` (d1-d3), `orgcurvybranches` (e1-e3) data.}\label{fig:branch-proj}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/branch-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `orglinearbranches` (a1-a3) data.}\label{fig:branch-proj}
 \end{figure}
 
 \paragraph{Cone}\label{cone}
