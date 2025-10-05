@@ -805,12 +805,12 @@ Finally, for the Sierpinski-like pyramid, `gen_pyrfrac(n, p)` (Figure \@ref(fig:
 
 Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 
-|Function    |Explanation                                             |
-|:-----------|:-------------------------------------------------------|
-|gen_pyrrect |Rectangular-base pyramid, with a sharp or blunted apex. |
-|gen_pyrtri  |Triangular-base pyramid, with a sharp or blunted apex.  |
-|gen_pyrstar |Star-shaped base pyramid, with a sharp or blunted apex. |
-|gen_pyrfrac |Pyramid containing triangular pyramid-shaped holes.     |
+|Function    |Explanation                                     |
+|:-----------|:-----------------------------------------------|
+|gen_pyrrect |Rectangular-base, with a sharp or blunted apex. |
+|gen_pyrtri  |Triangular-base, with a sharp or blunted apex.  |
+|gen_pyrstar |Star-shaped base, with a sharp or blunted apex. |
+|gen_pyrfrac |Pyramid with triangular pyramid-shaped holes.   |
 
 </div>
 
