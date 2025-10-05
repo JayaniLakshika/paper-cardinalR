@@ -2237,8 +2237,8 @@ noise_fun_tb <- tibble(fun = c("gen_noisedims",
 ## ----noise-tb-pdf, eval=knitr::is_latex_output()------------------------------
 noise_fun_tb |> 
   kable(caption = "cardinalR noise dimensions generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "H")  |>
-  column_spec(1, width = "3cm") |>
-  column_spec(2, width = "9cm")
+  column_spec(1, width = "2.5cm") |>
+  column_spec(2, width = "10.5cm")
 
 
 ## -----------------------------------------------------------------------------
