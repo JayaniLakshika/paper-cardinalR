@@ -338,7 +338,7 @@ gen\_pyrfrac & Pyramid with triangular pyramid-shaped holes.\\
 
 \paragraph{S-curve}\label{s-curve}
 
-The S-curve structure (Figure \ref{fig:scurve-proj}) represents a smooth, non-linear manifold in 3D space. Using \texttt{gen\_scurve(n,\ p)} (Figure \ref{fig:scurve-proj} a), the geometry is defined by a latent parameter \(\theta \sim U(-3\pi/2, 3\pi/2)\), which controls the curvature of the manifold. The first three coordinates form the S-shape:
+The S-curve structure represents a smooth, non-linear manifold in 3D space. Using \texttt{gen\_scurve(n,\ p)} (Figure \ref{fig:scurve-proj} a), the geometry is defined by a latent parameter \(\theta \sim U(-3\pi/2, 3\pi/2)\), which controls the curvature of the manifold. The first three coordinates form the S-shape:
 
 \[
 X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1),
@@ -349,10 +349,6 @@ creating a horizontally curled pattern in \((X_1, X_3)\) with additional thickne
 \begin{verbatim}
 scurve <- gen_scurve(n = 1000)
 \end{verbatim}
-
-\begin{figure}[!]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/scurve-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `scurve` (a1-a3) and `scurvehole` (b1-b3) data.}\label{fig:scurve-proj}
-\end{figure}
 
 \paragraph{Sphere}\label{sphere}
 
@@ -450,15 +446,11 @@ hemisphere <- gen_hemisphere(n = 1000)
 
 \paragraph{Swiss Roll}\label{swiss-roll}
 
-To further generalize the Swiss roll structure and introduce realistic noise, we define a function \texttt{gen\_swissroll(n,\ w)}, where \(n\) is the number of points, \(p\) is the total number of dimensions, and \(w\) is the vertical range in the third dimension (Figure \ref{fig:swissroll-proj}). The first three dimensions form the classic \(3\text{-}D\) Swiss roll shape. The \[X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \text{ where } t \sim U(0, 3\pi).\]
+To further generalize the Swiss roll structure and introduce realistic noise, we define a function \texttt{gen\_swissroll(n,\ w)}, where \(n\) is the number of points, \(p\) is the total number of dimensions, and \(w\) is the vertical range in the third dimension. The first three dimensions form the classic \(3\text{-}D\) Swiss roll shape. The \[X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \text{ where } t \sim U(0, 3\pi).\]
 
 \begin{verbatim}
 swissroll <- gen_swissroll(n = 1000, w = c(-1, 1))
 \end{verbatim}
-
-\begin{figure}[H]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/swissroll-proj-1} \caption{Three $2\text{-}D$ projections from $3\text{-}D$, for the `swissroll` data.}\label{fig:swissroll-proj}
-\end{figure}
 
 \paragraph{Trefoil knots}\label{trefoil-knots}
 
