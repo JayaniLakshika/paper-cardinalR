@@ -346,9 +346,13 @@ gen\_pyrfrac & Pyramid containing triangular pyramid-shaped holes.\\
 
 \paragraph{S-curve}\label{s-curve}
 
-An S-curve structure (Figure \ref{fig:scurve-proj}) simulates data that lies along a smooth, non-linear manifold.
+The S-curve structure (Figure \ref{fig:scurve-proj}) represents a smooth, non-linear manifold in 3D space. Using \texttt{gen\_scurve(n,\ p)} (Figure \ref{fig:scurve-proj} a), the geometry is defined by a latent parameter \(\theta \sim U(-3\pi/2, 3\pi/2)\), which controls the curvature of the manifold. The first three coordinates form the S-shape:
 
-For the S-curve structure, \texttt{gen\_scurve(n,\ p)} (Figure \ref{fig:scurve-proj} a), the \(3\text{-}D\) geometry is constructed by introducing a latent parameter, \(\theta \sim U\left(-3\pi/2, 3\pi/2\right)\). This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: \[X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1)\]. This configuration creates a horizontally curled shape in \((X_1, X_3)\), with additional band thickness in the \(X_2\) direction.
+\[
+X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1),
+\]
+
+creating a horizontally curled pattern in \((X_1, X_3)\) with additional thickness along \(X_2\).
 
 \begin{verbatim}
 scurve <- gen_scurve(n = 1000)
@@ -577,7 +581,7 @@ The core function \texttt{gen\_hole()} removes points from a dataset that fall w
 
 are retained. The anchor point (a) can either be user-specified or default to the dataset mean, and radius (r) is controlled by the user, with safeguards to avoid trivial or degenerate cases. Because it operates generically on any dataset, spherical or hyperspherical holes can be embedded in a wide range of geometric structures.
 
-Two specialized wrappers illustrate this idea. The function \texttt{gen\_scurvehole()} generates an S-curve with a spherical hole by applying \texttt{gen\_hole()} to the output of \texttt{gen\_scurve()}. This structure has been used in prior diagnostic studies of NLDR methods \citep{wang2021}, since it tests the ability of algorithms to capture non-linear manifolds that are not simply connected. The second wrapper, \texttt{gen\_unifcubehole()}, generates uniformly sampled cube data with a hyperspherical hole. By embedding a hyperspherical void inside a convex high-dimensional structure, this creates non-convex regions that challenge algorithms in terms of separability and neighborhood preservation.
+Two specialized wrappers illustrate this idea. The function \texttt{gen\_scurvehole()} generates an S-curve with a spherical hole by applying \texttt{gen\_hole()} to the output of \texttt{gen\_scurve()}. This structure has been used in prior diagnostic studies of NLDR methods, since it tests the ability of algorithms to capture non-linear manifolds that are not simply connected. The second wrapper, \texttt{gen\_unifcubehole()}, generates uniformly sampled cube data with a hyperspherical hole. By embedding a hyperspherical void inside a convex high-dimensional structure, this creates non-convex regions that challenge algorithms in terms of separability and neighborhood preservation.
 
 \subsubsection{Generate noise dimensions}\label{generate-noise-dimensions}
 
@@ -651,7 +655,7 @@ make\_chain\_circles & Chain-like circular clusters connected sequentially.\\
 make\_klink\_curvycycle & K-link curvy cycle clusters (curvilinear loop structures).\\
 make\_chain\_curvycycle & Chain-like curvy cycle clusters connected sequentially.\\
 make\_gaucircles & Circular clusters with a Gaussian cluster in the middle.\\
-make\_gaucurvycycle & Curvy circular clusters with a Gaussian cluster in the middle.\\
+make\_gaucurvycycle & Curvy circular clusters with a Gaussian in the middle.\\
 make\_onegrid & Single grid in two dimensions.\\
 make\_twogrid\_overlap & Two overlapping grids.\\
 make\_twogrid\_shift & Two grids shifted relative to each other.\\

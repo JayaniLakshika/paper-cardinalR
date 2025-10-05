@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-10-03'
+date: '2025-10-05'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float} \newcommand\pD{$p\text{-}D$} \newcommand\gD{$2\text{-}D$}
 output:
@@ -909,9 +909,13 @@ Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
 
 #### S-curve
 
-An S-curve structure (Figure \@ref(fig:scurve)) simulates data that lies along a smooth, non-linear manifold. 
+The S-curve structure (Figure \@ref(fig:scurve)) represents a smooth, non-linear manifold in 3D space. Using `gen_scurve(n, p)` (Figure \@ref(fig:scurve) a), the geometry is defined by a latent parameter $\theta \sim U(-3\pi/2, 3\pi/2)$, which controls the curvature of the manifold. The first three coordinates form the S-shape:
 
-For the S-curve structure, `gen_scurve(n, p)` (Figure \@ref(fig:scurve) a), the $3\text{-}D$ geometry is constructed by introducing a latent parameter, $\theta \sim U\left(-3\pi/2, 3\pi/2\right)$. This parameter controls the curvature of the manifold. The first three dimensions form the S-curve structure: $$X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1)$$. This configuration creates a horizontally curled shape in $(X_1, X_3)$, with additional band thickness in the $X_2$ direction.
+$$
+X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1),
+$$
+
+creating a horizontally curled pattern in $(X_1, X_3)$ with additional thickness along $X_2$. 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurve</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurve</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre></div>
@@ -1670,7 +1674,7 @@ $$
 
 are retained. The anchor point (a) can either be user-specified or default to the dataset mean, and radius (r) is controlled by the user, with safeguards to avoid trivial or degenerate cases. Because it operates generically on any dataset, spherical or hyperspherical holes can be embedded in a wide range of geometric structures.
 
-Two specialized wrappers illustrate this idea. The function `gen_scurvehole()` generates an S-curve with a spherical hole by applying `gen_hole()` to the output of `gen_scurve()`. This structure has been used in prior diagnostic studies of NLDR methods [@wang2021], since it tests the ability of algorithms to capture non-linear manifolds that are not simply connected. The second wrapper, `gen_unifcubehole()`, generates uniformly sampled cube data with a hyperspherical hole. By embedding a hyperspherical void inside a convex high-dimensional structure, this creates non-convex regions that challenge algorithms in terms of separability and neighborhood preservation.
+Two specialized wrappers illustrate this idea. The function `gen_scurvehole()` generates an S-curve with a spherical hole by applying `gen_hole()` to the output of `gen_scurve()`. This structure has been used in prior diagnostic studies of NLDR methods, since it tests the ability of algorithms to capture non-linear manifolds that are not simply connected. The second wrapper, `gen_unifcubehole()`, generates uniformly sampled cube data with a hyperspherical hole. By embedding a hyperspherical void inside a convex high-dimensional structure, this creates non-convex regions that challenge algorithms in terms of separability and neighborhood preservation.
 
 ### Generate noise dimensions
 
@@ -1748,22 +1752,22 @@ By using the shape generators mentioned above, we can create various examples of
 
 Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
 
-|Function              |Explanation                                                    |
-|:---------------------|:--------------------------------------------------------------|
-|make_mobiusgau        |Möbius-like cluster combined with a Gaussian.                  |
-|make_multigau         |Multiple Gaussian clusters in high-dimensional space.          |
-|make_curvygau         |Curvilinear cluster with a Gaussian cluster.                   |
-|make_klink_circles    |K-link circular clusters (non-linear circular patterns).       |
-|make_chain_circles    |Chain-like circular clusters connected sequentially.           |
-|make_klink_curvycycle |K-link curvy cycle clusters (curvilinear loop structures).     |
-|make_chain_curvycycle |Chain-like curvy cycle clusters connected sequentially.        |
-|make_gaucircles       |Circular clusters with a Gaussian cluster in the middle.       |
-|make_gaucurvycycle    |Curvy circular clusters with a Gaussian cluster in the middle. |
-|make_onegrid          |Single grid in two dimensions.                                 |
-|make_twogrid_overlap  |Two overlapping grids.                                         |
-|make_twogrid_shift    |Two grids shifted relative to each other.                      |
-|make_shape_para       |Parallel shaped clusters.                                      |
-|make_three_clust_     |Three clusters with different shapes. (eg:- 01, 02, ..., 20)   |
+|Function              |Explanation                                                  |
+|:---------------------|:------------------------------------------------------------|
+|make_mobiusgau        |Möbius-like cluster combined with a Gaussian.                |
+|make_multigau         |Multiple Gaussian clusters in high-dimensional space.        |
+|make_curvygau         |Curvilinear cluster with a Gaussian cluster.                 |
+|make_klink_circles    |K-link circular clusters (non-linear circular patterns).     |
+|make_chain_circles    |Chain-like circular clusters connected sequentially.         |
+|make_klink_curvycycle |K-link curvy cycle clusters (curvilinear loop structures).   |
+|make_chain_curvycycle |Chain-like curvy cycle clusters connected sequentially.      |
+|make_gaucircles       |Circular clusters with a Gaussian cluster in the middle.     |
+|make_gaucurvycycle    |Curvy circular clusters with a Gaussian in the middle.       |
+|make_onegrid          |Single grid in two dimensions.                               |
+|make_twogrid_overlap  |Two overlapping grids.                                       |
+|make_twogrid_shift    |Two grids shifted relative to each other.                    |
+|make_shape_para       |Parallel shaped clusters.                                    |
+|make_three_clust_     |Three clusters with different shapes. (eg:- 01, 02, ..., 20) |
 
 </div>
 
