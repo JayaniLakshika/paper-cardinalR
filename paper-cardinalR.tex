@@ -183,7 +183,7 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 
 \paragraph{Cube}\label{cube}
 
-A cube structure (Figure \ref{fig:cube-proj}) represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table \ref{tab:cube-tb-pdf} outlines these functions and their purposes.
+A cube structure represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table \ref{tab:cube-tb-pdf} outlines these functions and their purposes.
 
 The first is the regular grid of points of \(n\) points in \(p\) dimensions. This is generated using \texttt{gen\_gridcube(n,\ p)}. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to \(n\). Each dimension is then normalized to lie in the interval \([0,1]\), so that the resulting structure forms a true \(p\text{-}D\) hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.
 
@@ -210,10 +210,6 @@ gen\_unifcube & Cube with uniform points.\\
 \bottomrule
 \end{tabular}
 \end{table}
-
-\begin{figure}[!]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/cube-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `gridcube` (a1-a3), `unifcube` (b1-b3), and `cubehole` (c1-c3) data.}\label{fig:cube-proj}
-\end{figure}
 
 \paragraph{Cone}\label{cone}
 
