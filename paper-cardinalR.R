@@ -410,14 +410,6 @@ cone_proj1 + cone_proj2 + cone_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## ----data-gridcube, echo=TRUE-------------------------------------------------
-gridcube <- gen_gridcube(n = 1000, p = 4)
-
-
-## ----data-unifcube, echo=TRUE-------------------------------------------------
-unifcube <- gen_unifcube(n = 1000, p = 4)
-
-
 ## -----------------------------------------------------------------------------
 cube_tb <- tibble(fun = c("gen_gridcube",
                           "gen_unifcube"), 
@@ -435,6 +427,14 @@ cube_tb |>
   kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "H")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
+
+
+## ----data-gridcube, echo=TRUE-------------------------------------------------
+gridcube <- gen_gridcube(n = 1000, p = 4)
+
+
+## ----data-unifcube, echo=TRUE-------------------------------------------------
+unifcube <- gen_unifcube(n = 1000, p = 4)
 
 
 ## ----data-gau, echo=TRUE------------------------------------------------------

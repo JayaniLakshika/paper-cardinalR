@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: RJwrapper.aux
 The style file: abbrvnat.bst
 Database file #1: paper-cardinalR.bib
-You've used 25 entries,
+You've used 27 entries,
             2773 wiz_defined-function locations,
-            752 strings with 9170 characters,
-and the built_in function-call counts, 11054 in all, are:
-= -- 987
-> -- 732
-< -- 17
-+ -- 250
-- -- 225
-* -- 894
-:= -- 1792
-add.period$ -- 102
-call.type$ -- 25
-change.case$ -- 135
-chr.to.int$ -- 25
-cite$ -- 50
-duplicate$ -- 483
-empty$ -- 784
-format.name$ -- 264
-if$ -- 2239
+            763 strings with 9457 characters,
+and the built_in function-call counts, 11665 in all, are:
+= -- 1037
+> -- 752
+< -- 19
++ -- 258
+- -- 231
+* -- 927
+:= -- 1894
+add.period$ -- 110
+call.type$ -- 27
+change.case$ -- 141
+chr.to.int$ -- 27
+cite$ -- 54
+duplicate$ -- 523
+empty$ -- 848
+format.name$ -- 272
+if$ -- 2367
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 18
-newline$ -- 160
-num.names$ -- 100
-pop$ -- 259
+missing$ -- 22
+newline$ -- 172
+num.names$ -- 108
+pop$ -- 281
 preamble$ -- 1
-purify$ -- 125
+purify$ -- 131
 quote$ -- 0
-skip$ -- 397
+skip$ -- 421
 stack$ -- 0
-substring$ -- 227
-swap$ -- 48
+substring$ -- 231
+swap$ -- 50
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 250
+type$ -- 262
 warning$ -- 0
-while$ -- 89
+while$ -- 95
 width$ -- 0
-write$ -- 373
+write$ -- 401

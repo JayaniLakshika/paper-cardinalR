@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -22,6 +22,12 @@ G.~Cs\'ardi.
 \newblock \emph{cli: Helpers for Developing Command Line Interfaces}, 2025.
 \newblock URL \url{https://CRAN.R-project.org/package=cli}.
 \newblock R package version 3.6.4.
+
+\bibitem[Devroye(1986)]{devroye1986}
+L.~Devroye.
+\newblock \emph{Non-Uniform Random Variate Generation(originally published with}.
+\newblock Springer-Verlag, 1986.
+\newblock URL \url{http://cg.scs.carleton.ca/~luc/rnbookindex.html}.
 
 \bibitem[Genz and Bretz(2009)]{alan2009}
 A.~Genz and F.~Bretz.
@@ -75,6 +81,12 @@ K.~M\"uller and H.~Wickham.
 \newblock \emph{tibble: Simple Data Frames}, 2023.
 \newblock URL \url{https://CRAN.R-project.org/package=tibble}.
 \newblock R package version 3.2.1.
+
+\bibitem[Niederreiter(1992)]{niederreiter1992}
+H.~Niederreiter.
+\newblock \emph{Random number generation and quasi-Monte Carlo methods}.
+\newblock Society for Industrial and Applied Mathematics, 1992.
+\newblock ISBN 0898712955.
 
 \bibitem[{R Core Team}(2025)]{core2025}
 {R Core Team}.

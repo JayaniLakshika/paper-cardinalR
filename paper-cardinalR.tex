@@ -198,19 +198,7 @@ cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 
 \paragraph{Cube}\label{cube}
 
-A cube structure represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, spacing, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, uniform random points, and cubes with missing regions or holes. These structures are valuable for testing the ability of algorithms to maintain uniform spacing or to detect gaps in the data. Table \ref{tab:cube-tb-pdf} outlines these functions and their purposes.
-
-The first is the regular grid of points of \(n\) points in \(p\) dimensions. This is generated using \texttt{gen\_gridcube(n,\ p)}. The number of grid points along each axis is determined by finding the nearest integer factors whose product is close to \(n\). Each dimension is then normalized to lie in the interval \([0,1]\), so that the resulting structure forms a true \(p\text{-}D\) hypercube. This produces a lattice of evenly spaced points along all axes, providing a uniform and interpretable high-dimensional grid.
-
-\begin{verbatim}
-gridcube <- gen_gridcube(n = 1000, p = 4)
-\end{verbatim}
-
-An extension to the regular grid of points is to consider the points being uniformly distributed along each axis, as opposed to evenly spaced. The function \texttt{gen\_unifcube(n,\ p)} is identical to the regular grid of points, except instead of points being placed in integer grid coordinates, they are placed at a uniformly distributed point inside the \(p\text{-}D\) cube.
-
-\begin{verbatim}
-unifcube <- gen_unifcube(n = 1000, p = 4)
-\end{verbatim}
+A cube structure represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, and uniform random points. Table \ref{tab:cube-tb-pdf} outlines these functions and their purposes.
 
 \begin{table}
 
@@ -225,6 +213,20 @@ gen\_unifcube & Cube with uniform points.\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+The function \texttt{gen\_gridcube(n,\ p)} is a wrapper around \texttt{geozoo::cube.solid.grid()}. It generates a regular lattice of points in $p\text{-}D${}, producing a uniform hypercube grid. Each axis contains equally spaced coordinates, resulting in a well-defined geometric structure.
+
+\begin{verbatim}
+gridcube <- gen_gridcube(n = 1000, p = 4)
+\end{verbatim}
+
+By contrast, \texttt{gen\_unifcube(n,\ p)} wraps \texttt{geozoo::cube.solid.random()}, producing uniformly distributed points within a \(p\text{-}D\) cube. To avoid including the cube's vertices, these points are removed after generation. This results in a hypercube filled with random, but evenly distributed, samples rather than structured lattice points.
+
+\begin{verbatim}
+unifcube <- gen_unifcube(n = 1000, p = 4)
+\end{verbatim}
+
+Such cube-based structures are commonly used as benchmarks in Monte Carlo sampling, computational geometry, and density estimation, where assessing how algorithms behave under uniform or grid-like distributions is critical \citep{devroye1986, niederreiter1992}.
 
 \paragraph{Gaussian}\label{gaussian}
 
