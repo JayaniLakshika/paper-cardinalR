@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.3)  6 OCT 2025 18:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.3)  6 OCT 2025 18:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -888,12 +888,12 @@ Overfull \hbox (1.18527pt too wide) in paragraph at lines 481--482
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 487.
+               Default added (so using `!tbp') on input line 489.
 
-<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=233, 867.24pt x 578.16pt>
+<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=237, 867.24pt x 578.16pt>
 File: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 488.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 490.
 (pdftex.def)             Requested size: 398.33858pt x 265.55983pt.
 
 
@@ -902,44 +902,44 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  
 [13]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 549.
+               Default added (so using `!tbp') on input line 551.
 
-<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=264, 867.24pt x 1156.32pt>
+<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=270, 867.24pt x 1156.32pt>
 File: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf  used on input line 551.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf  used on input line 553.
 (pdftex.def)             Requested size: 318.67207pt x 424.9028pt.
 
 
 [14 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>]
 
 [15]
-Overfull \hbox (3.02979pt too wide) in paragraph at lines 641--641
+Overfull \hbox (3.02979pt too wide) in paragraph at lines 643--643
 []|\T1/ppl/m/n/10 (-20) make_klink_curvycycle|  
  []
 
 
-Overfull \hbox (4.2353pt too wide) in paragraph at lines 642--642
+Overfull \hbox (4.2353pt too wide) in paragraph at lines 644--644
 []|\T1/ppl/m/n/10 (-20) make_chain_curvycycle|  
  []
 
 
-Overfull \hbox (1.88342pt too wide) in paragraph at lines 646--646
+Overfull \hbox (1.88342pt too wide) in paragraph at lines 648--648
 []|\T1/ppl/m/n/10 (-20) make_twogrid_overlap|  
  []
 
 
 
 [16]
-<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=312, 774.895pt x 283.0575pt>
+<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=317, 774.895pt x 283.0575pt>
 File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/highd-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 700.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 702.
 (pdftex.def)             Requested size: 398.33858pt x 145.50629pt.
-<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=314, 441.65pt x 319.1925pt>
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=319, 441.65pt x 319.1925pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 706.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 708.
 (pdftex.def)             Requested size: 398.33858pt x 287.90375pt.
 
 
@@ -950,12 +950,12 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.p
 \openout6 = `RJwrapper.brf'.
 
 
-Underfull \hbox (badness 3428) in paragraph at lines 114--114
+Underfull \hbox (badness 3428) in paragraph at lines 119--119
 []\T1/ppl/m/n/9 (+20) Optica ^^U The Op-ti-cal So-ci-ety.  Op-ti-cal möbius strips yield new se-crets, 2023.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
+Underfull \hbox (badness 10000) in paragraph at lines 119--119
 [][]$\T1/zi4/m/n/9 https : / / www . optica -[] opn . org / home / newsroom / 2023 / january / optical _ mobius _ strips _ yield _
  []
 
@@ -964,10 +964,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--114
 [19])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 737.
+(Font)              using `T1/zi4/m/n' instead on input line 739.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 747.
+(Font)              scaled to size 9.18004pt on input line 749.
 
 
 [20])
@@ -983,21 +983,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: 36EF9D67451DF1A6339933A8E3CE725A;1065.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: CAEBD919F9B4DE015907FDE002247A7A;1706.
+(rerunfilecheck)             Checksum: 11D4A521C1C1F229B05CC22FDD73620C;1815.
  ) 
 Here is how much of TeX's memory you used:
- 27631 strings out of 469729
- 503989 string characters out of 5476492
- 921201 words of memory out of 5000000
- 55059 multiletter control sequences out of 15000+600000
- 693206 words of font info for 417 fonts, out of 8000000 for 9000
+ 27648 strings out of 469729
+ 504245 string characters out of 5476492
+ 921307 words of memory out of 5000000
+ 55071 multiletter control sequences out of 15000+600000
+ 693361 words of font info for 419 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  117i,12n,131p,2007b,890s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (21 pages, 7169860 bytes).
+Output written on RJwrapper.pdf (21 pages, 7170634 bytes).
 PDF statistics:
- 557 PDF objects out of 1000 (max. 8388607)
- 485 compressed objects within 5 object streams
- 82 named destinations out of 1000 (max. 500000)
+ 565 PDF objects out of 1000 (max. 8388607)
+ 493 compressed objects within 5 object streams
+ 84 named destinations out of 1000 (max. 500000)
  73837 words of extra memory for PDF output out of 74296 (max. 10000000)
 

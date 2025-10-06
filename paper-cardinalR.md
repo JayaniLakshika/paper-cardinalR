@@ -1128,6 +1128,8 @@ For the $3\text{-}D$ stereographic projection, `gen_trefoil3d(n, steps)` maps ea
 </div>
 
 
+The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dynamics (knotted vortices), and physics (topological phases), making it a useful benchmark for testing whether dimension reduction preserves global loops and topology [@witten1985; @arsuaga2002].
+
 <div class="layout-chunk" data-layout="l-body">
 
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{33}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -16,6 +16,11 @@ E.~Amid and M.~K. Warmuth.
 \newblock Trimap: Large-scale dimensionality reduction using triplets.
 \newblock \emph{ArXiv}, abs/1910.00204, 2019.
 \newblock URL \url{https://api.semanticscholar.org/CorpusID:203610264}.
+
+\bibitem[Arsuaga et~al.(2002)Arsuaga, Vazquez, Trigueros, Sumners, and Roca]{arsuaga2002}
+J.~Arsuaga, M.~Vazquez, S.~Trigueros, D.~W.~L. Sumners, and J.~Roca.
+\newblock Characterizing the entanglement of dna molecules.
+\newblock \emph{PNAS}, 99\penalty0 (8):\penalty0 5373--5377, 2002.
 
 \bibitem[Balamuta(2024)]{james2024}
 J.~J. Balamuta.
@@ -172,6 +177,11 @@ H.~Wickham, D.~Vaughan, and M.~Girlich.
 \newblock \emph{tidyr: Tidy Messy Data}, 2024.
 \newblock URL \url{https://CRAN.R-project.org/package=tidyr}.
 \newblock R package version 1.3.1.
+
+\bibitem[Witten(1985)]{witten1985}
+E.~Witten.
+\newblock Non-commutative geometry and knot theory.
+\newblock \emph{Communications in Mathematical Physics}, 121\penalty0 (3):\penalty0 351--399, 1985.
 
 \bibitem[Xie(2015)]{yihui2015}
 Y.~Xie.
