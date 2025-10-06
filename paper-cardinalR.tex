@@ -174,7 +174,7 @@ orglinearbranches <- gen_orglinearbranches(n = 1000, p = 4, k = 4)
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 \end{verbatim}
 
-\begin{figure}[!]
+\begin{figure}[H]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/branch-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `orglinearbranches` (a1-a3) data.}\label{fig:branch-proj}
 \end{figure}
 
@@ -192,7 +192,7 @@ cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 
 Cone-shaped structures appear in particle dispersions, light beams, and tapering processes, where spread decreases along one axis. They are also used to benchmark clustering and dimensionality reduction methods \citep{hadsell2006}.
 
-\begin{figure}[!]
+\begin{figure}[H]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/cone-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `cone` data.}\label{fig:cone-proj}
 \end{figure}
 
@@ -338,7 +338,7 @@ pyrholes <- gen_pyrfrac(n = 1000, p = 4)
 
 Pyramid structures mimic tapering or layered geometries seen in architecture, crystals, and fractal-like natural patterns \citep{kirkby1983}.
 
-\begin{figure}[!]
+\begin{figure}[H]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/pyr-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.}\label{fig:pyr-proj}
 \end{figure}
 
@@ -435,7 +435,7 @@ Finally, the \texttt{gen\_hemisphere(n,\ p)} function restricts sampling to a he
 hemisphere <- gen_hemisphere(n = 1000)
 \end{verbatim}
 
-\begin{figure}[!]
+\begin{figure}[H]
 
 {\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/sphere-proj-1} 
 
@@ -488,13 +488,13 @@ trefoil3d <- gen_trefoil3d(n = 500, steps = 5)
 
 The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dynamics (knotted vortices), and physics (topological phases), making it a useful benchmark for testing whether dimension reduction preserves global loops and topology \citep{witten1985, arsuaga2002}.
 
-\begin{figure}[!]
+\begin{figure}[H]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/trefoil-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.}\label{fig:trefoil-proj}
 \end{figure}
 
 \paragraph{Trigonometric}\label{trigonometric}
 
-Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \ref{fig:triginometric-proj}). The first few coordinates define the main geometric structure (e.g., crescent, cylinder, spiral, or helix), while for higher-dimensional embeddings, additional noise dimensions are appended: for the crescent shape this occurs when \(p > 2\) (adding \(X_3\) through \(X_p\)), and for all other trigonometric shapes when \(p > 4\) (adding \(X_5\) through \(X_p\)). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table \ref{tab:trigonometric-tb-pdf} summarizes these functions.
+Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \ref{fig:triginometric-proj}). The main geometry is defined by the first few coordinates: crescents (\(p=2\)), cylinders, spirals, and helices (\(p=4\)). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features \citep{calladine1997, gershenfeld2000}. Table \ref{tab:trigonometric-tb-pdf} summarizes these functions.
 
 \begin{table}
 
@@ -550,7 +550,7 @@ Finally, the \texttt{gen\_nonlinear(n,\ p,\ hc,\ non\_fac)} function simulates a
 nonlinear <- gen_nonlinear(n = 1000, hc = 1, non_fac = 0.5)
 \end{verbatim}
 
-\begin{figure}[!]
+\begin{figure}[H]
 
 {\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/triginometric-proj-1} 
 

@@ -291,7 +291,7 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 # branchfig
 
 
-## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `orglinearbranches` (a1-a3) data.", fig.width=12, fig.height=4----
+## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `orglinearbranches` (a1-a3) data.", fig.width=12, fig.height=4, fig.pos="H"----
 
 orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
@@ -402,7 +402,7 @@ cone_proj3 <- plot_proj(
 # conefig
 
 
-## ----cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cone` data."----
+## ----cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cone` data.", fig.pos="H"----
 #| fig-width: 12
 #| fig-height: 4
 
@@ -874,7 +874,7 @@ pyrholes_proj3 <- plot_proj(
 # pyrfig
 
 
-## ----pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.", fig.width=12, fig.height=16----
+## ----pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.", fig.width=12, fig.height=16, fig.pos="H"----
 
 pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
 pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
@@ -1475,14 +1475,11 @@ hemisphere_proj3 <- plot_proj(
 # spherefig
 
 
-## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=12, fig.height=28, out.width="80%", fig.align='center'----
+## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=12, fig.height=12, out.width="80%", fig.align='center', fig.pos="H"----
 
 circle_proj1 + circle_proj2 + circle_proj3 +
-curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3 +
-unifsphere_proj1 + unifsphere_proj2 + unifsphere_proj3 +
-gridedsphere_proj1 + gridedsphere_proj2 + gridedsphere_proj3 +
+curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3  +
 clusteredspheres_proj1 + clusteredspheres_proj2 + clusteredspheres_proj3 +
-hemisphere_proj1 + hemisphere_proj2 + hemisphere_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
@@ -1705,7 +1702,7 @@ trefoil3d_proj3 <- plot_proj(
 # trefoilfig
 
 
-## ----trefoil-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.", fig.width=12, fig.height=8----
+## ----trefoil-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `trefoil4d` (a1-a3) and `trefoil3d` (b1-b3) data.", fig.width=12, fig.height=8, fig.pos="H"----
 
 trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 + 
   trefoil3d_proj1 + trefoil3d_proj2 + trefoil3d_proj3 +
@@ -2122,7 +2119,7 @@ nonlinear_proj3 <- plot_proj(
 # triginometricfig
 
 
-## ----triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=12, fig.height=16, out.width="80%", fig.align='center'----
+## ----triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=12, fig.height=16, out.width="80%", fig.align='center', fig.pos="H"----
 
 curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
 sphericalspiral_proj1 + sphericalspiral_proj2 + sphericalspiral_proj3 +

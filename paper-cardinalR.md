@@ -1188,7 +1188,7 @@ The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dyna
 
 #### Trigonometric
 
-Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \@ref(fig:triginometric)). The first few coordinates define the main geometric structure (e.g., crescent, cylinder, spiral, or helix), while for higher-dimensional embeddings, additional noise dimensions are appended: for the crescent shape this occurs when $p > 2$ (adding $X_3$ through $X_p$), and for all other trigonometric shapes when $p > 4$ (adding $X_5$ through $X_p$). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features. Table \@ref(tab:trigonometric-tb-html) summarizes these functions.
+Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \@ref(fig:triginometric)). The main geometry is defined by the first few coordinates: crescents ($p=2$), cylinders, spirals, and helices ($p=4$). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features [@calladine1997; @gershenfeld2000]. Table \@ref(tab:trigonometric-tb-html) summarizes these functions.
 
 <div class="layout-chunk" data-layout="l-body">
 
