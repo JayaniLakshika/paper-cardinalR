@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -93,6 +93,12 @@ H.~Niederreiter.
 \newblock \emph{Random number generation and quasi-Monte Carlo methods}.
 \newblock Society for Industrial and Applied Mathematics, 1992.
 \newblock ISBN 0898712955.
+
+\bibitem[{Optica – The Optical Society}(2023)]{optica2023}
+{Optica – The Optical Society}.
+\newblock Optical möbius strips yield new secrets, 2023.
+\newblock URL \url{https://www.optica-opn.org/home/newsroom/2023/january/optical_mobius_strips_yield_new_secrets/?utm_source=chatgpt.com}.
+\newblock Accessed: 2025-10-06.
 
 \bibitem[{R Core Team}(2025)]{core2025}
 {R Core Team}.

@@ -630,22 +630,12 @@ This structure appears in \pD{} data when variation is driven by a single factor
 #### Möbius
 
 The `gen_mobius()` function is a wrapper around `geozoo::mobius()`, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with $n$ sampled points forming the surface of a Möbius strip.
-
-<!-- The Möbius strip is a classical non-orientable surface, looping back on itself with a half-twist. Its construction is based on a parameterization with angle $\theta \sim U(0, 2\pi)$ (position along the loop) and width $w \sim U(-0.4, 0.4)$ (offset across the band). The Cartesian coordinates are -->
-
-<!-- $$ -->
-<!-- X_1 = \Big(1 + \tfrac{w}{2} \cos(\tfrac{\theta}{2})\Big) \cos(\theta), \quad -->
-<!-- X_2 = \Big(1 + \tfrac{w}{2} \cos(\tfrac{\theta}{2})\Big) \sin(\theta), \quad -->
-<!-- X_3 = \tfrac{w}{2}\sin(\tfrac{\theta}{2}), -->
-<!-- $$ -->
-
-<!-- mapping a two-dimensional band with a half-twist into $\mathbb{R}^3$ as a one-sided, non-orientable surface. -->
-
-<!-- While `gen_mobius()` directly produces a 3-D structure, the package framework allows embedding this strip in higher-dimensional spaces by appending additional Gaussian noise variables. This enables the Möbius strip to be used in the same comparative setting as other high-dimensional synthetic structures. -->
-
+e
 ```{r data-mobius, echo=TRUE}
 mobius <- gen_mobius(n = 1000)
 ```
+
+The Möbius strip structure can model twisted or cyclic surfaces in physics and engineering, such as conveyor belts, molecular structures, or optical systems with non-orientable geometries [@optica2023].
 
 #### Polynomial
 

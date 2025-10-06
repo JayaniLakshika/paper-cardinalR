@@ -251,10 +251,13 @@ This structure appears in $p\text{-}D${} data when variation is driven by a sing
 \paragraph{Möbius}\label{muxf6bius}
 
 The \texttt{gen\_mobius()} function is a wrapper around \texttt{geozoo::mobius()}, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with \(n\) sampled points forming the surface of a Möbius strip.
+e
 
 \begin{verbatim}
 mobius <- gen_mobius(n = 1000)
 \end{verbatim}
+
+The Möbius strip structure can model twisted or cyclic surfaces in physics and engineering, such as conveyor belts, molecular structures, or optical systems with non-orientable geometries \citep{optica2023}.
 
 \paragraph{Polynomial}\label{polynomial}
 
