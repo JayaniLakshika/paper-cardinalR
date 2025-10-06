@@ -2183,8 +2183,7 @@ Figure 2: <code>langevitour</code> output of the <code>cone</code> data in <span
 </div>
 <p>This structure appears in data when variation is driven by a single factor, such as time-course or sensor measurements, providing a useful test case for trajectory and regression methods <span class="citation" data-cites="trapnell2014">(<a href="#ref-trapnell2014" role="doc-biblioref">Trapnell et al. 2014</a>)</span>.</p>
 <h5 class="unnumbered" data-number="2.1.2.6" id="möbius">Möbius</h5>
-The <code>gen_mobius()</code> function is a wrapper around <code>geozoo::mobius()</code>, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with <span class="math inline">\(n\)</span> sampled points forming the surface of a Möbius strip.
-e
+<p>The <code>gen_mobius()</code> function is a wrapper around <code>geozoo::mobius()</code>, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with <span class="math inline">\(n\)</span> sampled points forming the surface of a Möbius strip.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mobius</span> <span class='op'>&lt;-</span> <span class='fu'>gen_mobius</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre>
@@ -2371,11 +2370,11 @@ Figure 3: <code>langevitour</code> output of the <code>pyrrect</code>, <code>pyr
 
 </div>
 <h5 class="unnumbered" data-number="2.1.2.9" id="s-curve">S-curve</h5>
-<p>The S-curve structure represents a smooth, non-linear manifold in 3D space. Using <code>gen_scurve(n, p)</code>, the geometry is defined by a latent parameter <span class="math inline">\(\theta \sim U(-3\pi/2, 3\pi/2)\)</span>, which controls the curvature of the manifold. The first three coordinates form the S-shape:</p>
+<p>The S-curve is a smooth, non-linear manifold in <span class="math inline">\(3\text{-}D\)</span> space. Using <code>gen_scurve(n)</code>, it is defined by</p>
 <p><span class="math display">\[
-X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1),
+X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1), \quad \theta \sim U(-3\pi/2, 3\pi/2).
 \]</span></p>
-<p>creating a horizontally curled pattern in <span class="math inline">\((X_1, X_3)\)</span> with additional thickness along <span class="math inline">\(X_2\)</span>.</p>
+<p>This follows the <code>s_curve()</code> function from snedata <span class="citation" data-cites="james2025">(<a href="#ref-james2025" role="doc-biblioref">Melville 2025</a>)</span>, itself adapted from <em>scikit-learn</em>, but differs by returning a tibble with standardized names (<code>x1</code>, <code>x2</code>, <code>x3</code>), excluding the color variable, and omitting built-in noise (which can be added separately). S-curve is commonly used in manifold learning and dimension reduction as benchmarks for unfolding curved structure.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurve</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurve</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre>

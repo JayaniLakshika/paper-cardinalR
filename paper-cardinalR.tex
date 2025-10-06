@@ -249,7 +249,6 @@ This structure appears in $p\text{-}D${} data when variation is driven by a sing
 \paragraph{Möbius}\label{muxf6bius}
 
 The \texttt{gen\_mobius()} function is a wrapper around \texttt{geozoo::mobius()}, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with \(n\) sampled points forming the surface of a Möbius strip.
-e
 
 \begin{verbatim}
 mobius <- gen_mobius(n = 1000)
@@ -343,13 +342,13 @@ Pyramid structures mimic tapering or layered geometries seen in architecture, cr
 
 \paragraph{S-curve}\label{s-curve}
 
-The S-curve structure represents a smooth, non-linear manifold in 3D space. Using \texttt{gen\_scurve(n,\ p)}, the geometry is defined by a latent parameter \(\theta \sim U(-3\pi/2, 3\pi/2)\), which controls the curvature of the manifold. The first three coordinates form the S-shape:
+The S-curve is a smooth, non-linear manifold in \(3\text{-}D\) space. Using \texttt{gen\_scurve(n)}, it is defined by
 
 \[
-X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1),
+X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1), \quad \theta \sim U(-3\pi/2, 3\pi/2).
 \]
 
-creating a horizontally curled pattern in \((X_1, X_3)\) with additional thickness along \(X_2\).
+This follows the \texttt{s\_curve()} function from snedata \citep{james2025}, itself adapted from \emph{scikit-learn}, but differs by returning a tibble with standardized names (\texttt{x1}, \texttt{x2}, \texttt{x3}), excluding the color variable, and omitting built-in noise (which can be added separately). S-curve is commonly used in manifold learning and dimension reduction as benchmarks for unfolding curved structure.
 
 \begin{verbatim}
 scurve <- gen_scurve(n = 1000)

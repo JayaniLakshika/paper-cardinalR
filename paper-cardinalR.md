@@ -492,7 +492,7 @@ This structure appears in \pD{} data when variation is driven by a single factor
 #### Möbius
 
 The `gen_mobius()` function is a wrapper around `geozoo::mobius()`, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with $n$ sampled points forming the surface of a Möbius strip.
-e
+
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mobius</span> <span class='op'>&lt;-</span> <span class='fu'>gen_mobius</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre></div>
 
@@ -745,13 +745,13 @@ Pyramid structures mimic tapering or layered geometries seen in architecture, cr
 
 #### S-curve
 
-The S-curve structure represents a smooth, non-linear manifold in 3D space. Using `gen_scurve(n, p)`, the geometry is defined by a latent parameter $\theta \sim U(-3\pi/2, 3\pi/2)$, which controls the curvature of the manifold. The first three coordinates form the S-shape:
+The S-curve is a smooth, non-linear manifold in $3\text{-}D$ space. Using `gen_scurve(n)`, it is defined by
 
 $$
-X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1),
+X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1), \quad \theta \sim U(-3\pi/2, 3\pi/2).
 $$
 
-creating a horizontally curled pattern in $(X_1, X_3)$ with additional thickness along $X_2$. 
+This follows the `s_curve()` function from snedata [@james2025], itself adapted from *scikit-learn*, but differs by returning a tibble with standardized names (`x1`, `x2`, `x3`), excluding the color variable, and omitting built-in noise (which can be added separately). S-curve is commonly used in manifold learning and dimension reduction as benchmarks for unfolding curved structure.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurve</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurve</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre></div>
