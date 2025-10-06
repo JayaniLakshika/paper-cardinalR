@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.3)  7 OCT 2025 00:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.3)  7 OCT 2025 00:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -888,17 +888,17 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-1
 [13]
 
 [14 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>]
-Overfull \hbox (3.02979pt too wide) in paragraph at lines 638--638
+Overfull \hbox (3.02979pt too wide) in paragraph at lines 632--632
 []|\T1/ppl/m/n/10 (-20) make_klink_curvycycle|  
  []
 
 
-Overfull \hbox (4.2353pt too wide) in paragraph at lines 639--639
+Overfull \hbox (4.2353pt too wide) in paragraph at lines 633--633
 []|\T1/ppl/m/n/10 (-20) make_chain_curvycycle|  
  []
 
 
-Overfull \hbox (1.88342pt too wide) in paragraph at lines 643--643
+Overfull \hbox (1.88342pt too wide) in paragraph at lines 637--637
 []|\T1/ppl/m/n/10 (-20) make_twogrid_overlap|  
  []
 
@@ -910,12 +910,12 @@ Overfull \hbox (1.88342pt too wide) in paragraph at lines 643--643
 <paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=334, 774.895pt x 283.0575pt>
 File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/highd-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 697.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 691.
 (pdftex.def)             Requested size: 398.33858pt x 145.50629pt.
 <paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=336, 441.65pt x 319.1925pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 703.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 697.
 (pdftex.def)             Requested size: 398.33858pt x 287.90375pt.
 
 
@@ -940,13 +940,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--140
 )
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 734.
+(Font)              using `T1/zi4/m/n' instead on input line 728.
 
 
 
 [20]
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 744.
+(Font)              scaled to size 9.18004pt on input line 738.
 )
 
 [21] (./RJwrapper.aux)
@@ -963,15 +963,15 @@ Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
 (rerunfilecheck)             Checksum: CE6A689B951CE8F28FF3A27C555B6835;2097.
  ) 
 Here is how much of TeX's memory you used:
- 27688 strings out of 469729
- 504929 string characters out of 5476492
- 922586 words of memory out of 5000000
+ 27679 strings out of 469729
+ 504854 string characters out of 5476492
+ 923587 words of memory out of 5000000
  55103 multiletter control sequences out of 15000+600000
- 693516 words of font info for 421 fonts, out of 8000000 for 9000
+ 693197 words of font info for 415 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  117i,12n,131p,2007b,890s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (21 pages, 6688768 bytes).
+Output written on RJwrapper.pdf (21 pages, 6688869 bytes).
 PDF statistics:
  585 PDF objects out of 1000 (max. 8388607)
  512 compressed objects within 6 object streams
