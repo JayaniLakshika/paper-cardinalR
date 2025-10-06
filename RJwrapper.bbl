@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{28}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -64,6 +64,12 @@ L.~McInnes, J.~Healy, N.~Saul, and L.~Gro\ss{}berger.
 \newblock {UMAP: Uniform Manifold Approximation and Projection}.
 \newblock \emph{Journal of Open Source Software}, 3\penalty0 (29):\penalty0 861, 2018.
 \newblock URL \url{https://doi.org/10.21105/joss.00861}.
+
+\bibitem[McLachlan and Peel(2000)]{geoffrey2000}
+G.~J. McLachlan and D.~Peel.
+\newblock Finite mixture models.
+\newblock In \emph{Wiley Series in Probability and Statistics}, 2000.
+\newblock URL \url{https://api.semanticscholar.org/CorpusID:124985575}.
 
 \bibitem[Melville(2025)]{james2025}
 J.~Melville.

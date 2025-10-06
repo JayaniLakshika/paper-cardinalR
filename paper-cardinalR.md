@@ -477,6 +477,8 @@ The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in 
 </div>
 
 
+Gaussian clouds are common benchmark structures in statistics and machine learning, used in clustering, classification, and anomaly detection, with applications in image segmentation, speech recognition, and forensic analysis [@geoffrey2000].
+
 #### Linear
 
 The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a long linear structure with noise. Each variable is formed as $X_i = \text{scale}_i \cdot (0,1,\dots,n{-}1 + \epsilon) + \text{shift}_i$, where $\text{scale}\_i \sim U(-10, 10)$ determines the orientation of the line in each dimension, $\text{shift}\_i \sim U(-300, 300)$ offsets the line to separate dimensions, and $\epsilon \sim N(0, (0.03n)^2)$ introduces Gaussian noise. 
@@ -487,9 +489,11 @@ The `gen_longlinear(n, p)` function generates a high-dimensional dataset represe
 </div>
 
 
+This structure appears in \pD{} data when variation is driven by a single factor, such as time-course or sensor measurements, providing a useful test case for trajectory and regression methods [@trapnell2014].
+
 #### Möbius
 
-The `gen_mobius()` function is a **wrapper** around `geozoo::mobius()`, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with $n$ sampled points forming the surface of a Möbius strip.
+The `gen_mobius()` function is a wrapper around `geozoo::mobius()`, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with $n$ sampled points forming the surface of a Möbius strip.
 
 <!-- The Möbius strip is a classical non-orientable surface, looping back on itself with a half-twist. Its construction is based on a parameterization with angle $\theta \sim U(0, 2\pi)$ (position along the loop) and width $w \sim U(-0.4, 0.4)$ (offset across the band). The Cartesian coordinates are -->
 
@@ -1061,7 +1065,7 @@ Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere 
 
 #### Swiss Roll  
 
-To further generalize the Swiss roll structure and introduce realistic noise, we define a function `gen_swissroll(n, w)`, where $n$ is the number of points, $p$ is the total number of dimensions, and $w$ is the vertical range in the third dimension. The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $$X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \text{ where } t \sim U(0, 3\pi).$$ 
+To further generalize the Swiss roll structure and introduce realistic noise, we define a function `gen_swissroll(n, w)`, where $n$ is the number of points, and $w$ is the vertical range in the third dimension. The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $$X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \text{ where } t \sim U(0, 3\pi).$$ 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, w <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
