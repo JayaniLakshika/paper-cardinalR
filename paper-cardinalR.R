@@ -891,12 +891,14 @@ scurve <- gen_scurve(n = 1000)
 sphere_tb <- tibble(fun = c("gen_circle",
                             "gen_curvycycle",
                             "gen_unifsphere",
+                            "gen_hollowsphere",
                             "gen_gridedsphere",
                             "gen_clusteredspheres",
                             "gen_hemisphere"), 
                         exp = c("Circle.",
                                 "Curvy cell cycle.",
                                 "Uniform sphere.",
+                                "Hollow sphere.",
                                 "Grided sphere.",
                                 "Multiple small spheres within a big sphere.",
                                 "Hemisphere."))
@@ -1098,184 +1100,8 @@ curvycycle_proj3 <- plot_proj(
 unifsphere <- gen_unifsphere(n = 1000, r = 1)
 
 
-## -----------------------------------------------------------------------------
-unifsphere_lang <- langevitour::langevitour(unifsphere, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
-
-
-## ----unifsphere-proj1---------------------------------------------------------
-scaled_data <- scale_data_manual(unifsphere)
-
-## First projection
-projection <- cbind(
-  c(0.53506,0.00763,0.00097),
-  c(0.00896,0.52496,0.12597))
-
-proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 1.2, 
-                                              axis_pos_x = -0.6, 
-                                              axis_pos_y = -0.6, 
-                                              threshold = 0.022))
-
-unifsphere_proj1 <- plot_proj(
-  proj_obj = proj_obj1, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.75, 0.7), 
-  title = "c1", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----unifsphere-proj2---------------------------------------------------------
-
-## Second projection
-projection <- cbind(
-  c(-0.06614,0.15134,-0.44278),
-  c(-0.50493,0.14388,0.14615))
-
-proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
-
-unifsphere_proj2 <- plot_proj(
-  proj_obj = proj_obj2, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.7), 
-  title = "c2", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----unifsphere-proj3---------------------------------------------------------
-
-## Third projection
-projection <- cbind(
-  c(0.10704,0.04822,-0.03416),
-  c(0.50329,0.07199,-0.16064))
-
-proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.6,
-                                              axis_scaled = 1.5, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
-                                              threshold = 0.016))
-
-unifsphere_proj3 <- plot_proj(
-  proj_obj = proj_obj3, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.65), 
-  title = "c3", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
 ## ----data-hollowsphere, echo=TRUE---------------------------------------------
 hollowsphere <- gen_hollowsphere(n = 1000, p = 4)
-
-
-## ----data-gridedsphere, echo=TRUE---------------------------------------------
-gridedsphere <- gen_gridedsphere(n = 1000, p = 4)
-
-
-## -----------------------------------------------------------------------------
-gridedsphere_lang <- langevitour::langevitour(gridedsphere, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
-
-
-## ----gridedsphere-proj1-------------------------------------------------------
-scaled_data <- scale_data_manual(gridedsphere)
-
-## First projection
-projection <- cbind(
-  c(0.53506,0.00763,0.00097,-0.10901),
-  c(0.00896,0.52496,0.12597,0.08184))
-
-proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 1.2, 
-                                              axis_pos_x = -0.6, 
-                                              axis_pos_y = -0.6, 
-                                              threshold = 0.022))
-
-gridedsphere_proj1 <- plot_proj(
-  proj_obj = proj_obj1, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.75, 0.7), 
-  title = "d1", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----gridedsphere-proj2-------------------------------------------------------
-
-## Second projection
-projection <- cbind(
-  c(-0.06614,0.15134,-0.44278,0.27367),
-  c(-0.50493,0.14388,0.14615,0.03486))
-
-proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
-
-gridedsphere_proj2 <- plot_proj(
-  proj_obj = proj_obj2, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.65), 
-  title = "d2", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----gridedsphere-proj3-------------------------------------------------------
-
-## Third projection
-projection <- cbind(
-  c(0.10704,0.04822,-0.03416,0.53224),
-  c(0.50329,0.07199,-0.16064,-0.11806))
-
-proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.6,
-                                              axis_scaled = 1.5, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
-                                              threshold = 0.016))
-
-gridedsphere_proj3 <- plot_proj(
-  proj_obj = proj_obj3, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.62), 
-  title = "d3", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
 
 
 ## ----data-clusteredspheres, echo=TRUE-----------------------------------------
@@ -1309,7 +1135,7 @@ clusteredspheres_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.75, 0.7), 
-  title = "e1", 
+  title = "c1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1336,7 +1162,7 @@ clusteredspheres_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "e2", 
+  title = "c2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1363,109 +1189,19 @@ clusteredspheres_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.6, 0.62), 
-  title = "e3", 
+  title = "c3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
 
 
 
-## ----data-hemisphere, echo=TRUE-----------------------------------------------
-hemisphere <- gen_hemisphere(n = 1000)
-
-
-## -----------------------------------------------------------------------------
-hemisphere_lang <- langevitour::langevitour(hemisphere, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
-
-
-## ----hemisphere-proj1---------------------------------------------------------
-scaled_data <- scale_data_manual(hemisphere)
-
-## First projection
-projection <- cbind(
-  c(0.53506,0.00763,0.00097,-0.10901),
-  c(0.00896,0.52496,0.12597,0.08184))
-
-proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 1.2, 
-                                              axis_pos_x = -0.6, 
-                                              axis_pos_y = -0.6, 
-                                              threshold = 0.022))
-
-hemisphere_proj1 <- plot_proj(
-  proj_obj = proj_obj1, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.75, 0.7), 
-  title = "f1", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----hemisphere-proj2---------------------------------------------------------
-
-## Second projection
-projection <- cbind(
-  c(-0.06614,0.15134,-0.44278,0.27367),
-  c(-0.50493,0.14388,0.14615,0.03486))
-
-proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
-
-hemisphere_proj2 <- plot_proj(
-  proj_obj = proj_obj2, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.6), 
-  title = "f2", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----hemisphere-proj3---------------------------------------------------------
-
-## Third projection
-projection <- cbind(
-  c(0.10704,0.04822,-0.03416,0.53224),
-  c(0.50329,0.07199,-0.16064,-0.11806))
-
-proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.6,
-                                              axis_scaled = 1.5, 
-                                              axis_pos_x = -0.6, 
-                                              axis_pos_y = -0.6, 
-                                              threshold = 0.016))
-
-hemisphere_proj3 <- plot_proj(
-  proj_obj = proj_obj3, 
-  point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.75, 0.62), 
-  title = "f3", 
-  cex = 2, 
-  axis_text_size = 5,
-  is_color = FALSE)
-
-
-
-## ----sphere, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `circle`, `curvycycle`, `unifsphere`, `gridedsphere`, `clusteredspheres`, and `hemisphere` data in $4\\text{-}D$."----
+## ----sphere, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `circle`, `curvycycle`, and `clusteredspheres` data in $4\\text{-}D$."----
 # 
 # spherefig <- bscols(
 #   htmltools::div(
 #     style = "display: grid; grid-template-columns: 1fr 1fr;",
-#     circle_lang, curvycycle_lang, unifsphere_lang, gridedsphere_lang, clusteredspheres_lang, hemisphere_lang
+#     circle_lang, curvycycle_lang, clusteredspheres_lang
 #   ),
 #   device = "xs"
 # )

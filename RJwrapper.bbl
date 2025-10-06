@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{38}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -10,6 +10,11 @@ D.~K. Agrafiotis and H.~Xu.
 \newblock A self-organizing principle for learning nonlinear manifolds.
 \newblock \emph{Proceedings of the National Academy of Sciences}, 99\penalty0 (25):\penalty0 15869--15872, 2002.
 \newblock URL \url{https://www.pnas.org/doi/abs/10.1073/pnas.242424399}.
+
+\bibitem[Alberts et~al.(2014)Alberts, Johnson, Lewis, Morgan, Raff, Roberts, and Walter]{alberts2014}
+B.~Alberts, A.~Johnson, J.~Lewis, D.~Morgan, M.~Raff, K.~Roberts, and P.~Walter.
+\newblock \emph{Molecular Biology of the Cell}.
+\newblock Garland Science, 2014.
 
 \bibitem[Amid and Warmuth(2019)]{amid2019}
 E.~Amid and M.~K. Warmuth.
@@ -150,6 +155,11 @@ L.~A. Stefanski.
 \newblock Residual (sur) realism.
 \newblock \emph{The American Statistician}, 61\penalty0 (2):\penalty0 163--177, 2007.
 \newblock URL \url{http://www.jstor.org/stable/27643870}.
+
+\bibitem[Tinkham(2003)]{tinkham2003}
+M.~Tinkham.
+\newblock \emph{Group Theory and Quantum Mechanics}.
+\newblock Courier Corporation, 2003.
 
 \bibitem[Trapnell et~al.(2014)Trapnell, Cacchiarelli, Grimsby, Pokharel, Li, Morse, Lennon, Livak, Mikkelsen, and Rinn]{trapnell2014}
 C.~Trapnell, D.~Cacchiarelli, J.~Grimsby, P.~Pokharel, S.~Li, M.~Morse, N.~J. Lennon, K.~J. Livak, T.~S. Mikkelsen, and J.~L. Rinn.

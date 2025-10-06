@@ -354,7 +354,7 @@ scurve <- gen_scurve(n = 1000)
 
 \paragraph{Sphere}\label{sphere}
 
-Sphere-shaped structures (Figure \ref{fig:sphere-proj}) are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The functions generate a variety of spherical forms, including simple circles, uniform spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. Table \ref{tab:sphere-tb-pdf} summarizes these functions.
+Sphere-shaped structures are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The functions generate a variety of spherical forms, including simple circles, uniform and hollow spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. Such spherical or hemispherical structures frequently appear in physical and biological systems, for example in models of celestial bodies, molecular shells, or cell membranes \citep{tinkham2003, alberts2014}.Table \ref{tab:sphere-tb-pdf} summarizes these functions.
 
 \begin{table}
 
@@ -367,6 +367,7 @@ Function & Explanation\\
 gen\_circle & Circle.\\
 gen\_curvycycle & Curvy cell cycle.\\
 gen\_unifsphere & Uniform sphere.\\
+gen\_hollowsphere & Hollow sphere.\\
 gen\_gridedsphere & Grided sphere.\\
 gen\_clusteredspheres & Multiple small spheres within a big sphere.\\
 gen\_hemisphere & Hemisphere.\\
@@ -374,13 +375,13 @@ gen\_hemisphere & Hemisphere.\\
 \end{tabular}
 \end{table}
 
-The simplest case, \texttt{gen\_circle(n)} creates a unit circle in two dimensions, with the remaining dimensions forming sinusoidal extensions of the angular parameter at progressively smaller scales (Figure \ref{fig:sphere-proj} a). Let a latent angle variable \(\theta\) is uniformly sampled from the interval \([0, 2\pi]\). Coordinates in the first two dimensions represent a perfect circle on the plane: \[X_1 = \cos(\theta), \quad X_2 = \sin(\theta).\] For dimensions \(X_3\) through \(X_p\), sinusoidal transformations of the angle \(\theta\) are introduced. The first component is a scaling factor that decreases with the dimension index, defined as \(\text{scale}_j = \sqrt{(0.5)^{j-2}}\) for \(j = 3, \dots, p\). The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula \(\phi_j = (j - 2)\pi/2p\). Each additional dimension is computed as: \(X_j = \text{scale}_{j}\sin(\theta + \phi_j), \quad j = 3, \dots, p\).
+The simplest case, \texttt{gen\_circle(n,\ p)} creates a unit circle in two dimensions, with the remaining dimensions forming sinusoidal extensions of the angular parameter at progressively smaller scales (Figure \ref{fig:sphere-proj} a). Let a latent angle variable \(\theta\) is uniformly sampled from the interval \([0, 2\pi]\). Coordinates in the first two dimensions represent a perfect circle on the plane: \[X_1 = \cos(\theta), \quad X_2 = \sin(\theta).\] For dimensions \(X_3\) through \(X_p\), sinusoidal transformations of the angle \(\theta\) are introduced. The first component is a scaling factor that decreases with the dimension index, defined as \(\text{scale}_j = \sqrt{(0.5)^{j-2}}\) for \(j = 3, \dots, p\). The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula \(\phi_j = (j - 2)\pi/2p\). Each additional dimension is computed as: \(X_j = \text{scale}_{j}\sin(\theta + \phi_j), \quad j = 3, \dots, p\).
 
 \begin{verbatim}
 circle <- gen_circle(n = 1000, p = 4)
 \end{verbatim}
 
-For the one-dimensional nonlinear cycle embedded in \(p\text{-}D\) space, \texttt{gen\_curvycycle(n)} (Figure \ref{fig:sphere-proj} b), let a latent angle variable \(\theta\) is uniformly sampled from the interval \([0, 2\pi]\). The first three dimensions define a non-circular closed curve, referred to as a ``curvy cycle''. In this configuration, \(X_1 = \cos(\theta)\) represents horizontal oscillation, while \(X_2 = \sqrt{3}/3 + \sin(\theta)\) introduces a vertical offset to avoid centering the curve at the origin. Additionally, \(X_3 = 1/3\cos(3\theta)\) introduces a third harmonic perturbation that intricately folds the curve three times along its path, creating a unique and complex shape that oscillates in both dimensions while incorporating the effects of the harmonic perturbation.
+For the one-dimensional nonlinear cycle embedded in \(p\text{-}D\) space, \texttt{gen\_curvycycle(n,\ p)} (Figure \ref{fig:sphere-proj} b), let a latent angle variable \(\theta\) is uniformly sampled from the interval \([0, 2\pi]\). The first three dimensions define a non-circular closed curve, referred to as a ``curvy cycle''. In this configuration, \(X_1 = \cos(\theta)\) represents horizontal oscillation, while \(X_2 = \sqrt{3}/3 + \sin(\theta)\) introduces a vertical offset to avoid centering the curve at the origin. Additionally, \(X_3 = 1/3\cos(3\theta)\) introduces a third harmonic perturbation that intricately folds the curve three times along its path, creating a unique and complex shape that oscillates in both dimensions while incorporating the effects of the harmonic perturbation.
 
 Together, these define a periodic, non-trivial, closed curve in \(3\text{-}D\) with internal folds that produce a more complex geometry than a standard circle or ellipse. For dimensions \(X_4\) through \(X_p\), additional structured variability is introduced through decreasing amplitude scaling and phase-shifted sine waves. The scaling factor is defined as \(\text{scale}_j = \sqrt{(0.5)^{j-3}}\) for \(j\) ranging from \(4\) to \(p\), which means that the amplitude decreases as the dimension increases. Each dimension \(X_j\) is then calculated using the formula \(X_j = \text{scale}_j\sin(\theta + \phi_j)\), where the phase shift \(\phi_j\) is given by \(\phi_j = (j - 2)\pi/2p\).
 
@@ -388,13 +389,13 @@ Together, these define a periodic, non-trivial, closed curve in \(3\text{-}D\) w
 curvycycle <- gen_curvycycle(n = 1000, p = 4)
 \end{verbatim}
 
-Building on simple circular structures, the \texttt{gen\_unifsphere(n,\ r)} function function extends the idea to three dimensions by generating \(n\) observations approximately uniformly distributed on the surface of a sphere of radius \(r\), with optional high-dimensional noise when \(p > 3\) (Figure \ref{fig:sphere-proj} c). Each observation is computed from spherical coordinates, with \(u \sim U(-1, 1)\) representing \(\cos(\phi)\) and \(\theta \sim U(0, 2\pi)\) the azimuthal angle. Cartesian coordinates are then defined as \[X_1 = r\sqrt{1 - u^2}\cos(\theta), \quad X_2 = r\sqrt{1 - u^2}\sin(\theta),\text{ and }X_3 = ru,\] ensuring uniform distribution on the surface (not within) of the sphere.
+Building on simple circular structures, the \texttt{gen\_unifsphere(n,\ r)} function function extends the idea to three dimensions by generating \(n\) observations approximately uniformly distributed on the surface of a sphere of radius \(r\).. Each observation is computed from spherical coordinates, with \(u \sim U(-1, 1)\) representing \(\cos(\phi)\) and \(\theta \sim U(0, 2\pi)\) the azimuthal angle. Cartesian coordinates are then defined as \[X_1 = r\sqrt{1 - u^2}\cos(\theta), \quad X_2 = r\sqrt{1 - u^2}\sin(\theta),\text{ and }X_3 = ru,\] ensuring uniform distribution on the surface (not within) of the sphere.
 
 \begin{verbatim}
 unifsphere <- gen_unifsphere(n = 1000, r = 1)
 \end{verbatim}
 
-In contrast, the \texttt{gen\_hollowsphere(n,\ p)} function, a wrapper around \texttt{geozoo::sphere.hollow()}, generates \(n\) points uniformly distributed \textbf{only on the surface} of the \((p-1)\)-dimensional sphere embedded in \(\mathbb{R}^p\). This results in a hollow shell-like structure with no interior points. For example, when \(p=3\), \texttt{gen\_unifsphere()} produces a solid ball in \(3\text{-}D\) space, whereas \texttt{gen\_hollowsphere()} produces only the spherical boundary. These paired structures allow controlled experiments to investigate how algorithms behave when data is concentrated throughout the full volume versus constrained to the boundary.
+In contrast, the \texttt{gen\_hollowsphere(n,\ p)} function, a wrapper around \texttt{geozoo::sphere.hollow()}, generates \(n\) points uniformly distributed only on the surface of the \((p-1)\)-dimensional sphere embedded in \(\mathbb{R}^p\). This results in a hollow shell-like structure with no interior points. For example, when \(p=3\), \texttt{gen\_unifsphere()} produces a solid ball in \(3\text{-}D\) space, whereas \texttt{gen\_hollowsphere()} produces only the spherical boundary. These paired structures allow controlled experiments to investigate how algorithms behave when data is concentrated throughout the full volume versus constrained to the boundary.
 
 \begin{verbatim}
 hollowsphere <- gen_hollowsphere(n = 1000, p = 4)
@@ -417,11 +418,7 @@ X_p &= \sin(\theta_1)\sin(\theta_2)\cdots \sin(\theta_{p-2})\sin(\theta_{p-1}).
 
 The result is a deterministic grid of points lying exactly on the surface of the unit \((p-1)\)-sphere, without any additional noise dimensions.
 
-\begin{verbatim}
-gridedsphere <- gen_gridedsphere(n = 1000, p = 4)
-\end{verbatim}
-
-For more heterogeneous structures, the \texttt{gen\_clusteredspheres(n,\ k,\ r,\ loc)} function generates one large sphere of radius \(r_1\) and \(k\) smaller spheres of radius \(r_2\), each centered at a different random location (Figure \ref{fig:sphere-proj} e). A large uniform sphere centered at the origin is created by sampling \(n_1\) points uniformly on the surface of a \(p\text{-}D\) sphere with a radius of \(r_1\). The sampling is executed using the function \texttt{gen\_unifsphere(n\_1,\ p,\ r\_1)}, which generates the desired points in the specified dimensional space. In generation of \(k\) smaller uniform spheres, each sphere contains \(n_2\) points that are sampled uniformly on a sphere with a radius of \(r_2\). These spheres are positioned at distinct random locations in \(p\)-space, with the center of each sphere being drawn from a normal distribution \(N(0, \texttt{loc}^2 I_p)\). Points on spheres are generated using the standard hyperspherical method, which involves sampling \(u \sim U(-1, 1)\) to determine the cosine of the polar angle, and sampling \(\theta \sim U(0, 2\pi)\) to determine the azimuthal angle (for \(3\text{-}D\)). Each observation is classified by cluster, with labels such as ``big'' for the large central sphere and ``small\_1'' to ``small\_k'' for the smaller spheres.
+For more heterogeneous structures, the \texttt{gen\_clusteredspheres(n,\ k,\ r,\ loc)} function generates one large sphere of radius \(r_1\) and \(k\) smaller spheres of radius \(r_2\), each centered at a different random location (Figure \ref{fig:sphere-proj} e). A large uniform sphere centered at the origin is created by sampling \(n_1\) points uniformly on the surface of a \(p\text{-}D\) sphere with a radius of \(r_1\). The sampling is executed using the function \texttt{gen\_unifsphere(n\_1,\ r\_1)}, which generates the desired points in the specified dimensional space. In generation of \(k\) smaller uniform spheres, each sphere contains \(n_2\) points that are sampled uniformly on a sphere with a radius of \(r_2\). These spheres are positioned at distinct random locations in \(p\)-space, with the center of each sphere being drawn from a normal distribution \(N(0, \texttt{loc}^2 I_p)\). Points on spheres are generated using the standard hyperspherical method, which involves sampling \(u \sim U(-1, 1)\) to determine the cosine of the polar angle, and sampling \(\theta \sim U(0, 2\pi)\) to determine the azimuthal angle (for \(3\text{-}D\)). Each observation is classified by cluster, with labels such as ``big'' for the large central sphere and ``small\_1'' to ``small\_k'' for the smaller spheres.
 
 \begin{verbatim}
 clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, r = c(15, 3),
@@ -430,10 +427,6 @@ clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, r = c(15, 3),
 \end{verbatim}
 
 Finally, the \texttt{gen\_hemisphere(n,\ p)} function restricts sampling to a hemisphere of a \(4\text{-}D\) sphere (Figure \ref{fig:sphere-proj} f). Using spherical coordinates, the azimuthal angle \(\theta_1 \sim U(0, \pi)\) in the \((x_1, x_2)\) plane, while the elevation angle \(\theta_2 \sim U(0, \pi)\) in the \((x_2, x_3)\) plane. Additionally, \(\theta_3 \sim U(0, \pi/2)\) in the \((x_3, x_4)\) plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into \(4\text{-}D\) Cartesian space: \[X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).\] This produces points on one side of a \(4\text{-}D\) unit sphere, effectively generating a \(4\text{-}D\) hemisphere.
-
-\begin{verbatim}
-hemisphere <- gen_hemisphere(n = 1000)
-\end{verbatim}
 
 \begin{figure}[H]
 
