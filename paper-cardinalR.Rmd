@@ -169,9 +169,7 @@ $$
 
 where the mean ($m$) is set to the average of the cluster coordinates and the standard deviation ($s$) defaults to $0.2$.
 
-An optional argument, `is_bkg`, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (`...`) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere.
-
-The main arguments of the `gen_multicluster()` function are shown in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:main-tb-html)', '\\@ref(tab:main-tb-pdf)'))`.
+An optional argument, `is_bkg`, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (`...`) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the `gen_multicluster()` function are shown in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:main-tb-html)', '\\@ref(tab:main-tb-pdf)'))`.
 
 ```{r}
 main_tb <- tibble(arg = c("n",
@@ -676,6 +674,29 @@ cubic <- gen_cubic(n = 1000)
 
 A pyramid structure (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr)"} else { "Figure \\@ref(fig:pyr-proj)"})`) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in \pD{} space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:pyramid-tb-html)', '\\@ref(tab:pyramid-tb-pdf)'))` summarizes these functions.
 
+```{r}
+pyramid_tb <- tibble(fun = c("gen_pyrrect",
+                             "gen_pyrtri",
+                             "gen_pyrstar",
+                             "gen_pyrfrac"), 
+                        exp = c("Rectangular-base, with a sharp or blunted apex.",
+          "Triangular-base, with a sharp or blunted apex.",
+          "Star-shaped base, with a sharp or blunted apex.",
+          "Pyramid with triangular pyramid-shaped holes."))
+```
+
+```{r pyramid-tb-html, eval=knitr::is_html_output()}
+pyramid_tb |> 
+  kable(caption = "cardinalR pyramid data generation functions", col.names = c("Function", "Explanation"), table.pos = "H") 
+```
+
+```{r pyramid-tb-pdf, eval=knitr::is_latex_output()}
+pyramid_tb |> 
+  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "H")  |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "8cm")
+```
+
 Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the rectangular, triangular, and star-shaped based pyramid generator functions, the final dimension, $X_p$, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height $h$. That is, $X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).$ This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, $X_p = z \sim U(0, h)$.
 
 The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) a"} else { "Figure \\@ref(fig:pyr-proj) a"})`), let $r_x(z)$ and $r_y(z)$ denote the half-widths of the rectangular cross-section at height $z$. That is, $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as $X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z)).$
@@ -1048,28 +1069,7 @@ pyrholes_proj3 <- plot_proj(
 
 ```
 
-```{r}
-pyramid_tb <- tibble(fun = c("gen_pyrrect",
-                             "gen_pyrtri",
-                             "gen_pyrstar",
-                             "gen_pyrfrac"), 
-                        exp = c("Rectangular-base, with a sharp or blunted apex.",
-          "Triangular-base, with a sharp or blunted apex.",
-          "Star-shaped base, with a sharp or blunted apex.",
-          "Pyramid with triangular pyramid-shaped holes."))
-```
-
-```{r pyramid-tb-html, eval=knitr::is_html_output()}
-pyramid_tb |> 
-  kable(caption = "cardinalR pyramid data generation functions", col.names = c("Function", "Explanation"), table.pos = "H") 
-```
-
-```{r pyramid-tb-pdf, eval=knitr::is_latex_output()}
-pyramid_tb |> 
-  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "H")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-```
+Pyramid structures mimic tapering or layered geometries seen in architecture, crystals, and fractal-like natural patterns [@kirkby1983].
 
 ```{r pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$."}
 

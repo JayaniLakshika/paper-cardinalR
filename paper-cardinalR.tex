@@ -36,9 +36,7 @@ X \sim \mathcal{N}(m, s^2),
 
 where the mean (\(m\)) is set to the average of the cluster coordinates and the standard deviation (\(s\)) defaults to \(0.2\).
 
-An optional argument, \texttt{is\_bkg}, adds background noise drawn from a multivariate normal distribution centered on the dataset's overall mean with standard deviations matching the observed spread. Extra arguments (\texttt{...}) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere.
-
-The main arguments of the \texttt{gen\_multicluster()} function are shown in Table \ref{tab:main-tb-pdf}.
+An optional argument, \texttt{is\_bkg}, adds background noise drawn from a multivariate normal distribution centered on the dataset's overall mean with standard deviations matching the observed spread. Extra arguments (\texttt{...}) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the \texttt{gen\_multicluster()} function are shown in Table \ref{tab:main-tb-pdf}.
 
 \begin{table}
 
@@ -293,6 +291,22 @@ cubic <- gen_cubic(n = 1000)
 
 A pyramid structure (Figure \ref{fig:pyr-proj}) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in $p\text{-}D${} space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table \ref{tab:pyramid-tb-pdf} summarizes these functions.
 
+\begin{table}
+
+\caption{\label{tab:pyramid-tb-pdf}cardinalR pyramid data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+Function & Explanation\\
+\midrule
+gen\_pyrrect & Rectangular-base, with a sharp or blunted apex.\\
+gen\_pyrtri & Triangular-base, with a sharp or blunted apex.\\
+gen\_pyrstar & Star-shaped base, with a sharp or blunted apex.\\
+gen\_pyrfrac & Pyramid with triangular pyramid-shaped holes.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 Let \(X_1, \dots, X_p\) denote the coordinates of the generated points. For the rectangular, triangular, and star-shaped based pyramid generator functions, the final dimension, \(X_p\), encodes the height of each point and is drawn from an exponential distribution capped at the maximum height \(h\). That is, \(X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).\) This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, \(X_p = z \sim U(0, h)\).
 
 The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, \texttt{gen\_pyrrect(n,\ p,\ h,\ l\_vec,\ rt)} (Figure \ref{fig:pyr-proj} a), let \(r_x(z)\) and \(r_y(z)\) denote the half-widths of the rectangular cross-section at height \(z\). That is, \(r_x(z) = r_t + (l_x - r_t)z/h\), \(r_y(z) = r_t + (l_y - r_t)z/h\). The first three coordinates are then defined as \(X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z)).\)
@@ -321,21 +335,7 @@ Finally, for the Sierpinski-like pyramid, \texttt{gen\_pyrfrac(n,\ p)} (Figure \
 pyrholes <- gen_pyrfrac(n = 1000, p = 4)
 \end{verbatim}
 
-\begin{table}
-
-\caption{\label{tab:pyramid-tb-pdf}cardinalR pyramid data generation functions}
-\centering
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
-\toprule
-Function & Explanation\\
-\midrule
-gen\_pyrrect & Rectangular-base, with a sharp or blunted apex.\\
-gen\_pyrtri & Triangular-base, with a sharp or blunted apex.\\
-gen\_pyrstar & Star-shaped base, with a sharp or blunted apex.\\
-gen\_pyrfrac & Pyramid with triangular pyramid-shaped holes.\\
-\bottomrule
-\end{tabular}
-\end{table}
+Pyramid structures mimic tapering or layered geometries seen in architecture, crystals, and fractal-like natural patterns \citep{kirkby1983}.
 
 \begin{figure}[!]
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/pyr-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.}\label{fig:pyr-proj}

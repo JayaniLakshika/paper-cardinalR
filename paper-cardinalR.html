@@ -1853,8 +1853,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 X \sim \mathcal{N}(m, s^2),
 \]</span></p>
 <p>where the mean (<span class="math inline">\(m\)</span>) is set to the average of the cluster coordinates and the standard deviation (<span class="math inline">\(s\)</span>) defaults to <span class="math inline">\(0.2\)</span>.</p>
-<p>An optional argument, <code>is_bkg</code>, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (<code>...</code>) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere.</p>
-<p>The main arguments of the <code>gen_multicluster()</code> function are shown in Table <a href="#tab:main-tb-html">1</a>.</p>
+<p>An optional argument, <code>is_bkg</code>, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (<code>...</code>) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the <code>gen_multicluster()</code> function are shown in Table <a href="#tab:main-tb-html">1</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -2235,6 +2234,41 @@ e
 </div>
 <h5 class="unnumbered" data-number="2.1.2.8" id="pyramid">Pyramid</h5>
 <p>A pyramid structure (Figure <a href="#fig:pyr">3</a>) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table <a href="#tab:pyramid-tb-html">6</a> summarizes these functions.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:pyramid-tb-html">Table 6: </span>cardinalR pyramid data generation functions</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gen_pyrrect</td>
+<td style="text-align: left;">Rectangular-base, with a sharp or blunted apex.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_pyrtri</td>
+<td style="text-align: left;">Triangular-base, with a sharp or blunted apex.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gen_pyrstar</td>
+<td style="text-align: left;">Star-shaped base, with a sharp or blunted apex.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gen_pyrfrac</td>
+<td style="text-align: left;">Pyramid with triangular pyramid-shaped holes.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <p>Let <span class="math inline">\(X_1, \dots, X_p\)</span> denote the coordinates of the generated points. For the rectangular, triangular, and star-shaped based pyramid generator functions, the final dimension, <span class="math inline">\(X_p\)</span>, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height <span class="math inline">\(h\)</span>. That is, <span class="math inline">\(X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).\)</span> This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid’s apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, <span class="math inline">\(X_p = z \sim U(0, h)\)</span>.</p>
 <p>The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, <code>gen_pyrrect(n, p, h, l_vec, rt)</code> (Figure <a href="#fig:pyr">3</a> a), let <span class="math inline">\(r_x(z)\)</span> and <span class="math inline">\(r_y(z)\)</span> denote the half-widths of the rectangular cross-section at height <span class="math inline">\(z\)</span>. That is, <span class="math inline">\(r_x(z) = r_t + (l_x - r_t)z/h\)</span>, <span class="math inline">\(r_y(z) = r_t + (l_y - r_t)z/h\)</span>. The first three coordinates are then defined as <span class="math inline">\(X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z)).\)</span></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2309,41 +2343,7 @@ e
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<table>
-<caption><span id="tab:pyramid-tb-html">Table 6: </span>cardinalR pyramid data generation functions</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">gen_pyrrect</td>
-<td style="text-align: left;">Rectangular-base, with a sharp or blunted apex.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">gen_pyrtri</td>
-<td style="text-align: left;">Triangular-base, with a sharp or blunted apex.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">gen_pyrstar</td>
-<td style="text-align: left;">Star-shaped base, with a sharp or blunted apex.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">gen_pyrfrac</td>
-<td style="text-align: left;">Pyramid with triangular pyramid-shaped holes.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
+<p>Pyramid structures mimic tapering or layered geometries seen in architecture, crystals, and fractal-like natural patterns <span class="citation" data-cites="kirkby1983">(<a href="#ref-kirkby1983" role="doc-biblioref">Kirkby 1983</a>)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:pyr"></span>
 <div class="container-fluid crosstalk-bscols">
@@ -3138,6 +3138,9 @@ F. Hartig. <em>DHARMa: Residual diagnostics for hierarchical (multi-level / mixe
 </div>
 <div id="ref-jolliffe2011" class="csl-entry" role="listitem">
 I. Jolliffe. <span>Principal Component Analysis</span>. In <em>International encyclopedia of statistical science</em>, pages. 1094–1096 2011. Berlin, Heidelberg: Springer Berlin Heidelberg. ISBN 978-3-642-04898-2. URL <a href="https://doi.org/10.1007/978-3-642-04898-2_455">https://doi.org/10.1007/978-3-642-04898-2_455</a>.
+</div>
+<div id="ref-kirkby1983" class="csl-entry" role="listitem">
+M. J. Kirkby. The fractal geometry of nature. Benoit b. Mandelbrot. W. H. Freeman and co., san francisco, 1982. No. Of pages: 460. Price: £22.75 (hardback). <em>Earth Surface Processes and Landforms</em>, 8(4): 406–406, 1983. URL <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/esp.3290080415">https://onlinelibrary.wiley.com/doi/abs/10.1002/esp.3290080415</a>.
 </div>
 <div id="ref-friedrich2024" class="csl-entry" role="listitem">
 F. Leisch and E. Dimitriadou. <em>Mlbench: Machine learning benchmark problems.</em> 2024. URL <a href="https://CRAN.R-project.org/package=mlbench">https://CRAN.R-project.org/package=mlbench</a>. R package version 2.1-6.
