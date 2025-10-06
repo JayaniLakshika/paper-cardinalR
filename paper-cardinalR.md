@@ -367,6 +367,8 @@ For each point, a direction in the first $p-1$ dimensions is sampled uniformly o
 </div>
 
 
+Cone-shaped structures appear in particle dispersions, light beams, and tapering processes, where spread decreases along one axis. They are also used to benchmark clustering and dimensionality reduction methods [@hadsell2006].
+
 <div class="layout-chunk" data-layout="l-body">
 
 

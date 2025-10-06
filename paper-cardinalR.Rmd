@@ -459,6 +459,8 @@ For each point, a direction in the first $p-1$ dimensions is sampled uniformly o
 cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 ```
 
+Cone-shaped structures appear in particle dispersions, light beams, and tapering processes, where spread decreases along one axis. They are also used to benchmark clustering and dimensionality reduction methods [@hadsell2006].
+
 ```{r}
 cone_lang <- langevitour::langevitour(cone, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 ```

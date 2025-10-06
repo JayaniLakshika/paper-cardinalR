@@ -1,4 +1,4 @@
-\begin{thebibliography}{33}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -45,6 +45,12 @@ A.~Genz and F.~Bretz.
 \newblock \emph{Computation of Multivariate Normal and t Probabilities}.
 \newblock Springer-Verlag, 2009.
 \newblock ISBN 978-3-642-01688-2.
+
+\bibitem[Hadsell et~al.(2006)Hadsell, Chopra, and LeCun]{hadsell2006}
+R.~Hadsell, S.~Chopra, and Y.~LeCun.
+\newblock Dimensionality reduction by learning an invariant mapping.
+\newblock volume~2, pages 1735--1742, 2006.
+\newblock \doi{10.1109/CVPR.2006.100}.
 
 \bibitem[Hartig(2024)]{florian2024}
 F.~Hartig.
