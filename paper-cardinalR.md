@@ -745,11 +745,7 @@ Pyramid structures mimic tapering or layered geometries seen in architecture, cr
 
 #### S-curve
 
-The S-curve is a smooth, non-linear manifold in $3\text{-}D$ space. Using `gen_scurve(n)`, it is defined by
-
-$$
-X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1), \quad \theta \sim U(-3\pi/2, 3\pi/2).
-$$
+The S-curve is a smooth, non-linear manifold in $3\text{-}D$ space. Using `gen_scurve(n)`, it is defined by $X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1), \quad \theta \sim U(-3\pi/2, 3\pi/2).$
 
 This follows the `s_curve()` function from snedata [@james2025], itself adapted from *scikit-learn*, but differs by returning a tibble with standardized names (`x1`, `x2`, `x3`), excluding the color variable, and omitting built-in noise (which can be added separately). S-curve is commonly used in manifold learning and dimension reduction as benchmarks for unfolding curved structure.
 
@@ -1048,15 +1044,19 @@ Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere 
 </div>
 
 
-#### Swiss Roll  
+#### Swiss Roll 
 
-To further generalize the Swiss roll structure and introduce realistic noise, we define a function `gen_swissroll(n, w)`, where $n$ is the number of points, and $w$ is the vertical range in the third dimension. The first three dimensions form the classic $3\text{-}D$ Swiss roll shape. The $$X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \text{ where } t \sim U(0, 3\pi).$$ 
+The Swiss roll is a standard nonlinear manifold, representing a \gD{} plane curled into $3\text{-}D$. The `gen_swissroll(n, w)` generates points as $X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad t \sim U(0, 3\pi).$
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, w <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
 
 </div>
 
+
+Compared with `sndata::swiss_roll()` [@james2025], this implementation (i) samples $t$ over $[0, 3\pi]$ instead of $[1.5\pi, 4.5\pi]$, (ii) allows a flexible vertical range $w = (w_1, w_2)$ rather than fixing $z \in [0, z_{\max}]$, and (iii) returns a tibble with `x1, x2, x3` instead of adding a color variable. 
+
+The Swiss roll is a classic benchmark for manifold learning, illustrating how a curved surface can be “unrolled” into lower dimensions. Similar spiral-like forms appear in galaxies, protein folding, and coiled materials [@dimitris2002].
 
 #### Trefoil knots
 
@@ -1120,7 +1120,7 @@ For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, steps)` genera
 </div>
 
 
-For the $3\text{-}D$ stereographic projection, `gen_trefoil3d(n, steps)` maps each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $$(X_1', X_2', X_3') \in \mathbb{R}^3\text{ using }X_1' = X_1 / (1 - X_4), \quad X_2' = X_2 / (1 - X_4),\text{ and }X_3' = X_3 / (1 - X_4),$$ excluding points where $X_4 = 1$ to avoid division by zero (Figure \@ref(fig:trefoil) b). 
+For the $3\text{-}D$ stereographic projection, `gen_trefoil3d(n, steps)` maps each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $(X_1', X_2', X_3') \in \mathbb{R}^3\text{ using }X_1' = X_1 / (1 - X_4), \quad X_2' = X_2 / (1 - X_4),\text{ and }X_3' = X_3 / (1 - X_4),$ excluding points where $X_4 = 1$ to avoid division by zero (Figure \@ref(fig:trefoil) b). 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>trefoil3d</span> <span class='op'>&lt;-</span> <span class='fu'>gen_trefoil3d</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>500</span>, steps <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre></div>
