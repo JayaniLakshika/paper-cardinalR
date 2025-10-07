@@ -101,7 +101,7 @@ While these packages are valuable, their scope is often limited to specific appl
 The paper is organized as follows. In the next section, we introduce the implementation of the `cardinalR` package on GitHub, including a demonstration of the package's key functions. We illustrate how a clustering data structure affects the dimension reductions in the Application section. Finally, we give a brief conclusion of the paper and discuss potential opportunities for the use of our data collection.
 
 
-# Implementation
+# Usage
 
 The `cardinalR` R package is available on GitHub at [JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR).
 
@@ -109,9 +109,7 @@ The `cardinalR` R package is available on GitHub at [JayaniLakshika/cardinalR](h
 
 <!-- More documentation of the package can be found at the web site [https://jayanilakshika.github.io/cardinalR/](https://jayanilakshika.github.io/cardinalR/). -->
 
-## Usage
-
-### Main function
+## Main function
 
 The main function of the package is `gen_multicluster()`, which generates datasets consisting of multiple clusters with user-specified characteristics. Users can control the number of clusters (`k`), and the number of points in each cluster (`n`). Each cluster can take on a different geometric shape (e.g., Gaussian, cone, uniform cube) by specifying the corresponding generator function (`shape`), can be scaled to adjust its spread, rotated using custom rotation matrices (`rotation`), and positioned at defined centroids (`loc`). The function ensures flexibility in cluster location and orientation, allowing users to simulate complex high-dimensional structures. 
 
@@ -154,11 +152,11 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 </div>
 
 
-### Shape generators
+## Shape generators
 
 The shape generators form the foundation of the package, providing functions to create synthetic datasets from simple, well-defined geometric forms such as cones, pyramids, spheres, grids, and branching structures. Each generator includes the parameter `n`, which specifies the number of points to generate. Some functions, such as `gen_unifcube()`, also take the dimension `p`, while others include arguments specific to the geometry (e.g., radius for spheres (`r`), width for bands (`w`)). If higher-dimensional data are required, additional noise dimensions can be appended after data generation using any noise generator function. This flexibility allows users to construct both low- and high-dimensional datasets from the same underlying structures.
 
-#### Branching
+### Branching
 
 A branching structure (Figure \@ref(fig:branch)) captures trajectories that diverge or bifurcate from a common origin, similar to processes such as cell differentiation in biology (@trapnell2014). We introduce a set of data generation functions specifically designed to simulate high-dimensional branching structures with various geometries, numbers of points (`n`), and number of branches (`k`). Although these functions can generate multiple branches, they do not produce a formal *multicluster* dataset: the branches form a single connected structure, with multiple visually distinct arms rather than independent clusters. Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
 
@@ -353,7 +351,7 @@ where $a_i, b_i$ define the range of the first coordinate for branch $i$, and $\
 </div>
 
 
-#### Cone
+### Cone
 
 To simulate a cone-shaped structure in arbitrary dimensions (Figure \@ref(fig:cone)), we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
 
@@ -421,7 +419,7 @@ Cone-shaped structures appear in particle dispersions, light beams, and tapering
 </div>
 
 
-#### Cube
+### Cube
 
 A cube structure represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, and uniform random points. Table \@ref(tab:cube-tb-html) outlines these functions and their purposes.
 
@@ -467,7 +465,7 @@ By contrast, `gen_unifcube(n, p)` wraps `geozoo::cube.solid.random()`, producing
 
 Such cube-based structures are commonly used as benchmarks in Monte Carlo sampling, computational geometry, and density estimation, where assessing how algorithms behave under uniform or grid-like distributions is critical [@devroye1986; @niederreiter1992].
 
-#### Gaussian
+### Gaussian
 
 The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure. Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, s)$, where $s$ is a user-defined $p \times p$ positive-definite matrix.
 
@@ -479,7 +477,7 @@ The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in 
 
 Gaussian clouds are common benchmark structures in statistics and machine learning, used in clustering, classification, and anomaly detection, with applications in image segmentation, speech recognition, and forensic analysis [@geoffrey2000].
 
-#### Linear
+### Linear
 
 The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a long linear structure with noise. Each variable is formed as $X_i = \text{scale}_i \cdot (0,1,\dots,n{-}1 + \epsilon) + \text{shift}_i$, where $\text{scale}\_i \sim U(-10, 10)$ determines the orientation of the line in each dimension, $\text{shift}\_i \sim U(-300, 300)$ offsets the line to separate dimensions, and $\epsilon \sim N(0, (0.03n)^2)$ introduces Gaussian noise. 
 
@@ -491,7 +489,7 @@ The `gen_longlinear(n, p)` function generates a high-dimensional dataset represe
 
 This structure appears in \pD{} data when variation is driven by a single factor, such as time-course or sensor measurements, providing a useful test case for trajectory and regression methods [@trapnell2014].
 
-#### Möbius
+### Möbius
 
 The `gen_mobius()` function is a wrapper around `geozoo::mobius()`, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with $n$ sampled points forming the surface of a Möbius strip.
 
@@ -503,7 +501,7 @@ The `gen_mobius()` function is a wrapper around `geozoo::mobius()`, designed to 
 
 The Möbius strip structure can model twisted or cyclic surfaces in physics and engineering, such as conveyor belts, molecular structures, or optical systems with non-orientable geometries [@optica2023].
 
-#### Polynomial
+### Polynomial
 
 A polynomial structure generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in \gD{} space. To extend these patterns into high-dimensional settings, additional noise dimensions can be added. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. Table \@ref(tab:polynomial-tb-html) summarizes these functions and their purposes.
 
@@ -547,7 +545,7 @@ The second is the cubic curve of $n$ points in two dimensions. This is generated
 </div>
 
 
-#### Pyramid
+### Pyramid
 
 A pyramid structure (Figure \@ref(fig:pyr)) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in \pD{} space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table \@ref(tab:pyramid-tb-html) summarizes these functions.
 
@@ -745,7 +743,7 @@ Pyramid structures mimic tapering or layered geometries seen in architecture, cr
 </div>
 
 
-#### S-curve
+### S-curve
 
 The S-curve is a smooth, non-linear manifold in $3\text{-}D$ space. Using `gen_scurve(n)`, it is defined by $X_1 = \sin(\theta), \quad X_2 \sim U(0, 2), \quad X_3 = \text{sign}(\theta)(\cos(\theta) - 1), \quad \theta \sim U(-3\pi/2, 3\pi/2).$
 
@@ -757,7 +755,7 @@ This follows the `s_curve()` function from snedata [@james2025], itself adapted 
 </div>
 
 
-#### Sphere
+### Sphere
 
 Sphere-shaped structures are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The functions generate a variety of spherical forms, including simple circles, uniform and hollow spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. Such spherical or hemispherical structures frequently appear in physical and biological systems, for example in models of celestial bodies, molecular shells, or cell membranes [@tinkham2003; @alberts2014].Table \@ref(tab:sphere-tb-html) summarizes these functions.
 
@@ -957,7 +955,7 @@ Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere 
 </div>
 
 
-#### Swiss Roll 
+### Swiss Roll 
 
 The Swiss roll is a standard nonlinear manifold, representing a \gD{} plane curled into $3\text{-}D$. The `gen_swissroll(n, w)` generates points as $X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad t \sim U(0, 3\pi).$
 
@@ -971,7 +969,7 @@ Compared with `sndata::swiss_roll()` [@james2025], this implementation (i) sampl
 
 The Swiss roll is a classic benchmark for manifold learning, illustrating how a curved surface can be “unrolled” into lower dimensions. Similar spiral-like forms appear in galaxies, protein folding, and coiled materials [@dimitris2002].
 
-#### Trefoil knots
+### Trefoil knots
 
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
 
@@ -1097,7 +1095,7 @@ The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dyna
 </div>
 
 
-#### Trigonometric
+### Trigonometric
 
 Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \@ref(fig:triginometric)). The main geometry is defined by the first few coordinates: crescents ($p=2$), cylinders, spirals, and helices ($p=4$). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features [@calladine1997; @gershenfeld2000]. Table \@ref(tab:trigonometric-tb-html) summarizes these functions.
 
@@ -1307,7 +1305,7 @@ Finally, the `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear 
 </div>
 
 
-### Generate a spherical or hyperspherical hole within a structure
+## Generate a spherical or hyperspherical hole within a structure
 
 The package provides functionality for generating datasets with spherical hole (in $2\text{-}D$/$3\text{-}D$) or, more generally, hyperspherical hole (in higher dimensions). These structures are valuable for evaluating how dimension reduction methods and clustering algorithms handle incomplete manifolds or missing regions of the data space. A hyperspherical hole introduces topological complexity: the structure remains continuous but contains excluded regions (voids) that algorithms must correctly represent in lower-dimensional embeddings.
 
@@ -1315,7 +1313,7 @@ The core function `gen_hole(df, anchor, r)` removes points from a dataset that f
 
 Two specialized wrappers illustrate this idea. The function `gen_scurvehole(n, r_hole)` generates an S-curve with a spherical hole by applying `gen_hole()` to the output of `gen_scurve()`. This structure has been used in prior diagnostic studies of NLDR methods, since it tests the ability of algorithms to capture non-linear manifolds that are not simply connected. The second wrapper, `gen_unifcubehole(n, p, r_hole)`, generates uniformly sampled cube data with a hyperspherical hole. By embedding a hyperspherical void inside a convex high-dimensional structure, this creates non-convex regions that challenge algorithms in terms of separability and neighborhood preservation.
 
-### Generate noise dimensions
+## Generate noise dimensions
 
 High-dimensional data structures often benefit from the addition of auxiliary noise dimensions, which can be used to assess the robustness of dimensionality reduction and clustering algorithms. The functions in this section provide flexible ways to generate random noise dimensions, ranging from purely random Gaussian variables to more structured, wavy patterns that mimic non-linear distortions in high-dimensional space. These functions can be applied independently or combined with other geometric structures to create complex simulated datasets. Table \@ref(tab:noise-tb-html) details these functions.
 
@@ -1377,7 +1375,7 @@ $$
 
 producing high-dimensional noise that preserves some geometric correlation with the base structure while introducing additional complexity.
 
-### Multiple cluster examples
+## Multiple cluster examples
 
 By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table \@ref(tab:odd-shape-tb-html).
 
@@ -1417,7 +1415,7 @@ Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
 </div>
 
 
-### Additional functions
+## Additional functions
 
 The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table \@ref(tab:add-tb-html) details these functions.
 
@@ -1449,6 +1447,8 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 
 </div>
 
+
+# Implementation
 
 # Application
 
