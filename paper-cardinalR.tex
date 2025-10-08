@@ -55,6 +55,39 @@ is\_bkg & boolean & Background noise should exist or not.\\
 \end{tabular}
 \end{table}
 
+The following example demonstrates how to use \texttt{gen\_multicluster()} to create a \(4\text{-}D\) dataset with three clusters of different shapes and orientations:
+
+\begin{verbatim}
+# Define example rotation matrices for 4D space
+rot1 <- gen_rotation(p = 4, planes_angles = list(
+  list(plane = c(1, 2), angle = 60),
+  list(plane = c(3, 4), angle = 90)
+))
+
+rot2 <- gen_rotation(p = 4, planes_angles = list(
+  list(plane = c(1, 3), angle = 30)
+))
+
+rot3 <- gen_rotation(p = 4, planes_angles = list(
+  list(plane = c(2, 4), angle = 45)
+))
+
+# Generate the clustered dataset
+clust_data <- gen_multicluster(
+  n = c(200, 300, 500),
+  k = 3,
+  loc = matrix(c(
+    0, 0, 0, 0,
+    5, 9, 0, 0,
+    3, 4, 10, 7
+  ), nrow = 3, byrow = TRUE),
+  scale = c(3, 1, 2),
+  shape = c("gaussian", "cone", "unifcube"),
+  rotation = list(rot1, rot2, rot3),
+  is_bkg = FALSE
+)
+\end{verbatim}
+
 \subsection{Shape generators}\label{shape-generators}
 
 The shape generators form the foundation of the package, providing functions to create synthetic datasets from simple, well-defined geometric forms such as cones, pyramids, spheres, grids, and branching structures. Each generator includes the parameter \texttt{n}, which specifies the number of points to generate. Some functions, such as \texttt{gen\_unifcube()}, also take the dimension \texttt{p}, while others include arguments specific to the geometry (e.g., radius for spheres (\texttt{r}), width for bands (\texttt{w})). If higher-dimensional data are required, additional noise dimensions can be appended after data generation using any noise generator function. This flexibility allows users to construct both low- and high-dimensional datasets from the same underlying structures.
