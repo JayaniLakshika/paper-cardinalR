@@ -146,6 +146,7 @@ While these packages are valuable, their scope is often limited to specific appl
 
 The paper is organized as follows. In the next section, we introduce the implementation of the `cardinalR` package on GitHub, including a demonstration of the package's key functions. We illustrate how a clustering data structure affects the dimension reductions in the Application section. Finally, we give a brief conclusion of the paper and discuss potential opportunities for the use of our data collection.
 
+# Implementation
 
 # Usage
 
@@ -2335,8 +2336,6 @@ add_fun_tb |>
   column_spec(2, width = "8cm")
 ```
 
-# Implementation
-
 # Application
 
 This section demonstrates how the package can be used to generate complex high-dimensional datasets, apply dimension reduction (DR) techniques, and evaluate clustering performance. The example shows how diverse geometric structures can be simulated and analyzed to assess algorithmic behavior.
@@ -2348,12 +2347,12 @@ To illustrate, we generate a dataset with five clusters in $4\text{-}D$, each re
 ```{r gen-five-clust-data, echo=TRUE}
 
 positions <- geozoo::simplex(p=4)$points
-positions <- positions * 0.8
+positions <- positions * 0.3 #positions * 0.8
 
 ## To generate data
 five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
                        loc = positions,
-                       scale = c(0.4, 0.35, 0.3, 1, 0.3),
+                       scale = c(0.25, 0.35, 0.3, 1, 0.3),
                        shape = c("helicalspiral", "hemisphere", "unifcube", 
                                  "cone", "gaussian"),
                        rotation = NULL,
@@ -2551,7 +2550,7 @@ These methods vary in their ability to preserve local and global data structures
 
 ## Benchmarking clustering algorithms
 
-```{r, echo=TRUE}
+```{r}
 library(fpc)
 
 # Extract high-dimensional data
@@ -2563,16 +2562,16 @@ dist_mat <- dist(data)
 hc_res <- cutree(hclust(dist_mat, method = "ward.D2"), k = 5)
 ```
 
-```{r, echo=TRUE}
+```{r}
 # K-means clustering
 kmeans_res <- kmeans(data, centers = 5, nstart = 20)
 ```
 
-```{r, echo=TRUE}
+```{r}
 library(mclust)
 
 # Model-based clustering
-mclust_res <- Mclust(data, G = 5)$classification
+mclust_res <- Mclust(data, G = 5, modelNames = "VVV")$classification
 ```
 
 ```{r}
@@ -2584,13 +2583,12 @@ comp_mclust <- cluster.stats(dist_mat, true_labels, mclust_res)
 # Summarize key performance metrics
 data.frame(
   Method = c("K-means", "Hierarchical", "Model-based"),
-  ARI = c(comp_kmeans$corrected.rand,
-          comp_hclust$corrected.rand,
-          comp_mclust$corrected.rand),
-  Entropy = c(comp_kmeans$entropy,
-              comp_hclust$entropy,
-              comp_mclust$entropy)
+  Avg_Silhouette = c(comp_kmeans$avg.silwidth, comp_hclust$avg.silwidth, comp_mclust$avg.silwidth),
+  Dunn_Index = c(comp_kmeans$dunn, comp_hclust$dunn, comp_mclust$dunn),
+  Entropy = c(comp_kmeans$entropy, comp_hclust$entropy, comp_mclust$entropy),
+  Corrected_Rand = c(comp_kmeans$corrected.rand, comp_hclust$corrected.rand, comp_mclust$corrected.rand)
 )
+
 ```
 
 # Conclusion

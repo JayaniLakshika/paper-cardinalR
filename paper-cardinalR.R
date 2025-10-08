@@ -1995,12 +1995,12 @@ add_fun_tb |>
 ## ----gen-five-clust-data, echo=TRUE-------------------------------------------
 
 positions <- geozoo::simplex(p=4)$points
-positions <- positions * 0.8
+positions <- positions * 0.3 #positions * 0.8
 
 ## To generate data
 five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
                        loc = positions,
-                       scale = c(0.4, 0.35, 0.3, 1, 0.3),
+                       scale = c(0.25, 0.35, 0.3, 1, 0.3),
                        shape = c("helicalspiral", "hemisphere", "unifcube", 
                                  "cone", "gaussian"),
                        rotation = NULL,
@@ -2190,7 +2190,7 @@ nldr1 + nldr2 + nldr3 +
   plot_layout(ncol = 3, guides = "collect")
 
 
-## ----echo=TRUE----------------------------------------------------------------
+## -----------------------------------------------------------------------------
 library(fpc)
 
 # Extract high-dimensional data
@@ -2202,16 +2202,16 @@ dist_mat <- dist(data)
 hc_res <- cutree(hclust(dist_mat, method = "ward.D2"), k = 5)
 
 
-## ----echo=TRUE----------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # K-means clustering
 kmeans_res <- kmeans(data, centers = 5, nstart = 20)
 
 
-## ----echo=TRUE----------------------------------------------------------------
+## -----------------------------------------------------------------------------
 library(mclust)
 
 # Model-based clustering
-mclust_res <- Mclust(data, G = 5)$classification
+mclust_res <- Mclust(data, G = 5, modelNames = "VVV")$classification
 
 
 ## -----------------------------------------------------------------------------
@@ -2223,11 +2223,10 @@ comp_mclust <- cluster.stats(dist_mat, true_labels, mclust_res)
 # Summarize key performance metrics
 data.frame(
   Method = c("K-means", "Hierarchical", "Model-based"),
-  ARI = c(comp_kmeans$corrected.rand,
-          comp_hclust$corrected.rand,
-          comp_mclust$corrected.rand),
-  Entropy = c(comp_kmeans$entropy,
-              comp_hclust$entropy,
-              comp_mclust$entropy)
+  Avg_Silhouette = c(comp_kmeans$avg.silwidth, comp_hclust$avg.silwidth, comp_mclust$avg.silwidth),
+  Dunn_Index = c(comp_kmeans$dunn, comp_hclust$dunn, comp_mclust$dunn),
+  Entropy = c(comp_kmeans$entropy, comp_hclust$entropy, comp_mclust$entropy),
+  Corrected_Rand = c(comp_kmeans$corrected.rand, comp_hclust$corrected.rand, comp_mclust$corrected.rand)
 )
+
 
