@@ -233,16 +233,16 @@ projection <- cbind(
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.8, 
                             scaled_data = scaled_data, 
-                            axis_param = list(limits = 0.085,
-                                              axis_scaled = 6, 
-                                              axis_pos_x = -0.07, 
-                                              axis_pos_y = -0.07, 
-                                              threshold = 0.006))
+                            axis_param = list(limits = 0.15,
+                                              axis_scaled = 10, 
+                                              axis_pos_x = -0.12, 
+                                              axis_pos_y = -0.12, 
+                                              threshold = 0.015))
 
 orglinearbranches_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.1, 0.1), 
+  plot_limits = c(-0.15, 0.15), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 5,
