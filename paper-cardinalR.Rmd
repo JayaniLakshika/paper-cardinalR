@@ -2551,6 +2551,48 @@ These methods vary in their ability to preserve local and global data structures
 
 ## Benchmarking clustering algorithms
 
+```{r, echo=TRUE}
+library(fpc)
+
+# Extract high-dimensional data
+data <- five_clusts[, -5]
+true_labels <- as.numeric(gsub("cluster", "", five_clusts$cluster))
+
+# Hierarchical clustering
+dist_mat <- dist(data)
+hc_res <- cutree(hclust(dist_mat, method = "ward.D2"), k = 5)
+```
+
+```{r, echo=TRUE}
+# K-means clustering
+kmeans_res <- kmeans(data, centers = 5, nstart = 20)
+```
+
+```{r, echo=TRUE}
+library(mclust)
+
+# Model-based clustering
+mclust_res <- Mclust(data, G = 5)$classification
+```
+
+```{r}
+# Evaluate clustering performance
+comp_kmeans <- cluster.stats(dist_mat, true_labels, kmeans_res$cluster)
+comp_hclust <- cluster.stats(dist_mat, true_labels, hc_res)
+comp_mclust <- cluster.stats(dist_mat, true_labels, mclust_res)
+
+# Summarize key performance metrics
+data.frame(
+  Method = c("K-means", "Hierarchical", "Model-based"),
+  ARI = c(comp_kmeans$corrected.rand,
+          comp_hclust$corrected.rand,
+          comp_mclust$corrected.rand),
+  Entropy = c(comp_kmeans$entropy,
+              comp_hclust$entropy,
+              comp_mclust$entropy)
+)
+```
+
 # Conclusion
 
 The `cardinalR` package introduces a flexible framework for generating high-dimensional data structures with well-defined geometric properties. It addresses an important need in the evaluation of clustering, machine learning, and DR methods by enabling the construction of customized datasets with interpretable structures, noise characteristics, and clustering arrangements. In this way, `cardinalR` complements existing packages such as `geozoo`, `snedata`, and `mlbench`, while extending the scope to higher dimensions and more complex shapes.
@@ -2589,6 +2631,4 @@ Future extensions of `cardinalR` may include biologically inspired or applicatio
 
 # Acknowledgements
 
-The source material for this paper is available at [github.com/JayaniLakshika/paper-cardinalR](https://github.com/JayaniLakshika/paper-cardinalR).  
-
-This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. These `R` packages were used for this work: `cli` [@gabor2025], `tibble` [@kirill2023], `gtools` [@gregory2023], `dplyr` [@hadley2023], `stats` [@core2025], `tidyr` [@hadley2024], `purrr` [@hadley2025], `mvtnorm` [@alan2009], `geozoo` [@barret2016], and `MASS` [@venables2002]. 
+The source material for this paper is available at [github.com/JayaniLakshika/paper-cardinalR](https://github.com/JayaniLakshika/paper-cardinalR). This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. These `R` packages were used for this work: `cli` [@gabor2025], `tibble` [@kirill2023], `gtools` [@gregory2023], `dplyr` [@hadley2023], `stats` [@core2025], `tidyr` [@hadley2024], `purrr` [@hadley2025], `mvtnorm` [@alan2009], `geozoo` [@barret2016], and `MASS` [@venables2002]. 

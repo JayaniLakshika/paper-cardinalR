@@ -1570,6 +1570,48 @@ These methods vary in their ability to preserve local and global data structures
 
 ## Benchmarking clustering algorithms
 
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://www.unibo.it/sitoweb/christian.hennig/en/'>fpc</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Extract high-dimensional data</span></span>
+<span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='va'>five_clusts</span><span class='op'>[</span>, <span class='op'>-</span><span class='fl'>5</span><span class='op'>]</span></span>
+<span><span class='va'>true_labels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span><span class='op'>(</span><span class='st'>"cluster"</span>, <span class='st'>""</span>, <span class='va'>five_clusts</span><span class='op'>$</span><span class='va'>cluster</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Hierarchical clustering</span></span>
+<span><span class='va'>dist_mat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></span>
+<span><span class='va'>hc_res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cutree.html'>cutree</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></span><span class='op'>(</span><span class='va'>dist_mat</span>, method <span class='op'>=</span> <span class='st'>"ward.D2"</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># K-means clustering</span></span>
+<span><span class='va'>kmeans_res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/kmeans.html'>kmeans</a></span><span class='op'>(</span><span class='va'>data</span>, centers <span class='op'>=</span> <span class='fl'>5</span>, nstart <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://mclust-org.github.io/mclust/'>mclust</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Model-based clustering</span></span>
+<span><span class='va'>mclust_res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://mclust-org.github.io/mclust/reference/Mclust.html'>Mclust</a></span><span class='op'>(</span><span class='va'>data</span>, G <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>$</span><span class='va'>classification</span></span></code></pre></div>
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+```
+        Method ARI  Entropy
+1      K-means   1 1.551532
+2 Hierarchical   1 1.551532
+3  Model-based   1 1.551532
+```
+
+</div>
+
+
 # Conclusion
 
 The `cardinalR` package introduces a flexible framework for generating high-dimensional data structures with well-defined geometric properties. It addresses an important need in the evaluation of clustering, machine learning, and DR methods by enabling the construction of customized datasets with interpretable structures, noise characteristics, and clustering arrangements. In this way, `cardinalR` complements existing packages such as `geozoo`, `snedata`, and `mlbench`, while extending the scope to higher dimensions and more complex shapes.

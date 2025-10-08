@@ -2189,3 +2189,45 @@ nldr1 + nldr2 + nldr3 +
   nldr4 + nldr5 + nldr6 +
   plot_layout(ncol = 3, guides = "collect")
 
+
+## ----echo=TRUE----------------------------------------------------------------
+library(fpc)
+
+# Extract high-dimensional data
+data <- five_clusts[, -5]
+true_labels <- as.numeric(gsub("cluster", "", five_clusts$cluster))
+
+# Hierarchical clustering
+dist_mat <- dist(data)
+hc_res <- cutree(hclust(dist_mat, method = "ward.D2"), k = 5)
+
+
+## ----echo=TRUE----------------------------------------------------------------
+# K-means clustering
+kmeans_res <- kmeans(data, centers = 5, nstart = 20)
+
+
+## ----echo=TRUE----------------------------------------------------------------
+library(mclust)
+
+# Model-based clustering
+mclust_res <- Mclust(data, G = 5)$classification
+
+
+## -----------------------------------------------------------------------------
+# Evaluate clustering performance
+comp_kmeans <- cluster.stats(dist_mat, true_labels, kmeans_res$cluster)
+comp_hclust <- cluster.stats(dist_mat, true_labels, hc_res)
+comp_mclust <- cluster.stats(dist_mat, true_labels, mclust_res)
+
+# Summarize key performance metrics
+data.frame(
+  Method = c("K-means", "Hierarchical", "Model-based"),
+  ARI = c(comp_kmeans$corrected.rand,
+          comp_hclust$corrected.rand,
+          comp_mclust$corrected.rand),
+  Entropy = c(comp_kmeans$entropy,
+              comp_hclust$entropy,
+              comp_mclust$entropy)
+)
+

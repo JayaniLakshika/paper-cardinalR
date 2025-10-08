@@ -736,6 +736,37 @@ These methods vary in their ability to preserve local and global data structures
 
 \subsection{Benchmarking clustering algorithms}\label{benchmarking-clustering-algorithms}
 
+\begin{verbatim}
+library(fpc)
+
+# Extract high-dimensional data
+data <- five_clusts[, -5]
+true_labels <- as.numeric(gsub("cluster", "", five_clusts$cluster))
+
+# Hierarchical clustering
+dist_mat <- dist(data)
+hc_res <- cutree(hclust(dist_mat, method = "ward.D2"), k = 5)
+\end{verbatim}
+
+\begin{verbatim}
+# K-means clustering
+kmeans_res <- kmeans(data, centers = 5, nstart = 20)
+\end{verbatim}
+
+\begin{verbatim}
+library(mclust)
+
+# Model-based clustering
+mclust_res <- Mclust(data, G = 5)$classification
+\end{verbatim}
+
+\begin{verbatim}
+#>         Method ARI  Entropy
+#> 1      K-means   1 1.551532
+#> 2 Hierarchical   1 1.551532
+#> 3  Model-based   1 1.551532
+\end{verbatim}
+
 \section{Conclusion}\label{conclusion}
 
 The \texttt{cardinalR} package introduces a flexible framework for generating high-dimensional data structures with well-defined geometric properties. It addresses an important need in the evaluation of clustering, machine learning, and DR methods by enabling the construction of customized datasets with interpretable structures, noise characteristics, and clustering arrangements. In this way, \texttt{cardinalR} complements existing packages such as \texttt{geozoo}, \texttt{snedata}, and \texttt{mlbench}, while extending the scope to higher dimensions and more complex shapes.
