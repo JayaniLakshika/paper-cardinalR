@@ -1487,11 +1487,11 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 
 # Application
 
-<!-- ## Assessing the performance of dimension reduction on different geometric structures in high-dimensions -->
+This section demonstrates how the package can be used to generate complex high-dimensional datasets, apply dimension reduction (DR) techniques, and evaluate clustering performance. The example shows how diverse geometric structures can be simulated and analyzed to assess algorithmic behavior.
 
-This section illustrates the use of package by generating a synthetic dataset to evaluate the performance of six popular dimension reduction techniques: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021].
+## Generating high-dimensional clustered data
 
-The following code generates a dataset of five clusters, positioned with equal inter-cluster distances in $4\text{-}D$ space (Figure \@ref(fig:highd-data)). Each cluster was chosen to reflect distinct geometric and topological properties, allowing us to test how well DR methods preserve both local and global structures. The *helical spiral* cluster is designed to evaluate methods on elongated, twisting structures that challenge linear embeddings such as PCA and require preservation of curvilinear continuity. The *hemisphere* provides a curved surface with partial coverage of a $3\text{-}D$ manifold, useful for testing neighborhood preservation and unfolding in algorithms like UMAP and tSNE. The *uniform cube* represents isotropic, uniformly distributed data and serves as a control cluster with simple geometric structure to assess baseline embedding fidelity. The *cone* introduces variable density along one axis, mimicking structures where point density changes with geometry, helping evaluate how well algorithms maintain relative distances in non-uniform distributions. Finally, the *Gaussian* cluster is a standard multivariate normal distribution, included to assess algorithm performance on simple, spherical, high-density clusters. Together, these clusters create a challenging synthetic dataset suitable for benchmarking and exploring the strengths and weaknesses of different dimensionality reduction techniques.
+To illustrate, we generate a dataset with five clusters in $4\text{-}D$, each representing distinct geometric characteristics: a *helical spiral* (elongated and twisted), a *hemisphere* (curved surface), a *uniform cube* (isotropic distribution), a *cone* (density gradient), and a *Gaussian* cluster (compact and spherical) (Figure \@ref(fig:highd-data)). Each cluster has a unique number of points and scaling factor, representing variation in cluster size and spread across the $4\text{-}D$ space.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>positions</span> <span class='op'>&lt;-</span> <span class='fu'>geozoo</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/geozoo/man/simplex.html'>simplex</a></span><span class='op'>(</span>p<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>$</span><span class='va'>points</span></span>
@@ -1508,8 +1508,6 @@ The following code generates a dataset of five clusters, positioned with equal i
 
 </div>
 
-
-The five clusters have different geometric structures and each contain different number of points. Specifically, the helical spiral cluster includes $2250$ points and was generated with a scale parameter of $0.4$. The hemisphere cluster consists of $1500$ points with a scale parameter of $0.35$. The uniform cube-shaped cluster contains $750$ points and uses a scale parameter of $0.3$. The blunted cone cluster includes $1250$ points, generated with a scale parameter of $1$. Finally, the Gaussian-shaped cluster contains $1750$ points and was generated with a scale parameter of $0.3$.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
@@ -1549,13 +1547,15 @@ The five clusters have different geometric structures and each contain different
 </div>
 
 
+## Evaluating dimension reduction (DR) methods
+
+Next, we apply six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
+
 <div class="layout-chunk" data-layout="l-body">
 
 
 </div>
 
-
-UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure (Figure \@ref(fig:fig-nldr-layouts)). However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
@@ -1565,6 +1565,10 @@ UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show 
 
 </div>
 
+
+These methods vary in their ability to preserve local and global data structures (Figure \@ref(fig:fig-nldr-layouts)). UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
+
+## Benchmarking clustering algorithms
 
 # Conclusion
 
