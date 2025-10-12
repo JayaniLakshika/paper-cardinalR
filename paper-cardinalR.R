@@ -87,6 +87,10 @@ theme_set(theme_linedraw() +
 source("scripts/additional_functions.R")
 
 
+## ----out.width = "100%"-------------------------------------------------------
+knitr::include_graphics("figures/cardinalR.pdf")
+
+
 ## -----------------------------------------------------------------------------
 main_tb <- tibble(arg = c("n",
                           "k",
