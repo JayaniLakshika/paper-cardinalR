@@ -89,8 +89,8 @@ theme_set(theme_linedraw() +
 source("scripts/additional_functions.R")
 
 
-## ----workflow, out.width = "100%", fig.pos="H", fig.cap="Workflow of."--------
-knitr::include_graphics("figures/cardinalR.pdf")
+## ----workflow, out.width = "100%", fig.pos="H", fig.cap="Workflow of.", eval=FALSE----
+# knitr::include_graphics("figures/cardinalR.pdf")
 
 
 ## -----------------------------------------------------------------------------
@@ -982,7 +982,7 @@ proj_obj1 <- get_projection(projection = projection,
 circle_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.75, 0.8), 
+  plot_limits = c(-0.8, 0.8), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 5,
@@ -1249,7 +1249,7 @@ clusteredspheres_proj3 <- plot_proj(
 # spherefig
 
 
-## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=12, fig.height=12, out.width="80%", fig.align='center', fig.pos="H"----
+## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=12, fig.height=12, out.width="100%", fig.align='center', fig.pos="H"----
 
 circle_proj1 + circle_proj2 + circle_proj3 +
 curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3  +
@@ -2234,15 +2234,15 @@ summary_clust <- tibble::tibble(
 
 ## ----summaryclust-tb-html, eval=knitr::is_html_output()-----------------------
 # summary_clust |>
-#   kable(caption = "cardinalR branching data generation functions", col.names = c("Metric", "wb.ratio", "Dunn_Index", "Corrected_Rand", "VI"), table.pos = "H")
+#   kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", col.names = c("Metric", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), tab.pos = "H")
 
 
 ## ----summaryclust-tb-pdf, eval=knitr::is_latex_output()-----------------------
 summary_clust |> 
-  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Metric", "wb.ratio", "Dunn_Index", "Corrected_Rand", "VI"), booktabs = T, table.pos = "H")  |>
+  kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", format="latex", col.names = c("Metric", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), booktabs = T, table.pos = "H")  |>
   column_spec(1, width = "2.5cm") |>
   column_spec(2, width = "2cm") |>
   column_spec(3, width = "2cm") |>
-  column_spec(4, width = "2cm") |>
+  column_spec(4, width = "2.5cm") |>
   column_spec(5, width = "2cm")
 

@@ -102,10 +102,7 @@ The paper is organized as follows. In the next section, we introduce the impleme
 The `cardinalR` package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes. The main function, `gen_multicluster()`, combines these shapes into a single dataset by applying scaling, rotation, and translation through `gen_rotation()`. Each generated shape is assigned a unique cluster label. This design allows flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure \@ref(fig:workflow) illustrates the workflow of `gen_multicluster()`.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure">
-<embed src="figures/cardinalR.pdf" title="Workflow of." width="100%" type="application/pdf" />
-<p class="caption">(\#fig:workflow)Workflow of.</p>
-</div>
+
 
 </div>
 
@@ -1601,9 +1598,9 @@ To further evaluate the structure of the generated data, we benchmarked three cl
 
 <div class="layout-chunk" data-layout="l-body">
 
-Table: (\#tab:summaryclust-tb-html)cardinalR branching data generation functions
+Table: (\#tab:summaryclust-tb-html)Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.
 
-|Metric       | wb.ratio| Dunn_Index| Corrected_Rand|   VI|
+|Metric       | wb.ratio| Dunn Index| Corrected Rand|   VI|
 |:------------|--------:|----------:|--------------:|----:|
 |k-means      |     0.61|       0.01|           0.42| 1.32|
 |Hierarchical |     0.61|       0.01|           0.50| 1.15|
@@ -1618,7 +1615,7 @@ Table: (\#tab:summaryclust-tb-html)cardinalR branching data generation functions
 </div>
 
 
-Overall, all methods produced similar compactness and separation, as reflected by the *within–between cluster ratios (wb.ratio)* and *Dunn indices*. However, the **model-based clustering** achieved the highest *Corrected Rand Index* ($0.75$) and lowest *Variation of Information (VI)* ($0.65$), indicating the best recovery of the true underlying groups. In comparison, $k$-means and hierarchical clustering showed moderate agreement with the true labels. These findings demonstrate that mixture-based approaches can more effectively capture the heterogeneity of clusters in high-dimensional, non-spherical data.
+Overall, all methods produced similar compactness and separation, as reflected by the *within–between cluster ratios (wb.ratio)* and *Dunn indices*. However, the **model-based clustering** achieved the highest *Corrected Rand Index* ($0.75$) and lowest *Variation of Information (VI)* ($0.65$), indicating the best recovery of the true underlying groups (Table \@ref(tab:summaryclust-tb-html)). In comparison, $k$-means and hierarchical clustering showed moderate agreement with the true labels. These findings demonstrate that mixture-based approaches can more effectively capture the heterogeneity of clusters in high-dimensional, non-spherical data.
 
 # Conclusion
 
