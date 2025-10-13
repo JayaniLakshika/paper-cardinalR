@@ -1566,6 +1566,34 @@ Next, we apply six popular DR techniques to the generated dataset: Principal Com
 </div>
 
 
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:summarydr-tb-html)Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.
+
+|Method |  svm|  cte|  rte| global_score|
+|:------|----:|----:|----:|------------:|
+|tSNE   | 0.98| 0.42| 0.70|         0.46|
+|UMAP   | 0.98| 0.62| 0.73|         0.58|
+|PHATE  | 0.90| 0.47| 0.72|         0.55|
+|TriMAP | 0.93| 0.58| 0.75|         0.59|
+|PaCMAP | 0.99| 0.24| 0.72|         0.54|
+|PCA    | 0.78| 0.53| 0.83|         1.00|
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
 These methods vary in their ability to preserve local and global data structures (Figure \@ref(fig:fig-nldr-layouts)). UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
 
 ## Benchmarking clustering algorithms

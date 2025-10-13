@@ -734,6 +734,24 @@ Next, we apply six popular DR techniques to the generated dataset: Principal Com
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Six different dimension reduction representations of the five clusters data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA.}\label{fig:fig-nldr-layouts}
 \end{figure}
 
+\begin{table}
+
+\caption{\label{tab:summarydr-tb-pdf}Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
+\toprule
+Method & svm & cte & rte & global\_score\\
+\midrule
+tSNE & 0.98 & 0.42 & 0.70 & 0.46\\
+UMAP & 0.98 & 0.62 & 0.73 & 0.58\\
+PHATE & 0.90 & 0.47 & 0.72 & 0.55\\
+TriMAP & 0.93 & 0.58 & 0.75 & 0.59\\
+PaCMAP & 0.99 & 0.24 & 0.72 & 0.54\\
+PCA & 0.78 & 0.53 & 0.83 & 1.00\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 These methods vary in their ability to preserve local and global data structures (Figure \ref{fig:fig-nldr-layouts}). UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
 
 \subsection{Benchmarking clustering algorithms}\label{benchmarking-clustering-algorithms}

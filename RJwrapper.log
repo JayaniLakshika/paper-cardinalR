@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.3)  13 OCT 2025 13:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.3)  13 OCT 2025 14:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -932,7 +932,7 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.p
 [18 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf>]
 
 [19 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
-Overfull \hbox (37.32867pt too wide) in paragraph at lines 774--775
+Overfull \hbox (37.32867pt too wide) in paragraph at lines 792--793
 \T1/ppl/m/n/9 (-20) ti-cle is cre-ated us-ing [][]\T1/ppl/b/n/9 (-20) knitr[][] \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/9 (-20) rmark-down[][] \T1/ppl/m/n/9 (-20) ([][][]Xie et al.[][], [][]2018[][]) in R with the \T1/zi4/m/n/9 rjtools::rjournal_article
  []
 
@@ -943,6 +943,8 @@ Overfull \hbox (37.32867pt too wide) in paragraph at lines 774--775
 
 
 [20]
+
+[21]
 Underfull \hbox (badness 3428) in paragraph at lines 165--165
 []\T1/ppl/m/n/9 (+20) Optica ^^U The Op-ti-cal So-ci-ety.  Op-ti-cal möbius strips yield new se-crets, 2023.  URL
  []
@@ -952,18 +954,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--165
 [][]$\T1/zi4/m/n/9 https : / / www . optica -[] opn . org / home / newsroom / 2023 / january / optical _ mobius _ strips _ yield _
  []
 
-
-
-[21])
+)
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 786.
+(Font)              using `T1/zi4/m/n' instead on input line 804.
 
+
+
+[22]
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 796.
-
-
-[22])
+(Font)              scaled to size 9.18004pt on input line 814.
+)
 
 [23] (./RJwrapper.aux)
  ***********
@@ -982,18 +983,18 @@ Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
 (rerunfilecheck)             Checksum: 2FADB7E3DADF4FA769DB100AFDD7A51A;2417.
  ) 
 Here is how much of TeX's memory you used:
- 27720 strings out of 469729
- 505757 string characters out of 5476492
- 924270 words of memory out of 5000000
- 55145 multiletter control sequences out of 15000+600000
+ 27722 strings out of 469729
+ 505795 string characters out of 5476492
+ 924517 words of memory out of 5000000
+ 55146 multiletter control sequences out of 15000+600000
  692641 words of font info for 403 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  117i,12n,131p,2007b,948s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (23 pages, 6701507 bytes).
+Output written on RJwrapper.pdf (23 pages, 6701754 bytes).
 PDF statistics:
- 660 PDF objects out of 1000 (max. 8388607)
- 585 compressed objects within 6 object streams
- 106 named destinations out of 1000 (max. 500000)
+ 661 PDF objects out of 1000 (max. 8388607)
+ 586 compressed objects within 6 object streams
+ 107 named destinations out of 1000 (max. 500000)
  73909 words of extra memory for PDF output out of 74296 (max. 10000000)
 

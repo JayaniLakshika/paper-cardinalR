@@ -2197,6 +2197,28 @@ nldr1 + nldr2 + nldr3 +
 
 
 ## -----------------------------------------------------------------------------
+summary_dr <- read_rds("data/five_clusts/dr_summary.rds")
+
+summary_dr <- summary_dr |>
+  mutate(across(where(is.numeric), ~ round(.x, 2)))
+
+
+## ----summarydr-tb-html, eval=knitr::is_html_output()--------------------------
+# summary_dr |>
+#   kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", col.names = c("Method", "svm", "cte", "rte", "global_score"), tab.pos = "H", linesep = "")
+
+
+## ----summarydr-tb-pdf, eval=knitr::is_latex_output()--------------------------
+summary_dr |> 
+  kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", format="latex", col.names = c("Method", "svm", "cte", "rte", "global_score"), booktabs = T, table.pos = "H", linesep = "")  |>
+  column_spec(1, width = "2cm") |>
+  column_spec(2, width = "2cm") |>
+  column_spec(3, width = "2cm") |>
+  column_spec(4, width = "2cm") |>
+  column_spec(5, width = "2cm")
+
+
+## -----------------------------------------------------------------------------
 # Extract high-dimensional data
 data <- five_clusts[, -5]
 true_labels <- as.numeric(gsub("cluster", "", five_clusts$cluster))
@@ -2225,11 +2247,15 @@ comp_mclust <- cluster.stats(dist_mat, true_labels, mclust_res)
 # Summarize key performance metrics
 summary_clust <- tibble::tibble(
   Metric = c("k-means", "Hierarchical", "Model-based"),
-  `wb.ratio` = round(c(comp_kmeans$wb.ratio, comp_hclust$wb.ratio, comp_mclust$wb.ratio), 2),
-  `Dunn Index` = round(c(comp_kmeans$dunn, comp_hclust$dunn, comp_mclust$dunn), 2),
-  `Corrected rand` = round(c(comp_kmeans$corrected.rand, comp_hclust$corrected.rand, comp_mclust$corrected.rand), 2),
-  VI = round(c(comp_kmeans$vi, comp_hclust$vi, comp_mclust$vi), 2)
+  `wb.ratio` = c(comp_kmeans$wb.ratio, comp_hclust$wb.ratio, comp_mclust$wb.ratio),
+  `Dunn Index` = c(comp_kmeans$dunn, comp_hclust$dunn, comp_mclust$dunn),
+  `Corrected rand` = c(comp_kmeans$corrected.rand, comp_hclust$corrected.rand, comp_mclust$corrected.rand),
+  VI = c(comp_kmeans$vi, comp_hclust$vi, comp_mclust$vi)
 )
+
+
+summary_clust <- summary_clust |>
+  mutate(across(where(is.numeric), ~ round(.x, 2)))
 
 
 ## ----summaryclust-tb-html, eval=knitr::is_html_output()-----------------------
