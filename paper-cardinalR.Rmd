@@ -100,6 +100,8 @@ library(geozoo)
 library(patchwork)
 library(colorspace)
 library(crosstalk)
+library(fpc)
+library(mclust)
 ```
 
 ```{r}
@@ -2178,7 +2180,7 @@ class(triginometricfig) <- c(class(triginometricfig), "htmlwidget")
 triginometricfig
 ```
 
-```{r triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=12, fig.height=16, out.width="80%", fig.align='center', fig.pos="H"}
+```{r triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=12, fig.height=16, out.width="100%", fig.align='center', fig.pos="H"}
 
 curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
 sphericalspiral_proj1 + sphericalspiral_proj2 + sphericalspiral_proj3 +
@@ -2346,7 +2348,7 @@ To illustrate, we generate a dataset with five clusters in $4\text{-}D$, each re
 ```{r gen-five-clust-data, echo=TRUE}
 
 positions <- geozoo::simplex(p=4)$points
-positions <- positions * 0.3 #positions * 0.8
+positions <- positions * 0.3
 
 ## To generate data
 five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
@@ -2475,7 +2477,7 @@ nldr1 <- tsne_data |>
   interior_annotation("a", c(0.08, 0.93)) + 
   scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
   theme(aspect.ratio = 1,
-        legend.text = element_text(size = 10)) 
+        legend.position = "none") 
 
 umap_data <- read_rds("data/five_clusts/five_clusts_umap_n-neigbors_15_min-dist_0.1.rds") 
 
@@ -2487,7 +2489,7 @@ nldr2 <- umap_data |>
   interior_annotation("b", c(0.08, 0.93)) + 
   scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
   theme(aspect.ratio = 1,
-        legend.text = element_text(size = 10)) 
+        legend.position = "none") 
 
 phate_data <- read_rds("data/five_clusts/five_clusts_phate_knn_5.rds") 
 
@@ -2499,7 +2501,7 @@ nldr3 <- phate_data |>
   interior_annotation("c", c(0.08, 0.93)) + 
   scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
   theme(aspect.ratio = 1,
-        legend.text = element_text(size = 10)) 
+        legend.position = "none") 
 
 trimap_data <- read_rds("data/five_clusts/five_clusts_trimap_n-inliers_12_n-outliers_4_n-random_3.rds") 
 
@@ -2511,7 +2513,7 @@ nldr4 <- trimap_data |>
   interior_annotation("d", c(0.08, 0.93)) + 
   scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
   theme(aspect.ratio = 1,
-        legend.text = element_text(size = 10))  
+        legend.position = "none")  
 
 pacmap_data <- read_rds("data/five_clusts/five_clusts_pacmap_n-neighbors_10_init_random_MN-ratio_0.5_FP-ratio_2.rds") 
 
@@ -2523,7 +2525,7 @@ nldr5 <- pacmap_data |>
   interior_annotation("e", c(0.08, 0.93)) + 
   scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
   theme(aspect.ratio = 1,
-        legend.text = element_text(size = 10)) 
+        legend.position = "none") 
 
 pca_data <- read_rds("data/five_clusts/five_clusts_pca.rds") 
 
@@ -2535,23 +2537,23 @@ nldr6 <- pca_data |>
   interior_annotation("f", c(0.08, 0.93)) + 
   scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
   theme(aspect.ratio = 1,
-        legend.text = element_text(size = 10)) 
+        legend.position = "none") 
 ```
 
 ```{r, label = "fig-nldr-layouts", fig.pos="H", fig.cap="Six different dimension reduction representations of the five clusters data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA."}
 
 nldr1 + nldr2 + nldr3 +
   nldr4 + nldr5 + nldr6 +
-  plot_layout(ncol = 3, guides = "collect")
+  plot_layout(ncol = 3)
 ```
 
 These methods vary in their ability to preserve local and global data structures (Figure \@ref(fig:fig-nldr-layouts)). UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
 
 ## Benchmarking clustering algorithms
 
-```{r}
-library(fpc)
+To further evaluate the structure of the generated data, we benchmarked three clustering algorithms: **$k$-means** [Chapter 20 of @boehmke2019], **hierarchical** [@murtagh2012], and **model-based clustering** [@chris2002; @scrucca2023] using the simulated dataset. The model-based clustering was performed with the `"VVV"` covariance structure, allowing each cluster to vary in volume, shape, and orientation. Cluster validity statistics were computed using the `cluster.stats()` function from the `fpc` package [@christian2024].
 
+```{r}
 # Extract high-dimensional data
 data <- five_clusts[, -5]
 true_labels <- as.numeric(gsub("cluster", "", five_clusts$cluster))
@@ -2567,8 +2569,6 @@ kmeans_res <- kmeans(data, centers = 5, nstart = 20)
 ```
 
 ```{r}
-library(mclust)
-
 # Model-based clustering
 mclust_res <- Mclust(data, G = 5, modelNames = "VVV")$classification
 ```
@@ -2580,15 +2580,31 @@ comp_hclust <- cluster.stats(dist_mat, true_labels, hc_res)
 comp_mclust <- cluster.stats(dist_mat, true_labels, mclust_res)
 
 # Summarize key performance metrics
-data.frame(
-  Method = c("K-means", "Hierarchical", "Model-based"),
-  Avg_Silhouette = c(comp_kmeans$avg.silwidth, comp_hclust$avg.silwidth, comp_mclust$avg.silwidth),
-  Dunn_Index = c(comp_kmeans$dunn, comp_hclust$dunn, comp_mclust$dunn),
-  Entropy = c(comp_kmeans$entropy, comp_hclust$entropy, comp_mclust$entropy),
-  Corrected_Rand = c(comp_kmeans$corrected.rand, comp_hclust$corrected.rand, comp_mclust$corrected.rand)
+summary_clust <- tibble::tibble(
+  Metric = c("k-means", "Hierarchical", "Model-based"),
+  `wb.ratio` = round(c(comp_kmeans$wb.ratio, comp_hclust$wb.ratio, comp_mclust$wb.ratio), 2),
+  `Dunn Index` = round(c(comp_kmeans$dunn, comp_hclust$dunn, comp_mclust$dunn), 2),
+  `Corrected rand` = round(c(comp_kmeans$corrected.rand, comp_hclust$corrected.rand, comp_mclust$corrected.rand), 2),
+  VI = round(c(comp_kmeans$vi, comp_hclust$vi, comp_mclust$vi), 2)
 )
-
 ```
+
+```{r summaryclust-tb-html, eval=knitr::is_html_output()}
+summary_clust |> 
+  kable(caption = "cardinalR branching data generation functions", col.names = c("Metric", "wb.ratio", "Dunn_Index", "Corrected_Rand", "VI"), table.pos = "H") 
+```
+
+```{r summaryclust-tb-pdf, eval=knitr::is_latex_output()}
+summary_clust |> 
+  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Metric", "wb.ratio", "Dunn_Index", "Corrected_Rand", "VI"), booktabs = T, table.pos = "H")  |>
+  column_spec(1, width = "2.5cm") |>
+  column_spec(2, width = "2cm") |>
+  column_spec(3, width = "2cm") |>
+  column_spec(4, width = "2cm") |>
+  column_spec(5, width = "2cm")
+```
+
+Overall, all methods produced similar compactness and separation, as reflected by the *within–between cluster ratios (wb.ratio)* and *Dunn indices*. However, the **model-based clustering** achieved the highest *Corrected Rand Index* ($0.75$) and lowest *Variation of Information (VI)* ($0.65$), indicating the best recovery of the true underlying groups. In comparison, $k$-means and hierarchical clustering showed moderate agreement with the true labels. These findings demonstrate that mixture-based approaches can more effectively capture the heterogeneity of clusters in high-dimensional, non-spherical data.
 
 # Conclusion
 

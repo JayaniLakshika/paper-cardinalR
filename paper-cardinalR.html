@@ -193,6 +193,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="citation_reference" content="citation_title=Dimensionality reduction by learning an invariant mapping;citation_volume=2;citation_doi=10.1109/CVPR.2006.100;citation_author=R. Hadsell;citation_author=S. Chopra;citation_author=Y. LeCun"/>
   <meta name="citation_reference" content="citation_title=Group theory and quantum mechanics;citation_publisher=Courier Corporation;citation_author=Michael Tinkham"/>
   <meta name="citation_reference" content="citation_title=Molecular biology of the cell;citation_publisher=Garland Science;citation_author=Bruce Alberts;citation_author=Alexander Johnson;citation_author=Julian Lewis;citation_author=David Morgan;citation_author=Martin Raff;citation_author=Keith Roberts;citation_author=Peter Walter"/>
+  <meta name="citation_reference" content="citation_title=Fpc: Flexible procedures for clustering;citation_author=Christian Hennig"/>
+  <meta name="citation_reference" content="citation_title=Model-based clustering, discriminant analysis, and density estimation;citation_publisher=ASA Website;citation_volume=97;citation_author=Chris Fraley;citation_author=Adrian E Raftery"/>
+  <meta name="citation_reference" content="citation_title=Model-based clustering, classification, and density estimation using mclust in r.;citation_publisher=CRC Press LLC;citation_author=Luca. Scrucca;citation_author=Chris. Fraley;citation_author=T. Brendan. Murphy;citation_author=Adrian E. Raftery"/>
+  <meta name="citation_reference" content="citation_title=Hands-on machine learning with r;citation_publisher=Chapman; Hall/CRC;citation_doi=10.1201/9780367816377;citation_author=Bradley Boehmke;citation_author=Brandon M. Greenwell"/>
+  <meta name="citation_reference" content="citation_title=Algorithms for hierarchical clustering: An overview;citation_volume=2;citation_author=Fionn Murtagh;citation_author=Pedro Contreras"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
@@ -3037,7 +3042,7 @@ X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j &gt; 3,
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>positions</span> <span class='op'>&lt;-</span> <span class='fu'>geozoo</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/geozoo/man/simplex.html'>simplex</a></span><span class='op'>(</span>p<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>$</span><span class='va'>points</span></span>
-<span><span class='va'>positions</span> <span class='op'>&lt;-</span> <span class='va'>positions</span> <span class='op'>*</span> <span class='fl'>0.3</span> <span class='co'>#positions * 0.8</span></span>
+<span><span class='va'>positions</span> <span class='op'>&lt;-</span> <span class='va'>positions</span> <span class='op'>*</span> <span class='fl'>0.3</span></span>
 <span></span>
 <span><span class='co'>## To generate data</span></span>
 <span><span class='va'>five_clusts</span> <span class='op'>&lt;-</span> <span class='fu'>gen_multicluster</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2250</span>, <span class='fl'>1500</span>, <span class='fl'>750</span>, <span class='fl'>1250</span>, <span class='fl'>1750</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>5</span>,</span>
@@ -3085,6 +3090,7 @@ Figure 9: Six different dimension reduction representations of the five clusters
 </div>
 <p>These methods vary in their ability to preserve local and global data structures (Figure <a href="#fig:fig-nldr-layouts">9</a>). UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.</p>
 <h3 data-number="4.3" id="benchmarking-clustering-algorithms"><span class="header-section-number">4.3</span> Benchmarking clustering algorithms</h3>
+<p>To further evaluate the structure of the generated data, we benchmarked three clustering algorithms: <strong><span class="math inline">\(k\)</span>-means</strong> <span class="citation" data-cites="boehmke2019">(Chapter 20 of <a href="#ref-boehmke2019" role="doc-biblioref">Boehmke and Greenwell 2019</a>)</span>, <strong>hierarchical</strong> <span class="citation" data-cites="murtagh2012">(<a href="#ref-murtagh2012" role="doc-biblioref">Murtagh and Contreras 2012</a>)</span>, and <strong>model-based clustering</strong> <span class="citation" data-cites="chris2002 scrucca2023">(<a href="#ref-chris2002" role="doc-biblioref">Fraley and Raftery 2002</a>; <a href="#ref-scrucca2023" role="doc-biblioref">Scrucca et al. 2023</a>)</span> using the simulated dataset. The model-based clustering was performed with the <code>"VVV"</code> covariance structure, allowing each cluster to vary in volume, shape, and orientation. Cluster validity statistics were computed using the <code>cluster.stats()</code> function from the <code>fpc</code> package <span class="citation" data-cites="christian2024">(<a href="#ref-christian2024" role="doc-biblioref">Hennig 2024</a>)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -3095,11 +3101,49 @@ Figure 9: Six different dimension reduction representations of the five clusters
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>        Method Avg_Silhouette  Dunn_Index  Entropy Corrected_Rand
-1      K-means       0.227417 0.008968602 1.551532      0.4223504
-2 Hierarchical       0.227417 0.008968602 1.551532      0.5029130
-3  Model-based       0.227417 0.008968602 1.551532      0.7525318</code></pre>
+
 </div>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:summaryclust-tb-html">Table 13: </span>cardinalR branching data generation functions</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Metric</th>
+<th style="text-align: right;">wb.ratio</th>
+<th style="text-align: right;">Dunn_Index</th>
+<th style="text-align: right;">Corrected_Rand</th>
+<th style="text-align: right;">VI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">k-means</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">1.32</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hierarchical</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">1.15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Model-based</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.65</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Overall, all methods produced similar compactness and separation, as reflected by the <em>within–between cluster ratios (wb.ratio)</em> and <em>Dunn indices</em>. However, the <strong>model-based clustering</strong> achieved the highest <em>Corrected Rand Index</em> (<span class="math inline">\(0.75\)</span>) and lowest <em>Variation of Information (VI)</em> (<span class="math inline">\(0.65\)</span>), indicating the best recovery of the true underlying groups. In comparison, <span class="math inline">\(k\)</span>-means and hierarchical clustering showed moderate agreement with the true labels. These findings demonstrate that mixture-based approaches can more effectively capture the heterogeneity of clusters in high-dimensional, non-spherical data.</p>
 <h2 data-number="5" id="conclusion"><span class="header-section-number">5</span> Conclusion</h2>
 <p>The <code>cardinalR</code> package introduces a flexible framework for generating high-dimensional data structures with well-defined geometric properties. It addresses an important need in the evaluation of clustering, machine learning, and DR methods by enabling the construction of customized datasets with interpretable structures, noise characteristics, and clustering arrangements. In this way, <code>cardinalR</code> complements existing packages such as <code>geozoo</code>, <code>snedata</code>, and <code>mlbench</code>, while extending the scope to higher dimensions and more complex shapes.</p>
 <p>The motivation for developing this package originated from the need to design a perception–misperception experiment, aimed at investigating how well NLDR methods preserve inter-cluster structure. To conduct this study, we required simulated datasets with carefully controlled geometric and clustering properties. While some existing packages provided useful starting points, none fully supported the creation of flexible, high-dimensional data with the specific structural variations needed for our experiment. Developing these generators for research purposes gradually led to the design of <code>cardinalR</code> as a general-purpose package, so that other researchers can benefit from the same tools for simulation, benchmarking, and teaching.</p>
@@ -3120,7 +3164,7 @@ Figure 9: Six different dimension reduction representations of the five clusters
 <!-- In conclusion, this example demonstrates the critical role of synthetic data generation in dissecting the complex interactions within unsupervised learning pipelines. Our package provides a flexible and controlled means to create such data, enabling researchers to systematically evaluate the performance and robustness of dimensionality reduction and clustering algorithms under well-defined conditions, including the presence of confounding factors. This capability contributes to a more rigorous and informed approach to high-dimensional data analysis. -->
 <h2 data-number="6" id="acknowledgements"><span class="header-section-number">6</span> Acknowledgements</h2>
 <p>The source material for this paper is available at <a href="https://github.com/JayaniLakshika/paper-cardinalR">github.com/JayaniLakshika/paper-cardinalR</a>. This article is created using <a href="https://cran.r-project.org/package=knitr">knitr</a> <span class="citation" data-cites="yihui2015">(<a href="#ref-yihui2015" role="doc-biblioref">Xie 2015</a>)</span> and <a href="https://cran.r-project.org/package=rmarkdown">rmarkdown</a> <span class="citation" data-cites="yihui2018">(<a href="#ref-yihui2018" role="doc-biblioref">Xie et al. 2018</a>)</span> in R with the <code>rjtools::rjournal_article</code> template. These <code>R</code> packages were used for this work: <code>cli</code> <span class="citation" data-cites="gabor2025">(<a href="#ref-gabor2025" role="doc-biblioref">Csárdi 2025</a>)</span>, <code>tibble</code> <span class="citation" data-cites="kirill2023">(<a href="#ref-kirill2023" role="doc-biblioref">Müller and Wickham 2023</a>)</span>, <code>gtools</code> <span class="citation" data-cites="gregory2023">(<a href="#ref-gregory2023" role="doc-biblioref">Warnes et al. 2023</a>)</span>, <code>dplyr</code> <span class="citation" data-cites="hadley2023">(<a href="#ref-hadley2023" role="doc-biblioref">Wickham et al. 2023</a>)</span>, <code>stats</code> <span class="citation" data-cites="core2025">(<a href="#ref-core2025" role="doc-biblioref">R Core Team 2025</a>)</span>, <code>tidyr</code> <span class="citation" data-cites="hadley2024">(<a href="#ref-hadley2024" role="doc-biblioref">Wickham et al. 2024</a>)</span>, <code>purrr</code> <span class="citation" data-cites="hadley2025">(<a href="#ref-hadley2025" role="doc-biblioref">Wickham and Henry 2025</a>)</span>, <code>mvtnorm</code> <span class="citation" data-cites="alan2009">(<a href="#ref-alan2009" role="doc-biblioref">Genz and Bretz 2009</a>)</span>, <code>geozoo</code> <span class="citation" data-cites="barret2016">(<a href="#ref-barret2016" role="doc-biblioref">Schloerke 2016</a>)</span>, and <code>MASS</code> <span class="citation" data-cites="venables2002">(<a href="#ref-venables2002" role="doc-biblioref">Venables and Ripley 2002</a>)</span>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <h3 class="appendix" data-number="6.1" id="cran-packages-used"><span class="header-section-number">6.1</span> CRAN packages used</h3>
 <p><a href="https://cran.r-project.org/package=knitr">knitr</a>, <a href="https://cran.r-project.org/package=rmarkdown">rmarkdown</a></p>
 <h3 class="appendix" data-number="6.2" id="cran-task-views-implied-by-cited-packages"><span class="header-section-number">6.2</span> CRAN Task Views implied by cited packages</h3>
@@ -3141,6 +3185,9 @@ J. Arsuaga, M. Vazquez, S. Trigueros, D. W. L. Sumners and J. Roca. Characterizi
 <div id="ref-james2024" class="csl-entry" role="listitem">
 J. J. Balamuta. <em>Surreal: Create datasets with hidden images in residual plots.</em> 2024. URL <a href="https://CRAN.R-project.org/package=surreal">https://CRAN.R-project.org/package=surreal</a>. R package version 0.0.1.
 </div>
+<div id="ref-boehmke2019" class="csl-entry" role="listitem">
+B. Boehmke and B. M. Greenwell. <em>Hands-on machine learning with r.</em> 1st ed Chapman; Hall/CRC, 2019. URL <a href="https://doi.org/10.1201/9780367816377">https://doi.org/10.1201/9780367816377</a>.
+</div>
 <div id="ref-calladine1997" class="csl-entry" role="listitem">
 C. R. Calladine, H. R. Drew, B. F. Luisi and A. A. Travers. Understanding DNA: The molecule and how it works. 1997.
 </div>
@@ -3149,6 +3196,9 @@ G. Csárdi. <em>Cli: Helpers for developing command line interfaces.</em> 2025. 
 </div>
 <div id="ref-devroye1986" class="csl-entry" role="listitem">
 L. Devroye. <em>Non-uniform random variate generation(originally published with.</em> Springer-Verlag, 1986. URL <a href="http://cg.scs.carleton.ca/~luc/rnbookindex.html">http://cg.scs.carleton.ca/~luc/rnbookindex.html</a>.
+</div>
+<div id="ref-chris2002" class="csl-entry" role="listitem">
+C. Fraley and A. E. Raftery. Model-based clustering, discriminant analysis, and density estimation. <em>Journal of the American Statistical Association</em>, 97(458): 611–631, 2002. URL <a href="https://doi.org/10.1198/016214502760047131">https://doi.org/10.1198/016214502760047131</a>.
 </div>
 <div id="ref-alan2009" class="csl-entry" role="listitem">
 A. Genz and F. Bretz. <em>Computation of multivariate normal and t probabilities.</em> Springer-Verlag, 2009.
@@ -3161,6 +3211,9 @@ R. Hadsell, S. Chopra and Y. LeCun. Dimensionality reduction by learning an inva
 </div>
 <div id="ref-florian2024" class="csl-entry" role="listitem">
 F. Hartig. <em>DHARMa: Residual diagnostics for hierarchical (multi-level / mixed) regression models.</em> 2024. URL <a href="https://CRAN.R-project.org/package=DHARMa">https://CRAN.R-project.org/package=DHARMa</a>. R package version 0.4.7.
+</div>
+<div id="ref-christian2024" class="csl-entry" role="listitem">
+C. Hennig. <em>Fpc: Flexible procedures for clustering.</em> 2024. URL <a href="https://CRAN.R-project.org/package=fpc">https://CRAN.R-project.org/package=fpc</a>. R package version 2.2-13.
 </div>
 <div id="ref-jolliffe2011" class="csl-entry" role="listitem">
 I. Jolliffe. <span>Principal Component Analysis</span>. In <em>International encyclopedia of statistical science</em>, pages. 1094–1096 2011. Berlin, Heidelberg: Springer Berlin Heidelberg. ISBN 978-3-642-04898-2. URL <a href="https://doi.org/10.1007/978-3-642-04898-2_455">https://doi.org/10.1007/978-3-642-04898-2_455</a>.
@@ -3189,6 +3242,9 @@ K. R. Moon, D. van Dijk, Z. Wang, S. A. Gigante, D. B. Burkhardt, W. S. Chen, K.
 <div id="ref-kirill2023" class="csl-entry" role="listitem">
 K. Müller and H. Wickham. <em>Tibble: Simple data frames.</em> 2023. URL <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>. R package version 3.2.1.
 </div>
+<div id="ref-murtagh2012" class="csl-entry" role="listitem">
+F. Murtagh and P. Contreras. Algorithms for hierarchical clustering: An overview. <em>WIREs Data Mining and Knowledge Discovery</em>, 2(1): 86–97, 2012. URL <a href="https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.53">https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.53</a>.
+</div>
 <div id="ref-niederreiter1992" class="csl-entry" role="listitem">
 H. Niederreiter. <em>Random number generation and quasi-monte carlo methods.</em> Society for Industrial; Applied Mathematics, 1992.
 </div>
@@ -3200,6 +3256,9 @@ R Core Team. <em>R: A language and environment for statistical computing.</em> V
 </div>
 <div id="ref-barret2016" class="csl-entry" role="listitem">
 B. Schloerke. <em>Geozoo: Zoo of geometric objects.</em> 2016. URL <a href="https://CRAN.R-project.org/package=geozoo">https://CRAN.R-project.org/package=geozoo</a>. R package version 0.5.1.
+</div>
+<div id="ref-scrucca2023" class="csl-entry" role="listitem">
+Luca. Scrucca, Chris. Fraley, T. Brendan. Murphy and A. E. Raftery. <em>Model-based clustering, classification, and density estimation using mclust in r.</em> 1st ed. CRC Press LLC, 2023.
 </div>
 <div id="ref-leonard2007" class="csl-entry" role="listitem">
 L. A. Stefanski. Residual (sur) realism. <em>The American Statistician</em>, 61(2): 163–177, 2007. URL <a href="http://www.jstor.org/stable/27643870">http://www.jstor.org/stable/27643870</a>.

@@ -1498,7 +1498,7 @@ To illustrate, we generate a dataset with five clusters in $4\text{-}D$, each re
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>positions</span> <span class='op'>&lt;-</span> <span class='fu'>geozoo</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/geozoo/man/simplex.html'>simplex</a></span><span class='op'>(</span>p<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>$</span><span class='va'>points</span></span>
-<span><span class='va'>positions</span> <span class='op'>&lt;-</span> <span class='va'>positions</span> <span class='op'>*</span> <span class='fl'>0.3</span> <span class='co'>#positions * 0.8</span></span>
+<span><span class='va'>positions</span> <span class='op'>&lt;-</span> <span class='va'>positions</span> <span class='op'>*</span> <span class='fl'>0.3</span></span>
 <span></span>
 <span><span class='co'>## To generate data</span></span>
 <span><span class='va'>five_clusts</span> <span class='op'>&lt;-</span> <span class='fu'>gen_multicluster</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2250</span>, <span class='fl'>1500</span>, <span class='fl'>750</span>, <span class='fl'>1250</span>, <span class='fl'>1750</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>5</span>,</span>
@@ -1573,11 +1573,7 @@ These methods vary in their ability to preserve local and global data structures
 
 ## Benchmarking clustering algorithms
 
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
+To further evaluate the structure of the generated data, we benchmarked three clustering algorithms: **$k$-means** [Chapter 20 of @boehmke2019], **hierarchical** [@murtagh2012], and **model-based clustering** [@chris2002; @scrucca2023] using the simulated dataset. The model-based clustering was performed with the `"VVV"` covariance structure, allowing each cluster to vary in volume, shape, and orientation. Cluster validity statistics were computed using the `cluster.stats()` function from the `fpc` package [@christian2024].
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1593,15 +1589,36 @@ These methods vary in their ability to preserve local and global data structures
 
 <div class="layout-chunk" data-layout="l-body">
 
-```
-        Method Avg_Silhouette  Dunn_Index  Entropy Corrected_Rand
-1      K-means       0.227417 0.008968602 1.551532      0.4223504
-2 Hierarchical       0.227417 0.008968602 1.551532      0.5029130
-3  Model-based       0.227417 0.008968602 1.551532      0.7525318
-```
 
 </div>
 
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+Table: (\#tab:summaryclust-tb-html)cardinalR branching data generation functions
+
+|Metric       | wb.ratio| Dunn_Index| Corrected_Rand|   VI|
+|:------------|--------:|----------:|--------------:|----:|
+|k-means      |     0.61|       0.01|           0.42| 1.32|
+|Hierarchical |     0.61|       0.01|           0.50| 1.15|
+|Model-based  |     0.61|       0.01|           0.75| 0.65|
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+Overall, all methods produced similar compactness and separation, as reflected by the *within–between cluster ratios (wb.ratio)* and *Dunn indices*. However, the **model-based clustering** achieved the highest *Corrected Rand Index* ($0.75$) and lowest *Variation of Information (VI)* ($0.65$), indicating the best recovery of the true underlying groups. In comparison, $k$-means and hierarchical clustering showed moderate agreement with the true labels. These findings demonstrate that mixture-based approaches can more effectively capture the heterogeneity of clusters in high-dimensional, non-spherical data.
 
 # Conclusion
 

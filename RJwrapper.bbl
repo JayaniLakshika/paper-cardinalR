@@ -1,4 +1,4 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -33,6 +33,13 @@ J.~J. Balamuta.
 \newblock URL \url{https://CRAN.R-project.org/package=surreal}.
 \newblock R package version 0.0.1.
 
+\bibitem[Boehmke and Greenwell(2019)]{boehmke2019}
+B.~Boehmke and B.~M. Greenwell.
+\newblock \emph{Hands-On Machine Learning with R}.
+\newblock Chapman and Hall/CRC, 1st edition, 2019.
+\newblock \doi{10.1201/9780367816377}.
+\newblock URL \url{https://doi.org/10.1201/9780367816377}.
+
 \bibitem[Calladine et~al.(1997)Calladine, Drew, Luisi, and Travers]{calladine1997}
 C.~R. Calladine, H.~R. Drew, B.~F. Luisi, and A.~A. Travers.
 \newblock Understanding dna: the molecule and how it works.
@@ -49,6 +56,12 @@ L.~Devroye.
 \newblock \emph{Non-Uniform Random Variate Generation(originally published with}.
 \newblock Springer-Verlag, 1986.
 \newblock URL \url{http://cg.scs.carleton.ca/~luc/rnbookindex.html}.
+
+\bibitem[Fraley and Raftery(2002)]{chris2002}
+C.~Fraley and A.~E. Raftery.
+\newblock Model-based clustering, discriminant analysis, and density estimation.
+\newblock \emph{Journal of the American Statistical Association}, 97\penalty0 (458):\penalty0 611--631, 2002.
+\newblock URL \url{https://doi.org/10.1198/016214502760047131}.
 
 \bibitem[Genz and Bretz(2009)]{alan2009}
 A.~Genz and F.~Bretz.
@@ -72,6 +85,12 @@ F.~Hartig.
 \newblock \emph{DHARMa: Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models}, 2024.
 \newblock URL \url{https://CRAN.R-project.org/package=DHARMa}.
 \newblock R package version 0.4.7.
+
+\bibitem[Hennig(2024)]{christian2024}
+C.~Hennig.
+\newblock \emph{fpc: Flexible Procedures for Clustering}, 2024.
+\newblock URL \url{https://CRAN.R-project.org/package=fpc}.
+\newblock R package version 2.2-13.
 
 \bibitem[Jolliffe(2011)]{jolliffe2011}
 I.~Jolliffe.
@@ -126,6 +145,12 @@ K.~M\"uller and H.~Wickham.
 \newblock URL \url{https://CRAN.R-project.org/package=tibble}.
 \newblock R package version 3.2.1.
 
+\bibitem[Murtagh and Contreras(2012)]{murtagh2012}
+F.~Murtagh and P.~Contreras.
+\newblock Algorithms for hierarchical clustering: an overview.
+\newblock \emph{WIREs Data Mining and Knowledge Discovery}, 2\penalty0 (1):\penalty0 86--97, 2012.
+\newblock URL \url{https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.53}.
+
 \bibitem[Niederreiter(1992)]{niederreiter1992}
 H.~Niederreiter.
 \newblock \emph{Random number generation and quasi-Monte Carlo methods}.
@@ -149,6 +174,12 @@ B.~Schloerke.
 \newblock \emph{geozoo: Zoo of Geometric Objects}, 2016.
 \newblock URL \url{https://CRAN.R-project.org/package=geozoo}.
 \newblock R package version 0.5.1.
+
+\bibitem[Scrucca et~al.(2023)Scrucca, Fraley, Murphy, and Raftery]{scrucca2023}
+L.~Scrucca, C.~Fraley, T.~B. Murphy, and A.~E. Raftery.
+\newblock \emph{Model-Based Clustering, Classification, and Density Estimation Using Mclust in R.}
+\newblock Chapman and Hall/CRC the R Series. CRC Press LLC, 1st ed. edition, 2023.
+\newblock ISBN 9781000868371.
 
 \bibitem[Stefanski(2007)]{leonard2007}
 L.~A. Stefanski.

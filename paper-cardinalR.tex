@@ -714,7 +714,7 @@ To illustrate, we generate a dataset with five clusters in \(4\text{-}D\), each 
 
 \begin{verbatim}
 positions <- geozoo::simplex(p=4)$points
-positions <- positions * 0.3 #positions * 0.8
+positions <- positions * 0.3
 
 ## To generate data
 five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
@@ -742,12 +742,24 @@ These methods vary in their ability to preserve local and global data structures
 
 \subsection{Benchmarking clustering algorithms}\label{benchmarking-clustering-algorithms}
 
-\begin{verbatim}
-#>         Method Avg_Silhouette  Dunn_Index  Entropy Corrected_Rand
-#> 1      K-means       0.227417 0.008968602 1.551532      0.4223504
-#> 2 Hierarchical       0.227417 0.008968602 1.551532      0.5029130
-#> 3  Model-based       0.227417 0.008968602 1.551532      0.7525318
-\end{verbatim}
+To further evaluate the structure of the generated data, we benchmarked three clustering algorithms: \textbf{\(k\)-means} \citep[Chapter 20 of][]{boehmke2019}, \textbf{hierarchical} \citep{murtagh2012}, and \textbf{model-based clustering} \citep{chris2002, scrucca2023} using the simulated dataset. The model-based clustering was performed with the \texttt{"VVV"} covariance structure, allowing each cluster to vary in volume, shape, and orientation. Cluster validity statistics were computed using the \texttt{cluster.stats()} function from the \texttt{fpc} package \citep{christian2024}.
+
+\begin{table}
+
+\caption{\label{tab:summaryclust-tb-pdf}cardinalR branching data generation functions}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{2.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
+\toprule
+Metric & wb.ratio & Dunn\_Index & Corrected\_Rand & VI\\
+\midrule
+k-means & 0.61 & 0.01 & 0.42 & 1.32\\
+Hierarchical & 0.61 & 0.01 & 0.50 & 1.15\\
+Model-based & 0.61 & 0.01 & 0.75 & 0.65\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Overall, all methods produced similar compactness and separation, as reflected by the \emph{within--between cluster ratios (wb.ratio)} and \emph{Dunn indices}. However, the \textbf{model-based clustering} achieved the highest \emph{Corrected Rand Index} (\(0.75\)) and lowest \emph{Variation of Information (VI)} (\(0.65\)), indicating the best recovery of the true underlying groups. In comparison, \(k\)-means and hierarchical clustering showed moderate agreement with the true labels. These findings demonstrate that mixture-based approaches can more effectively capture the heterogeneity of clusters in high-dimensional, non-spherical data.
 
 \section{Conclusion}\label{conclusion}
 

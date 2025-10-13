@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.3)  13 OCT 2025 11:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.3)  13 OCT 2025 12:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -929,33 +929,38 @@ File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pdf
 <use paper-cardinalR_files/figure-latex/highd-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 730.
 (pdftex.def)             Requested size: 398.33858pt x 145.50629pt.
-<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=394, 441.65pt x 319.1925pt>
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=394, 469.755pt x 315.1775pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 738.
-(pdftex.def)             Requested size: 398.33858pt x 287.90375pt.
+(pdftex.def)             Requested size: 398.33858pt x 267.26251pt.
 
 
-[20 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf>]
+[20 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
+Overfull \hbox (13.91489pt too wide) in paragraph at lines 753--753
+ []|\T1/ppl/m/n/10 (-20) Corrected_Rand|
+ []
 
-[21 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
-Overfull \hbox (37.32867pt too wide) in paragraph at lines 766--767
+
+Overfull \hbox (37.32867pt too wide) in paragraph at lines 778--779
 \T1/ppl/m/n/9 (-20) ti-cle is cre-ated us-ing [][]\T1/ppl/b/n/9 (-20) knitr[][] \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/9 (-20) rmark-down[][] \T1/ppl/m/n/9 (-20) ([][][]Xie et al.[][], [][]2018[][]) in R with the \T1/zi4/m/n/9 rjtools::rjournal_article
  []
 
-(./RJwrapper.bbl (./RJwrapper.brf)
+
+
+[21] (./RJwrapper.bbl (./RJwrapper.brf)
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
 
 
 [22]
-Underfull \hbox (badness 3428) in paragraph at lines 140--140
+Underfull \hbox (badness 3428) in paragraph at lines 165--165
 []\T1/ppl/m/n/9 (+20) Optica ^^U The Op-ti-cal So-ci-ety.  Op-ti-cal möbius strips yield new se-crets, 2023.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
 [][]$\T1/zi4/m/n/9 https : / / www . optica -[] opn . org / home / newsroom / 2023 / january / optical _ mobius _ strips _ yield _
  []
 
@@ -964,10 +969,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--140
 [23])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 778.
+(Font)              using `T1/zi4/m/n' instead on input line 790.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 788.
+(Font)              scaled to size 9.18004pt on input line 800.
 )
 
 [24] (./RJwrapper.aux)
@@ -981,21 +986,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: F3599BDDFA3A8A05564B91A40BDA6DC3;3093.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: DA93A99ECDB6F0E3708CBE9A28CA56F5;2145.
+(rerunfilecheck)             Checksum: 827694C18FBB4613983F60BBCE911974;2420.
  ) 
 Here is how much of TeX's memory you used:
- 27676 strings out of 469729
- 505241 string characters out of 5476492
- 924851 words of memory out of 5000000
- 55123 multiletter control sequences out of 15000+600000
- 691781 words of font info for 391 fonts, out of 8000000 for 9000
+ 27740 strings out of 469729
+ 506127 string characters out of 5476492
+ 924144 words of memory out of 5000000
+ 55154 multiletter control sequences out of 15000+600000
+ 693036 words of font info for 409 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  117i,12n,131p,2007b,1000s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (24 pages, 12042586 bytes).
+Output written on RJwrapper.pdf (24 pages, 12042199 bytes).
 PDF statistics:
- 650 PDF objects out of 1000 (max. 8388607)
- 568 compressed objects within 6 object streams
- 102 named destinations out of 1000 (max. 500000)
+ 679 PDF objects out of 1000 (max. 8388607)
+ 597 compressed objects within 6 object streams
+ 108 named destinations out of 1000 (max. 500000)
  73914 words of extra memory for PDF output out of 74296 (max. 10000000)
 
