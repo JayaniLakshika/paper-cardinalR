@@ -99,8 +99,13 @@ The paper is organized as follows. In the next section, we introduce the impleme
 
 # Implementation
 
+The `cardinalR` package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes. The main function, `gen_multicluster()`, combines these shapes into a single dataset by applying scaling, rotation, and translation through `gen_rotation()`. Each generated shape is assigned a unique cluster label. This design allows flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure \@ref(fig:workflow) illustrates the workflow of `gen_multicluster()`.
+
 <div class="layout-chunk" data-layout="l-body">
-<embed src="figures/cardinalR.pdf" width="100%" type="application/pdf" />
+<div class="figure">
+<embed src="figures/cardinalR.pdf" title="Workflow of." width="100%" type="application/pdf" />
+<p class="caption">(\#fig:workflow)Workflow of.</p>
+</div>
 
 </div>
 

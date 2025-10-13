@@ -87,7 +87,7 @@ theme_set(theme_linedraw() +
 source("scripts/additional_functions.R")
 
 
-## ----out.width = "100%"-------------------------------------------------------
+## ----workflow, out.width = "100%", fig.pos="H", fig.cap="Workflow of."--------
 knitr::include_graphics("figures/cardinalR.pdf")
 
 
