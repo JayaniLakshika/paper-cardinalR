@@ -89,8 +89,9 @@ theme_set(theme_linedraw() +
 source("scripts/additional_functions.R")
 
 
-## ----workflow, out.width = "100%", fig.pos="H", fig.cap="Workflow of.", eval=FALSE----
-# knitr::include_graphics("figures/cardinalR.pdf")
+## ----workflow, out.width = "100%", fig.pos="H", fig.cap="Workflow for generating high-dimensional clustered data. The user specifies input parameters (number of points, clusters, cluster shapes, scaling, rotation, and optional background noise). Clusters are generated iteratively, transformed, optionally augmented with Gaussian noise dimensions, combined, and labeled, resulting in the final dataset."----
+
+knitr::include_graphics("figures/cardinalR_workflow.png")
 
 
 ## -----------------------------------------------------------------------------
