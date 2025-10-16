@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-10-14'
+date: '2025-10-16'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float} \newcommand\pD{$p\text{-}D$} \newcommand\gD{$2\text{-}D$}
 output:
@@ -1552,7 +1552,13 @@ To illustrate, we generate a dataset with five clusters in $4\text{-}D$, each re
 
 ## Evaluating dimension reduction (DR) methods
 
-Next, we apply six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
+We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1562,42 +1568,16 @@ Next, we apply six popular DR techniques to the generated dataset: Principal Com
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="Six different dimension reduction representations of the five clusters data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA." width="100%" />
-<p class="caption">(\#fig:fig-nldr-layouts)Six different dimension reduction representations of the five clusters data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using RMSE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice." width="100%" />
+<p class="caption">(\#fig:fig-nldr-layouts)Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using RMSE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice.</p>
 </div>
 
 </div>
 
 
-<div class="layout-chunk" data-layout="l-body">
+To assess their performance, we computed the root mean squared error (RMSE) between the observed high-dimensional data and the fitted values, defined as the high-dimensional mappings of the bin centroids [@gamage2025c]. A lower RMSE indicates that the method better preserves the high-dimensional structure in its low-dimensional embedding.
 
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:summarydr-tb-html)Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.
-
-|Method |  svm|  cte|  rte| global_score|
-|:------|----:|----:|----:|------------:|
-|tSNE   | 0.98| 0.42| 0.70|         0.46|
-|UMAP   | 0.98| 0.62| 0.73|         0.58|
-|PHATE  | 0.90| 0.47| 0.72|         0.55|
-|TriMAP | 0.93| 0.58| 0.75|         0.59|
-|PaCMAP | 0.99| 0.24| 0.72|         0.54|
-|PCA    | 0.78| 0.53| 0.83|         1.00|
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-These methods vary in their ability to preserve local and global data structures (Figure \@ref(fig:fig-nldr-layouts)). UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
+As shown in Figure \@ref(fig:fig-nldr-layouts), tSNE (Figure \@ref(fig:fig-nldr-layouts) a) achieved the lowest RMSE across bin widths (mostly tiny), indicating high preservation of both local and global structures. Its layout displays well-separated clusters with minimal inter-cluster distances, making it the most faithful representation of the underlying data structure. UMAP and PaCMAP (Figure \@ref(fig:fig-nldr-layouts) b and e) produced moderately accurate embeddings, although the six clusters appear more well-separated, while PHATE (Figure \@ref(fig:fig-nldr-layouts) c) show non-linear cluster structures irrespective of the original structure. Also, TriMAP (Figure \@ref(fig:fig-nldr-layouts) d) has high RMSE, and show three clusters with small distances. PCA (Figure \@ref(fig:fig-nldr-layouts) f) failed to capture the non-linear geometry, leading to the highest RMSE.
 
 ## Benchmarking clustering algorithms
 

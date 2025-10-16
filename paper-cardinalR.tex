@@ -732,31 +732,15 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
 
 \subsection{Evaluating dimension reduction (DR) methods}\label{evaluating-dimension-reduction-dr-methods}
 
-Next, we apply six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) \citep{jolliffe2011}, t-distributed stochastic neighbor embedding (tSNE) \citep{laurens2008}, uniform manifold approximation and projection (UMAP) \citep{leland2018}, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm \citep{moon2019}, large-scale dimensionality reduction Using triplets (TriMAP) \citep{amid2019}, and pairwise controlled manifold approximation (PaCMAP) \citep{yingfan2021}.
+We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) \citep{jolliffe2011}, t-distributed stochastic neighbor embedding (tSNE) \citep{laurens2008}, uniform manifold approximation and projection (UMAP) \citep{leland2018}, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm \citep{moon2019}, large-scale dimensionality reduction Using triplets (TriMAP) \citep{amid2019}, and pairwise controlled manifold approximation (PaCMAP) \citep{yingfan2021}.
 
 \begin{figure}[H]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Six different dimension reduction representations of the five clusters data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA.}\label{fig:fig-nldr-layouts}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using RMSE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice.}\label{fig:fig-nldr-layouts}
 \end{figure}
 
-\begin{table}
+To assess their performance, we computed the root mean squared error (RMSE) between the observed high-dimensional data and the fitted values, defined as the high-dimensional mappings of the bin centroids \citep{gamage2025c}. A lower RMSE indicates that the method better preserves the high-dimensional structure in its low-dimensional embedding.
 
-\caption{\label{tab:summarydr-tb-pdf}Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.}
-\centering
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\toprule
-Method & svm & cte & rte & global\_score\\
-\midrule
-tSNE & 0.98 & 0.42 & 0.70 & 0.46\\
-UMAP & 0.98 & 0.62 & 0.73 & 0.58\\
-PHATE & 0.90 & 0.47 & 0.72 & 0.55\\
-TriMAP & 0.93 & 0.58 & 0.75 & 0.59\\
-PaCMAP & 0.99 & 0.24 & 0.72 & 0.54\\
-PCA & 0.78 & 0.53 & 0.83 & 1.00\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-These methods vary in their ability to preserve local and global data structures (Figure \ref{fig:fig-nldr-layouts}). UMAP, PHATE, TriMAP, and PaCMAP effectively separate the five clusters and show the preservation of the global structure. However, PHATE reveals three non-linear clusters, even though two of them do not show non-linearity. UMAP, TriMAP, and PaCMAP successfully maintain the local structures of the data. In contrast, tSNE divides the non-linear cluster into sub-clusters. Also, tSNE fails to preserve the distances between the clusters. PCA, on the other hand, preserves the local structures of the clusters, but some clusters are incorrectly merged that should remain distinct.
+As shown in Figure \ref{fig:fig-nldr-layouts}, tSNE (Figure \ref{fig:fig-nldr-layouts} a) achieved the lowest RMSE across bin widths (mostly tiny), indicating high preservation of both local and global structures. Its layout displays well-separated clusters with minimal inter-cluster distances, making it the most faithful representation of the underlying data structure. UMAP and PaCMAP (Figure \ref{fig:fig-nldr-layouts} b and e) produced moderately accurate embeddings, although the six clusters appear more well-separated, while PHATE (Figure \ref{fig:fig-nldr-layouts} c) show non-linear cluster structures irrespective of the original structure. Also, TriMAP (Figure \ref{fig:fig-nldr-layouts} d) has high RMSE, and show three clusters with small distances. PCA (Figure \ref{fig:fig-nldr-layouts} f) failed to capture the non-linear geometry, leading to the highest RMSE.
 
 \subsection{Benchmarking clustering algorithms}\label{benchmarking-clustering-algorithms}
 

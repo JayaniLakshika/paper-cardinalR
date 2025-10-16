@@ -2046,7 +2046,7 @@ five_clusts_proj1 <- plot_proj(
   cex = 2, 
   axis_text_size = 4,
   is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
-  theme(legend.text = element_text(size = 10))
+  theme(legend.position = "none")
 
 
 
@@ -2075,7 +2075,7 @@ five_clusts_proj2 <- plot_proj(
   cex = 2, 
   axis_text_size = 4,
   is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
-  theme(legend.text = element_text(size = 10))
+  theme(legend.position = "none")
 
 
 ## ----five-clusts-projections3-------------------------------------------------
@@ -2103,7 +2103,7 @@ five_clusts_proj3 <- plot_proj(
   cex = 2, 
   axis_text_size = 4,
   is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
-  theme(legend.text = element_text(size = 10))
+  theme(legend.position = "none")
 
 
 
@@ -2112,7 +2112,7 @@ five_clusts_proj3 <- plot_proj(
 #| fig-height: 4
 
 five_clusts_proj1 + five_clusts_proj2 + five_clusts_proj3 +
-  plot_layout(ncol = 3, guides = "collect") 
+  plot_layout(ncol = 3) 
 
 
 ## ----layouts------------------------------------------------------------------
@@ -2121,102 +2121,76 @@ tsne_data <- read_rds("data/five_clusts/five_clusts_tsne_perplexity_30.rds")
 
 nldr1 <- tsne_data |>
   ggplot(aes(x = tSNE1,
-             y = tSNE2,
-             color = cluster))+
-  geom_point(alpha=0.1, size=1) +
+             y = tSNE2))+
+  geom_point(alpha=0.1, size=1, colour = '#636363') +
   interior_annotation("a", c(0.08, 0.93)) + 
-  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
-  theme(aspect.ratio = 1,
-        legend.position = "none") 
+  theme(aspect.ratio = 1) 
 
 umap_data <- read_rds("data/five_clusts/five_clusts_umap_n-neigbors_15_min-dist_0.1.rds") 
 
 nldr2 <- umap_data |>
   ggplot(aes(x = UMAP1,
-             y = UMAP2,
-             color = cluster))+
-  geom_point(alpha=0.1, size=1) +
+             y = UMAP2))+
+  geom_point(alpha=0.1, size=1, colour = '#d95f02') +
   interior_annotation("b", c(0.08, 0.93)) + 
-  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
-  theme(aspect.ratio = 1,
-        legend.position = "none") 
+  theme(aspect.ratio = 1) 
 
 phate_data <- read_rds("data/five_clusts/five_clusts_phate_knn_5.rds") 
 
 nldr3 <- phate_data |>
   ggplot(aes(x = PHATE1,
-             y = PHATE2,
-             color = cluster))+
-  geom_point(alpha=0.1, size=1) +
+             y = PHATE2))+
+  geom_point(alpha=0.1, size=1, colour = '#7570b3') +
   interior_annotation("c", c(0.08, 0.93)) + 
-  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
-  theme(aspect.ratio = 1,
-        legend.position = "none") 
+  theme(aspect.ratio = 1) 
 
 trimap_data <- read_rds("data/five_clusts/five_clusts_trimap_n-inliers_12_n-outliers_4_n-random_3.rds") 
 
 nldr4 <- trimap_data |>
   ggplot(aes(x = TriMAP1,
-             y = TriMAP2,
-             color = cluster))+
-  geom_point(alpha=0.1, size=1) +
+             y = TriMAP2))+
+  geom_point(alpha=0.1, size=1, colour = '#e7298a') +
   interior_annotation("d", c(0.08, 0.93)) + 
-  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
-  theme(aspect.ratio = 1,
-        legend.position = "none")  
+  theme(aspect.ratio = 1) 
 
 pacmap_data <- read_rds("data/five_clusts/five_clusts_pacmap_n-neighbors_10_init_random_MN-ratio_0.5_FP-ratio_2.rds") 
 
 nldr5 <- pacmap_data |>
   ggplot(aes(x = PaCMAP1,
-             y = PaCMAP2,
-             color = cluster))+
-  geom_point(alpha=0.1, size=1) +
+             y = PaCMAP2))+
+  geom_point(alpha=0.1, size=1, colour = '#66a61e') +
   interior_annotation("e", c(0.08, 0.93)) + 
-  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
-  theme(aspect.ratio = 1,
-        legend.position = "none") 
+  theme(aspect.ratio = 1) 
 
 pca_data <- read_rds("data/five_clusts/five_clusts_pca.rds") 
 
 nldr6 <- pca_data |>
   ggplot(aes(x = pca1,
-             y = pca2,
-             color = cluster))+
-  geom_point(alpha=0.1, size=1) +
+             y = pca2))+
+  geom_point(alpha=0.1, size=1, colour = '#a6761d') +
   interior_annotation("f", c(0.08, 0.93)) + 
-  scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
-  theme(aspect.ratio = 1,
-        legend.position = "none") 
-
-
-## ----label = "fig-nldr-layouts", fig.pos="H", fig.cap="Six different dimension reduction representations of the five clusters data using default hyperparameter settings: (a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA."----
-
-nldr1 + nldr2 + nldr3 +
-  nldr4 + nldr5 + nldr6 +
-  plot_layout(ncol = 3)
+  theme(aspect.ratio = 1) 
 
 
 ## -----------------------------------------------------------------------------
-summary_dr <- read_rds("data/five_clusts/dr_summary.rds")
+error_five_clust <- read_rds("data/five_clusts/five_clusts_rmse.rds")
 
-summary_dr <- summary_dr |>
-  mutate(across(where(is.numeric), ~ round(.x, 2)))
+error_five_clust <- error_five_clust |>
+  mutate(a1 = round(a1, 2)) |>
+  filter(b1 >= 5) |>
+  group_by(method, a1) |>
+  filter(RMSE == min(RMSE)) |>
+  ungroup()
+
+error_plot_five_clust <- plot_rmse(error_five_clust) +
+  scale_x_continuous(breaks = sort(unique(error_five_clust$a1))[c(1, 5, 9, 13, 17, 21, 25)]) +
+  scale_color_manual(values=c("tSNE" = '#636363', "UMAP" = '#d95f02', "PHATE" = '#7570b3', "TriMAP" = '#e7298a', "PaCMAP" = '#66a61e', "PCA" = '#a6761d'))
 
 
-## ----summarydr-tb-html, eval=knitr::is_html_output()--------------------------
-# summary_dr |>
-#   kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", col.names = c("Method", "svm", "cte", "rte", "global_score"), tab.pos = "H", linesep = "")
+## ----label = "fig-nldr-layouts", fig.pos="H", fig.cap="Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using RMSE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice."----
 
-
-## ----summarydr-tb-pdf, eval=knitr::is_latex_output()--------------------------
-summary_dr |> 
-  kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", format="latex", col.names = c("Method", "svm", "cte", "rte", "global_score"), booktabs = T, table.pos = "H", linesep = "")  |>
-  column_spec(1, width = "2cm") |>
-  column_spec(2, width = "2cm") |>
-  column_spec(3, width = "2cm") |>
-  column_spec(4, width = "2cm") |>
-  column_spec(5, width = "2cm")
+error_plot_five_clust + wrap_plots(nldr1, nldr2, nldr3, 
+                                    nldr4, nldr5, nldr6, ncol = 2)
 
 
 ## -----------------------------------------------------------------------------
