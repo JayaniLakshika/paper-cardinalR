@@ -597,7 +597,7 @@ class(conefig) <- c(class(conefig), "htmlwidget")
 conefig
 ```
 
-```{r cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `cone` data.", fig.pos="H"}
+```{r cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from the $4\\text{-}D$ `cone` data.", fig.pos="H"}
 #| fig-width: 12
 #| fig-height: 4
 
@@ -2126,7 +2126,7 @@ proj_obj2 <- get_projection(projection = projection,
                                               axis_scaled = 1.3, 
                                               axis_pos_x = -0.2, 
                                               axis_pos_y = -0.2, 
-                                              threshold = 0.01))
+                                              threshold = 0.03))
 
 nonlinear_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
@@ -2181,7 +2181,7 @@ class(triginometricfig) <- c(class(triginometricfig), "htmlwidget")
 triginometricfig
 ```
 
-```{r triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `curvycylinder` (a1-a3), `sphericalspiral` (b1-b3), `conicspiral` (c1-c3), and `nonlinear` (d1-d3) data.", fig.width=12, fig.height=16, out.width="100%", fig.align='center', fig.pos="H"}
+```{r triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `curvycylinder` (a1-a3), `sphericalspiral` (b1-b3), `conicspiral` (c1-c3), and `nonlinear` (d1-d3) data. Each shows variations in curvature, density, and continuity. Various geometric forms captured by the trigonometric shape generators, illustrating how different non-linear geometric structures can challenge to test the robustness of algorithms.", fig.width=12, fig.height=16, out.width="100%", fig.align='center', fig.pos="H"}
 
 curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
 sphericalspiral_proj1 + sphericalspiral_proj2 + sphericalspiral_proj3 +
