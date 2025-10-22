@@ -1123,7 +1123,7 @@ class(pyrfig) <- c(class(pyrfig), "htmlwidget")
 pyrfig
 ```
 
-```{r pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data.", fig.width=12, fig.height=16, fig.pos="H"}
+```{r pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `pyrrect` (a1-a3), `pyrtri` (b1-b3), `pyrstar` (c1-c3), and `pyrholes` (d1-d3) data. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrholes` reveals hollow or open regions within an otherwise compact shape. These projections illustrate a range of pyramid-like geometries that vary in density and structure.", fig.width=12, fig.height=16, fig.pos="H"}
 
 pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
 pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
