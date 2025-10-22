@@ -1123,7 +1123,7 @@ The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dyna
 </div>
 ```
 
-<p class="caption">(\#fig:trefoil)`langevitour` output  of the `trefoil4d` and `trefoil3d` data in $4\text{-}D$.</p>
+<p class="caption">(\#fig:trefoil)`langevitour` output  of the `trefoil4d` and `trefoil3d` data in $4\text{-}D$. The `trefoil4d` structure represents a higher-dimensional extension of the classic trefoil knot, revealing complex twisting and looping patterns that remain continuous across projections. In contrast, the `trefoil3d` dataset maintains a simpler, more compact knot-like form, showing how dimensional extension adds curvature and separation in the embedded space.</p>
 </div>
 
 </div>
@@ -1333,7 +1333,7 @@ Finally, the `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear 
 </div>
 ```
 
-<p class="caption">(\#fig:triginometric)`langevitour` output  of tthe `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data in $4\text{-}D$.</p>
+<p class="caption">(\#fig:triginometric)`langevitour` output  of tthe `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data in $4\text{-}D$. The `curvycylinder` shows a cylindrical manifold with a nonlinear twist along its height, producing smooth, continuous curvature. The `sphericalspiral` forms a spiral path on a spherical surface, combining circular and vertical motion in a helical form. The `conicspiral` spreads radially while ascending, forming a conical helix with twisting variations in a non-radial dimension. The `nonlinear` dataset exhibits a warped $2\text{-}D$ surface with sharp oscillations and smooth waves, reflecting complex nonlinear interactions.</p>
 </div>
 
 </div>
