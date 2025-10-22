@@ -315,7 +315,7 @@ orglinearbranches_proj3 <- plot_proj(
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 
 
-## ----branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output of the `orglinearbranches` data in $4\\text{-}D$. The tour views shows how the linear branches appear from multiple viewing angles."----
+## ----branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output of the `orglinearbranches` data in $4\\text{-}D$. The tour view shows how the linear branches appear from multiple viewing angles."----
 # 
 # branchfig <- bscols(
 #   htmltools::div(

@@ -379,7 +379,7 @@ where $a_i, b_i$ define the range of the first coordinate for branch $i$, and $\
 </div>
 ```
 
-<p class="caption">(\#fig:branch)`langevitour` output of the `orglinearbranches` data in $4\text{-}D$. The tour views shows how the linear branches appear from multiple viewing angles.</p>
+<p class="caption">(\#fig:branch)`langevitour` output of the `orglinearbranches` data in $4\text{-}D$. The tour view shows how the linear branches appear from multiple viewing angles.</p>
 </div>
 
 </div>
