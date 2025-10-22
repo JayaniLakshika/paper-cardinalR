@@ -319,7 +319,12 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 # 
 # branchfig <- bscols(
 #   htmltools::div(
-#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     style = "display: grid; grid-template-columns: 1fr;
+#     gap: 0px;
+#     align-items: start;
+#     justify-items: center;
+#     margin: 0;
+#     padding: 0;",
 #     orglinearbranches_lang
 #   ),
 #   device = "xs"
@@ -430,7 +435,12 @@ cone_proj3 <- plot_proj(
 # 
 # conefig <- bscols(
 #   htmltools::div(
-#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     style = "display: grid; grid-template-columns: 1fr;
+#     gap: 0px;
+#     align-items: start;
+#     justify-items: center;
+#     margin: 0;
+#     padding: 0;",
 #     cone_lang
 #   ),
 #   device = "xs"
@@ -902,7 +912,12 @@ pyrholes_proj3 <- plot_proj(
 # 
 # pyrfig <- bscols(
 #   htmltools::div(
-#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     style = "display: grid; grid-template-columns: 1fr 1fr;
+#     gap: 0px;
+#     align-items: start;
+#     justify-items: center;
+#     margin: 0;
+#     padding: 0;",
 #     pyrrect_lang, pyrtri_lang, pyrstar_lang, pyrholes_lang
 #   ),
 #   device = "xs"
@@ -1239,7 +1254,12 @@ clusteredspheres_proj3 <- plot_proj(
 # 
 # spherefig <- bscols(
 #   htmltools::div(
-#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     style = "display: grid; grid-template-columns: 1fr 1fr;
+#     gap: 0px;
+#     align-items: start;
+#     justify-items: center;
+#     margin: 0;
+#     padding: 0;",
 #     circle_lang, curvycycle_lang, clusteredspheres_lang
 #   ),
 #   device = "xs"
@@ -1466,7 +1486,12 @@ trefoil3d_proj3 <- plot_proj(
 # 
 # trefoilfig <- bscols(
 #   htmltools::div(
-#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     style = "display: grid; grid-template-columns: 1fr 1fr;
+#     gap: 0px;
+#     align-items: start;
+#     justify-items: center;
+#     margin: 0;
+#     padding: 0;",
 #     trefoil4d_lang, trefoil3d_lang
 #   ),
 #   device = "xs"
@@ -1883,7 +1908,12 @@ nonlinear_proj3 <- plot_proj(
 # 
 # triginometricfig <- bscols(
 #   htmltools::div(
-#     style = "display: grid; grid-template-columns: 1fr 1fr;",
+#     style = "display: grid; grid-template-columns: 1fr 1fr;
+#     gap: 0px;
+#     align-items: start;
+#     justify-items: center;
+#     margin: 0;
+#     padding: 0;",
 #     curvycylinder_lang, sphericalspiral_lang, conicspiral_lang, nonlinear_lang
 #   ),
 #   device = "xs"
