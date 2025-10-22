@@ -1250,7 +1250,7 @@ clusteredspheres_proj3 <- plot_proj(
 # spherefig
 
 
-## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), `unifsphere` (c1-c3), `gridedsphere` (d1-d3), `clusteredspheres` (e1-e3), and `hemisphere` (f1-f3) data.", fig.width=12, fig.height=12, out.width="100%", fig.align='center', fig.pos="H"----
+## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `circle` (a1-a3), `curvycycle` (b1-b3), and, `clusteredspheres` (c1-c3).", fig.width=12, fig.height=12, out.width="100%", fig.align='center', fig.pos="H"----
 
 circle_proj1 + circle_proj2 + circle_proj3 +
 curvycycle_proj1 + curvycycle_proj2 + curvycycle_proj3  +
@@ -1544,7 +1544,7 @@ curvycylinder_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.5), 
-  title = "b1", 
+  title = "a1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1571,7 +1571,7 @@ curvycylinder_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "b2", 
+  title = "a2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1598,7 +1598,7 @@ curvycylinder_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.5), 
-  title = "b3", 
+  title = "a3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1634,7 +1634,7 @@ sphericalspiral_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "c1", 
+  title = "b1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1661,7 +1661,7 @@ sphericalspiral_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.7, 0.6), 
-  title = "c2", 
+  title = "b2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1688,7 +1688,7 @@ sphericalspiral_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.5, 0.5), 
-  title = "c3", 
+  title = "b3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1728,7 +1728,7 @@ conicspiral_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.65, 0.7), 
-  title = "e1", 
+  title = "c1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1755,7 +1755,7 @@ conicspiral_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.8, 0.5), 
-  title = "e2", 
+  title = "c2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1782,7 +1782,7 @@ conicspiral_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.6, 0.62), 
-  title = "e3", 
+  title = "c3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1818,7 +1818,7 @@ nonlinear_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.45, 0.73), 
-  title = "f1", 
+  title = "d1", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1845,7 +1845,7 @@ nonlinear_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.3, 0.46), 
-  title = "f2", 
+  title = "d2", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1872,7 +1872,7 @@ nonlinear_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
   plot_limits = c(-0.35, 0.4), 
-  title = "f3", 
+  title = "d3", 
   cex = 2, 
   axis_text_size = 5,
   is_color = FALSE)
@@ -1894,7 +1894,7 @@ nonlinear_proj3 <- plot_proj(
 # triginometricfig
 
 
-## ----triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `crescent` (a1-a3), `curvycylinder` (b1-b3), `sphericalspiral` (c1-c3), `helicalspiral` (d1-d3), `conicspiral` (e1-e3), and `nonlinear` (f1-f3) data.", fig.width=12, fig.height=16, out.width="100%", fig.align='center', fig.pos="H"----
+## ----triginometric-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `curvycylinder` (a1-a3), `sphericalspiral` (b1-b3), `conicspiral` (c1-c3), and `nonlinear` (d1-d3) data.", fig.width=12, fig.height=16, out.width="100%", fig.align='center', fig.pos="H"----
 
 curvycylinder_proj1 + curvycylinder_proj2 + curvycylinder_proj3 +
 sphericalspiral_proj1 + sphericalspiral_proj2 + sphericalspiral_proj3 +
