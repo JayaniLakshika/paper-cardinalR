@@ -983,7 +983,7 @@ Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere 
 </div>
 ```
 
-<p class="caption">(\#fig:sphere)`langevitour` output  of the `circle`, `curvycycle`, and `clusteredspheres` data in $4\text{-}D$. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\text{-}D$ projections, highlighting how projection can distort spatial relationships.</p>
+<p class="caption">(\#fig:sphere)`langevitour` output  of the `circle`, `curvycycle` data in $4\text{-}D$, and `clusteredspheres` data in $3\text{-}D$. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\text{-}D$ projections, highlighting how projection can distort spatial relationships.</p>
 </div>
 
 </div>
@@ -1123,7 +1123,7 @@ The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dyna
 </div>
 ```
 
-<p class="caption">(\#fig:trefoil)`langevitour` output  of the `trefoil4d` and `trefoil3d` data in $4\text{-}D$. The `trefoil4d` structure represents a higher-dimensional extension of the classic trefoil knot, revealing complex twisting and looping patterns that remain continuous across projections. In contrast, the `trefoil3d` dataset maintains a simpler, more compact knot-like form, showing how dimensional extension adds curvature and separation in the embedded space.</p>
+<p class="caption">(\#fig:trefoil)`langevitour` output  of the `trefoil4d` in $4\text{-}D$ and `trefoil3d` data in $3\text{-}D$. The `trefoil4d` structure represents a higher-dimensional extension of the classic trefoil knot, revealing complex twisting and looping patterns that remain continuous across projections. In contrast, the `trefoil3d` dataset maintains a simpler, more compact knot-like form, showing how dimensional extension adds curvature and separation in the embedded space.</p>
 </div>
 
 </div>
