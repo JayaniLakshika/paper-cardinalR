@@ -476,7 +476,7 @@ class(branchfig) <- c(class(branchfig), "htmlwidget")
 branchfig
 ```
 
-```{r branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the `orglinearbranches` (a1-a3) data.", fig.width=12, fig.height=4, fig.pos="H"}
+```{r branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from the $4\\text{-}D$ `orglinearbranches` data. Each shows a different projection, illustrating how the linear branches appear from multiple viewing angles. These views highlight the dataset’s underlying branching structure and demonstrate how projections can help reveal patterns that are otherwise hidden in higher dimensions.", fig.width=12, fig.height=4, fig.pos="H"}
 
 orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
