@@ -379,7 +379,7 @@ where $a_i, b_i$ define the range of the first coordinate for branch $i$, and $\
 </div>
 ```
 
-<p class="caption">(\#fig:branch)`langevitour` output  of the `orglinearbranches` data in $4\text{-}D$.</p>
+<p class="caption">(\#fig:branch)`langevitour` output of the `orglinearbranches` data in $4\text{-}D$. The tour views shows how the linear branches appear from multiple viewing angles.</p>
 </div>
 
 </div>
@@ -447,7 +447,7 @@ Cone-shaped structures appear in particle dispersions, light beams, and tapering
 </div>
 ```
 
-<p class="caption">(\#fig:cone)`langevitour` output  of the `cone` data in $4\text{-}D$.</p>
+<p class="caption">(\#fig:cone)`langevitour` output  of the `cone` data in $3\text{-}D$. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex.</p>
 </div>
 
 </div>
@@ -771,7 +771,7 @@ Pyramid structures mimic tapering or layered geometries seen in architecture, cr
 </div>
 ```
 
-<p class="caption">(\#fig:pyr)`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\text{-}D$.</p>
+<p class="caption">(\#fig:pyr)`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\text{-}D$. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrholes` reveals hollow or open regions within an otherwise compact shape.</p>
 </div>
 
 </div>
@@ -983,7 +983,7 @@ Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere 
 </div>
 ```
 
-<p class="caption">(\#fig:sphere)`langevitour` output  of the `circle`, `curvycycle`, and `clusteredspheres` data in $4\text{-}D$.</p>
+<p class="caption">(\#fig:sphere)`langevitour` output  of the `circle`, `curvycycle`, and `clusteredspheres` data in $4\text{-}D$. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\text{-}D$ projections, highlighting how projection can distort spatial relationships.</p>
 </div>
 
 </div>

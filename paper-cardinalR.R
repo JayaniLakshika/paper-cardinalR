@@ -315,7 +315,7 @@ orglinearbranches_proj3 <- plot_proj(
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 
 
-## ----branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `orglinearbranches` data in $4\\text{-}D$."----
+## ----branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output of the `orglinearbranches` data in $4\\text{-}D$. The tour views shows how the linear branches appear from multiple viewing angles."----
 # 
 # branchfig <- bscols(
 #   htmltools::div(
@@ -426,7 +426,7 @@ cone_proj3 <- plot_proj(
 
 
 
-## ----cone, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `cone` data in $4\\text{-}D$."----
+## ----cone, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `cone` data in $3\\text{-}D$. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex."----
 # 
 # conefig <- bscols(
 #   htmltools::div(
@@ -441,7 +441,7 @@ cone_proj3 <- plot_proj(
 # conefig
 
 
-## ----cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from the $4\\text{-}D$ `cone` data. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex. These projections show how the conical geometry is preserved.", fig.pos="H"----
+## ----cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from the $3\\text{-}D$ `cone` data. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex. These projections show how the conical geometry is preserved.", fig.pos="H"----
 #| fig-width: 12
 #| fig-height: 4
 
@@ -898,7 +898,7 @@ pyrholes_proj3 <- plot_proj(
 
 
 
-## ----pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$."----
+## ----pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrholes` reveals hollow or open regions within an otherwise compact shape."----
 # 
 # pyrfig <- bscols(
 #   htmltools::div(
@@ -1235,7 +1235,7 @@ clusteredspheres_proj3 <- plot_proj(
 
 
 
-## ----sphere, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `circle`, `curvycycle`, and `clusteredspheres` data in $4\\text{-}D$."----
+## ----sphere, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `circle`, `curvycycle`, and `clusteredspheres` data in $4\\text{-}D$. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships."----
 # 
 # spherefig <- bscols(
 #   htmltools::div(
@@ -1462,7 +1462,7 @@ trefoil3d_proj3 <- plot_proj(
 
 
 
-## ----trefoil, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `trefoil4d` and `trefoil3d` data in $4\\text{-}D$."----
+## ----trefoil, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `trefoil4d` and `trefoil3d` data in $4\\text{-}D$. The `trefoil4d` structure represents a higher-dimensional extension of the classic trefoil knot, revealing complex twisting and looping patterns that remain continuous across projections. In contrast, the `trefoil3d` dataset maintains a simpler, more compact knot-like form, showing how dimensional extension adds curvature and separation in the embedded space."----
 # 
 # trefoilfig <- bscols(
 #   htmltools::div(
@@ -1879,7 +1879,7 @@ nonlinear_proj3 <- plot_proj(
 
 
 
-## ----triginometric, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of tthe `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data in $4\\text{-}D$."----
+## ----triginometric, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of tthe `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data in $4\\text{-}D$. The `curvycylinder` shows a cylindrical manifold with a nonlinear twist along its height, producing smooth, continuous curvature. The `sphericalspiral` forms a spiral path on a spherical surface, combining circular and vertical motion in a helical form. The `conicspiral` spreads radially while ascending, forming a conical helix with twisting variations in a non-radial dimension. The `nonlinear` dataset exhibits a warped $2\\text{-}D$ surface with sharp oscillations and smooth waves, reflecting complex nonlinear interactions."----
 # 
 # triginometricfig <- bscols(
 #   htmltools::div(

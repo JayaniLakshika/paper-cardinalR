@@ -461,7 +461,7 @@ orglinearbranches_proj3 <- plot_proj(
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 ```
 
-```{r branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `orglinearbranches` data in $4\\text{-}D$."}
+```{r branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output of the `orglinearbranches` data in $4\\text{-}D$. The tour views shows how the linear branches appear from multiple viewing angles."}
 
 branchfig <- bscols(
   htmltools::div(
@@ -582,7 +582,7 @@ cone_proj3 <- plot_proj(
 
 ```
 
-```{r cone, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `cone` data in $4\\text{-}D$."}
+```{r cone, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `cone` data in $3\\text{-}D$. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex."}
 
 conefig <- bscols(
   htmltools::div(
@@ -597,7 +597,7 @@ class(conefig) <- c(class(conefig), "htmlwidget")
 conefig
 ```
 
-```{r cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from the $4\\text{-}D$ `cone` data. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex. These projections show how the conical geometry is preserved.", fig.pos="H"}
+```{r cone-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from the $3\\text{-}D$ `cone` data. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex. These projections show how the conical geometry is preserved.", fig.pos="H"}
 #| fig-width: 12
 #| fig-height: 4
 
@@ -1108,7 +1108,7 @@ pyrholes_proj3 <- plot_proj(
 
 Pyramid structures mimic tapering or layered geometries seen in architecture, crystals, and fractal-like natural patterns [@kirkby1983].
 
-```{r pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$."}
+```{r pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrholes` reveals hollow or open regions within an otherwise compact shape."}
 
 pyrfig <- bscols(
   htmltools::div(
@@ -1486,7 +1486,7 @@ clusteredspheres_proj3 <- plot_proj(
 
 Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) f"} else { "Figure \\@ref(fig:sphere-proj) f"})`). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. 
 
-```{r sphere, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `circle`, `curvycycle`, and `clusteredspheres` data in $4\\text{-}D$."}
+```{r sphere, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `circle`, `curvycycle`, and `clusteredspheres` data in $4\\text{-}D$. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships."}
 
 spherefig <- bscols(
   htmltools::div(
@@ -1733,7 +1733,7 @@ trefoil3d_proj3 <- plot_proj(
 
 ```
 
-```{r trefoil, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `trefoil4d` and `trefoil3d` data in $4\\text{-}D$."}
+```{r trefoil, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `trefoil4d` and `trefoil3d` data in $4\\text{-}D$. The `trefoil4d` structure represents a higher-dimensional extension of the classic trefoil knot, revealing complex twisting and looping patterns that remain continuous across projections. In contrast, the `trefoil3d` dataset maintains a simpler, more compact knot-like form, showing how dimensional extension adds curvature and separation in the embedded space."}
 
 trefoilfig <- bscols(
   htmltools::div(
@@ -2166,7 +2166,7 @@ nonlinear_proj3 <- plot_proj(
 
 ```
 
-```{r triginometric, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of tthe `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data in $4\\text{-}D$."}
+```{r triginometric, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of tthe `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data in $4\\text{-}D$. The `curvycylinder` shows a cylindrical manifold with a nonlinear twist along its height, producing smooth, continuous curvature. The `sphericalspiral` forms a spiral path on a spherical surface, combining circular and vertical motion in a helical form. The `conicspiral` spreads radially while ascending, forming a conical helix with twisting variations in a non-radial dimension. The `nonlinear` dataset exhibits a warped $2\\text{-}D$ surface with sharp oscillations and smooth waves, reflecting complex nonlinear interactions."}
 
 triginometricfig <- bscols(
   htmltools::div(
