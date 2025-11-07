@@ -1924,16 +1924,7 @@ X \sim \mathcal{N}(m, s^2),
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Define example rotation matrices for 4D space</span></span>
 <span><span class='va'>rot1</span> <span class='op'>&lt;-</span> <span class='fu'>gen_rotation</span><span class='op'>(</span>p <span class='op'>=</span> <span class='fl'>4</span>, planes_angles <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
-<span>  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>plane <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, angle <span class='op'>=</span> <span class='fl'>60</span><span class='op'>)</span>,</span>
-<span>  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>plane <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>4</span><span class='op'>)</span>, angle <span class='op'>=</span> <span class='fl'>90</span><span class='op'>)</span></span>
-<span><span class='op'>)</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>rot2</span> <span class='op'>&lt;-</span> <span class='fu'>gen_rotation</span><span class='op'>(</span>p <span class='op'>=</span> <span class='fl'>4</span>, planes_angles <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
-<span>  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>plane <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>)</span>, angle <span class='op'>=</span> <span class='fl'>30</span><span class='op'>)</span></span>
-<span><span class='op'>)</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>rot3</span> <span class='op'>&lt;-</span> <span class='fu'>gen_rotation</span><span class='op'>(</span>p <span class='op'>=</span> <span class='fl'>4</span>, planes_angles <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
-<span>  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>plane <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>4</span><span class='op'>)</span>, angle <span class='op'>=</span> <span class='fl'>45</span><span class='op'>)</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>plane <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, angle <span class='op'>=</span> <span class='fl'>60</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>plane <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>4</span><span class='op'>)</span>, angle <span class='op'>=</span> <span class='fl'>90</span><span class='op'>)</span></span>
 <span><span class='op'>)</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'># Generate the clustered dataset</span></span>
@@ -1947,7 +1938,7 @@ X \sim \mathcal{N}(m, s^2),
 <span>  <span class='op'>)</span>, nrow <span class='op'>=</span> <span class='fl'>3</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
 <span>  scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
 <span>  shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gaussian"</span>, <span class='st'>"cone"</span>, <span class='st'>"unifcube"</span><span class='op'>)</span>,</span>
-<span>  rotation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>rot1</span>, <span class='va'>rot2</span>, <span class='va'>rot3</span><span class='op'>)</span>,</span>
+<span>  rotation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>rot1</span>, <span class='cn'>NULL</span>, <span class='cn'>NULL</span><span class='op'>)</span>,</span>
 <span>  is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span></span>
 <span><span class='op'>)</span></span></code></pre>
 </div>
