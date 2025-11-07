@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  7 NOV 2025 17:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  7 NOV 2025 23:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -856,12 +856,17 @@ File: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf Graphic file (type pd
 <use paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf  used on input line 468.
 (pdftex.def)             Requested size: 318.67207pt x 318.67711pt.
+
+Overfull \hbox (17.09308pt too wide) in paragraph at lines 477--478
+\T1/ppl/m/n/9 (-20) The Swiss roll is a stan-dard non-lin-ear man-i-fold, rep-re-sent-ing a plane curled into $\OT1/ppl/m/n/9 (-20) 3[]\OML/zplm/m/it/9 D$\T1/ppl/m/n/9 (-20) . The \T1/zi4/m/n/9 gen_swissroll(n,
+ []
+
 [12 <./paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>]
 Overfull \hbox (1.18527pt too wide) in paragraph at lines 511--512
 []\T1/ppl/m/n/9 (-20) For the $\OT1/ppl/m/n/9 (-20) 3[]\OML/zplm/m/it/9 D$ \T1/ppl/m/n/9 (-20) stere-o-graphic pro-jec-tion, \T1/zi4/m/n/9 gen_trefoil3d(n, steps) \T1/ppl/m/n/9 (-20) maps each point $\OT1/zplm/m/n/9 (\OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/zplm/m/n/9 ) \OMS/zplm/m/n/9 2
  []
 
-<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=286, 867.24pt x 578.16pt>
+<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=287, 867.24pt x 578.16pt>
 File: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 521.
@@ -938,15 +943,15 @@ Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
 (rerunfilecheck)             Checksum: 6EEDDB97BE490A1C0644B1F2633052FB;2475.
  ) 
 Here is how much of TeX's memory you used:
- 27754 strings out of 469519
- 506475 string characters out of 5468895
+ 27751 strings out of 469519
+ 506448 string characters out of 5468895
  930916 words of memory out of 5000000
  55381 multiletter control sequences out of 15000+600000
- 692811 words of font info for 407 fonts, out of 8000000 for 9000
+ 692662 words of font info for 405 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,12n,131p,2007b,976s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,12n,131p,2007b,923s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (23 pages, 6785699 bytes).
+Output written on RJwrapper.pdf (23 pages, 6785555 bytes).
 PDF statistics:
  675 PDF objects out of 1000 (max. 8388607)
  598 compressed objects within 6 object streams
