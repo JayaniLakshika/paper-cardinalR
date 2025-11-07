@@ -1039,7 +1039,7 @@ Table: (\#tab:trefoil-tb-html)cardinalR trefoil data generation functions
 </div>
 
 
-For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (Figure \@ref(fig:trefoil) a). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ and $\phi$ trace the knot’s path. 
+For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (Figure \@ref(fig:trefoil) a). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ and $\phi$ trace the knot’s path. 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>trefoil4d</span> <span class='op'>&lt;-</span> <span class='fu'>gen_trefoil4d</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>500</span>, steps <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre></div>
@@ -1472,7 +1472,7 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 |Function          |Explanation                                                                                       |
 |:-----------------|:-------------------------------------------------------------------------------------------------|
 |gen_bkgnoise      |Adds background noise.                                                                            |
-|randomize_rows    |Randomizes the rows.                                                                              |
+|randomize_rows    |Randomizes the rows of input data.                                                                |
 |relocate_clusters |Relocates the clusters.                                                                           |
 |gen_nproduct      |Generates a vector of positive integers whose product is approximately equal to a target value.   |
 |gen_nsum          |Generates a vector of positive integers whose summation is approximately equal to a target value. |

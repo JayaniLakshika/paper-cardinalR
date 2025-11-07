@@ -1566,7 +1566,7 @@ trefoil_tb |>
   column_spec(2, width = "8cm")
 ```
 
-For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ and $\phi$ trace the knot’s path. 
+For the $4\text{-}D$ trefoil knot, the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ and $\phi$ trace the knot’s path. 
 
 ```{r data-trefoil4d, echo=TRUE}
 trefoil4d <- gen_trefoil4d(n = 500, steps = 5)
@@ -2347,7 +2347,7 @@ add_fun_tb <- tibble(fun = c("gen_bkgnoise",
                             "gen_rotation",
                             "normalize_data"), 
                         exp = c("Adds background noise.",
-                                "Randomizes the rows.",
+                                "Randomizes the rows of input data.",
                                 "Relocates the clusters.",
                                 "Generates a vector of positive integers whose product is approximately equal to a target value.",
                                 "Generates a vector of positive integers whose summation is approximately equal to a target value.", 

@@ -506,7 +506,7 @@ gen\_trefoil3d & Trefoil in 3-D.\\
 \end{tabular}
 \end{table}
 
-For the \(4\text{-}D\) trefoil knot, the function \texttt{gen\_trefoil4d(n,\ steps)} generates the structure on the \(3\)-sphere (\(S^3 \subset \mathbb{R}^4\)) using two angular parameters, \(\theta\) and \(\phi\). A band of thickness around the knot path is controlled by the \texttt{steps} argument, while the number of \(\theta\) and \(\phi\) values is determined by the \texttt{steps} and \texttt{n} arguments, respectively (Figure \ref{fig:trefoil-proj} a). The coordinates are defined as \[X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),\] where \(\theta\) and \(\phi\) trace the knot's path.
+For the \(4\text{-}D\) trefoil knot, the function \texttt{gen\_trefoil4d(n,\ steps)} generates the structure on the \(3\)-sphere (\(S^3 \subset \mathbb{R}^4\)) using two angular parameters, \(\theta\) and \(\phi\). A band of thickness around the knot path is controlled by the \texttt{steps} argument, while the number of \(\theta\) and \(\phi\) values is determined by the \texttt{steps} and \texttt{n} arguments, respectively (Figure \ref{fig:trefoil-proj} a). The coordinates are defined as \[X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),\] where \(\theta\) and \(\phi\) trace the knot's path.
 
 \begin{verbatim}
 trefoil4d <- gen_trefoil4d(n = 500, steps = 5)
@@ -694,7 +694,7 @@ The package includes various supplementary tools in addition to the shape genera
 Function & Explanation\\
 \midrule
 gen\_bkgnoise & Adds background noise.\\
-randomize\_rows & Randomizes the rows.\\
+randomize\_rows & Randomizes the rows of input data.\\
 relocate\_clusters & Relocates the clusters.\\
 gen\_nproduct & Generates a vector of positive integers whose product is approximately equal to a target value.\\
 gen\_nsum & Generates a vector of positive integers whose summation is approximately equal to a target value.\\

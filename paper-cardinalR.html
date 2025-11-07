@@ -2616,7 +2616,7 @@ Figure 5: <code>langevitour</code> output of the <code>circle</code>, <code>curv
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<p>For the <span class="math inline">\(4\text{-}D\)</span> trefoil knot, the function <code>gen_trefoil4d(n, steps)</code> generates the structure on the <span class="math inline">\(3\)</span>-sphere (<span class="math inline">\(S^3 \subset \mathbb{R}^4\)</span>) using two angular parameters, <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span>. A band of thickness around the knot path is controlled by the <code>steps</code> argument, while the number of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> values is determined by the <code>steps</code> and <code>n</code> arguments, respectively (Figure <a href="#fig:trefoil">6</a> a). The coordinates are defined as <span class="math display">\[X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),\]</span> where <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> trace the knot’s path.</p>
+<p>For the <span class="math inline">\(4\text{-}D\)</span> trefoil knot, the function <code>gen_trefoil4d(n, steps)</code> generates the structure on the <span class="math inline">\(3\)</span>-sphere (<span class="math inline">\(S^3 \subset \mathbb{R}^4\)</span>) using two angular parameters, <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span>. A band of thickness around the knot path is controlled by the <code>steps</code> argument, while the number of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> values is determined by the <code>steps</code> and <code>n</code> arguments, respectively (Figure <a href="#fig:trefoil">6</a> a). The coordinates are defined as <span class="math display">\[X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),\]</span> where <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> trace the knot’s path.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>trefoil4d</span> <span class='op'>&lt;-</span> <span class='fu'>gen_trefoil4d</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>500</span>, steps <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre>
@@ -3001,7 +3001,7 @@ X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j &gt; 3,
 </tr>
 <tr class="even">
 <td style="text-align: left;">randomize_rows</td>
-<td style="text-align: left;">Randomizes the rows.</td>
+<td style="text-align: left;">Randomizes the rows of input data.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">relocate_clusters</td>
