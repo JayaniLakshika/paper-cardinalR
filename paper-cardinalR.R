@@ -189,8 +189,7 @@ branch_tb |>
 
 
 ## -----------------------------------------------------------------------------
-arg_branching_tb <- tibble(arg = c("n",
-                          "k"), 
+arg_branching_tb <- tibble(arg = c("n", "k"), 
                           type = c("integer", "integer"),
                         exp = c("Number of points.",
                                 "Number of clusters."))
@@ -2203,21 +2202,21 @@ nldr6 <- pca_data |>
 
 
 ## -----------------------------------------------------------------------------
-error_five_clust <- read_rds("data/five_clusts/five_clusts_rmse.rds")
+error_five_clust <- read_rds("data/five_clusts/five_clusts_hbe.rds")
 
 error_five_clust <- error_five_clust |>
   mutate(a1 = round(a1, 2)) |>
   filter(b1 >= 5) |>
   group_by(method, a1) |>
-  filter(RMSE == min(RMSE)) |>
+  filter(HBE == min(HBE)) |>
   ungroup()
 
-error_plot_five_clust <- plot_rmse(error_five_clust) +
+error_plot_five_clust <- plot_hbe(error_five_clust) +
   scale_x_continuous(breaks = sort(unique(error_five_clust$a1))[c(1, 5, 9, 13, 17, 21, 25)]) +
   scale_color_manual(values=c("tSNE" = '#636363', "UMAP" = '#d95f02', "PHATE" = '#7570b3', "TriMAP" = '#e7298a', "PaCMAP" = '#66a61e', "PCA" = '#a6761d'))
 
 
-## ----label = "fig-nldr-layouts", fig.pos="H", fig.cap="Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using RMSE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice."----
+## ----label = "fig-nldr-layouts", fig.pos="H", fig.cap="Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice."----
 
 error_plot_five_clust + wrap_plots(nldr1, nldr2, nldr3, 
                                     nldr4, nldr5, nldr6, ncol = 2)

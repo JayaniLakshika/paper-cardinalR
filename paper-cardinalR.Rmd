@@ -277,8 +277,7 @@ branch_tb |>
 ```
 
 ```{r}
-arg_branching_tb <- tibble(arg = c("n",
-                          "k"), 
+arg_branching_tb <- tibble(arg = c("n", "k"), 
                           type = c("integer", "integer"),
                         exp = c("Number of points.",
                                 "Number of clusters."))
@@ -2554,29 +2553,29 @@ nldr6 <- pca_data |>
 ```
 
 ```{r}
-error_five_clust <- read_rds("data/five_clusts/five_clusts_rmse.rds")
+error_five_clust <- read_rds("data/five_clusts/five_clusts_hbe.rds")
 
 error_five_clust <- error_five_clust |>
   mutate(a1 = round(a1, 2)) |>
   filter(b1 >= 5) |>
   group_by(method, a1) |>
-  filter(RMSE == min(RMSE)) |>
+  filter(HBE == min(HBE)) |>
   ungroup()
 
-error_plot_five_clust <- plot_rmse(error_five_clust) +
+error_plot_five_clust <- plot_hbe(error_five_clust) +
   scale_x_continuous(breaks = sort(unique(error_five_clust$a1))[c(1, 5, 9, 13, 17, 21, 25)]) +
   scale_color_manual(values=c("tSNE" = '#636363', "UMAP" = '#d95f02', "PHATE" = '#7570b3', "TriMAP" = '#e7298a', "PaCMAP" = '#66a61e', "PCA" = '#a6761d'))
 ```
 
-```{r, label = "fig-nldr-layouts", fig.pos="H", fig.cap="Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using RMSE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice."}
+```{r, label = "fig-nldr-layouts", fig.pos="H", fig.cap="Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice."}
 
 error_plot_five_clust + wrap_plots(nldr1, nldr2, nldr3, 
                                     nldr4, nldr5, nldr6, ncol = 2)
 ```
 
-To assess their performance, we computed the root mean squared error (RMSE) between the observed high-dimensional data and the fitted values, defined as the high-dimensional mappings of the bin centroids [@gamage2025c]. A lower RMSE indicates that the method better preserves the high-dimensional structure in its low-dimensional embedding.
+To assess their performance, we computed the hexbin error (HBE) between the observed high-dimensional data and the fitted values, defined as the high-dimensional mappings of the bin centroids [@gamage2025c]. A lower HBE indicates that the method better preserves the high-dimensional structure in its low-dimensional embedding.
 
-As shown in Figure \@ref(fig:fig-nldr-layouts), tSNE (Figure \@ref(fig:fig-nldr-layouts) a) achieved the lowest RMSE across bin widths (mostly tiny), indicating high preservation of both local and global structures. Its layout displays well-separated clusters with minimal inter-cluster distances, making it the most faithful representation of the underlying data structure. UMAP and PaCMAP (Figure \@ref(fig:fig-nldr-layouts) b and e) produced moderately accurate embeddings, although the six clusters appear more well-separated, while PHATE (Figure \@ref(fig:fig-nldr-layouts) c) show non-linear cluster structures irrespective of the original structure. Also, TriMAP (Figure \@ref(fig:fig-nldr-layouts) d) has high RMSE, and show three clusters with small distances. PCA (Figure \@ref(fig:fig-nldr-layouts) f) failed to capture the non-linear geometry, leading to the highest RMSE.
+As shown in Figure \@ref(fig:fig-nldr-layouts), tSNE (Figure \@ref(fig:fig-nldr-layouts) a) achieved the lowest HBE across bin widths (mostly tiny), indicating high preservation of both local and global structures. Its layout displays well-separated clusters with minimal inter-cluster distances, making it the most faithful representation of the underlying data structure. UMAP and PaCMAP (Figure \@ref(fig:fig-nldr-layouts) b and e) produced moderately accurate embeddings, although the six clusters appear more well-separated, while PHATE (Figure \@ref(fig:fig-nldr-layouts) c) show non-linear cluster structures irrespective of the original structure. Also, TriMAP (Figure \@ref(fig:fig-nldr-layouts) d) has high HBE, and show three clusters with small distances. PCA (Figure \@ref(fig:fig-nldr-layouts) f) failed to capture the non-linear geometry, leading to the highest HBE.
 
 ## Benchmarking clustering algorithms
 

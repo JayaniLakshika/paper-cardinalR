@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.15)  22 OCT 2025 16:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  7 NOV 2025 17:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **RJwrapper.tex
 (./RJwrapper.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-10-24>
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/base/size10.clo
@@ -28,7 +28,7 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 ) (./RJournal.sty
 Package: RJournal 2022/06/27 v0.14 RJournal package
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
@@ -319,17 +319,18 @@ Package: inconsolata 2019/05/17 v1.12
 `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks36
 \XKV@tempa@toks=\toks37
+\XKV@tempb@toks=\toks38
 )
 \XKV@depth=\count311
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 \zifour@ocount=\count312
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+ppl on input line 116.
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
@@ -440,7 +441,7 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \aftertitleunit=\skip68
 \ttl@plus=\dimen270
 \ttl@minus=\dimen271
-\ttl@toksa=\toks38
+\ttl@toksa=\toks39
 \titlewidth=\dimen272
 \titlewidthlast=\dimen273
 \titlewidthfirst=\dimen274
@@ -467,7 +468,7 @@ Package: fancyvrb 2025/07/28 4.6 verbatim text (tvz,hv)
 Package: alltt 2024/07/07 v2.0g defines alltt environment
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks39
+\@emptytoks=\toks40
 \symAMSa=\mathgroup5
 \symAMSb=\mathgroup6
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -495,16 +496,16 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )
-\@envbody=\toks40
+\@envbody=\toks41
 )) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
+Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip71
 For additional information on amsmath, use the `?' option.
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks41
+\@emptytoks=\toks42
 \ex@=\dimen284
 )) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -543,31 +544,31 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \dotsspace@=\muskip18
 \c@parentequation=\count337
 \dspbrk@lvl=\count338
-\tag@help=\toks42
+\tag@help=\toks43
 \row@=\count339
 \column@=\count340
 \maxfields@=\count341
-\andhelp@=\toks43
+\andhelp@=\toks44
 \eqnshift@=\dimen287
 \alignsep@=\dimen288
 \tagshift@=\dimen289
 \tagwidth@=\dimen290
 \totwidth@=\dimen291
 \lineht@=\dimen292
-\@envbody=\toks44
+\@envbody=\toks45
 \multlinegap=\skip72
 \multlinetaggap=\skip73
-\mathdisplay@stack=\toks45
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
+\mathdisplay@stack=\toks46
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen293
 \ar@mcellbox=\box69
 \extrarowheight=\dimen294
-\NC@list=\toks46
+\NC@list=\toks47
 \extratabsurround=\skip74
 \backup@length=\skip75
 \ar@cellbox=\box70
@@ -591,7 +592,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count345
 \@thisrulewidth=\dimen307
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
 \LTleft=\skip76
 \LTright=\skip77
 \LTpre=\skip78
@@ -607,7 +608,7 @@ Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
 \LT@rows=\count348
 \c@LT@tables=\count349
 \c@LT@chunks=\count350
-\LT@p@ftn=\toks47
+\LT@p@ftn=\toks48
 )
 \cslhangindent=\skip80
 \csllabelwidth=\skip81
@@ -626,12 +627,12 @@ LaTeX Info: Redefining \addtolength on input line 87.
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count354
-\float@exts=\toks48
+\float@exts=\toks49
 \float@box=\box76
-\@float@everytoks=\toks49
+\@float@everytoks=\toks50
 \@floatcapt=\box77
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count355
 ) (./RJwrapper.aux)
 \openout1 = `RJwrapper.aux'.
@@ -744,8 +745,6 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
-
 [1{/Users/jpiy0001/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 {/Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
@@ -754,8 +753,6 @@ File: figures/cardinalR_workflow.png Graphic file (type png)
 <use figures/cardinalR_workflow.png>
 Package pdftex.def Info: figures/cardinalR_workflow.png  used on input line 26.
 (pdftex.def)             Requested size: 398.33858pt x 377.94525pt.
-
-
 [2 <./figures/cardinalR_workflow.png>]
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 39.
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ppl.fd
@@ -816,14 +813,10 @@ Overfull \hbox (7.54723pt too wide) in paragraph at lines 51--64
  [][] 
  []
 
-
-
 [3]
 Overfull \hbox (29.67798pt too wide) in paragraph at lines 138--139
 []\T1/ppl/m/n/9 (-20) The sim-plest struc-tures are ap-prox-i-mately lin-ear branches in $\OT1/ppl/m/n/9 (-20) 2[]\OML/zplm/m/it/9 D$\T1/ppl/m/n/9 (-20) , gen-er-ated by the \T1/zi4/m/n/9 gen_linearbranches(n,
  []
-
-
 
 [4]
 <paper-cardinalR_files/figure-latex/branch-proj-1.pdf, id=137, 867.24pt x 289.08pt>
@@ -836,26 +829,18 @@ Overfull \hbox (3.15651pt too wide) in paragraph at lines 222--223
 \T1/ppl/m/n/9 (-20) To sim-u-late a cone-shaped struc-ture in ar-bi-trary di-men-sions (Fig-ure [][]3[][]), we de-fine a func-tion \T1/zi4/m/n/9 gen_cone(n,
  []
 
-
-
 [5 <./paper-cardinalR_files/figure-latex/branch-proj-1.pdf>]
 <paper-cardinalR_files/figure-latex/cone-proj-1.pdf, id=157, 867.24pt x 289.08pt>
 File: paper-cardinalR_files/figure-latex/cone-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/cone-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/cone-proj-1.pdf  used on input line 235.
 (pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
-
-
 [6 <./paper-cardinalR_files/figure-latex/cone-proj-1.pdf>]
 Overfull \hbox (15.18297pt too wide) in paragraph at lines 318--319
 []\T1/ppl/m/n/9 (-20) The first is the quadratic curve of $\OML/zplm/m/it/9 n$ \T1/ppl/m/n/9 (-20) points in two di-men-sions. This is gen-er-ated us-ing \T1/zi4/m/n/9 gen_quadratic(n,
  []
 
-
-
-[7]
-
-[8]
+[7] [8]
 LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 372.
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
@@ -865,23 +850,13 @@ File: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf  used on input line 381.
 (pdftex.def)             Requested size: 398.33858pt x 531.11967pt.
-
-
-[9]
-
-[10 <./paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>]
-
-[11]
+[9] [10 <./paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>] [11]
 <paper-cardinalR_files/figure-latex/sphere-proj-1.pdf, id=257, 867.24pt x 867.24pt>
 File: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf  used on input line 472.
 (pdftex.def)             Requested size: 398.33858pt x 398.33977pt.
-
-
-[12]
-
-[13 <./paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>]
+[12] [13 <./paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>]
 Overfull \hbox (1.18527pt too wide) in paragraph at lines 515--516
 []\T1/ppl/m/n/9 (-20) For the $\OT1/ppl/m/n/9 (-20) 3[]\OML/zplm/m/it/9 D$ \T1/ppl/m/n/9 (-20) stere-o-graphic pro-jec-tion, \T1/zi4/m/n/9 gen_trefoil3d(n, steps) \T1/ppl/m/n/9 (-20) maps each point $\OT1/zplm/m/n/9 (\OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/zplm/m/n/9 ) \OMS/zplm/m/n/9 2
  []
@@ -891,23 +866,13 @@ File: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf Graphic file (type p
 <use paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 524.
 (pdftex.def)             Requested size: 398.33858pt x 265.55983pt.
-
-
-[14]
-
-[15 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>]
+[14] [15 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>]
 <paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=332, 867.24pt x 1156.32pt>
 File: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf  used on input line 587.
 (pdftex.def)             Requested size: 398.33858pt x 531.11967pt.
-
-
-[16]
-
-[17 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>]
-
-[18]
+[16] [17 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>] [18]
 Overfull \hbox (3.02979pt too wide) in paragraph at lines 671--671
 []|\T1/ppl/m/n/10 (-20) make_klink_curvycycle|  
  []
@@ -922,8 +887,6 @@ Overfull \hbox (1.88342pt too wide) in paragraph at lines 676--676
 []|\T1/ppl/m/n/10 (-20) make_twogrid_overlap|  
  []
 
-
-
 [19]
 <paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=368, 867.24pt x 289.08pt>
 File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pdf)
@@ -935,11 +898,7 @@ File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (ty
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 738.
 (pdftex.def)             Requested size: 398.33858pt x 280.31024pt.
-
-
-[20 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf>]
-
-[21 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
+[20 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf>] [21 <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
 Overfull \hbox (37.32867pt too wide) in paragraph at lines 780--781
 \T1/ppl/m/n/9 (-20) ti-cle is cre-ated us-ing [][]\T1/ppl/b/n/9 (-20) knitr[][] \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/9 (-20) rmark-down[][] \T1/ppl/m/n/9 (-20) ([][][]Xie et al.[][], [][]2018[][]) in R with the \T1/zi4/m/n/9 rjtools::rjournal_article
  []
@@ -948,11 +907,7 @@ Overfull \hbox (37.32867pt too wide) in paragraph at lines 780--781
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
-
-
-[22]
-
-[23]
+[22] [23]
 Underfull \hbox (badness 3428) in paragraph at lines 170--170
 []\T1/ppl/m/n/9 (+20) Optica ^^U The Op-ti-cal So-ci-ety.  Op-ti-cal möbius strips yield new se-crets, 2023.  URL
  []
@@ -969,14 +924,10 @@ LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
 (Font)              scaled to size 9.18004pt on input line 802.
-
-
-[24])
-
-[25] (./RJwrapper.aux)
+[24]) [25] (./RJwrapper.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-10-24>
  ***********
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -987,15 +938,15 @@ Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
 (rerunfilecheck)             Checksum: C11273BFDD9B71F6D77B54FC80348A26;2475.
  ) 
 Here is how much of TeX's memory you used:
- 27747 strings out of 469729
- 506348 string characters out of 5476491
- 927379 words of memory out of 5000000
- 55162 multiletter control sequences out of 15000+600000
+ 27756 strings out of 469519
+ 506489 string characters out of 5468895
+ 930918 words of memory out of 5000000
+ 55381 multiletter control sequences out of 15000+600000
  692811 words of font info for 407 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,12n,131p,2007b,927s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,12n,131p,2007b,923s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (25 pages, 6787111 bytes).
+Output written on RJwrapper.pdf (25 pages, 6787131 bytes).
 PDF statistics:
  687 PDF objects out of 1000 (max. 8388607)
  607 compressed objects within 7 object streams
