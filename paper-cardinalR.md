@@ -103,7 +103,7 @@ The `cardinalR` package is built on a modular framework where individual geometr
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center">
-<img src="figures/cardinalR_workflow.png" alt="Workflow for generating high-dimensional clustered data. The user specifies input parameters (number of points, clusters, cluster shapes, scaling, rotation, and optional background noise). Clusters are generated iteratively, transformed, optionally augmented with Gaussian noise dimensions, combined, and labeled, resulting in the final dataset." width="70%" />
+<img src="figures/cardinalR_workflow.png" alt="Diagram showing the workflow for generating high-dimensional clustered data, from specifying input parameters to producing the final labeled dataset with optional noise dimensions." width="70%" />
 <p class="caption">(\#fig:workflow)Workflow for generating high-dimensional clustered data. The user specifies input parameters (number of points, clusters, cluster shapes, scaling, rotation, and optional background noise). Clusters are generated iteratively, transformed, optionally augmented with Gaussian noise dimensions, combined, and labeled, resulting in the final dataset.</p>
 </div>
 
@@ -1568,8 +1568,8 @@ We applied six popular DR techniques to the generated dataset: Principal Compone
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice." width="100%" />
-<p class="caption">(\#fig:fig-nldr-layouts)Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="Composite plot assessing six NLDR layouts of five clusters data using HBE over varying binwidths, showing tSNE, UMAP, PAHTE, TriMAP, PaCMAP, and PCA. Layouts a and b are optimal, f is poor, with color-coded lines matching the scatterplots of each layout." width="100%" />
+<p class="caption">(\#fig:fig-nldr-layouts)Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and layout a shows close clusters, thus layout a is the best choice.</p>
 </div>
 
 </div>

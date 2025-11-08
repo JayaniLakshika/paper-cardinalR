@@ -24,7 +24,7 @@ The \texttt{cardinalR} package is built on a modular framework where individual 
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth]{figures/cardinalR_workflow} 
+{\centering \includegraphics[width=0.7\linewidth,alt={Diagram showing the workflow for generating high-dimensional clustered data, from specifying input parameters to producing the final labeled dataset with optional noise dimensions.}]{figures/cardinalR_workflow} 
 
 }
 
@@ -208,7 +208,7 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 \end{verbatim}
 
 \begin{figure}[H]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/branch-proj-1} \caption{Three $2\text{-}D$ projections from the $4\text{-}D$ `orglinearbranches` data. Each shows a different projection, illustrating how the linear branches appear from multiple viewing angles. These views highlight the dataset’s underlying branching structure and demonstrate how projections reveal patterns that are otherwise hidden in higher dimensions.}\label{fig:branch-proj}
+\includegraphics[width=1\linewidth,alt={Three 2-D projections of the 4-D orglinearbranches dataset, showing different angles of the linear branches to illustrate the branching structure.}]{paper-cardinalR_files/figure-latex/branch-proj-1} \caption{Three $2\text{-}D$ projections from the $4\text{-}D$ `orglinearbranches` data. Each shows a different projection, illustrating how the linear branches appear from multiple viewing angles. These views highlight the dataset’s underlying branching structure and demonstrate how projections reveal patterns that are otherwise hidden in higher dimensions.}\label{fig:branch-proj}
 \end{figure}
 
 \subsubsection{Cone}\label{cone}
@@ -226,7 +226,7 @@ cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 Cone-shaped structures appear in particle dispersions, light beams, and tapering processes, where spread decreases along one axis. They are also used to benchmark clustering and dimensionality reduction methods \citep{hadsell2006}.
 
 \begin{figure}[H]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/cone-proj-1} \caption{Three $2\text{-}D$ projections from the $3\text{-}D$ `cone` data. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex. These projections show how the conical geometry is preserved.}\label{fig:cone-proj}
+\includegraphics[width=1\linewidth,alt={Three 2-D projections of the 3-D cone dataset, showing points concentrated near the tip and the linear decrease in radius toward the apex.}]{paper-cardinalR_files/figure-latex/cone-proj-1} \caption{Three $2\text{-}D$ projections from the $3\text{-}D$ `cone` data. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex. These projections show how the conical geometry is preserved.}\label{fig:cone-proj}
 \end{figure}
 
 \subsubsection{Cube}\label{cube}
@@ -373,7 +373,7 @@ Pyramid structures mimic tapering or layered geometries seen in architecture, cr
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/pyr-proj-1} 
+{\centering \includegraphics[width=0.8\linewidth,alt={Nine 2-D projections of four 4-D pyramid-like datasets: pyrrect, pyrtri, pyrstar, and pyrholes, showing their distinct geometries, branching, and hollow regions.}]{paper-cardinalR_files/figure-latex/pyr-proj-1} 
 
 }
 
@@ -468,7 +468,7 @@ Finally, the \texttt{gen\_hemisphere(n,\ p)} function restricts sampling to a he
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/sphere-proj-1} 
+{\centering \includegraphics[width=0.8\linewidth,alt={Nine 2-D projections of three datasets: circle, curvycycle, and clusteredspheres, showing closed loops, twisted rings, and compact spherical clusters, illustrating projection effects on structure, density, and separation.}]{paper-cardinalR_files/figure-latex/sphere-proj-1} 
 
 }
 
@@ -521,7 +521,7 @@ The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dyna
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{paper-cardinalR_files/figure-latex/trefoil-proj-1} 
+{\centering \includegraphics[width=0.8\linewidth,alt={Six 2-D projections of trefoil knot datasets, showing complex 4-D trefoil loops and simpler 3-D knot structures, illustrating curvature, twisting, and separation across dimensions.}]{paper-cardinalR_files/figure-latex/trefoil-proj-1} 
 
 }
 
@@ -588,7 +588,7 @@ nonlinear <- gen_nonlinear(n = 1000, hc = 1, non_fac = 0.5)
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth]{paper-cardinalR_files/figure-latex/triginometric-proj-1} 
+{\centering \includegraphics[width=0.7\linewidth,alt={Twelve 2-D projections of four 4-D datasets: curvycylinder, sphericalspiral, conicspiral, and nonlinear, showing cylindrical twists, spiral and conical helices, and warped 2-D surfaces, illustrating curvature, density, and continuity.}]{paper-cardinalR_files/figure-latex/triginometric-proj-1} 
 
 }
 
@@ -730,7 +730,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
 \end{verbatim}
 
 \begin{figure}[H]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/highd-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.}\label{fig:highd-proj}
+\includegraphics[width=1\linewidth,alt={Three 2-D projections of five 4-D synthetic clusters: helical spiral (dark green), hemisphere (orange), uniform cube (purple), cone (pink), and Gaussian (light green), showing spatial separation and cluster geometry.}]{paper-cardinalR_files/figure-latex/highd-proj-1} \caption{Three $2\text{-}D$ projections from $4\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.}\label{fig:highd-proj}
 \end{figure}
 
 \subsection{Evaluating dimension reduction (DR) methods}\label{evaluating-dimension-reduction-dr-methods}
@@ -738,7 +738,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
 We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) \citep{jolliffe2011}, tSNE, uniform manifold approximation and projection (UMAP) \citep{leland2018}, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm \citep{moon2019}, large-scale dimensionality reduction Using triplets (TriMAP) \citep{amid2019}, and pairwise controlled manifold approximation (PaCMAP) \citep{yingfan2021}.
 
 \begin{figure}[H]
-\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and latout a shows close clusters, thus layout a is the best choice.}\label{fig:fig-nldr-layouts}
+\includegraphics[width=1\linewidth,alt={Composite plot assessing six NLDR layouts of five clusters data using HBE over varying binwidths, showing tSNE, UMAP, PAHTE, TriMAP, PaCMAP, and PCA. Layouts a and b are optimal, f is poor, with color-coded lines matching the scatterplots of each layout.}]{paper-cardinalR_files/figure-latex/fig-nldr-layouts-1} \caption{Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and layout a shows close clusters, thus layout a is the best choice.}\label{fig:fig-nldr-layouts}
 \end{figure}
 
 To assess their performance, we computed the hexbin error (HBE) between the observed high-dimensional data and the fitted values, defined as the high-dimensional mappings of the bin centroids \citep{gamage2025c}. A lower HBE indicates that the method better preserves the high-dimensional structure in its low-dimensional embedding.
