@@ -224,7 +224,7 @@ clust_data <- gen_multicluster(
   ), nrow = 3, byrow = TRUE),
   scale = c(3, 1, 2),
   shape = c("gaussian", "cone", "unifcube"),
-  rotation = list(rot1, NULL, NULL),
+  rotation = rot1,
   is_bkg = FALSE
 )
 

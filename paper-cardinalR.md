@@ -174,7 +174,7 @@ The following example demonstrates how to use `gen_multicluster()` to create a $
 <span>  <span class='op'>)</span>, nrow <span class='op'>=</span> <span class='fl'>3</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
 <span>  scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
 <span>  shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gaussian"</span>, <span class='st'>"cone"</span>, <span class='st'>"unifcube"</span><span class='op'>)</span>,</span>
-<span>  rotation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>rot1</span>, <span class='cn'>NULL</span>, <span class='cn'>NULL</span><span class='op'>)</span>,</span>
+<span>  rotation <span class='op'>=</span> <span class='va'>rot1</span>,</span>
 <span>  is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span></span>
 <span><span class='op'>)</span></span></code></pre></div>
 
