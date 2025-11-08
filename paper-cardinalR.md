@@ -103,7 +103,7 @@ The `cardinalR` package is built on a modular framework where individual geometr
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center">
-<img src="figures/cardinalR_workflow.png" alt="Diagram showing the workflow for generating high-dimensional clustered data, from specifying input parameters to producing the final labeled dataset with optional noise dimensions." width="70%" />
+<img src="figures/cardinalR_workflow.png" alt="Workflow for generating high-dimensional clustered data, from specifying input parameters to producing the final labeled dataset with optional noise dimensions." width="70%" />
 <p class="caption">(\#fig:workflow)Workflow for generating high-dimensional clustered data. The user specifies input parameters (number of points, clusters, cluster shapes, scaling, rotation, and optional background noise). Clusters are generated iteratively, transformed, optionally augmented with Gaussian noise dimensions, combined, and labeled, resulting in the final dataset.</p>
 </div>
 

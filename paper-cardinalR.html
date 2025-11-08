@@ -1849,7 +1849,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>The <code>cardinalR</code> package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes. The main function, <code>gen_multicluster()</code>, combines these shapes into a single dataset by applying scaling, rotation, and translation through <code>gen_rotation()</code>. Each generated shape is assigned a unique cluster label. This design allows flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure <a href="#fig:workflow">1</a> illustrates the workflow of <code>gen_multicluster()</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:workflow"></span>
-<img src="figures/cardinalR_workflow.png" alt="Diagram showing the workflow for generating high-dimensional clustered data, from specifying input parameters to producing the final labeled dataset with optional noise dimensions." width="70%" />
+<img src="figures/cardinalR_workflow.png" alt="Workflow for generating high-dimensional clustered data, from specifying input parameters to producing the final labeled dataset with optional noise dimensions." width="70%" />
 <p class="caption">
 Figure 1: Workflow for generating high-dimensional clustered data. The user specifies input parameters (number of points, clusters, cluster shapes, scaling, rotation, and optional background noise). Clusters are generated iteratively, transformed, optionally augmented with Gaussian noise dimensions, combined, and labeled, resulting in the final dataset.
 </p>
