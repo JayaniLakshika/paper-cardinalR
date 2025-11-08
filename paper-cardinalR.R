@@ -89,7 +89,7 @@ theme_set(theme_linedraw() +
 source("scripts/additional_functions.R")
 
 
-## ----workflow, out.width = "100%", fig.pos="H", fig.cap="Workflow for generating high-dimensional clustered data. The user specifies input parameters (number of points, clusters, cluster shapes, scaling, rotation, and optional background noise). Clusters are generated iteratively, transformed, optionally augmented with Gaussian noise dimensions, combined, and labeled, resulting in the final dataset."----
+## ----workflow, out.width = "70%", fig.pos="H", fig.align='center', fig.cap="Workflow for generating high-dimensional clustered data. The user specifies input parameters (number of points, clusters, cluster shapes, scaling, rotation, and optional background noise). Clusters are generated iteratively, transformed, optionally augmented with Gaussian noise dimensions, combined, and labeled, resulting in the final dataset."----
 
 knitr::include_graphics("figures/cardinalR_workflow.png")
 
@@ -132,12 +132,10 @@ main_tb |>
 
 
 ## ----echo=TRUE----------------------------------------------------------------
-# Define example rotation matrices for 4D space
 rot1 <- gen_rotation(p = 4, planes_angles = list(
   list(plane = c(1, 2), angle = 60), list(plane = c(3, 4), angle = 90)
 ))
 
-# Generate the clustered dataset
 clust_data <- gen_multicluster(
   n = c(200, 300, 500),
   k = 3,
@@ -2024,7 +2022,6 @@ add_fun_tb |>
 positions <- geozoo::simplex(p=4)$points
 positions <- positions * 0.3
 
-## To generate data
 five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
                        loc = positions,
                        scale = c(0.25, 0.35, 0.3, 1, 0.3),

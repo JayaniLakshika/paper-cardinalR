@@ -147,7 +147,7 @@ The paper is organized as follows. In the next section, we introduce the impleme
 
 The `cardinalR` package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes. The main function, `gen_multicluster()`, combines these shapes into a single dataset by applying scaling, rotation, and translation through `gen_rotation()`. Each generated shape is assigned a unique cluster label. This design allows flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure `r '\\@ref(fig:workflow)'` illustrates the workflow of `gen_multicluster()`.
 
-```{r workflow, out.width = "100%", fig.pos="H", fig.cap="Workflow for generating high-dimensional clustered data. The user specifies input parameters (number of points, clusters, cluster shapes, scaling, rotation, and optional background noise). Clusters are generated iteratively, transformed, optionally augmented with Gaussian noise dimensions, combined, and labeled, resulting in the final dataset."}
+```{r workflow, out.width = "70%", fig.pos="H", fig.align='center', fig.cap="Workflow for generating high-dimensional clustered data. The user specifies input parameters (number of points, clusters, cluster shapes, scaling, rotation, and optional background noise). Clusters are generated iteratively, transformed, optionally augmented with Gaussian noise dimensions, combined, and labeled, resulting in the final dataset."}
 
 knitr::include_graphics("figures/cardinalR_workflow.png")
 ```
@@ -210,12 +210,10 @@ main_tb |>
 The following example demonstrates how to use `gen_multicluster()` to create a $4\text{-}D$ dataset with three clusters of different shapes and orientations:
 
 ```{r, echo=TRUE}
-# Define example rotation matrices for 4D space
 rot1 <- gen_rotation(p = 4, planes_angles = list(
   list(plane = c(1, 2), angle = 60), list(plane = c(3, 4), angle = 90)
 ))
 
-# Generate the clustered dataset
 clust_data <- gen_multicluster(
   n = c(200, 300, 500),
   k = 3,
@@ -1380,6 +1378,18 @@ In addition, the `gen_gridedsphere(n)` function constructs a $p\text{-}D$ datase
 
 Each grid point is subsequently mapped into Cartesian space via the standard hyperspherical-to-Cartesian transformation,
 
+<!-- $$ -->
+<!-- X_i = -->
+<!-- \begin{cases} -->
+<!-- \displaystyle \prod_{j=1}^{i-1} \sin(\theta_j) , \cos(\theta_i), & 1 \le i \le p-1, \\ -->
+<!-- \displaystyle \prod_{j=1}^{p-1} \sin(\theta_j), & i = p, -->
+<!-- \end{cases} -->
+<!-- $$ -->
+
+<!-- with the convention that $\prod_{j=1}^{0} \sin(\theta_j) = 1$. -->
+
+
+
 $$
 \begin{aligned}
 X_1 &= \cos(\theta_1), \\
@@ -2369,7 +2379,6 @@ To illustrate how high-dimensional clustered data can be generated using `cardin
 positions <- geozoo::simplex(p=4)$points
 positions <- positions * 0.3
 
-## To generate data
 five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
                        loc = positions,
                        scale = c(0.25, 0.35, 0.3, 1, 0.3),
@@ -2633,7 +2642,7 @@ The `cardinalR` package introduces a flexible framework for generating high-dime
 
 The motivation for developing this package originated from the need to design a perception–misperception experiment, aimed at investigating how well NLDR methods preserve inter-cluster structure. To conduct this study, we required simulated datasets with carefully controlled geometric and clustering properties. While some existing packages provided useful starting points, none fully supported the creation of flexible, high-dimensional data with the specific structural variations needed for our experiment. Developing these generators for research purposes gradually led to the design of `cardinalR` as a general-purpose package, so that other researchers can benefit from the same tools for simulation, benchmarking, and teaching.
 
-The included structures cover a wide range of diagnostic settings. Branching shapes facilitate the study of continuity and topological preservation, the Scurve with a hole allows investigation of incomplete manifolds, and clustered spheres assess separability on curved surfaces. The Möbius strip introduces challenges from non-orientable geometry, while gridded cubes and pyrholes test spatial regularity and clustering in sparse, non-convex regions.
+The included structures cover a wide range of diagnostic settings. Branching shapes facilitate the study of continuity and topological preservation, the S-curve with a hole allows investigation of incomplete manifolds, and clustered spheres assess separability on curved surfaces. The Möbius strip introduces challenges from non-orientable geometry, while gridded cubes and pyrholes test spatial regularity and clustering in sparse, non-convex regions.
 
 These structures are designed to support not only algorithm diagnostics, but also teaching high-dimensional concepts, benchmarking reproducibility, and evaluating hyper-parameter sensitivity. By allowing users to adjust dimensionality, sample size, noise, and clustering properties, the package promotes transparent experimentation and comparative model evaluation. Together, these capabilities make `cardinalR` a versatile tool for generating interpretable, high-dimensional datasets that advance research, teaching, and evaluation of data-analytic methods.
 
