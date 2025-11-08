@@ -711,7 +711,7 @@ This section demonstrates how the package can be used to generate complex high-d
 
 \subsection{Generating high-dimensional clustered data}\label{generating-high-dimensional-clustered-data}
 
-To illustrate, we generate a dataset with five clusters in \(4\text{-}D\), each representing distinct geometric characteristics: a \emph{helical spiral} (elongated and twisted), a \emph{hemisphere} (curved surface), a \emph{uniform cube} (isotropic distribution), a \emph{cone} (density gradient), and a \emph{Gaussian} cluster (compact and spherical) (Figure \ref{fig:highd-proj}). Each cluster has a unique number of points and scaling factor, representing variation in cluster size and spread across the \(4\text{-}D\) space.
+To illustrate how high-dimensional clustered data can be generated using \texttt{cardinalR}, we generate a dataset with five clusters in \(4\text{-}D\), each representing distinct geometric characteristics: a \emph{helical spiral} (elongated and twisted), a \emph{hemisphere} (curved surface), a \emph{uniform cube} (isotropic distribution), a \emph{cone} (density gradient), and a \emph{Gaussian} cluster (compact and spherical) (Figure \ref{fig:highd-proj}). Each cluster has a unique number of points and scaling factor, representing variation in cluster size and spread across the \(4\text{-}D\) space.
 
 \begin{verbatim}
 positions <- geozoo::simplex(p=4)$points

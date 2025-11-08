@@ -2362,7 +2362,7 @@ This section demonstrates how the package can be used to generate complex high-d
 
 ## Generating high-dimensional clustered data
 
-To illustrate, we generate a dataset with five clusters in $4\text{-}D$, each representing distinct geometric characteristics: a *helical spiral* (elongated and twisted), a *hemisphere* (curved surface), a *uniform cube* (isotropic distribution), a *cone* (density gradient), and a *Gaussian* cluster (compact and spherical) (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:highd-data)"} else { "Figure \\@ref(fig:highd-proj)"})`). Each cluster has a unique number of points and scaling factor, representing variation in cluster size and spread across the $4\text{-}D$ space.
+To illustrate how high-dimensional clustered data can be generated using `cardinalR`, we generate a dataset with five clusters in $4\text{-}D$, each representing distinct geometric characteristics: a *helical spiral* (elongated and twisted), a *hemisphere* (curved surface), a *uniform cube* (isotropic distribution), a *cone* (density gradient), and a *Gaussian* cluster (compact and spherical) (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:highd-data)"} else { "Figure \\@ref(fig:highd-proj)"})`). Each cluster has a unique number of points and scaling factor, representing variation in cluster size and spread across the $4\text{-}D$ space.
 
 ```{r gen-five-clust-data, echo=TRUE}
 
