@@ -1658,6 +1658,34 @@ Future extensions of `cardinalR` may include biologically inspired or applicatio
 # Acknowledgements
 
 The source material for this paper is available at [github.com/JayaniLakshika/paper-cardinalR](https://github.com/JayaniLakshika/paper-cardinalR). This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. These `R` packages were used for this work: `cli` [@gabor2025], `tibble` [@kirill2023], `gtools` [@gregory2023], `dplyr` [@hadley2023], `stats` [@core2025], `tidyr` [@hadley2024], `purrr` [@hadley2025], `mvtnorm` [@alan2009], `geozoo` [@barret2016], and `MASS` [@venables2002]. 
+
+# Supplementary numeric generators
+
+Two helper functions, `gen_nproduct()` and `gen_nsum()`, generate numeric vectors of positive integers that approximately satisfy a user-specified target product or sum, respectively.
+
+The function `gen_nsum(n, k)` divides a total sum `n` into `k` positive integers. It first assigns an equal base value to each element and then randomly distributes any remainder, ensuring the elements sum exactly to `n`.
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>gen_nsum</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>100</span>, k <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span></code></pre></div>
+
+```
+[1] 33 34 33
+```
+
+</div>
+
+
+The function `gen_nproduct(n, p)` aims to produce `p` positive integers whose product is approximately `n`. It starts with all elements equal to the rounded $p^{th}$ root of `n` and iteratively adjusts elements up or down in a randomized manner until the product is within a small tolerance of `n`. This accommodates the fact that exact integer solutions for a given product are often impossible.
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>gen_nproduct</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>500</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+```
+[1] 4 5 5 5
+```
+
+</div>
+
 ```{.r .distill-force-highlighting-css}
 ```
 

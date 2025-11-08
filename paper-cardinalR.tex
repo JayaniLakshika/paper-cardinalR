@@ -780,6 +780,30 @@ Future extensions of \texttt{cardinalR} may include biologically inspired or app
 
 The source material for this paper is available at \href{https://github.com/JayaniLakshika/paper-cardinalR}{github.com/JayaniLakshika/paper-cardinalR}. This article is created using \CRANpkg{knitr} \citep{yihui2015} and \CRANpkg{rmarkdown} \citep{yihui2018} in R with the \texttt{rjtools::rjournal\_article} template. These \texttt{R} packages were used for this work: \texttt{cli} \citep{gabor2025}, \texttt{tibble} \citep{kirill2023}, \texttt{gtools} \citep{gregory2023}, \texttt{dplyr} \citep{hadley2023}, \texttt{stats} \citep{core2025}, \texttt{tidyr} \citep{hadley2024}, \texttt{purrr} \citep{hadley2025}, \texttt{mvtnorm} \citep{alan2009}, \texttt{geozoo} \citep{barret2016}, and \texttt{MASS} \citep{venables2002}.
 
+\section{Supplementary numeric generators}\label{supplementary-numeric-generators}
+
+Two helper functions, \texttt{gen\_nproduct()} and \texttt{gen\_nsum()}, generate numeric vectors of positive integers that approximately satisfy a user-specified target product or sum, respectively.
+
+The function \texttt{gen\_nsum(n,\ k)} divides a total sum \texttt{n} into \texttt{k} positive integers. It first assigns an equal base value to each element and then randomly distributes any remainder, ensuring the elements sum exactly to \texttt{n}.
+
+\begin{verbatim}
+gen_nsum(n = 100, k = 3)
+\end{verbatim}
+
+\begin{verbatim}
+#> [1] 33 34 33
+\end{verbatim}
+
+The function \texttt{gen\_nproduct(n,\ p)} aims to produce \texttt{p} positive integers whose product is approximately \texttt{n}. It starts with all elements equal to the rounded \(p^{th}\) root of \texttt{n} and iteratively adjusts elements up or down in a randomized manner until the product is within a small tolerance of \texttt{n}. This accommodates the fact that exact integer solutions for a given product are often impossible.
+
+\begin{verbatim}
+gen_nproduct(n = 500, p = 4)
+\end{verbatim}
+
+\begin{verbatim}
+#> [1] 4 5 5 5
+\end{verbatim}
+
 \bibliography{paper-cardinalR.bib}
 
 \address{%
