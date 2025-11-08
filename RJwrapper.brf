@@ -1,5 +1,7 @@
 \backcite {barret2016}{{1}{2.1}{section.2.1}}
 \backcite {james2025}{{1}{2.1}{section.2.1}}
+\backcite {hinton2002}{{1}{2.1}{section.2.1}}
+\backcite {laurens2008}{{1}{2.1}{section.2.1}}
 \backcite {luke2017}{{1}{2.1}{section.2.1}}
 \backcite {friedrich2024}{{1}{2.1}{section.2.1}}
 \backcite {james2024}{{1}{2.1}{section.2.1}}
@@ -22,8 +24,9 @@
 \backcite {arsuaga2002}{{13}{2.3.2}{table.caption.14}}
 \backcite {calladine1997}{{14}{2.3.2}{figure.caption.15}}
 \backcite {gershenfeld2000}{{14}{2.3.2}{figure.caption.15}}
+\backcite {tenenbaum2000}{{16}{2.3.3}{subsection.2.3.3}}
+\backcite {van2007}{{16}{2.3.3}{subsection.2.3.3}}
 \backcite {jolliffe2011}{{18}{2.4.2}{subsection.2.4.2}}
-\backcite {laurens2008}{{18}{2.4.2}{subsection.2.4.2}}
 \backcite {leland2018}{{18}{2.4.2}{subsection.2.4.2}}
 \backcite {moon2019}{{18}{2.4.2}{subsection.2.4.2}}
 \backcite {amid2019}{{18}{2.4.2}{subsection.2.4.2}}

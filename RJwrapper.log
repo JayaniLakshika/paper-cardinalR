@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  7 NOV 2025 23:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  8 NOV 2025 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -748,7 +748,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 [1{/Users/jpiy0001/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 {/Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
-<figures/cardinalR_workflow.png, id=105, 712.5822pt x 676.08585pt>
+<figures/cardinalR_workflow.png, id=111, 712.5822pt x 676.08585pt>
 File: figures/cardinalR_workflow.png Graphic file (type png)
 <use figures/cardinalR_workflow.png>
 Package pdftex.def Info: figures/cardinalR_workflow.png  used on input line 26.
@@ -819,7 +819,7 @@ Overfull \hbox (29.67798pt too wide) in paragraph at lines 129--130
  []
 
 [4]
-<paper-cardinalR_files/figure-latex/branch-proj-1.pdf, id=137, 867.24pt x 289.08pt>
+<paper-cardinalR_files/figure-latex/branch-proj-1.pdf, id=143, 867.24pt x 289.08pt>
 File: paper-cardinalR_files/figure-latex/branch-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/branch-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/branch-proj-1.pdf  used on input line 208.
@@ -830,7 +830,7 @@ Overfull \hbox (3.15651pt too wide) in paragraph at lines 213--214
  []
 
 [5 <./paper-cardinalR_files/figure-latex/branch-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/cone-proj-1.pdf, id=158, 867.24pt x 289.08pt>
+<paper-cardinalR_files/figure-latex/cone-proj-1.pdf, id=164, 867.24pt x 289.08pt>
 File: paper-cardinalR_files/figure-latex/cone-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/cone-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/cone-proj-1.pdf  used on input line 226.
@@ -845,13 +845,13 @@ LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 3
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 ) [8]
-<paper-cardinalR_files/figure-latex/pyr-proj-1.pdf, id=215, 867.24pt x 1156.32pt>
+<paper-cardinalR_files/figure-latex/pyr-proj-1.pdf, id=221, 867.24pt x 1156.32pt>
 File: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf  used on input line 373.
 (pdftex.def)             Requested size: 318.67207pt x 424.9028pt.
 [9 <./paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>] [10] [11]
-<paper-cardinalR_files/figure-latex/sphere-proj-1.pdf, id=257, 867.24pt x 867.24pt>
+<paper-cardinalR_files/figure-latex/sphere-proj-1.pdf, id=263, 867.24pt x 867.24pt>
 File: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf  used on input line 468.
@@ -866,13 +866,13 @@ Overfull \hbox (1.18527pt too wide) in paragraph at lines 511--512
 []\T1/ppl/m/n/9 (-20) For the $\OT1/ppl/m/n/9 (-20) 3[]\OML/zplm/m/it/9 D$ \T1/ppl/m/n/9 (-20) stere-o-graphic pro-jec-tion, \T1/zi4/m/n/9 gen_trefoil3d(n, steps) \T1/ppl/m/n/9 (-20) maps each point $\OT1/zplm/m/n/9 (\OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/zplm/m/n/9 ) \OMS/zplm/m/n/9 2
  []
 
-<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=287, 867.24pt x 578.16pt>
+<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=293, 867.24pt x 578.16pt>
 File: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 521.
 (pdftex.def)             Requested size: 318.67207pt x 212.4514pt.
 [13 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>] [14]
-<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=328, 867.24pt x 1156.32pt>
+<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=334, 867.24pt x 1156.32pt>
 File: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf  used on input line 588.
@@ -893,12 +893,12 @@ Overfull \hbox (1.88342pt too wide) in paragraph at lines 677--677
  []
 
 [17]
-<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=359, 867.24pt x 289.08pt>
+<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=373, 867.24pt x 289.08pt>
 File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/highd-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 731.
 (pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
-<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=372, 460.72125pt x 324.21124pt>
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=384, 460.72125pt x 324.21124pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 739.
@@ -912,24 +912,34 @@ Overfull \hbox (37.32867pt too wide) in paragraph at lines 781--782
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
-[20] [21]
-Underfull \hbox (badness 3428) in paragraph at lines 170--170
+[20]
+Underfull \hbox (badness 1796) in paragraph at lines 105--105
+[]\T1/ppl/m/n/9 (+20) G. E. Hin-ton and S. Roweis.  Stochas-tic neigh-bor em-bed-ding.  In S. Becker, S. Thrun,
+ []
+
+
+Underfull \hbox (badness 3333) in paragraph at lines 105--105
+\T1/ppl/m/n/9 (+20) MIT Press, 2002.  URL [][]$\T1/zi4/m/n/9 https : / / proceedings . neurips . cc / paper _ files / paper / 2002 / file /
+ []
+
+[21]
+Underfull \hbox (badness 3428) in paragraph at lines 176--176
 []\T1/ppl/m/n/9 (+20) Optica ^^U The Op-ti-cal So-ci-ety.  Op-ti-cal möbius strips yield new se-crets, 2023.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--170
+Underfull \hbox (badness 10000) in paragraph at lines 176--176
 [][]$\T1/zi4/m/n/9 https : / / www . optica -[] opn . org / home / newsroom / 2023 / january / optical _ mobius _ strips _ yield _
  []
 
-)
+[22])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
 (Font)              using `T1/zi4/m/n' instead on input line 793.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
 (Font)              scaled to size 9.18004pt on input line 803.
-[22]) [23] (./RJwrapper.aux)
+) [23] (./RJwrapper.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -940,21 +950,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: F3599BDDFA3A8A05564B91A40BDA6DC3;3093.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: 6EEDDB97BE490A1C0644B1F2633052FB;2475.
+(rerunfilecheck)             Checksum: 0C7436FA98DF0018E1CA0C31217D8D38;2621.
  ) 
 Here is how much of TeX's memory you used:
- 27751 strings out of 469519
- 506448 string characters out of 5468895
- 930916 words of memory out of 5000000
- 55381 multiletter control sequences out of 15000+600000
+ 27770 strings out of 469519
+ 506777 string characters out of 5468895
+ 932076 words of memory out of 5000000
+ 55397 multiletter control sequences out of 15000+600000
  692662 words of font info for 405 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,12n,131p,2007b,923s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (23 pages, 6785555 bytes).
+ 117i,12n,131p,2106b,963s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on RJwrapper.pdf (23 pages, 6791718 bytes).
 PDF statistics:
- 675 PDF objects out of 1000 (max. 8388607)
- 598 compressed objects within 6 object streams
- 108 named destinations out of 1000 (max. 500000)
+ 698 PDF objects out of 1000 (max. 8388607)
+ 618 compressed objects within 7 object streams
+ 111 named destinations out of 1000 (max. 500000)
  73914 words of extra memory for PDF output out of 74296 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{44}
+\begin{thebibliography}{47}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -97,6 +97,12 @@ C.~Hennig.
 \newblock URL \url{https://CRAN.R-project.org/package=fpc}.
 \newblock R package version 2.2-13.
 
+\bibitem[Hinton and Roweis(2002)]{hinton2002}
+G.~E. Hinton and S.~Roweis.
+\newblock Stochastic neighbor embedding.
+\newblock In S.~Becker, S.~Thrun, and K.~Obermayer, editors, \emph{Advances in Neural Information Processing Systems}, volume~15. MIT Press, 2002.
+\newblock URL \url{https://proceedings.neurips.cc/paper_files/paper/2002/file/6150ccc6069bea6b5716254057a194ef-Paper.pdf}.
+
 \bibitem[Jolliffe(2011)]{jolliffe2011}
 I.~Jolliffe.
 \newblock \emph{{Principal Component Analysis}}, pages 1094--1096.
@@ -192,6 +198,12 @@ L.~A. Stefanski.
 \newblock \emph{The American Statistician}, 61\penalty0 (2):\penalty0 163--177, 2007.
 \newblock URL \url{http://www.jstor.org/stable/27643870}.
 
+\bibitem[Tenenbaum et~al.(2000)Tenenbaum, de~Silva, and Langford]{tenenbaum2000}
+J.~B. Tenenbaum, V.~de~Silva, and J.~C. Langford.
+\newblock A global geometric framework for nonlinear dimensionality reduction.
+\newblock \emph{Science}, 290\penalty0 (5500):\penalty0 2319--2323, 2000.
+\newblock \doi{10.1126/science.290.5500.2319}.
+
 \bibitem[Tinkham(2003)]{tinkham2003}
 M.~Tinkham.
 \newblock \emph{Group Theory and Quantum Mechanics}.
@@ -202,6 +214,11 @@ C.~Trapnell, D.~Cacchiarelli, J.~Grimsby, P.~Pokharel, S.~Li, M.~Morse, N.~J. Le
 \newblock The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells.
 \newblock \emph{Nature Biotechnology}, 32\penalty0 (4):\penalty0 381--386, 2014.
 \newblock URL \url{https://doi.org/10.1038/nbt.2859}.
+
+\bibitem[van~der Maaten et~al.(2007)van~der Maaten, Postma, and Herik]{van2007}
+L.~van~der Maaten, E.~Postma, and H.~Herik.
+\newblock Dimensionality reduction: A comparative review.
+\newblock \emph{Journal of Machine Learning Research - JMLR}, 10, 01 2007.
 
 \bibitem[Venables and Ripley(2002)]{venables2002}
 W.~N. Venables and B.~D. Ripley.
