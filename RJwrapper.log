@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  8 NOV 2025 17:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  9 NOV 2025 20:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -855,12 +855,12 @@ File: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf Graphic file (type pd
 <use paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf  used on input line 471.
 (pdftex.def)             Requested size: 318.67207pt x 318.67711pt.
-[11]
+
 Overfull \hbox (17.09308pt too wide) in paragraph at lines 480--481
 \T1/ppl/m/n/9 (-20) The Swiss roll is a stan-dard non-lin-ear man-i-fold, rep-re-sent-ing a plane curled into $\OT1/ppl/m/n/9 (-20) 3[]\OML/zplm/m/it/9 D$\T1/ppl/m/n/9 (-20) . The \T1/zi4/m/n/9 gen_swissroll(n,
  []
 
-[12 <./paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>]
+[11] [12 <./paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>]
 Overfull \hbox (1.18527pt too wide) in paragraph at lines 514--515
 []\T1/ppl/m/n/9 (-20) For the $\OT1/ppl/m/n/9 (-20) 3[]\OML/zplm/m/it/9 D$ \T1/ppl/m/n/9 (-20) stere-o-graphic pro-jec-tion, \T1/zi4/m/n/9 gen_trefoil3d(n, steps) \T1/ppl/m/n/9 (-20) maps each point $\OT1/zplm/m/n/9 (\OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/ppl/m/n/9 (-20) , \OML/zplm/m/it/9 X[]\OT1/zplm/m/n/9 ) \OMS/zplm/m/n/9 2
  []
@@ -870,13 +870,13 @@ File: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf Graphic file (type p
 <use paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 524.
 (pdftex.def)             Requested size: 318.67207pt x 212.4514pt.
-[13 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>] [14]
-<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=338, 867.24pt x 1156.32pt>
+[13 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=334, 867.24pt x 1156.32pt>
 File: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf  used on input line 591.
 (pdftex.def)             Requested size: 278.83578pt x 371.77672pt.
-[15 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>] [16]
+[14] [15 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>]
 Overfull \hbox (3.02979pt too wide) in paragraph at lines 675--675
 []|\T1/ppl/m/n/10 (-20) make_klink_curvycycle|  
  []
@@ -891,13 +891,13 @@ Overfull \hbox (1.88342pt too wide) in paragraph at lines 680--680
 []|\T1/ppl/m/n/10 (-20) make_twogrid_overlap|  
  []
 
-[17]
-<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=377, 867.24pt x 289.08pt>
+[16] [17]
+<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=378, 867.24pt x 289.08pt>
 File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/highd-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 733.
 (pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
-<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=388, 460.72125pt x 324.21124pt>
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=389, 460.72125pt x 324.21124pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 741.
@@ -907,11 +907,11 @@ Overfull \hbox (37.32867pt too wide) in paragraph at lines 783--784
 \T1/ppl/m/n/9 (-20) ti-cle is cre-ated us-ing [][]\T1/ppl/b/n/9 (-20) knitr[][] \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/9 (-20) rmark-down[][] \T1/ppl/m/n/9 (-20) ([][][]Xie et al.[][], [][]2018[][]) in R with the \T1/zi4/m/n/9 rjtools::rjournal_article
  []
 
-[20] (./RJwrapper.bbl (./RJwrapper.brf)
+(./RJwrapper.bbl (./RJwrapper.brf)
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
-
+[20]
 Underfull \hbox (badness 1796) in paragraph at lines 105--105
 []\T1/ppl/m/n/9 (+20) G. E. Hin-ton and S. Roweis.  Stochas-tic neigh-bor em-bed-ding.  In S. Becker, S. Thrun,
  []
@@ -921,7 +921,7 @@ Underfull \hbox (badness 3333) in paragraph at lines 105--105
 \T1/ppl/m/n/9 (+20) MIT Press, 2002.  URL [][]$\T1/zi4/m/n/9 https : / / proceedings . neurips . cc / paper _ files / paper / 2002 / file /
  []
 
-[21]
+
 Underfull \hbox (badness 3428) in paragraph at lines 176--176
 []\T1/ppl/m/n/9 (+20) Optica ^^U The Op-ti-cal So-ci-ety.  Op-ti-cal möbius strips yield new se-crets, 2023.  URL
  []
@@ -931,11 +931,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--176
 [][]$\T1/zi4/m/n/9 https : / / www . optica -[] opn . org / home / newsroom / 2023 / january / optical _ mobius _ strips _ yield _
  []
 
-[22])
+[21])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
 (Font)              using `T1/zi4/m/n' instead on input line 819.
 
+[22]
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
 (Font)              scaled to size 9.18004pt on input line 829.
 ) [23] (./RJwrapper.aux)
@@ -949,18 +950,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: 46A669FDC5C340773E859AA73C47D771;3315.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: 5E0B23D83B961F267A94AC0C1DB7E0CD;2620.
+(rerunfilecheck)             Checksum: C645F1EF0A34ADFA33ACBFAE43532392;2620.
  ) 
 Here is how much of TeX's memory you used:
- 27773 strings out of 469519
- 506835 string characters out of 5468895
+ 27772 strings out of 469519
+ 506825 string characters out of 5468895
  931135 words of memory out of 5000000
- 55399 multiletter control sequences out of 15000+600000
+ 55398 multiletter control sequences out of 15000+600000
  692662 words of font info for 405 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,12n,131p,2106b,1022s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,12n,131p,2106b,1009s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (23 pages, 6792425 bytes).
+Output written on RJwrapper.pdf (23 pages, 6792461 bytes).
 PDF statistics:
  702 PDF objects out of 1000 (max. 8388607)
  622 compressed objects within 7 object streams
