@@ -1412,7 +1412,9 @@ $$
 
 producing high-dimensional noise that preserves some geometric correlation with the base structure while introducing additional complexity.
 
-## Rotate shape generators
+## Rotating shape generators
+
+In $p\text{-}D$ space, a rotation is an orthogonal transformation that changes the orientation of data while preserving its total variance and pairwise distances. The function `gen_rotation()` generates such rotation matrices for any dimension, given a list of rotation planes (axis pairs) and angles.
 
 ## Multiple cluster examples
 

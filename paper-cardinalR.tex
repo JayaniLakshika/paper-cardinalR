@@ -651,7 +651,9 @@ X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j > 3,
 
 producing high-dimensional noise that preserves some geometric correlation with the base structure while introducing additional complexity.
 
-\subsection{Rotate shape generators}\label{rotate-shape-generators}
+\subsection{Rotating shape generators}\label{rotating-shape-generators}
+
+In \(p\text{-}D\) space, a rotation is an orthogonal transformation that changes the orientation of data while preserving its total variance and pairwise distances. The function \texttt{gen\_rotation()} generates such rotation matrices for any dimension, given a list of rotation planes (axis pairs) and angles.
 
 \subsection{Multiple cluster examples}\label{multiple-cluster-examples}
 

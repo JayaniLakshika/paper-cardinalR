@@ -2889,7 +2889,8 @@ X_j = \beta_j \, (-1)^{\lfloor j/2 \rfloor} \, x_1^{k_j} + \varepsilon_j, \quad 
 X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j &gt; 3,
 \]</span></p>
 <p>producing high-dimensional noise that preserves some geometric correlation with the base structure while introducing additional complexity.</p>
-<h3 data-number="3.4" id="rotate-shape-generators"><span class="header-section-number">3.4</span> Rotate shape generators</h3>
+<h3 data-number="3.4" id="rotating-shape-generators"><span class="header-section-number">3.4</span> Rotating shape generators</h3>
+<p>In <span class="math inline">\(p\text{-}D\)</span> space, a rotation is an orthogonal transformation that changes the orientation of data while preserving its total variance and pairwise distances. The function <code>gen_rotation()</code> generates such rotation matrices for any dimension, given a list of rotation planes (axis pairs) and angles.</p>
 <h3 data-number="3.5" id="multiple-cluster-examples"><span class="header-section-number">3.5</span> Multiple cluster examples</h3>
 <p>By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table <a href="#tab:odd-shape-tb-html">11</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
