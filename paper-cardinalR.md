@@ -1456,7 +1456,7 @@ Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
 
 ## Additional functions
 
-The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table \@ref(tab:add-tb-html) details these functions.
+The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table \@ref(tab:add-tb-html) details these functions. More detailed explanations are available in <https://jayanilakshika.github.io/cardinalR/articles/03additionalfun.html>.
 
 <div class="layout-chunk" data-layout="l-body">
 

@@ -2330,7 +2330,7 @@ odd_shapes_tb |>
 
 ## Additional functions
 
-The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:add-tb-html)', '\\@ref(tab:add-tb-pdf)'))` details these functions.
+The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:add-tb-html)', '\\@ref(tab:add-tb-pdf)'))` details these functions. More detailed explanations are available in <https://jayanilakshika.github.io/cardinalR/articles/03additionalfun.html>.
 
 ```{r}
 add_fun_tb <- tibble(fun = c("gen_bkgnoise",
