@@ -94,6 +94,21 @@ source("scripts/additional_functions.R")
 knitr::include_graphics("figures/cardinalR_workflow.png")
 
 
+## ----echo=TRUE----------------------------------------------------------------
+clust_data <- gen_multicluster(
+  n = c(200, 300, 500),
+  k = 3,
+  loc = matrix(c(
+    0, 0, 0, 0,
+    5, 9, 0, 0,
+    3, 4, 10, 7
+  ), nrow = 3, byrow = TRUE),
+  scale = c(3, 1, 2),
+  shape = c("gaussian", "cone", "unifcube"),
+  is_bkg = FALSE
+)
+
+
 ## -----------------------------------------------------------------------------
 main_tb <- tibble(arg = c("n",
                           "k",
@@ -129,27 +144,6 @@ main_tb |>
   column_spec(1, width = "2cm") |>
   column_spec(2, width = "3cm") |>
   column_spec(3, width = "8cm")
-
-
-## ----echo=TRUE----------------------------------------------------------------
-rot1 <- gen_rotation(p = 4, planes_angles = list(
-  list(plane = c(1, 2), angle = 60), list(plane = c(3, 4), angle = 90)
-))
-
-clust_data <- gen_multicluster(
-  n = c(200, 300, 500),
-  k = 3,
-  loc = matrix(c(
-    0, 0, 0, 0,
-    5, 9, 0, 0,
-    3, 4, 10, 7
-  ), nrow = 3, byrow = TRUE),
-  scale = c(3, 1, 2),
-  shape = c("gaussian", "cone", "unifcube"),
-  rotation = rot1,
-  is_bkg = FALSE
-)
-
 
 
 ## -----------------------------------------------------------------------------
@@ -2259,12 +2253,4 @@ summary_clust |>
   column_spec(3, width = "2cm") |>
   column_spec(4, width = "2.5cm") |>
   column_spec(5, width = "2cm")
-
-
-## ----echo=TRUE----------------------------------------------------------------
-gen_nsum(n = 100, k = 3)
-
-
-## ----echo=TRUE----------------------------------------------------------------
-gen_nproduct(n = 500, p = 4)
 

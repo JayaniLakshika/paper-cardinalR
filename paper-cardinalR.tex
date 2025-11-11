@@ -12,15 +12,17 @@ A high-dimensional dataset is one where each observation is described by many fe
 
 \section{Introduction}\label{introduction}
 
-Generating synthetic datasets with clearly defined geometric properties is useful for evaluating and benchmarking algorithms in various fields, such as machine learning, data mining, and computational biology. Researchers often need to generate data with specific dimensions, noise characteristics, and complex underlying structures to test the performance and robustness of their methods. There are numerous packages available in R for generating synthetic data, each designed with unique characteristics and focus areas.The \texttt{geozoo} package (\citet{barret2016}) offers a large collection of geometric objects, allowing users to create and analyze specific shapes, primarily in lower-dimensional spaces. The package is \texttt{snedata} (\citet{james2025}) provides functions for generating simple simulation datasets for use in Stochastic Neighbor Embedding (\citet{hinton2002}) and related dimension reduction methods, such as t-distributed stochastic neighbor embedding (tSNE) \citep{laurens2008}, to explore how well these techniques preserve data structures in lower dimensions. Additionally, \texttt{splatter} (\citet{luke2017}) is designed to simulate complex biological data, capturing field-specific nuances such as batch effects and differential expression. In contrast, \texttt{mlbench} (\citet{friedrich2024}) includes a collection of well-known benchmark datasets commonly associated with established classification or regression challenges. The \texttt{surreal} package (\citet{james2024}) implements the ``Residual (Sur)Realism'' algorithm (\citet{leonard2007}) to generate datasets that embed hidden images or text into residual plots, providing engaging visual demonstrations for teaching model diagnostics. Meanwhile, the \texttt{DHARMa} package (\citet{florian2024}) adopts a simulation-based approach to create scaled quantile residuals for generalized linear (mixed) models and related frameworks, supporting model diagnostics through intuitive residuals, plots, and tests for common misspecification issues.
+Generating synthetic datasets with clearly defined geometric properties is useful for evaluating and benchmarking algorithms in various fields, such as machine learning, data mining, and computational biology. Researchers often need to generate data with specific dimensions, noise characteristics, and complex underlying structures to test the performance and robustness of their methods. There are numerous packages available in R for generating synthetic data, each designed with unique characteristics and focus areas.The \texttt{geozoo} package (\citet{barret2016}) offers a large collection of geometric objects, allowing users to create and analyze specific shapes, primarily in lower-dimensional spaces. The package \texttt{snedata} (\citet{james2025}) provides functions for generating simple simulation datasets for use in Stochastic Neighbor Embedding (\citet{hinton2002}) and related dimension reduction methods, such as t-distributed stochastic neighbor embedding (tSNE) \citep{laurens2008}, to explore how well these techniques preserve data structures in lower dimensions. Additionally, \texttt{splatter} (\citet{luke2017}) is designed to simulate complex biological data, capturing field-specific nuances such as batch effects and differential expression. In contrast, \texttt{mlbench} (\citet{friedrich2024}) includes a collection of well-known benchmark datasets commonly associated with established classification or regression challenges. The \texttt{surreal} package (\citet{james2024}) implements the ``Residual (Sur)Realism'' algorithm (\citet{leonard2007}) to generate datasets that embed hidden images or text into residual plots, providing engaging visual demonstrations for teaching model diagnostics. Meanwhile, the \texttt{DHARMa} package (\citet{florian2024}) adopts a simulation-based approach to create scaled quantile residuals for generalized linear (mixed) models and related frameworks, supporting model diagnostics through intuitive residuals, plots, and tests for common misspecification issues.
 
 While these packages are valuable, their scope is often limited to specific applications or low-dimensional structures. To address this gap, this paper introduces the \texttt{cardinalR} R package. This package provides a collection of functions designed to generate customizable data structures in any number of dimensions, starting from basic geometric shapes. \texttt{cardinalR} offers important functionalities that extend beyond the capabilities of existing tools, allowing users to: (i) construct high-dimensional datasets based on geometric shapes, including the option to enhance dimensionality by adding controlled noise dimensions; (ii) introduce adjustable levels of background noise to these structures; and (iii) combine high-dimensional datasets into a single multi-faceted, clustered dataset in a space of arbitrary dimension. By using clearly defined geometric shapes and controllable characteristics such as number of dimensions, sample size; \texttt{cardinalR} allows researchers to generate transparent and interpretable synthetic datasets useful for evaluating the performance of nonlinear dimension reduction (NLDR) methods, clustering algorithms, and visualization techniques. Moreover, these datasets can serve as benchmark examples for exploring how different algorithmic choices affect the identification or representation of cluster and manifold structures in high-dimensional spaces.
 
 The paper is organized as follows. In the next section, we introduce the implementation of the \texttt{cardinalR} package on GitHub, including a demonstration of the package's key functions. We illustrate how a clustering data structure affects the dimension reductions in the Application section. Finally, we give a brief conclusion of the paper and discuss potential opportunities for the use of our data collection.
 
-\section{Implementation}\label{implementation}
+\section{Usage}\label{usage}
 
-The \texttt{cardinalR} package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes. The main function, \texttt{gen\_multicluster()}, combines these shapes into a single dataset by applying scaling, rotation, and translation through \texttt{gen\_rotation()}. Each generated shape is assigned a unique cluster label. This design allows flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure \ref{fig:workflow} illustrates the workflow of \texttt{gen\_multicluster()}.
+The \texttt{cardinalR} package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes, which can then be combined into a single dataset including scaling, rotation and translation. The package is available on CRAN, and the source is available on GitHub at \href{https://github.com/JayaniLakshika/cardinalR}{JayaniLakshika/cardinalR}.
+
+The main function, \texttt{gen\_multicluster()}, is an all-in-one function that includes generating individual shapes, handles scaling and rotating of these shapes, and combines the result into a single unified dataset. This function and associated workflow allows flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure \ref{fig:workflow} illustrates the workflow of \texttt{gen\_multicluster()}.
 
 \begin{figure}[!ht]
 
@@ -31,14 +33,30 @@ The \texttt{cardinalR} package is built on a modular framework where individual 
 \caption{Workflow for generating high-dimensional clustered data. The user specifies input parameters (number of points, clusters, cluster shapes, scaling, rotation, and optional background noise). Clusters are generated iteratively, transformed, optionally augmented with Gaussian noise dimensions, combined, and labeled, resulting in the final dataset.}\label{fig:workflow}
 \end{figure}
 
-\section{Usage}\label{usage}
+Users can control the number of clusters (\texttt{k}), and the number of points in each cluster (\texttt{n}). Each cluster can take on a different geometric shape (e.g., Gaussian, cone, uniform cube) by specifying the corresponding generator function (\texttt{shape}), can be scaled to adjust its spread, rotated using custom rotation matrices (\texttt{rotation}), and positioned at defined centroids (\texttt{loc}). The function ensures flexibility in cluster location and orientation, allowing users to simulate complex high-dimensional structures.
 
-The \texttt{cardinalR} R package is available on GitHub at \href{https://github.com/JayaniLakshika/cardinalR}{JayaniLakshika/cardinalR}.
+The following is an example of a three shape multiclustered dataset. The first shape is gaussian, the second conical, and the third a cube.
 
-\subsection{Main function}\label{main-function}
+\begin{verbatim}
+clust_data <- gen_multicluster(
+  n = c(200, 300, 500),
+  k = 3,
+  loc = matrix(c(
+    0, 0, 0, 0,
+    5, 9, 0, 0,
+    3, 4, 10, 7
+  ), nrow = 3, byrow = TRUE),
+  scale = c(3, 1, 2),
+  shape = c("gaussian", "cone", "unifcube"),
+  is_bkg = FALSE
+)
+\end{verbatim}
 
-The main function of the package is \texttt{gen\_multicluster()}, which generates datasets consisting of multiple clusters with user-specified characteristics. Users can control the number of clusters (\texttt{k}), and the number of points in each cluster (\texttt{n}). Each cluster can take on a different geometric shape (e.g., Gaussian, cone, uniform cube) by specifying the corresponding generator function (\texttt{shape}), can be scaled to adjust its spread, rotated using custom rotation matrices (\texttt{rotation}), and positioned at defined centroids (\texttt{loc}). The function ensures flexibility in cluster location and orientation, allowing users to simulate complex high-dimensional structures.
+Here, the shapes have 200, 300 and 500 points respectively (\texttt{n}), are positioned in 4-D space according to a location matrix, \texttt{loc}, and stretched according to the \texttt{scale}. The details of the individual shape generators, and the noise elements are contained in the following sections.
 
+\section{Implementation}\label{implementation}
+
+The main function of the package is \texttt{gen\_multicluster()}, which generates datasets consisting of multiple clusters with user-specified characteristics.
 To maintain consistency across generators, the function identifies the arguments required by each chosen generator function and supplies only those arguments that are valid for that specific generator. This design enables the combination of cluster types with differing parameter requirements within the same dataset. When clusters are generated with fewer dimensions than others, the function augments the lower-dimensional clusters with additional Gaussian noise variables so that all clusters are represented in the same dimensional space. These noise dimensions are drawn independently from normal distributions
 
 \[
@@ -67,28 +85,6 @@ is\_bkg & boolean & Background noise should exist or not.\\
 \bottomrule
 \end{tabular}
 \end{table}
-
-The following example demonstrates how to use \texttt{gen\_multicluster()} to create a \(4\text{-}D\) dataset with three clusters of different shapes and orientations:
-
-\begin{verbatim}
-rot1 <- gen_rotation(p = 4, planes_angles = list(
-  list(plane = c(1, 2), angle = 60), list(plane = c(3, 4), angle = 90)
-))
-
-clust_data <- gen_multicluster(
-  n = c(200, 300, 500),
-  k = 3,
-  loc = matrix(c(
-    0, 0, 0, 0,
-    5, 9, 0, 0,
-    3, 4, 10, 7
-  ), nrow = 3, byrow = TRUE),
-  scale = c(3, 1, 2),
-  shape = c("gaussian", "cone", "unifcube"),
-  rotation = rot1,
-  is_bkg = FALSE
-)
-\end{verbatim}
 
 \subsection{Shape generators}\label{shape-generators}
 
@@ -781,30 +777,6 @@ Future extensions of \texttt{cardinalR} may include biologically inspired or app
 \section{Acknowledgements}\label{acknowledgements}
 
 The source material for this paper is available at \href{https://github.com/JayaniLakshika/paper-cardinalR}{github.com/JayaniLakshika/paper-cardinalR}. This article is created using \CRANpkg{knitr} \citep{yihui2015} and \CRANpkg{rmarkdown} \citep{yihui2018} in R with the \texttt{rjtools::rjournal\_article} template. These \texttt{R} packages were used for this work: \texttt{cli} \citep{gabor2025}, \texttt{tibble} \citep{kirill2023}, \texttt{gtools} \citep{gregory2023}, \texttt{dplyr} \citep{hadley2023}, \texttt{stats} \citep{core2025}, \texttt{tidyr} \citep{hadley2024}, \texttt{purrr} \citep{hadley2025}, \texttt{mvtnorm} \citep{alan2009}, \texttt{geozoo} \citep{barret2016}, and \texttt{MASS} \citep{venables2002}.
-
-\section{Supplementary numeric generators}\label{supplementary-numeric-generators}
-
-Two helper functions, \texttt{gen\_nproduct()} and \texttt{gen\_nsum()}, generate numeric vectors of positive integers that approximately satisfy a user-specified target product or sum, respectively.
-
-The function \texttt{gen\_nsum(n,\ k)} divides a total sum \texttt{n} into \texttt{k} positive integers. It first assigns an equal base value to each element and then randomly distributes any remainder, ensuring the elements sum exactly to \texttt{n}.
-
-\begin{verbatim}
-gen_nsum(n = 100, k = 3)
-\end{verbatim}
-
-\begin{verbatim}
-#> [1] 33 34 33
-\end{verbatim}
-
-The function \texttt{gen\_nproduct(n,\ p)} aims to produce \texttt{p} positive integers whose product is approximately \texttt{n}. It starts with all elements equal to the rounded \(p^{th}\) root of \texttt{n} and iteratively adjusts elements up or down in a randomized manner until the product is within a small tolerance of \texttt{n}. This accommodates the fact that exact integer solutions for a given product are often impossible.
-
-\begin{verbatim}
-gen_nproduct(n = 500, p = 4)
-\end{verbatim}
-
-\begin{verbatim}
-#> [1] 4 5 5 5
-\end{verbatim}
 
 \bibliography{paper-cardinalR.bib}
 
