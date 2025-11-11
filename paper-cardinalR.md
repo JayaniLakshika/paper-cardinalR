@@ -1412,6 +1412,8 @@ $$
 
 producing high-dimensional noise that preserves some geometric correlation with the base structure while introducing additional complexity.
 
+## Rotate shape generators
+
 ## Multiple cluster examples
 
 By using the shape generators mentioned above, we can create various examples of multiple clusters. The package includes some of these examples, which are described in Table \@ref(tab:odd-shape-tb-html).
@@ -1473,7 +1475,6 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 |relocate_clusters |Relocates the clusters.                                                                           |
 |gen_nproduct      |Generates a vector of positive integers whose product is approximately equal to a target value.   |
 |gen_nsum          |Generates a vector of positive integers whose summation is approximately equal to a target value. |
-|gen_rotation      |Generates rotations.                                                                              |
 |normalize_data    |Normalizes data.                                                                                  |
 
 </div>
