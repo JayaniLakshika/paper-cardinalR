@@ -2616,12 +2616,12 @@ summary_clust <- summary_clust |>
 
 ```{r summaryclust-tb-html, eval=knitr::is_html_output()}
 summary_clust |> 
-  kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", col.names = c("Metric", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), tab.pos = "H") 
+  kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", col.names = c("method", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), tab.pos = "H") 
 ```
 
 ```{r summaryclust-tb-pdf, eval=knitr::is_latex_output()}
 summary_clust |> 
-  kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", format="latex", col.names = c("Metric", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), booktabs = T, table.pos = "!ht")  |>
+  kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", format="latex", col.names = c("method", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), booktabs = T, table.pos = "!ht")  |>
   column_spec(1, width = "2.5cm") |>
   column_spec(2, width = "2cm") |>
   column_spec(3, width = "2cm") |>

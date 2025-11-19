@@ -1612,7 +1612,7 @@ To further evaluate the structure of the generated data, we benchmarked three cl
 
 Table: (\#tab:summaryclust-tb-html)Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.
 
-|Metric       | wb.ratio| Dunn Index| Corrected Rand|   VI|
+|algorithm    | wb.ratio| Dunn Index| Corrected Rand|   VI|
 |:------------|--------:|----------:|--------------:|----:|
 |k-means      |     0.61|       0.01|           0.42| 1.32|
 |Hierarchical |     0.61|       0.01|           0.50| 1.15|
