@@ -1,4 +1,4 @@
-\begin{thebibliography}{46}
+\begin{thebibliography}{47}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -109,6 +109,12 @@ M.~J. Kirkby.
 \newblock The fractal geometry of nature. benoit b. mandelbrot. w. h. freeman and co., san francisco, 1982. no. of pages: 460. price: £22.75 (hardback).
 \newblock \emph{Earth Surface Processes and Landforms}, 8\penalty0 (4):\penalty0 406--406, 1983.
 \newblock URL \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/esp.3290080415}.
+
+\bibitem[Laurent(2024)]{laurent2024}
+S.~Laurent.
+\newblock Four-dimensional torus knots, 2024.
+\newblock URL \url{https://laustep.github.io/stlahblog/posts/TorusKnot4D.html}.
+\newblock Accessed: 2025-11-17.
 
 \bibitem[Leisch and Dimitriadou(2024)]{friedrich2024}
 F.~Leisch and E.~Dimitriadou.

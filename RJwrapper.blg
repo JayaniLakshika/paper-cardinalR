@@ -6,45 +6,45 @@ Database file #1: paper-cardinalR.bib
 Warning--empty journal in calladine1997
 Warning--empty journal in gershenfeld2000
 Warning--empty booktitle in hadsell2006
-You've used 46 entries,
+You've used 47 entries,
             2773 wiz_defined-function locations,
-            883 strings with 12977 characters,
-and the built_in function-call counts, 20370 in all, are:
-= -- 1804
-> -- 1269
-< -- 33
-+ -- 433
-- -- 387
-* -- 1632
-:= -- 3249
-add.period$ -- 181
-call.type$ -- 46
-change.case$ -- 247
-chr.to.int$ -- 46
-cite$ -- 95
-duplicate$ -- 917
-empty$ -- 1559
-format.name$ -- 459
-if$ -- 4191
+            888 strings with 13112 characters,
+and the built_in function-call counts, 20676 in all, are:
+= -- 1832
+> -- 1279
+< -- 34
++ -- 437
+- -- 390
+* -- 1647
+:= -- 3296
+add.period$ -- 185
+call.type$ -- 47
+change.case$ -- 251
+chr.to.int$ -- 47
+cite$ -- 97
+duplicate$ -- 932
+empty$ -- 1591
+format.name$ -- 463
+if$ -- 4257
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 43
-newline$ -- 279
-num.names$ -- 186
-pop$ -- 502
+newline$ -- 285
+num.names$ -- 190
+pop$ -- 514
 preamble$ -- 1
-purify$ -- 220
+purify$ -- 223
 quote$ -- 0
-skip$ -- 726
+skip$ -- 739
 stack$ -- 0
-substring$ -- 490
-swap$ -- 83
+substring$ -- 492
+swap$ -- 84
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 451
+type$ -- 462
 warning$ -- 3
-while$ -- 167
+while$ -- 170
 width$ -- 0
-write$ -- 665
+write$ -- 679
 (There were 3 warnings)
