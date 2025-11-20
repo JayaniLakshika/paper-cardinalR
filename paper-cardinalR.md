@@ -1,7 +1,7 @@
 ---
-title: 'cardinalR: Generating interesting high-dimensional data structures'
+title: 'cardinalR: Generating Interesting High-Dimensional Data Structures'
 description: |
-  High-dimensional data is defined as each observation being described by many features, variables or dimensions, typically having some dependency or association. It is analyzed in many disciplines including image and speech recognition, clusters in genomics and forensic analysis, and sparse distributions in text mining, particularly to determine whether the observations lie on a lower dimensional manifold. Simulated high-dimensional data is useful for testing, validating, and improving algorithms used in dimensionality reduction, supervised and unsupervised learning. These can be generated with a variety of structures using mathematical functions and statistical distributions to create test datasets. By controlling the complexity researchers can better understand how different methods work and can be improved. A variety of functions to generate a large variety of structures in high dimensions are organized into the R package `cardinalR`, along with several sample sets. This enriches the existing toolset of benchmark datasets for evaluating algorithms.
+  High-dimensional data is defined as each observation being described by many features, variables or dimensions, typically having some dependency or association. It is analyzed in many disciplines including image and speech recognition, clusters in genomics and forensic analysis, and sparse distributions in text mining, particularly to determine whether the observations lie on a lower dimensional manifold. Simulated high-dimensional data is useful for testing, validating, and improving algorithms used in dimensionality reduction, supervised and unsupervised learning. These can be generated with a variety of structures using mathematical functions and statistical distributions to create test datasets. By controlling the complexity researchers can better understand how different methods work and can be improved. A variety of functions to generate a large variety of structures in high dimensions are organized into the R package cardinalR, along with several sample sets. This enriches the existing toolset of benchmark datasets for evaluating algorithms.
 draft: yes
 author:
 - name: Jayani P. Gamage
@@ -9,7 +9,7 @@ author:
   address: Department of Econometrics and Business Statistics, VIC 3800 Australia
   url: https://jayanilakshika.netlify.app/
   orcid_id: 0000-0002-6265-6481
-  email: \email{jayani.piyadigamage@monash.edu}
+  email: jayani.piyadigamage@monash.edu
 - name: Dianne Cook
   affiliation: Monash University
   address: Department of Econometrics and Business Statistics, VIC 3800 Australia
