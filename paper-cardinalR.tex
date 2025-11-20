@@ -22,9 +22,9 @@ The paper is organized as follows. In the next section, we introduce the impleme
 
 \section{Usage}\label{usage}
 
-The \texttt{cardinalR} package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes, which can then be combined into a single dataset including scaling, rotation and translation. The package is available on CRAN, and the source is available on GitHub at \href{https://github.com/JayaniLakshika/cardinalR}{JayaniLakshika/cardinalR}.
+The \texttt{cardinalR} package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (\url{https://jayanilakshika.github.io/cardinalR/reference/index.html}), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN, and the source is available on GitHub at \href{https://github.com/JayaniLakshika/cardinalR}{JayaniLakshika/cardinalR}.
 
-The main function, \texttt{gen\_multicluster()}, is an all-in-one function that includes generating individual shapes, handles scaling and rotating of these shapes, and combines the result into a single unified dataset. This function and associated workflow allows flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure \ref{fig:workflow} illustrates the workflow of \texttt{gen\_multicluster()}.
+The main function, \texttt{gen\_multicluster()}, is an all-in-one function that includes generating individual shapes, handling scaling and rotating of these shapes, and combining the result into a single unified dataset. This function and associated workflow allow flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure \ref{fig:workflow} illustrates the workflow of \texttt{gen\_multicluster()}.
 
 \begin{figure}[!ht]
 
@@ -37,7 +37,7 @@ The main function, \texttt{gen\_multicluster()}, is an all-in-one function that 
 
 Users can control the number of clusters (\texttt{k}), and the number of points in each cluster (\texttt{n}). Each cluster can take on a different geometric shape (e.g., Gaussian, cone, uniform cube) by specifying the corresponding generator function (\texttt{shape}), can be scaled to adjust its spread, rotated using custom rotation matrices (\texttt{rotation}), and positioned at defined centroids (\texttt{loc}). The function ensures flexibility in cluster location and orientation, allowing users to simulate complex high-dimensional structures.
 
-The following is an example of a three shape multiclustered dataset. The first shape is gaussian, the second conical, and the third a cube.
+The following is an example of a three-shape multiclustered dataset. The first shape is Gaussian, the second conical, and the third a cube.
 
 \begin{verbatim}
 clust_data <- gen_multicluster(
@@ -54,7 +54,7 @@ clust_data <- gen_multicluster(
 )
 \end{verbatim}
 
-Here, the shapes have 200, 300 and 500 points respectively (\texttt{n}), are positioned in 4-D space according to a location matrix, \texttt{loc}, and stretched according to the \texttt{scale}. The details of the individual shape generators, and the noise elements are contained in the following sections.
+Here, the shapes have \(200\), \(300\), and \(500\) points respectively (\texttt{n}), are positioned in \(4\text{-}D\) space according to a location matrix, \texttt{loc}, and stretched according to the \texttt{scale}. The details of the individual shape generators and the noise elements are contained in the following sections.
 
 \section{Implementation}\label{implementation}
 
