@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.16)  19 NOV 2025 12:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.16)  20 NOV 2025 21:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -850,13 +850,13 @@ File: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf  used on input line 374.
 (pdftex.def)             Requested size: 318.67207pt x 424.9028pt.
-[9 <./paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>] [10] [11]
-<paper-cardinalR_files/figure-latex/sphere-proj-1.pdf, id=260, 867.24pt x 867.24pt>
+[9 <./paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>] [10]
+<paper-cardinalR_files/figure-latex/sphere-proj-1.pdf, id=256, 867.24pt x 867.24pt>
 File: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf  used on input line 469.
 (pdftex.def)             Requested size: 318.67207pt x 318.67711pt.
-
+[11]
 Overfull \hbox (17.09308pt too wide) in paragraph at lines 478--479
 \T1/ppl/m/n/9 (-20) The Swiss roll is a stan-dard non-lin-ear man-i-fold, rep-re-sent-ing a plane curled into $\OT1/ppl/m/n/9 (-20) 3[]\OML/zplm/m/it/9 D$\T1/ppl/m/n/9 (-20) . The \T1/zi4/m/n/9 gen_swissroll(n,
  []
@@ -918,16 +918,6 @@ Underfull \hbox (badness 3333) in paragraph at lines 99--99
 \T1/ppl/m/n/9 (+20) MIT Press, 2002.  URL [][]$\T1/zi4/m/n/9 https : / / proceedings . neurips . cc / paper _ files / paper / 2002 / file /
  []
 
-
-Underfull \hbox (badness 3428) in paragraph at lines 176--176
-[]\T1/ppl/m/n/9 (+20) Optica ^^U The Op-ti-cal So-ci-ety.  Op-ti-cal möbius strips yield new se-crets, 2023.  URL
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--176
-[][]$\T1/zi4/m/n/9 https : / / www . optica -[] opn . org / home / newsroom / 2023 / january / optical _ mobius _ strips _ yield _
- []
-
 [21])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
@@ -950,14 +940,14 @@ Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  27769 strings out of 469519
- 506779 string characters out of 5468894
- 932196 words of memory out of 5000000
+ 506782 string characters out of 5468894
+ 931195 words of memory out of 5000000
  55396 multiletter control sequences out of 15000+600000
- 692662 words of font info for 405 fonts, out of 8000000 for 9000
+ 692668 words of font info for 405 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  117i,12n,131p,1784b,931s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (23 pages, 7195494 bytes).
+Output written on RJwrapper.pdf (23 pages, 7195287 bytes).
 PDF statistics:
  702 PDF objects out of 1000 (max. 8388607)
  622 compressed objects within 7 object streams

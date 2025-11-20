@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-11-19'
+date: '2025-11-20'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -784,7 +784,7 @@ This follows the `s_curve()` function from snedata [@james2025], itself adapted 
 
 ### Sphere
 
-Sphere-shaped structures are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. The functions generate a variety of spherical forms, including simple circles, uniform and hollow spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. Such spherical or hemispherical structures frequently appear in physical and biological systems, for example in models of celestial bodies, molecular shells, or cell membranes [@tinkham2003; @alberts2014].Table \@ref(tab:sphere-tb-html) summarizes these functions.
+Sphere-shaped structures are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. Throughout this section, we follow the standard mathematical terminology: a *sphere* refers to the hollow $(p-1)$-dimensional surface in $\mathbb{R}^p$, while a *ball* refers to the filled interior region. The functions generate a variety of spherical forms, including simple circles, uniform and hollow spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. Such spherical or hemispherical structures frequently appear in physical and biological systems, for example in models of celestial bodies, molecular shells, or cell membranes [@tinkham2003; @alberts2014].Table \@ref(tab:sphere-tb-html) summarizes these functions.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -800,7 +800,7 @@ Table: (\#tab:sphere-tb-html)cardinalR sphere data generation functions
 |:--------------------|:-------------------------------------------|
 |gen_circle           |Circle.                                     |
 |gen_curvycycle       |Curvy cell cycle.                           |
-|gen_unifsphere       |Uniform sphere.                             |
+|gen_unifsphere       |Uniform ball.                               |
 |gen_hollowsphere     |Hollow sphere.                              |
 |gen_gridedsphere     |Grided sphere.                              |
 |gen_clusteredspheres |Multiple small spheres within a big sphere. |
@@ -897,7 +897,7 @@ In contrast, the `gen_hollowsphere(n, p)` function, a wrapper around `geozoo::sp
 </div>
 
 
-In addition, the `gen_gridedsphere(n)` function constructs a $p\text{-}D$ dataset consisting of approximately $n$ points that are evenly distributed on the surface of the unit $(p-1)$-sphere embedded in $\mathbb{R}^p$ (Figure \@ref(fig:sphere) d). The method relies on forming a regular grid in spherical coordinates, parameterized by $(p-1)$ angular variables: for dimensions $j = 1, \dots, p-2$ the polar angles are drawn from $[0, \pi]$, while the final angle ($j = p-1$) represents the azimuth and is drawn from $[0, 2\pi]$. The number of grid steps along each angular dimension is chosen by decomposing $n$ into $(p-1)$ approximately equal integer factors using the helper function `gen_nproduct(n, p - 1)`.
+In addition, the `gen_gridedsphere(n)` function constructs a $p$-dimensional dataset consisting of approximately $n$ points arranged on the surface of the unit $(p-1)$-sphere embedded in $\mathbb{R}^p$ (Figure \@ref(fig:sphere) d). Rather than sampling points uniformly, this function creates a deterministic grid in spherical coordinates, using $(p-1)$ angular variables: the first $(p-2)$ angles are taken from $[0, \pi]$, and the final angle from $[0, 2\pi]$. The number of grid points along each angular dimension is determined by decomposing $n$ into $(p-1)$ approximately equal integer factors via `gen_nproduct(n, p - 1)`. 
 
 Each grid point is subsequently mapped into Cartesian space via the standard hyperspherical-to-Cartesian transformation,
 
@@ -926,7 +926,7 @@ $$
 
 The result is a deterministic grid of points lying exactly on the surface of the unit $(p-1)$-sphere, without any additional noise dimensions.
 
-For more heterogeneous structures, the `gen_clusteredspheres(n, k, r, loc)` function generates one large sphere of radius $r_1$ and $k$ smaller spheres of radius $r_2$, each centered at a different random location (Figure \@ref(fig:sphere) e). A large uniform sphere centered at the origin is created by sampling $n_1$ points uniformly on the surface of a $p\text{-}D$ sphere with a radius of $r_1$. The sampling is executed using the function `gen_unifsphere(n_1, r_1)`, which generates the desired points in the specified dimensional space. In generation of $k$ smaller uniform spheres, each sphere contains $n_2$ points that are sampled uniformly on a sphere with a radius of $r_2$. These spheres are positioned at distinct random locations in $p$-space, with the center of each sphere being drawn from a normal distribution $N(0, \texttt{loc}^2 I_p)$. Points on spheres are generated using the standard hyperspherical method, which involves sampling $u \sim U(-1, 1)$ to determine the cosine of the polar angle, and sampling $\theta \sim U(0, 2\pi)$ to determine the azimuthal angle (for $3\text{-}D$). Each observation is classified by cluster, with labels such as "big" for the large central sphere and "small_1" to "small_k" for the smaller spheres.
+For more heterogeneous structures, the `gen_clusteredspheres(n, k, r, loc)` function generates one large sphere of radius $r_1$ and $k$ smaller spheres of radius $r_2$, each centered at a different random location (Figure \@ref(fig:sphere) e). A large Uniform ball centered at the origin is created by sampling $n_1$ points uniformly on the surface of a $p\text{-}D$ sphere with a radius of $r_1$. The sampling is executed using the function `gen_unifsphere(n_1, r_1)`, which generates the desired points in the specified dimensional space. In generation of $k$ smaller Uniform balls, each sphere contains $n_2$ points that are sampled uniformly on a sphere with a radius of $r_2$. These spheres are positioned at distinct random locations in $p$-space, with the center of each sphere being drawn from a normal distribution $N(0, \texttt{loc}^2 I_p)$. Points on spheres are generated using the standard hyperspherical method, which involves sampling $u \sim U(-1, 1)$ to determine the cosine of the polar angle, and sampling $\theta \sim U(0, 2\pi)$ to determine the azimuthal angle (for $3\text{-}D$). Each observation is classified by cluster, with labels such as "big" for the large central sphere and "small_1" to "small_k" for the smaller spheres.
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>clusteredspheres</span> <span class='op'>&lt;-</span> <span class='fu'>gen_clusteredspheres</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='fl'>100</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>3</span>, r <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>15</span>, <span class='fl'>3</span><span class='op'>)</span>,</span>
@@ -1492,7 +1492,7 @@ Table: (\#tab:add-tb-html)cardinalR additional functions
 
 # Application
 
-This section demonstrates how the package can be used to generate complex high-dimensional datasets, apply dimension reduction (DR) techniques, and evaluate clustering performance. The example shows how diverse geometric structures can be simulated and analyzed to assess algorithmic behavior.
+This section demonstrates how the package can be used to generate complex high-dimensional datasets, evaluate dimension reduction (DR) and clustering methods. The example shows how diverse geometric structures can be simulated and analyzed to assess algorithmic behavior.
 
 ## Generating high-dimensional clustered data
 
@@ -1612,7 +1612,7 @@ To further evaluate the structure of the generated data, we benchmarked three cl
 
 Table: (\#tab:summaryclust-tb-html)Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.
 
-|algorithm    | wb.ratio| Dunn Index| Corrected Rand|   VI|
+|method       | wb.ratio| Dunn Index| Corrected Rand|   VI|
 |:------------|--------:|----------:|--------------:|----:|
 |k-means      |     0.61|       0.01|           0.42| 1.32|
 |Hierarchical |     0.61|       0.01|           0.50| 1.15|
