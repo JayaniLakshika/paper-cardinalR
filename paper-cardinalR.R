@@ -19,26 +19,30 @@ set.seed(20240412)
 
 ## ----install-libraries, include=FALSE, warning=FALSE, echo=FALSE--------------
 
-options(repos = c(CRAN = "https://cran.rstudio.com")) # Setup mirror
+# Ensure remotes is available
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
 
-packages_to_check <- c("remotes", "cardinalR", "tidyverse", "kableExtra", "geozoo", "patchwork", "colorspace")
+# Read the package list
+pkgs_raw <- readLines("_Rpackages.txt")
+pkgs_raw <- pkgs_raw[nzchar(pkgs_raw)]  # remove empty lines
 
-for (pkg in packages_to_check) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    message(paste("Installing package:", pkg))
-    install.packages(pkg)
-  } else {
-    installed_version <- packageVersion(pkg)
-    available_version <- tryCatch({
-      utils::packageDescription(pkg)$Version
-    }, error = function(e) NA) # Handle cases where package info isn't readily available
+# Split into package and version
+parts <- strsplit(pkgs_raw, "==")
+pkgs <- vapply(parts, `[[`, "", 1)
+versions <- vapply(parts, `[[`, "", 2)
 
-    if (!is.na(available_version) && installed_version < package_version(available_version)) {
-      message(paste("A newer version of package", pkg, "is available. Updating..."))
-      install.packages(pkg)
-    } else {
-      message(paste("Package", pkg, "is up-to-date (version", installed_version, ")."))
-    }
+# Install packages with exact versions
+for (i in seq_along(pkgs)) {
+  pkg <- pkgs[i]
+  ver <- versions[i]
+
+  if (!requireNamespace(pkg, quietly = TRUE) ||
+      as.character(packageVersion(pkg)) != ver) {
+
+    message(sprintf("Installing %s (%s)", pkg, ver))
+    remotes::install_version(pkg, version = ver, upgrade = "never")
   }
 }
 
