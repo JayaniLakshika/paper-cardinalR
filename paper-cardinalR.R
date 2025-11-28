@@ -160,17 +160,20 @@ branch_tb <- tibble(fun = c("gen_expbranches",
                                "Linear shaped branches.", 
                                "Curvy shaped branches.",
                                "Linear shaped branches originated in one point.",
-                               "Curvy shaped branches originated in one point."))
+                               "Curvy shaped branches originated in one point.")) |> 
+   mutate(fun = gsub("_", "\\\\_", fun))
 
 
 ## ----branching-tb-html, eval=knitr::is_html_output()--------------------------
 # branch_tb |>
-#   kable(caption = "cardinalR branching data generation functions", col.names = c("Function", "Explanation"), table.pos = "!ht")
+#   mutate(fun = paste0("<code>", fun, "</code>")) |>
+#   kable(caption = "cardinalR branching data generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
 ## ----branching-tb-pdf, eval=knitr::is_latex_output()--------------------------
-branch_tb |> 
-  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "!ht")  |>
+branch_tb |>
+  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
+  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 
@@ -184,12 +187,12 @@ arg_branching_tb <- tibble(arg = c("n", "k"),
 
 ## ----arg-branching-tb-html, eval=knitr::is_html_output()----------------------
 # arg_branching_tb |>
-#   kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Type", "Explanation"), table.pos = "!ht")
+#   kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Type", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
 ## ----arg-branching-tb-pdf, eval=knitr::is_latex_output()----------------------
 arg_branching_tb |> 
-  kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Type", "Explanation"), booktabs = T, table.pos = "!ht")  |>
+  kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Type", "Explanation"), booktabs = T, escape = FALSE, table.pos = "!ht")  |>
   column_spec(1, width = "1cm") |>
   column_spec(1, width = "2cm") |>
   column_spec(2, width = "3cm")
@@ -447,17 +450,20 @@ cone_proj1 + cone_proj2 + cone_proj3 +
 cube_tb <- tibble(fun = c("gen_gridcube",
                           "gen_unifcube"), 
                       exp = c("Cube with specified grid points along each axes.",
-                              "Cube with uniform points."))
+                              "Cube with uniform points.")) |> 
+  mutate(fun = gsub("_", "\\\\_", fun))
 
 
 ## ----cube-tb-html, eval=knitr::is_html_output()-------------------------------
 # cube_tb |>
-#   kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"), table.pos = "!ht")
+#   mutate(fun = paste0("<code>", fun, "</code>")) |>
+#   kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
 ## ----cube-tb-pdf, eval=knitr::is_latex_output()-------------------------------
 cube_tb |> 
-  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "!ht")  |>
+  mutate(fun = paste0("\\texttt{", fun, "}")) |>
+  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 
@@ -486,17 +492,20 @@ mobius <- gen_mobius(n = 1000)
 polynomial_tb <- tibble(fun = c("gen_quadratic",
                                 "gen_cubic"), 
                         exp = c("Quadratic pattern.",
-                                "Cubic pattern."))
+                                "Cubic pattern.")) |> 
+  mutate(fun = gsub("_", "\\\\_", fun))
 
 
 ## ----polynomial-tb-html, eval=knitr::is_html_output()-------------------------
 # polynomial_tb |>
-#   kable(caption = "cardinalR polynomial data generation functions", col.names = c("Function", "Explanation"), table.pos = "!ht")
+#   mutate(fun = paste0("<code>", fun, "</code>")) |>
+#   kable(caption = "cardinalR polynomial data generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
 ## ----polynomial-tb-pdf, eval=knitr::is_latex_output()-------------------------
 polynomial_tb |> 
-  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "!ht")  |>
+  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
+  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 
@@ -517,17 +526,20 @@ pyramid_tb <- tibble(fun = c("gen_pyrrect",
                         exp = c("Rectangular-base, with a sharp or blunted apex.",
           "Triangular-base, with a sharp or blunted apex.",
           "Star-shaped base, with a sharp or blunted apex.",
-          "Pyramid with triangular pyramid-shaped holes."))
+          "Pyramid with triangular pyramid-shaped holes.")) |> 
+  mutate(fun = gsub("_", "\\\\_", fun))
 
 
 ## ----pyramid-tb-html, eval=knitr::is_html_output()----------------------------
 # pyramid_tb |>
-#   kable(caption = "cardinalR pyramid data generation functions", col.names = c("Function", "Explanation"), table.pos = "!ht")
+#   mutate(fun = paste0("<code>", fun, "</code>")) |>
+#   kable(caption = "cardinalR pyramid data generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
 ## ----pyramid-tb-pdf, eval=knitr::is_latex_output()----------------------------
 pyramid_tb |> 
-  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "!ht")  |>
+  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
+  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, escape = FALSE, table.pos = "!ht")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 
@@ -939,17 +951,20 @@ sphere_tb <- tibble(fun = c("gen_circle",
                                 "Hollow sphere.",
                                 "Grided sphere.",
                                 "Multiple small spheres within a big sphere.",
-                                "Hemisphere."))
+                                "Hemisphere.")) |> 
+  mutate(fun = gsub("_", "\\\\_", fun))
 
 
 ## ----sphere-tb-html, eval=knitr::is_html_output()-----------------------------
 # sphere_tb |>
-#   kable(caption = "cardinalR sphere data generation functions", col.names = c("Function", "Explanation"), linesep = "", table.pos = "!ht")
+#   mutate(fun = paste0("<code>", fun, "</code>")) |>
+#   kable(caption = "cardinalR sphere data generation functions", col.names = c("Function", "Explanation"), linesep = "", escape = FALSE, table.pos = "!ht")
 
 
 ## ----sphere-tb-pdf, eval=knitr::is_latex_output()-----------------------------
 sphere_tb |> 
-  kable(caption = "cardinalR sphere data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, linesep = "", table.pos = "!ht")  |>
+  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
+  kable(caption = "cardinalR sphere data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, linesep = "", table.pos = "!ht")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 
@@ -1270,18 +1285,21 @@ swissroll <- gen_swissroll(n = 1000, w = c(-1, 1))
 trefoil_tb <- tibble(fun = c("gen_trefoil4d",
                             "gen_trefoil3d"), 
                         exp = c("Trefoil in 4-D.",
-                                "Trefoil in 3-D."))
+                                "Trefoil in 3-D.")) |> 
+  mutate(fun = gsub("_", "\\\\_", fun))
 
 
 ## ----trefoil-tb-html, eval=knitr::is_html_output()----------------------------
 # trefoil_tb |>
-#   kable(caption = "cardinalR trefoil data generation functions", col.names = c("Function", "Explanation"), table.pos = "!ht")
+#   mutate(fun = paste0("<code>", fun, "</code>")) |>
+#   kable(caption = "cardinalR trefoil data generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
 ## ----trefoil-tb-pdf, eval=knitr::is_latex_output()----------------------------
 
-trefoil_tb |> 
-  kable(caption = "cardinalR trefoil data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "!ht")  |>
+trefoil_tb |>
+  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
+  kable(caption = "cardinalR trefoil data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 
@@ -1505,17 +1523,20 @@ trigonometric_tb <- tibble(fun = c("gen_crescent",
                                 "Spherical spiral.",
                                 "Helical spiral.",
                                 "Conic spiral.",
-                                "Nonlinear hyperbola."))
+                                "Nonlinear hyperbola.")) |> 
+  mutate(fun = gsub("_", "\\\\_", fun))
 
 
 ## ----trigonometric-tb-html, eval=knitr::is_html_output()----------------------
 # trigonometric_tb |>
-#   kable(caption = "cardinalR trigonometric data generation functions", col.names = c("Function", "Explanation"), linesep = "", table.pos = "!ht")
+#   mutate(fun = paste0("<code>", fun, "</code>")) |>
+#   kable(caption = "cardinalR trigonometric data generation functions", col.names = c("Function", "Explanation"), linesep = "", escape = FALSE, table.pos = "!ht")
 
 
 ## ----trigonometric-tb-pdf, eval=knitr::is_latex_output()----------------------
 trigonometric_tb |> 
-  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, linesep = "", table.pos = "!ht")  |>
+  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
+  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, linesep = "", table.pos = "!ht")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 
@@ -1925,17 +1946,20 @@ noise_fun_tb <- tibble(fun = c("gen_noisedims",
                         exp = c("Gaussian noise dimensions with optional mean and standard deviation.",
                                 "Wavy noise dimensions based on a user-specified theta sequence with added jitter.",
                                 "Wavy noise dimensions using polynomial transformations of an existing dimension vector.",
-                                "Wavy noise dimensions using a combination of polynomial and sine transformations based on the first three dimensions of a dataset."))
+                                "Wavy noise dimensions using a combination of polynomial and sine transformations based on the first three dimensions of a dataset.")) |> 
+  mutate(fun = gsub("_", "\\\\_", fun))
 
 
 ## ----noise-tb-html, eval=knitr::is_html_output()------------------------------
 # noise_fun_tb |>
-#   kable(caption = "cardinalR noise dimensions generation functions", col.names = c("Function", "Explanation"), table.pos = "!ht")
+#   mutate(fun = paste0("<code>", fun, "</code>")) |>
+#   kable(caption = "cardinalR noise dimensions generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
 ## ----noise-tb-pdf, eval=knitr::is_latex_output()------------------------------
 noise_fun_tb |> 
-  kable(caption = "cardinalR noise dimensions generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, table.pos = "!ht")  |>
+  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
+  kable(caption = "cardinalR noise dimensions generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
   column_spec(1, width = "2.5cm") |>
   column_spec(2, width = "10.5cm")
 
@@ -1969,17 +1993,20 @@ odd_shapes_tb <- tibble(fun = c("make_mobiusgau",
     "Two overlapping grids.",
     "Two grids shifted relative to each other.",
     "Parallel shaped clusters.",
-    "Three clusters with different shapes. (eg:- 01, 02, ..., 20)"))
+    "Three clusters with different shapes. (eg:- 01, 02, ..., 20)")) |> 
+  mutate(fun = gsub("_", "\\\\_", fun))
 
 
 ## ----odd-shape-tb-html, eval=knitr::is_html_output()--------------------------
 # odd_shapes_tb |>
-#   kable(caption = "cardinalR multiple clusters generation functions", col.names = c("Function", "Explanation"), linesep = "", table.pos = "!ht")
+#   mutate(fun = paste0("<code>", fun, "</code>")) |>
+#   kable(caption = "cardinalR multiple clusters generation functions", col.names = c("Function", "Explanation"), linesep = "", escape = FALSE, table.pos = "!ht")
 
 
 ## ----odd-shape-tb-pdf, eval=knitr::is_latex_output()--------------------------
 odd_shapes_tb |> 
-  kable(caption = "cardinalR multiple clusters generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, linesep = "", table.pos = "!ht")  |>
+  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
+  kable(caption = "cardinalR multiple clusters generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, linesep = "", table.pos = "!ht")  |>
   column_spec(1, width = "3.5cm") |>
   column_spec(2, width = "8.5cm")
 
@@ -1996,17 +2023,20 @@ add_fun_tb <- tibble(fun = c("gen_bkgnoise",
                                 "Relocates the clusters.",
                                 "Generates a vector of positive integers whose product is approximately equal to a target value.",
                                 "Generates a vector of positive integers whose summation is approximately equal to a target value.", 
-                                "Normalizes data."))
+                                "Normalizes data.")) |> 
+  mutate(fun = gsub("_", "\\\\_", fun))
 
 
 ## ----add-tb-html, eval=knitr::is_html_output()--------------------------------
 # add_fun_tb |>
-#   kable(caption = "cardinalR additional functions", col.names = c("Function", "Explanation"), linesep = "", table.pos = "!ht")
+#   mutate(fun = paste0("<code>", fun, "</code>")) |>
+#   kable(caption = "cardinalR additional functions", col.names = c("Function", "Explanation"), linesep = "", escape = FALSE, table.pos = "!ht")
 
 
 ## ----add-tb-pdf, eval=knitr::is_latex_output()--------------------------------
 add_fun_tb |> 
-  kable(caption = "cardinalR additional functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, linesep = "", table.pos = "!ht")  |>
+  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
+  kable(caption = "cardinalR additional functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, linesep = "", escape = FALSE, table.pos = "!ht")  |>
   column_spec(1, width = "4cm") |>
   column_spec(2, width = "8cm")
 

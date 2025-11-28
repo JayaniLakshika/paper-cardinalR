@@ -104,11 +104,11 @@ A branching structure (Figure \ref{fig:branch-proj}) captures trajectories that 
 \toprule
 Function & Explanation\\
 \midrule
-gen\_expbranches & Exponential shaped branches.\\
-gen\_linearbranches & Linear shaped branches.\\
-gen\_curvybranches & Curvy shaped branches.\\
-gen\_orglinearbranches & Linear shaped branches originated in one point.\\
-gen\_orgcurvybranches & Curvy shaped branches originated in one point.\\
+\texttt{gen\_expbranches} & Exponential shaped branches.\\
+\texttt{gen\_linearbranches} & Linear shaped branches.\\
+\texttt{gen\_curvybranches} & Curvy shaped branches.\\
+\texttt{gen\_orglinearbranches} & Linear shaped branches originated in one point.\\
+\texttt{gen\_orgcurvybranches} & Curvy shaped branches originated in one point.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -239,8 +239,8 @@ A cube structure represents uniformly or systematically distributed points withi
 \toprule
 Function & Explanation\\
 \midrule
-gen\_gridcube & Cube with specified grid points along each axes.\\
-gen\_unifcube & Cube with uniform points.\\
+\texttt{gen\_gridcube} & Cube with specified grid points along each axes.\\
+\texttt{gen\_unifcube} & Cube with uniform points.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -301,8 +301,8 @@ A polynomial structure generates data points that follow non-linear curvilinear 
 \toprule
 Function & Explanation\\
 \midrule
-gen\_quadratic & Quadratic pattern.\\
-gen\_cubic & Cubic pattern.\\
+\texttt{gen\_quadratic} & Quadratic pattern.\\
+\texttt{gen\_cubic} & Cubic pattern.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -331,10 +331,10 @@ A pyramid structure (Figure \ref{fig:pyr-proj}) represents data arranged around 
 \toprule
 Function & Explanation\\
 \midrule
-gen\_pyrrect & Rectangular-base, with a sharp or blunted apex.\\
-gen\_pyrtri & Triangular-base, with a sharp or blunted apex.\\
-gen\_pyrstar & Star-shaped base, with a sharp or blunted apex.\\
-gen\_pyrfrac & Pyramid with triangular pyramid-shaped holes.\\
+\texttt{gen\_pyrrect} & Rectangular-base, with a sharp or blunted apex.\\
+\texttt{gen\_pyrtri} & Triangular-base, with a sharp or blunted apex.\\
+\texttt{gen\_pyrstar} & Star-shaped base, with a sharp or blunted apex.\\
+\texttt{gen\_pyrfrac} & Pyramid with triangular pyramid-shaped holes.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -400,13 +400,13 @@ Sphere-shaped structures are useful for evaluating how dimension reduction and c
 \toprule
 Function & Explanation\\
 \midrule
-gen\_circle & Circle.\\
-gen\_curvycycle & Curvy cell cycle.\\
-gen\_unifsphere & Uniform ball.\\
-gen\_hollowsphere & Hollow sphere.\\
-gen\_gridedsphere & Grided sphere.\\
-gen\_clusteredspheres & Multiple small spheres within a big sphere.\\
-gen\_hemisphere & Hemisphere.\\
+\texttt{gen\_circle} & Circle.\\
+\texttt{gen\_curvycycle} & Curvy cell cycle.\\
+\texttt{gen\_unifsphere} & Uniform ball.\\
+\texttt{gen\_hollowsphere} & Hollow sphere.\\
+\texttt{gen\_gridedsphere} & Grided sphere.\\
+\texttt{gen\_clusteredspheres} & Multiple small spheres within a big sphere.\\
+\texttt{gen\_hemisphere} & Hemisphere.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -497,8 +497,8 @@ The Trefoil is a closed, nontrivial one-dimensional manifold embedded in \(3\tex
 \toprule
 Function & Explanation\\
 \midrule
-gen\_trefoil4d & Trefoil in 4-D.\\
-gen\_trefoil3d & Trefoil in 3-D.\\
+\texttt{gen\_trefoil4d} & Trefoil in 4-D.\\
+\texttt{gen\_trefoil3d} & Trefoil in 3-D.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -538,12 +538,12 @@ Trigonometric-based structures provide flexible ways to simulate complex curved 
 \toprule
 Function & Explanation\\
 \midrule
-gen\_crescent & Crescent pattern.\\
-gen\_curvycylinder & Curvy cylinder.\\
-gen\_sphericalspiral & Spherical spiral.\\
-gen\_helicalspiral & Helical spiral.\\
-gen\_conicspiral & Conic spiral.\\
-gen\_nonlinear & Nonlinear hyperbola.\\
+\texttt{gen\_crescent} & Crescent pattern.\\
+\texttt{gen\_curvycylinder} & Curvy cylinder.\\
+\texttt{gen\_sphericalspiral} & Spherical spiral.\\
+\texttt{gen\_helicalspiral} & Helical spiral.\\
+\texttt{gen\_conicspiral} & Conic spiral.\\
+\texttt{gen\_nonlinear} & Nonlinear hyperbola.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -613,10 +613,10 @@ High-dimensional data structures often benefit from the addition of auxiliary no
 \toprule
 Function & Explanation\\
 \midrule
-gen\_noisedims & Gaussian noise dimensions with optional mean and standard deviation.\\
-gen\_wavydims1 & Wavy noise dimensions based on a user-specified theta sequence with added jitter.\\
-gen\_wavydims2 & Wavy noise dimensions using polynomial transformations of an existing dimension vector.\\
-gen\_wavydims3 & Wavy noise dimensions using a combination of polynomial and sine transformations based on the first three dimensions of a dataset.\\
+\texttt{gen\_noisedims} & Gaussian noise dimensions with optional mean and standard deviation.\\
+\texttt{gen\_wavydims1} & Wavy noise dimensions based on a user-specified theta sequence with added jitter.\\
+\texttt{gen\_wavydims2} & Wavy noise dimensions using polynomial transformations of an existing dimension vector.\\
+\texttt{gen\_wavydims3} & Wavy noise dimensions using a combination of polynomial and sine transformations based on the first three dimensions of a dataset.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -669,20 +669,20 @@ By using the shape generators mentioned above, we can create various examples of
 \toprule
 Function & Explanation\\
 \midrule
-make\_mobiusgau & Möbius-like cluster combined with a Gaussian.\\
-make\_multigau & Multiple Gaussian clusters in high-dimensional space.\\
-make\_curvygau & Curvilinear cluster with a Gaussian cluster.\\
-make\_klink\_circles & K-link circular clusters (non-linear circular patterns).\\
-make\_chain\_circles & Chain-like circular clusters connected sequentially.\\
-make\_klink\_curvycycle & K-link curvy cycle clusters (curvilinear loop structures).\\
-make\_chain\_curvycycle & Chain-like curvy cycle clusters connected sequentially.\\
-make\_gaucircles & Circular clusters with a Gaussian cluster in the middle.\\
-make\_gaucurvycycle & Curvy circular clusters with a Gaussian in the middle.\\
-make\_onegrid & Single grid in two dimensions.\\
-make\_twogrid\_overlap & Two overlapping grids.\\
-make\_twogrid\_shift & Two grids shifted relative to each other.\\
-make\_shape\_para & Parallel shaped clusters.\\
-make\_three\_clust\_ & Three clusters with different shapes. (eg:- 01, 02, ..., 20)\\
+\texttt{make\_mobiusgau} & Möbius-like cluster combined with a Gaussian.\\
+\texttt{make\_multigau} & Multiple Gaussian clusters in high-dimensional space.\\
+\texttt{make\_curvygau} & Curvilinear cluster with a Gaussian cluster.\\
+\texttt{make\_klink\_circles} & K-link circular clusters (non-linear circular patterns).\\
+\texttt{make\_chain\_circles} & Chain-like circular clusters connected sequentially.\\
+\texttt{make\_klink\_curvycycle} & K-link curvy cycle clusters (curvilinear loop structures).\\
+\texttt{make\_chain\_curvycycle} & Chain-like curvy cycle clusters connected sequentially.\\
+\texttt{make\_gaucircles} & Circular clusters with a Gaussian cluster in the middle.\\
+\texttt{make\_gaucurvycycle} & Curvy circular clusters with a Gaussian in the middle.\\
+\texttt{make\_onegrid} & Single grid in two dimensions.\\
+\texttt{make\_twogrid\_overlap} & Two overlapping grids.\\
+\texttt{make\_twogrid\_shift} & Two grids shifted relative to each other.\\
+\texttt{make\_shape\_para} & Parallel shaped clusters.\\
+\texttt{make\_three\_clust\_} & Three clusters with different shapes. (eg:- 01, 02, ..., 20)\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -699,12 +699,12 @@ The package includes various supplementary tools in addition to the shape genera
 \toprule
 Function & Explanation\\
 \midrule
-gen\_bkgnoise & Adds background noise.\\
-randomize\_rows & Randomizes the rows of input data.\\
-relocate\_clusters & Relocates the clusters.\\
-gen\_nproduct & Generates a vector of positive integers whose product is approximately equal to a target value.\\
-gen\_nsum & Generates a vector of positive integers whose summation is approximately equal to a target value.\\
-normalize\_data & Normalizes data.\\
+\texttt{gen\_bkgnoise} & Adds background noise.\\
+\texttt{randomize\_rows} & Randomizes the rows of input data.\\
+\texttt{relocate\_clusters} & Relocates the clusters.\\
+\texttt{gen\_nproduct} & Generates a vector of positive integers whose product is approximately equal to a target value.\\
+\texttt{gen\_nsum} & Generates a vector of positive integers whose summation is approximately equal to a target value.\\
+\texttt{normalize\_data} & Normalizes data.\\
 \bottomrule
 \end{tabular}
 \end{table}
