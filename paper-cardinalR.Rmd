@@ -215,17 +215,20 @@ main_tb <- tibble(arg = c("n",
                                 "Scaling factors of clusters.",
                                 "Shapes of clusters.",
                                 "Rotation matrices, one per cluster.",
-                                "Background noise should exist or not."))
+                                "Background noise should exist or not.")) |> 
+    mutate(arg = gsub("_", "\\\\_", arg))
 ```
 
 ```{r main-tb-html, eval=knitr::is_html_output()}
 main_tb |> 
-  kable(caption = "The main arguments for `gen_multicluster()`.", col.names = c("Argument", "Type", "Explanation"), linesep = "", table.pos = "!ht") 
+  mutate(arg = paste0("<code>", arg, "</code>")) |> 
+  kable(caption = "The main arguments for `gen_multicluster()`.", col.names = c("Argument", "Type", "Explanation"), linesep = "", escape = FALSE, table.pos = "!ht") 
 ```
 
 ```{r main-tb-pdf, eval=knitr::is_latex_output()}
 main_tb |> 
-  kable(caption = "The main arguments for gen\\_multicluster().", format="latex", col.names = c("Argument", "Type", "Explanation"), booktabs = T, table.pos = "!ht", linesep = "")  |>
+    mutate(arg = paste0("\\texttt{", arg, "}")) |> 
+  kable(caption = "The main arguments for \\texttt{gen\\_multicluster()}.", format="latex", col.names = c("Argument", "Type", "Explanation"), booktabs = T, table.pos = "!ht", linesep = "", escape = FALSE)  |>
   column_spec(1, width = "2cm") |>
   column_spec(2, width = "3cm") |>
   column_spec(3, width = "8cm")

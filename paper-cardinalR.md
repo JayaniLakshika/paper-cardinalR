@@ -160,15 +160,15 @@ An optional argument, `is_bkg`, adds background noise drawn from a multivariate 
 
 Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
-|Argument |Type               |Explanation                           |
-|:--------|:------------------|:-------------------------------------|
-|n        |numeric (vector)   |Number of points in each cluster.     |
-|k        |numeric            |Number of clusters.                   |
-|loc      |numeric (matrix)   |Locations/centroids of clusters.      |
-|scale    |numeric (vector)   |Scaling factors of clusters.          |
-|shape    |character (vector) |Shapes of clusters.                   |
-|rotation |numeric (list)     |Rotation matrices, one per cluster.   |
-|is_bkg   |boolean            |Background noise should exist or not. |
+|Argument              |Type               |Explanation                           |
+|:---------------------|:------------------|:-------------------------------------|
+|<code>n</code>        |numeric (vector)   |Number of points in each cluster.     |
+|<code>k</code>        |numeric            |Number of clusters.                   |
+|<code>loc</code>      |numeric (matrix)   |Locations/centroids of clusters.      |
+|<code>scale</code>    |numeric (vector)   |Scaling factors of clusters.          |
+|<code>shape</code>    |character (vector) |Shapes of clusters.                   |
+|<code>rotation</code> |numeric (list)     |Rotation matrices, one per cluster.   |
+|<code>is\_bkg</code>  |boolean            |Background noise should exist or not. |
 
 </div>
 

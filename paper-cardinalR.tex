@@ -71,19 +71,19 @@ An optional argument, \texttt{is\_bkg}, adds background noise drawn from a multi
 
 \begin{table}
 
-\caption{\label{tab:main-tb-pdf}The main arguments for gen\_multicluster().}
+\caption{\label{tab:main-tb-pdf}The main arguments for \texttt{gen\_multicluster()}.}
 \centering
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{8cm}}
 \toprule
 Argument & Type & Explanation\\
 \midrule
-n & numeric (vector) & Number of points in each cluster.\\
-k & numeric & Number of clusters.\\
-loc & numeric (matrix) & Locations/centroids of clusters.\\
-scale & numeric (vector) & Scaling factors of clusters.\\
-shape & character (vector) & Shapes of clusters.\\
-rotation & numeric (list) & Rotation matrices, one per cluster.\\
-is\_bkg & boolean & Background noise should exist or not.\\
+\texttt{n} & numeric (vector) & Number of points in each cluster.\\
+\texttt{k} & numeric & Number of clusters.\\
+\texttt{loc} & numeric (matrix) & Locations/centroids of clusters.\\
+\texttt{scale} & numeric (vector) & Scaling factors of clusters.\\
+\texttt{shape} & character (vector) & Shapes of clusters.\\
+\texttt{rotation} & numeric (list) & Rotation matrices, one per cluster.\\
+\texttt{is\_bkg} & boolean & Background noise should exist or not.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -757,9 +757,9 @@ To further evaluate the structure of the generated data, we benchmarked three cl
 \toprule
 method & wb.ratio & Dunn Index & Corrected Rand & VI\\
 \midrule
-k-means & 0.6 & 0.01 & 0.43 & 1.28\\
-Hierarchical & 0.6 & 0.01 & 0.44 & 1.17\\
-Model-based & 0.6 & 0.01 & 0.77 & 0.60\\
+k-means & 0.61 & 0.01 & 0.42 & 1.32\\
+Hierarchical & 0.61 & 0.01 & 0.50 & 1.15\\
+Model-based & 0.61 & 0.01 & 0.75 & 0.65\\
 \bottomrule
 \end{tabular}
 \end{table}
