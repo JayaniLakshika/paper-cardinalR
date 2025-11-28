@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-11-28'
+date: '2025-11-29'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -1026,10 +1026,10 @@ The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text
 
 Table: (\#tab:trefoil-tb-html)cardinalR trefoil data generation functions
 
-|Function                    |Explanation     |
-|:---------------------------|:---------------|
-|<code>gen\_trefoil4d</code> |Trefoil in 4-D. |
-|<code>gen\_trefoil3d</code> |Trefoil in 3-D. |
+|Function                    |Explanation              |
+|:---------------------------|:------------------------|
+|<code>gen\_trefoil4d</code> |Trefoil in $4\text{-}D$. |
+|<code>gen\_trefoil3d</code> |Trefoil in $3\text{-}D$. |
 
 </div>
 
@@ -1434,22 +1434,21 @@ By using the shape generators mentioned above, we can create various examples of
 
 Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
 
-|Function                             |Explanation                                                  |
-|:------------------------------------|:------------------------------------------------------------|
-|<code>make\_mobiusgau</code>         |Möbius-like cluster combined with a Gaussian.                |
-|<code>make\_multigau</code>          |Multiple Gaussian clusters in high-dimensional space.        |
-|<code>make\_curvygau</code>          |Curvilinear cluster with a Gaussian cluster.                 |
-|<code>make\_klink\_circles</code>    |K-link circular clusters (non-linear circular patterns).     |
-|<code>make\_chain\_circles</code>    |Chain-like circular clusters connected sequentially.         |
-|<code>make\_klink\_curvycycle</code> |K-link curvy cycle clusters (curvilinear loop structures).   |
-|<code>make\_chain\_curvycycle</code> |Chain-like curvy cycle clusters connected sequentially.      |
-|<code>make\_gaucircles</code>        |Circular clusters with a Gaussian cluster in the middle.     |
-|<code>make\_gaucurvycycle</code>     |Curvy circular clusters with a Gaussian in the middle.       |
-|<code>make\_onegrid</code>           |Single grid in two dimensions.                               |
-|<code>make\_twogrid\_overlap</code>  |Two overlapping grids.                                       |
-|<code>make\_twogrid\_shift</code>    |Two grids shifted relative to each other.                    |
-|<code>make\_shape\_para</code>       |Parallel shaped clusters.                                    |
-|<code>make\_three\_clust\_</code>    |Three clusters with different shapes. (eg:- 01, 02, ..., 20) |
+|Function                             |Explanation                                                |
+|:------------------------------------|:----------------------------------------------------------|
+|<code>make\_mobiusgau</code>         |Möbius-like cluster combined with a Gaussian.              |
+|<code>make\_multigau</code>          |Multiple Gaussian clusters in high-dimensional space.      |
+|<code>make\_curvygau</code>          |Curvilinear cluster with a Gaussian cluster.               |
+|<code>make\_klink\_circles</code>    |K-link circular clusters (non-linear circular patterns).   |
+|<code>make\_chain\_circles</code>    |Chain-like circular clusters connected sequentially.       |
+|<code>make\_klink\_curvycycle</code> |K-link curvy cycle clusters (curvilinear loop structures). |
+|<code>make\_chain\_curvycycle</code> |Chain-like curvy cycle clusters connected sequentially.    |
+|<code>make\_gaucircles</code>        |Circular clusters with a Gaussian cluster in the middle.   |
+|<code>make\_gaucurvycycle</code>     |Curvy circular clusters with a Gaussian in the middle.     |
+|<code>make\_onegrid</code>           |Single grid in two dimensions.                             |
+|<code>make\_twogrid\_overlap</code>  |Two overlapping grids.                                     |
+|<code>make\_twogrid\_shift</code>    |Two grids shifted relative to each other.                  |
+|<code>make\_shape\_para</code>       |Parallel shaped clusters.                                  |
 
 </div>
 

@@ -1284,8 +1284,8 @@ swissroll <- gen_swissroll(n = 1000, w = c(-1, 1))
 ## -----------------------------------------------------------------------------
 trefoil_tb <- tibble(fun = c("gen_trefoil4d",
                             "gen_trefoil3d"), 
-                        exp = c("Trefoil in 4-D.",
-                                "Trefoil in 3-D.")) |> 
+                        exp = c("Trefoil in $4\\text{-}D$.",
+                                "Trefoil in $3\\text{-}D$.")) |> 
   mutate(fun = gsub("_", "\\\\_", fun))
 
 
@@ -1977,8 +1977,7 @@ odd_shapes_tb <- tibble(fun = c("make_mobiusgau",
                                 "make_onegrid",
                                 "make_twogrid_overlap",
                                 "make_twogrid_shift",
-                                "make_shape_para",
-                                "make_three_clust_"), 
+                                "make_shape_para"), 
                         exp = c(
     "Möbius-like cluster combined with a Gaussian.",
     "Multiple Gaussian clusters in high-dimensional space.",
@@ -1992,8 +1991,7 @@ odd_shapes_tb <- tibble(fun = c("make_mobiusgau",
     "Single grid in two dimensions.",
     "Two overlapping grids.",
     "Two grids shifted relative to each other.",
-    "Parallel shaped clusters.",
-    "Three clusters with different shapes. (eg:- 01, 02, ..., 20)")) |> 
+    "Parallel shaped clusters.")) |> 
   mutate(fun = gsub("_", "\\\\_", fun))
 
 
