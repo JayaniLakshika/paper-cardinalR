@@ -158,7 +158,12 @@ branch_tb <- tibble(fun = c("gen_expbranches",
                              "gen_linearbranches",
                              "gen_curvybranches", 
                              "gen_orglinearbranches", 
-                             "gen_orgcurvybranches"), 
+                             "gen_orgcurvybranches"),
+                    parm = c("n, k",
+                             "n, k",
+                             "n, k",
+                             "n, p, k",
+                             "n, p, k"),
                       exp = c("Exponential shaped branches.",
                                "Linear shaped branches.", 
                                "Curvy shaped branches.",
@@ -169,51 +174,57 @@ branch_tb <- tibble(fun = c("gen_expbranches",
 
 ## ----branching-tb-html, eval=knitr::is_html_output()--------------------------
 # branch_tb |>
+#   mutate(parm = paste0("<code>", parm, "</code>")) |>
 #   mutate(fun = paste0("<code>", fun, "</code>")) |>
-#   kable(caption = "cardinalR branching data generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
+#   kable(caption = "cardinalR branching data generation functions", col.names = c("Function", "Arguments", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
 ## ----branching-tb-pdf, eval=knitr::is_latex_output()--------------------------
 branch_tb |>
+  mutate(parm = paste0("\\texttt{", parm, "}")) |>
   mutate(fun = paste0("\\texttt{", fun, "}")) |> 
-  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
+  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Arguments", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
+  column_spec(1, width = "3.5cm") |>
+  column_spec(2, width = "1.5cm") |>
+  column_spec(3, width = "8cm")
 
 
 ## -----------------------------------------------------------------------------
-arg_branching_tb <- tibble(arg = c("n", "k"), 
-                          type = c("integer", "integer"),
+arg_branching_tb <- tibble(arg = c("n", "k", "p"), 
+                          type = c("integer", "integer", "integer"),
                         exp = c("Number of points.",
-                                "Number of clusters."))
+                                "Number of clusters.",
+                                "Number of dimensions."))
 
 
 ## ----arg-branching-tb-html, eval=knitr::is_html_output()----------------------
 # arg_branching_tb |>
+#   mutate(arg = paste0("<code>", arg, "</code>")) |>
 #   kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Type", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
 ## ----arg-branching-tb-pdf, eval=knitr::is_latex_output()----------------------
 arg_branching_tb |> 
+  mutate(arg = paste0("\\texttt{", arg, "}")) |> 
   kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Type", "Explanation"), booktabs = T, escape = FALSE, table.pos = "!ht")  |>
   column_spec(1, width = "1cm") |>
   column_spec(1, width = "2cm") |>
   column_spec(2, width = "3cm")
 
 
-## ----data-linearbranches, echo=TRUE-------------------------------------------
+## ----data-linearbranches------------------------------------------------------
 linearbranches <- gen_linearbranches(n = 1000, k = 4)
 
 
-## ----data-curvybranches, echo=TRUE--------------------------------------------
+## ----data-curvybranches-------------------------------------------------------
 curvybranches <- gen_curvybranches(n = 1000, k = 4)
 
 
-## ----data-expbranches, echo=TRUE----------------------------------------------
+## ----data-expbranches---------------------------------------------------------
 expbranches <- gen_expbranches(n = 1000, k = 4)
 
 
-## ----data-orglinearbranches, echo=TRUE----------------------------------------
+## ----data-orglinearbranches---------------------------------------------------
 orglinearbranches <- gen_orglinearbranches(n = 1000, p = 4, k = 4)
 
 
@@ -303,7 +314,7 @@ orglinearbranches_proj3 <- plot_proj(
 
 
 
-## ----data-orgcurvybranches, echo=TRUE-----------------------------------------
+## ----data-orgcurvybranches----------------------------------------------------
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 
 

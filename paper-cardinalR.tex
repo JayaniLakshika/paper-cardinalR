@@ -100,15 +100,15 @@ A branching structure (Figure \ref{fig:branch-proj}) captures trajectories that 
 
 \caption{\label{tab:branching-tb-pdf}cardinalR branching data generation functions}
 \centering
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{8cm}}
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{8cm}}
 \toprule
-Function & Explanation\\
+Function & Arguments & Explanation\\
 \midrule
-\texttt{gen\_expbranches} & Exponential shaped branches.\\
-\texttt{gen\_linearbranches} & Linear shaped branches.\\
-\texttt{gen\_curvybranches} & Curvy shaped branches.\\
-\texttt{gen\_orglinearbranches} & Linear shaped branches originated in one point.\\
-\texttt{gen\_orgcurvybranches} & Curvy shaped branches originated in one point.\\
+\texttt{gen\_expbranches} & \texttt{n, k} & Exponential shaped branches.\\
+\texttt{gen\_linearbranches} & \texttt{n, k} & Linear shaped branches.\\
+\texttt{gen\_curvybranches} & \texttt{n, k} & Curvy shaped branches.\\
+\texttt{gen\_orglinearbranches} & \texttt{n, p, k} & Linear shaped branches originated in one point.\\
+\texttt{gen\_orgcurvybranches} & \texttt{n, p, k} & Curvy shaped branches originated in one point.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -121,8 +121,9 @@ Function & Explanation\\
 \toprule
 Argument & Type & Explanation\\
 \midrule
-n & integer & Number of points.\\
-k & integer & Number of clusters.\\
+\texttt{n} & integer & Number of points.\\
+\texttt{k} & integer & Number of clusters.\\
+\texttt{p} & integer & Number of dimensions.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -146,10 +147,6 @@ s_i =
 
 Branches \(1\) and \(2\) are initialized with fixed slopes and intercepts, while later branches are iteratively added at locations chosen to avoid overlap with existing branches, producing a set of connected linear paths.
 
-\begin{verbatim}
-linearbranches <- gen_linearbranches(n = 1000, k = 4)
-\end{verbatim}
-
 To introduce curvature, the \texttt{gen\_curvybranches(n,\ k)} function generates \(k\) curvilinear branches in \(2\text{-}D\). Branches \(1\) and \(2\) are simple parabolas defined as
 
 \[
@@ -167,10 +164,6 @@ X_1 \sim U(x_{\text{start},i}, x_{\text{start},i}+1), \quad X_2 = 0.1 X_1 - s_i 
 
 where \(s_i\) is a scale factor controlling the curvature of branch \(i\). For the first few initial branches, \(s_i\) can be fixed (e.g., \(s_1 = 1, s_2 = 2\)), while for subsequent branches it is sampled from a predefined set, such as \(s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5\}\), to create variability in curvature.
 
-\begin{verbatim}
-curvybranches <- gen_curvybranches(n = 1000, k = 4)
-\end{verbatim}
-
 The \texttt{gen\_expbranches(n,\ k)} function creates \(k\) exponential branches in \(2\text{-}D\), radiating from a central region. Each branch \(i\) is defined as
 
 \[
@@ -178,10 +171,6 @@ X_1 \sim U(-2,2), \quad X_2 = \exp(\sigma_i \, s_i \, X_1) + \epsilon, \quad \ep
 \]
 
 where \(\sigma_i = (-1)^{i+1}\) alternates the sign of the exponent to produce mirror-symmetric branches. The parameter \(s_i\) controls the steepness of branch \(i\), and \(\delta\) introduces small local jitter.
-
-\begin{verbatim}
-expbranches <- gen_expbranches(n = 1000, k = 4)
-\end{verbatim}
 
 High-dimensional generalizations are provided by \texttt{gen\_orglinearbranches(n,\ p,\ k)} (Figure \ref{fig:branch-proj}) and \texttt{gen\_orgcurvybranches(n,\ p,\ k)}. Each branch is embedded in a unique or repeated \(2\text{-}D\) subspace of the \(p\text{-}D\) space. When \texttt{allow\_share\ =\ TRUE}, multiple branches may share the same subspace; otherwise, subspaces are sampled without replacement until all possible \(\binom{p}{2}\) combinations are exhausted, after which additional branches may repeat subspaces. Linear branches follow
 
@@ -196,14 +185,6 @@ X_{i_1} \sim U(a_i,b_i), \quad X_{i_2} = - s_i X_{i_1}^2 + \epsilon, \quad \epsi
 \]
 
 where \(a_i, b_i\) define the range of the first coordinate for branch \(i\), and \(\epsilon\) is Gaussian noise added to introduce variability. The scale factor \(s_i\) controls slope (linear branches) or curvature (curvilinear branches) and is assigned as follows: for the first \(\binom{p}{2}\) branches, \(s_i = 1\); for additional branches when \(k > \binom{p}{2}\), \(s_i\) is randomly drawn from the set \(\{1, 1.5, 2, \dots, 8\}\).
-
-\begin{verbatim}
-orglinearbranches <- gen_orglinearbranches(n = 1000, p = 4, k = 4)
-\end{verbatim}
-
-\begin{verbatim}
-orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
-\end{verbatim}
 
 \begin{figure}[!ht]
 \includegraphics[width=1\linewidth,alt={Three 2-D projections of the 4-D orglinearbranches dataset, showing different angles of the linear branches to illustrate the branching structure.}]{paper-cardinalR_files/figure-latex/branch-proj-1} \caption{Three $2\text{-}D$ projections from the $4\text{-}D$ `orglinearbranches` data. Each shows a different projection, illustrating how the linear branches appear from multiple viewing angles. These views highlight the dataset’s underlying branching structure and demonstrate how projections reveal patterns that are otherwise hidden in higher dimensions.}\label{fig:branch-proj}

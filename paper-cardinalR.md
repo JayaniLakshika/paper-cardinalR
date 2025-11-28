@@ -197,13 +197,13 @@ A branching structure (Figure \@ref(fig:branch)) captures trajectories that dive
 
 Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 
-|Function                            |Explanation                                     |
-|:-----------------------------------|:-----------------------------------------------|
-|<code>gen\_expbranches</code>       |Exponential shaped branches.                    |
-|<code>gen\_linearbranches</code>    |Linear shaped branches.                         |
-|<code>gen\_curvybranches</code>     |Curvy shaped branches.                          |
-|<code>gen\_orglinearbranches</code> |Linear shaped branches originated in one point. |
-|<code>gen\_orgcurvybranches</code>  |Curvy shaped branches originated in one point.  |
+|Function                            |Arguments            |Explanation                                     |
+|:-----------------------------------|:--------------------|:-----------------------------------------------|
+|<code>gen\_expbranches</code>       |<code>n, k</code>    |Exponential shaped branches.                    |
+|<code>gen\_linearbranches</code>    |<code>n, k</code>    |Linear shaped branches.                         |
+|<code>gen\_curvybranches</code>     |<code>n, k</code>    |Curvy shaped branches.                          |
+|<code>gen\_orglinearbranches</code> |<code>n, p, k</code> |Linear shaped branches originated in one point. |
+|<code>gen\_orgcurvybranches</code>  |<code>n, p, k</code> |Curvy shaped branches originated in one point.  |
 
 </div>
 
@@ -224,10 +224,11 @@ Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 
 Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape generators.
 
-|Argument |Type    |Explanation         |
-|:--------|:-------|:-------------------|
-|n        |integer |Number of points.   |
-|k        |integer |Number of clusters. |
+|Argument       |Type    |Explanation           |
+|:--------------|:-------|:---------------------|
+|<code>n</code> |integer |Number of points.     |
+|<code>k</code> |integer |Number of clusters.   |
+|<code>p</code> |integer |Number of dimensions. |
 
 </div>
 
@@ -258,7 +259,7 @@ $$
 Branches $1$ and $2$ are initialized with fixed slopes and intercepts, while later branches are iteratively added at locations chosen to avoid overlap with existing branches, producing a set of connected linear paths. 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_linearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -281,7 +282,7 @@ $$
 where $s_i$ is a scale factor controlling the curvature of branch $i$. For the first few initial branches, $s_i$ can be fixed (e.g., $s_1 = 1, s_2 = 2$), while for subsequent branches it is sampled from a predefined set, such as $s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5\}$, to create variability in curvature. 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvybranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvybranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -295,7 +296,7 @@ $$
 where $\sigma_i = (-1)^{i+1}$ alternates the sign of the exponent to produce mirror-symmetric branches. The parameter $s_i$ controls the steepness of branch $i$, and $\delta$ introduces small local jitter.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>expbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_expbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -315,12 +316,6 @@ $$
 where $a_i, b_i$ define the range of the first coordinate for branch $i$, and $\epsilon$ is Gaussian noise added to introduce variability. The scale factor $s_i$ controls slope (linear branches) or curvature (curvilinear branches) and is assigned as follows: for the first $\binom{p}{2}$ branches, $s_i = 1$; for additional branches when $k > \binom{p}{2}$, $s_i$ is randomly drawn from the set $\{1, 1.5, 2, \dots, 8\}$.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>orglinearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_orglinearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
 
 
 </div>
@@ -345,7 +340,13 @@ where $a_i, b_i$ define the range of the first coordinate for branch $i$, and $\
 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>orgcurvybranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_orgcurvybranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
 
 </div>
 

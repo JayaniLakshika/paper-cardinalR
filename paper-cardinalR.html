@@ -1955,34 +1955,41 @@ X \sim \mathcal{N}(m, s^2),
 <table>
 <caption><span id="tab:branching-tb-html">Table 2: </span>cardinalR branching data generation functions</caption>
 <colgroup>
-<col style="width: 42%" />
-<col style="width: 57%" />
+<col style="width: 34%" />
+<col style="width: 20%" />
+<col style="width: 45%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Function</th>
+<th style="text-align: left;">Arguments</th>
 <th style="text-align: left;">Explanation</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>gen_expbranches</code></td>
+<td style="text-align: left;"><code>n, k</code></td>
 <td style="text-align: left;">Exponential shaped branches.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>gen_linearbranches</code></td>
+<td style="text-align: left;"><code>n, k</code></td>
 <td style="text-align: left;">Linear shaped branches.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>gen_curvybranches</code></td>
+<td style="text-align: left;"><code>n, k</code></td>
 <td style="text-align: left;">Curvy shaped branches.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>gen_orglinearbranches</code></td>
+<td style="text-align: left;"><code>n, p, k</code></td>
 <td style="text-align: left;">Linear shaped branches originated in one point.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>gen_orgcurvybranches</code></td>
+<td style="text-align: left;"><code>n, p, k</code></td>
 <td style="text-align: left;">Curvy shaped branches originated in one point.</td>
 </tr>
 </tbody>
@@ -2006,14 +2013,19 @@ X \sim \mathcal{N}(m, s^2),
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">n</td>
+<td style="text-align: left;"><code>n</code></td>
 <td style="text-align: left;">integer</td>
 <td style="text-align: left;">Number of points.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">k</td>
+<td style="text-align: left;"><code>k</code></td>
 <td style="text-align: left;">integer</td>
 <td style="text-align: left;">Number of clusters.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>p</code></td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">Number of dimensions.</td>
 </tr>
 </tbody>
 </table>
@@ -2036,9 +2048,7 @@ s_i =
 \]</span></p>
 <p>Branches <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> are initialized with fixed slopes and intercepts, while later branches are iteratively added at locations chosen to avoid overlap with existing branches, producing a set of connected linear paths.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_linearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
-</div>
+
 </div>
 <p>To introduce curvature, the <code>gen_curvybranches(n, k)</code> function generates <span class="math inline">\(k\)</span> curvilinear branches in <span class="math inline">\(2\text{-}D\)</span>. Branches <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> are simple parabolas defined as</p>
 <p><span class="math display">\[
@@ -2053,9 +2063,7 @@ X_1 \sim U(x_{\text{start},i}, x_{\text{start},i}+1), \quad X_2 = 0.1 X_1 - s_i 
 \]</span></p>
 <p>where <span class="math inline">\(s_i\)</span> is a scale factor controlling the curvature of branch <span class="math inline">\(i\)</span>. For the first few initial branches, <span class="math inline">\(s_i\)</span> can be fixed (e.g., <span class="math inline">\(s_1 = 1, s_2 = 2\)</span>), while for subsequent branches it is sampled from a predefined set, such as <span class="math inline">\(s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5\}\)</span>, to create variability in curvature.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvybranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvybranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
-</div>
+
 </div>
 <p>The <code>gen_expbranches(n, k)</code> function creates <span class="math inline">\(k\)</span> exponential branches in <span class="math inline">\(2\text{-}D\)</span>, radiating from a central region. Each branch <span class="math inline">\(i\)</span> is defined as</p>
 <p><span class="math display">\[
@@ -2063,9 +2071,7 @@ X_1 \sim U(-2,2), \quad X_2 = \exp(\sigma_i \, s_i \, X_1) + \epsilon, \quad \ep
 \]</span></p>
 <p>where <span class="math inline">\(\sigma_i = (-1)^{i+1}\)</span> alternates the sign of the exponent to produce mirror-symmetric branches. The parameter <span class="math inline">\(s_i\)</span> controls the steepness of branch <span class="math inline">\(i\)</span>, and <span class="math inline">\(\delta\)</span> introduces small local jitter.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>expbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_expbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
-</div>
+
 </div>
 <p>High-dimensional generalizations are provided by <code>gen_orglinearbranches(n, p, k)</code> (Figure <a href="#fig:branch">2</a>) and <code>gen_orgcurvybranches(n, p, k)</code>. Each branch is embedded in a unique or repeated <span class="math inline">\(2\text{-}D\)</span> subspace of the <span class="math inline">\(p\text{-}D\)</span> space. When <code>allow_share = TRUE</code>, multiple branches may share the same subspace; otherwise, subspaces are sampled without replacement until all possible <span class="math inline">\(\binom{p}{2}\)</span> combinations are exhausted, after which additional branches may repeat subspaces. Linear branches follow</p>
 <p><span class="math display">\[
@@ -2077,11 +2083,6 @@ X_{i_1} \sim U(a_i,b_i), \quad X_{i_2} = - s_i X_{i_1}^2 + \epsilon, \quad \epsi
 \]</span></p>
 <p>where <span class="math inline">\(a_i, b_i\)</span> define the range of the first coordinate for branch <span class="math inline">\(i\)</span>, and <span class="math inline">\(\epsilon\)</span> is Gaussian noise added to introduce variability. The scale factor <span class="math inline">\(s_i\)</span> controls slope (linear branches) or curvature (curvilinear branches) and is assigned as follows: for the first <span class="math inline">\(\binom{p}{2}\)</span> branches, <span class="math inline">\(s_i = 1\)</span>; for additional branches when <span class="math inline">\(k &gt; \binom{p}{2}\)</span>, <span class="math inline">\(s_i\)</span> is randomly drawn from the set <span class="math inline">\(\{1, 1.5, 2, \dots, 8\}\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>orglinearbranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_orglinearbranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
@@ -2094,9 +2095,10 @@ X_{i_1} \sim U(a_i,b_i), \quad X_{i_2} = - s_i X_{i_1}^2 + \epsilon, \quad \epsi
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>orgcurvybranches</span> <span class='op'>&lt;-</span> <span class='fu'>gen_orgcurvybranches</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, k <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
+
 </div>
+<div class="layout-chunk" data-layout="l-body">
+
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:branch"></span>
