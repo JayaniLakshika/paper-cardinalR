@@ -221,18 +221,18 @@ Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 |<code>gen\_curvycycle</code>        |<code>n, p</code>            |Curvy cell cycle.                                |
 |<code>gen\_unifsphere</code>        |<code>n, r</code>            |Uniform ball.                                    |
 |<code>gen\_hollowsphere</code>      |<code>n, p</code>            |Hollow sphere.                                   |
-|<code>gen\_gridedsphere</code>      |<code>n, k, r, loc</code>    |Grided sphere.                                   |
-|<code>gen\_clusteredspheres</code>  |<code>n, w</code>            |Multiple small spheres within a big sphere.      |
-|<code>gen\_hemisphere</code>        |<code>n, steps</code>        |Hemisphere.                                      |
-|<code>gen\_swissroll</code>         |<code>n, steps</code>        |Swissroll structure.                             |
-|<code>gen\_trefoil4d</code>         |<code>n</code>               |Trefoil in $4\text{-}D$.                         |
-|<code>gen\_trefoil3d</code>         |<code>n, h</code>            |Trefoil in $3\text{-}D$.                         |
-|<code>gen\_crescent</code>          |<code>n, spins</code>        |Crescent pattern.                                |
-|<code>gen\_curvycylinder</code>     |<code>n</code>               |Curvy cylinder.                                  |
+|<code>gen\_gridedsphere</code>      |<code>n</code>               |Grided sphere.                                   |
+|<code>gen\_clusteredspheres</code>  |<code>n, k, r, loc</code>    |Multiple small spheres within a big sphere.      |
+|<code>gen\_hemisphere</code>        |<code>n, p</code>            |Hemisphere.                                      |
+|<code>gen\_swissroll</code>         |<code>n, w</code>            |Swissroll structure.                             |
+|<code>gen\_trefoil4d</code>         |<code>n, steps</code>        |Trefoil in $4\text{-}D$.                         |
+|<code>gen\_trefoil3d</code>         |<code>n, steps</code>        |Trefoil in $3\text{-}D$.                         |
+|<code>gen\_crescent</code>          |<code>n</code>               |Crescent pattern.                                |
+|<code>gen\_curvycylinder</code>     |<code>n, h</code>            |Curvy cylinder.                                  |
 |<code>gen\_sphericalspiral</code>   |<code>n, spins</code>        |Spherical spiral.                                |
-|<code>gen\_helicalspiral</code>     |<code>n, hc, non\_fac</code> |Helical spiral.                                  |
-|<code>gen\_conicspiral</code>       |<code>n</code>               |Conic spiral.                                    |
-|<code>gen\_nonlinear</code>         |<code>n</code>               |Nonlinear hyperbola.                             |
+|<code>gen\_helicalspiral</code>     |<code>n</code>               |Helical spiral.                                  |
+|<code>gen\_conicspiral</code>       |<code>n, spins</code>        |Conic spiral.                                    |
+|<code>gen\_nonlinear</code>         |<code>n, hc, non\_fac</code> |Nonlinear hyperbola.                             |
 
 </div>
 
@@ -503,7 +503,7 @@ Such cube-based structures are commonly used as benchmarks in Monte Carlo sampli
 The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure. Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, s)$, where $s$ is a user-defined $p \times p$ positive-definite matrix.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gau</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gaussian</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, s <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span><span class='op'>(</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -517,7 +517,7 @@ Gaussian clouds are common benchmark structures in statistics and machine learni
 The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a long linear structure with noise. Each variable is constructed by first creating a sequence of integers from $0$ to $n-1$, adding Gaussian noise with standard deviation $0.03n$, and then applying a random scaling and shift. Specifically, for the $j$-th dimension, a scale factor $\text{scale}_j \sim U(-10, 10)$ determines the orientation and stretching of the line, while a shift factor $\text{shift}_j \sim U(-300, 300)$ is added inside the multiplication to offset the line. This results in each variable being of the form $X_j = \text{scale}_j \cdot \big((0,1,\dots,n-1) + \epsilon + \text{shift}_j\big)$, where $\epsilon \sim N(0, (0.03n)^2)$ is independent Gaussian noise. 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>linear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_longlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -529,7 +529,7 @@ This structure appears in $p\text{-}D$ data when variation is driven by a single
 The `gen_mobius()` function is a wrapper around `geozoo::mobius()`, designed to simplify the generation of a Möbius strip in three dimensions for use in high-dimensional diagnostic studies. The function returns a tibble with $n$ sampled points forming the surface of a Möbius strip.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mobius</span> <span class='op'>&lt;-</span> <span class='fu'>gen_mobius</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -543,7 +543,7 @@ A polynomial structure generates data points that follow non-linear curvilinear 
 The first is the quadratic curve of $n$ points in two dimensions. This is generated using `gen_quadratic(n, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree 2 is applied to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a smooth parabolic arc opening downward, with vertical jitter introduced by the noise term.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>quadratic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_quadratic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -551,7 +551,7 @@ The first is the quadratic curve of $n$ points in two dimensions. This is genera
 The second is the cubic curve of $n$ points in two dimensions. This is generated using `gen_cubic(n, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree $3$ is applied to construct $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a more complex curvilinear structure than the quadratic case, with both upward and downward turning points.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cubic</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cubic</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -565,7 +565,7 @@ Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the re
 The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (Figure \@ref(fig:pyr) a), let $r_x(z)$ and $r_y(z)$ denote the half-widths of the rectangular cross-section at height $z$. That is, $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as $X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z)).$
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrrect</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrrect</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -597,7 +597,7 @@ The remaining dimensions are based on the specific pyramid shape. For the rectan
 For the triangular based pyramid, `gen_pyrtri(n, p, h, l, rt)` (Figure \@ref(fig:pyr) b), let $r(z)$ denote the scaling factor (distance from the origin to triangle vertices) at height $z$. That is, $r(z) = r_t + (l-r_t)z/h$. A point in the triangle at height $z$ is generated using barycentric coordinates $(u, v)$ to ensure uniform sampling within the triangular cross-section: $u, v \sim U(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v$. The first three coordinates (triangle plane) are then: $X_1 = r(z)(1 - u - v)$, $X_2 = r(z)u$, and $X_3 = r(z)v.$ 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrtri</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrtri</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -629,7 +629,7 @@ For the triangular based pyramid, `gen_pyrtri(n, p, h, l, rt)` (Figure \@ref(fig
 For the star based pyramid, `gen_pyrstar(n, p, h, rb)` (Figure \@ref(fig:pyr) c), let the radius at height $z$, $r(z)$, be such that the radius scales linearly from zero (tip) to the base radius $r_b$. That is, $r(z) = r_b\left(1 - z/h\right)$. Each point is placed within a regular hexagon in the plane $(X_1, X_2)$, using a randomly chosen hexagon sector angle $\theta \in \{0, \pi/3, 2\pi/3, \pi, 4\pi/3, 5\pi/3\}$ and a uniformly random radial scaling factor: $\theta \sim \text{Uniform sample from 6 hexagon angles}$, $r_{\text{point}} \sim \sqrt{U(0, 1)}$. Then, the first two coordinates are: $X_1 = r(z)r_{\text{point}}\cos(\theta)$, and $X_2 = r(z)r_{\text{point}}\sin(\theta)$.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrstar</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrstar</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -663,7 +663,7 @@ For rectangular and triangular pyramids, the remaining dimensions $X_4$ to $X_{p
 Finally, for the Sierpinski-like pyramid, `gen_pyrfrac(n, p)` (Figure \@ref(fig:pyr) d), let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$. Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>pyrholes</span> <span class='op'>&lt;-</span> <span class='fu'>gen_pyrfrac</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -735,7 +735,7 @@ The S-curve is a smooth, non-linear manifold in $3\text{-}D$ space. Using `gen_s
 This follows the `s_curve()` function from snedata [@james2025], itself adapted from *scikit-learn*, but differs by returning a tibble with standardized names (`x1`, `x2`, `x3`), excluding the color variable, and omitting built-in noise (which can be added separately). S-curve is commonly used in manifold learning and dimension reduction as benchmarks for unfolding curved structure.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scurve</span> <span class='op'>&lt;-</span> <span class='fu'>gen_scurve</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -747,7 +747,7 @@ Sphere-shaped structures are useful for evaluating how dimension reduction and c
 The simplest case, `gen_circle(n, p)` creates a unit circle in two dimensions, with the remaining dimensions forming sinusoidal extensions of the angular parameter at progressively smaller scales (Figure \@ref(fig:sphere) a). Let a latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\pi]$. Coordinates in the first two dimensions represent a perfect circle on the plane: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta).$$ For dimensions $X_3$ through $X_p$, sinusoidal transformations of the angle $\theta$ are introduced. The first component is a scaling factor that decreases with the dimension index, defined as $\text{scale}_j = \sqrt{(0.5)^{j-2}}$ for $j = 3, \dots, p$. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula $\phi_j = (j - 2)\pi/2p$. Each additional dimension is computed as: $X_j = \text{scale}_{j}\sin(\theta + \phi_j), \quad j = 3, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>circle</span> <span class='op'>&lt;-</span> <span class='fu'>gen_circle</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -781,7 +781,7 @@ For the one-dimensional nonlinear cycle embedded in $p\text{-}D$ space, `gen_cur
 Together, these define a periodic, non-trivial, closed curve in $3\text{-}D$ with internal folds that produce a more complex geometry than a standard circle or ellipse. For dimensions $X_4$ through $X_p$, additional structured variability is introduced through decreasing amplitude scaling and phase-shifted sine waves. The scaling factor is defined as $\text{scale}_j = \sqrt{(0.5)^{j-3}}$ for $j$ ranging from $4$ to $p$, which means that the amplitude decreases as the dimension increases. Each dimension $X_j$ is then calculated using the formula $X_j = \text{scale}_j\sin(\theta + \phi_j)$, where the phase shift $\phi_j$ is given by $\phi_j = (j - 2)\pi/2p$. 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvycycle</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvycycle</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -813,7 +813,7 @@ Together, these define a periodic, non-trivial, closed curve in $3\text{-}D$ wit
 Building on simple circular structures, the `gen_unifsphere(n, r)` function function extends the idea to three dimensions by generating $n$ observations approximately uniformly distributed on the surface of a sphere of radius $r$.. Each observation is computed from spherical coordinates, with $u \sim U(-1, 1)$ representing $\cos(\phi)$ and $\theta \sim U(0, 2\pi)$ the azimuthal angle. Cartesian coordinates are then defined as $$X_1 = r\sqrt{1 - u^2}\cos(\theta), \quad X_2 = r\sqrt{1 - u^2}\sin(\theta),\text{ and }X_3 = ru,$$ ensuring uniform distribution on the surface (not within) of the sphere. 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifsphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifsphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, r <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -821,7 +821,7 @@ Building on simple circular structures, the `gen_unifsphere(n, r)` function func
 In contrast, the `gen_hollowsphere(n, p)` function, a wrapper around `geozoo::sphere.hollow()`, generates $n$ points uniformly distributed only on the surface of the $(p-1)$-dimensional sphere embedded in $\mathbb{R}^p$. This results in a hollow shell-like structure with no interior points. For example, when $p=3$, `gen_unifsphere()` produces a solid ball in $3\text{-}D$ space, whereas `gen_hollowsphere()` produces only the spherical boundary. These paired structures allow controlled experiments to investigate how algorithms behave when data is concentrated throughout the full volume versus constrained to the boundary.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>hollowsphere</span> <span class='op'>&lt;-</span> <span class='fu'>gen_hollowsphere</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -858,9 +858,7 @@ The result is a deterministic grid of points lying exactly on the surface of the
 For more heterogeneous structures, the `gen_clusteredspheres(n, k, r, loc)` function generates one large sphere of radius $r_1$ and $k$ smaller spheres of radius $r_2$, each centered at a different random location (Figure \@ref(fig:sphere) e). A large Uniform ball centered at the origin is created by sampling $n_1$ points uniformly on the surface of a $p\text{-}D$ sphere with a radius of $r_1$. The sampling is executed using the function `gen_unifsphere(n_1, r_1)`, which generates the desired points in the specified dimensional space. In generation of $k$ smaller Uniform balls, each sphere contains $n_2$ points that are sampled uniformly on a sphere with a radius of $r_2$. These spheres are positioned at distinct random locations in $p$-space, with the center of each sphere being drawn from a normal distribution $N(0, \texttt{loc}^2 I_p)$. Points on spheres are generated using the standard hyperspherical method, which involves sampling $u \sim U(-1, 1)$ to determine the cosine of the polar angle, and sampling $\theta \sim U(0, 2\pi)$ to determine the azimuthal angle (for $3\text{-}D$). Each observation is classified by cluster, with labels such as "big" for the large central sphere and "small_1" to "small_k" for the smaller spheres.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>clusteredspheres</span> <span class='op'>&lt;-</span> <span class='fu'>gen_clusteredspheres</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='fl'>100</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>3</span>, r <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>15</span>, <span class='fl'>3</span><span class='op'>)</span>,</span>
-<span>                                         loc <span class='op'>=</span> <span class='fl'>10</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>cluster</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -928,7 +926,7 @@ Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere 
 The Swiss roll is a standard nonlinear manifold, representing a plane curled into $3\text{-}D$. The `gen_swissroll(n, w)` generates points as $X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad t \sim U(0, 3\pi).$
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, w <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -946,7 +944,7 @@ The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text
 For the $4\text{-}D$ trefoil knot [@laurent2024], the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (Figure \@ref(fig:trefoil) a). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ and $\phi$ trace the knot’s path. 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>trefoil4d</span> <span class='op'>&lt;-</span> <span class='fu'>gen_trefoil4d</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>500</span>, steps <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -978,7 +976,7 @@ For the $4\text{-}D$ trefoil knot [@laurent2024], the function `gen_trefoil4d(n,
 For the $3\text{-}D$ stereographic projection [@laurent2024], `gen_trefoil3d(n, steps)` maps each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $(X_1', X_2', X_3') \in \mathbb{R}^3\text{ using }X_1' = X_1 / (1 - X_4), \quad X_2' = X_2 / (1 - X_4),\text{ and }X_3' = X_3 / (1 - X_4),$ excluding points where $X_4 = 1$ to avoid division by zero (Figure \@ref(fig:trefoil) b). 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>trefoil3d</span> <span class='op'>&lt;-</span> <span class='fu'>gen_trefoil3d</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>500</span>, steps <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -1046,7 +1044,7 @@ Trigonometric-based structures provide flexible ways to simulate complex curved 
 First, the `gen_crescent(n, p)` function generates a $p$-dimensional dataset of $n$ observations based on a $2\text{-}D$ crescent-shaped manifold with optional structured high-dimensional noise (Figure \@ref(fig:triginometric) a). Let $\theta \in [\pi/6, 2\pi]$ be a sequence of $n$ evenly spaced angles. The corresponding $2\text{-}D$ coordinates are defined by: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta).$$
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>crescent</span> <span class='op'>&lt;-</span> <span class='fu'>gen_crescent</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -1054,7 +1052,7 @@ First, the `gen_crescent(n, p)` function generates a $p$-dimensional dataset of 
 Second, the `gen_curvycylinder(n, p, h)` function generates a $p$-dimensional dataset of $n$ observations structured as a $3\text{-}D$ cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when $p > 4$ (Figure \@ref(fig:triginometric) b). The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension. Let $\theta \sim U(0, 3\pi)$ represent a random angle on a circular base and $z \sim U(0, h)$ represent the height along the cylinder. The coordinates are defined as: $X_1 = \cos(\theta)$ (Circular base, x-axis), $X_2 = \sin(\theta)$ (Circular base, y-axis), $X_3 = z$ (Linear height), and $X_4 = \sin(z)$ (Nonlinear curvy variation along height).  
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>curvycylinder</span> <span class='op'>&lt;-</span> <span class='fu'>gen_curvycylinder</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, h <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -1086,7 +1084,7 @@ Second, the `gen_curvycylinder(n, p, h)` function generates a $p$-dimensional da
 For a spiraling path on a spherical surface in the first four dimensions, `gen_sphericalspiral(n, p, spins)` (Figure \@ref(fig:triginometric) c), let $\theta \in [0, 2\pi \times \text{spins}]$ be the azimuthal angle (longitude), controls the number of spiral turns and the $\phi \in [0, \pi]$be the polar angle (latitude), controls the vertical sweep from the north to the south pole. Cartesian coordinates from spherical conversion: $X_1 = \sin(\phi)\cos(\theta)$, $X_2 = \sin(\phi)\sin(\theta)$, $X_3 = \cos(\phi) + \varepsilon$, where $\varepsilon \sim U(-0.5, 0.5)$ introduces vertical jitter, and $X_4 = \theta / \max(\theta)$: a normalized progression along the spiral path. This generates a spherical spiral curve embedded in $4\text{-}D$ space, combining both circular and vertical movement, with gentle curvature and non-linear progression.  
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>sphericalspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_sphericalspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, spins <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -1118,7 +1116,7 @@ For a spiraling path on a spherical surface in the first four dimensions, `gen_s
 For a helical spiral in four dimensions, `gen_helicalspiral(n, p)` (Figure \@ref(fig:triginometric) d), let $\theta \in [0, 5\pi/4]$ be a sequence of angles controlling rotation around a circle. Cartesian coordinates; $X_1 = \cos(\theta)$: circular trajectory along the x-axis, $X_2 = \sin(\theta)$: circular trajectory along the y-axis, $X_3 = 0.05\theta + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.5, 0.5)$: linear progression (height) with vertical jitter, simulating a helix, and $X_4 = 0.1\sin(\theta)$: oscillates with $\theta$, representing a periodic "wobble" along the fourth dimension. 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>helicalspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_helicalspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -1126,7 +1124,7 @@ For a helical spiral in four dimensions, `gen_helicalspiral(n, p)` (Figure \@ref
 Similarly, the `gen_conicspiral(n, p, spins)` function generates a dataset of $n$ points forming a conical spiral in the first four dimensions of $p\text{-}D$ (Figure \@ref(fig:triginometric) e). The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a $3\text{-}D$ conic helix. The shape is defined by parameter $\theta \in [0, 2\pi\text{spins}]$, controlling the angular progression of the spiral. The Archimedean spiral in the horizontal plane is represented by; $X_1 = \theta\cos(\theta)$ for radial expansion in x, and $X_2 = \theta\sin(\theta)$ for radial expansion in y. The growth pattern resembles a cone, with the height increasing according to $X_3 = 2\theta / \max(\theta) + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.1, 0.6).$ Spiral modulation in the fourth dimension is represented by $X_4 = \theta\sin(2\theta) + \varepsilon_4$, with $\varepsilon_4 \sim U(-0.1, 0.6)$ which simulates a twisting helical component in a non-radial dimension. 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>conicspiral</span> <span class='op'>&lt;-</span> <span class='fu'>gen_conicspiral</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, spins <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -1158,7 +1156,7 @@ Similarly, the `gen_conicspiral(n, p, spins)` function generates a dataset of $n
 Finally, the `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables (Figure \@ref(fig:triginometric) f). The $X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors), $X_{3} \sim U(0.1, 0.8)$: independent auxiliary variable, $X_{2} = hc/X_{1} + \text{nonfac}\sin(X_{1})$: non-linear combination of hyperbolic and sinusoidal transformations, creating sharp curvature and oscillation, and $X_{4} = \cos(\pi X_{1}) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure. These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter. 
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>nonlinear</span> <span class='op'>&lt;-</span> <span class='fu'>gen_nonlinear</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, hc <span class='op'>=</span> <span class='fl'>1</span>, non_fac <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 

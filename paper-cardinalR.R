@@ -210,7 +210,9 @@ branch_tb <- tibble(fun = c("gen_expbranches",
                              "n, p",
                              "n, r",
                              "n, p",
+                             "n",
                              "n, k, r, loc",
+                             "n, p",
                              "n, w",
                              "n, steps",
                              "n, steps",
@@ -219,9 +221,7 @@ branch_tb <- tibble(fun = c("gen_expbranches",
                              "n, spins", 
                              "n", 
                              "n, spins", 
-                             "n, hc, non_fac",
-                             "n",
-                             "n"),
+                             "n, hc, non_fac"),
                       exp = c("Exponential shaped branches.",
                                "Linear shaped branches.", 
                                "Curvy shaped branches.",
@@ -271,7 +271,7 @@ branch_tb <- tibble(fun = c("gen_expbranches",
 branch_tb |>
   mutate(parm = paste0("\\texttt{", parm, "}")) |>
   mutate(fun = paste0("\\texttt{", fun, "}")) |> 
-  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Arguments", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
+  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Arguments", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht", linesep = "")  |>
   column_spec(1, width = "3.5cm") |>
   column_spec(2, width = "1.5cm") |>
   column_spec(3, width = "8cm")
@@ -556,27 +556,27 @@ gridcube <- gen_gridcube(n = 1000, p = 4)
 unifcube <- gen_unifcube(n = 1000, p = 4)
 
 
-## ----data-gau, echo=TRUE------------------------------------------------------
+## ----data-gau-----------------------------------------------------------------
 gau <- gen_gaussian(n = 1000, p = 4, s = diag(4))
 
 
-## ----data-linear, echo=TRUE---------------------------------------------------
+## ----data-linear--------------------------------------------------------------
 linear <- gen_longlinear(n = 1000, p = 4)
 
 
-## ----data-mobius, echo=TRUE---------------------------------------------------
+## ----data-mobius--------------------------------------------------------------
 mobius <- gen_mobius(n = 1000)
 
 
-## ----data-quadratic, echo=TRUE------------------------------------------------
+## ----data-quadratic-----------------------------------------------------------
 quadratic <- gen_quadratic(n = 1000)
 
 
-## ----data-cubic, echo=TRUE----------------------------------------------------
+## ----data-cubic---------------------------------------------------------------
 cubic <- gen_cubic(n = 1000)
 
 
-## ----data-pyrrect, echo=TRUE--------------------------------------------------
+## ----data-pyrrect-------------------------------------------------------------
 pyrrect <- gen_pyrrect(n = 1000, p = 4)
 
 
@@ -666,7 +666,7 @@ pyrrect_proj3 <- plot_proj(
 
 
 
-## ----data-pyrtri, echo=TRUE---------------------------------------------------
+## ----data-pyrtri--------------------------------------------------------------
 pyrtri <- gen_pyrtri(n = 1000, p = 4)
 
 
@@ -756,7 +756,7 @@ pyrtri_proj3 <- plot_proj(
 
 
 
-## ----data-pyrstar, echo=TRUE--------------------------------------------------
+## ----data-pyrstar-------------------------------------------------------------
 pyrstar <- gen_pyrstar(n = 1000, p = 4)
 
 
@@ -846,7 +846,7 @@ pyrstar_proj3 <- plot_proj(
 
 
 
-## ----data-pyrholes, echo=TRUE-------------------------------------------------
+## ----data-pyrholes------------------------------------------------------------
 pyrholes <- gen_pyrfrac(n = 1000, p = 4)
 
 
@@ -965,11 +965,11 @@ pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## ----data-scurve, echo=TRUE---------------------------------------------------
+## ----data-scurve--------------------------------------------------------------
 scurve <- gen_scurve(n = 1000)
 
 
-## ----data-circle, echo=TRUE---------------------------------------------------
+## ----data-circle--------------------------------------------------------------
 circle <- gen_circle(n = 1000, p = 4)
 
 
@@ -1059,7 +1059,7 @@ circle_proj3 <- plot_proj(
 
 
 
-## ----data-curvycycle, echo=TRUE-----------------------------------------------
+## ----data-curvycycle----------------------------------------------------------
 curvycycle <- gen_curvycycle(n = 1000, p = 4)
 
 
@@ -1149,15 +1149,15 @@ curvycycle_proj3 <- plot_proj(
 
 
 
-## ----data-unifsphere, echo=TRUE-----------------------------------------------
+## ----data-unifsphere----------------------------------------------------------
 unifsphere <- gen_unifsphere(n = 1000, r = 1)
 
 
-## ----data-hollowsphere, echo=TRUE---------------------------------------------
+## ----data-hollowsphere--------------------------------------------------------
 hollowsphere <- gen_hollowsphere(n = 1000, p = 4)
 
 
-## ----data-clusteredspheres, echo=TRUE-----------------------------------------
+## ----data-clusteredspheres----------------------------------------------------
 clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, r = c(15, 3),
                                          loc = 10 / sqrt(3)) |>
   dplyr::select(-cluster)
@@ -1277,11 +1277,11 @@ clusteredspheres_proj1 + clusteredspheres_proj2 + clusteredspheres_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## ----data-swissroll, echo=TRUE------------------------------------------------
+## ----data-swissroll-----------------------------------------------------------
 swissroll <- gen_swissroll(n = 1000, w = c(-1, 1))
 
 
-## ----data-trefoil4d, echo=TRUE------------------------------------------------
+## ----data-trefoil4d-----------------------------------------------------------
 trefoil4d <- gen_trefoil4d(n = 500, steps = 5)
 
 
@@ -1371,7 +1371,7 @@ trefoil4d_proj3 <- plot_proj(
 
 
 
-## ----data-trefoil3d, echo=TRUE------------------------------------------------
+## ----data-trefoil3d-----------------------------------------------------------
 trefoil3d <- gen_trefoil3d(n = 500, steps = 5)
 
 
@@ -1488,11 +1488,11 @@ trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## ----data-crescent, echo=TRUE-------------------------------------------------
+## ----data-crescent------------------------------------------------------------
 crescent <- gen_crescent(n = 1000)
 
 
-## ----data-curvycylinder, echo=TRUE--------------------------------------------
+## ----data-curvycylinder-------------------------------------------------------
 curvycylinder <- gen_curvycylinder(n = 1000, h = 10)
 
 
@@ -1582,7 +1582,7 @@ curvycylinder_proj3 <- plot_proj(
 
 
 
-## ----data-sphericalspiral, echo=TRUE------------------------------------------
+## ----data-sphericalspiral-----------------------------------------------------
 sphericalspiral <- gen_sphericalspiral(n = 1000, spins = 1)
 
 
@@ -1672,11 +1672,11 @@ sphericalspiral_proj3 <- plot_proj(
 
 
 
-## ----data-helicalspiral, echo=TRUE--------------------------------------------
+## ----data-helicalspiral-------------------------------------------------------
 helicalspiral <- gen_helicalspiral(n = 1000)
 
 
-## ----data-conicspiral, echo=TRUE----------------------------------------------
+## ----data-conicspiral---------------------------------------------------------
 conicspiral <- gen_conicspiral(n = 1000, spins = 1)
 
 
@@ -1766,7 +1766,7 @@ conicspiral_proj3 <- plot_proj(
 
 
 
-## ----data-nonlinear, echo=TRUE------------------------------------------------
+## ----data-nonlinear-----------------------------------------------------------
 nonlinear <- gen_nonlinear(n = 1000, hc = 1, non_fac = 0.5)
 
 

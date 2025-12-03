@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.29)  3 DEC 2025 11:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.29)  3 DEC 2025 12:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -831,132 +831,130 @@ Overfull \hbox (2.41579pt too wide) in paragraph at lines 111--111
  []
 
 
-Overfull \hbox (2.41579pt too wide) in paragraph at lines 134--134
+Overfull \hbox (2.41579pt too wide) in paragraph at lines 130--130
 []|\T1/zi4/m/n/10 gen_clusteredspheres|  
  []
 
 
-Overfull \hbox (7.54723pt too wide) in paragraph at lines 103--149
+Overfull \hbox (7.54723pt too wide) in paragraph at lines 103--143
  [][] 
  []
 
 
-Overfull \hbox (29.67798pt too wide) in paragraph at lines 166--167
+Overfull \hbox (29.67798pt too wide) in paragraph at lines 160--161
 []\T1/ppl/m/n/9 (-20) The sim-plest struc-tures are ap-prox-i-mately lin-ear branches in $\OT1/ppl/m/n/9 (-20) 2[]\OML/zplm/m/it/9 D$\T1/ppl/m/n/9 (-20) , gen-er-ated by the \T1/zi4/m/n/9 gen_linearbranches(n,
  []
 
-<paper-cardinalR_files/figure-latex/branch-proj-1.pdf, id=131, 867.24pt x 289.08pt>
+[4]
+<paper-cardinalR_files/figure-latex/branch-proj-1.pdf, id=140, 867.24pt x 289.08pt>
 File: paper-cardinalR_files/figure-latex/branch-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/branch-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/branch-proj-1.pdf  used on input line 225.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/branch-proj-1.pdf  used on input line 219.
 (pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
 
-Overfull \hbox (3.15651pt too wide) in paragraph at lines 230--231
+Overfull \hbox (3.15651pt too wide) in paragraph at lines 224--225
 \T1/ppl/m/n/9 (-20) To sim-u-late a cone-shaped struc-ture in ar-bi-trary di-men-sions (Fig-ure [][]3[][]), we de-fine a func-tion \T1/zi4/m/n/9 gen_cone(n,
  []
 
-[4] [5]
-<paper-cardinalR_files/figure-latex/cone-proj-1.pdf, id=150, 867.24pt x 289.08pt>
+[5]
+<paper-cardinalR_files/figure-latex/cone-proj-1.pdf, id=151, 867.24pt x 289.08pt>
 File: paper-cardinalR_files/figure-latex/cone-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/cone-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/cone-proj-1.pdf  used on input line 239.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/cone-proj-1.pdf  used on input line 233.
 (pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
 
-LaTeX Warning: Reference `tab:cube-tb-pdf' on page 6 undefined on input line 244.
+LaTeX Warning: Reference `tab:cube-tb-pdf' on page 6 undefined on input line 238.
 
 [6 <./paper-cardinalR_files/figure-latex/branch-proj-1.pdf> <./paper-cardinalR_files/figure-latex/cone-proj-1.pdf>]
 
-LaTeX Warning: Reference `tab:polynomial-tb-pdf' on page 7 undefined on input line 284.
+LaTeX Warning: Reference `tab:polynomial-tb-pdf' on page 7 undefined on input line 266.
 
 
-Overfull \hbox (15.18297pt too wide) in paragraph at lines 286--287
+Overfull \hbox (15.18297pt too wide) in paragraph at lines 268--269
 []\T1/ppl/m/n/9 (-20) The first is the quadratic curve of $\OML/zplm/m/it/9 n$ \T1/ppl/m/n/9 (-20) points in two di-men-sions. This is gen-er-ated us-ing \T1/zi4/m/n/9 gen_quadratic(n,
  []
 
+
+LaTeX Warning: Reference `tab:pyramid-tb-pdf' on page 7 undefined on input line 274.
+
 [7]
-
-LaTeX Warning: Reference `tab:pyramid-tb-pdf' on page 8 undefined on input line 300.
-
-LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 324.
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 286.
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
-) [8]
-<paper-cardinalR_files/figure-latex/pyr-proj-1.pdf, id=213, 867.24pt x 1156.32pt>
+)
+<paper-cardinalR_files/figure-latex/pyr-proj-1.pdf, id=208, 867.24pt x 1156.32pt>
 File: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf  used on input line 334.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf  used on input line 292.
 (pdftex.def)             Requested size: 318.67207pt x 424.9028pt.
-[9 <./paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>]
 
-LaTeX Warning: Reference `tab:sphere-tb-pdf' on page 10 undefined on input line 353.
+LaTeX Warning: Reference `tab:sphere-tb-pdf' on page 8 undefined on input line 307.
 
-[10]
+[8] [9 <./paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>] [10]
 <paper-cardinalR_files/figure-latex/sphere-proj-1.pdf, id=249, 867.24pt x 867.24pt>
 File: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf  used on input line 410.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf  used on input line 342.
 (pdftex.def)             Requested size: 318.67207pt x 318.67711pt.
 
-Overfull \hbox (17.09308pt too wide) in paragraph at lines 419--420
+Overfull \hbox (17.09308pt too wide) in paragraph at lines 351--352
 \T1/ppl/m/n/9 (-20) The Swiss roll is a stan-dard non-lin-ear man-i-fold, rep-re-sent-ing a plane curled into $\OT1/ppl/m/n/9 (-20) 3[]\OML/zplm/m/it/9 D$\T1/ppl/m/n/9 (-20) . The \T1/zi4/m/n/9 gen_swissroll(n,
  []
 
-[11]
 
-LaTeX Warning: Reference `tab:trefoil-tb-pdf' on page 12 undefined on input line 431.
+LaTeX Warning: Reference `tab:trefoil-tb-pdf' on page 11 undefined on input line 359.
 
-[12 <./paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=287, 867.24pt x 578.16pt>
+[11 <./paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=282, 867.24pt x 578.16pt>
 File: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 449.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 369.
 (pdftex.def)             Requested size: 318.67207pt x 212.4514pt.
 
-LaTeX Warning: Reference `tab:trigonometric-tb-pdf' on page 13 undefined on input line 458.
+LaTeX Warning: Reference `tab:trigonometric-tb-pdf' on page 12 undefined on input line 378.
 
-[13 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=321, 867.24pt x 1156.32pt>
+[12 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=316, 867.24pt x 1156.32pt>
 File: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf  used on input line 498.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf  used on input line 394.
 (pdftex.def)             Requested size: 278.83578pt x 371.77672pt.
-[14] [15 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>]
-Overfull \hbox (7.51581pt too wide) in paragraph at lines 586--586
+[13] [14 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>]
+Overfull \hbox (7.51581pt too wide) in paragraph at lines 482--482
 []|\T1/zi4/m/n/10 make_klink_curvycycle|  
  []
 
 
-Overfull \hbox (7.51581pt too wide) in paragraph at lines 587--587
+Overfull \hbox (7.51581pt too wide) in paragraph at lines 483--483
 []|\T1/zi4/m/n/10 make_chain_curvycycle|  
  []
 
 
-Overfull \hbox (2.41579pt too wide) in paragraph at lines 591--591
+Overfull \hbox (2.41579pt too wide) in paragraph at lines 487--487
 []|\T1/zi4/m/n/10 make_twogrid_overlap|  
  []
 
-[16]
-<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=361, 867.24pt x 289.08pt>
+[15]
+<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=357, 867.24pt x 289.08pt>
 File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/highd-proj-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 642.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  used on input line 538.
 (pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
-[17]
-<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=377, 460.72125pt x 324.21124pt>
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=368, 460.72125pt x 324.21124pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
-Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 650.
+Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf  used on input line 546.
 (pdftex.def)             Requested size: 398.33858pt x 280.31024pt.
-[18 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
-Overfull \hbox (37.32867pt too wide) in paragraph at lines 690--691
+[16] [17 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf> <./paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>]
+Overfull \hbox (37.32867pt too wide) in paragraph at lines 586--587
 \T1/ppl/m/n/9 (-20) ti-cle is cre-ated us-ing [][]\T1/ppl/b/n/9 (-20) knitr[][] \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/9 (-20) rmark-down[][] \T1/ppl/m/n/9 (-20) ([][][]Xie et al.[][], [][]2018[][]) in R with the \T1/zi4/m/n/9 rjtools::rjournal_article
  []
 
-[19] (./RJwrapper.bbl (./RJwrapper.brf)
+(./RJwrapper.bbl (./RJwrapper.brf)
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
-
+[18]
 Underfull \hbox (badness 1515) in paragraph at lines 102--102
 []\T1/ppl/m/n/9 (+20) G. E. Hin-ton and S. Roweis.  Stochas-tic Neigh-bor Em-bed-ding.  In S. Becker, S. Thrun,
  []
@@ -966,14 +964,14 @@ Underfull \hbox (badness 3333) in paragraph at lines 102--102
 \T1/ppl/m/n/9 (+20) MIT Press, 2002.  URL [][]$\T1/zi4/m/n/9 https : / / proceedings . neurips . cc / paper _ files / paper / 2002 / file /
  []
 
-[20] [21])
+[19] [20])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 702.
+(Font)              using `T1/zi4/m/n' instead on input line 598.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 702.
-) [22] (./RJwrapper.aux)
+(Font)              scaled to size 9.18004pt on input line 598.
+) [21] (./RJwrapper.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
@@ -987,21 +985,21 @@ LaTeX Warning: There were undefined references.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: E9A25E3FE3B4BE1D15A5DA0BE9622450;3156.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: 974497EB3AACB3E058395FB818AB9D46;2684.
+(rerunfilecheck)             Checksum: 5B079EC6E2EC6022B02F98E79B8AF425;2681.
  ) 
 Here is how much of TeX's memory you used:
- 27783 strings out of 469519
- 506900 string characters out of 5468894
- 940750 words of memory out of 5000000
+ 27782 strings out of 469519
+ 506893 string characters out of 5468894
+ 938749 words of memory out of 5000000
  55402 multiletter control sequences out of 15000+600000
  696368 words of font info for 418 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 117i,14n,131p,1839b,945s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,14n,131p,1839b,927s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (22 pages, 7193697 bytes).
+Output written on RJwrapper.pdf (21 pages, 7192547 bytes).
 PDF statistics:
- 683 PDF objects out of 1000 (max. 8388607)
- 604 compressed objects within 7 object streams
- 104 named destinations out of 1000 (max. 500000)
+ 679 PDF objects out of 1000 (max. 8388607)
+ 601 compressed objects within 7 object streams
+ 103 named destinations out of 1000 (max. 500000)
  78522 words of extra memory for PDF output out of 89155 (max. 10000000)
 
