@@ -158,18 +158,106 @@ branch_tb <- tibble(fun = c("gen_expbranches",
                              "gen_linearbranches",
                              "gen_curvybranches", 
                              "gen_orglinearbranches", 
-                             "gen_orgcurvybranches"),
+                             "gen_orgcurvybranches",
+                             "gen_cone",
+                             "gen_gridcube",
+                             "gen_unifcube",
+                            "gen_gaussian",
+                            "gen_longlinear",
+                            "gen_mobius",
+                            "gen_quadratic",
+                             "gen_cubic",
+                            "gen_pyrrect",
+                             "gen_pyrtri",
+                             "gen_pyrstar",
+                             "gen_pyrfrac",
+                            "gen_scurve",
+                            "gen_circle",
+                            "gen_curvycycle",
+                            "gen_unifsphere",
+                            "gen_hollowsphere",
+                            "gen_gridedsphere",
+                            "gen_clusteredspheres",
+                            "gen_hemisphere",
+                            "gen_swissroll",
+                            "gen_trefoil4d",
+                            "gen_trefoil3d",
+                             "gen_crescent",
+                            "gen_curvycylinder",
+                            "gen_sphericalspiral",
+                            "gen_helicalspiral",
+                            "gen_conicspiral",
+                            "gen_nonlinear"),
                     parm = c("n, k",
                              "n, k",
                              "n, k",
                              "n, p, k",
-                             "n, p, k"),
+                             "n, p, k",
+                             "n, p, h, ratio",
+                             "n, p",
+                             "n, p",
+                             "n, p, s",
+                             "n, p",
+                             "n",
+                             "n",
+                             "n",
+                             "n, p",
+                             "n, p",
+                             "n, p",
+                             "n, p",
+                              "n",
+                             "n, p",
+                             "n, p",
+                             "n, r",
+                             "n, p",
+                             "n, k, r, loc",
+                             "n, w",
+                             "n, steps",
+                             "n, steps",
+                             "n", 
+                             "n, h", 
+                             "n, spins", 
+                             "n", 
+                             "n, spins", 
+                             "n, hc, non_fac",
+                             "n",
+                             "n"),
                       exp = c("Exponential shaped branches.",
                                "Linear shaped branches.", 
                                "Curvy shaped branches.",
                                "Linear shaped branches originated in one point.",
-                               "Curvy shaped branches originated in one point.")) |> 
-   mutate(fun = gsub("_", "\\\\_", fun))
+                               "Curvy shaped branches originated in one point.",
+                               "Cone-shaped structure.",
+                              "Cube with specified grid points along each axes.",
+                              "Cube with uniform points.",
+                              "Multivariate Gaussian cloud.",
+                              "Long linear structure.",
+                              "Möbius strip in $3\text{-}D$.",
+                              "Quadratic pattern in $2\text{-}D$.",
+                                "Cubic pattern in $2\text{-}D$.",
+                              "Rectangular-base, with a sharp or blunted apex.",
+          "Triangular-base, with a sharp or blunted apex.",
+          "Star-shaped base, with a sharp or blunted apex.",
+          "Pyramid with triangular pyramid-shaped holes.",
+          "S-curve in $3\text{-}D$.",
+          "Circle.",
+                                "Curvy cell cycle.",
+                                "Uniform ball.",
+                                "Hollow sphere.",
+                                "Grided sphere.",
+                                "Multiple small spheres within a big sphere.",
+                                "Hemisphere.",
+          "Swissroll structure.",
+          "Trefoil in $4\\text{-}D$.", 
+          "Trefoil in $3\\text{-}D$.",
+          "Crescent pattern.",
+                                "Curvy cylinder.",
+                                "Spherical spiral.",
+                                "Helical spiral.",
+                                "Conic spiral.",
+                                "Nonlinear hyperbola.")) |> 
+   mutate(fun = gsub("_", "\\\\_", fun)) |> 
+   mutate(parm = gsub("_", "\\\\_", parm))
 
 
 ## ----branching-tb-html, eval=knitr::is_html_output()--------------------------
@@ -344,7 +432,7 @@ orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## ----data-bluntedcone, echo=TRUE----------------------------------------------
+## ----data-bluntedcone---------------------------------------------------------
 cone <- gen_cone(n = 1000, p = 4, h = 5, ratio = 0.5)
 
 
@@ -460,33 +548,11 @@ cone_proj1 + cone_proj2 + cone_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
 
 
-## -----------------------------------------------------------------------------
-cube_tb <- tibble(fun = c("gen_gridcube",
-                          "gen_unifcube"), 
-                      exp = c("Cube with specified grid points along each axes.",
-                              "Cube with uniform points.")) |> 
-  mutate(fun = gsub("_", "\\\\_", fun))
-
-
-## ----cube-tb-html, eval=knitr::is_html_output()-------------------------------
-# cube_tb |>
-#   mutate(fun = paste0("<code>", fun, "</code>")) |>
-#   kable(caption = "cardinalR cube data generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
-
-
-## ----cube-tb-pdf, eval=knitr::is_latex_output()-------------------------------
-cube_tb |> 
-  mutate(fun = paste0("\\texttt{", fun, "}")) |>
-  kable(caption = "cardinalR cube data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
-## ----data-gridcube, echo=TRUE-------------------------------------------------
+## ----data-gridcube------------------------------------------------------------
 gridcube <- gen_gridcube(n = 1000, p = 4)
 
 
-## ----data-unifcube, echo=TRUE-------------------------------------------------
+## ----data-unifcube------------------------------------------------------------
 unifcube <- gen_unifcube(n = 1000, p = 4)
 
 
@@ -502,60 +568,12 @@ linear <- gen_longlinear(n = 1000, p = 4)
 mobius <- gen_mobius(n = 1000)
 
 
-## -----------------------------------------------------------------------------
-polynomial_tb <- tibble(fun = c("gen_quadratic",
-                                "gen_cubic"), 
-                        exp = c("Quadratic pattern.",
-                                "Cubic pattern.")) |> 
-  mutate(fun = gsub("_", "\\\\_", fun))
-
-
-## ----polynomial-tb-html, eval=knitr::is_html_output()-------------------------
-# polynomial_tb |>
-#   mutate(fun = paste0("<code>", fun, "</code>")) |>
-#   kable(caption = "cardinalR polynomial data generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
-
-
-## ----polynomial-tb-pdf, eval=knitr::is_latex_output()-------------------------
-polynomial_tb |> 
-  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
-  kable(caption = "cardinalR polynomial data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
 ## ----data-quadratic, echo=TRUE------------------------------------------------
 quadratic <- gen_quadratic(n = 1000)
 
 
 ## ----data-cubic, echo=TRUE----------------------------------------------------
 cubic <- gen_cubic(n = 1000)
-
-
-## -----------------------------------------------------------------------------
-pyramid_tb <- tibble(fun = c("gen_pyrrect",
-                             "gen_pyrtri",
-                             "gen_pyrstar",
-                             "gen_pyrfrac"), 
-                        exp = c("Rectangular-base, with a sharp or blunted apex.",
-          "Triangular-base, with a sharp or blunted apex.",
-          "Star-shaped base, with a sharp or blunted apex.",
-          "Pyramid with triangular pyramid-shaped holes.")) |> 
-  mutate(fun = gsub("_", "\\\\_", fun))
-
-
-## ----pyramid-tb-html, eval=knitr::is_html_output()----------------------------
-# pyramid_tb |>
-#   mutate(fun = paste0("<code>", fun, "</code>")) |>
-#   kable(caption = "cardinalR pyramid data generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
-
-
-## ----pyramid-tb-pdf, eval=knitr::is_latex_output()----------------------------
-pyramid_tb |> 
-  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
-  kable(caption = "cardinalR pyramid data generation functions", format="latex", col.names = c("Function", "Explanation"), booktabs = T, escape = FALSE, table.pos = "!ht")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
 
 
 ## ----data-pyrrect, echo=TRUE--------------------------------------------------
@@ -951,38 +969,6 @@ pyrholes_proj1 + pyrholes_proj2 + pyrholes_proj3 +
 scurve <- gen_scurve(n = 1000)
 
 
-## -----------------------------------------------------------------------------
-sphere_tb <- tibble(fun = c("gen_circle",
-                            "gen_curvycycle",
-                            "gen_unifsphere",
-                            "gen_hollowsphere",
-                            "gen_gridedsphere",
-                            "gen_clusteredspheres",
-                            "gen_hemisphere"), 
-                        exp = c("Circle.",
-                                "Curvy cell cycle.",
-                                "Uniform ball.",
-                                "Hollow sphere.",
-                                "Grided sphere.",
-                                "Multiple small spheres within a big sphere.",
-                                "Hemisphere.")) |> 
-  mutate(fun = gsub("_", "\\\\_", fun))
-
-
-## ----sphere-tb-html, eval=knitr::is_html_output()-----------------------------
-# sphere_tb |>
-#   mutate(fun = paste0("<code>", fun, "</code>")) |>
-#   kable(caption = "cardinalR sphere data generation functions", col.names = c("Function", "Explanation"), linesep = "", escape = FALSE, table.pos = "!ht")
-
-
-## ----sphere-tb-pdf, eval=knitr::is_latex_output()-----------------------------
-sphere_tb |> 
-  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
-  kable(caption = "cardinalR sphere data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, linesep = "", table.pos = "!ht")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
 ## ----data-circle, echo=TRUE---------------------------------------------------
 circle <- gen_circle(n = 1000, p = 4)
 
@@ -1295,29 +1281,6 @@ clusteredspheres_proj1 + clusteredspheres_proj2 + clusteredspheres_proj3 +
 swissroll <- gen_swissroll(n = 1000, w = c(-1, 1))
 
 
-## -----------------------------------------------------------------------------
-trefoil_tb <- tibble(fun = c("gen_trefoil4d",
-                            "gen_trefoil3d"), 
-                        exp = c("Trefoil in $4\\text{-}D$.",
-                                "Trefoil in $3\\text{-}D$.")) |> 
-  mutate(fun = gsub("_", "\\\\_", fun))
-
-
-## ----trefoil-tb-html, eval=knitr::is_html_output()----------------------------
-# trefoil_tb |>
-#   mutate(fun = paste0("<code>", fun, "</code>")) |>
-#   kable(caption = "cardinalR trefoil data generation functions", col.names = c("Function", "Explanation"), escape = FALSE, table.pos = "!ht")
-
-
-## ----trefoil-tb-pdf, eval=knitr::is_latex_output()----------------------------
-
-trefoil_tb |>
-  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
-  kable(caption = "cardinalR trefoil data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
-
-
 ## ----data-trefoil4d, echo=TRUE------------------------------------------------
 trefoil4d <- gen_trefoil4d(n = 500, steps = 5)
 
@@ -1523,36 +1486,6 @@ trefoil3d_proj3 <- plot_proj(
 trefoil4d_proj1 + trefoil4d_proj2 + trefoil4d_proj3 + 
   trefoil3d_proj1 + trefoil3d_proj2 + trefoil3d_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
-
-
-## -----------------------------------------------------------------------------
-trigonometric_tb <- tibble(fun = c("gen_crescent",
-                            "gen_curvycylinder",
-                            "gen_sphericalspiral",
-                            "gen_helicalspiral",
-                            "gen_conicspiral",
-                            "gen_nonlinear"), 
-                        exp = c("Crescent pattern.",
-                                "Curvy cylinder.",
-                                "Spherical spiral.",
-                                "Helical spiral.",
-                                "Conic spiral.",
-                                "Nonlinear hyperbola.")) |> 
-  mutate(fun = gsub("_", "\\\\_", fun))
-
-
-## ----trigonometric-tb-html, eval=knitr::is_html_output()----------------------
-# trigonometric_tb |>
-#   mutate(fun = paste0("<code>", fun, "</code>")) |>
-#   kable(caption = "cardinalR trigonometric data generation functions", col.names = c("Function", "Explanation"), linesep = "", escape = FALSE, table.pos = "!ht")
-
-
-## ----trigonometric-tb-pdf, eval=knitr::is_latex_output()----------------------
-trigonometric_tb |> 
-  mutate(fun = paste0("\\texttt{", fun, "}")) |> 
-  kable(caption = "cardinalR trigonometric data generation functions", format="latex", col.names = c("Function", "Explanation"), escape = FALSE, booktabs = T, linesep = "", table.pos = "!ht")  |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "8cm")
 
 
 ## ----data-crescent, echo=TRUE-------------------------------------------------

@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-11-29'
+date: '2025-12-03'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -197,13 +197,42 @@ A branching structure (Figure \@ref(fig:branch)) captures trajectories that dive
 
 Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 
-|Function                            |Arguments            |Explanation                                     |
-|:-----------------------------------|:--------------------|:-----------------------------------------------|
-|<code>gen\_expbranches</code>       |<code>n, k</code>    |Exponential shaped branches.                    |
-|<code>gen\_linearbranches</code>    |<code>n, k</code>    |Linear shaped branches.                         |
-|<code>gen\_curvybranches</code>     |<code>n, k</code>    |Curvy shaped branches.                          |
-|<code>gen\_orglinearbranches</code> |<code>n, p, k</code> |Linear shaped branches originated in one point. |
-|<code>gen\_orgcurvybranches</code>  |<code>n, p, k</code> |Curvy shaped branches originated in one point.  |
+|Function                            |Arguments                    |Explanation                                      |
+|:-----------------------------------|:----------------------------|:------------------------------------------------|
+|<code>gen\_expbranches</code>       |<code>n, k</code>            |Exponential shaped branches.                     |
+|<code>gen\_linearbranches</code>    |<code>n, k</code>            |Linear shaped branches.                          |
+|<code>gen\_curvybranches</code>     |<code>n, k</code>            |Curvy shaped branches.                           |
+|<code>gen\_orglinearbranches</code> |<code>n, p, k</code>         |Linear shaped branches originated in one point.  |
+|<code>gen\_orgcurvybranches</code>  |<code>n, p, k</code>         |Curvy shaped branches originated in one point.   |
+|<code>gen\_cone</code>              |<code>n, p, h, ratio</code>  |Cone-shaped structure.                           |
+|<code>gen\_gridcube</code>          |<code>n, p</code>            |Cube with specified grid points along each axes. |
+|<code>gen\_unifcube</code>          |<code>n, p</code>            |Cube with uniform points.                        |
+|<code>gen\_gaussian</code>          |<code>n, p, s</code>         |Multivariate Gaussian cloud.                     |
+|<code>gen\_longlinear</code>        |<code>n, p</code>            |Long linear structure.                           |
+|<code>gen\_mobius</code>            |<code>n</code>               |Möbius strip in $3	ext{-}D$.                      |
+|<code>gen\_quadratic</code>         |<code>n</code>               |Quadratic pattern in $2	ext{-}D$.                 |
+|<code>gen\_cubic</code>             |<code>n</code>               |Cubic pattern in $2	ext{-}D$.                     |
+|<code>gen\_pyrrect</code>           |<code>n, p</code>            |Rectangular-base, with a sharp or blunted apex.  |
+|<code>gen\_pyrtri</code>            |<code>n, p</code>            |Triangular-base, with a sharp or blunted apex.   |
+|<code>gen\_pyrstar</code>           |<code>n, p</code>            |Star-shaped base, with a sharp or blunted apex.  |
+|<code>gen\_pyrfrac</code>           |<code>n, p</code>            |Pyramid with triangular pyramid-shaped holes.    |
+|<code>gen\_scurve</code>            |<code>n</code>               |S-curve in $3	ext{-}D$.                           |
+|<code>gen\_circle</code>            |<code>n, p</code>            |Circle.                                          |
+|<code>gen\_curvycycle</code>        |<code>n, p</code>            |Curvy cell cycle.                                |
+|<code>gen\_unifsphere</code>        |<code>n, r</code>            |Uniform ball.                                    |
+|<code>gen\_hollowsphere</code>      |<code>n, p</code>            |Hollow sphere.                                   |
+|<code>gen\_gridedsphere</code>      |<code>n, k, r, loc</code>    |Grided sphere.                                   |
+|<code>gen\_clusteredspheres</code>  |<code>n, w</code>            |Multiple small spheres within a big sphere.      |
+|<code>gen\_hemisphere</code>        |<code>n, steps</code>        |Hemisphere.                                      |
+|<code>gen\_swissroll</code>         |<code>n, steps</code>        |Swissroll structure.                             |
+|<code>gen\_trefoil4d</code>         |<code>n</code>               |Trefoil in $4\text{-}D$.                         |
+|<code>gen\_trefoil3d</code>         |<code>n, h</code>            |Trefoil in $3\text{-}D$.                         |
+|<code>gen\_crescent</code>          |<code>n, spins</code>        |Crescent pattern.                                |
+|<code>gen\_curvycylinder</code>     |<code>n</code>               |Curvy cylinder.                                  |
+|<code>gen\_sphericalspiral</code>   |<code>n, spins</code>        |Spherical spiral.                                |
+|<code>gen\_helicalspiral</code>     |<code>n, hc, non\_fac</code> |Helical spiral.                                  |
+|<code>gen\_conicspiral</code>       |<code>n</code>               |Conic spiral.                                    |
+|<code>gen\_nonlinear</code>         |<code>n</code>               |Nonlinear hyperbola.                             |
 
 </div>
 
@@ -388,7 +417,7 @@ This function generates $n$ points in $p\text{-}D$, where the last dimension, $X
 For each point, a direction in the first $p-1$ dimensions is sampled uniformly on a $(p-1)$-dimensional hypersphere using generalized spherical coordinates. The radial coordinates are scaled by the height-dependent radius $r$, producing the conical taper. In three dimensions ($p = 3$), this results in a classical $3\text{-}D$ cone, while for $p > 3$, additional dimensions provide a smooth embedding into higher-dimensional space, preserving the conical structure.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cone</span> <span class='op'>&lt;-</span> <span class='fu'>gen_cone</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span>, h <span class='op'>=</span> <span class='fl'>5</span>, ratio <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -451,34 +480,10 @@ Cone-shaped structures appear in particle dispersions, light beams, and tapering
 
 A cube structure represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, and uniform random points. Table \@ref(tab:cube-tb-html) outlines these functions and their purposes.
 
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:cube-tb-html)cardinalR cube data generation functions
-
-|Function                   |Explanation                                      |
-|:--------------------------|:------------------------------------------------|
-|<code>gen\_gridcube</code> |Cube with specified grid points along each axes. |
-|<code>gen\_unifcube</code> |Cube with uniform points.                        |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
 The function `gen_gridcube(n, p)` is a wrapper around `geozoo::cube.solid.grid()`. It generates a regular lattice of points in $p\text{-}D$, producing a uniform hypercube grid. Each axis contains equally spaced coordinates, resulting in a well-defined geometric structure.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gridcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_gridcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -486,7 +491,7 @@ The function `gen_gridcube(n, p)` is a wrapper around `geozoo::cube.solid.grid()
 By contrast, `gen_unifcube(n, p)` wraps `geozoo::cube.solid.random()`, producing uniformly distributed points within a $p\text{-}D$ cube. To avoid including the cube’s vertices, these points are removed after generation. This results in a hypercube filled with random, but evenly distributed, samples rather than structured lattice points.
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unifcube</span> <span class='op'>&lt;-</span> <span class='fu'>gen_unifcube</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre></div>
+
 
 </div>
 
@@ -535,30 +540,6 @@ The Möbius strip structure can model twisted or cyclic surfaces in physics and 
 
 A polynomial structure generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in  space. To extend these patterns into high-dimensional settings, additional noise dimensions can be added. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. Table \@ref(tab:polynomial-tb-html) summarizes these functions and their purposes.
 
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:polynomial-tb-html)cardinalR polynomial data generation functions
-
-|Function                    |Explanation        |
-|:---------------------------|:------------------|
-|<code>gen\_quadratic</code> |Quadratic pattern. |
-|<code>gen\_cubic</code>     |Cubic pattern.     |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
 The first is the quadratic curve of $n$ points in two dimensions. This is generated using `gen_quadratic(n, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree 2 is applied to form $X_2 = X_1 - X_1^2 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a smooth parabolic arc opening downward, with vertical jitter introduced by the noise term.
 
 <div class="layout-chunk" data-layout="l-body">
@@ -578,32 +559,6 @@ The second is the cubic curve of $n$ points in two dimensions. This is generated
 ### Pyramid
 
 A pyramid structure (Figure \@ref(fig:pyr)) represents data arranged around a central apex and base, useful for exploring how algorithms handle pointed or layered geometries in $p\text{-}D$ space. The functions provided allow users to generate pyramids with rectangular, triangular, and star-shaped bases, and sharp or blunted apexes. Additionally, it is possible to create a pyramid with a fractal-like internal structure, enabling the study of non-convex and sparse regions. Table \@ref(tab:pyramid-tb-html) summarizes these functions.
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:pyramid-tb-html)cardinalR pyramid data generation functions
-
-|Function                  |Explanation                                     |
-|:-------------------------|:-----------------------------------------------|
-|<code>gen\_pyrrect</code> |Rectangular-base, with a sharp or blunted apex. |
-|<code>gen\_pyrtri</code>  |Triangular-base, with a sharp or blunted apex.  |
-|<code>gen\_pyrstar</code> |Star-shaped base, with a sharp or blunted apex. |
-|<code>gen\_pyrfrac</code> |Pyramid with triangular pyramid-shaped holes.   |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
 
 Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the rectangular, triangular, and star-shaped based pyramid generator functions, the final dimension, $X_p$, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height $h$. That is, $X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).$ This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, $X_p = z \sim U(0, h)$.
 
@@ -789,35 +744,6 @@ This follows the `s_curve()` function from snedata [@james2025], itself adapted 
 
 Sphere-shaped structures are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. Throughout this section, we follow the standard mathematical terminology: a *sphere* refers to the hollow $(p-1)$-dimensional surface in $\mathbb{R}^p$, while a *ball* refers to the filled interior region. The functions generate a variety of spherical forms, including simple circles, uniform and hollow spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. Such spherical or hemispherical structures frequently appear in physical and biological systems, for example in models of celestial bodies, molecular shells, or cell membranes [@tinkham2003; @alberts2014].Table \@ref(tab:sphere-tb-html) summarizes these functions.
 
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:sphere-tb-html)cardinalR sphere data generation functions
-
-|Function                           |Explanation                                 |
-|:----------------------------------|:-------------------------------------------|
-|<code>gen\_circle</code>           |Circle.                                     |
-|<code>gen\_curvycycle</code>       |Curvy cell cycle.                           |
-|<code>gen\_unifsphere</code>       |Uniform ball.                               |
-|<code>gen\_hollowsphere</code>     |Hollow sphere.                              |
-|<code>gen\_gridedsphere</code>     |Grided sphere.                              |
-|<code>gen\_clusteredspheres</code> |Multiple small spheres within a big sphere. |
-|<code>gen\_hemisphere</code>       |Hemisphere.                                 |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
 The simplest case, `gen_circle(n, p)` creates a unit circle in two dimensions, with the remaining dimensions forming sinusoidal extensions of the angular parameter at progressively smaller scales (Figure \@ref(fig:sphere) a). Let a latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\pi]$. Coordinates in the first two dimensions represent a perfect circle on the plane: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta).$$ For dimensions $X_3$ through $X_p$, sinusoidal transformations of the angle $\theta$ are introduced. The first component is a scaling factor that decreases with the dimension index, defined as $\text{scale}_j = \sqrt{(0.5)^{j-2}}$ for $j = 3, \dots, p$. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula $\phi_j = (j - 2)\pi/2p$. Each additional dimension is computed as: $X_j = \text{scale}_{j}\sin(\theta + \phi_j), \quad j = 3, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
@@ -999,7 +925,7 @@ Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere 
 
 ### Swiss Roll 
 
-The Swiss roll is a standard nonlinear manifold, representing a  plane curled into $3\text{-}D$. The `gen_swissroll(n, w)` generates points as $X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad t \sim U(0, 3\pi).$
+The Swiss roll is a standard nonlinear manifold, representing a plane curled into $3\text{-}D$. The `gen_swissroll(n, w)` generates points as $X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad t \sim U(0, 3\pi).$
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>swissroll</span> <span class='op'>&lt;-</span> <span class='fu'>gen_swissroll</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1000</span>, w <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span></code></pre></div>
@@ -1016,30 +942,6 @@ The Swiss roll is a classic benchmark for manifold learning, illustrating how a 
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
 
 The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (Figure \@ref(fig:trefoil)). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. Table \@ref(tab:trefoil-tb-html) summarizes these functions.
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:trefoil-tb-html)cardinalR trefoil data generation functions
-
-|Function                    |Explanation              |
-|:---------------------------|:------------------------|
-|<code>gen\_trefoil4d</code> |Trefoil in $4\text{-}D$. |
-|<code>gen\_trefoil3d</code> |Trefoil in $3\text{-}D$. |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
 
 For the $4\text{-}D$ trefoil knot [@laurent2024], the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (Figure \@ref(fig:trefoil) a). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ and $\phi$ trace the knot’s path. 
 
@@ -1140,34 +1042,6 @@ The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dyna
 ### Trigonometric
 
 Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \@ref(fig:triginometric)). The main geometry is defined by the first few coordinates: crescents ($p=2$), cylinders, spirals, and helices ($p=4$). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features [@calladine1997; @gershenfeld2000]. Table \@ref(tab:trigonometric-tb-html) summarizes these functions.
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-Table: (\#tab:trigonometric-tb-html)cardinalR trigonometric data generation functions
-
-|Function                          |Explanation          |
-|:---------------------------------|:--------------------|
-|<code>gen\_crescent</code>        |Crescent pattern.    |
-|<code>gen\_curvycylinder</code>   |Curvy cylinder.      |
-|<code>gen\_sphericalspiral</code> |Spherical spiral.    |
-|<code>gen\_helicalspiral</code>   |Helical spiral.      |
-|<code>gen\_conicspiral</code>     |Conic spiral.        |
-|<code>gen\_nonlinear</code>       |Nonlinear hyperbola. |
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
 
 First, the `gen_crescent(n, p)` function generates a $p$-dimensional dataset of $n$ observations based on a $2\text{-}D$ crescent-shaped manifold with optional structured high-dimensional noise (Figure \@ref(fig:triginometric) a). Let $\theta \in [\pi/6, 2\pi]$ be a sequence of $n$ evenly spaced angles. The corresponding $2\text{-}D$ coordinates are defined by: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta).$$
 
