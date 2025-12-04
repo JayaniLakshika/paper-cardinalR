@@ -63,7 +63,7 @@ knitr::opts_chunk$set(
 set.seed(20240412)
 ```
 
-```{r install-libraries, include=FALSE, warning=FALSE, echo=FALSE}
+```{r install-libraries, include=FALSE, warning=FALSE, echo=FALSE, eval=FALSE}
 
 # Ensure remotes is available
 if (!requireNamespace("remotes", quietly = TRUE)) {
