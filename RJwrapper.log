@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.17)  4 DEC 2025 15:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.17)  4 DEC 2025 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -886,27 +886,27 @@ ocal/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 2
-5.
+7.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
-25.
+27.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
-25.
+27.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
-25.
+27.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-25.
+27.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
@@ -915,97 +915,98 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 25.
+(Font)              scaled to size 9.37807pt on input line 27.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 25.
+(Font)              scaled to size 7.29405pt on input line 27.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 25.
+(Font)              scaled to size 5.21004pt on input line 27.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 25.
+(Font)              scaled to size 9.37807pt on input line 27.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 25.
+(Font)              scaled to size 7.29405pt on input line 27.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 25.
-<figures/cardinalR_workflow.png, id=109, 1289.65816pt x 1267.97716pt>
+(Font)              scaled to size 5.21004pt on input line 27.
+<figures/cardinalR_workflow.png, id=114, 1289.65816pt x 1267.97716pt>
 File: figures/cardinalR_workflow.png Graphic file (type png)
 <use figures/cardinalR_workflow.png>
-Package pdftex.def Info: figures/cardinalR_workflow.png  used on input line 31.
+Package pdftex.def Info: figures/cardinalR_workflow.png  used on input line 33.
 
 (pdftex.def)             Requested size: 318.67207pt x 313.31744pt.
 
 
 [2 <./figures/cardinalR_workflow.png>]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 76.
+(Font)              scaled to size 10.42007pt on input line 78.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 76.
+(Font)              scaled to size 7.91925pt on input line 78.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 76.
+(Font)              scaled to size 6.25204pt on input line 78.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 76.
+(Font)              scaled to size 10.42007pt on input line 78.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 76.
+(Font)              scaled to size 7.91925pt on input line 78.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 76.
+(Font)              scaled to size 6.25204pt on input line 78.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.20004pt on input line 80.
+(Font)              scaled to size 10.20004pt on input line 82.
 
-Overfull \hbox (7.54723pt too wide) in paragraph at lines 76--89
- [][] 
- []
-
-
-Overfull \hbox (6.39511pt too wide) in paragraph at lines 103--103
-[]|\T1/ppl/m/n/10 (-20) Arguments|  
- []
-
-
-Overfull \hbox (7.51581pt too wide) in paragraph at lines 108--108
-[]|\T1/zi4/m/n/10 gen_orglinearbranches|  
- []
-
-
-Overfull \hbox (2.41579pt too wide) in paragraph at lines 109--109
-[]|\T1/zi4/m/n/10 gen_orgcurvybranches|  
- []
-
-
-Overfull \hbox (2.41579pt too wide) in paragraph at lines 128--128
-[]|\T1/zi4/m/n/10 gen_clusteredspheres|  
- []
-
-
-Overfull \hbox (7.54723pt too wide) in paragraph at lines 101--141
+Overfull \hbox (7.54723pt too wide) in paragraph at lines 78--91
  [][] 
  []
 
 
 
 [3]
+Overfull \hbox (6.39511pt too wide) in paragraph at lines 105--105
+[]|\T1/ppl/m/n/10 (-20) Arguments|  
+ []
 
-[4]
-Overfull \hbox (29.67798pt too wide) in paragraph at lines 162--163
+
+Overfull \hbox (7.51581pt too wide) in paragraph at lines 110--110
+[]|\T1/zi4/m/n/10 gen_orglinearbranches|  
+ []
+
+
+Overfull \hbox (2.41579pt too wide) in paragraph at lines 111--111
+[]|\T1/zi4/m/n/10 gen_orgcurvybranches|  
+ []
+
+
+Overfull \hbox (2.41579pt too wide) in paragraph at lines 130--130
+[]|\T1/zi4/m/n/10 gen_clusteredspheres|  
+ []
+
+
+Overfull \hbox (7.54723pt too wide) in paragraph at lines 103--143
+ [][] 
+ []
+
+
+Overfull \hbox (29.67798pt too wide) in paragraph at lines 164--165
 []\T1/ppl/m/n/9 (-20) The sim-plest struc-tures are ap-prox-i-mately lin-ear br
 anches in $\OT1/ppl/m/n/9 (-20) 2[]\OML/zplm/m/it/9 D$\T1/ppl/m/n/9 (-20) , gen
 -er-ated by the \T1/zi4/m/n/9 gen_linearbranches(n,
  []
 
-<paper-cardinalR_files/figure-latex/branch-proj-1.pdf, id=137, 867.24pt x 289.0
+
+
+[4]
+<paper-cardinalR_files/figure-latex/branch-proj-1.pdf, id=145, 867.24pt x 289.0
 8pt>
 File: paper-cardinalR_files/figure-latex/branch-proj-1.pdf Graphic file (type p
 df)
 <use paper-cardinalR_files/figure-latex/branch-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/branch-proj-1.pdf  
-used on input line 221.
+used on input line 223.
 (pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
 
-Overfull \hbox (3.15651pt too wide) in paragraph at lines 226--227
+Overfull \hbox (3.15651pt too wide) in paragraph at lines 228--229
 \T1/ppl/m/n/9 (-20) To sim-u-late a cone-shaped struc-ture in ar-bi-trary di-me
 n-sions (Fig-ure [][]3[][]), we de-fine a func-tion \T1/zi4/m/n/9 gen_cone(n,
  []
@@ -1013,19 +1014,19 @@ n-sions (Fig-ure [][]3[][]), we de-fine a func-tion \T1/zi4/m/n/9 gen_cone(n,
 
 
 [5]
-<paper-cardinalR_files/figure-latex/cone-proj-1.pdf, id=150, 867.24pt x 289.08p
+<paper-cardinalR_files/figure-latex/cone-proj-1.pdf, id=156, 867.24pt x 289.08p
 t>
 File: paper-cardinalR_files/figure-latex/cone-proj-1.pdf Graphic file (type pdf
 )
 <use paper-cardinalR_files/figure-latex/cone-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/cone-proj-1.pdf  us
-ed on input line 235.
+ed on input line 237.
 (pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
 
 
 [6 <./paper-cardinalR_files/figure-latex/branch-proj-1.pdf> <./paper-cardinalR_
 files/figure-latex/cone-proj-1.pdf>]
-Overfull \hbox (15.18297pt too wide) in paragraph at lines 270--271
+Overfull \hbox (15.18297pt too wide) in paragraph at lines 272--273
 []\T1/ppl/m/n/9 (-20) The first is the quadratic curve of $\OML/zplm/m/it/9 n$ 
 \T1/ppl/m/n/9 (-20) points in two di-men-sions. This is gen-er-ated us-ing \T1/
 zi4/m/n/9 gen_quadratic(n,
@@ -1035,17 +1036,17 @@ zi4/m/n/9 gen_quadratic(n,
 
 [7]
 LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 
-288.
+290.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
-<paper-cardinalR_files/figure-latex/pyr-proj-1.pdf, id=208, 867.24pt x 1156.32p
+<paper-cardinalR_files/figure-latex/pyr-proj-1.pdf, id=214, 867.24pt x 1156.32p
 t>
 File: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf Graphic file (type pdf)
 
 <use paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/pyr-proj-1.pdf  use
-d on input line 294.
+d on input line 296.
 (pdftex.def)             Requested size: 318.67207pt x 424.9028pt.
 
 
@@ -1054,80 +1055,73 @@ d on input line 294.
 [9 <./paper-cardinalR_files/figure-latex/pyr-proj-1.pdf>]
 
 [10]
-<paper-cardinalR_files/figure-latex/sphere-proj-1.pdf, id=249, 867.24pt x 867.2
+<paper-cardinalR_files/figure-latex/sphere-proj-1.pdf, id=255, 867.24pt x 867.2
 4pt>
 File: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf Graphic file (type p
 df)
 <use paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/sphere-proj-1.pdf  
-used on input line 344.
+used on input line 346.
 (pdftex.def)             Requested size: 318.67207pt x 318.67711pt.
-
-Overfull \hbox (17.09308pt too wide) in paragraph at lines 353--354
-\T1/ppl/m/n/9 (-20) The Swiss roll is a stan-dard non-lin-ear man-i-fold, rep-r
-e-sent-ing a plane curled into $\OT1/ppl/m/n/9 (-20) 3[]\OML/zplm/m/it/9 D$\T1/
-ppl/m/n/9 (-20) . The \T1/zi4/m/n/9 gen_swissroll(n,
- []
-
 
 
 [11 <./paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=281, 867.24pt x 578.
+<paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf, id=287, 867.24pt x 578.
 16pt>
 File: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf Graphic file (type 
 pdf)
 <use paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf 
- used on input line 371.
+ used on input line 373.
 (pdftex.def)             Requested size: 318.67207pt x 212.4514pt.
 
 
 [12 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=316, 867.24pt 
+<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=322, 867.24pt 
 x 1156.32pt>
 File: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf Graphic file 
 (type pdf)
 <use paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-
-1.pdf  used on input line 396.
+1.pdf  used on input line 398.
 (pdftex.def)             Requested size: 278.83578pt x 371.77672pt.
 
 
 [13]
 
 [14 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>]
-Overfull \hbox (7.51581pt too wide) in paragraph at lines 484--484
+Overfull \hbox (7.51581pt too wide) in paragraph at lines 486--486
 []|\T1/zi4/m/n/10 make_klink_curvycycle|  
  []
 
 
-Overfull \hbox (7.51581pt too wide) in paragraph at lines 485--485
+Overfull \hbox (7.51581pt too wide) in paragraph at lines 487--487
 []|\T1/zi4/m/n/10 make_chain_curvycycle|  
  []
 
 
-Overfull \hbox (2.41579pt too wide) in paragraph at lines 489--489
+Overfull \hbox (2.41579pt too wide) in paragraph at lines 491--491
 []|\T1/zi4/m/n/10 make_twogrid_overlap|  
  []
 
 
 
 [15]
-<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=357, 867.24pt x 289.08
+<paper-cardinalR_files/figure-latex/highd-proj-1.pdf, id=363, 867.24pt x 289.08
 pt>
 File: paper-cardinalR_files/figure-latex/highd-proj-1.pdf Graphic file (type pd
 f)
 <use paper-cardinalR_files/figure-latex/highd-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-1.pdf  u
-sed on input line 540.
+sed on input line 542.
 (pdftex.def)             Requested size: 398.33858pt x 132.7799pt.
-<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=368, 460.72125pt
+<paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf, id=374, 460.72125pt
  x 324.21124pt>
 File: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf Graphic file (t
 ype pdf)
 <use paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/fig-nldr-layouts-1.
-pdf  used on input line 548.
+pdf  used on input line 550.
 (pdftex.def)             Requested size: 398.33858pt x 280.31024pt.
 
 
@@ -1135,7 +1129,7 @@ pdf  used on input line 548.
 
 [17 <./paper-cardinalR_files/figure-latex/highd-proj-1.pdf> <./paper-cardinalR_
 files/figure-latex/fig-nldr-layouts-1.pdf>]
-Overfull \hbox (37.32867pt too wide) in paragraph at lines 588--589
+Overfull \hbox (37.32867pt too wide) in paragraph at lines 590--591
 \T1/ppl/m/n/9 (-20) ti-cle is cre-ated us-ing [][]\T1/ppl/b/n/9 (-20) knitr[][]
  \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/9 (-20) 
 rmark-down[][] \T1/ppl/m/n/9 (-20) ([][][]Xie et al.[][], [][]2018[][]) in R wi
@@ -1149,13 +1143,13 @@ th the \T1/zi4/m/n/9 rjtools::rjournal_article
 
 
 [18]
-Underfull \hbox (badness 1515) in paragraph at lines 115--115
+Underfull \hbox (badness 1515) in paragraph at lines 129--129
 []\T1/ppl/m/n/9 (+20) G. E. Hin-ton and S. Roweis.  Stochas-tic Neigh-bor Em-be
 d-ding.  In S. Becker, S. Thrun,
  []
 
 
-Underfull \hbox (badness 3333) in paragraph at lines 115--115
+Underfull \hbox (badness 3333) in paragraph at lines 129--129
 \T1/ppl/m/n/9 (+20) MIT Press, 2002.  URL [][]$\T1/zi4/m/n/9 https : / / procee
 dings . neurips . cc / paper _ files / paper / 2002 / file /
  []
@@ -1167,10 +1161,10 @@ dings . neurips . cc / paper _ files / paper / 2002 / file /
 [20])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 600.
+(Font)              using `T1/zi4/m/n' instead on input line 602.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.18004pt on input line 600.
+(Font)              scaled to size 9.18004pt on input line 602.
 )
 
 [21] (./RJwrapper.aux)
@@ -1184,13 +1178,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: E9A25E3FE3B4BE1D15A5DA0BE9622450;3156.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: BE6C308B5BBD271F0A04214B23A91CAF;2680.
+(rerunfilecheck)             Checksum: E4445AC583B9D1163DAD58445A5C4727;2764.
  ) 
 Here is how much of TeX's memory you used:
- 28088 strings out of 473190
- 508669 string characters out of 5715800
- 932974 words of memory out of 5000000
- 50306 multiletter control sequences out of 15000+600000
+ 28102 strings out of 473190
+ 508835 string characters out of 5715800
+ 932028 words of memory out of 5000000
+ 50318 multiletter control sequences out of 15000+600000
  627329 words of font info for 412 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,14n,131p,1839b,919s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1205,10 +1199,10 @@ sr/local/texlive/2025/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/l
 ocal/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/te
 xlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2
 025/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (21 pages, 7190975 bytes).
+Output written on RJwrapper.pdf (21 pages, 7191896 bytes).
 PDF statistics:
- 679 PDF objects out of 1000 (max. 8388607)
- 601 compressed objects within 7 object streams
- 103 named destinations out of 1000 (max. 500000)
+ 687 PDF objects out of 1000 (max. 8388607)
+ 609 compressed objects within 7 object streams
+ 105 named destinations out of 1000 (max. 500000)
  78522 words of extra memory for PDF output out of 89155 (max. 10000000)
 

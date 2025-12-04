@@ -147,6 +147,8 @@ These packages are especially valuable for specific applications, but together t
 
 The motivation for developing this package originated from our own work in studying nonlinear dimension reduction (NLDR) algorithms. We wanted to conduct a visualization experiment to understand perception and misperception of a variety of NLDR methods. This required simulated datasets with carefully controlled geometric and clustering properties. While some existing packages provided useful starting points, none fully supported the creation of flexible, high-dimensional data with the specific structural variations needed for our experiment. Developing these generators for research purposes underlies `cardinalR`, which is now a general-purpose package that should be useful for research and teaching.
 
+The example data structures are best viewed using a tour [@As85]. These show the data as a sequence of low dimensional projections (typically 2D), providing a good sense of the shape in high dimensions. The interactive tour plots included in this paper are produced using the software langevitour [@paul2023].
+
 The paper is organized as follows. In the next section, we introduce the implementation of the `cardinalR` package on GitHub, including a demonstration of the package's key functions. We illustrate how a clustering data structure affects the dimension reductions in the Application section. Finally, we give a brief conclusion of the paper and discuss potential opportunities for the use of our data collection.
 
 # Usage
@@ -555,7 +557,7 @@ orglinearbranches_proj3 <- plot_proj(
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 ```
 
-```{r branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output of the `orglinearbranches` data in $4\\text{-}D$. The tour view shows how the linear branches appear from multiple viewing angles.", fig.alt="Interactive langevitour of the orglinearbranches dataset in 4-D, showing linear branches from multiple viewing angles.", fig.pos="!ht"}
+```{r branch, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$ output of the `gen_orgcurvybranches()`. The tour view shows how the linear branches appear from multiple viewing angles.", fig.alt="Interactive langevitour of the orglinearbranches dataset in 4-D, showing linear branches from multiple viewing angles.", fig.pos="!ht", layout="l-body"}
 
 branchfig <- bscols(
   htmltools::div(
@@ -681,7 +683,7 @@ cone_proj3 <- plot_proj(
 
 ```
 
-```{r cone, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `cone` data in $3\\text{-}D$. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex.", fig.alt="Interactive langevitour of the cone dataset in 3-D, showing points concentrated near the tip with radius decreasing linearly toward the apex.", fig.pos="!ht"}
+```{r cone, eval=knitr::is_html_output(), fig.cap="Viewing the $3\\text{-}D$ output  of `gen_cone()`. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex.", fig.alt="Interactive langevitour of the cone dataset in 3-D, showing points concentrated near the tip with radius decreasing linearly toward the apex.", fig.pos="!ht"}
 
 conefig <- bscols(
   htmltools::div(
@@ -1151,7 +1153,7 @@ pyrholes_proj3 <- plot_proj(
 
 Pyramid structures mimic tapering or layered geometries seen in architecture, crystals, and fractal-like natural patterns [@kirkby1983].
 
-```{r pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrholes` reveals hollow or open regions within an otherwise compact shape.", fig.alt="Interactive langevitour of four 4-D pyramid-like datasets: pyrrect, pyrtri, pyrstar, and pyrholes, showing dense bases, triangular spreads, branching points, and hollow regions.", fig.pos="!ht"}
+```{r pyr, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$  `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrholes` reveals hollow or open regions within an otherwise compact shape.", fig.alt="Interactive langevitour of four 4-D pyramid-like datasets: pyrrect, pyrtri, pyrstar, and pyrholes, showing dense bases, triangular spreads, branching points, and hollow regions.", fig.pos="!ht"}
 
 pyrfig <- bscols(
   htmltools::div(
@@ -1201,7 +1203,7 @@ circle <- gen_circle(n = 1000, p = 4)
 ```
 
 ```{r}
-circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
 ```
 
 ```{r circle-proj1}
@@ -1295,7 +1297,7 @@ curvycycle <- gen_curvycycle(n = 1000, p = 4)
 ```
 
 ```{r}
-curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
 ```
 
 ```{r curvycycle-proj1}
@@ -1430,7 +1432,7 @@ clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, r = c(15, 3),
 ```
 
 ```{r}
-clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
 ```
 
 ```{r clusteredspheres-proj1}
@@ -1517,18 +1519,18 @@ clusteredspheres_proj3 <- plot_proj(
 
 Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) f"} else { "Figure \\@ref(fig:sphere-proj) f"})`). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. 
 
-```{r sphere, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `circle`, `curvycycle` data in $4\\text{-}D$, and `clusteredspheres` data in $3\\text{-}D$. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships.", fig.alt="Interactive langevitour of three datasets: circle and curvycycle in 4-D showing closed-loop and wavy twisted-ring structures, and clusteredspheres in 3-D showing multiple compact spherical clusters with slight overlap in projections.", fig.pos="!ht"}
+```{r sphere, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$ `circle`, `curvycycle` data, and $3\\text{-}D$ `clusteredspheres` data. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships.", fig.alt="Interactive langevitour of three datasets: circle and curvycycle in 4-D showing closed-loop and wavy twisted-ring structures, and clusteredspheres in 3-D showing multiple compact spherical clusters with slight overlap in projections.", fig.pos="!ht", layout="l-body"}
 
 spherefig <- bscols(
   htmltools::div(
-    style = "display: grid; grid-template-columns: 1fr 1fr;
+    style = "display: grid; grid-template-columns: 1fr 1fr 1fr;
     gap: 0px;
     align-items: start;
     justify-items: center;
     margin: 0;
     padding: 0;",
-    circle_lang, curvycycle_lang, clusteredspheres_lang
-  ),
+    circle_lang, curvycycle_lang, clusteredspheres_lang),
+  #widths=c(3,3,3),
   device = "xs"
 )
 
@@ -1547,7 +1549,7 @@ clusteredspheres_proj1 + clusteredspheres_proj2 + clusteredspheres_proj3 +
 
 ### Swiss Roll 
 
-The Swiss roll is a standard nonlinear manifold, representing a plane curled into $3\text{-}D$. The `gen_swissroll(n, w)` generates points as $X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad t \sim U(0, 3\pi).$
+The Swiss roll is a plane curled into $3\text{-}D$, and is a commonly used example of a nonlinear manifold. The `gen_swissroll(n, w)` generates points as $X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad t \sim U(0, 3\pi).$
 
 ```{r data-swissroll}
 swissroll <- gen_swissroll(n = 1000, w = c(-1, 1))
@@ -1749,7 +1751,7 @@ trefoil3d_proj3 <- plot_proj(
 
 ```
 
-```{r trefoil, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `trefoil4d` in $4\\text{-}D$ and `trefoil3d` data in $3\\text{-}D$. The `trefoil4d` structure represents a higher-dimensional extension of the classic trefoil knot, revealing complex twisting and looping patterns that remain continuous across projections. In contrast, the `trefoil3d` dataset maintains a simpler, more compact knot-like form, showing how dimensional extension adds curvature and separation in the embedded space.", fig.alt="Interactive langevitour of two trefoil knot datasets: trefoil4d in 4-D showing complex twisting and looping patterns, and trefoil3d in 3-D showing a simpler compact knot-like form.", fig.pos="!ht"}
+```{r trefoil, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$ `trefoil4d` and $3\\text{-}D$ `trefoil3d` data. The `trefoil4d` structure represents a higher-dimensional extension of the classic trefoil knot, revealing complex twisting and looping patterns that remain continuous across projections. In contrast, the `trefoil3d` dataset maintains a simpler, more compact knot-like form, showing how dimensional extension adds curvature and separation in the embedded space.", fig.alt="Interactive langevitour of two trefoil knot datasets: trefoil4d in 4-D showing complex twisting and looping patterns, and trefoil3d in 3-D showing a simpler compact knot-like form.", fig.pos="!ht"}
 
 trefoilfig <- bscols(
   htmltools::div(
@@ -2160,7 +2162,7 @@ nonlinear_proj3 <- plot_proj(
 
 ```
 
-```{r triginometric, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of tthe `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data in $4\\text{-}D$. The `curvycylinder` shows a cylindrical manifold with a nonlinear twist along its height, producing smooth, continuous curvature. The `sphericalspiral` forms a spiral path on a spherical surface, combining circular and vertical motion in a helical form. The `conicspiral` spreads radially while ascending, forming a conical helix with twisting variations in a non-radial dimension. The `nonlinear` dataset exhibits a warped $2\\text{-}D$ surface with sharp oscillations and smooth waves, reflecting complex nonlinear interactions.", fig.alt="Interactive langevitour of six datasets in 4-D: crescent, curvycylinder, sphericalspiral, helicalspiral, conicspiral, and nonlinear, showing cylindrical twists, spiral paths, conical helices, and warped 2-D surfaces with smooth and sharp variations.", fig.pos="!ht"}
+```{r triginometric, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$ `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data. The `curvycylinder` shows a cylindrical manifold with a nonlinear twist along its height, producing smooth, continuous curvature. The `sphericalspiral` forms a spiral path on a spherical surface, combining circular and vertical motion in a helical form. The `conicspiral` spreads radially while ascending, forming a conical helix with twisting variations in a non-radial dimension. The `nonlinear` dataset exhibits a warped $2\\text{-}D$ surface with sharp oscillations and smooth waves, reflecting complex nonlinear interactions.", fig.alt="Interactive langevitour of six datasets in 4-D: crescent, curvycylinder, sphericalspiral, helicalspiral, conicspiral, and nonlinear, showing cylindrical twists, spiral paths, conical helices, and warped 2-D surfaces with smooth and sharp variations.", fig.pos="!ht"}
 
 triginometricfig <- bscols(
   htmltools::div(
@@ -2368,7 +2370,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
                        is_bkg = FALSE)
 ```
 
-```{r highd-data, eval=knitr::is_html_output(), fig.cap="`langevitour` output showing five synthetic clusters with distinct geometric structures: a helical spiral, a hemisphere, a uniform cube, a cone, and a Gaussian cluster.", fig.alt="Interactive langevitour of five synthetic clusters in 4-D: helical spiral, hemisphere, uniform cube, cone, and Gaussian cluster, each colored distinctly to highlight geometric structure.", fig.pos="!ht"}
+```{r highd-data, eval=knitr::is_html_output(), fig.cap="Viewing five synthetic clusters with distinct geometric structures: a helical spiral, a hemisphere, a uniform cube, a cone, and a Gaussian cluster.", fig.alt="Interactive langevitour of five synthetic clusters in 4-D: helical spiral, hemisphere, uniform cube, cone, and Gaussian cluster, each colored distinctly to highlight geometric structure.", fig.pos="!ht"}
 
 langevitour::langevitour(five_clusts[, -5], group = five_clusts$cluster, levelColors = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e'))
 ```

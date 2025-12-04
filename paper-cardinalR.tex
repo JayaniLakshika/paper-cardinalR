@@ -18,6 +18,8 @@ These packages are especially valuable for specific applications, but together t
 
 The motivation for developing this package originated from our own work in studying nonlinear dimension reduction (NLDR) algorithms. We wanted to conduct a visualization experiment to understand perception and misperception of a variety of NLDR methods. This required simulated datasets with carefully controlled geometric and clustering properties. While some existing packages provided useful starting points, none fully supported the creation of flexible, high-dimensional data with the specific structural variations needed for our experiment. Developing these generators for research purposes underlies \texttt{cardinalR}, which is now a general-purpose package that should be useful for research and teaching.
 
+The example data structures are best viewed using a tour \citep{As85}. These show the data as a sequence of low dimensional projections (typically 2D), providing a good sense of the shape in high dimensions. The interactive tour plots included in this paper are produced using the software langevitour \citep{paul2023}.
+
 The paper is organized as follows. In the next section, we introduce the implementation of the \texttt{cardinalR} package on GitHub, including a demonstration of the package's key functions. We illustrate how a clustering data structure affects the dimension reductions in the Application section. Finally, we give a brief conclusion of the paper and discuss potential opportunities for the use of our data collection.
 
 \section{Usage}\label{usage}
@@ -350,7 +352,7 @@ Finally, the \texttt{gen\_hemisphere(n,\ p)} function restricts sampling to a he
 
 \subsubsection{Swiss Roll}\label{swiss-roll}
 
-The Swiss roll is a standard nonlinear manifold, representing a plane curled into \(3\text{-}D\). The \texttt{gen\_swissroll(n,\ w)} generates points as \(X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad t \sim U(0, 3\pi).\)
+The Swiss roll is a plane curled into \(3\text{-}D\), and is a commonly used example of a nonlinear manifold. The \texttt{gen\_swissroll(n,\ w)} generates points as \(X_1 = t \cos(t), \quad X_2 = t \sin(t), \quad X_3 \sim U(w_1, w_2), \quad t \sim U(0, 3\pi).\)
 
 Compared with \texttt{sndata::swiss\_roll()} \citep{james2025}, this implementation (i) samples \(t\) over \([0, 3\pi]\) instead of \([1.5\pi, 4.5\pi]\), (ii) allows a flexible vertical range \(w = (w_1, w_2)\) rather than fixing \(z \in [0, z_{\max}]\), and (iii) returns a tibble with \texttt{x1,\ x2,\ x3} instead of adding a color variable.
 

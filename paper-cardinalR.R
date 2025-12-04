@@ -406,7 +406,7 @@ orglinearbranches_proj3 <- plot_proj(
 orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 
 
-## ----branch, eval=knitr::is_html_output(), fig.cap="`langevitour` output of the `orglinearbranches` data in $4\\text{-}D$. The tour view shows how the linear branches appear from multiple viewing angles.", fig.alt="Interactive langevitour of the orglinearbranches dataset in 4-D, showing linear branches from multiple viewing angles.", fig.pos="!ht"----
+## ----branch, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$ output of the `gen_orgcurvybranches()`. The tour view shows how the linear branches appear from multiple viewing angles.", fig.alt="Interactive langevitour of the orglinearbranches dataset in 4-D, showing linear branches from multiple viewing angles.", fig.pos="!ht", layout="l-body"----
 # 
 # branchfig <- bscols(
 #   htmltools::div(
@@ -522,7 +522,7 @@ cone_proj3 <- plot_proj(
 
 
 
-## ----cone, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `cone` data in $3\\text{-}D$. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex.", fig.alt="Interactive langevitour of the cone dataset in 3-D, showing points concentrated near the tip with radius decreasing linearly toward the apex.", fig.pos="!ht"----
+## ----cone, eval=knitr::is_html_output(), fig.cap="Viewing the $3\\text{-}D$ output  of `gen_cone()`. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex.", fig.alt="Interactive langevitour of the cone dataset in 3-D, showing points concentrated near the tip with radius decreasing linearly toward the apex.", fig.pos="!ht"----
 # 
 # conefig <- bscols(
 #   htmltools::div(
@@ -936,7 +936,7 @@ pyrholes_proj3 <- plot_proj(
 
 
 
-## ----pyr, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data in $4\\text{-}D$. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrholes` reveals hollow or open regions within an otherwise compact shape.", fig.alt="Interactive langevitour of four 4-D pyramid-like datasets: pyrrect, pyrtri, pyrstar, and pyrholes, showing dense bases, triangular spreads, branching points, and hollow regions.", fig.pos="!ht"----
+## ----pyr, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$  `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrholes` reveals hollow or open regions within an otherwise compact shape.", fig.alt="Interactive langevitour of four 4-D pyramid-like datasets: pyrrect, pyrtri, pyrstar, and pyrholes, showing dense bases, triangular spreads, branching points, and hollow regions.", fig.pos="!ht"----
 # 
 # pyrfig <- bscols(
 #   htmltools::div(
@@ -974,7 +974,7 @@ circle <- gen_circle(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
 
 
 ## ----circle-proj1-------------------------------------------------------------
@@ -1064,7 +1064,7 @@ curvycycle <- gen_curvycycle(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
 
 
 ## ----curvycycle-proj1---------------------------------------------------------
@@ -1164,7 +1164,7 @@ clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, r = c(15, 3),
 
 
 ## -----------------------------------------------------------------------------
-clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
 
 
 ## ----clusteredspheres-proj1---------------------------------------------------
@@ -1249,18 +1249,18 @@ clusteredspheres_proj3 <- plot_proj(
 
 
 
-## ----sphere, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `circle`, `curvycycle` data in $4\\text{-}D$, and `clusteredspheres` data in $3\\text{-}D$. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships.", fig.alt="Interactive langevitour of three datasets: circle and curvycycle in 4-D showing closed-loop and wavy twisted-ring structures, and clusteredspheres in 3-D showing multiple compact spherical clusters with slight overlap in projections.", fig.pos="!ht"----
+## ----sphere, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$ `circle`, `curvycycle` data, and $3\\text{-}D$ `clusteredspheres` data. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships.", fig.alt="Interactive langevitour of three datasets: circle and curvycycle in 4-D showing closed-loop and wavy twisted-ring structures, and clusteredspheres in 3-D showing multiple compact spherical clusters with slight overlap in projections.", fig.pos="!ht", layout="l-body"----
 # 
 # spherefig <- bscols(
 #   htmltools::div(
-#     style = "display: grid; grid-template-columns: 1fr 1fr;
+#     style = "display: grid; grid-template-columns: 1fr 1fr 1fr;
 #     gap: 0px;
 #     align-items: start;
 #     justify-items: center;
 #     margin: 0;
 #     padding: 0;",
-#     circle_lang, curvycycle_lang, clusteredspheres_lang
-#   ),
+#     circle_lang, curvycycle_lang, clusteredspheres_lang),
+#   #widths=c(3,3,3),
 #   device = "xs"
 # )
 # 
@@ -1461,7 +1461,7 @@ trefoil3d_proj3 <- plot_proj(
 
 
 
-## ----trefoil, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of the `trefoil4d` in $4\\text{-}D$ and `trefoil3d` data in $3\\text{-}D$. The `trefoil4d` structure represents a higher-dimensional extension of the classic trefoil knot, revealing complex twisting and looping patterns that remain continuous across projections. In contrast, the `trefoil3d` dataset maintains a simpler, more compact knot-like form, showing how dimensional extension adds curvature and separation in the embedded space.", fig.alt="Interactive langevitour of two trefoil knot datasets: trefoil4d in 4-D showing complex twisting and looping patterns, and trefoil3d in 3-D showing a simpler compact knot-like form.", fig.pos="!ht"----
+## ----trefoil, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$ `trefoil4d` and $3\\text{-}D$ `trefoil3d` data. The `trefoil4d` structure represents a higher-dimensional extension of the classic trefoil knot, revealing complex twisting and looping patterns that remain continuous across projections. In contrast, the `trefoil3d` dataset maintains a simpler, more compact knot-like form, showing how dimensional extension adds curvature and separation in the embedded space.", fig.alt="Interactive langevitour of two trefoil knot datasets: trefoil4d in 4-D showing complex twisting and looping patterns, and trefoil3d in 3-D showing a simpler compact knot-like form.", fig.pos="!ht"----
 # 
 # trefoilfig <- bscols(
 #   htmltools::div(
@@ -1856,7 +1856,7 @@ nonlinear_proj3 <- plot_proj(
 
 
 
-## ----triginometric, eval=knitr::is_html_output(), fig.cap="`langevitour` output  of tthe `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data in $4\\text{-}D$. The `curvycylinder` shows a cylindrical manifold with a nonlinear twist along its height, producing smooth, continuous curvature. The `sphericalspiral` forms a spiral path on a spherical surface, combining circular and vertical motion in a helical form. The `conicspiral` spreads radially while ascending, forming a conical helix with twisting variations in a non-radial dimension. The `nonlinear` dataset exhibits a warped $2\\text{-}D$ surface with sharp oscillations and smooth waves, reflecting complex nonlinear interactions.", fig.alt="Interactive langevitour of six datasets in 4-D: crescent, curvycylinder, sphericalspiral, helicalspiral, conicspiral, and nonlinear, showing cylindrical twists, spiral paths, conical helices, and warped 2-D surfaces with smooth and sharp variations.", fig.pos="!ht"----
+## ----triginometric, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$ `crescent`, `curvycylinder`, `sphericalspiral`, `helicalspiral`, `conicspiral`, and `nonlinear` data. The `curvycylinder` shows a cylindrical manifold with a nonlinear twist along its height, producing smooth, continuous curvature. The `sphericalspiral` forms a spiral path on a spherical surface, combining circular and vertical motion in a helical form. The `conicspiral` spreads radially while ascending, forming a conical helix with twisting variations in a non-radial dimension. The `nonlinear` dataset exhibits a warped $2\\text{-}D$ surface with sharp oscillations and smooth waves, reflecting complex nonlinear interactions.", fig.alt="Interactive langevitour of six datasets in 4-D: crescent, curvycylinder, sphericalspiral, helicalspiral, conicspiral, and nonlinear, showing cylindrical twists, spiral paths, conical helices, and warped 2-D surfaces with smooth and sharp variations.", fig.pos="!ht"----
 # 
 # triginometricfig <- bscols(
 #   htmltools::div(
@@ -2000,7 +2000,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
                        is_bkg = FALSE)
 
 
-## ----highd-data, eval=knitr::is_html_output(), fig.cap="`langevitour` output showing five synthetic clusters with distinct geometric structures: a helical spiral, a hemisphere, a uniform cube, a cone, and a Gaussian cluster.", fig.alt="Interactive langevitour of five synthetic clusters in 4-D: helical spiral, hemisphere, uniform cube, cone, and Gaussian cluster, each colored distinctly to highlight geometric structure.", fig.pos="!ht"----
+## ----highd-data, eval=knitr::is_html_output(), fig.cap="Viewing five synthetic clusters with distinct geometric structures: a helical spiral, a hemisphere, a uniform cube, a cone, and a Gaussian cluster.", fig.alt="Interactive langevitour of five synthetic clusters in 4-D: helical spiral, hemisphere, uniform cube, cone, and Gaussian cluster, each colored distinctly to highlight geometric structure.", fig.pos="!ht"----
 # 
 # langevitour::langevitour(five_clusts[, -5], group = five_clusts$cluster, levelColors = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e'))
 
