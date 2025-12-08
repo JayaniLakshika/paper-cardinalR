@@ -974,7 +974,7 @@ circle <- gen_circle(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
+circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "260px", height = "170px")
 
 
 ## ----circle-proj1-------------------------------------------------------------
@@ -1064,7 +1064,7 @@ curvycycle <- gen_curvycycle(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
+curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "260px", height = "170px")
 
 
 ## ----curvycycle-proj1---------------------------------------------------------
@@ -1164,7 +1164,7 @@ clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, r = c(15, 3),
 
 
 ## -----------------------------------------------------------------------------
-clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
+clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "260px", height = "170px")
 
 
 ## ----clusteredspheres-proj1---------------------------------------------------
@@ -1253,28 +1253,20 @@ clusteredspheres_proj3 <- plot_proj(
 # 
 # spherefig <- bscols(
 #   htmltools::div(
-#     style = "
-#       display: grid;
-#       grid-template-columns: repeat(3, 1fr);
-#       gap: 0;
-#       width: 100%;
-#       margin: 0 auto;
-#       max-width: 100%;
-#     ",
-#     circle_lang,
-#     curvycycle_lang,
-#     clusteredspheres_lang
-#   ),
+#     style = "display: grid; grid-template-columns: 1fr 1fr 1fr;
+#     gap: 0px;
+#     align-items: start;
+#     justify-items: center;
+#     margin: 0;
+#     padding: 0;",
+#     circle_lang, curvycycle_lang, clusteredspheres_lang),
+#   #widths=c(3,3,3),
 #   device = "xs"
 # )
 # 
 # class(spherefig) <- c(class(spherefig), "htmlwidget")
 # 
-# htmltools::div(
-#   style = "max-width: 100%; width: 100%; margin: 0 auto;",
-#   spherefig
-# )
-# 
+# spherefig
 
 
 ## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, `circle` (a1-a3), `curvycycle` (b1-b3), and, $3\\text{-}D$ `clusteredspheres` (c1-c3). The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships. These projections show how simple cyclic, wavy curvilinear, and clustered structures appear in $2\\text{-}D$, emphasizing the effects of projection on density, continuity, and separation", fig.width=12, fig.height=12, out.width="80%", fig.align='center', fig.pos="H", fig.alt="Three $2\\text{-}D$ projections from each of three datasets: circle, curvycycle, and clusteredspheres, showing closed loops, twisted rings, and compact spherical clusters, illustrating projection effects on structure, density, and separation.", fig.pos="!ht"----

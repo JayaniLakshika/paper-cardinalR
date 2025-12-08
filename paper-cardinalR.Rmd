@@ -1203,7 +1203,7 @@ circle <- gen_circle(n = 1000, p = 4)
 ```
 
 ```{r}
-circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
+circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableControls = FALSE, width = "260px", height = "170px")
 ```
 
 ```{r circle-proj1}
@@ -1297,7 +1297,7 @@ curvycycle <- gen_curvycycle(n = 1000, p = 4)
 ```
 
 ```{r}
-curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
+curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", enableControls = FALSE, width = "260px", height = "170px")
 ```
 
 ```{r curvycycle-proj1}
@@ -1432,7 +1432,7 @@ clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, r = c(15, 3),
 ```
 
 ```{r}
-clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "300px", height = "300px")
+clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors = "black", enableControls = FALSE, width = "260px", height = "170px")
 ```
 
 ```{r clusteredspheres-proj1}
@@ -1517,34 +1517,26 @@ clusteredspheres_proj3 <- plot_proj(
 
 ```
 
-Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) f"} else { "Figure \\@ref(fig:sphere-proj) f"})`). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. 
+Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) f"} else { "Figure \\@ref(fig:sphere-proj) f"})`). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \\\quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. 
 
 ```{r sphere, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$ `circle`, `curvycycle` data, and $3\\text{-}D$ `clusteredspheres` data. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships.", fig.alt="Interactive langevitour of three datasets: circle and curvycycle in $4\\text{-}D$ showing closed-loop and wavy twisted-ring structures, and clusteredspheres in 3-D showing multiple compact spherical clusters with slight overlap in projections.", fig.pos="!ht", layout="l-body"}
 
 spherefig <- bscols(
   htmltools::div(
-    style = "
-      display: grid; 
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      width: 100%;
-      margin: 0 auto;
-      max-width: 100%;
-    ",
-    circle_lang,
-    curvycycle_lang,
-    clusteredspheres_lang
-  ),
+    style = "display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px;
+    align-items: start;
+    justify-items: center;
+    margin: 0;
+    padding: 0;",
+    circle_lang, curvycycle_lang, clusteredspheres_lang),
+  #widths=c(3,3,3),
   device = "xs"
 )
 
 class(spherefig) <- c(class(spherefig), "htmlwidget")
 
-htmltools::div(
-  style = "max-width: 100%; width: 100%; margin: 0 auto;",
-  spherefig
-)
-
+spherefig
 ```
 
 ```{r sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, `circle` (a1-a3), `curvycycle` (b1-b3), and, $3\\text{-}D$ `clusteredspheres` (c1-c3). The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships. These projections show how simple cyclic, wavy curvilinear, and clustered structures appear in $2\\text{-}D$, emphasizing the effects of projection on density, continuity, and separation", fig.width=12, fig.height=12, out.width="80%", fig.align='center', fig.pos="H", fig.alt="Three $2\\text{-}D$ projections from each of three datasets: circle, curvycycle, and clusteredspheres, showing closed loops, twisted rings, and compact spherical clusters, illustrating projection effects on structure, density, and separation.", fig.pos="!ht"}
@@ -1563,7 +1555,7 @@ The Swiss roll is a plane curled into $3\text{-}D$, and is a commonly used examp
 swissroll <- gen_swissroll(n = 1000, w = c(-1, 1))
 ```
 
-Compared with `sndata::swiss_roll()` [@james2025], this implementation (i) samples $t$ over $[0, 3\pi]$ instead of $[1.5\pi, 4.5\pi]$, (ii) allows a flexible vertical range $w = (w_1, w_2)$ rather than fixing $z \in [0, z_{\max}]$, and (iii) returns a tibble with `x1, x2, x3` instead of adding a color variable. 
+Compared with `snedata::swiss_roll()` [@james2025], this implementation (i) samples $t$ over $[0, 3\pi]$ instead of $[1.5\pi, 4.5\pi]$, (ii) allows a flexible vertical range $w = (w_1, w_2)$ rather than fixing $z \in [0, z_{\max}]$, and (iii) returns a tibble with `x1, x2, x3` instead of adding a color variable. 
 
 The Swiss roll is a classic benchmark for manifold learning, illustrating how a curved surface can be “unrolled” into lower dimensions. Similar spiral-like forms appear in galaxies, protein folding, and coiled materials [@dimitris2002].
 
