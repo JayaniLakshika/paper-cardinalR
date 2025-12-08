@@ -426,7 +426,7 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 # branchfig
 
 
-## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from the $4\\text{-}D$ `orglinearbranches` data. Each shows a different projection, illustrating how the linear branches appear from multiple viewing angles. These views highlight the dataset’s underlying branching structure and demonstrate how projections reveal patterns that are otherwise hidden in higher dimensions.", fig.width=12, fig.height=4, fig.pos="H", fig.alt="Three $2\\text{-}D$ projections of the $4\\text{-}D$ orglinearbranches dataset, showing different angles of the linear branches to illustrate the branching structure.", fig.pos="!ht"----
+## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from the $4\\text{-}D$ data generated using \\texttt{gen\\_orgcurvybranches}. Each shows a different projection, illustrating how the linear branches appear from multiple viewing angles. These views highlight the dataset’s underlying branching structure and demonstrate how projections reveal patterns that are otherwise hidden in higher dimensions.", fig.width=12, fig.height=4, fig.pos="H", fig.alt="Three $2\\text{-}D$ projections of the $4\\text{-}D$ orglinearbranches dataset, showing different angles of the linear branches to illustrate the branching structure.", fig.pos="!ht"----
 
 orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
@@ -1253,20 +1253,28 @@ clusteredspheres_proj3 <- plot_proj(
 # 
 # spherefig <- bscols(
 #   htmltools::div(
-#     style = "display: grid; grid-template-columns: 1fr 1fr 1fr;
-#     gap: 0px;
-#     align-items: start;
-#     justify-items: center;
-#     margin: 0;
-#     padding: 0;",
-#     circle_lang, curvycycle_lang, clusteredspheres_lang),
-#   #widths=c(3,3,3),
+#     style = "
+#       display: grid;
+#       grid-template-columns: repeat(3, 1fr);
+#       gap: 0;
+#       width: 100%;
+#       margin: 0 auto;
+#       max-width: 100%;
+#     ",
+#     circle_lang,
+#     curvycycle_lang,
+#     clusteredspheres_lang
+#   ),
 #   device = "xs"
 # )
 # 
 # class(spherefig) <- c(class(spherefig), "htmlwidget")
 # 
-# spherefig
+# htmltools::div(
+#   style = "max-width: 100%; width: 100%; margin: 0 auto;",
+#   spherefig
+# )
+# 
 
 
 ## ----sphere-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, `circle` (a1-a3), `curvycycle` (b1-b3), and, $3\\text{-}D$ `clusteredspheres` (c1-c3). The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships. These projections show how simple cyclic, wavy curvilinear, and clustered structures appear in $2\\text{-}D$, emphasizing the effects of projection on density, continuity, and separation", fig.width=12, fig.height=12, out.width="80%", fig.align='center', fig.pos="H", fig.alt="Three $2\\text{-}D$ projections from each of three datasets: circle, curvycycle, and clusteredspheres, showing closed loops, twisted rings, and compact spherical clusters, illustrating projection effects on structure, density, and separation.", fig.pos="!ht"----
