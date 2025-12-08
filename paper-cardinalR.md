@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-12-08'
+date: '2025-12-09'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -400,7 +400,7 @@ where $a_i, b_i$ define the range of the first coordinate for branch $i$, and $\
 </div>
 ```
 
-<p class="caption">(\#fig:branch)Viewing the $4\text{-}D$ output of the `gen_orgcurvybranches()`. The tour view shows how the linear branches appear from multiple viewing angles.</p>
+<p class="caption">(\#fig:branch)Viewing the $4\text{-}D$ `orgcurvybranches` data. The tour view shows how the linear branches appear from multiple viewing angles.</p>
 </div>
 
 </div>
@@ -468,7 +468,7 @@ Cone-shaped structures appear in particle dispersions, light beams, and tapering
 </div>
 ```
 
-<p class="caption">(\#fig:cone)Viewing the $3\text{-}D$ output  of `gen_cone()`. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex.</p>
+<p class="caption">(\#fig:cone)Viewing the $3\text{-}D$ output  of `cone` data. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex.</p>
 </div>
 
 </div>
@@ -891,7 +891,7 @@ For more heterogeneous structures, the `gen_clusteredspheres(n, k, r, loc)` func
 </div>
 
 
-Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (Figure \@ref(fig:sphere) f). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \\\quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. 
+Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (Figure \@ref(fig:sphere) f). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \\quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
