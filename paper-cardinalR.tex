@@ -7,7 +7,7 @@
 \maketitle
 
 \abstract{%
-Simulated high dimensional data is useful for testing, validating, and improving algorithms used in dimensionality reduction, supervised and unsupervised learning. High-dimensional data is characterized by multiple variables that are dependent or associated in some way, such as linear, nonlinear, clustering or anomalies. Here we provide new methods for generating a variety of high-dimensional structures using mathematical functions and statistical distributionsorganized into the R package cardinalR. Several example data sets are also provided. These will be useful for researchers to better understand how different analytical methods work and can be improved, with a special focus on nonlinear dimension reduction methods. This package enriches the existing toolset of benchmark datasets for evaluating algorithms.
+Simulated high dimensional data is useful for testing, validating, and improving algorithms used in dimensionality reduction, supervised and unsupervised learning. High-dimensional data is characterized by multiple variables that are dependent or associated in some way, such as linear, nonlinear, clustering or anomalies. Here we provide new methods for generating a variety of high-dimensional structures using mathematical functions and statistical distributions organized into the R package cardinalR. Several example data sets are also provided. These will be useful for researchers to better understand how different analytical methods work and can be improved, with a special focus on nonlinear dimension reduction methods. This package enriches the existing toolset of benchmark datasets for evaluating algorithms.
 }
 
 \section{Introduction}\label{introduction}
@@ -558,20 +558,9 @@ As shown in Figure \ref{fig:fig-nldr-layouts}, tSNE (Figure \ref{fig:fig-nldr-la
 
 To further evaluate the structure of the generated data, we benchmarked three clustering algorithms: \textbf{\(k\)-means} \citep[Chapter 20 of][]{boehmke2019}, \textbf{hierarchical} \citep{murtagh2012}, and \textbf{model-based clustering} \citep{chris2002, scrucca2023} using the simulated dataset. The model-based clustering was performed with the \texttt{"VVV"} covariance structure, allowing each cluster to vary in volume, shape, and orientation. Cluster validity statistics were computed using the \texttt{cluster.stats()} function from the \texttt{fpc} package \citep{christian2024}.
 
-\begin{table}
+\includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cluster-stats-1}
 
-\caption{\label{tab:summaryclust-tb-pdf}Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.}
-\centering
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{2.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2.5cm}>{\raggedleft\arraybackslash}p{2cm}}
-\toprule
-method & wb.ratio & Dunn Index & Corrected Rand & VI\\
-\midrule
-k-means & 0.61 & 0.01 & 0.42 & 1.32\\
-Hierarchical & 0.61 & 0.01 & 0.50 & 1.15\\
-Model-based & 0.61 & 0.01 & 0.75 & 0.65\\
-\bottomrule
-\end{tabular}
-\end{table}
+\citet{fig-cluster-stats} shows a selection of cluster metrics for 2-10 clusters for each of the methods, \(k\)-means, hierarchical, \ldots{} As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that 4-5 clusters is better than other choices (say why), and that \(k\)-means performs better than others (this might not hold when you add the next methods).
 
 Overall, all methods produced similar compactness and separation, as reflected by the \emph{within--between cluster ratios (wb.ratio)} and \emph{Dunn indices}. However, the \textbf{model-based clustering} achieved the highest \emph{Corrected Rand Index} (\(0.75\)) and lowest \emph{Variation of Information (VI)} (\(0.65\)), indicating the best recovery of the true underlying groups (Table \ref{tab:summaryclust-tb-pdf}). In comparison, \(k\)-means and hierarchical clustering showed moderate agreement with the true labels. These findings demonstrate that mixture-based approaches can more effectively capture the heterogeneity of clusters in high-dimensional, non-spherical data.
 

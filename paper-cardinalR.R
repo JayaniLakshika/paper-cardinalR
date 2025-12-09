@@ -17,37 +17,6 @@ knitr::opts_chunk$set(
 set.seed(20240412)
 
 
-## ----install-libraries, include=FALSE, warning=FALSE, echo=FALSE, eval=FALSE----
-# 
-# # Ensure remotes is available
-# if (!requireNamespace("remotes", quietly = TRUE)) {
-#   install.packages("remotes")
-# }
-# 
-# # Read the package list
-# pkgs_raw <- readLines("_Rpackages.txt")
-# pkgs_raw <- pkgs_raw[nzchar(pkgs_raw)]  # remove empty lines
-# 
-# # Split into package and version
-# parts <- strsplit(pkgs_raw, "==")
-# pkgs <- vapply(parts, `[[`, "", 1)
-# versions <- vapply(parts, `[[`, "", 2)
-# 
-# # Install packages with exact versions
-# for (i in seq_along(pkgs)) {
-#   pkg <- pkgs[i]
-#   ver <- versions[i]
-# 
-#   if (!requireNamespace(pkg, quietly = TRUE) ||
-#       as.character(packageVersion(pkg)) != ver) {
-# 
-#     message(sprintf("Installing %s (%s)", pkg, ver))
-#     remotes::install_version(pkg, version = ver, upgrade = "never")
-#   }
-# }
-# 
-
-
 ## ----load-libraries-----------------------------------------------------------
 library(cardinalR)
 library(tidyverse)
@@ -2179,55 +2148,110 @@ error_plot_five_clust + wrap_plots(nldr1, nldr2, nldr3,
 
 ## -----------------------------------------------------------------------------
 # Extract high-dimensional data
-data <- five_clusts[, -5]
+# bad practice!
+#data <- five_clusts[, -5]
 true_labels <- as.numeric(gsub("cluster", "", five_clusts$cluster))
 
 # Hierarchical clustering
-dist_mat <- dist(data)
-hc_res <- cutree(hclust(dist_mat, method = "ward.D2"), k = 5)
+dist_mat <- dist(five_clusts[, -5])
+hc_fit <- hclust(dist_mat, method = "ward.D2")
+hc_cl <- NULL
+for (ncl in 2:10) {
+  hcl <- cutree(hc_fit, ncl)
+  hc_cl <- cbind(hc_cl, hcl)
+}
+colnames(hc_cl) <- paste0("cl", 2:10)
+
+x <- cluster.stats(dist_mat,
+  hc_cl[,1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
+                    "wb.ratio", "ch", "sindex")]
+hc_stats <- tibble(method="hc", cl=2) |>
+  bind_cols(as_tibble(x))
+for (i in 3:10) {
+  x <- cluster.stats(dist_mat,
+    hc_cl[,i-1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
+                    "wb.ratio", "ch", "sindex")]
+  hcms <- tibble(method="hc", cl=i) |>
+    bind_cols(as_tibble(x))
+  hc_stats <- hc_stats |>
+    bind_rows(hcms)
+}
 
 
 ## -----------------------------------------------------------------------------
 # K-means clustering
-kmeans_res <- kmeans(data, centers = 5, nstart = 20)
+kmeans_cl <- NULL
+for (ncl in 2:10) {
+  kcl <- kmeans(five_clusts[, -5], centers = ncl, nstart = 20)$cluster
+  kmeans_cl <- cbind(kmeans_cl, kcl)
+}
+colnames(kmeans_cl) <- paste0("cl", 2:10)
+
+x <- cluster.stats(dist_mat,
+  kmeans_cl[,1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
+                    "wb.ratio", "ch", "sindex")]
+kmeans_stats <- tibble(method="km", cl=2) |>
+  bind_cols(as_tibble(x))
+for (i in 3:10) {
+  x <- cluster.stats(dist_mat,
+    kmeans_cl[,i-1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
+                    "wb.ratio", "ch", "sindex")]
+  kms <- tibble(method="km", cl=i) |>
+    bind_cols(as_tibble(x))
+  kmeans_stats <- kmeans_stats |>
+    bind_rows(kms)
+}
 
 
-## -----------------------------------------------------------------------------
-# Model-based clustering
-mclust_res <- Mclust(data, G = 5, modelNames = "VVV")$classification
+## ----fig-cluster-stats, fig.width=10, fig.height=3, out.width="100%", layout="l-page"----
+# Examine the cluster stats
+all_stats <- bind_rows(hc_stats, kmeans_stats)
+all_stats |>
+  pivot_longer(within.cluster.ss:sindex, names_to = "stat", values_to = "value") |>
+  ggplot(aes(x=cl, y=value, colour=method)) +
+    geom_line() +
+    facet_wrap(~stat, ncol=3, scales="free_y") +
+    xlab("Number of clusters") +
+    ylab("")
 
 
-## -----------------------------------------------------------------------------
-# Evaluate clustering performance
-comp_kmeans <- cluster.stats(dist_mat, true_labels, kmeans_res$cluster)
-comp_hclust <- cluster.stats(dist_mat, true_labels, hc_res)
-comp_mclust <- cluster.stats(dist_mat, true_labels, mclust_res)
-
-# Summarize key performance metrics
-summary_clust <- tibble::tibble(
-  Metric = c("k-means", "Hierarchical", "Model-based"),
-  `wb.ratio` = c(comp_kmeans$wb.ratio, comp_hclust$wb.ratio, comp_mclust$wb.ratio),
-  `Dunn Index` = c(comp_kmeans$dunn, comp_hclust$dunn, comp_mclust$dunn),
-  `Corrected rand` = c(comp_kmeans$corrected.rand, comp_hclust$corrected.rand, comp_mclust$corrected.rand),
-  VI = c(comp_kmeans$vi, comp_hclust$vi, comp_mclust$vi)
-)
+## ----eval=FALSE---------------------------------------------------------------
+# # Model-based clustering
+# mclust_res <- Mclust(five_clusts[, -5], G = 5, modelNames = "VVV")$classification
 
 
-summary_clust <- summary_clust |>
-  mutate(across(where(is.numeric), ~ round(.x, 2)))
+## ----eval=FALSE---------------------------------------------------------------
+# # Evaluate clustering performance
+# # shouldn't use true labels here
+# comp_kmeans <- cluster.stats(dist_mat, true_labels, kmeans_res$cluster)
+# comp_hclust <- cluster.stats(dist_mat, true_labels, hc_res)
+# comp_mclust <- cluster.stats(dist_mat, true_labels, mclust_res)
+# 
+# # Summarize key performance metrics
+# summary_clust <- tibble::tibble(
+#   Metric = c("k-means", "Hierarchical", "Model-based"),
+#   `wb.ratio` = c(comp_kmeans$wb.ratio, comp_hclust$wb.ratio, comp_mclust$wb.ratio),
+#   `Dunn Index` = c(comp_kmeans$dunn, comp_hclust$dunn, comp_mclust$dunn),
+#   `Corrected rand` = c(comp_kmeans$corrected.rand, comp_hclust$corrected.rand, comp_mclust$corrected.rand),
+#   VI = c(comp_kmeans$vi, comp_hclust$vi, comp_mclust$vi)
+# )
+# 
+# 
+# summary_clust <- summary_clust |>
+#   mutate(across(where(is.numeric), ~ round(.x, 2)))
 
 
-## ----summaryclust-tb-html, eval=knitr::is_html_output()-----------------------
+## ----summaryclust-tb-html,  eval=FALSE----------------------------------------
 # summary_clust |>
 #   kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", col.names = c("method", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), tab.pos = "H")
 
 
-## ----summaryclust-tb-pdf, eval=knitr::is_latex_output()-----------------------
-summary_clust |> 
-  kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", format="latex", col.names = c("method", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), booktabs = T, table.pos = "!ht")  |>
-  column_spec(1, width = "2.5cm") |>
-  column_spec(2, width = "2cm") |>
-  column_spec(3, width = "2cm") |>
-  column_spec(4, width = "2.5cm") |>
-  column_spec(5, width = "2cm")
+## ----summaryclust-tb-pdf,  eval=FALSE-----------------------------------------
+# summary_clust |>
+#   kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", format="latex", col.names = c("method", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), booktabs = T, table.pos = "!ht")  |>
+#   column_spec(1, width = "2.5cm") |>
+#   column_spec(2, width = "2cm") |>
+#   column_spec(3, width = "2cm") |>
+#   column_spec(4, width = "2.5cm") |>
+#   column_spec(5, width = "2cm")
 
