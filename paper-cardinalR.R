@@ -2203,7 +2203,7 @@ for (i in 3:10) {
 }
 
 
-## ----fig-cluster-stats, fig.width=10, fig.height=3, out.width="100%", layout="l-page"----
+## ----fig-cluster-stats, fig.width=10, fig.height=3, out.width="100%", layout="l-body"----
 # Examine the cluster stats
 all_stats <- bind_rows(hc_stats, kmeans_stats)
 all_stats |>

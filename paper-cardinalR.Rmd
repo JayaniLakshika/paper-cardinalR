@@ -2321,8 +2321,6 @@ add_fun_tb |>
 
 This section demonstrates how the package can be used to generate complex high-dimensional datasets, evaluate dimension reduction (DR) and clustering methods. The example shows how diverse geometric structures can be simulated and analyzed to assess algorithmic behavior.
 
-## Generating high-dimensional clustered data
-
 To illustrate how high-dimensional clustered data can be generated using `cardinalR`, we generate a dataset with five clusters in $4\text{-}D$, each representing distinct geometric characteristics: a *helical spiral* (elongated and twisted), a *hemisphere* (curved surface), a *uniform cube* (isotropic distribution), a *cone* (density gradient), and a *Gaussian* cluster (compact and spherical) (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:highd-data)"} else { "Figure \\@ref(fig:highd-proj)"})`). Each cluster has a unique number of points and scaling factor, representing variation in cluster size and spread across the $4\text{-}D$ space.
 
 ```{r gen-five-clust-data, echo=TRUE}
@@ -2585,7 +2583,7 @@ for (i in 3:10) {
 }
 ```
 
-```{r fig-cluster-stats, fig.width=10, fig.height=3, out.width="100%", layout="l-page"}
+```{r fig-cluster-stats, fig.width=10, fig.height=3, out.width="100%", layout="l-body"}
 # Examine the cluster stats
 all_stats <- bind_rows(hc_stats, kmeans_stats)
 all_stats |>
