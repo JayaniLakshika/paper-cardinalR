@@ -1948,13 +1948,13 @@ X \sim \mathcal{N}(m, s^2),
 </div>
 <h3 data-number="3.1" id="shape-generators"><span class="header-section-number">3.1</span> Shape generators</h3>
 <p>The shape generators form the foundation of the package, providing functions to create synthetic datasets from simple, well-defined geometric forms such as cones, pyramids, spheres, grids, and branching structures. Each generator includes the parameter <code>n</code>, which specifies the number of points to generate. Some functions, such as <code>gen_unifcube()</code>, also take the dimension <code>p</code>, while others include arguments specific to the geometry (e.g., radius for spheres (<code>r</code>), width for bands (<code>w</code>)). If higher-dimensional data are required, additional noise dimensions can be appended after data generation using any noise generator function. This flexibility allows users to construct both low- and high-dimensional datasets from the same underlying structures.</p>
-<p>Table <a href="#tab:branching-tb-html">2</a> outlines these functions. The main arguments of the functions described in Table <a href="#tab:arg-branching-tb-html">3</a>.</p>
+<p>Table <a href="#tab:shape-tb-html">2</a> outlines these functions. The main arguments of the functions described in Table <a href="#tab:arg-shape-tb-html">3</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:branching-tb-html">Table 2: </span>cardinalR branching data generation functions</caption>
+<caption><span id="tab:shape-tb-html">Table 2: </span>Overview of shape-generation functions, including their required parameters and a brief description of each geometric structure produced. The generators cover branching patterns, spheres, spirals, pyramids, Gaussian clouds, and other nonlinear shapes.</caption>
 <colgroup>
 <col style="width: 31%" />
 <col style="width: 25%" />
@@ -2149,7 +2149,7 @@ X \sim \mathcal{N}(m, s^2),
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:arg-branching-tb-html">Table 3: </span>The main arguments for branching shape generators.</caption>
+<caption><span id="tab:arg-shape-tb-html">Table 3: </span>The main arguments for branching shape generators.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Argument</th>

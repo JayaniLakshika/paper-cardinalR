@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.17)  9 DEC 2025 11:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.17)  9 DEC 2025 11:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1209,8 +1209,8 @@ Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  28095 strings out of 473190
- 509180 string characters out of 5715800
- 931735 words of memory out of 5000000
+ 509172 string characters out of 5715800
+ 931940 words of memory out of 5000000
  50316 multiletter control sequences out of 15000+600000
  627180 words of font info for 410 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1226,7 +1226,7 @@ sr/local/texlive/2025/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/l
 ocal/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/te
 xlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2
 025/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (22 pages, 7196774 bytes).
+Output written on RJwrapper.pdf (22 pages, 7196943 bytes).
 PDF statistics:
  687 PDF objects out of 1000 (max. 8388607)
  605 compressed objects within 7 object streams

@@ -94,11 +94,11 @@ Argument & Type & Explanation\\
 
 The shape generators form the foundation of the package, providing functions to create synthetic datasets from simple, well-defined geometric forms such as cones, pyramids, spheres, grids, and branching structures. Each generator includes the parameter \texttt{n}, which specifies the number of points to generate. Some functions, such as \texttt{gen\_unifcube()}, also take the dimension \texttt{p}, while others include arguments specific to the geometry (e.g., radius for spheres (\texttt{r}), width for bands (\texttt{w})). If higher-dimensional data are required, additional noise dimensions can be appended after data generation using any noise generator function. This flexibility allows users to construct both low- and high-dimensional datasets from the same underlying structures.
 
-Table \ref{tab:branching-tb-pdf} outlines these functions. The main arguments of the functions described in Table \ref{tab:arg-branching-tb-pdf}.
+Table \ref{tab:shape-tb-pdf} outlines these functions. The main arguments of the functions described in Table \ref{tab:arg-shape-tb-pdf}.
 
 \begin{table}
 
-\caption{\label{tab:branching-tb-pdf}cardinalR branching data generation functions}
+\caption{\label{tab:shape-tb-pdf}Overview of shape-generation functions, including their required parameters and a brief description of each geometric structure produced. The generators cover branching patterns, spheres, spirals, pyramids, Gaussian clouds, and other nonlinear shapes.}
 \centering
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{8cm}}
 \toprule
@@ -144,7 +144,7 @@ Function & Arguments & Explanation\\
 
 \begin{table}
 
-\caption{\label{tab:arg-branching-tb-pdf}The main arguments for branching shape generators.}
+\caption{\label{tab:arg-shape-tb-pdf}The main arguments for branching shape generators.}
 \centering
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{3cm}l}
 \toprule

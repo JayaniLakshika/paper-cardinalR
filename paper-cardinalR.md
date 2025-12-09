@@ -183,7 +183,7 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
 The shape generators form the foundation of the package, providing functions to create synthetic datasets from simple, well-defined geometric forms such as cones, pyramids, spheres, grids, and branching structures. Each generator includes the parameter `n`, which specifies the number of points to generate. Some functions, such as `gen_unifcube()`, also take the dimension `p`, while others include arguments specific to the geometry (e.g., radius for spheres (`r`), width for bands (`w`)). If higher-dimensional data are required, additional noise dimensions can be appended after data generation using any noise generator function. This flexibility allows users to construct both low- and high-dimensional datasets from the same underlying structures.
 
-Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-branching-tb-html).
+Table \@ref(tab:shape-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-shape-tb-html).
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -193,7 +193,7 @@ Table \@ref(tab:branching-tb-html) outlines these functions. The main arguments 
 
 <div class="layout-chunk" data-layout="l-body">
 
-Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
+Table: (\#tab:shape-tb-html)Overview of shape-generation functions, including their required parameters and a brief description of each geometric structure produced. The generators cover branching patterns, spheres, spirals, pyramids, Gaussian clouds, and other nonlinear shapes.
 
 |Function                            |Arguments                    |Explanation                                      |
 |:-----------------------------------|:----------------------------|:------------------------------------------------|
@@ -249,7 +249,7 @@ Table: (\#tab:branching-tb-html)cardinalR branching data generation functions
 
 <div class="layout-chunk" data-layout="l-body">
 
-Table: (\#tab:arg-branching-tb-html)The main arguments for branching shape generators.
+Table: (\#tab:arg-shape-tb-html)The main arguments for branching shape generators.
 
 |Argument       |Type    |Explanation           |
 |:--------------|:-------|:---------------------|

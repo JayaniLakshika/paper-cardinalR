@@ -123,7 +123,7 @@ main_tb |>
 
 
 ## -----------------------------------------------------------------------------
-branch_tb <- tibble(fun = c("gen_expbranches",
+shape_tb <- tibble(fun = c("gen_expbranches",
                              "gen_linearbranches",
                              "gen_curvybranches", 
                              "gen_orglinearbranches", 
@@ -229,18 +229,18 @@ branch_tb <- tibble(fun = c("gen_expbranches",
    mutate(parm = gsub("_", "\\\\_", parm))
 
 
-## ----branching-tb-html, eval=knitr::is_html_output()--------------------------
-# branch_tb |>
+## ----shape-tb-html, eval=knitr::is_html_output()------------------------------
+# shape_tb |>
 #   mutate(parm = paste0("<code>", parm, "</code>")) |>
 #   mutate(fun = paste0("<code>", fun, "</code>")) |>
-#   kable(caption = "cardinalR branching data generation functions", col.names = c("Function", "Arguments", "Explanation"), escape = FALSE, table.pos = "!ht")
+#   kable(caption = "Overview of shape-generation functions, including their required parameters and a brief description of each geometric structure produced. The generators cover branching patterns, spheres, spirals, pyramids, Gaussian clouds, and other nonlinear shapes.", col.names = c("Function", "Arguments", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
-## ----branching-tb-pdf, eval=knitr::is_latex_output()--------------------------
-branch_tb |>
+## ----shape-tb-pdf, eval=knitr::is_latex_output()------------------------------
+shape_tb |>
   mutate(parm = paste0("\\texttt{", parm, "}")) |>
   mutate(fun = paste0("\\texttt{", fun, "}")) |> 
-  kable(caption = "cardinalR branching data generation functions", format="latex", col.names = c("Function", "Arguments", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht", linesep = "")  |>
+  kable(caption = "Overview of shape-generation functions, including their required parameters and a brief description of each geometric structure produced. The generators cover branching patterns, spheres, spirals, pyramids, Gaussian clouds, and other nonlinear shapes.", format="latex", col.names = c("Function", "Arguments", "Explanation"), escape = FALSE, booktabs = T, table.pos = "!ht", linesep = "")  |>
   column_spec(1, width = "3.5cm") |>
   column_spec(2, width = "1.5cm") |>
   column_spec(3, width = "8cm")
@@ -254,13 +254,13 @@ arg_branching_tb <- tibble(arg = c("n", "k", "p"),
                                 "Number of dimensions."))
 
 
-## ----arg-branching-tb-html, eval=knitr::is_html_output()----------------------
+## ----arg-shape-tb-html, eval=knitr::is_html_output()--------------------------
 # arg_branching_tb |>
 #   mutate(arg = paste0("<code>", arg, "</code>")) |>
 #   kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Type", "Explanation"), escape = FALSE, table.pos = "!ht")
 
 
-## ----arg-branching-tb-pdf, eval=knitr::is_latex_output()----------------------
+## ----arg-shape-tb-pdf, eval=knitr::is_latex_output()--------------------------
 arg_branching_tb |> 
   mutate(arg = paste0("\\texttt{", arg, "}")) |> 
   kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Type", "Explanation"), booktabs = T, escape = FALSE, table.pos = "!ht")  |>
