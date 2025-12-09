@@ -2440,6 +2440,7 @@ five_clusts_proj1 + five_clusts_proj2 + five_clusts_proj3 +
 
 We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], tSNE, uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
 
+<!--scripts/five_clusts/02_gen_embeddings.R-->
 ```{r layouts}
 
 tsne_data <- read_rds("data/five_clusts/five_clusts_tsne_perplexity_30.rds") 
@@ -2497,6 +2498,7 @@ nldr6 <- pca_data |>
   theme(aspect.ratio = 1) 
 ```
 
+<!--scripts/five_clusts/03_gen_rmse.R-->
 ```{r}
 error_five_clust <- read_rds("data/five_clusts/five_clusts_hbe.rds")
 
