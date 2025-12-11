@@ -2203,9 +2203,34 @@ for (i in 3:10) {
 }
 
 
-## ----fig-cluster-stats, fig.width=10, fig.height=3, out.width="100%", layout="l-body"----
+## -----------------------------------------------------------------------------
+# Model-based clustering
+modelbased_cl <- NULL
+for (ncl in 2:10) {
+  mcl <- Mclust(five_clusts[, -5], G = ncl, modelNames = "VVV")$classification
+  modelbased_cl <- cbind(modelbased_cl, mcl)
+}
+colnames(modelbased_cl) <- paste0("cl", 2:10)
+
+x <- cluster.stats(dist_mat,
+  modelbased_cl[,1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
+                    "wb.ratio", "ch", "sindex")]
+modelbased_stats <- tibble(method="mb", cl=2) |>
+  bind_cols(as_tibble(x))
+for (i in 3:10) {
+  x <- cluster.stats(dist_mat,
+    modelbased_cl[,i-1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
+                    "wb.ratio", "ch", "sindex")]
+  mbs <- tibble(method="mb", cl=i) |>
+    bind_cols(as_tibble(x))
+  modelbased_stats <- modelbased_stats |>
+    bind_rows(mbs)
+}
+
+
+## ----label = "fig-cluster-stats", fig.width=10, fig.height=3, out.width="100%", layout="l-body"----
 # Examine the cluster stats
-all_stats <- bind_rows(hc_stats, kmeans_stats)
+all_stats <- bind_rows(hc_stats, kmeans_stats, modelbased_stats)
 all_stats |>
   pivot_longer(within.cluster.ss:sindex, names_to = "stat", values_to = "value") |>
   ggplot(aes(x=cl, y=value, colour=method)) +

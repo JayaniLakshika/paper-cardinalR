@@ -558,7 +558,7 @@ To further evaluate the structure of the generated data, we benchmarked three cl
 
 \includegraphics[width=1\linewidth]{paper-cardinalR_files/figure-latex/fig-cluster-stats-1}
 
-\citet{fig-cluster-stats} shows a selection of cluster metrics for 2-10 clusters for each of the methods, \(k\)-means, hierarchical, \ldots{} As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that 4-5 clusters is better than other choices (say why), and that \(k\)-means performs better than others (this might not hold when you add the next methods).
+\citet{fig-cluster-stats} shows a selection of cluster metrics for \(2-10\) clusters for each of the methods, \(k\)-means, hierarchical, model-based. As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that \(4-5\) clusters is better than other choices (say why), and that \(k\)-means performs better than others (this might not hold when you add the next methods).
 
 Overall, all methods produced similar compactness and separation, as reflected by the \emph{within--between cluster ratios (wb.ratio)} and \emph{Dunn indices}. However, the \textbf{model-based clustering} achieved the highest \emph{Corrected Rand Index} (\(0.75\)) and lowest \emph{Variation of Information (VI)} (\(0.65\)), indicating the best recovery of the true underlying groups (Table \ref{tab:summaryclust-tb-pdf}). In comparison, \(k\)-means and hierarchical clustering showed moderate agreement with the true labels. These findings demonstrate that mixture-based approaches can more effectively capture the heterogeneity of clusters in high-dimensional, non-spherical data.
 

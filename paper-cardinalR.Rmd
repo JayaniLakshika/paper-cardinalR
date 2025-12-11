@@ -2585,9 +2585,34 @@ for (i in 3:10) {
 }
 ```
 
-```{r fig-cluster-stats, fig.width=10, fig.height=3, out.width="100%", layout="l-body"}
+```{r}
+# Model-based clustering
+modelbased_cl <- NULL
+for (ncl in 2:10) {
+  mcl <- Mclust(five_clusts[, -5], G = ncl, modelNames = "VVV")$classification
+  modelbased_cl <- cbind(modelbased_cl, mcl)
+}
+colnames(modelbased_cl) <- paste0("cl", 2:10)
+
+x <- cluster.stats(dist_mat,
+  modelbased_cl[,1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
+                    "wb.ratio", "ch", "sindex")]
+modelbased_stats <- tibble(method="mb", cl=2) |>
+  bind_cols(as_tibble(x))
+for (i in 3:10) {
+  x <- cluster.stats(dist_mat,
+    modelbased_cl[,i-1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
+                    "wb.ratio", "ch", "sindex")]
+  mbs <- tibble(method="mb", cl=i) |>
+    bind_cols(as_tibble(x))
+  modelbased_stats <- modelbased_stats |>
+    bind_rows(mbs)
+}
+```
+
+```{r, label = "fig-cluster-stats", fig.width=10, fig.height=3, out.width="100%", layout="l-body"}
 # Examine the cluster stats
-all_stats <- bind_rows(hc_stats, kmeans_stats)
+all_stats <- bind_rows(hc_stats, kmeans_stats, modelbased_stats)
 all_stats |>
   pivot_longer(within.cluster.ss:sindex, names_to = "stat", values_to = "value") |>
   ggplot(aes(x=cl, y=value, colour=method)) +
@@ -2608,7 +2633,7 @@ all_stats |>
           plot.margin = margin(0, 0, 0, 0))
 ```
 
-@fig-cluster-stats shows a selection of cluster metrics for 2-10 clusters for each of the methods, $k$-means, hierarchical, ... As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that 4-5 clusters is better than other choices (say why), and that $k$-means performs better than others (this might not hold when you add the next methods).
+@fig-cluster-stats shows a selection of cluster metrics for $2-10$ clusters for each of the methods, $k$-means, hierarchical, model-based. As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that $4-5$ clusters is better than other choices (say why), and that $k$-means performs better than others (this might not hold when you add the next methods).
 
 ```{r eval=FALSE}
 # Model-based clustering
