@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-12-09'
+date: '2025-12-12'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -1429,12 +1429,14 @@ To illustrate how high-dimensional clustered data can be generated using `cardin
 
 We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], tSNE, uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
 
+<!--scripts/five_clusts/02_gen_embeddings.R-->
 <div class="layout-chunk" data-layout="l-body">
 
 
 </div>
 
 
+<!--scripts/five_clusts/03_gen_rmse.R-->
 <div class="layout-chunk" data-layout="l-body">
 
 

@@ -2212,7 +2212,18 @@ all_stats |>
     geom_line() +
     facet_wrap(~stat, ncol=3, scales="free_y") +
     xlab("Number of clusters") +
-    ylab("")
+    ylab("") +
+    theme_minimal() +
+    theme(panel.border = element_rect(fill = 'transparent'),
+          plot.title = element_text(size = 12, hjust = 0.5, vjust = -0.5),
+          axis.ticks.x = element_line(),
+          axis.ticks.y = element_line(),
+          legend.position = "none",
+          axis.text.x = element_text(size = 7),
+          axis.text.y = element_text(size = 7),
+          axis.title.x = element_text(size = 7),
+          axis.title.y = element_text(size = 7),
+          plot.margin = margin(0, 0, 0, 0))
 
 
 ## ----eval=FALSE---------------------------------------------------------------

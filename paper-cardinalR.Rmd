@@ -2594,7 +2594,18 @@ all_stats |>
     geom_line() +
     facet_wrap(~stat, ncol=3, scales="free_y") +
     xlab("Number of clusters") +
-    ylab("")
+    ylab("") +
+    theme_minimal() +
+    theme(panel.border = element_rect(fill = 'transparent'),
+          plot.title = element_text(size = 12, hjust = 0.5, vjust = -0.5),
+          axis.ticks.x = element_line(),
+          axis.ticks.y = element_line(),
+          legend.position = "none",
+          axis.text.x = element_text(size = 7),
+          axis.text.y = element_text(size = 7),
+          axis.title.x = element_text(size = 7),
+          axis.title.y = element_text(size = 7),
+          plot.margin = margin(0, 0, 0, 0))
 ```
 
 @fig-cluster-stats shows a selection of cluster metrics for 2-10 clusters for each of the methods, $k$-means, hierarchical, ... As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that 4-5 clusters is better than other choices (say why), and that $k$-means performs better than others (this might not hold when you add the next methods).
