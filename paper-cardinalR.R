@@ -2180,13 +2180,13 @@ kcl4 <- kmeans(five_clusts[, -5], centers = 4, nstart = 20)$cluster
 kcl5 <- kmeans(five_clusts[, -5], centers = 5, nstart = 20)$cluster
 
 
-## ----highd-data-clusters-algo-html, eval=knitr::is_html_output(), fig.cap="Viewing five synthetic clusters with distinct geometric structures: a helical spiral, a hemisphere, a uniform cube, a cone, and a Gaussian cluster.", fig.alt="Interactive langevitour of five synthetic clusters in $4\\text{-}D$: helical spiral, hemisphere, uniform cube, cone, and Gaussian cluster, each colored distinctly to highlight geometric structure.", fig.pos="!ht", layout = "l-body"----
+## ----highd-data-clusters-algo-html, eval=knitr::is_html_output(), fig.cap="Views of the five-cluster synthetic dataset coloured by the $k$-means four- and five-cluster solutions. These show how the five true structures: helical spiral, hemisphere, uniform cube, blunted cone, and Gaussian-shaped cluster appear under $k$-means partitions. Both the $4$- and $5$-cluster solutions mix colours, revealing substantial misclassification and limited ability of $k$-means to recover the underlying geometric structure.", fig.pos="!ht", layout = "l-body"----
 # 
 # four_km_langevitour <- langevitour::langevitour(
 #   five_clusts[, -5],
 #   group = kcl4,
 #   levelColors = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e'),
-#   width = "400px",
+#   width = "350px",
 #   height = "300px"
 # )
 # 
@@ -2194,7 +2194,7 @@ kcl5 <- kmeans(five_clusts[, -5], centers = 5, nstart = 20)$cluster
 #   five_clusts[, -5],
 #   group = kcl5,
 #   levelColors = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e'),
-#   width = "400px",
+#   width = "350px",
 #   height = "300px"
 # )
 # 
@@ -2203,7 +2203,7 @@ kcl5 <- kmeans(five_clusts[, -5], centers = 5, nstart = 20)$cluster
 #     style = "
 #       display: flex;
 #       justify-content: space-between;
-#       gap: 10px;
+#       gap: 5px;
 #     ",
 #     div(style = "flex: 1;", four_km_langevitour),
 #     div(style = "flex: 1;", five_km_langevitour)
@@ -2391,7 +2391,7 @@ five_clusts_proj3_2 <- plot_proj(
 
 
 
-## ----highd-proj-clust-algo-pdf, eval=knitr::is_latex_output(), fig.pos="!ht", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.", fig.alt="Three $2\\text{-}D$ projections of five $4\\text{-}D$ synthetic clusters: helical spiral (dark green), hemisphere (orange), uniform cube (purple), cone (pink), and Gaussian (light green), showing spatial separation and cluster geometry.", fig.width=12, fig.height=8, fig.pos="!ht"----
+## ----highd-proj-clust-algo-pdf, eval=knitr::is_latex_output(), fig.pos="!ht", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the five clusters data coloured by the $k$-means four- (a1-a3) and five-cluster (b1-b3) solutions. The intermixing of colours within each projection reflects misclassification in both solutions, showing the difficulty of using $k$-means to capture the dataset’s nonlinear and heterogeneous shapes.", fig.width=12, fig.height=8, fig.pos="!ht"----
 
 five_clusts_proj1_1 + five_clusts_proj2_1 + five_clusts_proj3_1 +
   five_clusts_proj1_2 + five_clusts_proj2_2 + five_clusts_proj3_2 +
