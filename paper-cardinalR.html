@@ -2150,9 +2150,9 @@ X \sim \mathcal{N}(m, s^2),
 <table>
 <caption><span id="tab:arg-shape-tb-html">Table 3: </span>Argument definitions for the shape generators. The table lists each argument, its data type, and a description of its role in controlling geometric structure, dimensionality, scaling, curvature, spacing, and other features of the simulated high-dimensional datasets.</caption>
 <colgroup>
-<col style="width: 23%" />
-<col style="width: 17%" />
-<col style="width: 58%" />
+<col style="width: 25%" />
+<col style="width: 18%" />
+<col style="width: 56%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2215,7 +2215,7 @@ X \sim \mathcal{N}(m, s^2),
 <tr class="odd">
 <td style="text-align: left;"><code>spe</code></td>
 <td style="text-align: left;">real value</td>
-<td style="text-align: left;">How far the small spheres are placed from each other.</td>
+<td style="text-align: left;">How far apart the small spheres are placed.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>w</code></td>
@@ -2837,7 +2837,7 @@ Figure 7: Viewing the <span class="math inline">\(4\text{-}D\)</span> <code>cres
 <p><span class="math display">\[
 X_j \sim N(m_j, s_j^2), \quad j = 1, \dots, p,
 \]</span></p>
-<p>with odd-numbered dimensions multiplied by <span class="math inline">\(-1\)</span> to introduce sign alternation, enhancing variability and decorrelation.</p>
+<p>with odd-numbered dimensions multiplied by <span class="math inline">\(-1\)</span>. This does not affect independence, since all noise dimensions are generated independently. The sign alternation is included only to avoid consistent directional drift and to ensure a symmetric appearance of noise when visualized or combined with other simulated structures.</p>
 <p>For scenarios where noise should follow a smooth wavy pattern, <code>gen_wavydims1(n, p, theta)</code> generates dimensions as</p>
 <p><span class="math display">\[
 X_j = \alpha_j \theta + \varepsilon_j, \quad \varepsilon_j \sim N(0, \sigma^2), \quad j = 1, \dots, p,

@@ -348,7 +348,7 @@ arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "n_vec
                                 "Sample sizes of the big and small spheres",
                                 "Number of small spheres.",
                                 "Radius of the big and small spheres.",
-                                "How far the small spheres are placed from each other.",
+                                "How far apart the small spheres are placed.",
                                 "Vertical variation",
                                 "Number of steps for the theta parameter.",
                                 "Number of loops of the spiral.",
@@ -2218,7 +2218,7 @@ $$
 X_j \sim N(m_j, s_j^2), \quad j = 1, \dots, p,
 $$
 
-with odd-numbered dimensions multiplied by $-1$ to introduce sign alternation, enhancing variability and decorrelation. 
+with odd-numbered dimensions multiplied by $-1$. This does not affect independence, since all noise dimensions are generated independently. The sign alternation is included only to avoid consistent directional drift and to ensure a symmetric appearance of noise when visualized or combined with other simulated structures.
 
 For scenarios where noise should follow a smooth wavy pattern, `gen_wavydims1(n, p, theta)` generates dimensions as
 

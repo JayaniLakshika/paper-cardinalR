@@ -249,24 +249,24 @@ Table: (\#tab:shape-tb-html)Overview of shape-generation functions, including th
 
 Table: (\#tab:arg-shape-tb-html)Argument definitions for the shape generators. The table lists each argument, its data type, and a description of its role in controlling geometric structure, dimensionality, scaling, curvature, spacing, and other features of the simulated high-dimensional datasets.
 
-|Argument              |Type (positive) |Explanation                                           |
-|:---------------------|:---------------|:-----------------------------------------------------|
-|<code>n</code>        |integer         |Number of points.                                     |
-|<code>k</code>        |integer         |Number of clusters.                                   |
-|<code>p</code>        |integer         |Number of dimensions.                                 |
-|<code>h</code>        |real value      |Height.                                               |
-|<code>ratio</code>    |real value      |Radius tip to radius base ratio.                      |
-|<code>s</code>        |real value      |Variance-covariance matrix.                           |
-|<code>r</code>        |real value      |Radius.                                               |
-|<code>n\_vec</code>   |integers        |Sample sizes of the big and small spheres             |
-|<code>k\_small</code> |integer         |Number of small spheres.                              |
-|<code>r\_vec</code>   |real values     |Radius of the big and small spheres.                  |
-|<code>spe</code>      |real value      |How far the small spheres are placed from each other. |
-|<code>w</code>        |real value      |Vertical variation                                    |
-|<code>steps</code>    |integer         |Number of steps for the theta parameter.              |
-|<code>spins</code>    |integer         |Number of loops of the spiral.                        |
-|<code>hc</code>       |real value      |Steepness and vertical scaling of the hyperbola.      |
-|<code>non\_fac</code> |real value      |Strength of this sinusoidal effect.                   |
+|Argument              |Type (positive) |Explanation                                      |
+|:---------------------|:---------------|:------------------------------------------------|
+|<code>n</code>        |integer         |Number of points.                                |
+|<code>k</code>        |integer         |Number of clusters.                              |
+|<code>p</code>        |integer         |Number of dimensions.                            |
+|<code>h</code>        |real value      |Height.                                          |
+|<code>ratio</code>    |real value      |Radius tip to radius base ratio.                 |
+|<code>s</code>        |real value      |Variance-covariance matrix.                      |
+|<code>r</code>        |real value      |Radius.                                          |
+|<code>n\_vec</code>   |integers        |Sample sizes of the big and small spheres        |
+|<code>k\_small</code> |integer         |Number of small spheres.                         |
+|<code>r\_vec</code>   |real values     |Radius of the big and small spheres.             |
+|<code>spe</code>      |real value      |How far apart the small spheres are placed.      |
+|<code>w</code>        |real value      |Vertical variation                               |
+|<code>steps</code>    |integer         |Number of steps for the theta parameter.         |
+|<code>spins</code>    |integer         |Number of loops of the spiral.                   |
+|<code>hc</code>       |real value      |Steepness and vertical scaling of the hyperbola. |
+|<code>non\_fac</code> |real value      |Strength of this sinusoidal effect.              |
 
 </div>
 
@@ -1276,7 +1276,7 @@ $$
 X_j \sim N(m_j, s_j^2), \quad j = 1, \dots, p,
 $$
 
-with odd-numbered dimensions multiplied by $-1$ to introduce sign alternation, enhancing variability and decorrelation. 
+with odd-numbered dimensions multiplied by $-1$. This does not affect independence, since all noise dimensions are generated independently. The sign alternation is included only to avoid consistent directional drift and to ensure a symmetric appearance of noise when visualized or combined with other simulated structures.
 
 For scenarios where noise should follow a smooth wavy pattern, `gen_wavydims1(n, p, theta)` generates dimensions as
 

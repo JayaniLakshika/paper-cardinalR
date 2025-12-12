@@ -261,7 +261,7 @@ arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "n_vec
                                 "Sample sizes of the big and small spheres",
                                 "Number of small spheres.",
                                 "Radius of the big and small spheres.",
-                                "How far the small spheres are placed from each other.",
+                                "How far apart the small spheres are placed.",
                                 "Vertical variation",
                                 "Number of steps for the theta parameter.",
                                 "Number of loops of the spiral.",
