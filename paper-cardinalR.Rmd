@@ -2589,7 +2589,7 @@ for (i in 3:10) {
 # Model-based clustering
 modelbased_cl <- NULL
 for (ncl in 2:10) {
-  mcl <- Mclust(five_clusts[, -5], G = ncl, modelNames = "VVV")$classification
+  mcl <- Mclust(five_clusts[, -5], G = ncl, modelNames = "EII")$classification
   modelbased_cl <- cbind(modelbased_cl, mcl)
 }
 colnames(modelbased_cl) <- paste0("cl", 2:10)
@@ -2625,7 +2625,7 @@ all_stats |>
           plot.title = element_text(size = 12, hjust = 0.5, vjust = -0.5),
           axis.ticks.x = element_line(),
           axis.ticks.y = element_line(),
-          legend.position = "none",
+          legend.position = "bottom",
           axis.text.x = element_text(size = 7),
           axis.text.y = element_text(size = 7),
           axis.title.x = element_text(size = 7),
