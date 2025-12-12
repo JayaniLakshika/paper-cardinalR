@@ -27,6 +27,7 @@ library(colorspace)
 library(crosstalk)
 library(fpc)
 library(mclust)
+library(htmltools)
 
 
 ## -----------------------------------------------------------------------------
@@ -2146,92 +2147,10 @@ error_plot_five_clust + wrap_plots(nldr1, nldr2, nldr3,
                                     nldr4, nldr5, nldr6, ncol = 2)
 
 
-## -----------------------------------------------------------------------------
-# Extract high-dimensional data
-# bad practice!
-#data <- five_clusts[, -5]
-true_labels <- as.numeric(gsub("cluster", "", five_clusts$cluster))
-
-# Hierarchical clustering
-dist_mat <- dist(five_clusts[, -5])
-hc_fit <- hclust(dist_mat, method = "ward.D2")
-hc_cl <- NULL
-for (ncl in 2:10) {
-  hcl <- cutree(hc_fit, ncl)
-  hc_cl <- cbind(hc_cl, hcl)
-}
-colnames(hc_cl) <- paste0("cl", 2:10)
-
-x <- cluster.stats(dist_mat,
-  hc_cl[,1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
-                    "wb.ratio", "ch", "sindex")]
-hc_stats <- tibble(method="hc", cl=2) |>
-  bind_cols(as_tibble(x))
-for (i in 3:10) {
-  x <- cluster.stats(dist_mat,
-    hc_cl[,i-1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
-                    "wb.ratio", "ch", "sindex")]
-  hcms <- tibble(method="hc", cl=i) |>
-    bind_cols(as_tibble(x))
-  hc_stats <- hc_stats |>
-    bind_rows(hcms)
-}
-
-
-## -----------------------------------------------------------------------------
-# K-means clustering
-kmeans_cl <- NULL
-for (ncl in 2:10) {
-  kcl <- kmeans(five_clusts[, -5], centers = ncl, nstart = 20)$cluster
-  kmeans_cl <- cbind(kmeans_cl, kcl)
-}
-colnames(kmeans_cl) <- paste0("cl", 2:10)
-
-x <- cluster.stats(dist_mat,
-  kmeans_cl[,1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
-                    "wb.ratio", "ch", "sindex")]
-kmeans_stats <- tibble(method="km", cl=2) |>
-  bind_cols(as_tibble(x))
-for (i in 3:10) {
-  x <- cluster.stats(dist_mat,
-    kmeans_cl[,i-1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
-                    "wb.ratio", "ch", "sindex")]
-  kms <- tibble(method="km", cl=i) |>
-    bind_cols(as_tibble(x))
-  kmeans_stats <- kmeans_stats |>
-    bind_rows(kms)
-}
-
-
-## -----------------------------------------------------------------------------
-# Model-based clustering
-modelbased_cl <- NULL
-for (ncl in 2:10) {
-  mcl <- Mclust(five_clusts[, -5], G = ncl, modelNames = "EII")$classification
-  modelbased_cl <- cbind(modelbased_cl, mcl)
-}
-colnames(modelbased_cl) <- paste0("cl", 2:10)
-
-x <- cluster.stats(dist_mat,
-  modelbased_cl[,1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
-                    "wb.ratio", "ch", "sindex")]
-modelbased_stats <- tibble(method="mb", cl=2) |>
-  bind_cols(as_tibble(x))
-for (i in 3:10) {
-  x <- cluster.stats(dist_mat,
-    modelbased_cl[,i-1])[c("within.cluster.ss", "pearsongamma", "dunn2", 
-                    "wb.ratio", "ch", "sindex")]
-  mbs <- tibble(method="mb", cl=i) |>
-    bind_cols(as_tibble(x))
-  modelbased_stats <- modelbased_stats |>
-    bind_rows(mbs)
-}
-
-
-## ----label = "fig-cluster-stats", fig.width=10, fig.height=3, out.width="100%", layout="l-body", fig.cap="Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods."----
+## ----label = "fig-cluster-stats", fig.width=10, fig.height=3, out.width="100%", layout="l-body", fig.cap="Cluster validity metrics for solutions with $2–10$ clusters obtained using $k$-means, hierarchical, and model-based clustering. Several indices consistently suggest that $4–5$ clusters provide the best balance of separation and compactness, with $k$-means performing slightly better across metrics."----
 
 # Examine the cluster stats
-all_stats <- bind_rows(hc_stats, kmeans_stats, modelbased_stats)
+all_stats <- read_rds("data/five_clusts/cluster_stat.rds")
 all_stats |>
   pivot_longer(within.cluster.ss:sindex, names_to = "stat", values_to = "value") |>
   ggplot(aes(x=cl, y=value, colour=method)) +
@@ -2251,4 +2170,230 @@ all_stats |>
           axis.title.x = element_text(size = 7),
           axis.title.y = element_text(size = 7),
           plot.margin = margin(0, 0, 0, 0))
+
+
+## -----------------------------------------------------------------------------
+## k-means with  four clusters
+kcl4 <- kmeans(five_clusts[, -5], centers = 4, nstart = 20)$cluster
+
+## k-means with  five clusters
+kcl5 <- kmeans(five_clusts[, -5], centers = 5, nstart = 20)$cluster
+
+
+## ----highd-data-clusters-algo-html, eval=knitr::is_html_output(), fig.cap="Viewing five synthetic clusters with distinct geometric structures: a helical spiral, a hemisphere, a uniform cube, a cone, and a Gaussian cluster.", fig.alt="Interactive langevitour of five synthetic clusters in $4\\text{-}D$: helical spiral, hemisphere, uniform cube, cone, and Gaussian cluster, each colored distinctly to highlight geometric structure.", fig.pos="!ht", layout = "l-body"----
+# 
+# four_km_langevitour <- langevitour::langevitour(
+#   five_clusts[, -5],
+#   group = kcl4,
+#   levelColors = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e'),
+#   width = "400px",
+#   height = "300px"
+# )
+# 
+# five_km_langevitour <- langevitour::langevitour(
+#   five_clusts[, -5],
+#   group = kcl5,
+#   levelColors = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e'),
+#   width = "400px",
+#   height = "300px"
+# )
+# 
+# km_results <- browsable(
+#   div(
+#     style = "
+#       display: flex;
+#       justify-content: space-between;
+#       gap: 10px;
+#     ",
+#     div(style = "flex: 1;", four_km_langevitour),
+#     div(style = "flex: 1;", five_km_langevitour)
+#   )
+# )
+# 
+# class(km_results) <- c(class(km_results), "htmlwidget")
+# 
+# km_results
+
+
+## ----five-4clusts-projections1------------------------------------------------
+scaled_data <- scale_data_manual(five_clusts[, -5])
+
+## First projection
+projection <- cbind(
+  c(-0.59692,0.46414,0.42436,-0.10048),
+  c(-0.54999,-0.67673,-0.03631,-0.01193))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.23, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 1,
+                                              axis_scaled = 0.8, 
+                                              axis_pos_x = -0.9, 
+                                              axis_pos_y = -0.9, 
+                                              threshold = 0.05))
+
+proj_obj1[["cluster"]] <- as.character(kcl4)
+
+five_clusts_proj1_1 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2), # size, alpha, color
+  plot_limits = c(-1.1, 1), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 4,
+  is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(legend.position = "none")
+
+
+
+## ----five-4clusts-projections2------------------------------------------------
+## Second projection
+projection <- cbind(
+  c(0.34673,-0.35774,0.66272,0.27298),
+  c(0.24023,0.01170,-0.41886,0.72707))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.23, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 1,
+                                              axis_scaled = 0.8, 
+                                              axis_pos_x = -0.9, 
+                                              axis_pos_y = -0.9, 
+                                              threshold = 0.07))
+
+proj_obj2[["cluster"]] <- as.character(kcl4)
+
+five_clusts_proj2_1 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2), # size, alpha, color
+  plot_limits = c(-1.1, 1.2), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 4,
+  is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(legend.position = "none")
+
+
+## ----five-4clusts-projections3------------------------------------------------
+## Third projection
+projection <- cbind(
+  c(0.47388,-0.20984,-0.56560,0.41644),
+  c(-0.51124,-0.60184,0.06463,0.36627))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.23, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 1,
+                                              axis_scaled = 0.8, 
+                                              axis_pos_x = -0.9, 
+                                              axis_pos_y = -0.9, 
+                                              threshold = 0.05))
+
+proj_obj3[["cluster"]] <- as.character(kcl4)
+
+five_clusts_proj3_1 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2), # size, alpha, color
+  plot_limits = c(-1.1, 1.1), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 4,
+  is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(legend.position = "none")
+
+
+
+## ----five-5clusts-projections1------------------------------------------------
+scaled_data <- scale_data_manual(five_clusts[, -5])
+
+## First projection
+projection <- cbind(
+  c(-0.59692,0.46414,0.42436,-0.10048),
+  c(-0.54999,-0.67673,-0.03631,-0.01193))
+
+proj_obj1 <- get_projection(projection = projection, 
+                            proj_scale = 1.23, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 1,
+                                              axis_scaled = 0.8, 
+                                              axis_pos_x = -0.9, 
+                                              axis_pos_y = -0.9, 
+                                              threshold = 0.05))
+
+proj_obj1[["cluster"]] <- as.character(kcl5)
+
+five_clusts_proj1_2 <- plot_proj(
+  proj_obj = proj_obj1, 
+  point_param = c(1.5, 0.2), # size, alpha, color
+  plot_limits = c(-1.1, 1), 
+  title = "a1", 
+  cex = 2, 
+  axis_text_size = 4,
+  is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(legend.position = "none")
+
+
+
+## ----five-5clusts-projections2------------------------------------------------
+## Second projection
+projection <- cbind(
+  c(0.34673,-0.35774,0.66272,0.27298),
+  c(0.24023,0.01170,-0.41886,0.72707))
+
+proj_obj2 <- get_projection(projection = projection, 
+                            proj_scale = 1.23, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 1,
+                                              axis_scaled = 0.8, 
+                                              axis_pos_x = -0.9, 
+                                              axis_pos_y = -0.9, 
+                                              threshold = 0.07))
+
+proj_obj2[["cluster"]] <- as.character(kcl5)
+
+five_clusts_proj2_2 <- plot_proj(
+  proj_obj = proj_obj2, 
+  point_param = c(1.5, 0.2), # size, alpha, color
+  plot_limits = c(-1.1, 1.2), 
+  title = "a2", 
+  cex = 2, 
+  axis_text_size = 4,
+  is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(legend.position = "none")
+
+
+## ----five-5clusts-projections3------------------------------------------------
+## Third projection
+projection <- cbind(
+  c(0.47388,-0.20984,-0.56560,0.41644),
+  c(-0.51124,-0.60184,0.06463,0.36627))
+
+proj_obj3 <- get_projection(projection = projection, 
+                            proj_scale = 1.23, 
+                            scaled_data = scaled_data, 
+                            axis_param = list(limits = 1,
+                                              axis_scaled = 0.8, 
+                                              axis_pos_x = -0.9, 
+                                              axis_pos_y = -0.9, 
+                                              threshold = 0.05))
+
+proj_obj3[["cluster"]] <- as.character(kcl5)
+
+five_clusts_proj3_2 <- plot_proj(
+  proj_obj = proj_obj3, 
+  point_param = c(1.5, 0.2), # size, alpha, color
+  plot_limits = c(-1.1, 1.1), 
+  title = "a3", 
+  cex = 2, 
+  axis_text_size = 4,
+  is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
+  theme(legend.position = "none")
+
+
+
+## ----highd-proj-clust-algo-pdf, eval=knitr::is_latex_output(), fig.pos="!ht", fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the five clusters data. The helical spiral cluster is represented in dark green, the hemisphere cluster in orange, the uniform cube-shaped cluster in purple, the blunted cone cluster in pink, and the Gaussian-shaped cluster in light green.", fig.alt="Three $2\\text{-}D$ projections of five $4\\text{-}D$ synthetic clusters: helical spiral (dark green), hemisphere (orange), uniform cube (purple), cone (pink), and Gaussian (light green), showing spatial separation and cluster geometry.", fig.width=12, fig.height=8, fig.pos="!ht"----
+
+five_clusts_proj1_1 + five_clusts_proj2_1 + five_clusts_proj3_1 +
+  five_clusts_proj1_2 + five_clusts_proj2_2 + five_clusts_proj3_2 +
+  plot_layout(ncol = 3) 
 
