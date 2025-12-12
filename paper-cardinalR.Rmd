@@ -2526,7 +2526,7 @@ As shown in Figure \@ref(fig:fig-nldr-layouts), tSNE (Figure \@ref(fig:fig-nldr-
 
 ## Benchmarking clustering algorithms
 
-To further evaluate the structure of the generated data, we benchmarked three clustering algorithms: **$k$-means** [Chapter 20 of @boehmke2019], **hierarchical** [@murtagh2012], and **model-based clustering** [@chris2002; @scrucca2023] using the simulated dataset. The model-based clustering was performed with the `"VVV"` covariance structure, allowing each cluster to vary in volume, shape, and orientation. Cluster validity statistics were computed using the `cluster.stats()` function from the `fpc` package [@christian2024].
+To further evaluate the structure of the generated data, we benchmarked three clustering algorithms: **$k$-means** [Chapter 20 of @boehmke2019], **hierarchical** [@murtagh2012], and **model-based clustering** [@chris2002; @scrucca2023] using the simulated dataset. Model-based clustering performed the `"EII"` covariance structure. Under this parameterization, clusters are spherical with equal volume and equal shape, and no orientation parameter is estimated. Cluster validity statistics were computed using the `cluster.stats()` function from the `fpc` package [@christian2024].
 
 ```{r}
 # Extract high-dimensional data
@@ -2635,50 +2635,7 @@ all_stats |>
           plot.margin = margin(0, 0, 0, 0))
 ```
 
-Figure \@ref(fig:fig-cluster-stats) shows a selection of cluster metrics for $2-10$ clusters for each of the methods, $k$-means, hierarchical, model-based. As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that $4-5$ clusters is better than other choices (say why), and that $k$-means performs better than others.
-
-```{r eval=FALSE}
-# Model-based clustering
-mclust_res <- Mclust(five_clusts[, -5], G = 5, modelNames = "VVV")$classification
-```
-
-```{r eval=FALSE}
-# Evaluate clustering performance
-# shouldn't use true labels here
-comp_kmeans <- cluster.stats(dist_mat, true_labels, kmeans_res$cluster)
-comp_hclust <- cluster.stats(dist_mat, true_labels, hc_res)
-comp_mclust <- cluster.stats(dist_mat, true_labels, mclust_res)
-
-# Summarize key performance metrics
-summary_clust <- tibble::tibble(
-  Metric = c("k-means", "Hierarchical", "Model-based"),
-  `wb.ratio` = c(comp_kmeans$wb.ratio, comp_hclust$wb.ratio, comp_mclust$wb.ratio),
-  `Dunn Index` = c(comp_kmeans$dunn, comp_hclust$dunn, comp_mclust$dunn),
-  `Corrected rand` = c(comp_kmeans$corrected.rand, comp_hclust$corrected.rand, comp_mclust$corrected.rand),
-  VI = c(comp_kmeans$vi, comp_hclust$vi, comp_mclust$vi)
-)
-
-
-summary_clust <- summary_clust |>
-  mutate(across(where(is.numeric), ~ round(.x, 2)))
-```
-
-```{r summaryclust-tb-html,  eval=FALSE}
-summary_clust |> 
-  kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", col.names = c("method", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), tab.pos = "H") 
-```
-
-```{r summaryclust-tb-pdf,  eval=FALSE}
-summary_clust |> 
-  kable(caption = "Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.", format="latex", col.names = c("method", "wb.ratio", "Dunn Index", "Corrected Rand", "VI"), booktabs = T, table.pos = "!ht")  |>
-  column_spec(1, width = "2.5cm") |>
-  column_spec(2, width = "2cm") |>
-  column_spec(3, width = "2cm") |>
-  column_spec(4, width = "2.5cm") |>
-  column_spec(5, width = "2cm")
-```
-
-Overall, all methods produced similar compactness and separation, as reflected by the *within–between cluster ratios (wb.ratio)* and *Dunn indices*. However, the **model-based clustering** achieved the highest *Corrected Rand Index* ($0.75$) and lowest *Variation of Information (VI)* ($0.65$), indicating the best recovery of the true underlying groups (Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:summaryclust-tb-html)', '\\@ref(tab:summaryclust-tb-pdf)'))`). In comparison, $k$-means and hierarchical clustering showed moderate agreement with the true labels. These findings demonstrate that mixture-based approaches can more effectively capture the heterogeneity of clusters in high-dimensional, non-spherical data.
+Figure \@ref(fig:fig-cluster-stats) shows a selection of cluster metrics for $2-10$ clusters for each of the methods, $k$-means, hierarchical, and model-based. As is typical, the suggestion of the best solution varies between cluster statistics. Although the metrics differ in their preferences, several show consistent support for a $4–5$ cluster solution. The Calinski–Harabasz index increases sharply up to four or five clusters before levelling off, the Dunn and Pearson gamma indices attain local maxima in this range, and both the silhouette width and within-cluster sum of squares show diminishing improvement beyond five clusters. Together, these patterns indicate that $4–5$ clusters provide a good balance of separation and compactness, with $k$-means performing slightly better than the other methods across most metrics.
 
 # Conclusion
 
@@ -2689,30 +2646,6 @@ The included structures cover a wide range of diagnostic settings. Branching sha
 These structures are designed to support not only algorithm diagnostics, but also teaching high-dimensional concepts, benchmarking reproducibility, and evaluating hyper-parameter sensitivity. By allowing users to adjust dimensionality, sample size, noise, and clustering properties, the package promotes transparent experimentation and comparative model evaluation. Together, these capabilities make `cardinalR` a versatile tool for generating interpretable, high-dimensional datasets that advance research, teaching, and evaluation of data-analytic methods.
 
 Future extensions of `cardinalR` may include biologically inspired or application-driven data structures that would further broaden its utility in domains such as bioinformatics, forensic science, and spatial analysis.
-
-<!-- - Branching: These functions create a controlled environment for testing how effectively various algorithms preserve branching topology and continuity in their low-dimensional embeddings. -->
-
-<!-- - Scurve with a hole allowing for evaluation of how well algorithms handle incomplete manifolds or missing local structure. -->
-
-<!-- - clusteredsphere: This structure allows for cluster separation on curved manifolds in high-dimensional space and can be used to test the ability of NLDR methods and clustering algorithms to detect spherical clusters of different sizes and separations. -->
-
-<!-- - Mobius: The core geometric structure is a Mobius strip—a classic one-sided surface with a half-twist—useful for evaluating how well methods capture non-orientability and twisted manifolds. -->
-
-<!-- - Grided cube: This function is useful for assessing how algorithms preserve uniformly spaced data in high-dimensional spaces. -->
-
-<!-- - Pyrholes: This structure is useful for testing clustering and NLDR algorithms on non-convex and sparse high-dimensional shapes. -->
-
-<!-- The application of our high-dimensional data generation package to evaluate the interplay between dimensionality reduction, nuisance variables, and hierarchical clustering yielded several key insights. The ability to generate synthetic datasets with well-defined underlying structures, coupled with the controlled introduction of nuisance variables, provided a valuable platform for assessing the robustness of downstream unsupervised learning techniques. -->
-
-<!-- Our findings demonstrated that the choice of dimensionality reduction method significantly impacted the ability of hierarchical clustering to recover the true underlying clusters. Methods that effectively preserved the global structure of the data, as defined by our generation process, generally led to more accurate and interpretable hierarchical clustering results. However, the presence of nuisance variables often confounded the low-dimensional embeddings, making it more challenging for hierarchical clustering to separate truly distinct groups. This highlights a critical consideration in real-world data analysis, where unmeasured or latent factors can obscure the signal of interest. -->
-
-<!-- The hierarchical clustering analysis itself, and the choice of linkage criteria, also played a crucial role. Different linkage methods revealed varying degrees of sensitivity to the distorted representations caused by the nuisance variables. For instance, methods that prioritize compact clusters might have been more susceptible to being misled by variance introduced by nuisance factors, while others focusing on the distance between clusters might have shown more resilience. The dendrograms generated by hierarchical clustering provided a visual means to explore the relationships between samples and the potential influence of nuisance, although determining the optimal number of clusters remained a challenge in the presence of these confounding factors. -->
-
-<!-- This application underscores the utility of our data generation package as a powerful tool for controlled experimentation in unsupervised learning. By providing the ground truth cluster assignments and the ability to systematically manipulate data characteristics like dimensionality, geometric structure, and the presence of nuisance variables, researchers can gain a deeper understanding of the strengths and limitations of various DR and clustering algorithms. This controlled environment allows for a more objective evaluation than often possible with real-world datasets where the underlying structure is unknown. -->
-
-<!-- One limitation of this particular application was the specific type and magnitude of the nuisance variables introduced. Future work could explore a wider range of nuisance types (e.g., batch effects, technical noise with specific distributions) and their varying degrees of influence on different DR and clustering methodologies. Furthermore, investigating strategies for mitigating the impact of nuisance variables, either during the DR step or within the clustering process itself, would be a valuable extension. -->
-
-<!-- In conclusion, this example demonstrates the critical role of synthetic data generation in dissecting the complex interactions within unsupervised learning pipelines. Our package provides a flexible and controlled means to create such data, enabling researchers to systematically evaluate the performance and robustness of dimensionality reduction and clustering algorithms under well-defined conditions, including the presence of confounding factors. This capability contributes to a more rigorous and informed approach to high-dimensional data analysis. -->
 
 # Acknowledgements
 

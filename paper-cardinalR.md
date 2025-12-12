@@ -1458,7 +1458,7 @@ As shown in Figure \@ref(fig:fig-nldr-layouts), tSNE (Figure \@ref(fig:fig-nldr-
 
 ## Benchmarking clustering algorithms
 
-To further evaluate the structure of the generated data, we benchmarked three clustering algorithms: **$k$-means** [Chapter 20 of @boehmke2019], **hierarchical** [@murtagh2012], and **model-based clustering** [@chris2002; @scrucca2023] using the simulated dataset. The model-based clustering was performed with the `"VVV"` covariance structure, allowing each cluster to vary in volume, shape, and orientation. Cluster validity statistics were computed using the `cluster.stats()` function from the `fpc` package [@christian2024].
+To further evaluate the structure of the generated data, we benchmarked three clustering algorithms: **$k$-means** [Chapter 20 of @boehmke2019], **hierarchical** [@murtagh2012], and **model-based clustering** [@chris2002; @scrucca2023] using the simulated dataset. Model-based clustering performed the `"EII"` covariance structure. Under this parameterization, clusters are spherical with equal volume and equal shape, and no orientation parameter is estimated. Cluster validity statistics were computed using the `cluster.stats()` function from the `fpc` package [@christian2024].
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1487,33 +1487,7 @@ To further evaluate the structure of the generated data, we benchmarked three cl
 </div>
 
 
-Figure \@ref(fig:fig-cluster-stats) shows a selection of cluster metrics for $2-10$ clusters for each of the methods, $k$-means, hierarchical, model-based. As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that $4-5$ clusters is better than other choices (say why), and that $k$-means performs better than others.
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-Overall, all methods produced similar compactness and separation, as reflected by the *within–between cluster ratios (wb.ratio)* and *Dunn indices*. However, the **model-based clustering** achieved the highest *Corrected Rand Index* ($0.75$) and lowest *Variation of Information (VI)* ($0.65$), indicating the best recovery of the true underlying groups (Table \@ref(tab:summaryclust-tb-html)). In comparison, $k$-means and hierarchical clustering showed moderate agreement with the true labels. These findings demonstrate that mixture-based approaches can more effectively capture the heterogeneity of clusters in high-dimensional, non-spherical data.
+Figure \@ref(fig:fig-cluster-stats) shows a selection of cluster metrics for $2-10$ clusters for each of the methods, $k$-means, hierarchical, and model-based. As is typical, the suggestion of the best solution varies between cluster statistics. Although the metrics differ in their preferences, several show consistent support for a $4–5$ cluster solution. The Calinski–Harabasz index increases sharply up to four or five clusters before levelling off, the Dunn and Pearson gamma indices attain local maxima in this range, and both the silhouette width and within-cluster sum of squares show diminishing improvement beyond five clusters. Together, these patterns indicate that $4–5$ clusters provide a good balance of separation and compactness, with $k$-means performing slightly better than the other methods across most metrics.
 
 # Conclusion
 
