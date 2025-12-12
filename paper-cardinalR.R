@@ -248,11 +248,24 @@ shape_tb |>
 
 
 ## -----------------------------------------------------------------------------
-arg_branching_tb <- tibble(arg = c("n", "k", "p"), 
-                          type = c("integer", "integer", "integer"),
+arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "k", "loc", "w", "steps", "spins", "hc", "non_fac"), 
+                          type = c("integer", "integer", "integer", "",
+                                   "", "", "", "", "", "", "", "", "", ""),
                         exp = c("Number of points.",
                                 "Number of clusters.",
-                                "Number of dimensions."))
+                                "Number of dimensions.",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "")) |> 
+   mutate(arg = gsub("_", "\\\\_", arg))
 
 
 ## ----arg-shape-tb-html, eval=knitr::is_html_output()--------------------------

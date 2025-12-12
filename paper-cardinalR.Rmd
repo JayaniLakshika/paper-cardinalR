@@ -208,9 +208,7 @@ main_tb |>
 
 ## Shape generators
 
-The shape generators form the foundation of the package, providing functions to create synthetic datasets from simple, well-defined geometric forms such as cones, pyramids, spheres, grids, and branching structures. Each generator includes the parameter `n`, which specifies the number of points to generate. Some functions, such as `gen_unifcube()`, also take the dimension `p`, while others include arguments specific to the geometry (e.g., radius for spheres (`r`), width for bands (`w`)). If higher-dimensional data are required, additional noise dimensions can be appended after data generation using any noise generator function. This flexibility allows users to construct both low- and high-dimensional datasets from the same underlying structures.
-
-Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:shape-tb-html)', '\\@ref(tab:shape-tb-pdf)'))` outlines these functions. The main arguments of the functions described in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:arg-shape-tb-html)', '\\@ref(tab:arg-shape-tb-pdf)'))`.
+The shape generators form the foundation of the package, providing functions to create synthetic datasets from simple, well-defined geometric forms such as cones, pyramids, spheres, grids, and branching structures. Each generator includes the parameter `n`, which specifies the number of points to generate. Some functions, such as `gen_unifcube()`, also take the dimension `p`, while others include arguments specific to the geometry (e.g., radius for spheres (`r`), width for bands (`w`)). If higher-dimensional data are required, additional noise dimensions can be appended after data generation using any noise generator function. This flexibility allows users to construct both low- and high-dimensional datasets from the same underlying structures. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:shape-tb-html)', '\\@ref(tab:shape-tb-pdf)'))` outlines these functions. The main arguments of the functions described in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:arg-shape-tb-html)', '\\@ref(tab:arg-shape-tb-pdf)'))`.
 
 ```{r}
 shape_tb <- tibble(fun = c("gen_expbranches",
@@ -337,11 +335,24 @@ shape_tb |>
 ```
 
 ```{r}
-arg_branching_tb <- tibble(arg = c("n", "k", "p"), 
-                          type = c("integer", "integer", "integer"),
+arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "k", "loc", "w", "steps", "spins", "hc", "non_fac"), 
+                          type = c("integer", "integer", "integer", "",
+                                   "", "", "", "", "", "", "", "", "", ""),
                         exp = c("Number of points.",
                                 "Number of clusters.",
-                                "Number of dimensions."))
+                                "Number of dimensions.",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "")) |> 
+   mutate(arg = gsub("_", "\\\\_", arg))
 ```
 
 ```{r arg-shape-tb-html, eval=knitr::is_html_output()}
@@ -1487,7 +1498,7 @@ clusteredspheres_proj3 <- plot_proj(
 
 ```
 
-Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) f"} else { "Figure \\@ref(fig:sphere-proj) f"})`). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \\quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. 
+Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:sphere) f"} else { "Figure \\@ref(fig:sphere-proj) f"})`). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \\\quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. 
 
 ```{r sphere, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$ `circle`, `curvycycle` data, and $3\\text{-}D$ `clusteredspheres` data. The `circle` structure forms a smooth, closed loop, while `curvycycle` shows a wavy, continuous pattern forming a twisted ring. The `clusteredspheres` dataset displays multiple compact spherical groups that are clearly separated in higher dimensions but overlap slightly in some $2\\text{-}D$ projections, highlighting how projection can distort spatial relationships.", fig.alt="Interactive langevitour of three datasets: circle and curvycycle in $4\\text{-}D$ showing closed-loop and wavy twisted-ring structures, and clusteredspheres in 3-D showing multiple compact spherical clusters with slight overlap in projections.", fig.pos="!ht", layout="l-body"}
 
@@ -2286,7 +2297,7 @@ odd_shapes_tb |>
 
 ## Additional functions
 
-The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:add-tb-html)', '\\@ref(tab:add-tb-pdf)'))` details these functions. More detailed explanations are available in <https://jayanilakshika.github.io/cardinalR/articles/03additionalfun.html>.
+The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:add-tb-html)', '\\@ref(tab:add-tb-pdf)'))` details these functions. More detailed explanations are available in [jayanilakshika.github.io/cardinalR/articles/03additionalfun](https://jayanilakshika.github.io/cardinalR/articles/03additionalfun.html).
 
 ```{r}
 add_fun_tb <- tibble(fun = c("gen_bkgnoise",

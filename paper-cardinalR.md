@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-12-12'
+date: '2025-12-13'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -181,9 +181,7 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
 ## Shape generators
 
-The shape generators form the foundation of the package, providing functions to create synthetic datasets from simple, well-defined geometric forms such as cones, pyramids, spheres, grids, and branching structures. Each generator includes the parameter `n`, which specifies the number of points to generate. Some functions, such as `gen_unifcube()`, also take the dimension `p`, while others include arguments specific to the geometry (e.g., radius for spheres (`r`), width for bands (`w`)). If higher-dimensional data are required, additional noise dimensions can be appended after data generation using any noise generator function. This flexibility allows users to construct both low- and high-dimensional datasets from the same underlying structures.
-
-Table \@ref(tab:shape-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-shape-tb-html).
+The shape generators form the foundation of the package, providing functions to create synthetic datasets from simple, well-defined geometric forms such as cones, pyramids, spheres, grids, and branching structures. Each generator includes the parameter `n`, which specifies the number of points to generate. Some functions, such as `gen_unifcube()`, also take the dimension `p`, while others include arguments specific to the geometry (e.g., radius for spheres (`r`), width for bands (`w`)). If higher-dimensional data are required, additional noise dimensions can be appended after data generation using any noise generator function. This flexibility allows users to construct both low- and high-dimensional datasets from the same underlying structures. Table \@ref(tab:shape-tb-html) outlines these functions. The main arguments of the functions described in Table \@ref(tab:arg-shape-tb-html).
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -251,11 +249,22 @@ Table: (\#tab:shape-tb-html)Overview of shape-generation functions, including th
 
 Table: (\#tab:arg-shape-tb-html)The main arguments for branching shape generators.
 
-|Argument       |Type    |Explanation           |
-|:--------------|:-------|:---------------------|
-|<code>n</code> |integer |Number of points.     |
-|<code>k</code> |integer |Number of clusters.   |
-|<code>p</code> |integer |Number of dimensions. |
+|Argument              |Type    |Explanation           |
+|:---------------------|:-------|:---------------------|
+|<code>n</code>        |integer |Number of points.     |
+|<code>k</code>        |integer |Number of clusters.   |
+|<code>p</code>        |integer |Number of dimensions. |
+|<code>h</code>        |        |                      |
+|<code>ratio</code>    |        |                      |
+|<code>s</code>        |        |                      |
+|<code>r</code>        |        |                      |
+|<code>k</code>        |        |                      |
+|<code>loc</code>      |        |                      |
+|<code>w</code>        |        |                      |
+|<code>steps</code>    |        |                      |
+|<code>spins</code>    |        |                      |
+|<code>hc</code>       |        |                      |
+|<code>non\_fac</code> |        |                      |
 
 </div>
 
@@ -889,7 +898,7 @@ For more heterogeneous structures, the `gen_clusteredspheres(n, k, r, loc)` func
 </div>
 
 
-Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (Figure \@ref(fig:sphere) f). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \\quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. 
+Finally, the `gen_hemisphere(n, p)` function restricts sampling to a hemisphere of a $4\text{-}D$ sphere (Figure \@ref(fig:sphere) f). Using spherical coordinates, the azimuthal angle $\theta_1 \sim U(0, \pi)$ in the $(x_1, x_2)$ plane, while the elevation angle $\theta_2 \sim U(0, \pi)$ in the $(x_2, x_3)$ plane. Additionally, $\theta_3 \sim U(0, \pi/2)$ in the $(x_3, x_4)$ plane, ensuring that the points remain restricted to a hemisphere. The coordinates are transformed into $4\text{-}D$ Cartesian space: $$X_1 = \sin(\theta_1)\cos(\theta_2), \quad X_2 = \sin(\theta_1)\sin(\theta_2), \\\quad X_3 = \cos(\theta_1)\cos(\theta_3), \quad X_4 = \cos(\theta_1)\sin(\theta_3).$$ This produces points on one side of a $4\text{-}D$ unit sphere, effectively generating a $4\text{-}D$ hemisphere. 
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
@@ -1336,7 +1345,7 @@ Table: (\#tab:odd-shape-tb-html)cardinalR multiple clusters generation functions
 
 ## Additional functions
 
-The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table \@ref(tab:add-tb-html) details these functions. More detailed explanations are available in <https://jayanilakshika.github.io/cardinalR/articles/03additionalfun.html>.
+The package includes various supplementary tools in addition to the shape generating functions mentioned earlier. These tools allow users to create background noise, randomize the rows of the data, relocate clusters, generate a vector whose product and sum are approximately equal to a target value, rotate structures, and normalize the data. Table \@ref(tab:add-tb-html) details these functions. More detailed explanations are available in [jayanilakshika.github.io/cardinalR/articles/03additionalfun](https://jayanilakshika.github.io/cardinalR/articles/03additionalfun.html).
 
 <div class="layout-chunk" data-layout="l-body">
 
