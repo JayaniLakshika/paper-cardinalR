@@ -2148,11 +2148,16 @@ X \sim \mathcal{N}(m, s^2),
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
-<caption><span id="tab:arg-shape-tb-html">Table 3: </span>The main arguments for branching shape generators.</caption>
+<caption><span id="tab:arg-shape-tb-html">Table 3: </span>Argument definitions for the shape generators. The table lists each argument, its data type, and a description of its role in controlling geometric structure, dimensionality, scaling, curvature, spacing, and other features of the simulated high-dimensional datasets.</caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 17%" />
+<col style="width: 58%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Argument</th>
-<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Type (positive)</th>
 <th style="text-align: left;">Explanation</th>
 </tr>
 </thead>
@@ -2174,58 +2179,63 @@ X \sim \mathcal{N}(m, s^2),
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>h</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">real value</td>
+<td style="text-align: left;">Height.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>ratio</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">real value</td>
+<td style="text-align: left;">Radius tip to radius base ratio.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>s</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">real value</td>
+<td style="text-align: left;">Variance-covariance matrix.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>r</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">real value</td>
+<td style="text-align: left;">Radius.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>k</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>k_small</code></td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">Number of small spheres.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>loc</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>r_vec</code></td>
+<td style="text-align: left;">real values</td>
+<td style="text-align: left;">Radius of the big and small spheres.</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"><code>spe</code></td>
+<td style="text-align: left;">real value</td>
+<td style="text-align: left;">How far the small spheres are placed from each other.</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"><code>w</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">real value</td>
+<td style="text-align: left;">Vertical variation</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><code>steps</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>spins</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">Number of steps for the theta parameter.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>hc</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>spins</code></td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">Number of loops of the spiral.</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"><code>hc</code></td>
+<td style="text-align: left;">real value</td>
+<td style="text-align: left;">Steepness and vertical scaling of the hyperbola.</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"><code>non_fac</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">real value</td>
+<td style="text-align: left;">Strength of this sinusoidal effect.</td>
 </tr>
 </tbody>
 </table>

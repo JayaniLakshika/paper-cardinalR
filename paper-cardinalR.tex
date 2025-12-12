@@ -142,28 +142,29 @@ Function & Arguments & Explanation\\
 
 \begin{table}
 
-\caption{\label{tab:arg-shape-tb-pdf}The main arguments for branching shape generators.}
+\caption{\label{tab:arg-shape-tb-pdf}Argument definitions for the shape generators. The table lists each argument, its data type, and a description of its role in controlling geometric structure, dimensionality, scaling, curvature, spacing, and other features of the simulated high-dimensional datasets.}
 \centering
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{3cm}l}
 \toprule
-Argument & Type & Explanation\\
+Argument & Type (positive) & Explanation\\
 \midrule
 \texttt{n} & integer & Number of points.\\
 \texttt{k} & integer & Number of clusters.\\
 \texttt{p} & integer & Number of dimensions.\\
-\texttt{h} &  & \\
-\texttt{ratio} &  & \\
+\texttt{h} & real value & Height.\\
+\texttt{ratio} & real value & Radius tip to radius base ratio.\\
 \addlinespace
-\texttt{s} &  & \\
-\texttt{r} &  & \\
-\texttt{k} &  & \\
-\texttt{loc} &  & \\
-\texttt{w} &  & \\
+\texttt{s} & real value & Variance-covariance matrix.\\
+\texttt{r} & real value & Radius.\\
+\texttt{k\_small} & integer & Number of small spheres.\\
+\texttt{r\_vec} & real values & Radius of the big and small spheres.\\
+\texttt{spe} & real value & How far the small spheres are placed from each other.\\
 \addlinespace
-\texttt{steps} &  & \\
-\texttt{spins} &  & \\
-\texttt{hc} &  & \\
-\texttt{non\_fac} &  & \\
+\texttt{w} & real value & Vertical variation\\
+\texttt{steps} & integer & Number of steps for the theta parameter.\\
+\texttt{spins} & integer & Number of loops of the spiral.\\
+\texttt{hc} & real value & Steepness and vertical scaling of the hyperbola.\\
+\texttt{non\_fac} & real value & Strength of this sinusoidal effect.\\
 \bottomrule
 \end{tabular}
 \end{table}

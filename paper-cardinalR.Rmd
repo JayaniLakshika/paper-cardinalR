@@ -335,36 +335,37 @@ shape_tb |>
 ```
 
 ```{r}
-arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "k", "loc", "w", "steps", "spins", "hc", "non_fac"), 
-                          type = c("integer", "integer", "integer", "",
-                                   "", "", "", "", "", "", "", "", "", ""),
+arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "k_small", "r_vec", "spe", "w", "steps", "spins", "hc", "non_fac"), 
+                          type = c("integer", "integer", "integer", "real value",
+                                   "real value", "real value", "real value", "integer", "real values", "real value", "real value", "integer", "integer", "real value", "real value"),
                         exp = c("Number of points.",
                                 "Number of clusters.",
                                 "Number of dimensions.",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "",
-                                "")) |> 
+                                "Height.",
+                                "Radius tip to radius base ratio.",
+                                "Variance-covariance matrix.",
+                                "Radius.",
+                                "Number of small spheres.",
+                                "Radius of the big and small spheres.",
+                                "How far the small spheres are placed from each other.",
+                                "Vertical variation",
+                                "Number of steps for the theta parameter.",
+                                "Number of loops of the spiral.",
+                                "Steepness and vertical scaling of the hyperbola.",
+                                "Strength of this sinusoidal effect.")) |> 
    mutate(arg = gsub("_", "\\\\_", arg))
 ```
 
 ```{r arg-shape-tb-html, eval=knitr::is_html_output()}
 arg_branching_tb |> 
   mutate(arg = paste0("<code>", arg, "</code>")) |>
-  kable(caption = "The main arguments for branching shape generators.", col.names = c("Argument", "Type", "Explanation"), escape = FALSE, table.pos = "!ht") 
+  kable(caption = "Argument definitions for the shape generators. The table lists each argument, its data type, and a description of its role in controlling geometric structure, dimensionality, scaling, curvature, spacing, and other features of the simulated high-dimensional datasets.", col.names = c("Argument", "Type (positive)", "Explanation"), escape = FALSE, table.pos = "!ht") 
 ```
 
 ```{r arg-shape-tb-pdf, eval=knitr::is_latex_output()}
 arg_branching_tb |> 
   mutate(arg = paste0("\\texttt{", arg, "}")) |> 
-  kable(caption = "The main arguments for branching shape generators.", format="latex", col.names = c("Argument", "Type", "Explanation"), booktabs = T, escape = FALSE, table.pos = "!ht")  |>
+  kable(caption = "Argument definitions for the shape generators. The table lists each argument, its data type, and a description of its role in controlling geometric structure, dimensionality, scaling, curvature, spacing, and other features of the simulated high-dimensional datasets.", format="latex", col.names = c("Argument", "Type (positive)", "Explanation"), booktabs = T, escape = FALSE, table.pos = "!ht")  |>
   column_spec(1, width = "1cm") |>
   column_spec(1, width = "2cm") |>
   column_spec(2, width = "3cm")
