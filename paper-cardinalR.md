@@ -258,6 +258,7 @@ Table: (\#tab:arg-shape-tb-html)Argument definitions for the shape generators. T
 |<code>ratio</code>    |real value      |Radius tip to radius base ratio.                      |
 |<code>s</code>        |real value      |Variance-covariance matrix.                           |
 |<code>r</code>        |real value      |Radius.                                               |
+|<code>n\_vec</code>   |integers        |Sample sizes of the big and small spheres             |
 |<code>k\_small</code> |integer         |Number of small spheres.                              |
 |<code>r\_vec</code>   |real values     |Radius of the big and small spheres.                  |
 |<code>spe</code>      |real value      |How far the small spheres are placed from each other. |

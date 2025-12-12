@@ -248,9 +248,9 @@ shape_tb |>
 
 
 ## -----------------------------------------------------------------------------
-arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "k_small", "r_vec", "spe", "w", "steps", "spins", "hc", "non_fac"), 
+arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "n_vec", "k_small", "r_vec", "spe", "w", "steps", "spins", "hc", "non_fac"), 
                           type = c("integer", "integer", "integer", "real value",
-                                   "real value", "real value", "real value", "integer", "real values", "real value", "real value", "integer", "integer", "real value", "real value"),
+                                   "real value", "real value", "real value", "integers", "integer", "real values", "real value", "real value", "integer", "integer", "real value", "real value"),
                         exp = c("Number of points.",
                                 "Number of clusters.",
                                 "Number of dimensions.",
@@ -258,6 +258,7 @@ arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "k_sma
                                 "Radius tip to radius base ratio.",
                                 "Variance-covariance matrix.",
                                 "Radius.",
+                                "Sample sizes of the big and small spheres",
                                 "Number of small spheres.",
                                 "Radius of the big and small spheres.",
                                 "How far the small spheres are placed from each other.",
