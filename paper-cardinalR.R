@@ -2228,7 +2228,8 @@ for (i in 3:10) {
 }
 
 
-## ----label = "fig-cluster-stats", fig.width=10, fig.height=3, out.width="100%", layout="l-body"----
+## ----label = "fig-cluster-stats", fig.width=10, fig.height=3, out.width="100%", layout="l-body", fig.cap="Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods."----
+
 # Examine the cluster stats
 all_stats <- bind_rows(hc_stats, kmeans_stats, modelbased_stats)
 all_stats |>
@@ -2238,6 +2239,7 @@ all_stats |>
     facet_wrap(~stat, ncol=3, scales="free_y") +
     xlab("Number of clusters") +
     ylab("") +
+    scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3')) +
     theme_minimal() +
     theme(panel.border = element_rect(fill = 'transparent'),
           plot.title = element_text(size = 12, hjust = 0.5, vjust = -0.5),

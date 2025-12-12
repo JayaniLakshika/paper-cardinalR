@@ -2610,7 +2610,8 @@ for (i in 3:10) {
 }
 ```
 
-```{r, label = "fig-cluster-stats", fig.width=10, fig.height=3, out.width="100%", layout="l-body"}
+```{r, label = "fig-cluster-stats", fig.width=10, fig.height=3, out.width="100%", layout="l-body", fig.cap="Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods."}
+
 # Examine the cluster stats
 all_stats <- bind_rows(hc_stats, kmeans_stats, modelbased_stats)
 all_stats |>
@@ -2620,6 +2621,7 @@ all_stats |>
     facet_wrap(~stat, ncol=3, scales="free_y") +
     xlab("Number of clusters") +
     ylab("") +
+    scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3')) +
     theme_minimal() +
     theme(panel.border = element_rect(fill = 'transparent'),
           plot.title = element_text(size = 12, hjust = 0.5, vjust = -0.5),
@@ -2633,7 +2635,7 @@ all_stats |>
           plot.margin = margin(0, 0, 0, 0))
 ```
 
-@fig-cluster-stats shows a selection of cluster metrics for $2-10$ clusters for each of the methods, $k$-means, hierarchical, model-based. As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that $4-5$ clusters is better than other choices (say why), and that $k$-means performs better than others (this might not hold when you add the next methods).
+Figure \@ref(fig:fig-cluster-stats) shows a selection of cluster metrics for $2-10$ clusters for each of the methods, $k$-means, hierarchical, model-based. As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that $4-5$ clusters is better than other choices (say why), and that $k$-means performs better than others.
 
 ```{r eval=FALSE}
 # Model-based clustering

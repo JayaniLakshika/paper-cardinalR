@@ -1479,12 +1479,15 @@ To further evaluate the structure of the generated data, we benchmarked three cl
 
 
 <div class="layout-chunk" data-layout="l-body">
-<img src="paper-cardinalR_files/figure-html5/fig-cluster-stats-1.png" width="100%" />
+<div class="figure">
+<img src="paper-cardinalR_files/figure-html5/fig-cluster-stats-1.png" alt="Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods." width="100%" />
+<p class="caption">(\#fig:fig-cluster-stats)Comparison of clustering performance metrics (within–between ratio (wb.ratio), Dunn index, Corrected Rand index, and variation of information (VI) across $k$-means, hierarchical, and model-based clustering methods.</p>
+</div>
 
 </div>
 
 
-@fig-cluster-stats shows a selection of cluster metrics for $2-10$ clusters for each of the methods, $k$-means, hierarchical, model-based. As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that $4-5$ clusters is better than other choices (say why), and that $k$-means performs better than others (this might not hold when you add the next methods).
+Figure \@ref(fig:fig-cluster-stats) shows a selection of cluster metrics for $2-10$ clusters for each of the methods, $k$-means, hierarchical, model-based. As is typical, the suggestion of best solution varies between cluster statistics. There is some agreement that $4-5$ clusters is better than other choices (say why), and that $k$-means performs better than others.
 
 <div class="layout-chunk" data-layout="l-body">
 
