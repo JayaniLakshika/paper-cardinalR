@@ -426,7 +426,7 @@ Across all branching generators, the scale parameter $s_i$ controls the strength
 
 To simulate a cone-shaped structure in arbitrary dimensions (Figure \@ref(fig:cone)), we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
 
-This function generates $n$ points in $p\text{-}D$, where the last dimension, $X_p$, represents the height along the cone's axis, and the first $p-1$ dimensions define a shrinking hyperspherical cross-section toward the tip. Heights are sampled from a truncated exponential distribution, $X_p \sim \text{Exp}(\lambda = 2/h)$, capped at the cone height $h$, producing a higher density of points near the tip. At each height $X_p$, the radius of the cross-section decreases linearly from base to tip according to $r = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}}) X_p / h$, where $r_{\text{min}} = \text{ratio}$ and $r_{\text{max}} = 1$.
+This function generates $n$ points in $p\text{-}D$, where the last dimension, $X_p$, represents the height along the cone's axis, and the first $p-1$ dimensions define a shrinking hyperspherical cross-section toward the tip. Heights are sampled from a truncated exponential distribution, $X_p \sim \text{Exp}(\lambda = 2/h)$, truncated to the interval $[0, h]$, producing a higher density of points near the tip. At each height $X_p$, the radius of the cross-section increases linearly from base to tip according to $r = r_{\text{min}} + (r_{\text{max}} - r_{\text{min}}) X_p / h$, where $r_{\text{min}} = \text{ratio} \in [0, 1]$ and $r_{\text{max}} = 1$.
 
 For each point, a direction in the first $p-1$ dimensions is sampled uniformly on a $(p-1)$-dimensional hypersphere using generalized spherical coordinates. The radial coordinates are scaled by the height-dependent radius $r$, producing the conical taper. In three dimensions ($p = 3$), this results in a classical $3\text{-}D$ cone, while for $p > 3$, additional dimensions provide a smooth embedding into higher-dimensional space, preserving the conical structure.
 
@@ -494,7 +494,7 @@ Cone-shaped structures appear in particle dispersions, light beams, and tapering
 
 A cube structure represents uniformly or systematically distributed points within a high-dimensional hypercube, providing a useful framework for assessing how well algorithms preserve uniformity, and boundary properties in high dimensions. We provide a set of functions to generate high-dimensional cube structures with flexible configurations, including regular grids, and uniform random points. 
 
-The function `gen_gridcube(n, p)` is a wrapper around `geozoo::cube.solid.grid()`. It generates a regular lattice of points in $p\text{-}D$, producing a uniform hypercube grid. Each axis contains equally spaced coordinates, resulting in a well-defined geometric structure.
+The function `gen_gridcube(n, p)` is a wrapper around `geozoo::cube.solid.grid()`. It generates a regular lattice of points in $p\text{-}D$, producing a uniform hypercube grid. The parameter `n` controls the approximate number of points by determining the grid resolution along each axis.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -502,7 +502,7 @@ The function `gen_gridcube(n, p)` is a wrapper around `geozoo::cube.solid.grid()
 </div>
 
 
-By contrast, `gen_unifcube(n, p)` wraps `geozoo::cube.solid.random()`, producing uniformly distributed points within a $p\text{-}D$ cube. To avoid including the cube’s vertices, these points are removed after generation. This results in a hypercube filled with random, but evenly distributed, samples rather than structured lattice points.
+By contrast, `gen_unifcube(n, p)` wraps `geozoo::cube.solid.random()`, producing uniformly distributed points within a $p\text{-}D$ cube. To avoid including the cube’s vertices, these points are removed after generation. This results in a hypercube filled with random samples rather than structured lattice points.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -514,7 +514,8 @@ Such cube-based structures are commonly used as benchmarks in Monte Carlo sampli
 
 ### Gaussian
 
-The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure. Each point is independently drawn using the multivariate normal distribution with $X_i \sim N_p(\boldsymbol{0}, s)$, where $s$ is a user-defined $p \times p$ positive-definite matrix.
+The `gen_gaussian(n, p, s)` function generates a multivariate Gaussian cloud in $p\text{-}D$, centered at the origin with user-defined covariance structure. For 
+$i=1,\dots,n$, each observation is independently drawn from a multivariate normal distribution,  $X_i \sim N_p(\boldsymbol{0}, s)$, where $s$ is a user-defined $p \times p$ positive-definite matrix.
 
 <div class="layout-chunk" data-layout="l-body">
 
