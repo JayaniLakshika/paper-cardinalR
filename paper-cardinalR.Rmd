@@ -395,16 +395,12 @@ Branches $1$ and $2$ are initialized with fixed slopes and starting points, whil
 linearbranches <- gen_linearbranches(n = 1000, k = 4)
 ```
 
-To introduce curvature, the `gen_curvybranches(n, k)` function generates $k$ curvilinear branches in $2\text{-}D$. Branches $1$ and $2$ are simple parabolas defined as
+To introduce curvature, the `gen_curvybranches(n, k)` function generates $k$ curvilinear branches in $2\text{-}D$. Each branch follows a quadratic trajectory of the form
 
 $$
-\begin{aligned}
-\text{Branch 1: } & X_1 \sim U(0,1), \quad X_2 = 0.1 X_1 + X_1^2 + \epsilon, \\
-\text{Branch 2: } & X_1 \sim U(-1,0), \quad X_2 = 0.1 X_1 - 2 X_1^2 + \epsilon, \quad \epsilon \sim U(0, \delta),
-\end{aligned}
+X_1 \sim U(a_i, b_i), \quad X_2 = 0.1 X_1 + s_i X_1^2 + \epsilon, \quad \epsilon \sim U(-\delta, \delta),
 $$
-
-where $\delta$ controls local jitter. Additional branches are attached iteratively to existing structures. Each new branch $i$ starts at a selected point $(x_{\text{start},i}, y_{\text{start},i})$ from the current structure and extends according to
+where $(a_i, b_i)$ defines the domain of the branch, $s_i$ controls curvature, and $\delta$ introduces local jitter. For the first two branches, the parameters are fixed to establish reference shapes: $(a_1,b_1,s_1) = (0,1,1), \quad (a_2,b_2,s_2) = (-1,0,-2)$. Additional branches are attached iteratively to existing structures. Each new branch $i$ starts at a selected point $(x_{\text{start},i}, y_{\text{start},i})$ from the current structure and extends according to
 
 $$
 X_1 \sim U(x_{\text{start},i}, x_{\text{start},i}+1), \quad X_2 = 0.1 X_1 - s_i (X_1^2 - x_{\text{start},i}) + y_{\text{start},i},
@@ -429,19 +425,25 @@ expbranches <- gen_expbranches(n = 1000, k = 4)
 ```
 
 High-dimensional generalizations are provided by `gen_orglinearbranches(n, p, k)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:branch)"} else { "Figure \\@ref(fig:branch-proj)"})`) and `gen_orgcurvybranches(n, p, k)`. For branch 
-$i$, the active coordinate pair $(i_1, i_2)$ indexes the selected $2\text{-}D$ subspace. When `allow_share = TRUE`, multiple branches may share the same subspace; otherwise, subspaces are sampled without replacement until all possible $\binom{p}{2}$ combinations are exhausted, after which additional branches may repeat subspaces. Linear branches follow
+$i$, the active coordinate pair $(i_1, i_2)$ indexes the selected $2\text{-}D$ subspace. When `allow_share = TRUE`, multiple branches may share the same subspace; otherwise, subspaces are sampled without replacement until all possible $\binom{p}{2}$ combinations are exhausted, after which additional branches may repeat subspaces. 
+
+In both cases, branch $i$ is generated according to
 
 $$
-X_{i_1} \sim U(a_i,b_i), \quad X_{i_2} = s_i X_{i_1} + \epsilon, \quad \epsilon \sim N(0, \sigma^2),
+X_{i_1} \sim U(a_i, b_i), \quad
+X_{i_2} = f_i(X_{i_1}) + \epsilon, \quad
+\epsilon \sim N(0, \sigma^2),
+$$
+where $a_i$ and $b_i$ define the domain of the branch and $\epsilon$ introduces smooth variability in the $p\text{-}D$ space. The function $f_i(\cdot)$ determines the branch geometry:
+$$
+f_i(x) =
+\begin{cases}
+s_i x, & \text{linear branches}, \\
+-s_i x^2, & \text{curvilinear branches}.
+\end{cases}
 $$
 
-while curvilinear branches include a quadratic term
-
-$$
-X_{i_1} \sim U(a_i,b_i), \quad X_{i_2} = - s_i X_{i_1}^2 + \epsilon, \quad \epsilon \sim N(0, \sigma^2),
-$$
-
-where $a_i, b_i$ define the range of the first coordinate for branch $i$, and $\epsilon$ is Gaussian noise added to introduce smooth variability in $p\text{-}D$ without sharp boundaries. The scale factor $s_i$ controls slope (linear branches) or curvature (curvilinear branches) and is assigned as follows: for the first $\binom{p}{2}$ branches, $s_i = 1$; for additional branches when $k > \binom{p}{2}$, $s_i$ is randomly drawn from the set $\{1, 1.5, 2, \dots, 8\}$.
+The scale factor $s_i$ controls slope (linear branches) or curvature (curvilinear branches) and is assigned as follows: for the first $\binom{p}{2}$ branches, $s_i = 1$; for additional branches when $k > \binom{p}{2}$, $s_i$ is randomly drawn from the set $\{1, 1.5, 2, \dots, 8\}$.
 
 Across all branching generators, the scale parameter $s_i$ controls the strength of deviation from linearity, determining slope, curvature, or growth rate depending on the branch geometry.
 
