@@ -726,7 +726,7 @@ Gaussian clouds are common benchmark structures in statistics and machine learni
 
 <!-- The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a long linear structure with noise. Each variable is formed as $X_i = \text{scale}_i \cdot (0,1,\dots,n{-}1 + \epsilon) + \text{shift}_i$, where $\text{scale}\_i \sim U(-10, 10)$ determines the orientation of the line in each dimension, $\text{shift}\_i \sim U(-300, 300)$ offsets the line to separate dimensions, and $\epsilon \sim N(0, (0.03n)^2)$ introduces Gaussian noise.  -->
 
-The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a long linear structure with noise. Each variable is constructed by first creating a sequence of integers from $0$ to $n-1$, adding Gaussian noise with standard deviation $0.03n$, and then applying a random scaling and shift. Specifically, for the $j$-th dimension, a scale factor $\text{scale}_j \sim U(-10, 10)$ determines the orientation and stretching of the line, while a shift factor $\text{shift}_j \sim U(-300, 300)$ is added inside the multiplication to offset the line. This results in each variable being of the form $X_j = \text{scale}_j \cdot \big((0,1,\dots,n-1) + \epsilon + \text{shift}_j\big)$, where $\epsilon \sim N(0, (0.03n)^2)$ is independent Gaussian noise. 
+The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a single noisy linear trajectory. Let $t_i = i - 1, \quad i = 1, \dots, n$, denote a common latent index shared across all dimensions. For each dimension $j = 1, \dots, p)$, independent scale and shift parameters are sampled as $a_j \sim U(-10, 10), \qquad b_j \sim U(-300, 300)$. Gaussian noise $\varepsilon_{ij} \sim N(0, (0.03n)^2)$ is added independently across observations and dimensions. The observed variables are then defined as $X_{ij} = a_j \bigl(t_i + b_j + \varepsilon_{ij}\bigr), \quad i = 1, \dots, n$.cThis construction yields a single elongated linear structure embedded in $p\text{-}D$, with each dimension exhibiting a different orientation, scale, and offset.
 
 ```{r data-linear}
 linear <- gen_longlinear(n = 1000, p = 4)
@@ -748,13 +748,13 @@ The Möbius strip structure can model twisted or cyclic surfaces in physics and 
 
 A polynomial structure generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in  space. To extend these patterns into high-dimensional settings, additional noise dimensions can be added. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. 
 
-The first is the quadratic curve of $n$ points in two dimensions. This is generated using `gen_quadratic(n, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and the response is generated as $X_2 = X_1 - X_1^2 + \varepsilon$, where $\varepsilon \sim U(0, 0.5)$. This produces a smooth parabolic arc opening downward, with vertical jitter introduced by the noise term.
+The first is the quadratic curve of $n$ points in two dimensions. This is generated using `gen_quadratic(n, range)`. Let $range = [a, b]$. The independent variable is defined as $X_1 \sim U(a, b)$, and the response is generated as $X_2 = X_1 - X_1^2 + \varepsilon$, where $\varepsilon \sim U(0, 0.5)$. This produces a smooth parabolic arc opening downward, with vertical jitter introduced by the noise term.
 
 ```{r data-quadratic}
 quadratic <- gen_quadratic(n = 1000)
 ```
 
-The second is the cubic curve of $n$ points in two dimensions. This is generated using `gen_cubic(n, range)`. The independent variable is defined as $X_1 \sim U(\text{range}[1], \text{range}[2])$, and a raw polynomial basis of degree $3$ is applied to construct $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a more complex curvilinear structure than the quadratic case, with both upward and downward turning points.
+The second is the cubic curve of $n$ points in two dimensions. This is generated using `gen_cubic(n, range)`. Let $range = [a, b]$. The independent variable is defined as $X_1 \sim U(a, b)$, and a raw polynomial basis of degree $3$ is applied to construct $X_2 = X_1 + X_1^2 - X_1^3 + \varepsilon_2$, where $\varepsilon_2 \sim U(0, 0.5)$. This produces a more complex curvilinear structure than the quadratic case, with both upward and downward turning points.
 
 ```{r data-cubic}
 cubic <- gen_cubic(n = 1000)
