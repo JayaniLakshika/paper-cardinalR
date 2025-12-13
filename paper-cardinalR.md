@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-12-13'
+date: '2025-12-14'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -577,7 +577,7 @@ A pyramid structure (Figure \@ref(fig:pyr)) represents data arranged around a ce
 
 Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the rectangular, triangular, and star-shaped based pyramid generator functions, the final dimension, $X_p$, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height $h$. That is, $X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).$ This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, $X_p = z \sim U(0, h)$.
 
-The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (Figure \@ref(fig:pyr) a), let $r_x(z)$ and $r_y(z)$ denote the half-widths of the rectangular cross-section at height $z$. That is, $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as $X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z)).$
+The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (Figure \@ref(fig:pyr) a) the base shape is a rectangle whose size shrinks linearly with height. Let $l_x$ and $l_y$ denote the half-widths of the rectangular base in the $X_1$ and $X_2$ directions, specified via $l=(l_x,l_y)$, and let $r_t$ denote the half-width at the pyramid tip. At height $z\in [0,h]$, the half-widths of the rectangular cross-section are $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as $X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z))$.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -641,7 +641,7 @@ For the triangular based pyramid, `gen_pyrtri(n, p, h, l, rt)` (Figure \@ref(fig
 </div>
 
 
-For the star based pyramid, `gen_pyrstar(n, p, h, rb)` (Figure \@ref(fig:pyr) c), let the radius at height $z$, $r(z)$, be such that the radius scales linearly from zero (tip) to the base radius $r_b$. That is, $r(z) = r_b\left(1 - z/h\right)$. Each point is placed within a regular hexagon in the plane $(X_1, X_2)$, using a randomly chosen hexagon sector angle $\theta \in \{0, \pi/3, 2\pi/3, \pi, 4\pi/3, 5\pi/3\}$ and a uniformly random radial scaling factor: $\theta \sim \text{Uniform sample from 6 hexagon angles}$, $r_{\text{point}} \sim \sqrt{U(0, 1)}$. Then, the first two coordinates are: $X_1 = r(z)r_{\text{point}}\cos(\theta)$, and $X_2 = r(z)r_{\text{point}}\sin(\theta)$.
+For the star based pyramid, `gen_pyrstar(n, p, h, rb)` (Figure \@ref(fig:pyr) c), let the radius at height $z$, $r(z)$, be such that the radius scales linearly from zero (tip) to the base radius $r_b$. That is, $r(z) = r_b\left(1 - z/h\right)$. Each point is placed within a regular hexagon in the plane $(X_1, X_2)$, using a randomly chosen hexagon sector angle $\theta \in \{0, \pi/3, 2\pi/3, \pi, 4\pi/3, 5\pi/3\}$ and a uniformly random radial scaling factor: $\theta \sim DiscreteUniform\{0, \pi/3, \dots, 5\pi/3\}$, $r_{\text{point}} \sim \sqrt{U(0, 1)}$. Then, the first two coordinates are: $X_1 = r(z)r_{\text{point}}\cos(\theta)$, and $X_2 = r(z)r_{\text{point}}\sin(\theta)$.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -759,7 +759,7 @@ This follows the `s_curve()` function from snedata [@james2025], itself adapted 
 
 Sphere-shaped structures are useful for evaluating how dimension reduction and clustering algorithms handle curved, symmetric manifolds in high-dimensional spaces. Throughout this section, we follow the standard mathematical terminology: a *sphere* refers to the hollow $(p-1)$-dimensional surface in $\mathbb{R}^p$, while a *ball* refers to the filled interior region. The functions generate a variety of spherical forms, including simple circles, uniform and hollow spheres, grid-based spheres, and complex arrangements like clustered spheres within a larger sphere. The first few coordinates define the main geometric form (circle, cycle, sphere, or hemisphere), while higher-dimensional embeddings are achieved by adding noise dimensions. Such spherical or hemispherical structures frequently appear in physical and biological systems, for example in models of celestial bodies, molecular shells, or cell membranes [@tinkham2003; @alberts2014].
 
-The simplest case, `gen_circle(n, p)` creates a unit circle in two dimensions, with the remaining dimensions forming sinusoidal extensions of the angular parameter at progressively smaller scales (Figure \@ref(fig:sphere) a). Let a latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\pi]$. Coordinates in the first two dimensions represent a perfect circle on the plane: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta).$$ For dimensions $X_3$ through $X_p$, sinusoidal transformations of the angle $\theta$ are introduced. The first component is a scaling factor that decreases with the dimension index, defined as $\text{scale}_j = \sqrt{(0.5)^{j-2}}$ for $j = 3, \dots, p$. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula $\phi_j = (j - 2)\pi/2p$. Each additional dimension is computed as: $X_j = \text{scale}_{j}\sin(\theta + \phi_j), \quad j = 3, \dots, p$.
+The simplest case, `gen_circle(n, p)` creates a unit circle in two dimensions, with the remaining dimensions forming sinusoidal extensions of the angular parameter at progressively smaller scales (Figure \@ref(fig:sphere) a). Let a latent angle variable $\theta \sim U(0, 2\pi)$. Coordinates in the first two dimensions represent a perfect circle on the plane: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta).$$ For dimensions $X_3$ through $X_p$, sinusoidal transformations of the angle $\theta$ are introduced. The first component is a scaling factor that decreases with the dimension index, defined as $\text{scale}_j = \sqrt{(0.5)^{j-2}}$ for $j = 3, \dots, p$. The second component is a phase shift that is proportional to the dimension index, specifically designed to decorrelate the curves, given by the formula $\phi_j = (j - 2)\pi/2p$. Each additional dimension is computed as: $X_j = \text{scale}_{j}\sin(\theta + \phi_j), \quad j = 3, \dots, p$.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -791,9 +791,9 @@ The simplest case, `gen_circle(n, p)` creates a unit circle in two dimensions, w
 </div>
 
 
-For the one-dimensional nonlinear cycle embedded in $p\text{-}D$ space, `gen_curvycycle(n, p)` (Figure \@ref(fig:sphere) b), let a latent angle variable $\theta$ is uniformly sampled from the interval $[0, 2\pi]$. The first three dimensions define a non-circular closed curve, referred to as a "curvy cycle". In this configuration, $X_1 = \cos(\theta)$ represents horizontal oscillation, while $X_2 = \sqrt{3}/3 + \sin(\theta)$ introduces a vertical offset to avoid centering the curve at the origin. Additionally, $X_3 = 1/3\cos(3\theta)$ introduces a third harmonic perturbation that intricately folds the curve three times along its path, creating a unique and complex shape that oscillates in both dimensions while incorporating the effects of the harmonic perturbation.
+For the one-dimensional nonlinear cycle embedded in $p\text{-}D$ space, `gen_curvycycle(n, p)` (Figure \@ref(fig:sphere) b), let a latent angle variable $\theta \sim U(0, 2\pi)$. The first three dimensions define a non-circular closed curve, referred to as a `"curvy cycle"`. In this configuration, $X_1 = \cos(\theta)$ represents horizontal oscillation, while $X_2 = \sqrt{3}/3 + \sin(\theta)$ introduces a vertical offset to avoid centering the curve at the origin. Additionally, $X_3 = 1/3\cos(3\theta)$ introduces a third harmonic perturbation that intricately folds the curve three times along its path, creating a unique and complex shape that oscillates in both dimensions while incorporating the effects of the harmonic perturbation.
 
-Together, these define a periodic, non-trivial, closed curve in $3\text{-}D$ with internal folds that produce a more complex geometry than a standard circle or ellipse. For dimensions $X_4$ through $X_p$, additional structured variability is introduced through decreasing amplitude scaling and phase-shifted sine waves. The scaling factor is defined as $\text{scale}_j = \sqrt{(0.5)^{j-3}}$ for $j$ ranging from $4$ to $p$, which means that the amplitude decreases as the dimension increases. Each dimension $X_j$ is then calculated using the formula $X_j = \text{scale}_j\sin(\theta + \phi_j)$, where the phase shift $\phi_j$ is given by $\phi_j = (j - 2)\pi/2p$. 
+Together, these define a periodic, non-trivial, closed curve in $3\text{-}D$ with internal folds that produce a more complex geometry than a standard circle or ellipse. For dimensions $X_4$ through $X_p$, additional structured variability is introduced through decreasing amplitude scaling and phase-shifted sine waves. The scaling factor is defined as $\text{scale}_j = \sqrt{(0.5)^{j-3}}$ for $j$ ranging from $4$ to $p$, which means that the amplitude decreases as the dimension increases. Each dimension $X_j$ is then calculated using the formula $X_j = \text{scale}_j\sin(\theta + \phi_j)$, where the phase shift $\phi_j$ is given by $\phi_j = (j - 2)\pi/(2p)$. 
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -956,7 +956,7 @@ The Swiss roll is a classic benchmark for manifold learning, illustrating how a 
 
 The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (Figure \@ref(fig:trefoil)). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. 
 
-For the $4\text{-}D$ trefoil knot [@laurent2024], the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (Figure \@ref(fig:trefoil) a). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ and $\phi$ trace the knot’s path. 
+For the $4\text{-}D$ trefoil knot [@laurent2024], the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (Figure \@ref(fig:trefoil) a). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ parameterizes the band thickness and $\phi$ parameterizes the knot trajectory. 
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1056,7 +1056,7 @@ The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dyna
 
 Trigonometric-based structures provide flexible ways to simulate complex curved patterns and spirals that often arise in real-world high-dimensional data, such as in biological trajectories, or physical systems (Figure \@ref(fig:triginometric)). The main geometry is defined by the first few coordinates: crescents ($p=2$), cylinders, spirals, and helices ($p=4$). These structures are particularly valuable for testing how well dimension reduction and clustering algorithms preserve intricate geometric and topological features [@calladine1997; @gershenfeld2000]. 
 
-First, the `gen_crescent(n, p)` function generates a $p$-dimensional dataset of $n$ observations based on a $2\text{-}D$ crescent-shaped manifold with optional structured high-dimensional noise (Figure \@ref(fig:triginometric) a). Let $\theta \in [\pi/6, 2\pi]$ be a sequence of $n$ evenly spaced angles. The corresponding $2\text{-}D$ coordinates are defined by: $$X_1 = \cos(\theta), \quad X_2 = \sin(\theta).$$
+First, the `gen_crescent(n, p)` function generates a $p$-dimensional dataset of $n$ observations based on a $2\text{-}D$ crescent-shaped manifold with optional structured high-dimensional noise (Figure \@ref(fig:triginometric) a). Let $\{\theta_i\}_{i=1}^n$  be a sequence of $n$ evenly spaced angles on the interval $[\pi/6, 2\pi]$, defined as $\theta_i = \frac{\pi}{6} + (i-1)\frac{2\pi - \pi/6}{n-1}, \quad i = 1,\dots,n$. The corresponding $2\text{-}D$ coordinates are defined by: $$X_{i1} = \cos(\theta_i), \quad X_{i2} = \sin(\theta_i).$$
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1096,7 +1096,7 @@ Second, the `gen_curvycylinder(n, p, h)` function generates a $p$-dimensional da
 </div>
 
 
-For a spiraling path on a spherical surface in the first four dimensions, `gen_sphericalspiral(n, p, spins)` (Figure \@ref(fig:triginometric) c), let $\theta \in [0, 2\pi \times \text{spins}]$ be the azimuthal angle (longitude), controls the number of spiral turns and the $\phi \in [0, \pi]$be the polar angle (latitude), controls the vertical sweep from the north to the south pole. Cartesian coordinates from spherical conversion: $X_1 = \sin(\phi)\cos(\theta)$, $X_2 = \sin(\phi)\sin(\theta)$, $X_3 = \cos(\phi) + \varepsilon$, where $\varepsilon \sim U(-0.5, 0.5)$ introduces vertical jitter, and $X_4 = \theta / \max(\theta)$: a normalized progression along the spiral path. This generates a spherical spiral curve embedded in $4\text{-}D$ space, combining both circular and vertical movement, with gentle curvature and non-linear progression.  
+For a spiraling path on a spherical surface in the first four dimensions, `gen_sphericalspiral(n, p, spins)` (Figure \@ref(fig:triginometric) c), let $\theta \in [0, 2\pi \times \text{spins}]$  be the azimuthal angle (longitude), controls the number of spiral turns and the $\phi \in [0, \pi]$ be the polar angle (latitude), controls the vertical sweep from the north to the south pole. Cartesian coordinates from spherical conversion: $X_1 = \sin(\phi)\cos(\theta)$, $X_2 = \sin(\phi)\sin(\theta)$, $X_3 = \cos(\phi) + \varepsilon$, where $\varepsilon \sim U(-0.5, 0.5)$ introduces vertical jitter, and $X_4 = \theta / \max(\theta)$: a normalized progression along the spiral path. This generates a spherical spiral curve embedded in $4\text{-}D$ space, combining both circular and vertical movement, with gentle curvature and non-linear progression.  
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1128,7 +1128,7 @@ For a spiraling path on a spherical surface in the first four dimensions, `gen_s
 </div>
 
 
-For a helical spiral in four dimensions, `gen_helicalspiral(n, p)` (Figure \@ref(fig:triginometric) d), let $\theta \in [0, 5\pi/4]$ be a sequence of angles controlling rotation around a circle. Cartesian coordinates; $X_1 = \cos(\theta)$: circular trajectory along the x-axis, $X_2 = \sin(\theta)$: circular trajectory along the y-axis, $X_3 = 0.05\theta + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.5, 0.5)$: linear progression (height) with vertical jitter, simulating a helix, and $X_4 = 0.1\sin(\theta)$: oscillates with $\theta$, representing a periodic "wobble" along the fourth dimension. 
+For a helical spiral in four dimensions, `gen_helicalspiral(n, p)` (Figure \@ref(fig:triginometric) d), let $\theta \in [0, 5\pi/4]$  be a sequence of angles controlling rotation around a circle. Cartesian coordinates; $X_1 = \cos(\theta)$: circular trajectory along the x-axis, $X_2 = \sin(\theta)$: circular trajectory along the y-axis, $X_3 = 0.05\theta + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.5, 0.5)$: linear progression (height) with vertical jitter, simulating a helix, and $X_4 = 0.1\sin(\theta)$: oscillates with $\theta$, representing a periodic "wobble" along the fourth dimension. 
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1136,19 +1136,7 @@ For a helical spiral in four dimensions, `gen_helicalspiral(n, p)` (Figure \@ref
 </div>
 
 
-Similarly, the `gen_conicspiral(n, p, spins)` function generates a dataset of $n$ points forming a conical spiral in the first four dimensions of $p\text{-}D$ (Figure \@ref(fig:triginometric) e). The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a $3\text{-}D$ conic helix. The shape is defined by parameter $\theta \in [0, 2\pi\text{spins}]$, controlling the angular progression of the spiral. The Archimedean spiral in the horizontal plane is represented by; $X_1 = \theta\cos(\theta)$ for radial expansion in x, and $X_2 = \theta\sin(\theta)$ for radial expansion in y. The growth pattern resembles a cone, with the height increasing according to $X_3 = 2\theta / \max(\theta) + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.1, 0.6).$ Spiral modulation in the fourth dimension is represented by $X_4 = \theta\sin(2\theta) + \varepsilon_4$, with $\varepsilon_4 \sim U(-0.1, 0.6)$ which simulates a twisting helical component in a non-radial dimension. 
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
-
-<div class="layout-chunk" data-layout="l-body">
-
-
-</div>
-
+Similarly, the `gen_conicspiral(n, p, spins)` function generates a dataset of $n$ points forming a conical spiral in the first four dimensions of $p\text{-}D$ (Figure \@ref(fig:triginometric) e). The geometry combines radial expansion, vertical elevation, and spiral deformation, simulating a structure that fans out like a $3\text{-}D$ conic helix. The shape is defined by parameter $\theta \in [0, 2\pi\text{spins}]$, controlling the angular progression of the spiral. The Archimedean spiral in the horizontal plane is represented by; $X_1 = \theta\cos(\theta)$ for radial expansion in $x$, and $X_2 = \theta\sin(\theta)$ for radial expansion in $y$. The growth pattern resembles a cone, with the height increasing according to $X_3 = 2\theta / \max(\theta) + \varepsilon_3$, with $\varepsilon_3 \sim U(-0.1, 0.6).$ Spiral modulation in the fourth dimension is represented by $X_4 = \theta\sin(2\theta) + \varepsilon_4$, with $\varepsilon_4 \sim U(-0.1, 0.6)$ which simulates a twisting helical component in a non-radial dimension. 
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1168,7 +1156,19 @@ Similarly, the `gen_conicspiral(n, p, spins)` function generates a dataset of $n
 </div>
 
 
-Finally, the `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables (Figure \@ref(fig:triginometric) f). The $X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors), $X_{3} \sim U(0.1, 0.8)$: independent auxiliary variable, $X_{2} = hc/X_{1} + \text{nonfac}\sin(X_{1})$: non-linear combination of hyperbolic and sinusoidal transformations, creating sharp curvature and oscillation, and $X_{4} = \cos(\pi X_{1}) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure. These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter. 
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+<div class="layout-chunk" data-layout="l-body">
+
+
+</div>
+
+
+Finally, the `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables (Figure \@ref(fig:triginometric) f). The $X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors), $X_{3} \sim U(0.1, 0.8)$: independent auxiliary variable, $X_{2} = hc/X_{1} + \text{non\_fac}\sin(X_{1})$: non-linear combination of hyperbolic and sinusoidal transformations, creating sharp curvature and oscillation, and $X_{4} = \cos(\pi X_{1}) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure. These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter. 
 
 <div class="layout-chunk" data-layout="l-body">
 

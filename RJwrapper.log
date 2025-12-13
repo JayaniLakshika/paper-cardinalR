@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.12)  13 DEC 2025 15:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.12)  14 DEC 2025 00:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -893,13 +893,13 @@ File: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf Graphic file (type p
 <use paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf  used on input line 389.
 (pdftex.def)             Requested size: 318.67207pt x 212.4514pt.
-[12 <./paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>]
-<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=301, 867.24pt x 1156.32pt>
+[12 <./paper-cardinalR_files/figure-latex/sphere-proj-1.pdf>] [13 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>]
+<paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf, id=317, 867.24pt x 1156.32pt>
 File: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf Graphic file (type pdf)
 <use paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>
 Package pdftex.def Info: paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf  used on input line 414.
 (pdftex.def)             Requested size: 278.83578pt x 371.77672pt.
-[13 <./paper-cardinalR_files/figure-latex/trefoil-proj-1.pdf>] [14 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>] [15]
+[14 <./paper-cardinalR_files/figure-latex/triginometric-proj-1.pdf>] [15]
 Overfull \hbox (7.51581pt too wide) in paragraph at lines 502--502
 []|\T1/zi4/m/n/10 make_klink_curvycycle|  
  []
@@ -979,18 +979,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: 922E6C119D256867741BD28FDEE59679;2875.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: B64A16001D96BE898DA8A8B19A7C4254;2673.
+(rerunfilecheck)             Checksum: 5F49AB347690E63E1807857515307BCA;2674.
  ) 
 Here is how much of TeX's memory you used:
- 27791 strings out of 469519
- 507911 string characters out of 5468894
- 942565 words of memory out of 5000000
+ 27785 strings out of 469519
+ 507860 string characters out of 5468894
+ 942563 words of memory out of 5000000
  55413 multiletter control sequences out of 15000+600000
- 696149 words of font info for 416 fonts, out of 8000000 for 9000
+ 695851 words of font info for 412 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  117i,14n,131p,1614b,911s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (22 pages, 9880528 bytes).
+Output written on RJwrapper.pdf (22 pages, 9881264 bytes).
 PDF statistics:
  701 PDF objects out of 1000 (max. 8388607)
  616 compressed objects within 7 object streams
