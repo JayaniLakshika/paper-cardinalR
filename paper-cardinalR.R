@@ -1143,8 +1143,8 @@ hollowsphere <- gen_hollowsphere(n = 1000, p = 4)
 
 
 ## ----data-clusteredspheres----------------------------------------------------
-clusteredspheres <- gen_clusteredspheres(n = c(1000, 100), k = 3, r = c(15, 3),
-                                         loc = 10 / sqrt(3)) |>
+clusteredspheres <- gen_clusteredspheres(n_vec = c(1000, 100), k_small = 3, r_vec = c(15, 3),
+                                         sep = 10 / sqrt(3)) |>
   dplyr::select(-cluster)
 
 
