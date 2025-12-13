@@ -1,0 +1,20 @@
+Symbol,Type,Description
+$n$,Integer,Number of generated observations $points$.
+$p$,Integer,Ambient dimensionality of the generated data.
+$k$,Integer,"Number of branches, components, or substructures."
+$X_i$,Vector,$i$-th observation in $\mathbb{R}^p$.
+$X_j$,Scalar,Value of the $j$-th coordinate of an observation.
+$\theta$,Real,Latent angular parameter controlling periodic or spiral structure.
+$\phi$,Real,"Secondary angular parameter $e.g., spherical or toroidal coordinates$."
+$s$,Real,"Scale parameter controlling slope, curvature, or steepness."
+$r$,Real,Radius of a circular or spherical structure.
+$h$,Real,Height or vertical extent of a structure.
+$\delta$,Real,Magnitude of local jitter or uniform noise.
+$\sigma^2$,Real,Variance of Gaussian noise.
+$\varepsilon$,Random variable,Noise term added to introduce variability.
+"$a, b$",Real,Lower and upper bounds of a uniform sampling range.
+$z$,Real,Height coordinate in pyramidal or conical structures.
+$\lambda$,Real,Rate parameter of an exponential distribution.
+"$u, v$",Real,Auxiliary variables for barycentric or spherical sampling.
+$\text{spins}$,Integer,Number of rotations or loops in spiral-based structures.
+$\text{steps}$,Integer,Resolution parameter controlling discretization of a curve or surface.

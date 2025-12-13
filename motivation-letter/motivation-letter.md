@@ -22,11 +22,7 @@ We feel that *The R Journal* is the ideal venue for sharing this work, given its
 \bigskip
 \bigskip
 
-Regards,
-    
-    
-    
-    
+Regards,\newline
 Jayani P. Gamage  
 Department of Econometrics & Business Statistics 
 Monash University, Victoria 3800, Australia. 

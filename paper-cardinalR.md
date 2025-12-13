@@ -140,13 +140,7 @@ Here, the shapes have $200$, $300$, and $500$ points respectively (`n`), are pos
 # Implementation
 
 The main function of the package is `gen_multicluster()`, which generates datasets consisting of multiple clusters with user-specified characteristics. 
-To maintain consistency across generators, the function identifies the arguments required by each chosen generator function and supplies only those arguments that are valid for that specific generator. This design enables the combination of cluster types with differing parameter requirements within the same dataset. When clusters are generated with fewer dimensions than others, the function augments the lower-dimensional clusters with additional Gaussian noise variables so that all clusters are represented in the same dimensional space. These noise dimensions are drawn independently from normal distributions
-
-$$
-X \sim \mathcal{N}(m, s^2),
-$$
-
-where the mean ($m$) is set to the average of the cluster coordinates and the standard deviation ($s$) defaults to $0.2$.
+To maintain consistency across generators, the function identifies the arguments required by each chosen generator function and supplies only those arguments that are valid for that specific generator. This design enables the combination of cluster types with differing parameter requirements within the same dataset. When clusters are generated with fewer dimensions than others, the function augments the lower-dimensional clusters with additional Gaussian noise variables so that all clusters are represented in the same dimensional space. These noise dimensions are drawn independently from normal distributions $X \sim \mathcal{N}(\mu, \sigma^2)$, where the mean ($\mu$) is set to the average of the cluster coordinates and the standard deviation ($\sigma$) defaults to $0.2$.
 
 An optional argument, `is_bkg`, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (`...`) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the `gen_multicluster()` function are shown in Table \@ref(tab:main-tb-html).
 
@@ -1553,7 +1547,7 @@ Figure \@ref(fig:fig-cluster-stats) shows a selection of cluster metrics for $2-
 </div>
 
 
-Figure \@ref(fig:highd-data-clusters-algo-html) shows the four- and five-cluster $k$-means solutions further clarify why these partitions do not fully identify the underlying structure. The predicted clusters show noticeable overlap, with colours repeatedly blending as the tour moves; evidence that points from different true clusters are assigned to the same cluster. The $4$-cluster solution shows large, diffuse regions where several true clusters are merged, while the $5$-cluster solution partially separates some structures but still misclassifies substantial portions of multiple clusters. These patterns reflect the mismatch between the helical spherical shape present in the data and the spherical decision boundaries imposed by $k$-means. Even though the cluster statistics favour a $4–5$ cluster solution overall, Figure \@ref(fig:highd-data-clusters-algo-html) reveals that neither solution provides clear separation, highlighting the importance of visual diagnostics when interpreting clustering results.
+Figure \@ref(fig:highd-data-clusters-algo-html) shows the four- and five-cluster $k$-means solutions further clarify why these partitions do not fully identify the underlying structure. The predicted clusters show noticeable overlap, with colours repeatedly blending as the tour moves; evidence that points from different true clusters are assigned to the same cluster. The $4$-cluster solution shows large, diffuse regions where several true clusters are merged, while the $5$-cluster solution partially separates some structures but still misclassifies substantial portions of multiple clusters. These patterns reflect the mismatch between the helical spherical shape present in the data and the spherical decision boundaries imposed by $k$-means. Even though the cluster statistics favour a $4-5$ cluster solution overall, Figure \@ref(fig:highd-data-clusters-algo-html) reveals that neither solution provides clear separation, highlighting the importance of visual diagnostics when interpreting clustering results.
 
 # Conclusion
 
