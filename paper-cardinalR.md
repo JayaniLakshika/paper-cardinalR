@@ -1476,8 +1476,8 @@ To further evaluate the structure of the generated data, we benchmarked three cl
 <!--script/05_gen_cluster_stat.R-->
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-cluster-stats-1.png" alt="Cluster validity metrics for solutions with $2–10$ clusters obtained using $k$-means, hierarchical, and model-based clustering. Several indices consistently suggest that $4–5$ clusters provide the best balance of separation and compactness, with $k$-means performing slightly better across metrics." width="100%" />
-<p class="caption">(\#fig:fig-cluster-stats)Cluster validity metrics for solutions with $2–10$ clusters obtained using $k$-means, hierarchical, and model-based clustering. Several indices consistently suggest that $4–5$ clusters provide the best balance of separation and compactness, with $k$-means performing slightly better across metrics.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-cluster-stats-1.png" alt="Cluster validity metrics for solutions with $2–10$ clusters obtained using $k$-means, hierarchical, and model-based clustering. Several indices consistently suggest that $4-5$ clusters provide the best balance of separation and compactness, with $k$-means performing slightly better across metrics." width="100%" />
+<p class="caption">(\#fig:fig-cluster-stats)Cluster validity metrics for solutions with $2–10$ clusters obtained using $k$-means, hierarchical, and model-based clustering. Several indices consistently suggest that $4-5$ clusters provide the best balance of separation and compactness, with $k$-means performing slightly better across metrics.</p>
 </div>
 
 </div>
