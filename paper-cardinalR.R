@@ -306,7 +306,7 @@ orglinearbranches_lang <- langevitour::langevitour(orglinearbranches, levelColor
 
 
 ## ----orglinearbranches-proj1--------------------------------------------------
-scaled_data <- scale_data_manual(orglinearbranches)
+centered_data <- center_data(orglinearbranches)
 
 ## First projection
 projection <- cbind(
@@ -315,7 +315,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.8, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.15,
                                               axis_scaled = 10, 
                                               axis_pos_x = -0.12, 
@@ -342,7 +342,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.57, 
@@ -369,7 +369,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.4, 
@@ -426,7 +426,7 @@ cone_lang <- langevitour::langevitour(cone, levelColors = "black", enableControl
 
 
 ## ----cone-proj1---------------------------------------------------------------
-scaled_data <- scale_data_manual(cone)
+centered_data <- center_data(cone)
 
 ## First projection
 projection <- cbind(
@@ -435,7 +435,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.25,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.2, 
@@ -462,7 +462,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.1,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.08, 
@@ -489,7 +489,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.25,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.25, 
@@ -570,7 +570,7 @@ pyrrect_lang <- langevitour::langevitour(pyrrect, levelColors = "black", enableC
 
 
 ## ----pyrrect-proj1------------------------------------------------------------
-scaled_data <- scale_data_manual(pyrrect)
+centered_data <- center_data(pyrrect)
 
 ## First projection
 projection <- cbind(
@@ -579,7 +579,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.5, 
@@ -606,7 +606,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.7, 
                                               axis_pos_x = -0.45, 
@@ -633,7 +633,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.4, 
@@ -660,7 +660,7 @@ pyrtri_lang <- langevitour::langevitour(pyrtri, levelColors = "black", enableCon
 
 
 ## ----pyrtri-proj1-------------------------------------------------------------
-scaled_data <- scale_data_manual(pyrtri)
+centered_data <- center_data(pyrtri)
 
 ## First projection
 projection <- cbind(
@@ -669,7 +669,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.3,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.2, 
@@ -696,7 +696,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.3,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.25, 
@@ -723,7 +723,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.4, 
@@ -750,7 +750,7 @@ pyrstar_lang <- langevitour::langevitour(pyrstar, levelColors = "black", enableC
 
 
 ## ----pyrstar-proj1------------------------------------------------------------
-scaled_data <- scale_data_manual(pyrstar)
+centered_data <- center_data(pyrstar)
 
 ## First projection
 projection <- cbind(
@@ -759,7 +759,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.5, 
@@ -786,7 +786,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.57, 
@@ -813,7 +813,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.6, 
@@ -840,7 +840,7 @@ pyrholes_lang <- langevitour::langevitour(pyrholes, levelColors = "black", enabl
 
 
 ## ----pyrholes-proj1-----------------------------------------------------------
-scaled_data <- scale_data_manual(pyrholes)
+centered_data <- center_data(pyrholes)
 
 ## First projection
 projection <- cbind(
@@ -849,7 +849,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.5, 
@@ -876,7 +876,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.57, 
@@ -903,7 +903,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.6, 
@@ -963,7 +963,7 @@ circle_lang <- langevitour::langevitour(circle, levelColors = "black", enableCon
 
 
 ## ----circle-proj1-------------------------------------------------------------
-scaled_data <- scale_data_manual(circle)
+centered_data <- center_data(circle)
 
 ## First projection
 projection <- cbind(
@@ -972,7 +972,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.6, 
@@ -999,7 +999,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.57, 
@@ -1026,7 +1026,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.5, 
@@ -1053,7 +1053,7 @@ curvycycle_lang <- langevitour::langevitour(curvycycle, levelColors = "black", e
 
 
 ## ----curvycycle-proj1---------------------------------------------------------
-scaled_data <- scale_data_manual(curvycycle)
+centered_data <- center_data(curvycycle)
 
 ## First projection
 projection <- cbind(
@@ -1062,7 +1062,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.6, 
@@ -1089,7 +1089,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.57, 
@@ -1116,7 +1116,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.6, 
@@ -1153,7 +1153,7 @@ clusteredspheres_lang <- langevitour::langevitour(clusteredspheres, levelColors 
 
 
 ## ----clusteredspheres-proj1---------------------------------------------------
-scaled_data <- scale_data_manual(clusteredspheres)
+centered_data <- center_data(clusteredspheres)
 
 ## First projection
 projection <- cbind(
@@ -1162,7 +1162,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.6, 
@@ -1189,7 +1189,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1, 
                                               axis_pos_x = -0.57, 
@@ -1216,7 +1216,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.5, 
@@ -1275,7 +1275,7 @@ trefoil4d_lang <- langevitour::langevitour(trefoil4d, levelColors = "black", ena
 
 
 ## ----trefoil4d-proj1----------------------------------------------------------
-scaled_data <- scale_data_manual(trefoil4d)
+centered_data <- center_data(trefoil4d)
 
 ## First projection
 projection <- cbind(
@@ -1284,7 +1284,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.6, 
@@ -1311,7 +1311,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.57, 
@@ -1338,7 +1338,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.55, 
@@ -1365,7 +1365,7 @@ trefoil3d_lang <- langevitour::langevitour(trefoil3d, levelColors = "black", ena
 
 
 ## ----trefoil3d-proj1----------------------------------------------------------
-scaled_data <- scale_data_manual(trefoil3d)
+centered_data <- center_data(trefoil3d)
 
 ## First projection
 projection <- cbind(
@@ -1374,7 +1374,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.6, 
@@ -1401,7 +1401,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.57, 
@@ -1428,7 +1428,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.55, 
@@ -1486,7 +1486,7 @@ curvycylinder_lang <- langevitour::langevitour(curvycylinder, levelColors = "bla
 
 
 ## ----curvycylinder-proj1------------------------------------------------------
-scaled_data <- scale_data_manual(curvycylinder)
+centered_data <- center_data(curvycylinder)
 
 ## First projection
 projection <- cbind(
@@ -1495,7 +1495,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.5, 
@@ -1522,7 +1522,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.57, 
@@ -1549,7 +1549,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.4, 
@@ -1576,7 +1576,7 @@ sphericalspiral_lang <- langevitour::langevitour(sphericalspiral, levelColors = 
 
 
 ## ----sphericalspiral-proj1----------------------------------------------------
-scaled_data <- scale_data_manual(sphericalspiral)
+centered_data <- center_data(sphericalspiral)
 
 ## First projection
 projection <- cbind(
@@ -1585,7 +1585,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.5, 
@@ -1612,7 +1612,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.57, 
@@ -1639,7 +1639,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.4, 
@@ -1670,7 +1670,7 @@ conicspiral_lang <- langevitour::langevitour(conicspiral, levelColors = "black",
 
 
 ## ----conicspiral-proj1--------------------------------------------------------
-scaled_data <- scale_data_manual(conicspiral)
+centered_data <- center_data(conicspiral)
 
 ## First projection
 projection <- cbind(
@@ -1679,7 +1679,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.5, 
@@ -1706,7 +1706,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
                                               axis_pos_x = -0.65, 
@@ -1733,7 +1733,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.45, 
@@ -1760,7 +1760,7 @@ nonlinear_lang <- langevitour::langevitour(nonlinear, levelColors = "black", ena
 
 
 ## ----nonlinear-proj1----------------------------------------------------------
-scaled_data <- scale_data_manual(nonlinear)
+centered_data <- center_data(nonlinear)
 
 ## First projection
 projection <- cbind(
@@ -1769,7 +1769,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.3, 
@@ -1796,7 +1796,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.45,
                                               axis_scaled = 1.3, 
                                               axis_pos_x = -0.2, 
@@ -1823,7 +1823,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.2, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 0.45,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.25, 
@@ -1991,7 +1991,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
 
 
 ## ----five-clusts-projections1-------------------------------------------------
-scaled_data <- scale_data_manual(five_clusts[, -5])
+centered_data <- center_data(five_clusts[, -5])
 
 ## First projection
 projection <- cbind(
@@ -2000,7 +2000,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 0.8, 
                                               axis_pos_x = -0.9, 
@@ -2029,7 +2029,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 0.8, 
                                               axis_pos_x = -0.9, 
@@ -2057,7 +2057,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 0.8, 
                                               axis_pos_x = -0.9, 
@@ -2234,7 +2234,7 @@ kcl5 <- kmeans(five_clusts[, -5], centers = 5, nstart = 20)$cluster
 
 
 ## ----five-4clusts-projections1------------------------------------------------
-scaled_data <- scale_data_manual(five_clusts[, -5])
+centered_data <- center_data(five_clusts[, -5])
 
 ## First projection
 projection <- cbind(
@@ -2243,7 +2243,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 0.8, 
                                               axis_pos_x = -0.9, 
@@ -2272,7 +2272,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 0.8, 
                                               axis_pos_x = -0.9, 
@@ -2300,7 +2300,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 0.8, 
                                               axis_pos_x = -0.9, 
@@ -2322,7 +2322,7 @@ five_clusts_proj3_1 <- plot_proj(
 
 
 ## ----five-5clusts-projections1------------------------------------------------
-scaled_data <- scale_data_manual(five_clusts[, -5])
+centered_data <- center_data(five_clusts[, -5])
 
 ## First projection
 projection <- cbind(
@@ -2331,7 +2331,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 0.8, 
                                               axis_pos_x = -0.9, 
@@ -2360,7 +2360,7 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 0.8, 
                                               axis_pos_x = -0.9, 
@@ -2388,7 +2388,7 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
-                            scaled_data = scaled_data, 
+                            centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 0.8, 
                                               axis_pos_x = -0.9, 
