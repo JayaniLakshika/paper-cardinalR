@@ -1462,16 +1462,16 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
+                            axis_param = list(limits = 1,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
-                                              threshold = 0.022))
+                                              axis_pos_x = -1.1, 
+                                              axis_pos_y = -1.1, 
+                                              threshold = 0.1))
 
 curvycylinder_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.5), 
+  plot_limits = c(-1.3, 1.1), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 5,
@@ -1488,16 +1488,16 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
+                            axis_param = list(limits = 2,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -2.2, 
+                                              axis_pos_y = -2.2, 
+                                              threshold = 0.18))
 
 curvycylinder_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.6), 
+  plot_limits = c(-2.6, 2.3), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 5,
@@ -1514,16 +1514,16 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.6,
-                                              axis_scaled = 1.5, 
-                                              axis_pos_x = -0.4, 
-                                              axis_pos_y = -0.4, 
-                                              threshold = 0.016))
+                            axis_param = list(limits = 1,
+                                              axis_scaled = 1.4, 
+                                              axis_pos_x = -1.2, 
+                                              axis_pos_y = -1.2, 
+                                              threshold = 0.1))
 
 curvycylinder_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.5), 
+  plot_limits = c(-1.4, 1.4), 
   title = "a3", 
   cex = 2, 
   axis_text_size = 5,
@@ -1576,15 +1576,15 @@ projection <- cbind(
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -0.65, 
+                                              axis_pos_y = -0.65, 
+                                              threshold = 0.06))
 
 sphericalspiral_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.6), 
+  plot_limits = c(-0.8, 0.8), 
   title = "b2", 
   cex = 2, 
   axis_text_size = 5,
@@ -1605,7 +1605,7 @@ proj_obj3 <- get_projection(projection = projection,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.4, 
                                               axis_pos_y = -0.4, 
-                                              threshold = 0.016))
+                                              threshold = 0.07))
 
 sphericalspiral_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
