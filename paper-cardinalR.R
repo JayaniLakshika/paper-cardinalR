@@ -314,7 +314,6 @@ projection <- cbind(
     c(0.005380,0.068541,-0.030810,-0.054717))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.8, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.5,
                                               axis_scaled = 10, 
@@ -341,7 +340,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
@@ -368,7 +366,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.5, 
@@ -434,7 +431,6 @@ projection <- cbind(
   c(-0.02715,0.18019,0.05053,0.15254))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.25,
                                               axis_scaled = 3, 
@@ -461,7 +457,6 @@ projection <- cbind(
     c(-0.15376,0.10435,0.15766,0.00547))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.1,
                                               axis_scaled = 3, 
@@ -488,7 +483,6 @@ projection <- cbind(
     c(0.08479,-0.10719,-0.01572,-0.20123))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.25,
                                               axis_scaled = 3, 
@@ -578,7 +572,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -605,7 +598,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.7, 
@@ -632,7 +624,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
@@ -668,7 +659,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.3,
                                               axis_scaled = 1.2, 
@@ -695,7 +685,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.3,
                                               axis_scaled = 1.5, 
@@ -722,7 +711,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
@@ -758,7 +746,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -785,7 +772,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
@@ -812,7 +798,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
@@ -848,7 +833,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -875,7 +859,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
@@ -902,7 +885,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
@@ -971,7 +953,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -998,7 +979,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
@@ -1025,7 +1005,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
@@ -1061,7 +1040,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -1088,7 +1066,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.5, 
@@ -1115,7 +1092,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
@@ -1161,7 +1137,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -1188,7 +1163,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1, 
@@ -1215,7 +1189,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
@@ -1283,7 +1256,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -1310,7 +1282,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
@@ -1337,7 +1308,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.5, 
@@ -1373,7 +1343,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 1.2, 
@@ -1400,7 +1369,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 1,
                                               axis_scaled = 1, 
@@ -1427,7 +1395,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.8,
                                               axis_scaled = 1.5, 
@@ -1494,7 +1461,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -1521,7 +1487,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
@@ -1548,7 +1513,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
@@ -1584,7 +1548,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -1611,7 +1574,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
@@ -1638,7 +1600,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
@@ -1678,7 +1639,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -1705,7 +1665,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 3, 
@@ -1732,7 +1691,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
                                               axis_scaled = 1.5, 
@@ -1768,7 +1726,6 @@ projection <- cbind(
   c(0.00896,0.52496,0.12597,0.08184))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
                                               axis_scaled = 1.2, 
@@ -1795,7 +1752,6 @@ projection <- cbind(
   c(-0.50493,0.14388,0.14615,0.03486))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.45,
                                               axis_scaled = 1.3, 
@@ -1822,7 +1778,6 @@ projection <- cbind(
   c(0.50329,0.07199,-0.16064,-0.11806))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.2, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.45,
                                               axis_scaled = 1.5, 
@@ -1999,7 +1954,6 @@ projection <- cbind(
   c(-0.54999,-0.67673,-0.03631,-0.01193))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 0.3, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 
@@ -2028,7 +1982,6 @@ projection <- cbind(
   c(0.24023,0.01170,-0.41886,0.72707))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.23, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.55,
                                               axis_scaled = 0.8, 
@@ -2056,7 +2009,6 @@ projection <- cbind(
   c(-0.51124,-0.60184,0.06463,0.36627))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.23, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 
@@ -2242,7 +2194,6 @@ projection <- cbind(
   c(-0.54999,-0.67673,-0.03631,-0.01193))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 0.3, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 
@@ -2271,7 +2222,6 @@ projection <- cbind(
   c(0.24023,0.01170,-0.41886,0.72707))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.23, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.55,
                                               axis_scaled = 0.8, 
@@ -2299,7 +2249,6 @@ projection <- cbind(
   c(-0.51124,-0.60184,0.06463,0.36627))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.23, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 
@@ -2330,7 +2279,6 @@ projection <- cbind(
   c(-0.54999,-0.67673,-0.03631,-0.01193))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 0.3, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 
@@ -2359,7 +2307,6 @@ projection <- cbind(
   c(0.24023,0.01170,-0.41886,0.72707))
 
 proj_obj2 <- get_projection(projection = projection, 
-                            proj_scale = 1.23, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.55,
                                               axis_scaled = 0.8, 
@@ -2387,7 +2334,6 @@ projection <- cbind(
   c(-0.51124,-0.60184,0.06463,0.36627))
 
 proj_obj3 <- get_projection(projection = projection, 
-                            proj_scale = 1.23, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 

@@ -46,7 +46,7 @@ center_data <- function(data) {
 
 # Get projection
 
-get_projection <- function(projection, proj_scale, centered_data, axis_param) {
+get_projection <- function(projection, centered_data, axis_param) {
 
   projected <- as.matrix(centered_data) %*% projection
   projected_df <- projected |>
