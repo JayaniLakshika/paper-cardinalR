@@ -747,16 +747,16 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
+                            axis_param = list(limits = 1,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
-                                              threshold = 0.022))
+                                              axis_pos_x = -1.3, 
+                                              axis_pos_y = -1.3, 
+                                              threshold = 0.1))
 
 pyrstar_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.5), 
+  plot_limits = c(-1.5, 1.5), 
   title = "c1", 
   cex = 2, 
   axis_text_size = 5,
@@ -773,16 +773,16 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
+                            axis_param = list(limits = 1.5,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -1.3, 
+                                              axis_pos_y = -1.3, 
+                                              threshold = 0.1))
 
 pyrstar_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.4), 
+  plot_limits = c(-1.6, 1.6), 
   title = "c2", 
   cex = 2, 
   axis_text_size = 5,
@@ -799,16 +799,16 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.6,
-                                              axis_scaled = 1.5, 
-                                              axis_pos_x = -0.6, 
-                                              axis_pos_y = -0.6, 
-                                              threshold = 0.016))
+                            axis_param = list(limits = 1.5,
+                                              axis_scaled = 1.2, 
+                                              axis_pos_x = -1.5, 
+                                              axis_pos_y = -1.5, 
+                                              threshold = 0.1))
 
 pyrstar_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.62), 
+  plot_limits = c(-1.8, 1.6), 
   title = "c3", 
   cex = 2, 
   axis_text_size = 5,
@@ -834,16 +834,16 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
+                            axis_param = list(limits = 0.5,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
+                                              axis_pos_x = -0.3, 
+                                              axis_pos_y = -0.3, 
                                               threshold = 0.022))
 
 pyrholes_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.7), 
+  plot_limits = c(-0.4, 0.5), 
   title = "d1", 
   cex = 2, 
   axis_text_size = 5,
@@ -860,16 +860,16 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
+                            axis_param = list(limits = 0.4,
+                                              axis_scaled = 1, 
+                                              axis_pos_x = -0.23, 
+                                              axis_pos_y = -0.23, 
+                                              threshold = 0.03))
 
 pyrholes_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.75), 
+  plot_limits = c(-0.3, 0.5), 
   title = "d2", 
   cex = 2, 
   axis_text_size = 5,
@@ -886,16 +886,16 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.6,
+                            axis_param = list(limits = 0.4,
                                               axis_scaled = 1.5, 
-                                              axis_pos_x = -0.6, 
-                                              axis_pos_y = -0.6, 
+                                              axis_pos_x = -0.43, 
+                                              axis_pos_y = -0.43, 
                                               threshold = 0.016))
 
 pyrholes_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 0.62), 
+  plot_limits = c(-0.5, 0.4), 
   title = "d3", 
   cex = 2, 
   axis_text_size = 5,
