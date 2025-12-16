@@ -432,16 +432,16 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.25,
+                            axis_param = list(limits = 0.6,
                                               axis_scaled = 3, 
-                                              axis_pos_x = -0.2, 
-                                              axis_pos_y = -0.2, 
-                                              threshold = 0.022))
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.053))
 
 cone_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.25, 0.25), 
+  plot_limits = c(-0.5, 0.7), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 5,
@@ -458,16 +458,16 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.1,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.08, 
-                                              axis_pos_y = -0.08, 
-                                              threshold = 0.01))
+                            axis_param = list(limits = 0.3,
+                                              axis_scaled = 2, 
+                                              axis_pos_x = -0.2, 
+                                              axis_pos_y = -0.2, 
+                                              threshold = 0.02))
 
 cone_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.1, 0.12), 
+  plot_limits = c(-0.25, 0.35), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 5,
@@ -484,16 +484,16 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.25,
+                            axis_param = list(limits = 0.6,
                                               axis_scaled = 3, 
-                                              axis_pos_x = -0.25, 
-                                              axis_pos_y = -0.25, 
-                                              threshold = 0.016))
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.04))
 
 cone_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.3, 0.2), 
+  plot_limits = c(-0.7, 0.5), 
   title = "a3", 
   cex = 2, 
   axis_text_size = 5,
