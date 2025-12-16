@@ -573,16 +573,16 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
+                            axis_param = list(limits = 2,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
-                                              threshold = 0.022))
+                                              axis_pos_x = -1.6, 
+                                              axis_pos_y = -1.6, 
+                                              threshold = 0.1))
 
 pyrrect_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.65, 0.5), 
+  plot_limits = c(-2, 1.8), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 5,
@@ -599,16 +599,16 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 1.7, 
-                                              axis_pos_x = -0.45, 
-                                              axis_pos_y = -0.45, 
-                                              threshold = 0.08))
+                            axis_param = list(limits = 1.5,
+                                              axis_scaled = 1.6, 
+                                              axis_pos_x = -1.5, 
+                                              axis_pos_y = -1.5, 
+                                              threshold = 0.1))
 
 pyrrect_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.6, 0.6), 
+  plot_limits = c(-1.8, 1.8), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 5,
@@ -625,16 +625,16 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.6,
+                            axis_param = list(limits = 1.5,
                                               axis_scaled = 1.5, 
-                                              axis_pos_x = -0.4, 
-                                              axis_pos_y = -0.4, 
-                                              threshold = 0.016))
+                                              axis_pos_x = -1.7, 
+                                              axis_pos_y = -1.7, 
+                                              threshold = 0.1))
 
 pyrrect_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.5, 0.75), 
+  plot_limits = c(-2, 2), 
   title = "a3", 
   cex = 2, 
   axis_text_size = 5,
