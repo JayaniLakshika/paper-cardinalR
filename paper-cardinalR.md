@@ -156,8 +156,8 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
 |Argument              |Type               |Explanation                           |
 |:---------------------|:------------------|:-------------------------------------|
-|<code>n</code>        |numeric (vector)   |Number of points in each cluster.     |
-|<code>k</code>        |numeric            |Number of clusters.                   |
+|<code>n</code>        |integer (vector)   |Number of points in each cluster.     |
+|<code>k</code>        |integer            |Number of clusters.                   |
 |<code>loc</code>      |numeric (matrix)   |Locations/centroids of clusters.      |
 |<code>scale</code>    |numeric (vector)   |Scaling factors of clusters.          |
 |<code>shape</code>    |character (vector) |Shapes of clusters.                   |
