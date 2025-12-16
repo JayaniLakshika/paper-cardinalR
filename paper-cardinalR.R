@@ -2162,7 +2162,7 @@ error_plot_five_clust + wrap_plots(nldr1, nldr2, nldr3,
                                     nldr4, nldr5, nldr6, ncol = 2)
 
 
-## ----fig-cluster-stats, fig.width=8, fig.height=6, out.width="100%", layout="l-body", fig.cap="Cluster validity metrics for solutions with $2–10$ clusters obtained using $k$-means, hierarchical, and model-based clustering. Several indices consistently suggest that $4-5$ clusters provide the best balance of separation and compactness, with $k$-means performing slightly better across metrics."----
+## ----fig-cluster-stats, fig.width=8, fig.height=6, out.width="100%", layout="l-body", fig.cap="Cluster validity metrics for solutions with $2-10$ clusters obtained using $k$-means, hierarchical, and model-based clustering. Several indices consistently suggest that $4-5$ clusters provide the best balance of separation and compactness, with $k$-means performing slightly better across metrics."----
 
 # Examine the cluster stats
 all_stats <- read_rds("data/five_clusts/cluster_stat.rds")
