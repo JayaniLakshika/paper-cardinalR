@@ -2030,18 +2030,18 @@ projection <- cbind(
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 0.55,
                                               axis_scaled = 0.8, 
-                                              axis_pos_x = -0.9, 
-                                              axis_pos_y = -0.9, 
-                                              threshold = 0.07))
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.05))
 
 proj_obj2[["cluster"]] <- as.character(five_clusts$cluster)
 
 five_clusts_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2), # size, alpha, color
-  plot_limits = c(-1.1, 1.2), 
+  plot_limits = c(-0.5, 0.67), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 4,
@@ -2058,18 +2058,18 @@ projection <- cbind(
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 
-                                              axis_pos_x = -0.9, 
-                                              axis_pos_y = -0.9, 
-                                              threshold = 0.05))
+                                              axis_pos_x = -0.35, 
+                                              axis_pos_y = -0.35, 
+                                              threshold = 0))
 
 proj_obj3[["cluster"]] <- as.character(five_clusts$cluster)
 
 five_clusts_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2), # size, alpha, color
-  plot_limits = c(-1.1, 1.1), 
+  plot_limits = c(-0.45, 0.55), 
   title = "a3", 
   cex = 2, 
   axis_text_size = 4,
@@ -2242,20 +2242,20 @@ projection <- cbind(
   c(-0.54999,-0.67673,-0.03631,-0.01193))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.23, 
+                            proj_scale = 0.3, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 
-                                              axis_pos_x = -0.9, 
-                                              axis_pos_y = -0.9, 
-                                              threshold = 0.05))
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.02))
 
 proj_obj1[["cluster"]] <- as.character(kcl4)
 
 five_clusts_proj1_1 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2), # size, alpha, color
-  plot_limits = c(-1.1, 1), 
+  plot_limits = c(-0.5, 0.5), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 4,
@@ -2273,18 +2273,18 @@ projection <- cbind(
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 0.55,
                                               axis_scaled = 0.8, 
-                                              axis_pos_x = -0.9, 
-                                              axis_pos_y = -0.9, 
-                                              threshold = 0.07))
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.05))
 
 proj_obj2[["cluster"]] <- as.character(kcl4)
 
 five_clusts_proj2_1 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2), # size, alpha, color
-  plot_limits = c(-1.1, 1.2), 
+  plot_limits = c(-0.5, 0.67), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 4,
@@ -2301,18 +2301,18 @@ projection <- cbind(
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 
-                                              axis_pos_x = -0.9, 
-                                              axis_pos_y = -0.9, 
-                                              threshold = 0.05))
+                                              axis_pos_x = -0.35, 
+                                              axis_pos_y = -0.35, 
+                                              threshold = 0))
 
 proj_obj3[["cluster"]] <- as.character(kcl4)
 
 five_clusts_proj3_1 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2), # size, alpha, color
-  plot_limits = c(-1.1, 1.1), 
+  plot_limits = c(-0.45, 0.55), 
   title = "a3", 
   cex = 2, 
   axis_text_size = 4,
@@ -2330,20 +2330,20 @@ projection <- cbind(
   c(-0.54999,-0.67673,-0.03631,-0.01193))
 
 proj_obj1 <- get_projection(projection = projection, 
-                            proj_scale = 1.23, 
+                            proj_scale = 0.3, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 
-                                              axis_pos_x = -0.9, 
-                                              axis_pos_y = -0.9, 
-                                              threshold = 0.05))
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.02))
 
 proj_obj1[["cluster"]] <- as.character(kcl5)
 
 five_clusts_proj1_2 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2), # size, alpha, color
-  plot_limits = c(-1.1, 1), 
+  plot_limits = c(-0.5, 0.5), 
   title = "a1", 
   cex = 2, 
   axis_text_size = 4,
@@ -2361,18 +2361,18 @@ projection <- cbind(
 proj_obj2 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 0.55,
                                               axis_scaled = 0.8, 
-                                              axis_pos_x = -0.9, 
-                                              axis_pos_y = -0.9, 
-                                              threshold = 0.07))
+                                              axis_pos_x = -0.4, 
+                                              axis_pos_y = -0.4, 
+                                              threshold = 0.05))
 
 proj_obj2[["cluster"]] <- as.character(kcl5)
 
 five_clusts_proj2_2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2), # size, alpha, color
-  plot_limits = c(-1.1, 1.2), 
+  plot_limits = c(-0.5, 0.67), 
   title = "a2", 
   cex = 2, 
   axis_text_size = 4,
@@ -2389,18 +2389,18 @@ projection <- cbind(
 proj_obj3 <- get_projection(projection = projection, 
                             proj_scale = 1.23, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 0.5,
                                               axis_scaled = 0.8, 
-                                              axis_pos_x = -0.9, 
-                                              axis_pos_y = -0.9, 
-                                              threshold = 0.05))
+                                              axis_pos_x = -0.35, 
+                                              axis_pos_y = -0.35, 
+                                              threshold = 0))
 
 proj_obj3[["cluster"]] <- as.character(kcl5)
 
 five_clusts_proj3_2 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2), # size, alpha, color
-  plot_limits = c(-1.1, 1.1), 
+  plot_limits = c(-0.45, 0.55), 
   title = "a3", 
   cex = 2, 
   axis_text_size = 4,
