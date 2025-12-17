@@ -1,0 +1,16 @@
+# Chunk label: cone-proj --------------------
+## Alt-text: A 2D scatterplot shows the projection of a high-dimensional cone-shaped point cloud. The horizontal and vertical axes are unlabeled numeric coordinates, each spanning a roughly symmetric range around zero (for example, from about -1 to 1). Hundreds of points form a dense cluster near one end of the plot, corresponding to the cone’s apex, with density gradually decreasing as points extend outward in a flared, cone-like or triangular region. There are no colours, shapes, or facets used; all points share the same appearance, and the key visible pattern is the concentrated tip transitioning smoothly into a wider spread of points, illustrating a cone structure in projection.
+
+Assumptions: The plot is a 2D scatterplot of a high-dimensional cone projection with no additional aesthetics (colour/shape/size), and the axes have symmetric numeric ranges centered near zero, as these details were not explicitly provided.
+
+Checklist:
+1. Identified chart type. YES  
+2. Named axes and variables. YES  
+3. Mentioned approximate ranges or scales (where meaningful). YES  
+4. Described data mappings (e.g. colour/shape/size/facets). YES  
+5. Described main patterns, trends, or clusters. YES  
+6. Explicitly noted any assumptions. YES
+
+## Caption (for reference): To simulate a cone-shaped structure in arbitrary dimensions (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cone)"} else { "Figure \\@ref(fig:cone-proj)"})`), we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
+
+## Usage: BrailleR, Cummulated cost: NA, Cummulated token usage: 0
