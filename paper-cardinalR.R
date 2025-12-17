@@ -1462,10 +1462,10 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 1.4,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -1.1, 
-                                              axis_pos_y = -1.1, 
+                                              axis_pos_x = -1, 
+                                              axis_pos_y = -1, 
                                               threshold = 0.1))
 
 curvycylinder_proj1 <- plot_proj(
@@ -1488,10 +1488,10 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 2,
+                            axis_param = list(limits = 2.6,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -2.2, 
-                                              axis_pos_y = -2.2, 
+                                              axis_pos_x = -2.1, 
+                                              axis_pos_y = -2.1, 
                                               threshold = 0.18))
 
 curvycylinder_proj2 <- plot_proj(
@@ -1514,10 +1514,10 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 1.4,
                                               axis_scaled = 1.4, 
-                                              axis_pos_x = -1.2, 
-                                              axis_pos_y = -1.2, 
+                                              axis_pos_x = -1.1, 
+                                              axis_pos_y = -1.1, 
                                               threshold = 0.1))
 
 curvycylinder_proj3 <- plot_proj(
@@ -1549,11 +1549,11 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
+                            axis_param = list(limits = 0.9,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.5, 
                                               axis_pos_y = -0.5, 
-                                              threshold = 0.022))
+                                              threshold = 0.09))
 
 sphericalspiral_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
@@ -1575,10 +1575,10 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
+                            axis_param = list(limits = 1,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -0.65, 
-                                              axis_pos_y = -0.65, 
+                                              axis_pos_x = -0.63, 
+                                              axis_pos_y = -0.63, 
                                               threshold = 0.06))
 
 sphericalspiral_proj2 <- plot_proj(
@@ -1640,10 +1640,10 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 2.5,
+                            axis_param = list(limits = 3.4,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -2, 
-                                              axis_pos_y = -2, 
+                                              axis_pos_x = -1.8, 
+                                              axis_pos_y = -1.8, 
                                               threshold = 0.2))
 
 conicspiral_proj1 <- plot_proj(
@@ -1666,16 +1666,16 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 2,
+                            axis_param = list(limits = 3,
                                               axis_scaled = 1, 
-                                              axis_pos_x = -2.9, 
-                                              axis_pos_y = -2.9, 
-                                              threshold = 0.1))
+                                              axis_pos_x = -3.1, 
+                                              axis_pos_y = -3.1, 
+                                              threshold = 0.2))
 
 conicspiral_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-3.3, 2), 
+  plot_limits = c(-3.6, 2), 
   title = "c2", 
   cex = 2, 
   axis_text_size = 4,
@@ -1692,10 +1692,10 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 2.5,
+                            axis_param = list(limits = 3.4,
                                               axis_scaled = 1.5, 
-                                              axis_pos_x = -2.3, 
-                                              axis_pos_y = -2.3, 
+                                              axis_pos_x = -2.2, 
+                                              axis_pos_y = -2.2, 
                                               threshold = 0.2))
 
 conicspiral_proj3 <- plot_proj(
@@ -1727,7 +1727,7 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 1.2,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.3, 
                                               axis_pos_y = -0.3, 
@@ -1753,16 +1753,16 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 1.8,
                                               axis_scaled = 1.3, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
-                                              threshold = 0.1))
+                                              axis_pos_x = -0.6, 
+                                              axis_pos_y = -0.6, 
+                                              threshold = 0.18))
 
 nonlinear_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2, "#000000"), # size, alpha, color
-  plot_limits = c(-0.7, 2), 
+  plot_limits = c(-0.9, 2), 
   title = "d2", 
   cex = 2, 
   axis_text_size = 4,
@@ -1779,10 +1779,10 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.6,
+                            axis_param = list(limits = 0.9,
                                               axis_scaled = 1.5, 
-                                              axis_pos_x = -0.5, 
-                                              axis_pos_y = -0.5, 
+                                              axis_pos_x = -0.43, 
+                                              axis_pos_y = -0.43, 
                                               threshold = 0.07))
 
 nonlinear_proj3 <- plot_proj(
