@@ -319,7 +319,7 @@ proj_obj1 <- get_projection(projection = projection,
                                               axis_scaled = 10, 
                                               axis_pos_x = -0.5, 
                                               axis_pos_y = -0.5, 
-                                              threshold = 0.015))
+                                              threshold = 0.05))
 
 orglinearbranches_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
@@ -327,7 +327,7 @@ orglinearbranches_proj1 <- plot_proj(
   plot_limits = c(-0.6, 0.4), 
   title = "a1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -341,11 +341,11 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
+                            axis_param = list(limits = 0.9,
+                                              axis_scaled = 1, 
                                               axis_pos_x = -0.85, 
                                               axis_pos_y = -0.85, 
-                                              threshold = 0.01))
+                                              threshold = 0.05))
 
 orglinearbranches_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
@@ -353,7 +353,7 @@ orglinearbranches_proj2 <- plot_proj(
   plot_limits = c(-1, 1), 
   title = "a2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -367,11 +367,11 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
+                            axis_param = list(limits = 0.9,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.85, 
                                               axis_pos_y = -0.85, 
-                                              threshold = 0.016))
+                                              threshold = 0.1))
 
 orglinearbranches_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
@@ -379,7 +379,7 @@ orglinearbranches_proj3 <- plot_proj(
   plot_limits = c(-1, 1), 
   title = "a3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -408,7 +408,7 @@ orgcurvybranches <- gen_orgcurvybranches(n = 1000, p = 4, k = 4)
 # branchfig
 
 
-## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from the $4\\text{-}D$ \\texttt{orgcurvybranches} data. Each shows a different projection, illustrating how the linear branches appear from multiple viewing angles. These views highlight the dataset’s underlying branching structure and demonstrate how projections reveal patterns that are otherwise hidden in higher dimensions.", fig.width=12, fig.height=4, fig.pos="H", fig.alt="Three $2\\text{-}D$ projections of the $4\\text{-}D$ orglinearbranches dataset, showing different angles of the linear branches to illustrate the branching structure.", fig.pos="!ht"----
+## ----branch-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from the $4\\text{-}D$ \\texttt{orgcurvybranches} data. Each shows a different projection, illustrating how the linear branches appear from multiple viewing angles. These views highlight the dataset’s underlying branching structure and demonstrate how projections reveal patterns that are otherwise hidden in higher dimensions.", fig.width=12, fig.height=4, fig.pos="H", fig.alt="The figure shows a 2-D scatter plot of projected branch structures in a high-dimensional space. The horizontal axis represents one coordinate (first index of the active pair) and the vertical axis represents the other coordinate (second index of the active pair), each spanning a moderate, symmetric range around zero (for example, roughly −2 to 2). Points are grouped visually into several distinct linear or gently curving branches, each corresponding to a different active 2-D subspace; these branches appear as separate streaks or arcs radiating through the plane. Colour (or another visual attribute such as line/point grouping) is used to distinguish branches that occupy different subspaces, and some branches may overlap or run close together where subspaces are shared. The main pattern is a set of well-separated, structured branches with little noise, illustrating how high-dimensional linear or curvy branches project into 2-D coordinate pairs.", fig.pos="!ht"----
 
 orglinearbranches_proj1 + orglinearbranches_proj2 + orglinearbranches_proj3 +
   plot_layout(ncol = 3, guides = "collect") 
@@ -444,7 +444,7 @@ cone_proj1 <- plot_proj(
   plot_limits = c(-0.5, 0.7), 
   title = "a1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -470,7 +470,7 @@ cone_proj2 <- plot_proj(
   plot_limits = c(-0.25, 0.35), 
   title = "a2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -496,12 +496,12 @@ cone_proj3 <- plot_proj(
   plot_limits = c(-0.7, 0.5), 
   title = "a3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
 
-## ----cone, eval=knitr::is_html_output(), fig.cap="Viewing the $3\\text{-}D$ output  of `cone` data. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex.", fig.alt="Interactive langevitour of the cone dataset in 3-D, showing points concentrated near the tip with radius decreasing linearly toward the apex.", fig.pos="!ht"----
+## ----cone, eval=knitr::is_html_output(), fig.cap="Viewing the $3\\text{-}D$ output  of `cone` data. Points are concentrated near the tip along the height dimension, while the radius of the hyperspherical cross-section decreases linearly toward the apex.", fig.alt="A 3D scatterplot shows a cone-shaped cloud of points, with two horizontal axes representing the first two coordinates (x and y) and the vertical axis representing height (z). The horizontal axes span roughly symmetric ranges centered around zero, while height increases from a low base up to a maximum near the tip of the cone. At lower heights the points spread widely in the horizontal plane, and as height increases the radial spread decreases smoothly, forming a narrowing cone. Points are evenly distributed around the cone’s central axis, reflecting that directions in the first two dimensions are sampled uniformly on a circle (a 2D hypersphere), and their distance from the center is scaled by a height-dependent radius. The resulting pattern is a dense, symmetric conical taper with no distinct outliers or clusters beyond the cone surface.", fig.pos="!ht"----
 # 
 # conefig <- bscols(
 #   htmltools::div(
@@ -585,7 +585,7 @@ pyrrect_proj1 <- plot_proj(
   plot_limits = c(-2, 1.8), 
   title = "a1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -611,7 +611,7 @@ pyrrect_proj2 <- plot_proj(
   plot_limits = c(-1.8, 1.8), 
   title = "a2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -637,7 +637,7 @@ pyrrect_proj3 <- plot_proj(
   plot_limits = c(-2, 2), 
   title = "a3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -672,7 +672,7 @@ pyrtri_proj1 <- plot_proj(
   plot_limits = c(-0.7, 1.4), 
   title = "b1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -698,7 +698,7 @@ pyrtri_proj2 <- plot_proj(
   plot_limits = c(-1.2, 1.2), 
   title = "b2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -724,7 +724,7 @@ pyrtri_proj3 <- plot_proj(
   plot_limits = c(-1.3, 1.7), 
   title = "b3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -759,7 +759,7 @@ pyrstar_proj1 <- plot_proj(
   plot_limits = c(-1.5, 1.5), 
   title = "c1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -785,7 +785,7 @@ pyrstar_proj2 <- plot_proj(
   plot_limits = c(-1.6, 1.6), 
   title = "c2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -811,7 +811,7 @@ pyrstar_proj3 <- plot_proj(
   plot_limits = c(-1.8, 1.6), 
   title = "c3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -846,7 +846,7 @@ pyrholes_proj1 <- plot_proj(
   plot_limits = c(-0.4, 0.5), 
   title = "d1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -872,7 +872,7 @@ pyrholes_proj2 <- plot_proj(
   plot_limits = c(-0.3, 0.5), 
   title = "d2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -898,7 +898,7 @@ pyrholes_proj3 <- plot_proj(
   plot_limits = c(-0.5, 0.4), 
   title = "d3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -966,7 +966,7 @@ circle_proj1 <- plot_proj(
   plot_limits = c(-0.8, 0.8), 
   title = "a1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -992,7 +992,7 @@ circle_proj2 <- plot_proj(
   plot_limits = c(-0.7, 0.7), 
   title = "a2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1018,7 +1018,7 @@ circle_proj3 <- plot_proj(
   plot_limits = c(-0.6, 0.53), 
   title = "a3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1053,7 +1053,7 @@ curvycycle_proj1 <- plot_proj(
   plot_limits = c(-0.75, 0.7), 
   title = "b1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1079,7 +1079,7 @@ curvycycle_proj2 <- plot_proj(
   plot_limits = c(-0.7, 0.6), 
   title = "b2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1105,7 +1105,7 @@ curvycycle_proj3 <- plot_proj(
   plot_limits = c(-0.7, 0.62), 
   title = "b3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1150,7 +1150,7 @@ clusteredspheres_proj1 <- plot_proj(
   plot_limits = c(-9, 9), 
   title = "c1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1176,7 +1176,7 @@ clusteredspheres_proj2 <- plot_proj(
   plot_limits = c(-9, 9), 
   title = "c2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1202,7 +1202,7 @@ clusteredspheres_proj3 <- plot_proj(
   plot_limits = c(-9, 9), 
   title = "c3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1269,7 +1269,7 @@ trefoil4d_proj1 <- plot_proj(
   plot_limits = c(-0.75, 0.7), 
   title = "a1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1295,7 +1295,7 @@ trefoil4d_proj2 <- plot_proj(
   plot_limits = c(-0.7, 0.65), 
   title = "a2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1321,7 +1321,7 @@ trefoil4d_proj3 <- plot_proj(
   plot_limits = c(-0.7, 0.62), 
   title = "a3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1356,7 +1356,7 @@ trefoil3d_proj1 <- plot_proj(
   plot_limits = c(-1.2, 1.2), 
   title = "b1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1382,7 +1382,7 @@ trefoil3d_proj2 <- plot_proj(
   plot_limits = c(-1, 1.2), 
   title = "b2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1408,7 +1408,7 @@ trefoil3d_proj3 <- plot_proj(
   plot_limits = c(-1, 0.8), 
   title = "b3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1474,7 +1474,7 @@ curvycylinder_proj1 <- plot_proj(
   plot_limits = c(-1.3, 1.1), 
   title = "a1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1500,7 +1500,7 @@ curvycylinder_proj2 <- plot_proj(
   plot_limits = c(-2.6, 2.3), 
   title = "a2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1526,7 +1526,7 @@ curvycylinder_proj3 <- plot_proj(
   plot_limits = c(-1.4, 1.4), 
   title = "a3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1561,7 +1561,7 @@ sphericalspiral_proj1 <- plot_proj(
   plot_limits = c(-0.65, 0.7), 
   title = "b1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1587,7 +1587,7 @@ sphericalspiral_proj2 <- plot_proj(
   plot_limits = c(-0.8, 0.8), 
   title = "b2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1613,7 +1613,7 @@ sphericalspiral_proj3 <- plot_proj(
   plot_limits = c(-0.5, 0.5), 
   title = "b3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1652,7 +1652,7 @@ conicspiral_proj1 <- plot_proj(
   plot_limits = c(-2.5, 3.5), 
   title = "c1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1678,7 +1678,7 @@ conicspiral_proj2 <- plot_proj(
   plot_limits = c(-3.3, 2), 
   title = "c2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1704,7 +1704,7 @@ conicspiral_proj3 <- plot_proj(
   plot_limits = c(-2.8, 3.5), 
   title = "c3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1739,7 +1739,7 @@ nonlinear_proj1 <- plot_proj(
   plot_limits = c(-0.5, 1.4), 
   title = "d1", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1765,7 +1765,7 @@ nonlinear_proj2 <- plot_proj(
   plot_limits = c(-0.7, 2), 
   title = "d2", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 
@@ -1791,7 +1791,7 @@ nonlinear_proj3 <- plot_proj(
   plot_limits = c(-0.6, 0.8), 
   title = "d3", 
   cex = 2, 
-  axis_text_size = 5,
+  axis_text_size = 4,
   is_color = FALSE)
 
 

@@ -1,7 +1,7 @@
-# Chunk label: cone-proj --------------------
-## Alt-text: A 2D scatterplot shows the projection of a high-dimensional cone-shaped point cloud. The horizontal and vertical axes are unlabeled numeric coordinates, each spanning a roughly symmetric range around zero (for example, from about -1 to 1). Hundreds of points form a dense cluster near one end of the plot, corresponding to the cone’s apex, with density gradually decreasing as points extend outward in a flared, cone-like or triangular region. There are no colours, shapes, or facets used; all points share the same appearance, and the key visible pattern is the concentrated tip transitioning smoothly into a wider spread of points, illustrating a cone structure in projection.
+# Chunk label: highd-proj --------------------
+## Alt-text: A 3D scatter plot shows a high‑dimensional dataset projected from 4‑D space, with three orthogonal axes representing three of the four spatial dimensions (each axis spanning roughly a symmetric range around zero). Points form five visually distinct clusters, each corresponding to a different geometric structure in the original 4‑D space: one cluster traces a helical spiral, one lies on a curved hemispherical surface, one fills a roughly cubic volume with a uniform spread, one forms a cone that becomes denser toward its tip, and one appears as a compact spherical (Gaussian) cloud. The clusters differ in size (number of points) and spread, illustrating variation in both density and scale; there is clear separation between most groups, with limited overlap in the projected 3D view. Cluster identity is encoded by distinct point colours, allowing the five shapes to be easily distinguished.
 
-Assumptions: The plot is a 2D scatterplot of a high-dimensional cone projection with no additional aesthetics (colour/shape/size), and the axes have symmetric numeric ranges centered near zero, as these details were not explicitly provided.
+Assumptions: The exact axis labels and numeric ranges were not provided; I assume they are three selected coordinates from the 4‑D space, each centered near zero. I also assume colour (rather than shape) is used to distinguish clusters and that no additional encodings (e.g., size or faceting) are present.
 
 Checklist:
 1. Identified chart type. YES  
@@ -11,6 +11,6 @@ Checklist:
 5. Described main patterns, trends, or clusters. YES  
 6. Explicitly noted any assumptions. YES
 
-## Caption (for reference): To simulate a cone-shaped structure in arbitrary dimensions (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:cone)"} else { "Figure \\@ref(fig:cone-proj)"})`), we define a function `gen_cone(n, p, h, ratio)`, which creates a high-dimensional cone with options for a sharp or blunted apex, allowing for a dense concentration of points near the tip.
+## Caption (for reference): To illustrate how high-dimensional clustered data can be generated using `cardinalR`, we generate a dataset with five clusters in $4\text{-}D$, each representing distinct geometric characteristics: a *helical spiral* (elongated and twisted), a *hemisphere* (curved surface), a *uniform cube* (isotropic distribution), a *cone* (density gradient), and a *Gaussian* cluster (compact and spherical) (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:highd-data)"} else { "Figure \\@ref(fig:highd-proj)"})`). Each cluster has a unique number of points and scaling factor, representing variation in cluster size and spread across the $4\text{-}D$ space.
 
 ## Usage: BrailleR, Cummulated cost: NA, Cummulated token usage: 0
