@@ -1257,11 +1257,11 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 1.2, 
+                            axis_param = list(limits = 0.8,
+                                              axis_scaled = 1.5, 
                                               axis_pos_x = -0.6, 
                                               axis_pos_y = -0.6, 
-                                              threshold = 0.022))
+                                              threshold = 0.1))
 
 trefoil4d_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
@@ -1313,7 +1313,7 @@ proj_obj3 <- get_projection(projection = projection,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.55, 
                                               axis_pos_y = -0.55, 
-                                              threshold = 0.016))
+                                              threshold = 0.09))
 
 trefoil4d_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
@@ -1344,11 +1344,11 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
-                                              axis_scaled = 1.2, 
+                            axis_param = list(limits = 1.2,
+                                              axis_scaled = 1.7, 
                                               axis_pos_x = -1, 
                                               axis_pos_y = -1, 
-                                              threshold = 0.04))
+                                              threshold = 0.1))
 
 trefoil3d_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
@@ -1370,11 +1370,11 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
-                                              axis_scaled = 1, 
+                            axis_param = list(limits = 1.2,
+                                              axis_scaled = 1.5, 
                                               axis_pos_x = -0.8, 
                                               axis_pos_y = -0.8, 
-                                              threshold = 0.04))
+                                              threshold = 0.1))
 
 trefoil3d_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
@@ -1396,11 +1396,11 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.8,
+                            axis_param = list(limits = 1,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.8, 
                                               axis_pos_y = -0.8, 
-                                              threshold = 0.016))
+                                              threshold = 0.04))
 
 trefoil3d_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
