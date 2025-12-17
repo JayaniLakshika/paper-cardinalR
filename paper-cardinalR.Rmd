@@ -1183,11 +1183,11 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
+                            axis_param = list(limits = 0.9,
                                               axis_scaled = 1.2, 
                                               axis_pos_x = -0.6, 
                                               axis_pos_y = -0.6, 
-                                              threshold = 0.022))
+                                              threshold = 0.09))
 
 circle_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
@@ -1209,11 +1209,11 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 0.7,
-                                              axis_scaled = 3, 
-                                              axis_pos_x = -0.57, 
-                                              axis_pos_y = -0.57, 
-                                              threshold = 0.01))
+                            axis_param = list(limits = 0.8,
+                                              axis_scaled = 1.8, 
+                                              axis_pos_x = -0.53, 
+                                              axis_pos_y = -0.53, 
+                                              threshold = 0.1))
 
 circle_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
@@ -1239,7 +1239,7 @@ proj_obj3 <- get_projection(projection = projection,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.5, 
                                               axis_pos_y = -0.5, 
-                                              threshold = 0.016))
+                                              threshold = 0.07))
 
 circle_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
@@ -1275,10 +1275,10 @@ projection <- cbind(
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.7,
-                                              axis_scaled = 1.2, 
+                                              axis_scaled = 1.4, 
                                               axis_pos_x = -0.6, 
                                               axis_pos_y = -0.6, 
-                                              threshold = 0.022))
+                                              threshold = 0.08))
 
 curvycycle_proj1 <- plot_proj(
   proj_obj = proj_obj1, 
@@ -1304,7 +1304,7 @@ proj_obj2 <- get_projection(projection = projection,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.57, 
                                               axis_pos_y = -0.57, 
-                                              threshold = 0.04))
+                                              threshold = 0.08))
 
 curvycycle_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
@@ -1327,10 +1327,10 @@ projection <- cbind(
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 0.6,
-                                              axis_scaled = 1.5, 
+                                              axis_scaled = 1.6, 
                                               axis_pos_x = -0.6, 
                                               axis_pos_y = -0.6, 
-                                              threshold = 0.016))
+                                              threshold = 0.08))
 
 curvycycle_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
@@ -1459,10 +1459,10 @@ projection <- cbind(
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
                             axis_param = list(limits = 10,
-                                              axis_scaled = 1, 
+                                              axis_scaled = 1.5, 
                                               axis_pos_x = -7, 
                                               axis_pos_y = -7, 
-                                              threshold = 0.2))
+                                              threshold = 0.4))
 
 clusteredspheres_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
