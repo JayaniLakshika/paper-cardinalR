@@ -599,11 +599,11 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1.5,
-                                              axis_scaled = 1.6, 
+                            axis_param = list(limits = 1.7,
+                                              axis_scaled = 1.8, 
                                               axis_pos_x = -1.5, 
                                               axis_pos_y = -1.5, 
-                                              threshold = 0.1))
+                                              threshold = 0.2))
 
 pyrrect_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
@@ -625,8 +625,8 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1.5,
-                                              axis_scaled = 1.5, 
+                            axis_param = list(limits = 1.7,
+                                              axis_scaled = 1.8, 
                                               axis_pos_x = -1.7, 
                                               axis_pos_y = -1.7, 
                                               threshold = 0.1))
@@ -686,11 +686,11 @@ projection <- cbind(
 
 proj_obj2 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
-                                              axis_scaled = 1.5, 
+                            axis_param = list(limits = 1.1,
+                                              axis_scaled = 1.7, 
                                               axis_pos_x = -1, 
                                               axis_pos_y = -1, 
-                                              threshold = 0.06))
+                                              threshold = 0.1))
 
 pyrtri_proj2 <- plot_proj(
   proj_obj = proj_obj2, 
@@ -712,10 +712,10 @@ projection <- cbind(
 
 proj_obj3 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1.2,
+                            axis_param = list(limits = 1.3,
                                               axis_scaled = 1.5, 
-                                              axis_pos_x = -1.1, 
-                                              axis_pos_y = -1.1, 
+                                              axis_pos_x = -1.05, 
+                                              axis_pos_y = -1.05, 
                                               threshold = 0.1))
 
 pyrtri_proj3 <- plot_proj(
@@ -747,10 +747,10 @@ projection <- cbind(
 
 proj_obj1 <- get_projection(projection = projection, 
                             centered_data = centered_data, 
-                            axis_param = list(limits = 1,
+                            axis_param = list(limits = 1.4,
                                               axis_scaled = 1.2, 
-                                              axis_pos_x = -1.3, 
-                                              axis_pos_y = -1.3, 
+                                              axis_pos_x = -1.2, 
+                                              axis_pos_y = -1.2, 
                                               threshold = 0.1))
 
 pyrstar_proj1 <- plot_proj(
@@ -890,7 +890,7 @@ proj_obj3 <- get_projection(projection = projection,
                                               axis_scaled = 1.5, 
                                               axis_pos_x = -0.43, 
                                               axis_pos_y = -0.43, 
-                                              threshold = 0.016))
+                                              threshold = 0.05))
 
 pyrholes_proj3 <- plot_proj(
   proj_obj = proj_obj3, 
