@@ -171,9 +171,9 @@ shape_tb <- tibble(fun = c("gen_expbranches",
                              "n",
                              "n",
                              "n",
-                             "n, p",
-                             "n, p",
-                             "n, p",
+                             "n, p, l_vec, rt",
+                             "n, p, h, l, rt",
+                             "n, p, h, rb",
                              "n, p",
                               "n",
                              "n, p",
@@ -202,9 +202,9 @@ shape_tb <- tibble(fun = c("gen_expbranches",
                               "Cube with uniform points.",
                               "Multivariate Gaussian cloud.",
                               "Long linear structure.",
-                              "Möbius strip in $3\text{-}D$.",
-                              "Quadratic pattern in $2\text{-}D$.",
-                                "Cubic pattern in $2\text{-}D$.",
+                              "Möbius strip in $3\\text{-}D$.",
+                              "Quadratic pattern in $2\\text{-}D$.",
+                                "Cubic pattern in $2\\text{-}D$.",
                               "Rectangular-base, with a sharp or blunted apex.",
           "Triangular-base, with a sharp or blunted apex.",
           "Star-shaped base, with a sharp or blunted apex.",
@@ -248,9 +248,9 @@ shape_tb |>
 
 
 ## -----------------------------------------------------------------------------
-arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "n_vec", "k_small", "r_vec", "spe", "w", "steps", "spins", "hc", "non_fac"), 
+arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "n_vec", "k_small", "r_vec", "spe", "w", "steps", "spins", "hc", "non_fac", "l", "l_vec", "rt", "rb"), 
                           type = c("integer", "integer", "integer", "real value",
-                                   "real value", "real value", "real value", "integers", "integer", "real values", "real value", "real value", "integer", "integer", "real value", "real value"),
+                                   "real value", "real value", "real value", "integers", "integer", "real values", "real value", "real value", "integer", "integer", "real value", "real value", "real value", "real values", "real value", "real value"),
                         exp = c("Number of points.",
                                 "Number of clusters.",
                                 "Number of dimensions.",
@@ -266,7 +266,11 @@ arg_branching_tb <- tibble(arg = c("n", "k", "p", "h", "ratio", "s", "r", "n_vec
                                 "Number of steps for the theta parameter.",
                                 "Number of loops of the spiral.",
                                 "Steepness and vertical scaling of the hyperbola.",
-                                "Strength of this sinusoidal effect.")) |> 
+                                "Strength of this sinusoidal effect.",
+                                "Base length of the pyramid.",
+                                "Base lengths along the and y of the pyramid.",
+                                "Tip radius of the pyramid.",
+                                "Base radius of the pyramid.")) |> 
    mutate(arg = gsub("_", "\\\\_", arg))
 
 

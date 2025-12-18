@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-12-17'
+date: '2025-12-18'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -187,42 +187,42 @@ The shape generators form the foundation of the package, providing functions to 
 
 Table: (\#tab:shape-tb-html)Overview of shape-generation functions, including their required parameters and a brief description of each geometric structure produced. The generators cover branching patterns, spheres, spirals, pyramids, Gaussian clouds, and other nonlinear shapes.
 
-|Function                            |Arguments                    |Explanation                                      |
-|:-----------------------------------|:----------------------------|:------------------------------------------------|
-|<code>gen\_expbranches</code>       |<code>n, k</code>            |Exponential shaped branches.                     |
-|<code>gen\_linearbranches</code>    |<code>n, k</code>            |Linear shaped branches.                          |
-|<code>gen\_curvybranches</code>     |<code>n, k</code>            |Curvy shaped branches.                           |
-|<code>gen\_orglinearbranches</code> |<code>n, p, k</code>         |Linear shaped branches originated in one point.  |
-|<code>gen\_orgcurvybranches</code>  |<code>n, p, k</code>         |Curvy shaped branches originated in one point.   |
-|<code>gen\_cone</code>              |<code>n, p, h, ratio</code>  |Cone-shaped structure.                           |
-|<code>gen\_gridcube</code>          |<code>n, p</code>            |Cube with specified grid points along each axes. |
-|<code>gen\_unifcube</code>          |<code>n, p</code>            |Cube with uniform points.                        |
-|<code>gen\_gaussian</code>          |<code>n, p, s</code>         |Multivariate Gaussian cloud.                     |
-|<code>gen\_longlinear</code>        |<code>n, p</code>            |Long linear structure.                           |
-|<code>gen\_mobius</code>            |<code>n</code>               |Möbius strip in $3	ext{-}D$.                      |
-|<code>gen\_quadratic</code>         |<code>n</code>               |Quadratic pattern in $2	ext{-}D$.                 |
-|<code>gen\_cubic</code>             |<code>n</code>               |Cubic pattern in $2	ext{-}D$.                     |
-|<code>gen\_pyrrect</code>           |<code>n, p</code>            |Rectangular-base, with a sharp or blunted apex.  |
-|<code>gen\_pyrtri</code>            |<code>n, p</code>            |Triangular-base, with a sharp or blunted apex.   |
-|<code>gen\_pyrstar</code>           |<code>n, p</code>            |Star-shaped base, with a sharp or blunted apex.  |
-|<code>gen\_pyrfrac</code>           |<code>n, p</code>            |Pyramid with triangular pyramid-shaped holes.    |
-|<code>gen\_scurve</code>            |<code>n</code>               |S-curve in $3	ext{-}D$.                           |
-|<code>gen\_circle</code>            |<code>n, p</code>            |Circle.                                          |
-|<code>gen\_curvycycle</code>        |<code>n, p</code>            |Curvy cell cycle.                                |
-|<code>gen\_unifsphere</code>        |<code>n, r</code>            |Uniform ball.                                    |
-|<code>gen\_hollowsphere</code>      |<code>n, p</code>            |Hollow sphere.                                   |
-|<code>gen\_gridedsphere</code>      |<code>n</code>               |Grided sphere.                                   |
-|<code>gen\_clusteredspheres</code>  |<code>n, k, r, loc</code>    |Multiple small spheres within a big sphere.      |
-|<code>gen\_hemisphere</code>        |<code>n, p</code>            |Hemisphere.                                      |
-|<code>gen\_swissroll</code>         |<code>n, w</code>            |Swissroll structure.                             |
-|<code>gen\_trefoil4d</code>         |<code>n, steps</code>        |Trefoil in $4\text{-}D$.                         |
-|<code>gen\_trefoil3d</code>         |<code>n, steps</code>        |Trefoil in $3\text{-}D$.                         |
-|<code>gen\_crescent</code>          |<code>n</code>               |Crescent pattern.                                |
-|<code>gen\_curvycylinder</code>     |<code>n, h</code>            |Curvy cylinder.                                  |
-|<code>gen\_sphericalspiral</code>   |<code>n, spins</code>        |Spherical spiral.                                |
-|<code>gen\_helicalspiral</code>     |<code>n</code>               |Helical spiral.                                  |
-|<code>gen\_conicspiral</code>       |<code>n, spins</code>        |Conic spiral.                                    |
-|<code>gen\_nonlinear</code>         |<code>n, hc, non\_fac</code> |Nonlinear hyperbola.                             |
+|Function                            |Arguments                     |Explanation                                      |
+|:-----------------------------------|:-----------------------------|:------------------------------------------------|
+|<code>gen\_expbranches</code>       |<code>n, k</code>             |Exponential shaped branches.                     |
+|<code>gen\_linearbranches</code>    |<code>n, k</code>             |Linear shaped branches.                          |
+|<code>gen\_curvybranches</code>     |<code>n, k</code>             |Curvy shaped branches.                           |
+|<code>gen\_orglinearbranches</code> |<code>n, p, k</code>          |Linear shaped branches originated in one point.  |
+|<code>gen\_orgcurvybranches</code>  |<code>n, p, k</code>          |Curvy shaped branches originated in one point.   |
+|<code>gen\_cone</code>              |<code>n, p, h, ratio</code>   |Cone-shaped structure.                           |
+|<code>gen\_gridcube</code>          |<code>n, p</code>             |Cube with specified grid points along each axes. |
+|<code>gen\_unifcube</code>          |<code>n, p</code>             |Cube with uniform points.                        |
+|<code>gen\_gaussian</code>          |<code>n, p, s</code>          |Multivariate Gaussian cloud.                     |
+|<code>gen\_longlinear</code>        |<code>n, p</code>             |Long linear structure.                           |
+|<code>gen\_mobius</code>            |<code>n</code>                |Möbius strip in $3\text{-}D$.                    |
+|<code>gen\_quadratic</code>         |<code>n</code>                |Quadratic pattern in $2\text{-}D$.               |
+|<code>gen\_cubic</code>             |<code>n</code>                |Cubic pattern in $2\text{-}D$.                   |
+|<code>gen\_pyrrect</code>           |<code>n, p, l\_vec, rt</code> |Rectangular-base, with a sharp or blunted apex.  |
+|<code>gen\_pyrtri</code>            |<code>n, p, h, l, rt</code>   |Triangular-base, with a sharp or blunted apex.   |
+|<code>gen\_pyrstar</code>           |<code>n, p, h, rb</code>      |Star-shaped base, with a sharp or blunted apex.  |
+|<code>gen\_pyrfrac</code>           |<code>n, p</code>             |Pyramid with triangular pyramid-shaped holes.    |
+|<code>gen\_scurve</code>            |<code>n</code>                |S-curve in $3	ext{-}D$.                           |
+|<code>gen\_circle</code>            |<code>n, p</code>             |Circle.                                          |
+|<code>gen\_curvycycle</code>        |<code>n, p</code>             |Curvy cell cycle.                                |
+|<code>gen\_unifsphere</code>        |<code>n, r</code>             |Uniform ball.                                    |
+|<code>gen\_hollowsphere</code>      |<code>n, p</code>             |Hollow sphere.                                   |
+|<code>gen\_gridedsphere</code>      |<code>n</code>                |Grided sphere.                                   |
+|<code>gen\_clusteredspheres</code>  |<code>n, k, r, loc</code>     |Multiple small spheres within a big sphere.      |
+|<code>gen\_hemisphere</code>        |<code>n, p</code>             |Hemisphere.                                      |
+|<code>gen\_swissroll</code>         |<code>n, w</code>             |Swissroll structure.                             |
+|<code>gen\_trefoil4d</code>         |<code>n, steps</code>         |Trefoil in $4\text{-}D$.                         |
+|<code>gen\_trefoil3d</code>         |<code>n, steps</code>         |Trefoil in $3\text{-}D$.                         |
+|<code>gen\_crescent</code>          |<code>n</code>                |Crescent pattern.                                |
+|<code>gen\_curvycylinder</code>     |<code>n, h</code>             |Curvy cylinder.                                  |
+|<code>gen\_sphericalspiral</code>   |<code>n, spins</code>         |Spherical spiral.                                |
+|<code>gen\_helicalspiral</code>     |<code>n</code>                |Helical spiral.                                  |
+|<code>gen\_conicspiral</code>       |<code>n, spins</code>         |Conic spiral.                                    |
+|<code>gen\_nonlinear</code>         |<code>n, hc, non\_fac</code>  |Nonlinear hyperbola.                             |
 
 </div>
 
@@ -261,6 +261,10 @@ Table: (\#tab:arg-shape-tb-html)Argument definitions for the shape generators. T
 |<code>spins</code>    |integer         |Number of loops of the spiral.                   |
 |<code>hc</code>       |real value      |Steepness and vertical scaling of the hyperbola. |
 |<code>non\_fac</code> |real value      |Strength of this sinusoidal effect.              |
+|<code>l</code>        |real value      |Base length of the pyramid.                      |
+|<code>l\_vec</code>   |real values     |Base lengths along the and y of the pyramid.     |
+|<code>rt</code>       |real value      |Tip radius of the pyramid.                       |
+|<code>rb</code>       |real value      |Base radius of the pyramid.                      |
 
 </div>
 
@@ -577,7 +581,7 @@ A pyramid structure (Figure \@ref(fig:pyr)) represents data arranged around a ce
 
 Let $X_1, \dots, X_p$ denote the coordinates of the generated points. For the rectangular, triangular, and star-shaped based pyramid generator functions, the final dimension, $X_p$, encodes the height of each point and is drawn from an exponential distribution capped at the maximum height $h$. That is, $X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).$ This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, $X_p = z \sim U(0, h)$.
 
-The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (Figure \@ref(fig:pyr) a) the base shape is a rectangle whose size shrinks linearly with height. Let $l_x$ and $l_y$ denote the half-widths of the rectangular base in the $X_1$ and $X_2$ directions, specified via $l=(l_x,l_y)$, and let $r_t$ denote the half-width at the pyramid tip. At height $z\in [0,h]$, the half-widths of the rectangular cross-section are $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as $X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z))$.
+The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, `gen_pyrrect(n, p, h, l_vec, rt)` (Figure \@ref(fig:pyr) a) the base shape is a rectangle whose size shrinks linearly with height. Let $l_x$ and $l_y$ denote the half-widths of the rectangular base in the $X_1$ and $X_2$ directions, specified via $l_{vec}=(l_x,l_y)$, and let $r_t$ denote the half-width at the pyramid tip. At height $z\in [0,h]$, the half-widths of the rectangular cross-section are $r_x(z) = r_t + (l_x - r_t)z/h$, $r_y(z) = r_t + (l_y - r_t)z/h$. The first three coordinates are then defined as $X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z))$.
 
 <div class="layout-chunk" data-layout="l-body">
 

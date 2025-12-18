@@ -106,12 +106,12 @@ Function & Arguments & Explanation\\
 \texttt{gen\_unifcube} & \texttt{n, p} & Cube with uniform points.\\
 \texttt{gen\_gaussian} & \texttt{n, p, s} & Multivariate Gaussian cloud.\\
 \texttt{gen\_longlinear} & \texttt{n, p} & Long linear structure.\\
-\texttt{gen\_mobius} & \texttt{n} & Möbius strip in $3  ext{-}D$.\\
-\texttt{gen\_quadratic} & \texttt{n} & Quadratic pattern in $2  ext{-}D$.\\
-\texttt{gen\_cubic} & \texttt{n} & Cubic pattern in $2  ext{-}D$.\\
-\texttt{gen\_pyrrect} & \texttt{n, p} & Rectangular-base, with a sharp or blunted apex.\\
-\texttt{gen\_pyrtri} & \texttt{n, p} & Triangular-base, with a sharp or blunted apex.\\
-\texttt{gen\_pyrstar} & \texttt{n, p} & Star-shaped base, with a sharp or blunted apex.\\
+\texttt{gen\_mobius} & \texttt{n} & Möbius strip in $3\text{-}D$.\\
+\texttt{gen\_quadratic} & \texttt{n} & Quadratic pattern in $2\text{-}D$.\\
+\texttt{gen\_cubic} & \texttt{n} & Cubic pattern in $2\text{-}D$.\\
+\texttt{gen\_pyrrect} & \texttt{n, p, l\_vec, rt} & Rectangular-base, with a sharp or blunted apex.\\
+\texttt{gen\_pyrtri} & \texttt{n, p, h, l, rt} & Triangular-base, with a sharp or blunted apex.\\
+\texttt{gen\_pyrstar} & \texttt{n, p, h, rb} & Star-shaped base, with a sharp or blunted apex.\\
 \texttt{gen\_pyrfrac} & \texttt{n, p} & Pyramid with triangular pyramid-shaped holes.\\
 \texttt{gen\_scurve} & \texttt{n} & S-curve in $3   ext{-}D$.\\
 \texttt{gen\_circle} & \texttt{n, p} & Circle.\\
@@ -161,6 +161,10 @@ Argument & Type (positive) & Explanation\\
 \texttt{hc} & real value & Steepness and vertical scaling of the hyperbola.\\
 \addlinespace
 \texttt{non\_fac} & real value & Strength of this sinusoidal effect.\\
+\texttt{l} & real value & Base length of the pyramid.\\
+\texttt{l\_vec} & real values & Base lengths along the and y of the pyramid.\\
+\texttt{rt} & real value & Tip radius of the pyramid.\\
+\texttt{rb} & real value & Base radius of the pyramid.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -295,7 +299,7 @@ A pyramid structure (Figure \ref{fig:pyr-proj}) represents data arranged around 
 
 Let \(X_1, \dots, X_p\) denote the coordinates of the generated points. For the rectangular, triangular, and star-shaped based pyramid generator functions, the final dimension, \(X_p\), encodes the height of each point and is drawn from an exponential distribution capped at the maximum height \(h\). That is, \(X_p = z \sim \min\left(\text{Exp}(\lambda = 2/h),\ h\right).\) This distribution creates a natural skew toward smaller height values, resulting in a denser concentration of points near the pyramid's apex. For the star-shaped base pyramid, the final dimension is drawn from a uniform distribution. That is, \(X_p = z \sim U(0, h)\).
 
-The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, \texttt{gen\_pyrrect(n,\ p,\ h,\ l\_vec,\ rt)} (Figure \ref{fig:pyr-proj} a) the base shape is a rectangle whose size shrinks linearly with height. Let \(l_x\) and \(l_y\) denote the half-widths of the rectangular base in the \(X_1\) and \(X_2\) directions, specified via \(l=(l_x,l_y)\), and let \(r_t\) denote the half-width at the pyramid tip. At height \(z\in [0,h]\), the half-widths of the rectangular cross-section are \(r_x(z) = r_t + (l_x - r_t)z/h\), \(r_y(z) = r_t + (l_y - r_t)z/h\). The first three coordinates are then defined as \(X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z))\).
+The remaining dimensions are based on the specific pyramid shape. For the rectangular based pyramid, \texttt{gen\_pyrrect(n,\ p,\ h,\ l\_vec,\ rt)} (Figure \ref{fig:pyr-proj} a) the base shape is a rectangle whose size shrinks linearly with height. Let \(l_x\) and \(l_y\) denote the half-widths of the rectangular base in the \(X_1\) and \(X_2\) directions, specified via \(l_{vec}=(l_x,l_y)\), and let \(r_t\) denote the half-width at the pyramid tip. At height \(z\in [0,h]\), the half-widths of the rectangular cross-section are \(r_x(z) = r_t + (l_x - r_t)z/h\), \(r_y(z) = r_t + (l_y - r_t)z/h\). The first three coordinates are then defined as \(X_1 \sim U(-r_x(z),\ r_x(z)), \quad X_2 \sim U(-r_y(z),\ r_y(z)),\text{ and }X_3 \sim U(-r_x(z),\ r_x(z))\).
 
 For the triangular based pyramid, \texttt{gen\_pyrtri(n,\ p,\ h,\ l,\ rt)} (Figure \ref{fig:pyr-proj} b), let \(r(z)\) denote the scaling factor (distance from the origin to triangle vertices) at height \(z\). That is, \(r(z) = r_t + (l-r_t)z/h\). A point in the triangle at height \(z\) is generated using barycentric coordinates \((u, v)\) to ensure uniform sampling within the triangular cross-section: \(u, v \sim U(0, 1), \quad \text{if } u + v > 1: u \leftarrow 1 - u,\ v \leftarrow 1 - v\). The first three coordinates (triangle plane) are then: \(X_1 = r(z)(1 - u - v)\), \(X_2 = r(z)u\), and \(X_3 = r(z)v.\)
 
