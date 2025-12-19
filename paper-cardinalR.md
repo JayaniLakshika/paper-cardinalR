@@ -1,7 +1,7 @@
 ---
 title: 'cardinalR: Generating Interesting High-Dimensional Data Structures'
 description: |
-  Simulated high dimensional data is useful for testing, validating, and improving algorithms used in dimensionality reduction, supervised and unsupervised learning. High-dimensional data is characterized by multiple variables that are dependent or associated in some way, such as linear, nonlinear, clustering or anomalies. Here we provide new methods for generating a variety of high-dimensional structures using mathematical functions and statistical distributions organized into the R package cardinalR. Several example data sets are also provided. These will be useful for researchers to better understand how different analytical methods work and can be improved, with a special focus on nonlinear dimension reduction methods. This package enriches the existing toolset of benchmark datasets for evaluating algorithms.
+  Simulated high dimensional data is useful for testing, validating, and improving algorithms used in dimension reduction, supervised and unsupervised learning. High-dimensional data is characterized by multiple variables that are dependent or associated in some way, such as linear, nonlinear, clustering or anomalies. Here we provide new methods for generating a variety of high-dimensional structures using mathematical functions and statistical distributions organized into the R package cardinalR. Several example data sets are also provided. These will be useful for researchers to better understand how different analytical methods work and can be improved, with a special focus on nonlinear dimension reduction methods. This package enriches the existing toolset of benchmark datasets for evaluating algorithms.
 draft: yes
 author:
 - name: Jayani P. Gamage
@@ -95,9 +95,9 @@ The current work implemented in the `cardinalR` R package builds on these approa
 
 The motivation for developing this package originated from our own work in studying nonlinear dimension reduction (NLDR) algorithms. We wanted to conduct a visualization experiment to understand perception and misperception of a variety of NLDR methods. This required simulated datasets with carefully controlled geometric and clustering properties. While some existing packages provided useful starting points, none fully supported the creation of flexible, high-dimensional data with the specific structural variations needed for our experiment. Developing these generators for research purposes underlies `cardinalR`, which is now a general-purpose package that should be useful for research and teaching.
 
-The example data structures are best viewed using a tour [@As85]. These show the data as a sequence of low dimensional projections (typically 2D), providing a good sense of the shape in high dimensions. The interactive tour plots included in this paper are produced using the software langevitour [@paul2023].
+The example data structures are best viewed using a tour [@As85]. These show the data as a sequence of low dimensional projections (typically $2\text{-}D$), providing a good sense of the shape in high dimensions. The interactive tour plots included in this paper are produced using the software `langevitour` [@paul2023].
 
-The paper is organized as follows. In the next section, we introduce the implementation of the `cardinalR` package on GitHub, including a demonstration of the package's key functions. We illustrate how a clustering data structure affects the dimension reductions in the Application section. Finally, we give a brief conclusion of the paper and discuss potential opportunities for the use of our data collection.
+The next section provides an overview of the usage of the `cardinalR` package, illustrating how its modular components can be combined to generate complex high-dimensional datasets. This is followed by a section describing the implementation of the package, including its design principles and key functions. The Application section then demonstrates how the simulated clustering structures can be used to evaluate and compare dimension reduction and clustering methods. Finally, we give a brief conclusion of the paper and discuss potential opportunities for the use of our data collection.
 
 # Usage
 
@@ -533,7 +533,7 @@ Gaussian clouds are common benchmark structures in statistics and machine learni
 
 <!-- The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a long linear structure with noise. Each variable is formed as $X_i = \text{scale}_i \cdot (0,1,\dots,n{-}1 + \epsilon) + \text{shift}_i$, where $\text{scale}\_i \sim U(-10, 10)$ determines the orientation of the line in each dimension, $\text{shift}\_i \sim U(-300, 300)$ offsets the line to separate dimensions, and $\epsilon \sim N(0, (0.03n)^2)$ introduces Gaussian noise.  -->
 
-The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a single noisy linear trajectory. Let $t_i = i - 1, \quad i = 1, \dots, n$, denote a common latent index shared across all dimensions. For each dimension $j = 1, \dots, p)$, independent scale and shift parameters are sampled as $a_j \sim U(-10, 10), \qquad b_j \sim U(-300, 300)$. Gaussian noise $\varepsilon_{ij} \sim N(0, (0.03n)^2)$ is added independently across observations and dimensions. The observed variables are then defined as $X_{ij} = a_j \bigl(t_i + b_j + \varepsilon_{ij}\bigr), \quad i = 1, \dots, n$.cThis construction yields a single elongated linear structure embedded in $p\text{-}D$, with each dimension exhibiting a different orientation, scale, and offset.
+The `gen_longlinear(n, p)` function generates a high-dimensional dataset representing a single noisy linear trajectory. Let $t_i = i - 1, \quad i = 1, \dots, n$, denote a common latent index shared across all dimensions. For each dimension $j = 1, \dots, p)$, independent scale and shift parameters are sampled as $a_j \sim U(-10, 10), \qquad b_j \sim U(-300, 300)$. Gaussian noise $\varepsilon_{ij} \sim N(0, (0.03n)^2)$ is added independently across observations and dimensions. The observed variables are then defined as $X_{ij} = a_j \bigl(t_i + b_j + \varepsilon_{ij}\bigr), \quad i = 1, \dots, n$. This construction yields a single elongated linear structure embedded in $p\text{-}D$, with each dimension exhibiting a different orientation, scale, and offset.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -557,7 +557,7 @@ The Möbius strip structure can model twisted or cyclic surfaces in physics and 
 
 ### Polynomial
 
-A polynomial structure generates data points that follow non-linear curvilinear relationships, such as quadratic or cubic trends, in  space. To extend these patterns into high-dimensional settings, additional noise dimensions can be added. These patterns are useful for evaluating how well algorithms capture smooth, non-linear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. 
+A polynomial structure generates data points that follow nonlinear curvilinear relationships, such as quadratic or cubic trends, in $2\text{-}D$ space. To extend these patterns into high-dimensional settings, additional noise dimensions can be added. These patterns are useful for evaluating how well algorithms capture smooth, nonlinear trajectories and curvature in the data. We provide functions for generating quadratic and cubic structures, enabling controlled experiments with different degrees of polynomial complexity. 
 
 The first is the quadratic curve of $n$ points in two dimensions. This is generated using `gen_quadratic(n, range)`. Let $range = [a, b]$. The independent variable is defined as $X_1 \sim U(a, b)$, and the response is generated as $X_2 = X_1 - X_1^2 + \varepsilon$, where $\varepsilon \sim U(0, 0.5)$. This produces a smooth parabolic arc opening downward, with vertical jitter introduced by the noise term.
 
@@ -829,7 +829,7 @@ Together, these define a periodic, non-trivial, closed curve in $3\text{-}D$ wit
 </div>
 
 
-Building on simple circular structures, the `gen_unifsphere(n, r)` function function extends the idea to three dimensions by generating $n$ observations approximately uniformly distributed on the surface of a sphere of radius $r$.. Each observation is computed from spherical coordinates, with $u \sim U(-1, 1)$ representing $\cos(\phi)$ and $\theta \sim U(0, 2\pi)$ the azimuthal angle. Cartesian coordinates are then defined as $$X_1 = r\sqrt{1 - u^2}\cos(\theta), \quad X_2 = r\sqrt{1 - u^2}\sin(\theta),\text{ and }X_3 = ru,$$ ensuring uniform distribution on the surface (not within) of the sphere. 
+Building on simple circular structures, the `gen_unifsphere(n, r)` function extends the idea to three dimensions by generating $n$ observations approximately uniformly distributed on the surface of a sphere of radius $r$. Each observation is computed from spherical coordinates, with $u \sim U(-1, 1)$ representing $\cos(\phi)$ and $\theta \sim U(0, 2\pi)$ the azimuthal angle. Cartesian coordinates are then defined as $$X_1 = r\sqrt{1 - u^2}\cos(\theta), \quad X_2 = r\sqrt{1 - u^2}\sin(\theta),\text{ and }X_3 = ru,$$ ensuring uniform distribution on the surface (not within) of the sphere. 
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -845,7 +845,7 @@ In contrast, the `gen_hollowsphere(n, p)` function, a wrapper around `geozoo::sp
 </div>
 
 
-In addition, the `gen_gridedsphere(n)` function constructs a $p$-dimensional dataset consisting of approximately $n$ points arranged on the surface of the unit $(p-1)\text{-}D$ sphere embedded in $\mathbb{R}^p$ (Figure \@ref(fig:sphere) d). Rather than sampling points uniformly, this function creates a deterministic grid in spherical coordinates, using $(p-1)$ angular variables: the first $(p-2)$ angles are taken from $[0, \pi]$, and the final angle from $[0, 2\pi]$. The number of grid points along each angular dimension is determined by decomposing $n$ into $(p-1)$ approximately equal integer factors via `gen_nproduct(n, p - 1)`. 
+In addition, the `gen_gridedsphere(n)` function constructs a $p$-dimensional dataset consisting of approximately $n$ points arranged on the surface of the unit $(p-1)$-sphere embedded in $\mathbb{R}^p$ (Figure \@ref(fig:sphere) d). Rather than sampling points uniformly, this function creates a deterministic grid in spherical coordinates, using $(p-1)$ angular variables: the first $(p-2)$ angles are taken from $[0, \pi]$, and the final angle from $[0, 2\pi]$. The number of grid points along each angular dimension is determined by decomposing $n$ into $(p-1)$ approximately equal integer factors via `gen_nproduct(n, p - 1)`. 
 
 Each grid point is subsequently mapped into Cartesian space via the standard hyperspherical-to-Cartesian transformation,
 
@@ -1068,7 +1068,7 @@ First, the `gen_crescent(n, p)` function generates a $p$-dimensional dataset of 
 </div>
 
 
-Second, the `gen_curvycylinder(n, p, h)` function generates a $p$-dimensional dataset of $n$ observations structured as a $3\text{-}D$ cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when $p > 4$ (Figure \@ref(fig:triginometric) b). The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension. Let $\theta \sim U(0, 3\pi)$ represent a random angle on a circular base and $z \sim U(0, h)$ represent the height along the cylinder. The coordinates are defined as: $X_1 = \cos(\theta)$ (Circular base, x-axis), $X_2 = \sin(\theta)$ (Circular base, y-axis), $X_3 = z$ (Linear height), and $X_4 = \sin(z)$ (Nonlinear curvy variation along height).  
+Second, the `gen_curvycylinder(n, p, h)` function generates a $p\text{-}D$ dataset of $n$ observations structured as a $3\text{-}D$ cylindrical manifold with an added nonlinear curvy dimension, and optional noise dimensions when $p > 4$ (Figure \@ref(fig:triginometric) b). The core structure consists of a circular base and height values, extended by a nonlinear fourth dimension. Let $\theta \sim U(0, 3\pi)$ represent a random angle on a circular base and $z \sim U(0, h)$ represent the height along the cylinder. The coordinates are defined as: $X_1 = \cos(\theta)$ (Circular base, x-axis), $X_2 = \sin(\theta)$ (Circular base, y-axis), $X_3 = z$ (Linear height), and $X_4 = \sin(z)$ (Nonlinear curvy variation along height).  
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1172,7 +1172,7 @@ Similarly, the `gen_conicspiral(n, p, spins)` function generates a dataset of $n
 </div>
 
 
-Finally, the `gen_nonlinear(n, p, hc, non_fac)` function simulates a non-linear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables (Figure \@ref(fig:triginometric) f). The $X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors), $X_{3} \sim U(0.1, 0.8)$: independent auxiliary variable, $X_{2} = hc/X_{1} + \text{non\_fac}\sin(X_{1})$: non-linear combination of hyperbolic and sinusoidal transformations, creating sharp curvature and oscillation, and $X_{4} = \cos(\pi X_{1}) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure. These transformations together result in a non-linear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter. 
+Finally, the `gen_nonlinear(n, p, hc, non_fac)` function simulates a nonlinear $2\text{-}D$ surface embedded in higher dimensions, constructed using inverse and trigonometric transformations applied to independent variables (Figure \@ref(fig:triginometric) f). The $X_{1} \sim U(0.1, 2)$: base variable (avoids zero to prevent division errors), $X_{3} \sim U(0.1, 0.8)$: independent auxiliary variable, $X_{2} = hc/X_{1} + \text{non\_fac}\sin(X_{1})$: nonlinear combination of hyperbolic and sinusoidal transformations, creating sharp curvature and oscillation, and $X_{4} = \cos(\pi X_{1}) + \varepsilon$, with $\varepsilon \sim U(-0.1, 0.1)$: additional nonlinear variation based on cosine, simulating more subtle periodic structure. These transformations together result in a nonlinear surface warped in multiple ways: sharp vertical shifts due to inverse terms, smooth waves from sine and cosine, and additional jitter. 
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1248,7 +1248,7 @@ Two specialized wrappers illustrate this idea. The function `gen_scurvehole(n, r
 
 ## Generate noise dimensions
 
-High-dimensional data structures often benefit from the addition of auxiliary noise dimensions, which can be used to assess the robustness of dimensionality reduction and clustering algorithms. The functions in this section provide flexible ways to generate random noise dimensions, ranging from purely random Gaussian variables to more structured, wavy patterns that mimic non-linear distortions in high-dimensional space. These functions can be applied independently or combined with other geometric structures to create complex simulated datasets. Table \@ref(tab:noise-tb-html) details these functions.
+High-dimensional data structures often benefit from the addition of auxiliary noise dimensions, which can be used to assess the robustness of dimension reduction and clustering algorithms. The functions in this section provide flexible ways to generate random noise dimensions, ranging from purely random Gaussian variables to more structured, wavy patterns that mimic nonlinear distortions in high-dimensional space. These functions can be applied independently or combined with other geometric structures to create complex simulated datasets. Table \@ref(tab:noise-tb-html) details these functions.
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1292,7 +1292,7 @@ $$
 
 where each dimension is scaled by a different factor $\alpha_j$, producing structured noise that oscillates along the latent parameter $\theta$, mimicking trends or trajectories observed in real-world data.
 
-The `gen_wavydims2(n, p, x_1)` function extends this approach by applying a non-linear transformation to an existing dimension vector $x_1$:
+The `gen_wavydims2(n, p, x_1)` function extends this approach by applying a nonlinear transformation to an existing dimension vector $x_1$:
 
 $$
 X_j = \beta_j \, (-1)^{\lfloor j/2 \rfloor} \, x_1^{k_j} + \varepsilon_j, \quad j = 1, \dots, p,
@@ -1300,7 +1300,7 @@ $$
 
 where $k_j$ is a randomly chosen polynomial power, $\beta_j$ is a scaling factor, and $\varepsilon_j$ is small uniform noise.
 
-Finally, `gen_wavydims3(n, p, data)` generates noise for datasets with multiple correlated dimensions. The first three dimensions are small perturbations of the original coordinates $(X_1, X_2, X_3)$, while higher dimensions are constructed via non-linear combinations, including polynomial and trigonometric transformations, e.g.,
+Finally, `gen_wavydims3(n, p, data)` generates noise for datasets with multiple correlated dimensions. The first three dimensions are small perturbations of the original coordinates $(X_1, X_2, X_3)$, while higher dimensions are constructed via nonlinear combinations, including polynomial and trigonometric transformations, e.g.,
 
 $$
 X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j > 3,
@@ -1462,8 +1462,8 @@ We applied six popular DR techniques to the generated dataset: Principal Compone
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
-<img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="A multi-panel figure compares 2-D scatterplots from six nonlinear dimensionality reduction methods applied to the same dataset with five true clusters. Each panel plots the first embedding dimension on the horizontal axis and the second embedding dimension on the vertical axis. Points represent individual observations and are coloured by cluster membership, with six distinct cluster colours reused consistently across panels. In the tSNE panel, clusters form compact, clearly separated groups with small gaps between clusters, indicating strong preservation of both local neighbourhoods and the global cluster layout. UMAP and PaCMAP also show six visibly distinct clusters that are moderately well separated but with slightly more overlap and distortion than tSNE. PHATE produces curved, nonlinear cluster shapes where clusters are stretched or intertwined, obscuring the original simple cluster geometry. TriMAP collapses the data into three main visible groups instead of six, with only small distances between these groups, suggesting loss of finer cluster structure. PCA displays the weakest structure: clusters overlap substantially and align along a roughly linear or planar trend, failing to reflect the underlying non-linear separation among the six groups." width="100%" />
-<p class="caption">(\#fig:fig-nldr-layouts)Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Colour is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and layout a shows close clusters, thus layout a is the best choice.</p>
+<img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="A multi-panel figure compares 2-D scatterplots from six nonlinear dimensionality reduction methods applied to the same dataset with five true clusters. Each panel plots the first embedding dimension on the horizontal axis and the second embedding dimension on the vertical axis. Points represent individual observations and are colored by cluster membership, with six distinct cluster colors reused consistently across panels. In the tSNE panel, clusters form compact, clearly separated groups with small gaps between clusters, indicating strong preservation of both local neighbourhoods and the global cluster layout. UMAP and PaCMAP also show six visibly distinct clusters that are moderately well separated but with slightly more overlap and distortion than tSNE. PHATE produces curved, nonlinear cluster shapes where clusters are stretched or intertwined, obscuring the original simple cluster geometry. TriMAP collapses the data into three main visible groups instead of six, with only small distances between these groups, suggesting loss of finer cluster structure. PCA displays the weakest structure: clusters overlap substantially and align along a roughly linear or planar trend, failing to reflect the underlying non-linear separation among the six groups." width="100%" />
+<p class="caption">(\#fig:fig-nldr-layouts)Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Color is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and layout a shows close clusters, thus layout a is the best choice.</p>
 </div>
 
 </div>
@@ -1471,7 +1471,7 @@ We applied six popular DR techniques to the generated dataset: Principal Compone
 
 To assess their performance, we computed the hexbin error (HBE) between the observed high-dimensional data and the fitted values, defined as the high-dimensional mappings of the bin centroids [@gamage2025c]. A lower HBE indicates that the method better preserves the high-dimensional structure in its low-dimensional embedding.
 
-As shown in Figure \@ref(fig:fig-nldr-layouts), tSNE (Figure \@ref(fig:fig-nldr-layouts) a) achieved the lowest HBE across bin widths (mostly tiny), indicating high preservation of both local and global structures. Its layout displays well-separated clusters with minimal inter-cluster distances, making it the most faithful representation of the underlying data structure. UMAP and PaCMAP (Figure \@ref(fig:fig-nldr-layouts) b and e) produced moderately accurate embeddings, although the six clusters appear more well-separated, while PHATE (Figure \@ref(fig:fig-nldr-layouts) c) show non-linear cluster structures irrespective of the original structure. Also, TriMAP (Figure \@ref(fig:fig-nldr-layouts) d) has high HBE, and show three clusters with small distances. PCA (Figure \@ref(fig:fig-nldr-layouts) f) failed to capture the non-linear geometry, leading to the highest HBE.
+As shown in Figure \@ref(fig:fig-nldr-layouts), tSNE (Figure \@ref(fig:fig-nldr-layouts) a) achieved the lowest HBE across bin widths (mostly tiny), indicating high preservation of both local and global structures. Its layout displays well-separated clusters with minimal inter-cluster distances, making it the most faithful representation of the underlying data structure. UMAP and PaCMAP (Figure \@ref(fig:fig-nldr-layouts) b and e) produced moderately accurate embeddings, although the six clusters appear more well-separated, while PHATE (Figure \@ref(fig:fig-nldr-layouts) c) show nonlinear cluster structures irrespective of the original structure. Also, TriMAP (Figure \@ref(fig:fig-nldr-layouts) d) has high HBE, and show three clusters with small distances. PCA (Figure \@ref(fig:fig-nldr-layouts) f) failed to capture the non-linear geometry, leading to the highest HBE.
 
 ## Benchmarking clustering algorithms
 
@@ -1511,7 +1511,7 @@ Figure \@ref(fig:fig-cluster-stats) shows a selection of cluster metrics for $2-
 </div>
 ```
 
-<p class="caption">(\#fig:highd-data-clusters-algo-html)Views of the five-cluster synthetic dataset coloured by the $k$-means four- and five-cluster solutions. These show how the five true structures: helical spiral, hemisphere, uniform cube, blunted cone, and Gaussian-shaped cluster appear under $k$-means partitions. Both the $4$- and $5$-cluster solutions mix colours, revealing substantial misclassification and limited ability of $k$-means to recover the underlying geometric structure.</p>
+<p class="caption">(\#fig:highd-data-clusters-algo-html)Views of the five-cluster synthetic dataset colored by the $k$-means four- and five-cluster solutions. These show how the five true structures: helical spiral, hemisphere, uniform cube, blunted cone, and Gaussian-shaped cluster appear under $k$-means partitions. Both the $4$- and $5$-cluster solutions mix colors, revealing substantial misclassification and limited ability of $k$-means to recover the underlying geometric structure.</p>
 </div>
 
 </div>
@@ -1559,7 +1559,7 @@ Figure \@ref(fig:fig-cluster-stats) shows a selection of cluster metrics for $2-
 </div>
 
 
-Figure \@ref(fig:highd-data-clusters-algo-html) shows the four- and five-cluster $k$-means solutions, with cluster id used to colour the points. Neither solution captures the geometric nature of the true clusters, but they are both reasonable partitions of the data. To examine either one, it is best to subset to a single cluster to view in the tour. With each solution, the five original shapes are each split by the clustering. More than 5 clusters would be needed to better capture the original shapes.
+Figure \@ref(fig:highd-data-clusters-algo-html) shows the four- and five-cluster $k$-means solutions, with cluster id used to color the points. Neither solution captures the geometric nature of the true clusters, but they are both reasonable partitions of the data. To examine either one, it is best to subset to a single cluster to view in the tour. With each solution, the five original shapes are each split by the clustering. More than 5 clusters would be needed to better capture the original shapes.
 
 # Conclusion
 
