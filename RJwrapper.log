@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.19)  19 DEC 2025 16:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.19)  19 DEC 2025 21:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -790,12 +790,12 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 [1{/Users/jpiy0001/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 {/Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
-<figures/cardinalR_workflow.png, id=105, 1289.65816pt x 1267.97716pt>
-File: figures/cardinalR_workflow.png Graphic file (type png)
-<use figures/cardinalR_workflow.png>
-Package pdftex.def Info: figures/cardinalR_workflow.png  used on input line 33.
+<../../../../../../private/var/folders/4d/q_zhr19n0z7d8hx3xblybm8rjpxby3/T/RtmpRmAUiT/file794b45c38a65.png, id=105, 1289.65816pt x 1267.97716pt>
+File: ../../../../../../private/var/folders/4d/q_zhr19n0z7d8hx3xblybm8rjpxby3/T/RtmpRmAUiT/file794b45c38a65.png Graphic file (type png)
+<use ../../../../../../private/var/folders/4d/q_zhr19n0z7d8hx3xblybm8rjpxby3/T/RtmpRmAUiT/file794b45c38a65.png>
+Package pdftex.def Info: ../../../../../../private/var/folders/4d/q_zhr19n0z7d8hx3xblybm8rjpxby3/T/RtmpRmAUiT/file794b45c38a65.png  used on input line 33.
 (pdftex.def)             Requested size: 318.67207pt x 313.31744pt.
-[2 <./figures/cardinalR_workflow.png>]
+[2 <../../../../../../private/var/folders/4d/q_zhr19n0z7d8hx3xblybm8rjpxby3/T/RtmpRmAUiT/file794b45c38a65.png>]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
 (Font)              scaled to size 10.42007pt on input line 72.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
@@ -945,8 +945,8 @@ Package pdftex.def Info: paper-cardinalR_files/figure-latex/highd-proj-clust-alg
 Overfull \vbox (19.02911pt too high) has occurred while \output is active []
 
 [19 <./paper-cardinalR_files/figure-latex/fig-cluster-stats-1.pdf> <./paper-cardinalR_files/figure-latex/highd-proj-clust-algo-pdf-1.pdf>]
-Overfull \hbox (37.32867pt too wide) in paragraph at lines 603--604
-\T1/ppl/m/n/9 (-20) ti-cle is cre-ated us-ing [][]\T1/ppl/b/n/9 (-20) knitr[][] \T1/ppl/m/n/9 (-20) ([][][]Xie[][], [][]2015[][]) and [][]\T1/ppl/b/n/9 (-20) rmark-down[][] \T1/ppl/m/n/9 (-20) ([][][]Xie et al.[][], [][]2018[][]) in R with the \T1/zi4/m/n/9 rjtools::rjournal_article
+Overfull \hbox (75.75745pt too wide) in paragraph at lines 603--604
+\T1/ppl/m/n/9 (-20) The source ma-te-rial for this pa-per, in-clud-ing the full datasets and fig-ures, is avail-able at [][]github.com/JayaniLakshika/paper-
  []
 
 (./RJwrapper.bbl (./RJwrapper.brf)
@@ -974,18 +974,18 @@ Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
 (rerunfilecheck)             Checksum: EC33693E23B13276960AF47B328A97D3;2671.
  ) 
 Here is how much of TeX's memory you used:
- 27790 strings out of 469476
- 507907 string characters out of 5467623
+ 27793 strings out of 469476
+ 508759 string characters out of 5467623
  943708 words of memory out of 5000000
  55420 multiletter control sequences out of 15000+600000
- 695651 words of font info for 414 fonts, out of 8000000 for 9000
+ 695736 words of font info for 416 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  117i,14n,131p,2011b,901s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (23 pages, 9874431 bytes).
+Output written on RJwrapper.pdf (23 pages, 9874479 bytes).
 PDF statistics:
- 703 PDF objects out of 1000 (max. 8388607)
- 617 compressed objects within 7 object streams
+ 705 PDF objects out of 1000 (max. 8388607)
+ 619 compressed objects within 7 object streams
  105 named destinations out of 1000 (max. 500000)
  78524 words of extra memory for PDF output out of 89155 (max. 10000000)
 
