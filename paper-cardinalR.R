@@ -2310,7 +2310,7 @@ five_clusts_proj1_2 <- plot_proj(
   proj_obj = proj_obj1, 
   point_param = c(1.5, 0.2), # size, alpha, color
   plot_limits = c(-0.5, 0.5), 
-  title = "a1", 
+  title = "b1", 
   cex = 2, 
   axis_text_size = 4,
   is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
@@ -2338,7 +2338,7 @@ five_clusts_proj2_2 <- plot_proj(
   proj_obj = proj_obj2, 
   point_param = c(1.5, 0.2), # size, alpha, color
   plot_limits = c(-0.5, 0.67), 
-  title = "a2", 
+  title = "b2", 
   cex = 2, 
   axis_text_size = 4,
   is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
@@ -2365,7 +2365,7 @@ five_clusts_proj3_2 <- plot_proj(
   proj_obj = proj_obj3, 
   point_param = c(1.5, 0.2), # size, alpha, color
   plot_limits = c(-0.45, 0.55), 
-  title = "a3", 
+  title = "b3", 
   cex = 2, 
   axis_text_size = 4,
   is_color = TRUE) + scale_color_manual(values = c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e')) +
