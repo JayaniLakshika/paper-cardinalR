@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2025-12-19'
+date: '2026-04-04'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -1463,7 +1463,7 @@ We applied six popular DR techniques to the generated dataset: Principal Compone
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure">
 <img src="paper-cardinalR_files/figure-html5/fig-nldr-layouts-1.png" alt="A multi-panel figure compares 2-D scatterplots from six nonlinear dimensionality reduction methods applied to the same dataset with five true clusters. Each panel plots the first embedding dimension on the horizontal axis and the second embedding dimension on the vertical axis. Points represent individual observations and are colored by cluster membership, with six distinct cluster colors reused consistently across panels. In the tSNE panel, clusters form compact, clearly separated groups with small gaps between clusters, indicating strong preservation of both local neighbourhoods and the global cluster layout. UMAP and PaCMAP also show six visibly distinct clusters that are moderately well separated but with slightly more overlap and distortion than tSNE. PHATE produces curved, nonlinear cluster shapes where clusters are stretched or intertwined, obscuring the original simple cluster geometry. TriMAP collapses the data into three main visible groups instead of six, with only small distances between these groups, suggesting loss of finer cluster structure. PCA displays the weakest structure: clusters overlap substantially and align along a roughly linear or planar trend, failing to reflect the underlying non-linear separation among the six groups." width="100%" />
-<p class="caption">(\#fig:fig-nldr-layouts)Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PAHTE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Color is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and layout a shows close clusters, thus layout a is the best choice.</p>
+<p class="caption">(\#fig:fig-nldr-layouts)Assessing which of the 6 NLDR layouts ((a) tSNE, (b) UMAP, (c) PHATE, (d) TriMAP, (e) PaCMAP, and (f) PCA) of the five clusters data is the better representation using HBE for varying binwidth ($a_1$). Color is used for the lines and points in the left plot to match the scatterplots of the NLDR layouts (a-f). Layout f is universally poor. Layouts a and b are universally optimal. Layout b shows six well-separated clusters and layout a shows close clusters, thus layout a is the best choice.</p>
 </div>
 
 </div>
