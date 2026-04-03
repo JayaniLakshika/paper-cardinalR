@@ -54,69 +54,117 @@ Location notation. Throughout this report, locations in the manuscript are refer
 
 This paper presents cardinalR, an R package for generating synthetic high-dimensional datasets with controlled geometric properties. The package provides a library of shape generators (branching structures, cones, cubes, pyramids, spheres, spirals, trefoil knots, and others) along with a main orchestration function, gen_multicluster(), that combines multiple shapes into a single multi cluster dataset with user-specified centroids, scaling, rotation, and background noise. 
 The contribution is computational. The package fills a genuine gap in the R ecosystem: while existing packages (geozoo, snedata, mlbench) provide individual shape generators, none offers a unified framework for composing multi-cluster scenes with heterogeneous geometries in a controlled high-dimensional setting. 
+
 Strengths. The compositional framework implemented by gen_multicluster() is the most original and useful contribution of this work. The ability to combine arbitrary shapes with inde pendent control of location, scale, and rotation is genuinely valuable for benchmarking nonlinear dimension reduction and clustering methods. The variety of generators is broad, and the mathemat ical documentation of each generator is more detailed than what is available in competing packages. The package is available on CRAN and GitHub with a pkgdown website. 
+
 Weaknesses. The paper has several significant issues that need to be addressed before pub lication. First, the paper is too long and reads like a catalog. Second, the Application section (Section 4) is weak. The example uses only 4 dimensions, which is unrepresentative for a package that emphasizes “high-dimensional” data. Third, there are issue with the companion script and other coding issues
 Recommendation. I recommend major revision. The core contribution—the compositional framework and the original generators—has sufficient value for publication in The R Journal. How ever, the paper requires substantial restructuring. The issues detailed below should be addressed thoroughly. 
 
 ## Major Issues 
 
 M1. Section 2 (Usage) should be eliminated and its content redistributed. Section 2 (P2–P3) contains a single code example for gen_multicluster(), Table 1 (arguments), and Figure 1 (workflow diagram). This material does not stand on its own. Removing Section 2 would reduce the paper length (currently 23 pages, exceeding the R Journal’s 20-page guide line) without any loss of content. 
+
 M2. Section 3 (Implementation) is too long and does not distinguish original contribu tions from wrappers. Section 3 spans approximately 13 pages and treats every generator with the same level of detail, regardless of whether it is a genuinely new contribution or a thin wrapper around an existing function. For instance, gen_mobius() is declared as a wrapper around geozoo::mobius(), gen_gridcube() wraps geozoo::cube.solid.grid(), etc. These should be acknowledged briefly (a line or two each), with their full details relegated to the package documentation or a supplementary file. The paper body should reserve detailed expo sition for generators that are genuinely new: the branching families, pyramids, spirals, trefoil knots, the hole-generation mechanism, and above all gen_multicluster() itself. This re structuring would simultaneously solve the length problem, reduce the catalog-like monotony of the current Section 3, and make the paper’s actual contribution much clearer. 
+
 M3. Section 3 contains numerous undefined parameters, notational inconsistencies, and apparent errors. A non-exhaustive list: 
-• P5/T: In gen_linearbranches, δ (jitter) is never defined and is not a function argument. Same for smin, smax. 
-• P6/B: The parameter ratio is described as “radius tip to radius base ratio” (Table 3) but is used as an absolute value rmin, not as a ratio. 
-• P8/T: In gen_pyrrect, coordinates X1 and X3 are given the same distribution? • P9/B–P10/T: For gen_unifsphere, the text first says points are on the surface of a sphere, then states it produces a “solid ball.” These are contradictory. 
-• P10/B: In gen_clusteredspheres, the parameters n1, n2, r1, r2 used in the text do not match the function signature (n, k, r, loc) from Table 2. 
-• P15/T: In gen_noisedims, the sign-alternation of odd dimensions is described as avoiding “directional drift,” does it make sense for zero-mean Gaussian variables? 
-2
-• P15/M: gen_wavydims1 generates Xj = αjθ + ϵj , which is linear—not “wavy.” 
-• Throughout: the notation for random variables oscillates among Xj , xj , Xij , and R column names x1, x2 without a declared convention. 
-• There are other issues like the previous. The authors are suggested to make a systematic scan across the paper and scripts submitted. 
-M4. Section 4 (Application) does not adequately demonstrate the package and draws unsupported conclusions. Several specific problems: 
-• The example dataset uses only 4 dimensions, no rotation, and no noise dimensions. For a package whose title emphasizes high-dimensional data, this is unrepresentative. 
-• The six DR methods (P17/M) are applied without specifying hyperparameters. The companion script reveals some parameters via the file names of pre-computed RDS files (e.g., perplexity 30 for t-SNE, k-nearest-neighbors 5 for PHATE), but these are never stated in the paper. This makes the results non-reproducible from the paper alone. 
-• The HBE metric (P17/M) is not defined in the paper. 
-• P17/B: The author claim that t-SNE shows “high preservation of both local and global structures”. Please check it, I doubt it is correct. 
-• P17/B: The text refers to “six clusters” in the UMAP layout, but the dataset has five clusters. 
-• P18/M: Model-based clustering uses the “EII” parameterization (spherical, equal vol ume). Since the clusters are non-spherical by construction, this choice severely penalizes the method. Either justify this choice or include a flexible parameterization (e.g., “VVV”). 
-• The clustering evaluation does not compute any external validity index (ARI, NMI) against the known ground truth. This is a missed opportunity: the main advantage of synthetic data with known labels is precisely that one can measure recovery of the true partition. 
+
+- P5/T: In gen_linearbranches, $\delta$ (jitter) is never defined and is not a function argument. Same for smin, smax. 
+
+- P6/B: The parameter ratio is described as “radius tip to radius base ratio” (Table 3) but is used as an absolute value rmin, not as a ratio. 
+
+- P8/T: In gen_pyrrect, coordinates X1 and X3 are given the same distribution? 
+
+- P9/B–P10/T: For gen_unifsphere, the text first says points are on the surface of a sphere, then states it produces a “solid ball.” These are contradictory.
+
+- P10/B: In gen_clusteredspheres, the parameters n1, n2, r1, r2 used in the text do not match the function signature (n, k, r, loc) from Table 2. 
+
+- P15/T: In gen_noisedims, the sign-alternation of odd dimensions is described as avoiding “directional drift,” does it make sense for zero-mean Gaussian variables? 
+
+- P15/M: gen_wavydims1 generates $X_j = \alpha_j\theta + \epsilon_j$ , which is linear—not “wavy.” 
+
+- Throughout: the notation for random variables oscillates among Xj , xj , Xij , and R column names x1, x2 without a declared convention.
+
+- There are other issues like the previous. The authors are suggested to make a systematic scan across the paper and scripts submitted.
+
+M4. Section 4 (Application) does not adequately demonstrate the package and draws unsupported conclusions. Several specific problems:
+
+- The example dataset uses only 4 dimensions, no rotation, and no noise dimensions. For a package whose title emphasizes high-dimensional data, this is unrepresentative. 
+
+- The six DR methods (P17/M) are applied without specifying hyperparameters. The companion script reveals some parameters via the file names of pre-computed RDS files (e.g., perplexity 30 for t-SNE, k-nearest-neighbors 5 for PHATE), but these are never stated in the paper. This makes the results non-reproducible from the paper alone. 
+
+- The HBE metric (P17/M) is not defined in the paper. 
+
+- P17/B: The author claim that t-SNE shows “high preservation of both local and global structures”. Please check it, I doubt it is correct. 
+
+- P17/B: The text refers to “six clusters” in the UMAP layout, but the dataset has five clusters. 
+
+- P18/M: Model-based clustering uses the “EII” parameterization (spherical, equal vol ume). Since the clusters are non-spherical by construction, this choice severely penalizes the method. Either justify this choice or include a flexible parameterization (e.g., “VVV”). 
+
+- The clustering evaluation does not compute any external validity index (ARI, NMI) against the known ground truth. This is a missed opportunity: the main advantage of synthetic data with known labels is precisely that one can measure recovery of the true partition. 
 I recommend a substantially revised Section 4 that: uses a higher-dimensional scenario; reports DR hyperparameters; defines or replaces HBE; includes standard external cluster validity measures; and demonstrates distinctive features of the package (rotation, noise dimensions, holes). 
+
 M5. Package API mismatch and missing changelog. The paper (Table 1, P3) uses the argument is_bkg for gen_multicluster(), while the current pkgdown vignette (version 1.0.5) uses add_bkg. This discrepancy indicates either the paper describes an outdated API or the package changed after the paper was written. The paper does not state which version of the package was used, which is recommended by R Journal guidelines. Additionally, the 
-3
 NEWS.md file is completely empty across all six CRAN releases—no description of changes, bug fixes, or breaking changes is available to users. 
+
 M6. Companion script is not self-contained. The submitted R script (paper-cardinalR.R) cannot be executed independently. It depends on scripts/additional_functions.R, which is not provided. The DR results and cluster statistics are loaded from pre-computed RDS files hosted on GitHub rather than being computed within the script. The reader can regenerate the figures from those pre-computed objects but cannot verify how they were obtained, with which packages, or with which parameters. Full reproducibility requires that either the complete pipeline be included in the submission or clearly documented in a publicly accessible repository with all dependencies explicit.
 
 ## Minor Issues 
 
 m1. P2/M: The code example for gen_multicluster() is truncated—the closing of the loc matrix and the function call are missing. The reader cannot execute the code as printed. 
+
 m2. P2/T: The paper states the package is “available on CRAN” but does not indicate the version used for the paper, as recommended by R Journal guidelines. 
+
 m3. P3, Table 1: The type of is_bkg is listed as “boolean”; the standard R term is “logical.” The type of rotation is listed as “numeric (list)”—a more precise description would be “list of numeric matrices.” 
+
 m4. P7/T: For gen_unifcube, the removal of cube vertices after generation is stated without motivation. Does this alter the sampling distribution and should be justified? 
+
 m5. P7/B: The noise variance in gen_longlinear scales as (0.03n)2. For n = 1000, the standard deviation is 30, which can dominate the signal depending on aj and bj . Is it intentional? 
+
 m6. P8/M: The range argument of gen_quadratic and gen_cubic does not appear in Tables 2 or 3. 
+
 m7. P9/T: The height distribution for gen_pyrstar is uniform, whereas for the other pyramids it is exponential. The difference is not motivated. 
+
 m8. P9/M: For gen_pyrfrac (chaos game), it is not stated whether a burn-in period is used to discard transient iterates, which is standard practice. 
+
 m9. P9/B: The naming of the Sierpinski-like pyramid is inconsistent: the function is gen_pyrfrac, but Figure 4 and the text refer to it as “pyrholes.” 
-4
+
 m10. P11/M: In gen_swissroll, the parameter w is described as “Vertical variation” (scalar) in Table 3 but used as a two-component vector (w1, w2) in the formula. 
+
 m11. P17/M: The cluster positions are generated with geozoo::simplex(p=4)$points without ex plaining what this produces (5 vertices of a 4-D simplex). The dimensionality of the example (4-D) and the relationship between the simplex vertices and the number of clusters are left entirely implicit. 
+
 m12. P18/M: “Model-based clustering performed the ‘EII’ covariance structure” is grammatically incorrect; it should be “was performed using” or “employed.” 
+
 m13. P1/M: “High-dimensional data is characterized”—“data” takes a plural verb in formal academic English (“data are”). 
+
 m14. P1/B: “resource researchers with synthetic datasets”—“resource” used as a verb is non-standard; “provide” would be appropriate. 
+
 m15. P5/M: Several sentences introducing mathematical formulas do not close grammatically before the displayed equation. 
+
 m16. P18/T, Figure 9 caption: “PAHTE” is a typo for “PHATE.” 
+
 m17. The companion script loads library(tidyverse) (line 21), which is discouraged for repro ducibility scripts. Only the actually needed packages (dplyr, tidyr, ggplot2) should be loaded. 
+
 m18. P20: The Boehmke and Greenwell (2019) reference for k-means is an introductory textbook. A standard reference (e.g., Hartigan and Wong, 1979) would be more appropriate. 
+
 m19. P20: The Devroye (1986) bibliographic entry appears malformed (“originally published with” is truncated). 
+
 m20. P21: The Amid and Warmuth (2019) TriMAP reference is listed as an ArXiv preprint. If a published version exists, it should be cited instead. 
+
 m21. P21: The Melville (2025) snedata reference cites a GitHub package at version 0.0.0.9001 (development version, not on CRAN). This should be noted explicitly. 
-m22. t-SNE is used throughout Section 4 but van der Maaten and Hinton (2008) is never cited. It is the only DR method in the comparison without a reference. 
+
+m22. t-SNE is used throughout Section 4 but van der Maaten and Hinton (2008) is never cited. It is the only DR method in the comparison without a reference.
+
 m23. The R packages used to run the DR methods in Section 4 (Rtsne? uwot? Python via reticulate?) are never disclosed. The R Journal guidelines require that all packages used be declared. 
-5
 
 m24. scikit-learn (Pedregosa et al., 2011) is not cited despite several generators (S-curve, Swiss roll) originating from that ecosystem. 
+
 m25. P21: The Gamage et al. reference is listed as 2019 but the ArXiv identifier (2506.22051) indicates a 2025 submission date. 
+
 m26. P22: The Witten (1985) reference (“Non-commutative geometry and knot theory”) appears to be incorrect. Check the year of publication. 
-m27. P12: Laurent (2024) is a blog post—a fragile source for a peer-reviewed paper. m28. P18 caption of Figure 9: “PAHTE” should be “PHATE.” 
+
+m27. P12: Laurent (2024) is a blog post—a fragile source for a peer-reviewed paper. 
+
+m28. P18 caption of Figure 9: "PAHTE" should be "PHATE."
+
 m29. P19 Figure 11 caption: both rows of panels are labeled a1–a3; the second row should be b1–b3.
 
