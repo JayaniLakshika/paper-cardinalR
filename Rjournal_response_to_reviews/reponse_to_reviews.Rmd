@@ -1,13 +1,11 @@
 ---
-title: "Response to reviews"
+title: "Response to reviews: 2025-155"
 output: pdf_document
 ---
 
+*We thank the editor, associate editor and reviewers for their careful assessment of our paper. What follows is a point by point response to the reviewers' comments.*
+
 # Reviewer 1
-
-## Referee report of "cardinalR: Generating Interesting High-Dimensional Data Structures".
-
-- **Id**: 2025-155
 
 ## Recommendation (VT:: I copied this from the mail of the reviewer)
 
@@ -29,10 +27,12 @@ To summarize, I think the package is useful, but presentation of the material sh
 2. This point is closely related to the previous one. What is a cluster according to the authors' definition? There are many alternative definitions. If the authors want to claim that their package can help evaluate clustering algorithms based on datasets simulated from their package, there should be a discussion regarding what constitutes a cluster.
 
 Please see some useful references below:
+
 - Hennig, C. (2015) What are the true clusters?, Pattern Recognition Letters, 6, 53-62.
 - Maitra, R. and Melnykov, V. (2010) Simulating data to study performance of finite mixture modeling and clustering algorithms, Journal of Computational and Graphical Statistics, 2(19), 354-376
 
-3. page 2: "A full list of available shape generators are available..." - "IS available"; also, avoid using "available" twice
+3. page 2: "A full list of available shape generators are available..." 
+- "IS available"; also, avoid using "available" twice
 
 4. Don't make space before "where" in the beginning of a line (see, for examples, page 6)
 
