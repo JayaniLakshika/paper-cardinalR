@@ -7,7 +7,7 @@ output: pdf_document
 
 # Reviewer 1
 
-## Recommendation (VT:: I copied this from the mail of the reviewer)
+## Recommendation 
 
 My overall impression from the package is positive. However, several things can be done to improve the paper and the package. Please see a brief summary below.
 More illustrations of using the code along with demo files should be provided.
