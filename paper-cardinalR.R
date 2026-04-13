@@ -9,7 +9,8 @@ knitr::opts_chunk$set(
   message=FALSE, 
   warning=FALSE,
   out.width = "100%",
-  fig.pos = "!")
+  fig.pos = "!",
+  dev = "png")
 
 
 
