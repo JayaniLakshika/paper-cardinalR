@@ -101,7 +101,7 @@ The contribution is computational. The package fills a genuine gap in the R ecos
 
 - P17/B: The text refers to "six clusters" in the UMAP layout, but the dataset has five clusters. 
 
-- P18/M: Model-based clustering uses the “EII” parameterization (spherical, equal vol ume). Since the clusters are non-spherical by construction, this choice severely penalizes the method. Either justify this choice or include a flexible parameterization (e.g., “VVV”). 
+- P18/M: Model-based clustering uses the "EII" parameterization (spherical, equal vol ume). Since the clusters are non-spherical by construction, this choice severely penalizes the method. Either justify this choice or include a flexible parameterization (e.g., "VVV"). 
 
 - The clustering evaluation does not compute any external validity index (ARI, NMI) against the known ground truth. This is a missed opportunity: the main advantage of synthetic data with known labels is precisely that one can measure recovery of the true partition. 
 I recommend a substantially revised Section 4 that: uses a higher-dimensional scenario; reports DR hyperparameters; defines or replaces HBE; includes standard external cluster validity measures; and demonstrates distinctive features of the package (rotation, noise dimensions, holes). 
