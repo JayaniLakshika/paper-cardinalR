@@ -148,9 +148,13 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m17.** The companion script loads `library(tidyverse)` (line 21), which is discouraged for reproducibility scripts. Only the actually needed packages (`dplyr`, `tidyr`, `ggplot2`) should be loaded. 
 
+*We have updated the companion script to load only the required packages.*
+
 **m18.** P20: The Boehmke and Greenwell (2019) reference for k-means is an introductory textbook. A standard reference (e.g., Hartigan and Wong, 1979) would be more appropriate. 
 
 **m19.** P20: The Devroye (1986) bibliographic entry appears malformed ("originally published with" is truncated). 
+
+*We have corrected this.*
 
 **m20.** P21: The Amid and Warmuth (2019) TriMAP reference is listed as an ArXiv preprint. If a published version exists, it should be cited instead. 
 

@@ -20,7 +20,9 @@ set.seed(20240412)
 
 ## ----load-libraries-----------------------------------------------------------
 library(cardinalR)
-library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
 library(kableExtra)
 library(geozoo)
 library(patchwork)
