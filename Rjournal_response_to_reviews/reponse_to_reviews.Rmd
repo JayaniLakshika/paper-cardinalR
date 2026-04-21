@@ -144,6 +144,8 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m16.** P18/T, Figure 9 caption: "PAHTE" is a typo for "PHATE." 
 
+*We have corrected this.*
+
 **m17.** The companion script loads `library(tidyverse)` (line 21), which is discouraged for reproducibility scripts. Only the actually needed packages (`dplyr`, `tidyr`, `ggplot2`) should be loaded. 
 
 **m18.** P20: The Boehmke and Greenwell (2019) reference for k-means is an introductory textbook. A standard reference (e.g., Hartigan and Wong, 1979) would be more appropriate. 
@@ -168,5 +170,8 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m28.** P18 caption of Figure 9: "PAHTE" should be "PHATE."
 
+*We have corrected this.*
+
 **m29.** P19 Figure 11 caption: both rows of panels are labeled a1–a3; the second row should be b1–b3.
 
+*We have corrected this.*
