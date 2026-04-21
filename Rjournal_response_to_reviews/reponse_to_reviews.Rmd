@@ -3,7 +3,7 @@ title: "Response to reviews: 2025-155"
 output: pdf_document
 ---
 
-*We thank the editor, associate editor and reviewers for their careful assessment of our paper. What follows is a point by point response to the reviewers' comments.*
+We thank the editor, associate editor and reviewers for their careful assessment of our paper. What follows is a point by point response to the reviewers' comments. The original reviewer comment is in normal font and *our response is in italic text*.
 
 # Reviewer 1
 
@@ -33,6 +33,8 @@ Please see some useful references below:
 
 3. page 2: "A full list of available shape generators are available..." 
 - "IS available"; also, avoid using "available" twice
+
+*We have corrected the sentence.*
 
 4. Don't make space before "where" in the beginning of a line (see, for examples, page 6)
 
@@ -122,7 +124,6 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 **m5.** P7/B: The noise variance in `gen_longlinear` scales as $(0.03n)^2$. For $n = 1000$, the standard deviation is $30$, which can dominate the signal depending on $a_j$ and $b_j$. Is it intentional? 
 
 **m6.** P8/M: The range argument of `gen_quadratic` and `gen_cubic` does not appear in Tables 2 or 3. 
-
 **m7.** P9/T: The height distribution for `gen_pyrstar` is uniform, whereas for the other pyramids it is exponential. The difference is not motivated. 
 
 **m8.** P9/M: For `gen_pyrfrac` (chaos game), it is not stated whether a burn-in period is used to discard transient iterates, which is standard practice. 

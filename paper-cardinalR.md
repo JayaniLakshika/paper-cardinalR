@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2026-04-13'
+date: '2026-04-22'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -101,7 +101,7 @@ The next section provides an overview of the usage of the `cardinalR` package, i
 
 # Usage
 
-The `cardinalR` package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (A full list of available shape generators are available at <https://jayanilakshika.github.io/cardinalR/reference/index.html>.), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN, and the source is available on GitHub at [JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR). 
+The `cardinalR` package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (A full list of shape generators is available at <https://jayanilakshika.github.io/cardinalR/reference/index.html>.), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN, and the source is available on GitHub at [JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR). 
 
 The main function, `gen_multicluster()`, is an all-in-one function that includes generating individual shapes, handling scaling and rotating of these shapes, and combining the result into a single unified dataset. This function and associated workflow allow flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure \@ref(fig:workflow) illustrates the workflow of `gen_multicluster()`.
 
