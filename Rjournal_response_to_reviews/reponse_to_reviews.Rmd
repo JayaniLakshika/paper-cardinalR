@@ -152,6 +152,8 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m18.** P20: The Boehmke and Greenwell (2019) reference for k-means is an introductory textbook. A standard reference (e.g., Hartigan and Wong, 1979) would be more appropriate. 
 
+*We have replaced the textbook citation with the standard reference Hartigan and Wong (1979) for k-means clustering.*
+
 **m19.** P20: The Devroye (1986) bibliographic entry appears malformed ("originally published with" is truncated). 
 
 *We have corrected this.*
