@@ -1851,7 +1851,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>The example data structures are best viewed using a tour <span class="citation" data-cites="As85">(<a href="#ref-As85" role="doc-biblioref">Asimov 1985</a>)</span>. These show the data as a sequence of low dimensional projections (typically <span class="math inline">\(2\text{-}D\)</span>), providing a good sense of the shape in high dimensions. The interactive tour plots included in this paper are produced using the software <code>langevitour</code> <span class="citation" data-cites="paul2023">(<a href="#ref-paul2023" role="doc-biblioref">Harrison 2023</a>)</span>.</p>
 <p>The next section provides an overview of the usage of the <code>cardinalR</code> package, illustrating how its modular components can be combined to generate complex high-dimensional datasets. This is followed by a section describing the implementation of the package, including its design principles and key functions. The Application section then demonstrates how the simulated clustering structures can be used to evaluate and compare dimension reduction and clustering methods. Finally, we give a brief conclusion of the paper and discuss potential opportunities for the use of our data collection.</p>
 <h2 data-number="2" id="usage"><span class="header-section-number">2</span> Usage</h2>
-<p>The <code>cardinalR</code> package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (A full list of shape generators is available at <a href="https://jayanilakshika.github.io/cardinalR/reference/index.html" class="uri">https://jayanilakshika.github.io/cardinalR/reference/index.html</a>.), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN, and the source is available on GitHub at <a href="https://github.com/JayaniLakshika/cardinalR">JayaniLakshika/cardinalR</a>.</p>
+<p>The <code>cardinalR</code> package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (A full list of shape generators is available at <a href="https://jayanilakshika.github.io/cardinalR/reference/index.html" class="uri">https://jayanilakshika.github.io/cardinalR/reference/index.html</a>.), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN (version <span class="math inline">\(1.0.6\)</span>), and the source is available on GitHub at <a href="https://github.com/JayaniLakshika/cardinalR">JayaniLakshika/cardinalR</a>.</p>
 <p>The main function, <code>gen_multicluster()</code>, is an all-in-one function that includes generating individual shapes, handling scaling and rotating of these shapes, and combining the result into a single unified dataset. This function and associated workflow allow flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure <a href="#fig:workflow">1</a> illustrates the workflow of <code>gen_multicluster()</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:workflow"></span>
@@ -1868,11 +1868,15 @@ Figure 1: Workflow for generating high-dimensional clustered data. The user spec
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>clust_data</span> <span class='op'>&lt;-</span> <span class='fu'>gen_multicluster</span><span class='op'>(</span></span>
 <span>  n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>300</span>, <span class='fl'>500</span><span class='op'>)</span>,</span>
 <span>  k <span class='op'>=</span> <span class='fl'>3</span>,</span>
-<span>  loc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
-<span>    <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
-<span>    <span class='fl'>5</span>, <span class='fl'>9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
-<span>    <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>10</span>, <span class='fl'>7</span></span>
-<span>  <span class='op'>)</span>, nrow <span class='op'>=</span> <span class='fl'>3</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span>  loc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span></span>
+<span>    <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
+<span>      <span class='fl'>5</span>, <span class='fl'>9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
+<span>      <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>10</span>, <span class='fl'>7</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    nrow <span class='op'>=</span> <span class='fl'>3</span>,</span>
+<span>    byrow <span class='op'>=</span> <span class='cn'>TRUE</span></span>
+<span>  <span class='op'>)</span>,</span>
 <span>  scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
 <span>  shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gaussian"</span>, <span class='st'>"cone"</span>, <span class='st'>"unifcube"</span><span class='op'>)</span>,</span>
 <span>  is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span></span>
@@ -1891,9 +1895,9 @@ To maintain consistency across generators, the function identifies the arguments
 <table>
 <caption><span id="tab:main-tb-html">Table 1: </span>The main arguments for <code>gen_multicluster()</code>.</caption>
 <colgroup>
-<col style="width: 27%" />
-<col style="width: 24%" />
-<col style="width: 48%" />
+<col style="width: 25%" />
+<col style="width: 29%" />
+<col style="width: 44%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1930,12 +1934,12 @@ To maintain consistency across generators, the function identifies the arguments
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>rotation</code></td>
-<td style="text-align: left;">numeric (list)</td>
+<td style="text-align: left;">list of numeric matrices</td>
 <td style="text-align: left;">Rotation matrices, one per cluster.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>is_bkg</code></td>
-<td style="text-align: left;">boolean</td>
+<td style="text-align: left;">logical</td>
 <td style="text-align: left;">Background noise should exist or not.</td>
 </tr>
 </tbody>

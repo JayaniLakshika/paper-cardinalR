@@ -113,11 +113,17 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 ## Minor Issues 
 
-**m1.** P2/M: The code example for `gen_multicluster()` is truncated—the closing of the `loc` matrix and the function call are missing. The reader cannot execute the code as printed. 
+**m1.** P2/M: The code example for `gen_multicluster()` is truncated—the closing of the `loc` matrix and the function call are missing. The reader cannot execute the code as printed.
+
+*We have corrected this.*
 
 **m2.** P2/T: The paper states the package is "available on CRAN" but does not indicate the version used for the paper, as recommended by R Journal guidelines. 
 
+*We have added the CRAN version.*
+
 **m3.** P3, Table 1: The type of `is_bkg` is listed as "boolean"; the standard R term is "logical." The type of rotation is listed as "numeric (list)"—a more precise description would be "list of numeric matrices." 
+
+*We have corrected the terminology.*
 
 **m4.** P7/T: For `gen_unifcube`, the removal of cube vertices after generation is stated without motivation. Does this alter the sampling distribution and should be justified? 
 

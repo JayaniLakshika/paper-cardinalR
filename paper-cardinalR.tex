@@ -24,13 +24,13 @@ The next section provides an overview of the usage of the \texttt{cardinalR} pac
 
 \section{Usage}\label{usage}
 
-The \texttt{cardinalR} package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (A full list of shape generators is available at \url{https://jayanilakshika.github.io/cardinalR/reference/index.html}.), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN, and the source is available on GitHub at \href{https://github.com/JayaniLakshika/cardinalR}{JayaniLakshika/cardinalR}.
+The \texttt{cardinalR} package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (A full list of shape generators is available at \url{https://jayanilakshika.github.io/cardinalR/reference/index.html}.), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN (version \(1.0.6\)), and the source is available on GitHub at \href{https://github.com/JayaniLakshika/cardinalR}{JayaniLakshika/cardinalR}.
 
 The main function, \texttt{gen\_multicluster()}, is an all-in-one function that includes generating individual shapes, handling scaling and rotating of these shapes, and combining the result into a single unified dataset. This function and associated workflow allow flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure \ref{fig:workflow} illustrates the workflow of \texttt{gen\_multicluster()}.
 
 \begin{figure}[!ht]
 
-{\centering \includegraphics[width=0.8\linewidth,alt={The figure is a workflow diagram showing the process for generating high-dimensional clustered data. Boxes or nodes represent steps such as specifying input parameters (number of points, number of clusters, cluster locations, shapes, scaling, rotations, and optional background noise), generating each cluster with a shape generator, optionally rotating or scaling clusters, combining them into a single dataset, adding background noise if desired, and labeling each observation by cluster shape. Arrows indicate the flow of the process from parameter specification to the final labeled dataset. The diagram uses a clear layout with distinct steps, showing how data are constructed in sequence.}]{../../../../../../private/var/folders/4d/q_zhr19n0z7d8hx3xblybm8rjpxby3/T/Rtmp3MerqU/file24244000d122} 
+{\centering \includegraphics[width=0.8\linewidth,alt={The figure is a workflow diagram showing the process for generating high-dimensional clustered data. Boxes or nodes represent steps such as specifying input parameters (number of points, number of clusters, cluster locations, shapes, scaling, rotations, and optional background noise), generating each cluster with a shape generator, optionally rotating or scaling clusters, combining them into a single dataset, adding background noise if desired, and labeling each observation by cluster shape. Arrows indicate the flow of the process from parameter specification to the final labeled dataset. The diagram uses a clear layout with distinct steps, showing how data are constructed in sequence.}]{../../../../../../private/var/folders/4d/q_zhr19n0z7d8hx3xblybm8rjpxby3/T/RtmpRhoiTM/file2a575f4b87c2} 
 
 }
 
@@ -45,11 +45,15 @@ The following is an example of a three-shape multiclustered dataset. The first s
 clust_data <- gen_multicluster(
   n = c(200, 300, 500),
   k = 3,
-  loc = matrix(c(
-    0, 0, 0, 0,
-    5, 9, 0, 0,
-    3, 4, 10, 7
-  ), nrow = 3, byrow = TRUE),
+  loc = matrix(
+    c(
+      0, 0, 0, 0,
+      5, 9, 0, 0,
+      3, 4, 10, 7
+    ),
+    nrow = 3,
+    byrow = TRUE
+  ),
   scale = c(3, 1, 2),
   shape = c("gaussian", "cone", "unifcube"),
   is_bkg = FALSE
@@ -78,8 +82,8 @@ Argument & Type & Explanation\\
 \texttt{loc} & numeric (matrix) & Locations/centroids of clusters.\\
 \texttt{scale} & numeric (vector) & Scaling factors of clusters.\\
 \texttt{shape} & character (vector) & Shapes of clusters.\\
-\texttt{rotation} & numeric (list) & Rotation matrices, one per cluster.\\
-\texttt{is\_bkg} & boolean & Background noise should exist or not.\\
+\texttt{rotation} & list of numeric matrices & Rotation matrices, one per cluster.\\
+\texttt{is\_bkg} & logical & Background noise should exist or not.\\
 \bottomrule
 \end{tabular}
 \end{table}

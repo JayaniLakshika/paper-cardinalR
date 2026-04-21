@@ -89,11 +89,15 @@ knitr::include_graphics(fig_path)
 clust_data <- gen_multicluster(
   n = c(200, 300, 500),
   k = 3,
-  loc = matrix(c(
-    0, 0, 0, 0,
-    5, 9, 0, 0,
-    3, 4, 10, 7
-  ), nrow = 3, byrow = TRUE),
+  loc = matrix(
+    c(
+      0, 0, 0, 0,
+      5, 9, 0, 0,
+      3, 4, 10, 7
+    ),
+    nrow = 3,
+    byrow = TRUE
+  ),
   scale = c(3, 1, 2),
   shape = c("gaussian", "cone", "unifcube"),
   is_bkg = FALSE
@@ -113,8 +117,8 @@ main_tb <- tibble(arg = c("n",
                            "numeric (matrix)",
                            "numeric (vector)",
                            "character (vector)",
-                           "numeric (list)",
-                           "boolean"),
+                           "list of numeric matrices",
+                           "logical"),
                         exp = c("Number of points in each cluster.",
                                 "Number of clusters.",
                                 "Locations/centroids of clusters.",

@@ -126,7 +126,7 @@ The next section provides an overview of the usage of the `cardinalR` package, i
 
 # Usage
 
-The `cardinalR` package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (A full list of shape generators is available at <https://jayanilakshika.github.io/cardinalR/reference/index.html>.), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN, and the source is available on GitHub at [JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR). 
+The `cardinalR` package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (A full list of shape generators is available at <https://jayanilakshika.github.io/cardinalR/reference/index.html>.), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN (version $1.0.6$), and the source is available on GitHub at [JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR). 
 
 The main function, `gen_multicluster()`, is an all-in-one function that includes generating individual shapes, handling scaling and rotating of these shapes, and combining the result into a single unified dataset. This function and associated workflow allow flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure `r '\\@ref(fig:workflow)'` illustrates the workflow of `gen_multicluster()`.
 
@@ -157,11 +157,15 @@ The following is an example of a three-shape multiclustered dataset. The first s
 clust_data <- gen_multicluster(
   n = c(200, 300, 500),
   k = 3,
-  loc = matrix(c(
-    0, 0, 0, 0,
-    5, 9, 0, 0,
-    3, 4, 10, 7
-  ), nrow = 3, byrow = TRUE),
+  loc = matrix(
+    c(
+      0, 0, 0, 0,
+      5, 9, 0, 0,
+      3, 4, 10, 7
+    ),
+    nrow = 3,
+    byrow = TRUE
+  ),
   scale = c(3, 1, 2),
   shape = c("gaussian", "cone", "unifcube"),
   is_bkg = FALSE
@@ -190,8 +194,8 @@ main_tb <- tibble(arg = c("n",
                            "numeric (matrix)",
                            "numeric (vector)",
                            "character (vector)",
-                           "numeric (list)",
-                           "boolean"),
+                           "list of numeric matrices",
+                           "logical"),
                         exp = c("Number of points in each cluster.",
                                 "Number of clusters.",
                                 "Locations/centroids of clusters.",

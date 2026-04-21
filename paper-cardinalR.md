@@ -101,7 +101,7 @@ The next section provides an overview of the usage of the `cardinalR` package, i
 
 # Usage
 
-The `cardinalR` package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (A full list of shape generators is available at <https://jayanilakshika.github.io/cardinalR/reference/index.html>.), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN, and the source is available on GitHub at [JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR). 
+The `cardinalR` package is built on a modular framework where individual geometric generators (e.g., Gaussian, cone, sphere) create well-defined shapes (A full list of shape generators is available at <https://jayanilakshika.github.io/cardinalR/reference/index.html>.), which can then be combined into a single dataset including scaling, rotation, and translation. The package is available on CRAN (version $1.0.6$), and the source is available on GitHub at [JayaniLakshika/cardinalR](https://github.com/JayaniLakshika/cardinalR). 
 
 The main function, `gen_multicluster()`, is an all-in-one function that includes generating individual shapes, handling scaling and rotating of these shapes, and combining the result into a single unified dataset. This function and associated workflow allow flexible construction of complex, high-dimensional structures for evaluating clustering and dimension reduction methods. Figure \@ref(fig:workflow) illustrates the workflow of `gen_multicluster()`.
 
@@ -122,11 +122,15 @@ The following is an example of a three-shape multiclustered dataset. The first s
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>clust_data</span> <span class='op'>&lt;-</span> <span class='fu'>gen_multicluster</span><span class='op'>(</span></span>
 <span>  n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>200</span>, <span class='fl'>300</span>, <span class='fl'>500</span><span class='op'>)</span>,</span>
 <span>  k <span class='op'>=</span> <span class='fl'>3</span>,</span>
-<span>  loc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
-<span>    <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
-<span>    <span class='fl'>5</span>, <span class='fl'>9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
-<span>    <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>10</span>, <span class='fl'>7</span></span>
-<span>  <span class='op'>)</span>, nrow <span class='op'>=</span> <span class='fl'>3</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span>  loc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span></span>
+<span>    <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
+<span>      <span class='fl'>5</span>, <span class='fl'>9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,</span>
+<span>      <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>10</span>, <span class='fl'>7</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    nrow <span class='op'>=</span> <span class='fl'>3</span>,</span>
+<span>    byrow <span class='op'>=</span> <span class='cn'>TRUE</span></span>
+<span>  <span class='op'>)</span>,</span>
 <span>  scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
 <span>  shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gaussian"</span>, <span class='st'>"cone"</span>, <span class='st'>"unifcube"</span><span class='op'>)</span>,</span>
 <span>  is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span></span>
@@ -154,15 +158,15 @@ An optional argument, `is_bkg`, adds background noise drawn from a multivariate 
 
 Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 
-|Argument              |Type               |Explanation                           |
-|:---------------------|:------------------|:-------------------------------------|
-|<code>n</code>        |integer (vector)   |Number of points in each cluster.     |
-|<code>k</code>        |integer            |Number of clusters.                   |
-|<code>loc</code>      |numeric (matrix)   |Locations/centroids of clusters.      |
-|<code>scale</code>    |numeric (vector)   |Scaling factors of clusters.          |
-|<code>shape</code>    |character (vector) |Shapes of clusters.                   |
-|<code>rotation</code> |numeric (list)     |Rotation matrices, one per cluster.   |
-|<code>is\_bkg</code>  |boolean            |Background noise should exist or not. |
+|Argument              |Type                     |Explanation                           |
+|:---------------------|:------------------------|:-------------------------------------|
+|<code>n</code>        |integer (vector)         |Number of points in each cluster.     |
+|<code>k</code>        |integer                  |Number of clusters.                   |
+|<code>loc</code>      |numeric (matrix)         |Locations/centroids of clusters.      |
+|<code>scale</code>    |numeric (vector)         |Scaling factors of clusters.          |
+|<code>shape</code>    |character (vector)       |Shapes of clusters.                   |
+|<code>rotation</code> |list of numeric matrices |Rotation matrices, one per cluster.   |
+|<code>is\_bkg</code>  |logical                  |Background noise should exist or not. |
 
 </div>
 
