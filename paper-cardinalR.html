@@ -159,6 +159,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_meta_tags-->
   
   <meta name="citation_reference" content="citation_title=Principal Component Analysis;citation_publisher=Springer Berlin Heidelberg;citation_author=Ian Jolliffe"/>
+  <meta name="citation_reference" content="citation_title=Visualizing Data Using t-SNE;citation_volume=9;citation_author=Laurens Van Der Maaten;citation_author=Geoffrey E. Hinton"/>
   <meta name="citation_reference" content="citation_title=UMAP: Uniform Manifold Approximation and Projection;citation_volume=3;citation_author=Leland McInnes;citation_author=John Healy;citation_author=Nathaniel Saul;citation_author=Lukas Großberger"/>
   <meta name="citation_reference" content="citation_title=Visualizing Structure and Transitions in High-dimensional Biological Data;citation_volume=37;citation_doi=10.1038/s41587-019-0337-2;citation_author=Kevin R. Moon;citation_author=David Dijk;citation_author=Zheng Wang;citation_author=Scott A. Gigante;citation_author=Daniel B. Burkhardt;citation_author=William S. Chen;citation_author=Kristina Yim;citation_author=Antonia Elzen;citation_author=Matthew J. Hirn;citation_author=Ronald R. Coifman;citation_author=Natalia B. Ivanova;citation_author=Guy Wolf;citation_author=Smita Krishnaswamy"/>
   <meta name="citation_reference" content="citation_title=TriMap: Large-scale Dimensionality Reduction Using Triplets;citation_volume=abs/1910.00204;citation_author=Ehsan Amid;citation_author=Manfred K. Warmuth"/>
@@ -3044,7 +3045,7 @@ Figure 8: Viewing five synthetic clusters with distinct geometric structures: a 
 
 </div>
 <h3 data-number="4.1" id="evaluating-dimension-reduction-dr-methods"><span class="header-section-number">4.1</span> Evaluating dimension reduction (DR) methods</h3>
-<p>We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) <span class="citation" data-cites="jolliffe2011">(<a href="#ref-jolliffe2011" role="doc-biblioref">Jolliffe 2011</a>)</span>, tSNE, uniform manifold approximation and projection (UMAP) <span class="citation" data-cites="leland2018">(<a href="#ref-leland2018" role="doc-biblioref">McInnes et al. 2018</a>)</span>, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm <span class="citation" data-cites="moon2019">(<a href="#ref-moon2019" role="doc-biblioref">Moon et al. 2019</a>)</span>, large-scale dimensionality reduction Using triplets (TriMAP) <span class="citation" data-cites="amid2022">(<a href="#ref-amid2022" role="doc-biblioref">Amid and Warmuth 2022</a>)</span>, and pairwise controlled manifold approximation (PaCMAP) <span class="citation" data-cites="yingfan2021">(<a href="#ref-yingfan2021" role="doc-biblioref">Wang et al. 2021</a>)</span>.</p>
+<p>We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) <span class="citation" data-cites="jolliffe2011">(<a href="#ref-jolliffe2011" role="doc-biblioref">Jolliffe 2011</a>)</span>, tSNE <span class="citation" data-cites="laurens2008">(<a href="#ref-laurens2008" role="doc-biblioref">Maaten and Hinton 2008</a>)</span>, uniform manifold approximation and projection (UMAP) <span class="citation" data-cites="leland2018">(<a href="#ref-leland2018" role="doc-biblioref">McInnes et al. 2018</a>)</span>, potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm <span class="citation" data-cites="moon2019">(<a href="#ref-moon2019" role="doc-biblioref">Moon et al. 2019</a>)</span>, large-scale dimensionality reduction Using triplets (TriMAP) <span class="citation" data-cites="amid2022">(<a href="#ref-amid2022" role="doc-biblioref">Amid and Warmuth 2022</a>)</span>, and pairwise controlled manifold approximation (PaCMAP) <span class="citation" data-cites="yingfan2021">(<a href="#ref-yingfan2021" role="doc-biblioref">Wang et al. 2021</a>)</span>.</p>
 <!--scripts/five_clusts/02_gen_embeddings.R-->
 <div class="layout-chunk" data-layout="l-body">
 
@@ -3190,6 +3191,9 @@ S. Laurent. Four-dimensional torus knots. 2024. URL <a href="https://laustep.git
 <div id="ref-friedrich2024" class="csl-entry" role="listitem">
 F. Leisch and E. Dimitriadou. <em><span class="nocase">mlbench: Machine Learning Benchmark Problems</span>.</em> 2024. URL <a href="https://CRAN.R-project.org/package=mlbench">https://CRAN.R-project.org/package=mlbench</a>. R package version 2.1-6.
 </div>
+<div id="ref-laurens2008" class="csl-entry" role="listitem">
+L. V. D. Maaten and G. E. Hinton. <span class="nocase">Visualizing Data Using t-SNE</span>. <em>Journal of Machine Learning Research</em>, 9: 2579–2605, 2008.
+</div>
 <div id="ref-van2007" class="csl-entry" role="listitem">
 L. van der Maaten, E. Postma and H. Herik. <span>Dimensionality Reduction: A Comparative Review</span>. <em>Journal of Machine Learning Research - JMLR</em>, 10: 2007.
 </div>
@@ -3203,7 +3207,7 @@ L. McInnes, J. Healy, N. Saul and L. Großberger. <span class="nocase">UMAP: Uni
 G. J. McLachlan and D. Peel. <span>Finite Mixture Models</span>. In <em>Wiley series in probability and statistics</em>, 2000. URL <a href="https://api.semanticscholar.org/CorpusID:124985575">https://api.semanticscholar.org/CorpusID:124985575</a>.
 </div>
 <div id="ref-james2025" class="csl-entry" role="listitem">
-J. Melville. <em><span class="nocase">snedata: SNE Simulation Dataset Functions</span>.</em> 2025. URL <a href="https://github.com/jlmelville/snedata">https://github.com/jlmelville/snedata</a>. R package version 0.0.0.9001, commit beebcf91c365bf5006be08fb614585b4659c05c5.
+J. Melville. <em><span class="nocase">snedata: SNE Simulation Dataset Functions</span>.</em> 2025. URL <a href="https://github.com/jlmelville/snedata">https://github.com/jlmelville/snedata</a>. R package (development version, not on CRAN), GitHub commit beebcf91c365bf5006be08fb614585b4659c05c5.
 </div>
 <div id="ref-moon2019" class="csl-entry" role="listitem">
 K. R. Moon, D. van Dijk, Z. Wang, S. A. Gigante, D. B. Burkhardt, W. S. Chen, K. Yim, A. van den Elzen, M. J. Hirn, R. R. Coifman, et al. <span class="nocase">Visualizing Structure and Transitions in High-dimensional Biological Data</span>. <em>Nature Biotechnology</em>, 37: 1482–1492, 2019. DOI <a href="https://doi.org/10.1038/s41587-019-0337-2">10.1038/s41587-019-0337-2</a>.

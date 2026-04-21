@@ -1444,7 +1444,7 @@ To illustrate how high-dimensional clustered data can be generated using `cardin
 
 ## Evaluating dimension reduction (DR) methods
 
-We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], tSNE, uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2022], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
+We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], tSNE [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2022], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
 
 <!--scripts/five_clusts/02_gen_embeddings.R-->
 <div class="layout-chunk" data-layout="l-body">

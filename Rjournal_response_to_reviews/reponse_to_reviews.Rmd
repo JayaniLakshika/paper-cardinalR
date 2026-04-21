@@ -158,7 +158,11 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m21.** P21: The Melville (2025) `snedata` reference cites a GitHub package at version 0.0.0.9001 (development version, not on CRAN). This should be noted explicitly. 
 
+*We have updated the reference to clarify that snedata is a GitHub development version (0.0.0.9001), not a CRAN release, and we include the commit hash and repository URL.*
+
 **m22.** t-SNE is used throughout Section 4 but van der Maaten and Hinton (2008) is never cited. It is the only DR method in the comparison without a reference.
+
+*We have added the missing citation for t-SNE (van der Maaten and Hinton, 2008) in Section 4.*
 
 **m23.** The R packages used to run the DR methods in Section 4 (`Rtsne`? `uwot`? Python via `reticulate`?) are never disclosed. The R Journal guidelines require that all packages used be declared. 
 
