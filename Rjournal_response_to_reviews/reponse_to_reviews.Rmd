@@ -136,9 +136,15 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m12.** P18/M: "Model-based clustering performed the ‘EII’ covariance structure" is grammatically incorrect; it should be "was performed using" or "employed." 
 
+*We have revised the wording.*
+
 **m13.** P1/M: "High-dimensional data is characterized"—"data" takes a plural verb in formal academic English ("data are"). 
 
+*We have revised the wording.*
+
 **m14.** P1/B: "resource researchers with synthetic datasets"—"resource" used as a verb is non-standard; "provide" would be appropriate. 
+
+*We have revised the wording.*
 
 **m15.** P5/M: Several sentences introducing mathematical formulas do not close grammatically before the displayed equation. 
 
