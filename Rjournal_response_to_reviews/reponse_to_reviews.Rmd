@@ -101,6 +101,8 @@ The contribution is computational. The package fills a genuine gap in the R ecos
 
 - P17/B: The text refers to "six clusters" in the UMAP layout, but the dataset has five clusters. 
 
+*We have revised the wording.*
+
 - P18/M: Model-based clustering uses the "EII" parameterization (spherical, equal vol ume). Since the clusters are non-spherical by construction, this choice severely penalizes the method. Either justify this choice or include a flexible parameterization (e.g., "VVV"). 
 
 - The clustering evaluation does not compute any external validity index (ARI, NMI) against the known ground truth. This is a missed opportunity: the main advantage of synthetic data with known labels is precisely that one can measure recovery of the true partition. 
@@ -110,6 +112,10 @@ I recommend a substantially revised Section 4 that: uses a higher-dimensional sc
 NEWS.md file is completely empty across all six CRAN releases—no description of changes, bug fixes, or breaking changes is available to users. 
 
 **M6. Companion script is not self-contained.** The submitted R script (paper-cardinalR.R) cannot be executed independently. It depends on `scripts/additional_functions.R`, which is not provided. The DR results and cluster statistics are loaded from pre-computed RDS files hosted on GitHub rather than being computed within the script. The reader can regenerate the figures from those pre-computed objects but cannot verify how they were obtained, with which packages, or with which parameters. Full reproducibility requires that either the complete pipeline be included in the submission or clearly documented in a publicly accessible repository with all dependencies explicit.
+
+*We have updated the script to ensure it can be executed independently.*
+
+*All dimension reduction results are precomputed and provided as RDS files in the repository. The full code used to generate these results, including parameter settings and package versions, is available in the repository and allows complete reproduction of all analyses.*
 
 ## Minor Issues 
 
