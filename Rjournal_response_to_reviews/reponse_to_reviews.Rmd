@@ -180,6 +180,8 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m24.** `scikit-learn` (Pedregosa et al., 2011) is not cited despite several generators (S-curve, Swiss roll) originating from that ecosystem. 
 
+*We have added this.*
+
 **m25.** P21: The Gamage et al. reference is listed as 2019 but the ArXiv identifier (2506.22051) indicates a 2025 submission date. 
 
 *We have corrected this.*
