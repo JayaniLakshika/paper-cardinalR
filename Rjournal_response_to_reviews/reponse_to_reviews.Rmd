@@ -154,6 +154,8 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m20.** P21: The Amid and Warmuth (2019) TriMAP reference is listed as an ArXiv preprint. If a published version exists, it should be cited instead. 
 
+*We have updated the reference to the latest version of the TriMAP arXiv preprint (Amid & Warmuth, 2019). We checked and TriMAP is only available as an arXiv preprint, with no published journal or conference version. We therefore keep the arXiv citation.*
+
 **m21.** P21: The Melville (2025) `snedata` reference cites a GitHub package at version 0.0.0.9001 (development version, not on CRAN). This should be noted explicitly. 
 
 **m22.** t-SNE is used throughout Section 4 but van der Maaten and Hinton (2008) is never cited. It is the only DR method in the comparison without a reference.
@@ -164,7 +166,11 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m25.** P21: The Gamage et al. reference is listed as 2019 but the ArXiv identifier (2506.22051) indicates a 2025 submission date. 
 
+*We have corrected this.*
+
 **m26.** P22: The Witten (1985) reference ("Non-commutative geometry and knot theory") appears to be incorrect. Check the year of publication. 
+
+*We have corrected this.*
 
 **m27.** P12: Laurent (2024) is a blog post—a fragile source for a peer-reviewed paper. 
 

@@ -1000,7 +1000,7 @@ For the $3\text{-}D$ stereographic projection [@laurent2024], `gen_trefoil3d(n, 
 </div>
 
 
-The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dynamics (knotted vortices), and physics (topological phases), making it a useful benchmark for testing whether dimension reduction preserves global loops and topology [@witten1985; @arsuaga2002].
+The trefoil knot appears in molecular biology (DNA/protein knotting), fluid dynamics (knotted vortices), and physics (topological phases), making it a useful benchmark for testing whether dimension reduction preserves global loops and topology [@witten1986; @arsuaga2002].
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1444,7 +1444,7 @@ To illustrate how high-dimensional clustered data can be generated using `cardin
 
 ## Evaluating dimension reduction (DR) methods
 
-We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], tSNE, uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2019], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
+We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], tSNE, uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2022], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
 
 <!--scripts/five_clusts/02_gen_embeddings.R-->
 <div class="layout-chunk" data-layout="l-body">
