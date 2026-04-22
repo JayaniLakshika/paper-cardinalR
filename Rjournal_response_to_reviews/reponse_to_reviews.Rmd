@@ -145,6 +145,8 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m9.** P9/B: The naming of the Sierpinski-like pyramid is inconsistent: the function is `gen_pyrfrac`, but Figure 4 and the text refer to it as "pyrholes." 
 
+*We have corrected the naming inconsistency.*
+
 **m10.** P11/M: In `gen_swissroll`, the parameter $w$ is described as "Vertical variation" (scalar) in Table 3 but used as a two-component vector ($w_1$, $w_2$) in the formula. 
 
 **m11.** P17/M: The cluster positions are generated with `geozoo::simplex(p=4)$points` without explaining what this produces (5 vertices of a 4-D simplex). The dimensionality of the example (4-D) and the relationship between the simplex vertices and the number of clusters are left entirely implicit. 
@@ -181,6 +183,7 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m20.** P21: The Amid and Warmuth (2019) TriMAP reference is listed as an ArXiv preprint. If a published version exists, it should be cited instead. 
 
+
 *We have updated the reference to the latest version of the TriMAP arXiv preprint (Amid & Warmuth, 2019). We checked and TriMAP is only available as an arXiv preprint, with no published journal or conference version. We therefore keep the arXiv citation.*
 
 **m21.** P21: The Melville (2025) `snedata` reference cites a GitHub package at version 0.0.0.9001 (development version, not on CRAN). This should be noted explicitly. 
@@ -206,6 +209,8 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 *We have corrected this.*
 
 **m27.** P12: Laurent (2024) is a blog post—a fragile source for a peer-reviewed paper. 
+
+*We have replaced this blog reference with appropriate peer-reviewed sources.*
 
 **m28.** P18 caption of Figure 9: "PAHTE" should be "PHATE."
 

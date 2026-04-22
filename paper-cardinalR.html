@@ -188,8 +188,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="citation_reference" content="citation_title=Dimensionality Reduction by Learning an Invariant Mapping;citation_volume=2;citation_doi=10.1109/CVPR.2006.100;citation_author=R. Hadsell;citation_author=S. Chopra;citation_author=Y. LeCun"/>
   <meta name="citation_reference" content="citation_title=Group Theory and Quantum Mechanics;citation_publisher=Courier Corporation;citation_author=Michael Tinkham"/>
   <meta name="citation_reference" content="citation_title=Molecular Biology of the Cell;citation_publisher=Garland Science;citation_author=Bruce Alberts;citation_author=Alexander Johnson;citation_author=Julian Lewis;citation_author=David Morgan;citation_author=Martin Raff;citation_author=Keith Roberts;citation_author=Peter Walter"/>
-  <meta name="citation_reference" content="citation_title=Four-dimensional torus knots;citation_author=Stéphane Laurent"/>
   <meta name="citation_reference" content="citation_title=Scikit-learn: Machine learning in python;citation_publisher=JMLR.org;citation_volume=12;citation_doi=10.5555/1953048.2078195;citation_issn=1532-4435;citation_author=Fabian Pedregosa;citation_author=Gaël Varoquaux;citation_author=Alexandre Gramfort;citation_author=Vincent Michel;citation_author=Bertrand Thirion;citation_author=Olivier Grisel;citation_author=Mathieu Blondel;citation_author=Peter Prettenhofer;citation_author=Ron Weiss;citation_author=Vincent Dubourg;citation_author=Jake Vanderplas;citation_author=Alexandre Passos;citation_author=David Cournapeau;citation_author=Matthieu Brucher;citation_author=Matthieu Perrot;citation_author=Édouard Duchesnay"/>
+  <meta name="citation_reference" content="citation_title=An introduction to knot theory;citation_publisher=Springer New York, NY;citation_doi=10.1007/978-1-4612-0691-0;citation_author=W. B. Raymond Lickorish"/>
+  <meta name="citation_reference" content="citation_title=Knots and links;citation_publisher=AMS Chelsea Publishing;citation_author=Dale Rolfsen"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
@@ -2529,7 +2530,7 @@ Figure 3: Viewing the <span class="math inline">\(4\text{-}D\)</span> output of 
 </div>
 </div>
 <p class="caption">
-Figure 4: Viewing the <span class="math inline">\(4\text{-}D\)</span> <code>pyrrect</code>, <code>pyrtri</code>, <code>pyrstar</code>, and <code>pyrholes</code> data. The <code>pyrrrect</code> structure forms a dense rectangular base tapering to a narrow tip, while <code>pytri</code> shows a more triangular spread with sharper edges. <code>Pyrstar</code> extends into multiple pointed branches radiating from a common core, and <code>pyrholes</code> reveals hollow or open regions within an otherwise compact shape.
+Figure 4: Viewing the <span class="math inline">\(4\text{-}D\)</span> <code>pyrrect</code>, <code>pyrtri</code>, <code>pyrstar</code>, and <code>pyrfrac</code> data. The <code>pyrrrect</code> structure forms a dense rectangular base tapering to a narrow tip, while <code>pytri</code> shows a more triangular spread with sharper edges. <code>Pyrstar</code> extends into multiple pointed branches radiating from a common core, and <code>pyrfrac</code> reveals hollow or open regions within an otherwise compact shape.
 </p>
 </div>
 </div>
@@ -2657,7 +2658,7 @@ Figure 5: Viewing the <span class="math inline">\(4\text{-}D\)</span> <code>circ
 <h4 class="unnumbered" data-number="3.1.12" id="trefoil-knots">Trefoil knots</h4>
 <!--https://laustep.github.io/stlahblog/posts/TorusKnot4D.html-->
 <p>The Trefoil is a closed, nontrivial one-dimensional manifold embedded in <span class="math inline">\(3\text{-}D\)</span> or <span class="math inline">\(4\text{-}D\)</span> space (Figure <a href="#fig:trefoil">6</a>). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data.</p>
-<p>For the <span class="math inline">\(4\text{-}D\)</span> trefoil knot <span class="citation" data-cites="laurent2024">(<a href="#ref-laurent2024" role="doc-biblioref">Laurent 2024</a>)</span>, the function <code>gen_trefoil4d(n, steps)</code> generates the structure on the <span class="math inline">\(3\)</span>-sphere (<span class="math inline">\(S^3 \subset \mathbb{R}^4\)</span>) using two angular parameters, <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span>. A band of thickness around the knot path is controlled by the <code>steps</code> argument, while the number of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> values is determined by the <code>steps</code> and <code>n</code> arguments, respectively (Figure <a href="#fig:trefoil">6</a> a). The coordinates are defined as <span class="math display">\[X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),\]</span> where <span class="math inline">\(\theta\)</span> parameterizes the band thickness and <span class="math inline">\(\phi\)</span> parameterizes the knot trajectory.</p>
+<p>For the <span class="math inline">\(4\text{-}D\)</span> trefoil knot <span class="citation" data-cites="lickorish1997 rolfsen2003">(<a href="#ref-lickorish1997" role="doc-biblioref">Lickorish 1997</a>; <a href="#ref-rolfsen2003" role="doc-biblioref">Rolfsen 2003</a>)</span>, the function <code>gen_trefoil4d(n, steps)</code> generates the structure on the <span class="math inline">\(3\)</span>-sphere (<span class="math inline">\(S^3 \subset \mathbb{R}^4\)</span>) using two angular parameters, <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span>. A band of thickness around the knot path is controlled by the <code>steps</code> argument, while the number of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> values is determined by the <code>steps</code> and <code>n</code> arguments, respectively (Figure <a href="#fig:trefoil">6</a> a). The coordinates are defined as <span class="math display">\[X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),\]</span> where <span class="math inline">\(\theta\)</span> parameterizes the band thickness and <span class="math inline">\(\phi\)</span> parameterizes the knot trajectory.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -2673,7 +2674,7 @@ Figure 5: Viewing the <span class="math inline">\(4\text{-}D\)</span> <code>circ
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<p>For the <span class="math inline">\(3\text{-}D\)</span> stereographic projection <span class="citation" data-cites="laurent2024">(<a href="#ref-laurent2024" role="doc-biblioref">Laurent 2024</a>)</span>, <code>gen_trefoil3d(n, steps)</code> maps each point <span class="math inline">\((X_1, X_2, X_3, X_4) \in \mathbb{R}^4\)</span> to <span class="math inline">\((X_1&#39;, X_2&#39;, X_3&#39;) \in \mathbb{R}^3\text{ using }X_1&#39; = X_1 / (1 - X_4), \quad X_2&#39; = X_2 / (1 - X_4),\text{ and }X_3&#39; = X_3 / (1 - X_4),\)</span> excluding points where <span class="math inline">\(X_4 = 1\)</span> to avoid division by zero (Figure <a href="#fig:trefoil">6</a> b).</p>
+<p>For the <span class="math inline">\(3\text{-}D\)</span> stereographic projection <span class="citation" data-cites="lickorish1997 rolfsen2003">(<a href="#ref-lickorish1997" role="doc-biblioref">Lickorish 1997</a>; <a href="#ref-rolfsen2003" role="doc-biblioref">Rolfsen 2003</a>)</span>, <code>gen_trefoil3d(n, steps)</code> maps each point <span class="math inline">\((X_1, X_2, X_3, X_4) \in \mathbb{R}^4\)</span> to <span class="math inline">\((X_1&#39;, X_2&#39;, X_3&#39;) \in \mathbb{R}^3\text{ using }X_1&#39; = X_1 / (1 - X_4), \quad X_2&#39; = X_2 / (1 - X_4),\text{ and }X_3&#39; = X_3 / (1 - X_4),\)</span> excluding points where <span class="math inline">\(X_4 = 1\)</span> to avoid division by zero (Figure <a href="#fig:trefoil">6</a> b).</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -3119,7 +3120,7 @@ Figure 11: Views of the five-cluster synthetic dataset colored by the <span clas
 <p>Figure <a href="#fig:highd-data-clusters-algo-html">11</a> shows the four- and five-cluster <span class="math inline">\(k\)</span>-means solutions, with cluster id used to color the points. Neither solution captures the geometric nature of the true clusters, but they are both reasonable partitions of the data. To examine either one, it is best to subset to a single cluster to view in the tour. With each solution, the five original shapes are each split by the clustering. More than 5 clusters would be needed to better capture the original shapes.</p>
 <h2 data-number="5" id="conclusion"><span class="header-section-number">5</span> Conclusion</h2>
 <p>The <code>cardinalR</code> package introduces a flexible framework for generating high-dimensional data structures with well-defined geometric properties. It addresses an important need in the evaluation of clustering, machine learning, and DR methods by enabling the construction of customized datasets with interpretable structures, noise characteristics, and clustering arrangements. In this way, <code>cardinalR</code> complements existing packages such as <code>geozoo</code>, <code>snedata</code>, and <code>mlbench</code>, while extending the scope to higher dimensions and more complex shapes.</p>
-<p>The included structures cover a wide range of diagnostic settings. Branching shapes facilitate the study of continuity and topological preservation, the S-curve with a hole allows investigation of incomplete manifolds, and clustered spheres assess separability on curved surfaces. The Möbius strip introduces challenges from non-orientable geometry, while gridded cubes and pyrholes test spatial regularity and clustering in sparse, non-convex regions.</p>
+<p>The included structures cover a wide range of diagnostic settings. Branching shapes facilitate the study of continuity and topological preservation, the S-curve with a hole allows investigation of incomplete manifolds, and clustered spheres assess separability on curved surfaces. The Möbius strip introduces challenges from non-orientable geometry, while gridded cubes and pyrfrac test spatial regularity and clustering in sparse, non-convex regions.</p>
 <p>These structures are designed to support not only algorithm diagnostics, but also teaching high-dimensional concepts, benchmarking reproducibility, and evaluating hyper-parameter sensitivity. By allowing users to adjust dimensionality, sample size, noise, and clustering properties, the package promotes transparent experimentation and comparative model evaluation. Together, these capabilities make <code>cardinalR</code> a versatile tool for generating interpretable, high-dimensional datasets that advance research, teaching, and evaluation of data-analytic methods.</p>
 <p>Future extensions of <code>cardinalR</code> may include biologically inspired or application-driven data structures that would further broaden its utility in domains such as bioinformatics, forensic science, and spatial analysis.</p>
 <h2 data-number="6" id="acknowledgements"><span class="header-section-number">6</span> Acknowledgements</h2>
@@ -3184,11 +3185,11 @@ C. Hennig. <em><span class="nocase">fpc: Flexible Procedures for Clustering</spa
 <div id="ref-jolliffe2011" class="csl-entry" role="listitem">
 I. Jolliffe. <span>Principal Component Analysis</span>. In <em>International encyclopedia of statistical science</em>, pages. 1094–1096 2011. Berlin, Heidelberg: Springer Berlin Heidelberg. ISBN 978-3-642-04898-2. URL <a href="https://doi.org/10.1007/978-3-642-04898-2_455">https://doi.org/10.1007/978-3-642-04898-2_455</a>.
 </div>
-<div id="ref-laurent2024" class="csl-entry" role="listitem">
-S. Laurent. Four-dimensional torus knots. 2024. URL <a href="https://laustep.github.io/stlahblog/posts/TorusKnot4D.html">https://laustep.github.io/stlahblog/posts/TorusKnot4D.html</a>. Accessed: 2025-11-17.
-</div>
 <div id="ref-friedrich2024" class="csl-entry" role="listitem">
 F. Leisch and E. Dimitriadou. <em><span class="nocase">mlbench: Machine Learning Benchmark Problems</span>.</em> 2024. URL <a href="https://CRAN.R-project.org/package=mlbench">https://CRAN.R-project.org/package=mlbench</a>. R package version 2.1-6.
+</div>
+<div id="ref-lickorish1997" class="csl-entry" role="listitem">
+W. B. R. Lickorish. <em>An introduction to knot theory.</em> Springer New York, NY, 1997. DOI <a href="https://doi.org/10.1007/978-1-4612-0691-0">10.1007/978-1-4612-0691-0</a>. 1st edition, Springer Book Archive.
 </div>
 <div id="ref-laurens2008" class="csl-entry" role="listitem">
 L. V. D. Maaten and G. E. Hinton. <span class="nocase">Visualizing Data Using t-SNE</span>. <em>Journal of Machine Learning Research</em>, 9: 2579–2605, 2008.
@@ -3228,6 +3229,9 @@ F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Bl
 </div>
 <div id="ref-core2025" class="csl-entry" role="listitem">
 R Core Team. <em><span class="nocase">R: A Language and Environment for Statistical Computing</span>.</em> Vienna, Austria: R Foundation for Statistical Computing, 2025. URL <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-rolfsen2003" class="csl-entry" role="listitem">
+D. Rolfsen. <em>Knots and links.</em> Reprint AMS Chelsea Publishing, 2003. URL <a href="https://api.semanticscholar.org/CorpusID:117037353">https://api.semanticscholar.org/CorpusID:117037353</a>. Illustrated reprint of the 1976 edition.
 </div>
 <div id="ref-barret2016" class="csl-entry" role="listitem">
 B. Schloerke. <em><span class="nocase">geozoo: Zoo of Geometric Objects</span>.</em> 2016. URL <a href="https://CRAN.R-project.org/package=geozoo">https://CRAN.R-project.org/package=geozoo</a>. R package version 0.5.1.

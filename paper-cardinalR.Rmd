@@ -1233,16 +1233,16 @@ For rectangular and triangular pyramids, the remaining dimensions $X_4$ to $X_{p
 
 Finally, for the Sierpinski-like pyramid, `gen_pyrfrac(n, p)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) d"} else { "Figure \\@ref(fig:pyr-proj) d"})`), let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$. Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
 
-```{r data-pyrholes}
-pyrholes <- gen_pyrfrac(n = 1000, p = 4)
+```{r data-pyrfrac}
+pyrfrac <- gen_pyrfrac(n = 1000, p = 4)
 ```
 
 ```{r}
-pyrholes_lang <- langevitour::langevitour(pyrholes, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+pyrholes_lang <- langevitour::langevitour(pyrfrac, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 ```
 
-```{r pyrholes-proj1}
-centered_data <- center_data(pyrholes)
+```{r pyrfrac-proj1}
+centered_data <- center_data(pyrfrac)
 
 ## First projection
 projection <- cbind(
@@ -1268,7 +1268,7 @@ pyrholes_proj1 <- plot_proj(
 
 ```
 
-```{r pyrholes-proj2}
+```{r pyrfrac-proj2}
 
 ## Second projection
 projection <- cbind(
@@ -1294,7 +1294,7 @@ pyrholes_proj2 <- plot_proj(
 
 ```
 
-```{r pyrholes-proj3}
+```{r pyrfrac-proj3}
 
 ## Third projection
 projection <- cbind(
@@ -1322,7 +1322,7 @@ pyrholes_proj3 <- plot_proj(
 
 Pyramid structures mimic tapering or layered geometries seen in architecture, crystals, and fractal-like natural patterns [@kirkby1983].
 
-```{r pyr, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$  `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrholes` reveals hollow or open regions within an otherwise compact shape.", fig.alt="The figure shows an interactive tour of the 4‑D pyrrrect, pyrtri, pyrstar, and pyrholes datasets. Points are displayed in continuously changing 2‑D projections, with each axis representing a linear combination of the four original dimensions. Points are plotted individually as small, uniformly colored markers with no additional visual encodings. In pyrrrect, points form a dense rectangular base tapering to a narrow tip; in pyrtri, points form a triangular distribution with sharper edges; in pyrstar, points extend into multiple pointed branches radiating from a central region; and in pyrholes, points cluster in a compact shape but leave hollow or open regions within it. The projections rotate smoothly, showing the 4‑D structures from multiple viewing angles and maintaining roughly square aspect ratios throughout.", fig.pos="!ht"}
+```{r pyr, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$  `pyrrect`, `pyrtri`, `pyrstar`, and `pyrfrac` data. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrfrac` reveals hollow or open regions within an otherwise compact shape.", fig.alt="The figure shows an interactive tour of the 4‑D pyrrrect, pyrtri, pyrstar, and pyrfrac datasets. Points are displayed in continuously changing 2‑D projections, with each axis representing a linear combination of the four original dimensions. Points are plotted individually as small, uniformly colored markers with no additional visual encodings. In pyrrrect, points form a dense rectangular base tapering to a narrow tip; in pyrtri, points form a triangular distribution with sharper edges; in pyrstar, points extend into multiple pointed branches radiating from a central region; and in pyrfrac, points cluster in a compact shape but leave hollow or open regions within it. The projections rotate smoothly, showing the 4‑D structures from multiple viewing angles and maintaining roughly square aspect ratios throughout.", fig.pos="!ht"}
 
 pyrfig <- bscols(
   htmltools::div(
@@ -1342,7 +1342,7 @@ class(pyrfig) <- c(class(pyrfig), "htmlwidget")
 pyrfig
 ```
 
-```{r pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the \\texttt{pyrrect} (a1-a3), \\texttt{pyrtri} (b1-b3), \\texttt{pyrstar} (c1-c3), and \\texttt{pyrholes} (d1-d3) data. The \\texttt{pyrrrect} structure forms a dense rectangular base tapering to a narrow tip, while \\texttt{pytri} shows a more triangular spread with sharper edges. \\texttt{pyrstar} extends into multiple pointed branches radiating from a common core, and \\texttt{pyrholes} reveals hollow or open regions within an otherwise compact shape. These projections illustrate a range of pyramid-like geometries that vary in density and structure.", fig.width=12, fig.height=16, out.width="80%", fig.align='center', fig.alt="The figure shows three 2‑D scatter plots for each of four 4‑D datasets: pyrrrect, pyrtri, pyrstar, and pyrholes. In each plot, the horizontal and vertical axes represent continuous numeric coordinates of the selected 2‑D projection, and points are plotted individually as small, uniformly colored markers with no additional visual encodings. In pyrrrect, points form a dense rectangular base tapering to a narrow tip; in pyrtri, points form a triangular distribution with sharper edges; in pyrstar, points extend into multiple pointed branches radiating from a central region; and in pyrholes, points cluster in a compact shape but leave hollow or open regions within it. The plots maintain roughly square aspect ratios and illustrate how these different pyramid-like structures appear when projected from four to two dimensions.", fig.pos="!ht"}
+```{r pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the \\texttt{pyrrect} (a1-a3), \\texttt{pyrtri} (b1-b3), \\texttt{pyrstar} (c1-c3), and \\texttt{pyrfrac} (d1-d3) data. The \\texttt{pyrrrect} structure forms a dense rectangular base tapering to a narrow tip, while \\texttt{pytri} shows a more triangular spread with sharper edges. \\texttt{pyrstar} extends into multiple pointed branches radiating from a common core, and \\texttt{pyrfrac} reveals hollow or open regions within an otherwise compact shape. These projections illustrate a range of pyramid-like geometries that vary in density and structure.", fig.width=12, fig.height=16, out.width="80%", fig.align='center', fig.alt="The figure shows three 2‑D scatter plots for each of four 4‑D datasets: pyrrrect, pyrtri, pyrstar, and pyrfrac. In each plot, the horizontal and vertical axes represent continuous numeric coordinates of the selected 2‑D projection, and points are plotted individually as small, uniformly colored markers with no additional visual encodings. In pyrrrect, points form a dense rectangular base tapering to a narrow tip; in pyrtri, points form a triangular distribution with sharper edges; in pyrstar, points extend into multiple pointed branches radiating from a central region; and in pyrfrac, points cluster in a compact shape but leave hollow or open regions within it. The plots maintain roughly square aspect ratios and illustrate how these different pyramid-like structures appear when projected from four to two dimensions.", fig.pos="!ht"}
 
 pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
 pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
@@ -1725,7 +1725,7 @@ The Swiss roll is a classic benchmark for manifold learning, illustrating how a 
 
 The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil)"} else { "Figure \\@ref(fig:trefoil-proj)"})`). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. 
 
-For the $4\text{-}D$ trefoil knot [@laurent2024], the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ parameterizes the band thickness and $\phi$ parameterizes the knot trajectory. 
+For the $4\text{-}D$ trefoil knot [@lickorish1997; @rolfsen2003], the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ parameterizes the band thickness and $\phi$ parameterizes the knot trajectory. 
 
 ```{r data-trefoil4d}
 trefoil4d <- gen_trefoil4d(n = 500, steps = 5)
@@ -1814,7 +1814,7 @@ trefoil4d_proj3 <- plot_proj(
 
 ```
 
-For the $3\text{-}D$ stereographic projection [@laurent2024], `gen_trefoil3d(n, steps)` maps each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $(X_1', X_2', X_3') \in \mathbb{R}^3\text{ using }X_1' = X_1 / (1 - X_4), \quad X_2' = X_2 / (1 - X_4),\text{ and }X_3' = X_3 / (1 - X_4),$ excluding points where $X_4 = 1$ to avoid division by zero (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) b"} else { "Figure \\@ref(fig:trefoil-proj) b"})`). 
+For the $3\text{-}D$ stereographic projection [@lickorish1997; @rolfsen2003], `gen_trefoil3d(n, steps)` maps each point $(X_1, X_2, X_3, X_4) \in \mathbb{R}^4$ to $(X_1', X_2', X_3') \in \mathbb{R}^3\text{ using }X_1' = X_1 / (1 - X_4), \quad X_2' = X_2 / (1 - X_4),\text{ and }X_3' = X_3 / (1 - X_4),$ excluding points where $X_4 = 1$ to avoid division by zero (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) b"} else { "Figure \\@ref(fig:trefoil-proj) b"})`). 
 
 ```{r data-trefoil3d}
 trefoil3d <- gen_trefoil3d(n = 500, steps = 5)
@@ -2955,7 +2955,7 @@ five_clusts_proj1_1 + five_clusts_proj2_1 + five_clusts_proj3_1 +
 
 The `cardinalR` package introduces a flexible framework for generating high-dimensional data structures with well-defined geometric properties. It addresses an important need in the evaluation of clustering, machine learning, and DR methods by enabling the construction of customized datasets with interpretable structures, noise characteristics, and clustering arrangements. In this way, `cardinalR` complements existing packages such as `geozoo`, `snedata`, and `mlbench`, while extending the scope to higher dimensions and more complex shapes.
 
-The included structures cover a wide range of diagnostic settings. Branching shapes facilitate the study of continuity and topological preservation, the S-curve with a hole allows investigation of incomplete manifolds, and clustered spheres assess separability on curved surfaces. The Möbius strip introduces challenges from non-orientable geometry, while gridded cubes and pyrholes test spatial regularity and clustering in sparse, non-convex regions.
+The included structures cover a wide range of diagnostic settings. Branching shapes facilitate the study of continuity and topological preservation, the S-curve with a hole allows investigation of incomplete manifolds, and clustered spheres assess separability on curved surfaces. The Möbius strip introduces challenges from non-orientable geometry, while gridded cubes and pyrfrac test spatial regularity and clustering in sparse, non-convex regions.
 
 These structures are designed to support not only algorithm diagnostics, but also teaching high-dimensional concepts, benchmarking reproducibility, and evaluating hyper-parameter sensitivity. By allowing users to adjust dimensionality, sample size, noise, and clustering properties, the package promotes transparent experimentation and comparative model evaluation. Together, these capabilities make `cardinalR` a versatile tool for generating interpretable, high-dimensional datasets that advance research, teaching, and evaluation of data-analytic methods.
 

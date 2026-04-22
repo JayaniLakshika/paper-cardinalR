@@ -1018,16 +1018,16 @@ pyrstar_proj3 <- plot_proj(
 
 
 
-## ----data-pyrholes------------------------------------------------------------
-pyrholes <- gen_pyrfrac(n = 1000, p = 4)
+## ----data-pyrfrac-------------------------------------------------------------
+pyrfrac <- gen_pyrfrac(n = 1000, p = 4)
 
 
 ## -----------------------------------------------------------------------------
-pyrholes_lang <- langevitour::langevitour(pyrholes, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
+pyrholes_lang <- langevitour::langevitour(pyrfrac, levelColors = "black", enableControls = FALSE, width = "400px", height = "300px")
 
 
-## ----pyrholes-proj1-----------------------------------------------------------
-centered_data <- center_data(pyrholes)
+## ----pyrfrac-proj1------------------------------------------------------------
+centered_data <- center_data(pyrfrac)
 
 ## First projection
 projection <- cbind(
@@ -1053,7 +1053,7 @@ pyrholes_proj1 <- plot_proj(
 
 
 
-## ----pyrholes-proj2-----------------------------------------------------------
+## ----pyrfrac-proj2------------------------------------------------------------
 
 ## Second projection
 projection <- cbind(
@@ -1079,7 +1079,7 @@ pyrholes_proj2 <- plot_proj(
 
 
 
-## ----pyrholes-proj3-----------------------------------------------------------
+## ----pyrfrac-proj3------------------------------------------------------------
 
 ## Third projection
 projection <- cbind(
@@ -1105,7 +1105,7 @@ pyrholes_proj3 <- plot_proj(
 
 
 
-## ----pyr, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$  `pyrrect`, `pyrtri`, `pyrstar`, and `pyrholes` data. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrholes` reveals hollow or open regions within an otherwise compact shape.", fig.alt="The figure shows an interactive tour of the 4‑D pyrrrect, pyrtri, pyrstar, and pyrholes datasets. Points are displayed in continuously changing 2‑D projections, with each axis representing a linear combination of the four original dimensions. Points are plotted individually as small, uniformly colored markers with no additional visual encodings. In pyrrrect, points form a dense rectangular base tapering to a narrow tip; in pyrtri, points form a triangular distribution with sharper edges; in pyrstar, points extend into multiple pointed branches radiating from a central region; and in pyrholes, points cluster in a compact shape but leave hollow or open regions within it. The projections rotate smoothly, showing the 4‑D structures from multiple viewing angles and maintaining roughly square aspect ratios throughout.", fig.pos="!ht"----
+## ----pyr, eval=knitr::is_html_output(), fig.cap="Viewing the $4\\text{-}D$  `pyrrect`, `pyrtri`, `pyrstar`, and `pyrfrac` data. The `pyrrrect` structure forms a dense rectangular base tapering to a narrow tip, while `pytri` shows a more triangular spread with sharper edges. `Pyrstar` extends into multiple pointed branches radiating from a common core, and `pyrfrac` reveals hollow or open regions within an otherwise compact shape.", fig.alt="The figure shows an interactive tour of the 4‑D pyrrrect, pyrtri, pyrstar, and pyrfrac datasets. Points are displayed in continuously changing 2‑D projections, with each axis representing a linear combination of the four original dimensions. Points are plotted individually as small, uniformly colored markers with no additional visual encodings. In pyrrrect, points form a dense rectangular base tapering to a narrow tip; in pyrtri, points form a triangular distribution with sharper edges; in pyrstar, points extend into multiple pointed branches radiating from a central region; and in pyrfrac, points cluster in a compact shape but leave hollow or open regions within it. The projections rotate smoothly, showing the 4‑D structures from multiple viewing angles and maintaining roughly square aspect ratios throughout.", fig.pos="!ht"----
 # 
 # pyrfig <- bscols(
 #   htmltools::div(
@@ -1125,7 +1125,7 @@ pyrholes_proj3 <- plot_proj(
 # pyrfig
 
 
-## ----pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the \\texttt{pyrrect} (a1-a3), \\texttt{pyrtri} (b1-b3), \\texttt{pyrstar} (c1-c3), and \\texttt{pyrholes} (d1-d3) data. The \\texttt{pyrrrect} structure forms a dense rectangular base tapering to a narrow tip, while \\texttt{pytri} shows a more triangular spread with sharper edges. \\texttt{pyrstar} extends into multiple pointed branches radiating from a common core, and \\texttt{pyrholes} reveals hollow or open regions within an otherwise compact shape. These projections illustrate a range of pyramid-like geometries that vary in density and structure.", fig.width=12, fig.height=16, out.width="80%", fig.align='center', fig.alt="The figure shows three 2‑D scatter plots for each of four 4‑D datasets: pyrrrect, pyrtri, pyrstar, and pyrholes. In each plot, the horizontal and vertical axes represent continuous numeric coordinates of the selected 2‑D projection, and points are plotted individually as small, uniformly colored markers with no additional visual encodings. In pyrrrect, points form a dense rectangular base tapering to a narrow tip; in pyrtri, points form a triangular distribution with sharper edges; in pyrstar, points extend into multiple pointed branches radiating from a central region; and in pyrholes, points cluster in a compact shape but leave hollow or open regions within it. The plots maintain roughly square aspect ratios and illustrate how these different pyramid-like structures appear when projected from four to two dimensions.", fig.pos="!ht"----
+## ----pyr-proj, eval=knitr::is_latex_output(), fig.cap="Three $2\\text{-}D$ projections from $4\\text{-}D$, for the \\texttt{pyrrect} (a1-a3), \\texttt{pyrtri} (b1-b3), \\texttt{pyrstar} (c1-c3), and \\texttt{pyrfrac} (d1-d3) data. The \\texttt{pyrrrect} structure forms a dense rectangular base tapering to a narrow tip, while \\texttt{pytri} shows a more triangular spread with sharper edges. \\texttt{pyrstar} extends into multiple pointed branches radiating from a common core, and \\texttt{pyrfrac} reveals hollow or open regions within an otherwise compact shape. These projections illustrate a range of pyramid-like geometries that vary in density and structure.", fig.width=12, fig.height=16, out.width="80%", fig.align='center', fig.alt="The figure shows three 2‑D scatter plots for each of four 4‑D datasets: pyrrrect, pyrtri, pyrstar, and pyrfrac. In each plot, the horizontal and vertical axes represent continuous numeric coordinates of the selected 2‑D projection, and points are plotted individually as small, uniformly colored markers with no additional visual encodings. In pyrrrect, points form a dense rectangular base tapering to a narrow tip; in pyrtri, points form a triangular distribution with sharper edges; in pyrstar, points extend into multiple pointed branches radiating from a central region; and in pyrfrac, points cluster in a compact shape but leave hollow or open regions within it. The plots maintain roughly square aspect ratios and illustrate how these different pyramid-like structures appear when projected from four to two dimensions.", fig.pos="!ht"----
 
 pyrrect_proj1 + pyrrect_proj2 + pyrrect_proj3 +
 pyrtri_proj1 + pyrtri_proj2 + pyrtri_proj3 +
