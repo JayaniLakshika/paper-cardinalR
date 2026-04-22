@@ -140,7 +140,9 @@ I recommend a substantially revised Section 4 that: uses a higher-dimensional sc
 
 **m6.** P8/M: The range argument of `gen_quadratic` and `gen_cubic` does not appear in Tables 2 or 3. 
 
-**m7.** P9/T: The height distribution for `gen_pyrstar` is uniform, whereas for the other pyramids it is exponential. The difference is not motivated. 
+**m7.** P9/T: The height distribution for `gen_pyrstar` is uniform, whereas for the other pyramids it is exponential. The difference is not motivated.
+
+*In `gen_pyrstar`, we use a uniform height distribution to spread points evenly from the base to the tip, so the star shape is clearly visible. In the other pyramid generators, we use an exponential distribution, which places more points near the tip. We have clarified this in the manuscript.*
 
 **m8.** P9/M: For `gen_pyrfrac` (chaos game), it is not stated whether a burn-in period is used to discard transient iterates, which is standard practice. 
 
