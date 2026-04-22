@@ -133,9 +133,12 @@ NEWS.md file is completely empty across all six CRAN releases—no description o
 
 **m4.** P7/T: For `gen_unifcube`, the removal of cube vertices after generation is stated without motivation. Does this alter the sampling distribution and should be justified? 
 
+*We have clarified that the removed points correspond to deterministic cube vertices; their removal does not affect the uniform sampling distribution.*
+
 **m5.** P7/B: The noise variance in `gen_longlinear` scales as $(0.03n)^2$. For $n = 1000$, the standard deviation is $30$, which can dominate the signal depending on $a_j$ and $b_j$. Is it intentional? 
 
 **m6.** P8/M: The range argument of `gen_quadratic` and `gen_cubic` does not appear in Tables 2 or 3. 
+
 **m7.** P9/T: The height distribution for `gen_pyrstar` is uniform, whereas for the other pyramids it is exponential. The difference is not motivated. 
 
 **m8.** P9/M: For `gen_pyrfrac` (chaos game), it is not stated whether a burn-in period is used to discard transient iterates, which is standard practice. 

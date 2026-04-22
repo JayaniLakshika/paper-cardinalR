@@ -510,7 +510,7 @@ The function `gen_gridcube(n, p)` is a wrapper around `geozoo::cube.solid.grid()
 </div>
 
 
-By contrast, `gen_unifcube(n, p)` wraps `geozoo::cube.solid.random()`, producing uniformly distributed points within a $p\text{-}D$ cube. To avoid including the cube’s vertices, these points are removed after generation. This results in a hypercube filled with random samples rather than structured lattice points.
+By contrast, `gen_unifcube(n, p)` wraps `geozoo::cube.solid.random()`, producing points within a $p\text{-}D$ cube. The underlying function returns both uniformly sampled interior points and the cube’s vertices as fixed, deterministic points. To retain only the stochastic component, the first $2^{p}$ vertex points are removed after generation. This does not affect the uniform sampling distribution of the remaining observations, but avoids including structured corner points that could introduce unintended artifacts. The resulting dataset consists of uniformly distributed random samples within the hypercube.
 
 <div class="layout-chunk" data-layout="l-body">
 
