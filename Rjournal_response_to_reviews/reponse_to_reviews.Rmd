@@ -79,6 +79,8 @@ The contribution is computational. The package fills a genuine gap in the R ecos
 
 - P9/B–P10/T: For `gen_unifsphere`, the text first says points are on the surface of a sphere, then states it produces a "solid ball." These are contradictory.
 
+<!-- *The function generates points on the surface of a sphere, not within a solid ball. We have corrected the text to ensure this is stated consistently.* -->
+
 - P10/B: In `gen_clusteredspheres`, the parameters $n_1$, $n_2$, $r_1$, $r_2$ used in the text do not match the function signature ($n$, $k$, $r$, $loc$) from Table 2. 
 
 - P15/T: In `gen_noisedims`, the sign-alternation of odd dimensions is described as avoiding "directional drift," does it make sense for zero-mean Gaussian variables? 
