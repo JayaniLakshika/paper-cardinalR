@@ -1232,7 +1232,7 @@ pyrstar_proj3 <- plot_proj(
 
 For rectangular and triangular pyramids, the remaining dimensions $X_4$ to $X_{p-1}$, and for star-based pyramids $X_3$ to $X_{p-1}$, are treated as noise.
 
-Finally, for the Sierpinski-like pyramid, `gen_pyrfrac(n, p)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) d"} else { "Figure \\@ref(fig:pyr-proj) d"})`), let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$. Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
+Finally, for the Sierpinski-like pyramid, `gen_pyrfrac(n, p)` (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:pyr) d"} else { "Figure \\@ref(fig:pyr-proj) d"})`), let $X_1, X_2, \dots, X_p$ denote the coordinates of the generated points. The generation process begins with an initial point $T_0 \in [0, 1]^p$ drawn from a uniform distribution: $T_0 \sim U(0, 1)^p$. No burn-in period is used; however, the influence of the initial point decreases quickly due to the recursive midpoint updates. Let $C_1, C_2, \dots, C_{p+1}$ denote the corner vertices of a $p\text{-}D$ simplex. At each iteration $i = 1, \dots, n$, a new point is computed by taking the midpoint between the previous point $T_{i-1}$ and a randomly selected vertex $C_k$: $T_i = 1/2(T_{i-1} + C_k), \quad C_k \in \{C_1, \dots, C_{p+1}\}$. This recursive midpoint rule generates self-similar patterns with systematic voids (holes) between clusters of points. The points remain bounded inside the convex hull of the simplex. The final output is a $n \times p$ matrix where each row represents a point: $X = \{T_1, T_2, \dots, T_n\}, \quad X \in \mathbb{R}^{n \times p}$.
 
 ```{r data-pyrfrac}
 pyrfrac <- gen_pyrfrac(n = 1000, p = 4)
@@ -2378,7 +2378,7 @@ $$
 X_j \sim N(m_j, s_j^2), \quad j = 1, \dots, p,
 $$
 
-with odd-numbered dimensions multiplied by $-1$. This does not affect independence, since all noise dimensions are generated independently. The sign alternation is included only to avoid consistent directional drift and to ensure a symmetric appearance of noise when visualized or combined with other simulated structures.
+with odd-numbered dimensions multiplied by $-1$. This transformation does not affect the distribution or independence of the variables, and is included only as a simple variation in representation.
 
 For scenarios where noise should follow a smooth wavy pattern, `gen_wavydims1(n, p, theta)` generates dimensions as
 

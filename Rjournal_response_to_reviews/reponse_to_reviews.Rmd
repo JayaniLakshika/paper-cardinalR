@@ -83,6 +83,8 @@ The contribution is computational. The package fills a genuine gap in the R ecos
 
 - P15/T: In `gen_noisedims`, the sign-alternation of odd dimensions is described as avoiding "directional drift," does it make sense for zero-mean Gaussian variables? 
 
+*We agree that for zero-mean Gaussian noise, sign alternation does not affect directional drift. It is a simple transformation that preserves the distribution and independence. We have revised the text to clarify this.*
+
 - P15/M: `gen_wavydims1` generates $X_j = \alpha_j\theta + \epsilon_j$ , which is linear—not "wavy." 
 
 - Throughout: the notation for random variables oscillates among $X_j$ , $x_j$ , $X_{ij}$ , and R column names $x_1$, $x_2$ without a declared convention.
@@ -145,6 +147,8 @@ I recommend a substantially revised Section 4 that: uses a higher-dimensional sc
 *In `gen_pyrstar`, we use a uniform height distribution to spread points evenly from the base to the tip, so the star shape is clearly visible. In the other pyramid generators, we use an exponential distribution, which places more points near the tip. We have clarified this in the manuscript.*
 
 **m8.** P9/M: For `gen_pyrfrac` (chaos game), it is not stated whether a burn-in period is used to discard transient iterates, which is standard practice. 
+
+*No burn-in period is currently used; however, due to the contractive nature of the midpoint update, the influence of the initial point diminishes rapidly. We have clarified this in the manuscript.*
 
 **m9.** P9/B: The naming of the Sierpinski-like pyramid is inconsistent: the function is `gen_pyrfrac`, but Figure 4 and the text refer to it as "pyrholes." 
 
