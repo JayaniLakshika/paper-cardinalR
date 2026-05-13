@@ -52,6 +52,8 @@ Please see some useful references below:
 "Data generation completed successfully!!!
 Multiple clusters generation completed successfully!!!"
 
+*We have updated the package accordingly.*
+
 # Reviewer 2
 
 **Location notation.** Throughout this report, locations in the manuscript are referenced as Pn/T– M–B, where Pn is the page number and T, M, B stand for top, mid, and bottom third of the page, respectively. For example, P3/T means the top third of page 3. 
