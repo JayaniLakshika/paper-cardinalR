@@ -56,7 +56,7 @@ clust_data <- gen_multicluster(
   ),
   scale = c(3, 1, 2),
   shape = c("gaussian", "cone", "unifcube"),
-  is_bkg = FALSE
+  add_bkg = FALSE
 )
 \end{verbatim}
 
@@ -67,7 +67,7 @@ Here, the shapes have \(200\), \(300\), and \(500\) points respectively (\texttt
 The main function of the package is \texttt{gen\_multicluster()}, which generates datasets consisting of multiple clusters with user-specified characteristics.
 To maintain consistency across generators, the function identifies the arguments required by each chosen generator function and supplies only those arguments that are valid for that specific generator. This design enables the combination of cluster types with differing parameter requirements within the same dataset. When clusters are generated with fewer dimensions than others, the function augments the lower-dimensional clusters with additional Gaussian noise variables so that all clusters are represented in the same dimensional space. These noise dimensions are drawn independently from normal distributions \(X \sim \mathcal{N}(\mu, \sigma^2)\), where the mean (\(\mu\)) is set to the average of the cluster coordinates and the standard deviation (\(\sigma\)) defaults to \(0.2\).
 
-An optional argument, \texttt{is\_bkg}, adds background noise drawn from a multivariate normal distribution centered on the dataset's overall mean with standard deviations matching the observed spread. Extra arguments (\texttt{...}) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the \texttt{gen\_multicluster()} function are shown in Table \ref{tab:main-tb-pdf}.
+An optional argument, \texttt{add\_bkg}, adds background noise drawn from a multivariate normal distribution centered on the dataset's overall mean with standard deviations matching the observed spread. Extra arguments (\texttt{...}) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the \texttt{gen\_multicluster()} function are shown in Table \ref{tab:main-tb-pdf}.
 
 \begin{table}
 
@@ -83,7 +83,7 @@ Argument & Type & Explanation\\
 \texttt{scale} & numeric (vector) & Scaling factors of clusters.\\
 \texttt{shape} & character (vector) & Shapes of clusters.\\
 \texttt{rotation} & list of numeric matrices & Rotation matrices, one per cluster.\\
-\texttt{is\_bkg} & logical & Background noise should exist or not.\\
+\texttt{add\_bkg} & logical & Background noise should exist or not.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -549,7 +549,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
                        shape = c("helicalspiral", "hemisphere", "unifcube", 
                                  "cone", "gaussian"),
                        rotation = NULL,
-                       is_bkg = FALSE)
+                       add_bkg = FALSE)
 \end{verbatim}
 
 \begin{figure}[!ht]

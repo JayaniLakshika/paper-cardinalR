@@ -265,7 +265,7 @@ clust_data <- gen_multicluster(
   ),
   scale = c(3, 1, 2),
   shape = c("gaussian", "cone", "unifcube"),
-  is_bkg = FALSE
+  add_bkg = FALSE
 )
 
 
@@ -276,7 +276,7 @@ main_tb <- tibble(arg = c("n",
                           "scale",
                           "shape",
                           "rotation",
-                          "is_bkg"),
+                          "add_bkg"),
                   type = c("integer (vector)",
                            "integer",
                            "numeric (matrix)",
@@ -2128,7 +2128,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
                        shape = c("helicalspiral", "hemisphere", "unifcube", 
                                  "cone", "gaussian"),
                        rotation = NULL,
-                       is_bkg = FALSE)
+                       add_bkg = FALSE)
 
 
 ## ----highd-data, eval=knitr::is_html_output(), fig.cap="Viewing five synthetic clusters with distinct geometric structures: a helical spiral, a hemisphere, a uniform cube, a cone, and a Gaussian cluster.", fig.alt="The figure shows a dynamic tour visualization of synthetic four-dimensional data displayed as a sequence of two-dimensional scatter plots. Each frame presents a different linear projection of the data, with the horizontal and vertical axes representing changing combinations of the original variables. Points represent individual observations and are colored by cluster membership, with five distinct colors corresponding to the helical spiral, hemisphere, uniform cube, cone, and Gaussian clusters. As the tour progresses, the relative positions, shapes, and overlaps of the colored point clouds change continuously, revealing elongated bands, curved arcs, compact clusters, and more diffuse regions depending on the projection. Clusters frequently move closer together or overlap in certain views, while becoming more separated in others, illustrating how apparent structure varies across different two-dimensional projections of the same high-dimensional data.", fig.pos="!ht"----

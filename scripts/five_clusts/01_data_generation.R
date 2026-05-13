@@ -12,7 +12,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
                                 shape = c("helicalspiral", "hemisphere", "unifcube",
                                           "cone", "gaussian"),
                                 rotation = NULL,
-                                is_bkg = FALSE)
+                                add_bkg = FALSE)
 
 langevitour::langevitour(five_clusts[, -5])
 

@@ -333,7 +333,7 @@ clust_data <- gen_multicluster(
   ),
   scale = c(3, 1, 2),
   shape = c("gaussian", "cone", "unifcube"),
-  is_bkg = FALSE
+  add_bkg = FALSE
 )
 ```
 
@@ -344,7 +344,7 @@ Here, the shapes have $200$, $300$, and $500$ points respectively (`n`), are pos
 The main function of the package is `gen_multicluster()`, which generates datasets consisting of multiple clusters with user-specified characteristics. 
 To maintain consistency across generators, the function identifies the arguments required by each chosen generator function and supplies only those arguments that are valid for that specific generator. This design enables the combination of cluster types with differing parameter requirements within the same dataset. When clusters are generated with fewer dimensions than others, the function augments the lower-dimensional clusters with additional Gaussian noise variables so that all clusters are represented in the same dimensional space. These noise dimensions are drawn independently from normal distributions $X \sim \mathcal{N}(\mu, \sigma^2)$, where the mean ($\mu$) is set to the average of the cluster coordinates and the standard deviation ($\sigma$) defaults to $0.2$.
 
-An optional argument, `is_bkg`, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (`...`) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the `gen_multicluster()` function are shown in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:main-tb-html)', '\\@ref(tab:main-tb-pdf)'))`.
+An optional argument, `add_bkg`, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (`...`) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the `gen_multicluster()` function are shown in Table `r knitr::asis_output(ifelse(knitr::is_html_output(), '\\@ref(tab:main-tb-html)', '\\@ref(tab:main-tb-pdf)'))`.
 
 ```{r}
 main_tb <- tibble(arg = c("n",
@@ -353,7 +353,7 @@ main_tb <- tibble(arg = c("n",
                           "scale",
                           "shape",
                           "rotation",
-                          "is_bkg"),
+                          "add_bkg"),
                   type = c("integer (vector)",
                            "integer",
                            "numeric (matrix)",
@@ -2505,7 +2505,7 @@ five_clusts <- gen_multicluster(n = c(2250, 1500, 750, 1250, 1750), k = 5,
                        shape = c("helicalspiral", "hemisphere", "unifcube", 
                                  "cone", "gaussian"),
                        rotation = NULL,
-                       is_bkg = FALSE)
+                       add_bkg = FALSE)
 ```
 
 ```{r highd-data, eval=knitr::is_html_output(), fig.cap="Viewing five synthetic clusters with distinct geometric structures: a helical spiral, a hemisphere, a uniform cube, a cone, and a Gaussian cluster.", fig.alt="The figure shows a dynamic tour visualization of synthetic four-dimensional data displayed as a sequence of two-dimensional scatter plots. Each frame presents a different linear projection of the data, with the horizontal and vertical axes representing changing combinations of the original variables. Points represent individual observations and are colored by cluster membership, with five distinct colors corresponding to the helical spiral, hemisphere, uniform cube, cone, and Gaussian clusters. As the tour progresses, the relative positions, shapes, and overlaps of the colored point clouds change continuously, revealing elongated bands, curved arcs, compact clusters, and more diffuse regions depending on the projection. Clusters frequently move closer together or overlap in certain views, while becoming more separated in others, illustrating how apparent structure varies across different two-dimensional projections of the same high-dimensional data.", fig.pos="!ht"}

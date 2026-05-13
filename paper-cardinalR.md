@@ -133,7 +133,7 @@ The following is an example of a three-shape multiclustered dataset. The first s
 <span>  <span class='op'>)</span>,</span>
 <span>  scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
 <span>  shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gaussian"</span>, <span class='st'>"cone"</span>, <span class='st'>"unifcube"</span><span class='op'>)</span>,</span>
-<span>  is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  add_bkg <span class='op'>=</span> <span class='cn'>FALSE</span></span>
 <span><span class='op'>)</span></span></code></pre></div>
 
 </div>
@@ -146,7 +146,7 @@ Here, the shapes have $200$, $300$, and $500$ points respectively (`n`), are pos
 The main function of the package is `gen_multicluster()`, which generates datasets consisting of multiple clusters with user-specified characteristics. 
 To maintain consistency across generators, the function identifies the arguments required by each chosen generator function and supplies only those arguments that are valid for that specific generator. This design enables the combination of cluster types with differing parameter requirements within the same dataset. When clusters are generated with fewer dimensions than others, the function augments the lower-dimensional clusters with additional Gaussian noise variables so that all clusters are represented in the same dimensional space. These noise dimensions are drawn independently from normal distributions $X \sim \mathcal{N}(\mu, \sigma^2)$, where the mean ($\mu$) is set to the average of the cluster coordinates and the standard deviation ($\sigma$) defaults to $0.2$.
 
-An optional argument, `is_bkg`, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (`...`) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the `gen_multicluster()` function are shown in Table \@ref(tab:main-tb-html).
+An optional argument, `add_bkg`, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (`...`) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the `gen_multicluster()` function are shown in Table \@ref(tab:main-tb-html).
 
 <div class="layout-chunk" data-layout="l-body">
 
@@ -166,7 +166,7 @@ Table: (\#tab:main-tb-html)The main arguments for `gen_multicluster()`.
 |<code>scale</code>    |numeric (vector)         |Scaling factors of clusters.          |
 |<code>shape</code>    |character (vector)       |Shapes of clusters.                   |
 |<code>rotation</code> |list of numeric matrices |Rotation matrices, one per cluster.   |
-|<code>is\_bkg</code>  |logical                  |Background noise should exist or not. |
+|<code>add\_bkg</code> |logical                  |Background noise should exist or not. |
 
 </div>
 
@@ -1413,7 +1413,7 @@ To illustrate how high-dimensional clustered data can be generated using `cardin
 <span>                       shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"helicalspiral"</span>, <span class='st'>"hemisphere"</span>, <span class='st'>"unifcube"</span>, </span>
 <span>                                 <span class='st'>"cone"</span>, <span class='st'>"gaussian"</span><span class='op'>)</span>,</span>
 <span>                       rotation <span class='op'>=</span> <span class='cn'>NULL</span>,</span>
-<span>                       is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span></code></pre></div>
+<span>                       add_bkg <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span></code></pre></div>
 
 </div>
 

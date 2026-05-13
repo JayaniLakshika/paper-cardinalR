@@ -1882,7 +1882,7 @@ Figure 1: Workflow for generating high-dimensional clustered data. The user spec
 <span>  <span class='op'>)</span>,</span>
 <span>  scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
 <span>  shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gaussian"</span>, <span class='st'>"cone"</span>, <span class='st'>"unifcube"</span><span class='op'>)</span>,</span>
-<span>  is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  add_bkg <span class='op'>=</span> <span class='cn'>FALSE</span></span>
 <span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
@@ -1890,7 +1890,7 @@ Figure 1: Workflow for generating high-dimensional clustered data. The user spec
 <h2 data-number="3" id="implementation"><span class="header-section-number">3</span> Implementation</h2>
 <p>The main function of the package is <code>gen_multicluster()</code>, which generates datasets consisting of multiple clusters with user-specified characteristics.
 To maintain consistency across generators, the function identifies the arguments required by each chosen generator function and supplies only those arguments that are valid for that specific generator. This design enables the combination of cluster types with differing parameter requirements within the same dataset. When clusters are generated with fewer dimensions than others, the function augments the lower-dimensional clusters with additional Gaussian noise variables so that all clusters are represented in the same dimensional space. These noise dimensions are drawn independently from normal distributions <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>, where the mean (<span class="math inline">\(\mu\)</span>) is set to the average of the cluster coordinates and the standard deviation (<span class="math inline">\(\sigma\)</span>) defaults to <span class="math inline">\(0.2\)</span>.</p>
-<p>An optional argument, <code>is_bkg</code>, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (<code>...</code>) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the <code>gen_multicluster()</code> function are shown in Table <a href="#tab:main-tb-html">1</a>.</p>
+<p>An optional argument, <code>add_bkg</code>, adds background noise drawn from a multivariate normal distribution centered on the dataset’s overall mean with standard deviations matching the observed spread. Extra arguments (<code>...</code>) can be passed to cluster generators, allowing further control over per-cluster characteristics like radius of the sphere. The main arguments of the <code>gen_multicluster()</code> function are shown in Table <a href="#tab:main-tb-html">1</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -1941,7 +1941,7 @@ To maintain consistency across generators, the function identifies the arguments
 <td style="text-align: left;">Rotation matrices, one per cluster.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>is_bkg</code></td>
+<td style="text-align: left;"><code>add_bkg</code></td>
 <td style="text-align: left;">logical</td>
 <td style="text-align: left;">Background noise should exist or not.</td>
 </tr>
@@ -3043,7 +3043,7 @@ X_j = f_j(X_1, X_2, X_3) + \varepsilon_j, \quad j &gt; 3,
 <span>                       shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"helicalspiral"</span>, <span class='st'>"hemisphere"</span>, <span class='st'>"unifcube"</span>, </span>
 <span>                                 <span class='st'>"cone"</span>, <span class='st'>"gaussian"</span><span class='op'>)</span>,</span>
 <span>                       rotation <span class='op'>=</span> <span class='cn'>NULL</span>,</span>
-<span>                       is_bkg <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span></code></pre>
+<span>                       add_bkg <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
