@@ -38,6 +38,8 @@ Please see some useful references below:
 
 4. Don't make space before "where" in the beginning of a line (see, for examples, page 6)
 
+*We have fixed this.*
+
 5. Please check the manuscript for English and typos.
 
 ## Code

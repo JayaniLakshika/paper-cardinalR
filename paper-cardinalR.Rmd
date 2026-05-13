@@ -565,9 +565,7 @@ The simplest structures are approximately linear branches in $2\text{-}D$, gener
 
 $$
 X_1 \sim U(a_i, b_i), \quad X_2 = s_i (X_1 - x_{\text{start},i}) + y_{\text{start},i} + \epsilon, \quad \epsilon \sim U(0, \delta),
-$$
-
-where $(x_{\text{start},i}, y_{\text{start},i})$ is the starting point of branch $i$, $\delta$ controls local jitter, and $s_i$ is the slope, initialized as:
+$$where $(x_{\text{start},i}, y_{\text{start},i})$ is the starting point of branch $i$, $\delta$ controls local jitter, and $s_i$ is the slope, initialized as:
 
 $$
 s_i =
@@ -590,14 +588,11 @@ To introduce curvature, the `gen_curvybranches(n, k)` function generates $k$ cur
 
 $$
 X_1 \sim U(a_i, b_i), \quad X_2 = 0.1 X_1 + s_i X_1^2 + \epsilon, \quad \epsilon \sim U(-\delta, \delta),
-$$
-where $(a_i, b_i)$ defines the domain of the branch, $s_i$ controls curvature, and $\delta$ introduces local jitter. For the first two branches, the parameters are fixed to establish reference shapes: $(a_1,b_1,s_1) = (0,1,1), \quad (a_2,b_2,s_2) = (-1,0,-2)$. Additional branches are attached iteratively to existing structures. Each new branch $i$ starts at a selected point $(x_{\text{start},i}, y_{\text{start},i})$ from the current structure and extends according to
+$$where $(a_i, b_i)$ defines the domain of the branch, $s_i$ controls curvature, and $\delta$ introduces local jitter. For the first two branches, the parameters are fixed to establish reference shapes: $(a_1,b_1,s_1) = (0,1,1), \quad (a_2,b_2,s_2) = (-1,0,-2)$. Additional branches are attached iteratively to existing structures. Each new branch $i$ starts at a selected point $(x_{\text{start},i}, y_{\text{start},i})$ from the current structure and extends according to
 
 $$
 X_1 \sim U(x_{\text{start},i}, x_{\text{start},i}+1), \quad X_2 = 0.1 X_1 - s_i (X_1^2 - x_{\text{start},i}) + y_{\text{start},i},
-$$
-
-where $s_i$ is a scale factor controlling the curvature of branch $i$. For the first few initial branches, $s_i$ can be fixed (e.g., $s_1 = 1, s_2 = 2$) to establish reference shapes, while for subsequent branches it is sampled from a predefined set, such as $s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5\}$, to control curvature magnitude and direction. 
+$$where $s_i$ is a scale factor controlling the curvature of branch $i$. For the first few initial branches, $s_i$ can be fixed (e.g., $s_1 = 1, s_2 = 2$) to establish reference shapes, while for subsequent branches it is sampled from a predefined set, such as $s_i \in \{-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5\}$, to control curvature magnitude and direction. 
 
 ```{r data-curvybranches}
 curvybranches <- gen_curvybranches(n = 1000, k = 4)
@@ -607,9 +602,7 @@ The `gen_expbranches(n, k)` function creates $k$ exponential branches in $2\text
 
 $$
 X_1 \sim U(-2,2), \quad X_2 = \exp(\sigma_i \, s_i \, X_1) + \epsilon, \quad \epsilon \sim U(0, \delta), \quad s_i \sim U(0.5,2),
-$$
-
-where $\sigma_i = (-1)^{i+1}$ alternates the sign of the exponent to produce mirror-symmetric branches. The parameter $s_i$ controls the steepness of branch $i$, and $\delta$ introduces small local jitter.
+$$where $\sigma_i = (-1)^{i+1}$ alternates the sign of the exponent to produce mirror-symmetric branches. The parameter $s_i$ controls the steepness of branch $i$, and $\delta$ introduces small local jitter.
 
 ```{r data-expbranches}
 expbranches <- gen_expbranches(n = 1000, k = 4)
@@ -624,8 +617,7 @@ $$
 X_{i_1} \sim U(a_i, b_i), \quad
 X_{i_2} = f_i(X_{i_1}) + \epsilon, \quad
 \epsilon \sim N(0, \sigma^2),
-$$
-where $a_i$ and $b_i$ define the domain of the branch and $\epsilon$ introduces smooth variability in the $p\text{-}D$ space. The function $f_i(\cdot)$ determines the branch geometry:
+$$where $a_i$ and $b_i$ define the domain of the branch and $\epsilon$ introduces smooth variability in the $p\text{-}D$ space. The function $f_i(\cdot)$ determines the branch geometry:
 $$
 f_i(x) =
 \begin{cases}
@@ -1714,7 +1706,7 @@ The Swiss roll is a classic benchmark for manifold learning, illustrating how a 
 
 The Trefoil is a closed, nontrivial one-dimensional manifold embedded in $3\text{-}D$ or $4\text{-}D$ space (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil)"} else { "Figure \\@ref(fig:trefoil-proj)"})`). The trefoil features topological complexity in the form of self-overlaps, making it a valuable test case for evaluating the ability of non-linear dimension reduction methods to preserve global structure, loops, and embeddings in high-dimensional data. 
 
-For the $4\text{-}D$ trefoil knot [@lickorish1997; @rolfsen2003], the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as: $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$ where $\theta$ parameterizes the band thickness and $\phi$ parameterizes the knot trajectory. 
+For the $4\text{-}D$ trefoil knot [@lickorish1997; @rolfsen2003], the function `gen_trefoil4d(n, steps)` generates the structure on the $3$-sphere ($S^3 \subset \mathbb{R}^4$) using two angular parameters, $\theta$ and $\phi$. A band of thickness around the knot path is controlled by the `steps` argument, while the number of $\theta$ and $\phi$ values is determined by the `steps` and `n` arguments, respectively (`r knitr::asis_output(if (knitr::is_html_output()) { "Figure \\@ref(fig:trefoil) a"} else { "Figure \\@ref(fig:trefoil-proj) a"})`). The coordinates are defined as: $$X_1 = \cos(\theta) \cos(\phi), \quad X_2 = \cos(\theta) \sin(\phi), \\\quad X_3 = \sin(\theta) \cos(1.5 \phi),\text{ and }X_4 = \sin(\theta) \sin(1.5 \phi),$$where $\theta$ parameterizes the band thickness and $\phi$ parameterizes the knot trajectory. 
 
 ```{r data-trefoil4d}
 trefoil4d <- gen_trefoil4d(n = 500, steps = 5)
@@ -2372,17 +2364,13 @@ For scenarios where noise should follow a smooth wavy pattern, `gen_wavydims1(n,
 
 $$
 X_j = \alpha_j \theta + \varepsilon_j, \quad \varepsilon_j \sim N(0, \sigma^2), \quad j = 1, \dots, p,
-$$
-
-where each dimension is scaled by a different factor $\alpha_j$, producing structured noise that oscillates along the latent parameter $\theta$, mimicking trends or trajectories observed in real-world data.
+$$where each dimension is scaled by a different factor $\alpha_j$, producing structured noise that oscillates along the latent parameter $\theta$, mimicking trends or trajectories observed in real-world data.
 
 The `gen_wavydims2(n, p, x_1)` function extends this approach by applying a nonlinear transformation to an existing dimension vector $x_1$:
 
 $$
 X_j = \beta_j \, (-1)^{\lfloor j/2 \rfloor} \, x_1^{k_j} + \varepsilon_j, \quad j = 1, \dots, p,
-$$
-
-where $k_j$ is a randomly chosen polynomial power, $\beta_j$ is a scaling factor, and $\varepsilon_j$ is small uniform noise.
+$$where $k_j$ is a randomly chosen polynomial power, $\beta_j$ is a scaling factor, and $\varepsilon_j$ is small uniform noise.
 
 Finally, `gen_wavydims3(n, p, data)` generates noise for datasets with multiple correlated dimensions. The first three dimensions are small perturbations of the original coordinates $(X_1, X_2, X_3)$, while higher dimensions are constructed via nonlinear combinations, including polynomial and trigonometric transformations, e.g.,
 
