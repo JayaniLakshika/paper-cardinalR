@@ -42,6 +42,8 @@ Please see some useful references below:
 
 5. Please check the manuscript for English and typos.
 
+*We have checked.*
+
 ## Code
 
 1. I think that the number of examples is insufficient. Many more code-related illustrations motivating the use of the package need to be provided, preferably with corresponding demo-files. These should not be massive, but can illustrate different aspects of the package use.
@@ -74,6 +76,8 @@ The contribution is computational. The package fills a genuine gap in the R ecos
 **M3. Section 3 contains numerous undefined parameters, notational inconsistencies, and apparent errors.** A non-exhaustive list: 
 
 - P5/T: In `gen_linearbranches`, $\delta$ (jitter) is never defined and is not a function argument. Same for smin, smax. 
+
+*We have fixed this.*
 
 - P6/B: The parameter ratio is described as "radius tip to radius base ratio" (Table 3) but is used as an absolute value rmin, not as a ratio. 
 
