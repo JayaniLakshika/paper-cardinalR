@@ -122,6 +122,8 @@ I recommend a substantially revised Section 4 that: uses a higher-dimensional sc
 
 **M5. Package API mismatch and missing changelog.** The paper (Table 1, P3) uses the argument `is_bkg` for `gen_multicluster()`, while the current pkgdown vignette (version 1.0.5) uses `add_bkg`. This discrepancy indicates either the paper describes an outdated API or the package changed after the paper was written. The paper does not state which version of the package was used, which is recommended by R Journal guidelines. Additionally, the NEWS.md file is completely empty across all six CRAN releases—no description of changes, bug fixes, or breaking changes is available to users. 
 
+*We have fixed all of these.*
+
 **M6. Companion script is not self-contained.** The submitted R script (paper-cardinalR.R) cannot be executed independently. It depends on `scripts/additional_functions.R`, which is not provided. The DR results and cluster statistics are loaded from pre-computed RDS files hosted on GitHub rather than being computed within the script. The reader can regenerate the figures from those pre-computed objects but cannot verify how they were obtained, with which packages, or with which parameters. Full reproducibility requires that either the complete pipeline be included in the submission or clearly documented in a publicly accessible repository with all dependencies explicit.
 
 *We have updated the script to ensure it can be executed independently.*
