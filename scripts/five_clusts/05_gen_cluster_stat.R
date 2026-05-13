@@ -1,7 +1,8 @@
 ## This script is to generate different cluster stats for different clustering methods
 
 library(tidyverse)
-library(proxy)
+#library(proxy)
+library(fpc)
 
 five_clusts <- read_rds(here::here("data/five_clusts/five_clusts.rds"))
 

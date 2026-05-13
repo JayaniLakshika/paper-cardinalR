@@ -1,5 +1,5 @@
 library(tidyverse)
-library(proxy)
+library(mclust)
 
 five_clusts <- read_rds(here::here("data/five_clusts/five_clusts.rds"))
 

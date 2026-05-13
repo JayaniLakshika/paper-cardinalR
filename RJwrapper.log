@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.22)  23 APR 2026 16:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.13)  13 MAY 2026 11:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -338,7 +338,7 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
+Package: hyperref 2026-04-24 v7.01q Hypertext links for LaTeX
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -374,7 +374,7 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \Hy@linkcounter=\count314
 \Hy@pagecounter=\count315
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2026-04-24 v7.01q Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -382,17 +382,17 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count316
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2026-04-24 v7.01q Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4201.
-Package hyperref Info: Link nesting OFF on input line 4206.
-Package hyperref Info: Hyper index ON on input line 4209.
-Package hyperref Info: Plain pages OFF on input line 4216.
-Package hyperref Info: Backreferencing ON on input line 4219.
+Package hyperref Info: Hyper figures OFF on input line 4199.
+Package hyperref Info: Link nesting OFF on input line 4204.
+Package hyperref Info: Hyper index ON on input line 4207.
+Package hyperref Info: Plain pages OFF on input line 4214.
+Package hyperref Info: Backreferencing ON on input line 4217.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4468.
+Package hyperref Info: Bookmarks ON on input line 4466.
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/hyperref/backref.sty
 Package: backref 2025-06-21 v1.45 Bibliographical back referencing
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
@@ -405,7 +405,7 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 ))
 \c@Hy@tempcnt=\count317
-LaTeX Info: Redefining \url on input line 4807.
+LaTeX Info: Redefining \url on input line 4805.
 \XeTeXLinkMargin=\dimen269
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -413,20 +413,20 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 \Fld@menulength=\count318
 \Field@Width=\dimen270
 \Fld@charsize=\dimen271
-Package hyperref Info: Hyper figures OFF on input line 6084.
-Package hyperref Info: Link nesting OFF on input line 6089.
-Package hyperref Info: Hyper index ON on input line 6092.
-Package hyperref Info: backreferencing ON on input line 6097.
-Package hyperref Info: Link coloring OFF on input line 6104.
-Package hyperref Info: Link coloring with OCG OFF on input line 6109.
-Package hyperref Info: PDF/A mode OFF on input line 6114.
+Package hyperref Info: Hyper figures OFF on input line 6091.
+Package hyperref Info: Link nesting OFF on input line 6096.
+Package hyperref Info: Hyper index ON on input line 6099.
+Package hyperref Info: backreferencing ON on input line 6104.
+Package hyperref Info: Link coloring OFF on input line 6111.
+Package hyperref Info: Link coloring with OCG OFF on input line 6116.
+Package hyperref Info: PDF/A mode OFF on input line 6121.
 \Hy@abspage=\count319
 \c@Item=\count320
 \c@Hfootnote=\count321
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (/Users/jpiy0001/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
+File: hpdftex.def 2026-04-24 v7.01q Hyperref driver for pdfTeX
 \Fld@listcount=\count322
 \c@bookmark@seq@number=\count323
 \Hy@SectionHShift=\skip66
@@ -961,19 +961,19 @@ Overfull \hbox (75.75745pt too wide) in paragraph at lines 609--610
 \tf@brf=\write6
 \openout6 = `RJwrapper.brf'.
 
-[20 <./paper-cardinalR_files/figure-latex/highd-proj-clust-algo-pdf-1.png>]
-Underfull \hbox (badness 1708) in paragraph at lines 160--160
-[]\T1/ppl/m/n/9 (+20) J. Melville.  \T1/ppl/m/it/9 (+20) sne-data: SNE Sim-u-la-tion Dataset Func-tions\T1/ppl/m/n/9 (+20) , 2025.  URL [][]$\T1/zi4/m/n/9 https : / / github . com /
+[20 <./paper-cardinalR_files/figure-latex/highd-proj-clust-algo-pdf-1.png>] [21]
+Underfull \hbox (badness 1286) in paragraph at lines 172--172
+[]\T1/ppl/m/n/9 (+20) J. Melville.  \T1/ppl/m/it/9 (+20) sne-data: SNE Sim-u-la-tion Dataset Func-tions\T1/ppl/m/n/9 (+20) , 2025a.  URL [][]$\T1/zi4/m/n/9 https : / / github . com /
  []
 
-[21] [22])
+[22])
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
 (Font)              using `T1/zi4/m/n' instead on input line 621.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
 (Font)              scaled to size 9.18004pt on input line 621.
-) [23] (./RJwrapper.aux)
+[23]) [24] (./RJwrapper.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
@@ -984,21 +984,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `RJwrapper.out' has not changed.
 (rerunfilecheck)             Checksum: 922E6C119D256867741BD28FDEE59679;2875.
 Package rerunfilecheck Info: File `RJwrapper.brf' has not changed.
-(rerunfilecheck)             Checksum: 53010075B7BFD6849D41A6286658263C;2891.
+(rerunfilecheck)             Checksum: E0356F7FB420D32B15134B30B560F3B2;3309.
  ) 
 Here is how much of TeX's memory you used:
- 27840 strings out of 469296
- 509358 string characters out of 5464235
- 947611 words of memory out of 5000000
- 55639 multiletter control sequences out of 15000+600000
- 695976 words of font info for 420 fonts, out of 8000000 for 9000
+ 27937 strings out of 469296
+ 511890 string characters out of 5464235
+ 950045 words of memory out of 5000000
+ 55718 multiletter control sequences out of 15000+600000
+ 696441 words of font info for 426 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 117i,14n,131p,2009b,925s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,14n,131p,2009b,926s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/jpiy0001/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on RJwrapper.pdf (23 pages, 2096286 bytes).
+Output written on RJwrapper.pdf (24 pages, 2100291 bytes).
 PDF statistics:
- 619 PDF objects out of 1000 (max. 8388607)
- 550 compressed objects within 6 object streams
- 108 named destinations out of 1000 (max. 500000)
+ 669 PDF objects out of 1000 (max. 8388607)
+ 599 compressed objects within 6 object streams
+ 116 named destinations out of 1000 (max. 500000)
  78524 words of extra memory for PDF output out of 89155 (max. 10000000)
 

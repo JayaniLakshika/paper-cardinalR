@@ -34,7 +34,7 @@ author:
   orcid_id: 0000-0002-0656-9789
 type: package
 creative_commons: CC BY
-date: '2026-04-23'
+date: '2026-05-13'
 preamble: |
   \usepackage{amsmath} \usepackage{array} \usepackage{float}
 output:
@@ -1449,7 +1449,7 @@ To illustrate how high-dimensional clustered data can be generated using `cardin
 
 ## Evaluating dimension reduction (DR) methods
 
-We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], tSNE [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2022], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
+We applied six popular DR techniques to the generated dataset: Principal Component Analysis (PCA) [@jolliffe2011], t-distributed stochastic neighbor embedding (tSNE) [@laurens2008], uniform manifold approximation and projection (UMAP) [@leland2018], potential of heat-diffusion for affinity-based trajectory embedding (PHATE) algorithm [@moon2019], large-scale dimensionality reduction Using triplets (TriMAP) [@amid2022], and pairwise controlled manifold approximation (PaCMAP) [@yingfan2021]. 
 
 <!--scripts/five_clusts/02_gen_embeddings.R-->
 <div class="layout-chunk" data-layout="l-body">
@@ -1578,7 +1578,7 @@ Future extensions of `cardinalR` may include biologically inspired or applicatio
 
 # Acknowledgements
 
-The source material for this paper, including the full datasets and figures, is available at [github.com/JayaniLakshika/paper-cardinalR](https://github.com/JayaniLakshika/paper-cardinalR). This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. These `R` packages were used for this work: `cli` [@gabor2025], `tibble` [@kirill2023], `gtools` [@gregory2023], `dplyr` [@hadley2023], `stats` [@core2025], `tidyr` [@hadley2024], `purrr` [@hadley2025], `mvtnorm` [@alan2009], `geozoo` [@barret2016], `MASS` [@venables2002], `scikit-learn` [@pedregosa2011]. 
+The source material for this paper, including the full datasets and figures, is available at [github.com/JayaniLakshika/paper-cardinalR](https://github.com/JayaniLakshika/paper-cardinalR). This article is created using \CRANpkg{knitr} [@yihui2015] and \CRANpkg{rmarkdown} [@yihui2018] in R with the `rjtools::rjournal_article` template. These `R` and `Python` packages were used for this work: `tibble` [@kirill2023], `gtools` [@gregory2023], `dplyr` [@hadley2023], `stats` [@core2025], `tidyr` [@hadley2024], `readr` [@hadley2025b], `purrr` [@hadley2025], `mvtnorm` [@alan2009], `geozoo` [@barret2016], `MASS` [@venables2002], `scikit-learn` [@pedregosa2011], `Rtsne` [@jesse2015], `uwot` [@james2025b], `phateR` [@moon2019], `pacmap` [@wang2021], `trimap` [@amid2021], `reticulate` [@kevin2025], `quollr` [@jayani2025], `mclust` [@luca2023], and `fpc` [@christian2024]. 
 ```{.r .distill-force-highlighting-css}
 ```
 
